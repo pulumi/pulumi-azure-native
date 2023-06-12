@@ -228,6 +228,8 @@ class MachineLearningDataset(pulumi.CustomResource):
             __props__.__dict__["sku"] = None
             __props__.__dict__["tags"] = None
             __props__.__dict__["type"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:MachineLearningDataset")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineLearningDataset, __self__).__init__(
             'azure-native:machinelearningservices/v20200501preview:MachineLearningDataset',
             resource_name,

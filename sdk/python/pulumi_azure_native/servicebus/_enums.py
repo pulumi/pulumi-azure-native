@@ -10,6 +10,7 @@ __all__ = [
     'EndPointProvisioningState',
     'EntityStatus',
     'FilterType',
+    'IPAction',
     'KeySource',
     'ManagedServiceIdentityType',
     'NetworkRuleIPAction',
@@ -67,6 +68,14 @@ class FilterType(str, Enum):
     """
     SQL_FILTER = "SqlFilter"
     CORRELATION_FILTER = "CorrelationFilter"
+
+
+class IPAction(str, Enum):
+    """
+    The IP Filter Action
+    """
+    ACCEPT = "Accept"
+    REJECT = "Reject"
 
 
 class KeySource(str, Enum):

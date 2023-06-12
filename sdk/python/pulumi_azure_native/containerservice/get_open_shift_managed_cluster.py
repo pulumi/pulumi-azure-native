@@ -22,7 +22,7 @@ class GetOpenShiftManagedClusterResult:
     """
     OpenShift Managed cluster.
     """
-    def __init__(__self__, agent_pool_profiles=None, auth_profile=None, cluster_version=None, fqdn=None, id=None, location=None, master_pool_profile=None, name=None, network_profile=None, open_shift_version=None, plan=None, provisioning_state=None, public_hostname=None, router_profiles=None, tags=None, type=None):
+    def __init__(__self__, agent_pool_profiles=None, auth_profile=None, cluster_version=None, fqdn=None, id=None, location=None, master_pool_profile=None, monitor_profile=None, name=None, network_profile=None, open_shift_version=None, plan=None, provisioning_state=None, public_hostname=None, refresh_cluster=None, router_profiles=None, tags=None, type=None):
         if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
             raise TypeError("Expected argument 'agent_pool_profiles' to be a list")
         pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
@@ -44,6 +44,9 @@ class GetOpenShiftManagedClusterResult:
         if master_pool_profile and not isinstance(master_pool_profile, dict):
             raise TypeError("Expected argument 'master_pool_profile' to be a dict")
         pulumi.set(__self__, "master_pool_profile", master_pool_profile)
+        if monitor_profile and not isinstance(monitor_profile, dict):
+            raise TypeError("Expected argument 'monitor_profile' to be a dict")
+        pulumi.set(__self__, "monitor_profile", monitor_profile)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -62,6 +65,9 @@ class GetOpenShiftManagedClusterResult:
         if public_hostname and not isinstance(public_hostname, str):
             raise TypeError("Expected argument 'public_hostname' to be a str")
         pulumi.set(__self__, "public_hostname", public_hostname)
+        if refresh_cluster and not isinstance(refresh_cluster, bool):
+            raise TypeError("Expected argument 'refresh_cluster' to be a bool")
+        pulumi.set(__self__, "refresh_cluster", refresh_cluster)
         if router_profiles and not isinstance(router_profiles, list):
             raise TypeError("Expected argument 'router_profiles' to be a list")
         pulumi.set(__self__, "router_profiles", router_profiles)
@@ -129,6 +135,14 @@ class GetOpenShiftManagedClusterResult:
         return pulumi.get(self, "master_pool_profile")
 
     @property
+    @pulumi.getter(name="monitorProfile")
+    def monitor_profile(self) -> Optional['outputs.OpenShiftManagedClusterMonitorProfileResponse']:
+        """
+        Configures Log Analytics integration.
+        """
+        return pulumi.get(self, "monitor_profile")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -172,9 +186,17 @@ class GetOpenShiftManagedClusterResult:
     @pulumi.getter(name="publicHostname")
     def public_hostname(self) -> str:
         """
-        Service generated FQDN for OpenShift API server.
+        Service generated FQDN or private IP for OpenShift API server.
         """
         return pulumi.get(self, "public_hostname")
+
+    @property
+    @pulumi.getter(name="refreshCluster")
+    def refresh_cluster(self) -> Optional[bool]:
+        """
+        Allows node rotation
+        """
+        return pulumi.get(self, "refresh_cluster")
 
     @property
     @pulumi.getter(name="routerProfiles")
@@ -214,12 +236,14 @@ class AwaitableGetOpenShiftManagedClusterResult(GetOpenShiftManagedClusterResult
             id=self.id,
             location=self.location,
             master_pool_profile=self.master_pool_profile,
+            monitor_profile=self.monitor_profile,
             name=self.name,
             network_profile=self.network_profile,
             open_shift_version=self.open_shift_version,
             plan=self.plan,
             provisioning_state=self.provisioning_state,
             public_hostname=self.public_hostname,
+            refresh_cluster=self.refresh_cluster,
             router_profiles=self.router_profiles,
             tags=self.tags,
             type=self.type)
@@ -230,7 +254,7 @@ def get_open_shift_managed_cluster(resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenShiftManagedClusterResult:
     """
     Gets the details of the managed OpenShift cluster with a specified resource group and name.
-    API Version: 2019-04-30.
+    API Version: 2019-10-27-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -250,12 +274,14 @@ def get_open_shift_managed_cluster(resource_group_name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         master_pool_profile=__ret__.master_pool_profile,
+        monitor_profile=__ret__.monitor_profile,
         name=__ret__.name,
         network_profile=__ret__.network_profile,
         open_shift_version=__ret__.open_shift_version,
         plan=__ret__.plan,
         provisioning_state=__ret__.provisioning_state,
         public_hostname=__ret__.public_hostname,
+        refresh_cluster=__ret__.refresh_cluster,
         router_profiles=__ret__.router_profiles,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -267,7 +293,7 @@ def get_open_shift_managed_cluster_output(resource_group_name: Optional[pulumi.I
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenShiftManagedClusterResult]:
     """
     Gets the details of the managed OpenShift cluster with a specified resource group and name.
-    API Version: 2019-04-30.
+    API Version: 2019-10-27-preview.
 
 
     :param str resource_group_name: The name of the resource group.

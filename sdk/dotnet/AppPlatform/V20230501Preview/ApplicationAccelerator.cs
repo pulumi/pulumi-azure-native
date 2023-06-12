@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20230501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:ApplicationAccelerator"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:ApplicationAccelerator"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:ApplicationAccelerator"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:ApplicationAccelerator"},

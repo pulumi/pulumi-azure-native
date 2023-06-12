@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
- * API Version: 2022-01-01.
+ * API Version: 2023-03-01-preview.
  */
 export function getEnterprisePrivateEndpointConnection(args: GetEnterprisePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterprisePrivateEndpointConnectionResult> {
 
@@ -61,13 +61,17 @@ export interface GetEnterprisePrivateEndpointConnectionResult {
      */
     readonly provisioningState: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.cache.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
- * API Version: 2022-01-01.
+ * API Version: 2023-03-01-preview.
  */
 export function getEnterprisePrivateEndpointConnectionOutput(args: GetEnterprisePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterprisePrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEnterprisePrivateEndpointConnection(a, opts))

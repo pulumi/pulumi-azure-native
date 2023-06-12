@@ -26,6 +26,7 @@ __all__ = [
     'MinimalTlsVersion',
     'MongoRoleDefinitionType',
     'NetworkAclBypass',
+    'NodeKind',
     'PartitionKind',
     'PublicNetworkAccess',
     'ResourceIdentityType',
@@ -117,10 +118,10 @@ class ContinuousTier(str, Enum):
 
 class CreateMode(str, Enum):
     """
-    Enum to indicate the mode of account creation.
+    The mode to create a mongo cluster.
     """
     DEFAULT = "Default"
-    RESTORE = "Restore"
+    POINT_IN_TIME_RESTORE = "PointInTimeRestore"
 
 
 class DataType(str, Enum):
@@ -223,6 +224,13 @@ class NetworkAclBypass(str, Enum):
     """
     NONE = "None"
     AZURE_SERVICES = "AzureServices"
+
+
+class NodeKind(str, Enum):
+    """
+    The node type deployed in the node group.
+    """
+    SHARD = "Shard"
 
 
 class PartitionKind(str, Enum):

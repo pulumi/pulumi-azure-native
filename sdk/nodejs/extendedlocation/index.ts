@@ -15,6 +15,16 @@ export const getCustomLocation: typeof import("./getCustomLocation").getCustomLo
 export const getCustomLocationOutput: typeof import("./getCustomLocation").getCustomLocationOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomLocation","getCustomLocationOutput"], () => require("./getCustomLocation"));
 
+export { GetResourceSyncRuleArgs, GetResourceSyncRuleResult, GetResourceSyncRuleOutputArgs } from "./getResourceSyncRule";
+export const getResourceSyncRule: typeof import("./getResourceSyncRule").getResourceSyncRule = null as any;
+export const getResourceSyncRuleOutput: typeof import("./getResourceSyncRule").getResourceSyncRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceSyncRule","getResourceSyncRuleOutput"], () => require("./getResourceSyncRule"));
+
+export { ResourceSyncRuleArgs } from "./resourceSyncRule";
+export type ResourceSyncRule = import("./resourceSyncRule").ResourceSyncRule;
+export const ResourceSyncRule: typeof import("./resourceSyncRule").ResourceSyncRule = null as any;
+utilities.lazyLoad(exports, ["ResourceSyncRule"], () => require("./resourceSyncRule"));
+
 
 // Export enums:
 export * from "../types/enums/extendedlocation";
@@ -34,6 +44,8 @@ const _module = {
         switch (type) {
             case "azure-native:extendedlocation:CustomLocation":
                 return new CustomLocation(name, <any>undefined, { urn })
+            case "azure-native:extendedlocation:ResourceSyncRule":
+                return new ResourceSyncRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

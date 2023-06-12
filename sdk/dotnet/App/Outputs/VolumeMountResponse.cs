@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string? MountPath;
         /// <summary>
+        /// Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+        /// </summary>
+        public readonly string? SubPath;
+        /// <summary>
         /// This must match the Name of a Volume.
         /// </summary>
         public readonly string? VolumeName;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.App.Outputs
         private VolumeMountResponse(
             string? mountPath,
 
+            string? subPath,
+
             string? volumeName)
         {
             MountPath = mountPath;
+            SubPath = subPath;
             VolumeName = volumeName;
         }
     }

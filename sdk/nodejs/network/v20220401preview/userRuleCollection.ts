@@ -110,7 +110,7 @@ export class UserRuleCollection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:UserRuleCollection" }, { type: "azure-native:network/v20210501preview:UserRuleCollection" }, { type: "azure-native:network/v20220201preview:UserRuleCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:UserRuleCollection" }, { type: "azure-native:network/v20210201preview:UserRuleCollection" }, { type: "azure-native:network/v20210501preview:UserRuleCollection" }, { type: "azure-native:network/v20220201preview:UserRuleCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UserRuleCollection.__pulumiType, name, resourceInputs, opts);
     }

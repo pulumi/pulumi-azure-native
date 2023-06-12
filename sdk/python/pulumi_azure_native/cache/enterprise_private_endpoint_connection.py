@@ -95,7 +95,7 @@ class EnterprisePrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2022-01-01.
+        API Version: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +112,7 @@ class EnterprisePrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2022-01-01.
+        API Version: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EnterprisePrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -155,6 +155,7 @@ class EnterprisePrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20201001preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20210201preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20210301:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20210801:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20220101:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20221101preview:EnterprisePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cache/v20230301preview:EnterprisePrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -184,6 +185,7 @@ class EnterprisePrivateEndpointConnection(pulumi.CustomResource):
         __props__.__dict__["private_endpoint"] = None
         __props__.__dict__["private_link_service_connection_state"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return EnterprisePrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
@@ -218,6 +220,14 @@ class EnterprisePrivateEndpointConnection(pulumi.CustomResource):
         The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

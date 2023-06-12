@@ -55,6 +55,37 @@ namespace Pulumi.AzureNative.EventGrid
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct AlternativeAuthenticationNameSource : IEquatable<AlternativeAuthenticationNameSource>
+    {
+        private readonly string _value;
+
+        private AlternativeAuthenticationNameSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlternativeAuthenticationNameSource ClientCertificateSubject { get; } = new AlternativeAuthenticationNameSource("ClientCertificateSubject");
+        public static AlternativeAuthenticationNameSource ClientCertificateDns { get; } = new AlternativeAuthenticationNameSource("ClientCertificateDns");
+        public static AlternativeAuthenticationNameSource ClientCertificateUri { get; } = new AlternativeAuthenticationNameSource("ClientCertificateUri");
+        public static AlternativeAuthenticationNameSource ClientCertificateIp { get; } = new AlternativeAuthenticationNameSource("ClientCertificateIp");
+        public static AlternativeAuthenticationNameSource ClientCertificateEmail { get; } = new AlternativeAuthenticationNameSource("ClientCertificateEmail");
+
+        public static bool operator ==(AlternativeAuthenticationNameSource left, AlternativeAuthenticationNameSource right) => left.Equals(right);
+        public static bool operator !=(AlternativeAuthenticationNameSource left, AlternativeAuthenticationNameSource right) => !left.Equals(right);
+
+        public static explicit operator string(AlternativeAuthenticationNameSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlternativeAuthenticationNameSource other && Equals(other);
+        public bool Equals(AlternativeAuthenticationNameSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Provisioning state of the channel.
     /// </summary>
@@ -114,6 +145,72 @@ namespace Pulumi.AzureNative.EventGrid
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ChannelType other && Equals(other);
         public bool Equals(ChannelType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The validation scheme used to authenticate the client. Default value is SubjectMatchesAuthenticationName.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClientCertificateValidationScheme : IEquatable<ClientCertificateValidationScheme>
+    {
+        private readonly string _value;
+
+        private ClientCertificateValidationScheme(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClientCertificateValidationScheme SubjectMatchesAuthenticationName { get; } = new ClientCertificateValidationScheme("SubjectMatchesAuthenticationName");
+        public static ClientCertificateValidationScheme DnsMatchesAuthenticationName { get; } = new ClientCertificateValidationScheme("DnsMatchesAuthenticationName");
+        public static ClientCertificateValidationScheme UriMatchesAuthenticationName { get; } = new ClientCertificateValidationScheme("UriMatchesAuthenticationName");
+        public static ClientCertificateValidationScheme IpMatchesAuthenticationName { get; } = new ClientCertificateValidationScheme("IpMatchesAuthenticationName");
+        public static ClientCertificateValidationScheme EmailMatchesAuthenticationName { get; } = new ClientCertificateValidationScheme("EmailMatchesAuthenticationName");
+        public static ClientCertificateValidationScheme ThumbprintMatch { get; } = new ClientCertificateValidationScheme("ThumbprintMatch");
+
+        public static bool operator ==(ClientCertificateValidationScheme left, ClientCertificateValidationScheme right) => left.Equals(right);
+        public static bool operator !=(ClientCertificateValidationScheme left, ClientCertificateValidationScheme right) => !left.Equals(right);
+
+        public static explicit operator string(ClientCertificateValidationScheme value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClientCertificateValidationScheme other && Equals(other);
+        public bool Equals(ClientCertificateValidationScheme other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates if the client is enabled or not. Default value is Enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClientState : IEquatable<ClientState>
+    {
+        private readonly string _value;
+
+        private ClientState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClientState Enabled { get; } = new ClientState("Enabled");
+        public static ClientState Disabled { get; } = new ClientState("Disabled");
+
+        public static bool operator ==(ClientState left, ClientState right) => left.Equals(right);
+        public static bool operator !=(ClientState left, ClientState right) => !left.Equals(right);
+
+        public static explicit operator string(ClientState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClientState other && Equals(other);
+        public bool Equals(ClientState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -206,6 +303,66 @@ namespace Pulumi.AzureNative.EventGrid
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DeliveryAttributeMappingType other && Equals(other);
         public bool Equals(DeliveryAttributeMappingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Delivery mode of the event subscription.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeliveryMode : IEquatable<DeliveryMode>
+    {
+        private readonly string _value;
+
+        private DeliveryMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryMode Queue { get; } = new DeliveryMode("Queue");
+
+        public static bool operator ==(DeliveryMode left, DeliveryMode right) => left.Equals(right);
+        public static bool operator !=(DeliveryMode left, DeliveryMode right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryMode other && Equals(other);
+        public bool Equals(DeliveryMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The event delivery schema for the event subscription.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeliverySchema : IEquatable<DeliverySchema>
+    {
+        private readonly string _value;
+
+        private DeliverySchema(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliverySchema CloudEventSchemaV1_0 { get; } = new DeliverySchema("CloudEventSchemaV1_0");
+
+        public static bool operator ==(DeliverySchema left, DeliverySchema right) => left.Equals(right);
+        public static bool operator !=(DeliverySchema left, DeliverySchema right) => !left.Equals(right);
+
+        public static explicit operator string(DeliverySchema value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliverySchema other && Equals(other);
+        public bool Equals(DeliverySchema other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -312,6 +469,36 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
     /// <summary>
+    /// This determines the format that is expected for incoming events published to the topic.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventInputSchema : IEquatable<EventInputSchema>
+    {
+        private readonly string _value;
+
+        private EventInputSchema(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventInputSchema CloudEventSchemaV1_0 { get; } = new EventInputSchema("CloudEventSchemaV1_0");
+
+        public static bool operator ==(EventInputSchema left, EventInputSchema right) => left.Equals(right);
+        public static bool operator !=(EventInputSchema left, EventInputSchema right) => !left.Equals(right);
+
+        public static explicit operator string(EventInputSchema value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventInputSchema other && Equals(other);
+        public bool Equals(EventInputSchema other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
     /// </summary>
     [EnumType]
@@ -335,6 +522,54 @@ namespace Pulumi.AzureNative.EventGrid
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EventSubscriptionIdentityType other && Equals(other);
         public bool Equals(EventSubscriptionIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+    /// </summary>
+    [EnumType]
+    public readonly struct FilterOperatorType : IEquatable<FilterOperatorType>
+    {
+        private readonly string _value;
+
+        private FilterOperatorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FilterOperatorType NumberIn { get; } = new FilterOperatorType("NumberIn");
+        public static FilterOperatorType NumberNotIn { get; } = new FilterOperatorType("NumberNotIn");
+        public static FilterOperatorType NumberLessThan { get; } = new FilterOperatorType("NumberLessThan");
+        public static FilterOperatorType NumberGreaterThan { get; } = new FilterOperatorType("NumberGreaterThan");
+        public static FilterOperatorType NumberLessThanOrEquals { get; } = new FilterOperatorType("NumberLessThanOrEquals");
+        public static FilterOperatorType NumberGreaterThanOrEquals { get; } = new FilterOperatorType("NumberGreaterThanOrEquals");
+        public static FilterOperatorType BoolEquals { get; } = new FilterOperatorType("BoolEquals");
+        public static FilterOperatorType StringIn { get; } = new FilterOperatorType("StringIn");
+        public static FilterOperatorType StringNotIn { get; } = new FilterOperatorType("StringNotIn");
+        public static FilterOperatorType StringBeginsWith { get; } = new FilterOperatorType("StringBeginsWith");
+        public static FilterOperatorType StringEndsWith { get; } = new FilterOperatorType("StringEndsWith");
+        public static FilterOperatorType StringContains { get; } = new FilterOperatorType("StringContains");
+        public static FilterOperatorType NumberInRange { get; } = new FilterOperatorType("NumberInRange");
+        public static FilterOperatorType NumberNotInRange { get; } = new FilterOperatorType("NumberNotInRange");
+        public static FilterOperatorType StringNotBeginsWith { get; } = new FilterOperatorType("StringNotBeginsWith");
+        public static FilterOperatorType StringNotEndsWith { get; } = new FilterOperatorType("StringNotEndsWith");
+        public static FilterOperatorType StringNotContains { get; } = new FilterOperatorType("StringNotContains");
+        public static FilterOperatorType IsNullOrUndefined { get; } = new FilterOperatorType("IsNullOrUndefined");
+        public static FilterOperatorType IsNotNull { get; } = new FilterOperatorType("IsNotNull");
+
+        public static bool operator ==(FilterOperatorType left, FilterOperatorType right) => left.Equals(right);
+        public static bool operator !=(FilterOperatorType left, FilterOperatorType right) => !left.Equals(right);
+
+        public static explicit operator string(FilterOperatorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FilterOperatorType other && Equals(other);
+        public bool Equals(FilterOperatorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -503,6 +738,37 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
     /// <summary>
+    /// Activation state of the partner destination.
+    /// </summary>
+    [EnumType]
+    public readonly struct PartnerDestinationActivationState : IEquatable<PartnerDestinationActivationState>
+    {
+        private readonly string _value;
+
+        private PartnerDestinationActivationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PartnerDestinationActivationState NeverActivated { get; } = new PartnerDestinationActivationState("NeverActivated");
+        public static PartnerDestinationActivationState Activated { get; } = new PartnerDestinationActivationState("Activated");
+
+        public static bool operator ==(PartnerDestinationActivationState left, PartnerDestinationActivationState right) => left.Equals(right);
+        public static bool operator !=(PartnerDestinationActivationState left, PartnerDestinationActivationState right) => !left.Equals(right);
+
+        public static explicit operator string(PartnerDestinationActivationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PartnerDestinationActivationState other && Equals(other);
+        public bool Equals(PartnerDestinationActivationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Activation state of the partner topic.
     /// </summary>
     [EnumType]
@@ -559,6 +825,37 @@ namespace Pulumi.AzureNative.EventGrid
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PartnerTopicRoutingMode other && Equals(other);
         public bool Equals(PartnerTopicRoutingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The allowed permission.
+    /// </summary>
+    [EnumType]
+    public readonly struct PermissionType : IEquatable<PermissionType>
+    {
+        private readonly string _value;
+
+        private PermissionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PermissionType Publisher { get; } = new PermissionType("Publisher");
+        public static PermissionType Subscriber { get; } = new PermissionType("Subscriber");
+
+        public static bool operator ==(PermissionType left, PermissionType right) => left.Equals(right);
+        public static bool operator !=(PermissionType left, PermissionType right) => !left.Equals(right);
+
+        public static explicit operator string(PermissionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PermissionType other && Equals(other);
+        public bool Equals(PermissionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -632,6 +929,36 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
     /// <summary>
+    /// Publisher type of the namespace topic.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublisherType : IEquatable<PublisherType>
+    {
+        private readonly string _value;
+
+        private PublisherType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublisherType Custom { get; } = new PublisherType("Custom");
+
+        public static bool operator ==(PublisherType left, PublisherType right) => left.Equals(right);
+        public static bool operator !=(PublisherType left, PublisherType right) => !left.Equals(right);
+
+        public static explicit operator string(PublisherType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublisherType other && Equals(other);
+        public bool Equals(PublisherType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The readiness state of the corresponding partner topic.
     /// </summary>
     [EnumType]
@@ -690,6 +1017,158 @@ namespace Pulumi.AzureNative.EventGrid
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceProvisioningState other && Equals(other);
         public bool Equals(ResourceProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RoutingIdentityType : IEquatable<RoutingIdentityType>
+    {
+        private readonly string _value;
+
+        private RoutingIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RoutingIdentityType None { get; } = new RoutingIdentityType("None");
+        public static RoutingIdentityType SystemAssigned { get; } = new RoutingIdentityType("SystemAssigned");
+        public static RoutingIdentityType UserAssigned { get; } = new RoutingIdentityType("UserAssigned");
+
+        public static bool operator ==(RoutingIdentityType left, RoutingIdentityType right) => left.Equals(right);
+        public static bool operator !=(RoutingIdentityType left, RoutingIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(RoutingIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RoutingIdentityType other && Equals(other);
+        public bool Equals(RoutingIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of the SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuName : IEquatable<SkuName>
+    {
+        private readonly string _value;
+
+        private SkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkuName Standard { get; } = new SkuName("Standard");
+
+        public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
+        public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
+
+        public static explicit operator string(SkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
+        public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Static routing enrichment value type. For e.g. this property value can be 'String'.
+    /// </summary>
+    [EnumType]
+    public readonly struct StaticRoutingEnrichmentType : IEquatable<StaticRoutingEnrichmentType>
+    {
+        private readonly string _value;
+
+        private StaticRoutingEnrichmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StaticRoutingEnrichmentType String { get; } = new StaticRoutingEnrichmentType("String");
+
+        public static bool operator ==(StaticRoutingEnrichmentType left, StaticRoutingEnrichmentType right) => left.Equals(right);
+        public static bool operator !=(StaticRoutingEnrichmentType left, StaticRoutingEnrichmentType right) => !left.Equals(right);
+
+        public static explicit operator string(StaticRoutingEnrichmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StaticRoutingEnrichmentType other && Equals(other);
+        public bool Equals(StaticRoutingEnrichmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
+    /// </summary>
+    [EnumType]
+    public readonly struct TlsVersion : IEquatable<TlsVersion>
+    {
+        private readonly string _value;
+
+        private TlsVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TlsVersion TlsVersion_1_0 { get; } = new TlsVersion("1.0");
+        public static TlsVersion TlsVersion_1_1 { get; } = new TlsVersion("1.1");
+        public static TlsVersion TlsVersion_1_2 { get; } = new TlsVersion("1.2");
+
+        public static bool operator ==(TlsVersion left, TlsVersion right) => left.Equals(right);
+        public static bool operator !=(TlsVersion left, TlsVersion right) => !left.Equals(right);
+
+        public static explicit operator string(TlsVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TlsVersion other && Equals(other);
+        public bool Equals(TlsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicate if Topic Spaces Configuration is enabled for the namespace. Default is Disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct TopicSpacesConfigurationState : IEquatable<TopicSpacesConfigurationState>
+    {
+        private readonly string _value;
+
+        private TopicSpacesConfigurationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TopicSpacesConfigurationState Disabled { get; } = new TopicSpacesConfigurationState("Disabled");
+        public static TopicSpacesConfigurationState Enabled { get; } = new TopicSpacesConfigurationState("Enabled");
+
+        public static bool operator ==(TopicSpacesConfigurationState left, TopicSpacesConfigurationState right) => left.Equals(right);
+        public static bool operator !=(TopicSpacesConfigurationState left, TopicSpacesConfigurationState right) => !left.Equals(right);
+
+        public static explicit operator string(TopicSpacesConfigurationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TopicSpacesConfigurationState other && Equals(other);
+        public bool Equals(TopicSpacesConfigurationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

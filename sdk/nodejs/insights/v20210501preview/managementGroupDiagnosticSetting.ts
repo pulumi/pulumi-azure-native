@@ -116,7 +116,7 @@ export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:ManagementGroupDiagnosticSetting" }, { type: "azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementGroupDiagnosticSetting.__pulumiType, name, resourceInputs, opts);
     }

@@ -90,6 +90,11 @@ export const getMECRole: typeof import("./getMECRole").getMECRole = null as any;
 export const getMECRoleOutput: typeof import("./getMECRole").getMECRoleOutput = null as any;
 utilities.lazyLoad(exports, ["getMECRole","getMECRoleOutput"], () => require("./getMECRole"));
 
+export { GetMarketplaceImageSasTokenSASTokenArgs, GetMarketplaceImageSasTokenSASTokenResult, GetMarketplaceImageSasTokenSASTokenOutputArgs } from "./getMarketplaceImageSasTokenSASToken";
+export const getMarketplaceImageSasTokenSASToken: typeof import("./getMarketplaceImageSasTokenSASToken").getMarketplaceImageSasTokenSASToken = null as any;
+export const getMarketplaceImageSasTokenSASTokenOutput: typeof import("./getMarketplaceImageSasTokenSASToken").getMarketplaceImageSasTokenSASTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getMarketplaceImageSasTokenSASToken","getMarketplaceImageSasTokenSASTokenOutput"], () => require("./getMarketplaceImageSasTokenSASToken"));
+
 export { GetMonitoringConfigArgs, GetMonitoringConfigResult, GetMonitoringConfigOutputArgs } from "./getMonitoringConfig";
 export const getMonitoringConfig: typeof import("./getMonitoringConfig").getMonitoringConfig = null as any;
 export const getMonitoringConfigOutput: typeof import("./getMonitoringConfig").getMonitoringConfigOutput = null as any;

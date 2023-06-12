@@ -12,6 +12,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AnalyticsConnectorDataLakeDataDestinationResponse',
+    'AnalyticsConnectorFhirServiceDataSourceResponse',
+    'AnalyticsConnectorFhirToParquetMappingResponse',
     'CorsConfigurationResponse',
     'DicomServiceAuthenticationConfigurationResponse',
     'FhirServiceAccessPolicyEntryResponse',
@@ -42,6 +45,183 @@ __all__ = [
     'UserAssignedIdentityResponse',
     'WorkspaceResponseProperties',
 ]
+
+@pulumi.output_type
+class AnalyticsConnectorDataLakeDataDestinationResponse(dict):
+    """
+    The Data Lake data destination for Analytics Connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataLakeName":
+            suggest = "data_lake_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsConnectorDataLakeDataDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsConnectorDataLakeDataDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsConnectorDataLakeDataDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_lake_name: str,
+                 type: str,
+                 name: Optional[str] = None):
+        """
+        The Data Lake data destination for Analytics Connector.
+        :param str data_lake_name: The name for the Data Lake.
+        :param str type: Type of data destination.
+               Expected value is 'datalake'.
+        :param str name: Name of data destination.
+        """
+        pulumi.set(__self__, "data_lake_name", data_lake_name)
+        pulumi.set(__self__, "type", 'datalake')
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="dataLakeName")
+    def data_lake_name(self) -> str:
+        """
+        The name for the Data Lake.
+        """
+        return pulumi.get(self, "data_lake_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of data destination.
+        Expected value is 'datalake'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of data destination.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AnalyticsConnectorFhirServiceDataSourceResponse(dict):
+    """
+    The FHIR service data source for Analytics Connector.
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 type: str,
+                 url: str):
+        """
+        The FHIR service data source for Analytics Connector.
+        :param str kind: The kind of FHIR Service.
+        :param str type: Type of data source.
+               Expected value is 'fhirservice'.
+        :param str url: The URL of FHIR service.
+        """
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "type", 'fhirservice')
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The kind of FHIR Service.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of data source.
+        Expected value is 'fhirservice'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The URL of FHIR service.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class AnalyticsConnectorFhirToParquetMappingResponse(dict):
+    """
+    FHIR Service data mapping configuration for Analytics Connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extensionSchemaReference":
+            suggest = "extension_schema_reference"
+        elif key == "filterConfigurationReference":
+            suggest = "filter_configuration_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsConnectorFhirToParquetMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsConnectorFhirToParquetMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsConnectorFhirToParquetMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 extension_schema_reference: Optional[str] = None,
+                 filter_configuration_reference: Optional[str] = None):
+        """
+        FHIR Service data mapping configuration for Analytics Connector.
+        :param str type: Type of data mapping.
+               Expected value is 'fhirToParquet'.
+        :param str extension_schema_reference: Artifact reference for extension schema.
+        :param str filter_configuration_reference: Artifact reference for filter configurations.
+        """
+        pulumi.set(__self__, "type", 'fhirToParquet')
+        if extension_schema_reference is not None:
+            pulumi.set(__self__, "extension_schema_reference", extension_schema_reference)
+        if filter_configuration_reference is not None:
+            pulumi.set(__self__, "filter_configuration_reference", filter_configuration_reference)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of data mapping.
+        Expected value is 'fhirToParquet'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="extensionSchemaReference")
+    def extension_schema_reference(self) -> Optional[str]:
+        """
+        Artifact reference for extension schema.
+        """
+        return pulumi.get(self, "extension_schema_reference")
+
+    @property
+    @pulumi.getter(name="filterConfigurationReference")
+    def filter_configuration_reference(self) -> Optional[str]:
+        """
+        Artifact reference for filter configurations.
+        """
+        return pulumi.get(self, "filter_configuration_reference")
+
 
 @pulumi.output_type
 class CorsConfigurationResponse(dict):

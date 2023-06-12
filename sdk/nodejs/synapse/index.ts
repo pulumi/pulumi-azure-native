@@ -10,10 +10,40 @@ export type BigDataPool = import("./bigDataPool").BigDataPool;
 export const BigDataPool: typeof import("./bigDataPool").BigDataPool = null as any;
 utilities.lazyLoad(exports, ["BigDataPool"], () => require("./bigDataPool"));
 
+export { DatabasePrincipalAssignmentArgs } from "./databasePrincipalAssignment";
+export type DatabasePrincipalAssignment = import("./databasePrincipalAssignment").DatabasePrincipalAssignment;
+export const DatabasePrincipalAssignment: typeof import("./databasePrincipalAssignment").DatabasePrincipalAssignment = null as any;
+utilities.lazyLoad(exports, ["DatabasePrincipalAssignment"], () => require("./databasePrincipalAssignment"));
+
+export { EventGridDataConnectionArgs } from "./eventGridDataConnection";
+export type EventGridDataConnection = import("./eventGridDataConnection").EventGridDataConnection;
+export const EventGridDataConnection: typeof import("./eventGridDataConnection").EventGridDataConnection = null as any;
+utilities.lazyLoad(exports, ["EventGridDataConnection"], () => require("./eventGridDataConnection"));
+
+export { EventHubDataConnectionArgs } from "./eventHubDataConnection";
+export type EventHubDataConnection = import("./eventHubDataConnection").EventHubDataConnection;
+export const EventHubDataConnection: typeof import("./eventHubDataConnection").EventHubDataConnection = null as any;
+utilities.lazyLoad(exports, ["EventHubDataConnection"], () => require("./eventHubDataConnection"));
+
 export { GetBigDataPoolArgs, GetBigDataPoolResult, GetBigDataPoolOutputArgs } from "./getBigDataPool";
 export const getBigDataPool: typeof import("./getBigDataPool").getBigDataPool = null as any;
 export const getBigDataPoolOutput: typeof import("./getBigDataPool").getBigDataPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getBigDataPool","getBigDataPoolOutput"], () => require("./getBigDataPool"));
+
+export { GetDatabasePrincipalAssignmentArgs, GetDatabasePrincipalAssignmentResult, GetDatabasePrincipalAssignmentOutputArgs } from "./getDatabasePrincipalAssignment";
+export const getDatabasePrincipalAssignment: typeof import("./getDatabasePrincipalAssignment").getDatabasePrincipalAssignment = null as any;
+export const getDatabasePrincipalAssignmentOutput: typeof import("./getDatabasePrincipalAssignment").getDatabasePrincipalAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabasePrincipalAssignment","getDatabasePrincipalAssignmentOutput"], () => require("./getDatabasePrincipalAssignment"));
+
+export { GetEventGridDataConnectionArgs, GetEventGridDataConnectionResult, GetEventGridDataConnectionOutputArgs } from "./getEventGridDataConnection";
+export const getEventGridDataConnection: typeof import("./getEventGridDataConnection").getEventGridDataConnection = null as any;
+export const getEventGridDataConnectionOutput: typeof import("./getEventGridDataConnection").getEventGridDataConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getEventGridDataConnection","getEventGridDataConnectionOutput"], () => require("./getEventGridDataConnection"));
+
+export { GetEventHubDataConnectionArgs, GetEventHubDataConnectionResult, GetEventHubDataConnectionOutputArgs } from "./getEventHubDataConnection";
+export const getEventHubDataConnection: typeof import("./getEventHubDataConnection").getEventHubDataConnection = null as any;
+export const getEventHubDataConnectionOutput: typeof import("./getEventHubDataConnection").getEventHubDataConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getEventHubDataConnection","getEventHubDataConnectionOutput"], () => require("./getEventHubDataConnection"));
 
 export { GetIntegrationRuntimeArgs, GetIntegrationRuntimeResult, GetIntegrationRuntimeOutputArgs } from "./getIntegrationRuntime";
 export const getIntegrationRuntime: typeof import("./getIntegrationRuntime").getIntegrationRuntime = null as any;
@@ -35,6 +65,11 @@ export const getIntegrationRuntimeStatus: typeof import("./getIntegrationRuntime
 export const getIntegrationRuntimeStatusOutput: typeof import("./getIntegrationRuntimeStatus").getIntegrationRuntimeStatusOutput = null as any;
 utilities.lazyLoad(exports, ["getIntegrationRuntimeStatus","getIntegrationRuntimeStatusOutput"], () => require("./getIntegrationRuntimeStatus"));
 
+export { GetIotHubDataConnectionArgs, GetIotHubDataConnectionResult, GetIotHubDataConnectionOutputArgs } from "./getIotHubDataConnection";
+export const getIotHubDataConnection: typeof import("./getIotHubDataConnection").getIotHubDataConnection = null as any;
+export const getIotHubDataConnectionOutput: typeof import("./getIotHubDataConnection").getIotHubDataConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getIotHubDataConnection","getIotHubDataConnectionOutput"], () => require("./getIotHubDataConnection"));
+
 export { GetIpFirewallRuleArgs, GetIpFirewallRuleResult, GetIpFirewallRuleOutputArgs } from "./getIpFirewallRule";
 export const getIpFirewallRule: typeof import("./getIpFirewallRule").getIpFirewallRule = null as any;
 export const getIpFirewallRuleOutput: typeof import("./getIpFirewallRule").getIpFirewallRuleOutput = null as any;
@@ -45,6 +80,26 @@ export const getKey: typeof import("./getKey").getKey = null as any;
 export const getKeyOutput: typeof import("./getKey").getKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getKey","getKeyOutput"], () => require("./getKey"));
 
+export { GetKustoPoolArgs, GetKustoPoolResult, GetKustoPoolOutputArgs } from "./getKustoPool";
+export const getKustoPool: typeof import("./getKustoPool").getKustoPool = null as any;
+export const getKustoPoolOutput: typeof import("./getKustoPool").getKustoPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getKustoPool","getKustoPoolOutput"], () => require("./getKustoPool"));
+
+export { GetKustoPoolAttachedDatabaseConfigurationArgs, GetKustoPoolAttachedDatabaseConfigurationResult, GetKustoPoolAttachedDatabaseConfigurationOutputArgs } from "./getKustoPoolAttachedDatabaseConfiguration";
+export const getKustoPoolAttachedDatabaseConfiguration: typeof import("./getKustoPoolAttachedDatabaseConfiguration").getKustoPoolAttachedDatabaseConfiguration = null as any;
+export const getKustoPoolAttachedDatabaseConfigurationOutput: typeof import("./getKustoPoolAttachedDatabaseConfiguration").getKustoPoolAttachedDatabaseConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getKustoPoolAttachedDatabaseConfiguration","getKustoPoolAttachedDatabaseConfigurationOutput"], () => require("./getKustoPoolAttachedDatabaseConfiguration"));
+
+export { GetKustoPoolDatabasePrincipalAssignmentArgs, GetKustoPoolDatabasePrincipalAssignmentResult, GetKustoPoolDatabasePrincipalAssignmentOutputArgs } from "./getKustoPoolDatabasePrincipalAssignment";
+export const getKustoPoolDatabasePrincipalAssignment: typeof import("./getKustoPoolDatabasePrincipalAssignment").getKustoPoolDatabasePrincipalAssignment = null as any;
+export const getKustoPoolDatabasePrincipalAssignmentOutput: typeof import("./getKustoPoolDatabasePrincipalAssignment").getKustoPoolDatabasePrincipalAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getKustoPoolDatabasePrincipalAssignment","getKustoPoolDatabasePrincipalAssignmentOutput"], () => require("./getKustoPoolDatabasePrincipalAssignment"));
+
+export { GetKustoPoolPrincipalAssignmentArgs, GetKustoPoolPrincipalAssignmentResult, GetKustoPoolPrincipalAssignmentOutputArgs } from "./getKustoPoolPrincipalAssignment";
+export const getKustoPoolPrincipalAssignment: typeof import("./getKustoPoolPrincipalAssignment").getKustoPoolPrincipalAssignment = null as any;
+export const getKustoPoolPrincipalAssignmentOutput: typeof import("./getKustoPoolPrincipalAssignment").getKustoPoolPrincipalAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getKustoPoolPrincipalAssignment","getKustoPoolPrincipalAssignmentOutput"], () => require("./getKustoPoolPrincipalAssignment"));
+
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -54,6 +109,16 @@ export { GetPrivateLinkHubArgs, GetPrivateLinkHubResult, GetPrivateLinkHubOutput
 export const getPrivateLinkHub: typeof import("./getPrivateLinkHub").getPrivateLinkHub = null as any;
 export const getPrivateLinkHubOutput: typeof import("./getPrivateLinkHub").getPrivateLinkHubOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateLinkHub","getPrivateLinkHubOutput"], () => require("./getPrivateLinkHub"));
+
+export { GetReadOnlyFollowingDatabaseArgs, GetReadOnlyFollowingDatabaseResult, GetReadOnlyFollowingDatabaseOutputArgs } from "./getReadOnlyFollowingDatabase";
+export const getReadOnlyFollowingDatabase: typeof import("./getReadOnlyFollowingDatabase").getReadOnlyFollowingDatabase = null as any;
+export const getReadOnlyFollowingDatabaseOutput: typeof import("./getReadOnlyFollowingDatabase").getReadOnlyFollowingDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getReadOnlyFollowingDatabase","getReadOnlyFollowingDatabaseOutput"], () => require("./getReadOnlyFollowingDatabase"));
+
+export { GetReadWriteDatabaseArgs, GetReadWriteDatabaseResult, GetReadWriteDatabaseOutputArgs } from "./getReadWriteDatabase";
+export const getReadWriteDatabase: typeof import("./getReadWriteDatabase").getReadWriteDatabase = null as any;
+export const getReadWriteDatabaseOutput: typeof import("./getReadWriteDatabase").getReadWriteDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getReadWriteDatabase","getReadWriteDatabaseOutput"], () => require("./getReadWriteDatabase"));
 
 export { GetSqlPoolArgs, GetSqlPoolResult, GetSqlPoolOutputArgs } from "./getSqlPool";
 export const getSqlPool: typeof import("./getSqlPool").getSqlPool = null as any;
@@ -115,6 +180,11 @@ export type IntegrationRuntime = import("./integrationRuntime").IntegrationRunti
 export const IntegrationRuntime: typeof import("./integrationRuntime").IntegrationRuntime = null as any;
 utilities.lazyLoad(exports, ["IntegrationRuntime"], () => require("./integrationRuntime"));
 
+export { IotHubDataConnectionArgs } from "./iotHubDataConnection";
+export type IotHubDataConnection = import("./iotHubDataConnection").IotHubDataConnection;
+export const IotHubDataConnection: typeof import("./iotHubDataConnection").IotHubDataConnection = null as any;
+utilities.lazyLoad(exports, ["IotHubDataConnection"], () => require("./iotHubDataConnection"));
+
 export { IpFirewallRuleArgs } from "./ipFirewallRule";
 export type IpFirewallRule = import("./ipFirewallRule").IpFirewallRule;
 export const IpFirewallRule: typeof import("./ipFirewallRule").IpFirewallRule = null as any;
@@ -125,10 +195,40 @@ export type Key = import("./key").Key;
 export const Key: typeof import("./key").Key = null as any;
 utilities.lazyLoad(exports, ["Key"], () => require("./key"));
 
+export { KustoPoolArgs } from "./kustoPool";
+export type KustoPool = import("./kustoPool").KustoPool;
+export const KustoPool: typeof import("./kustoPool").KustoPool = null as any;
+utilities.lazyLoad(exports, ["KustoPool"], () => require("./kustoPool"));
+
+export { KustoPoolAttachedDatabaseConfigurationArgs } from "./kustoPoolAttachedDatabaseConfiguration";
+export type KustoPoolAttachedDatabaseConfiguration = import("./kustoPoolAttachedDatabaseConfiguration").KustoPoolAttachedDatabaseConfiguration;
+export const KustoPoolAttachedDatabaseConfiguration: typeof import("./kustoPoolAttachedDatabaseConfiguration").KustoPoolAttachedDatabaseConfiguration = null as any;
+utilities.lazyLoad(exports, ["KustoPoolAttachedDatabaseConfiguration"], () => require("./kustoPoolAttachedDatabaseConfiguration"));
+
+export { KustoPoolDatabasePrincipalAssignmentArgs } from "./kustoPoolDatabasePrincipalAssignment";
+export type KustoPoolDatabasePrincipalAssignment = import("./kustoPoolDatabasePrincipalAssignment").KustoPoolDatabasePrincipalAssignment;
+export const KustoPoolDatabasePrincipalAssignment: typeof import("./kustoPoolDatabasePrincipalAssignment").KustoPoolDatabasePrincipalAssignment = null as any;
+utilities.lazyLoad(exports, ["KustoPoolDatabasePrincipalAssignment"], () => require("./kustoPoolDatabasePrincipalAssignment"));
+
+export { KustoPoolPrincipalAssignmentArgs } from "./kustoPoolPrincipalAssignment";
+export type KustoPoolPrincipalAssignment = import("./kustoPoolPrincipalAssignment").KustoPoolPrincipalAssignment;
+export const KustoPoolPrincipalAssignment: typeof import("./kustoPoolPrincipalAssignment").KustoPoolPrincipalAssignment = null as any;
+utilities.lazyLoad(exports, ["KustoPoolPrincipalAssignment"], () => require("./kustoPoolPrincipalAssignment"));
+
 export { ListIntegrationRuntimeAuthKeyArgs, ListIntegrationRuntimeAuthKeyResult, ListIntegrationRuntimeAuthKeyOutputArgs } from "./listIntegrationRuntimeAuthKey";
 export const listIntegrationRuntimeAuthKey: typeof import("./listIntegrationRuntimeAuthKey").listIntegrationRuntimeAuthKey = null as any;
 export const listIntegrationRuntimeAuthKeyOutput: typeof import("./listIntegrationRuntimeAuthKey").listIntegrationRuntimeAuthKeyOutput = null as any;
 utilities.lazyLoad(exports, ["listIntegrationRuntimeAuthKey","listIntegrationRuntimeAuthKeyOutput"], () => require("./listIntegrationRuntimeAuthKey"));
+
+export { ListKustoPoolFollowerDatabasesArgs, ListKustoPoolFollowerDatabasesResult, ListKustoPoolFollowerDatabasesOutputArgs } from "./listKustoPoolFollowerDatabases";
+export const listKustoPoolFollowerDatabases: typeof import("./listKustoPoolFollowerDatabases").listKustoPoolFollowerDatabases = null as any;
+export const listKustoPoolFollowerDatabasesOutput: typeof import("./listKustoPoolFollowerDatabases").listKustoPoolFollowerDatabasesOutput = null as any;
+utilities.lazyLoad(exports, ["listKustoPoolFollowerDatabases","listKustoPoolFollowerDatabasesOutput"], () => require("./listKustoPoolFollowerDatabases"));
+
+export { ListKustoPoolLanguageExtensionsArgs, ListKustoPoolLanguageExtensionsResult, ListKustoPoolLanguageExtensionsOutputArgs } from "./listKustoPoolLanguageExtensions";
+export const listKustoPoolLanguageExtensions: typeof import("./listKustoPoolLanguageExtensions").listKustoPoolLanguageExtensions = null as any;
+export const listKustoPoolLanguageExtensionsOutput: typeof import("./listKustoPoolLanguageExtensions").listKustoPoolLanguageExtensionsOutput = null as any;
+utilities.lazyLoad(exports, ["listKustoPoolLanguageExtensions","listKustoPoolLanguageExtensionsOutput"], () => require("./listKustoPoolLanguageExtensions"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
@@ -139,6 +239,16 @@ export { PrivateLinkHubArgs } from "./privateLinkHub";
 export type PrivateLinkHub = import("./privateLinkHub").PrivateLinkHub;
 export const PrivateLinkHub: typeof import("./privateLinkHub").PrivateLinkHub = null as any;
 utilities.lazyLoad(exports, ["PrivateLinkHub"], () => require("./privateLinkHub"));
+
+export { ReadOnlyFollowingDatabaseArgs } from "./readOnlyFollowingDatabase";
+export type ReadOnlyFollowingDatabase = import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase;
+export const ReadOnlyFollowingDatabase: typeof import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase = null as any;
+utilities.lazyLoad(exports, ["ReadOnlyFollowingDatabase"], () => require("./readOnlyFollowingDatabase"));
+
+export { ReadWriteDatabaseArgs } from "./readWriteDatabase";
+export type ReadWriteDatabase = import("./readWriteDatabase").ReadWriteDatabase;
+export const ReadWriteDatabase: typeof import("./readWriteDatabase").ReadWriteDatabase = null as any;
+utilities.lazyLoad(exports, ["ReadWriteDatabase"], () => require("./readWriteDatabase"));
 
 export { SqlPoolArgs } from "./sqlPool";
 export type SqlPool = import("./sqlPool").SqlPool;
@@ -222,16 +332,36 @@ const _module = {
         switch (type) {
             case "azure-native:synapse:BigDataPool":
                 return new BigDataPool(name, <any>undefined, { urn })
+            case "azure-native:synapse:DatabasePrincipalAssignment":
+                return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
+            case "azure-native:synapse:EventGridDataConnection":
+                return new EventGridDataConnection(name, <any>undefined, { urn })
+            case "azure-native:synapse:EventHubDataConnection":
+                return new EventHubDataConnection(name, <any>undefined, { urn })
             case "azure-native:synapse:IntegrationRuntime":
                 return new IntegrationRuntime(name, <any>undefined, { urn })
+            case "azure-native:synapse:IotHubDataConnection":
+                return new IotHubDataConnection(name, <any>undefined, { urn })
             case "azure-native:synapse:IpFirewallRule":
                 return new IpFirewallRule(name, <any>undefined, { urn })
             case "azure-native:synapse:Key":
                 return new Key(name, <any>undefined, { urn })
+            case "azure-native:synapse:KustoPool":
+                return new KustoPool(name, <any>undefined, { urn })
+            case "azure-native:synapse:KustoPoolAttachedDatabaseConfiguration":
+                return new KustoPoolAttachedDatabaseConfiguration(name, <any>undefined, { urn })
+            case "azure-native:synapse:KustoPoolDatabasePrincipalAssignment":
+                return new KustoPoolDatabasePrincipalAssignment(name, <any>undefined, { urn })
+            case "azure-native:synapse:KustoPoolPrincipalAssignment":
+                return new KustoPoolPrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:synapse:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:synapse:PrivateLinkHub":
                 return new PrivateLinkHub(name, <any>undefined, { urn })
+            case "azure-native:synapse:ReadOnlyFollowingDatabase":
+                return new ReadOnlyFollowingDatabase(name, <any>undefined, { urn })
+            case "azure-native:synapse:ReadWriteDatabase":
+                return new ReadWriteDatabase(name, <any>undefined, { urn })
             case "azure-native:synapse:SqlPool":
                 return new SqlPool(name, <any>undefined, { urn })
             case "azure-native:synapse:SqlPoolSensitivityLabel":

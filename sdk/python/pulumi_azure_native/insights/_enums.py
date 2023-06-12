@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AccessMode',
     'AggregationTypeEnum',
     'ApplicationType',
     'ComparisonOperationType',
@@ -39,6 +40,7 @@ __all__ = [
     'OperationType',
     'Operator',
     'PredictiveAutoscalePolicyScaleMode',
+    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccessType',
     'RecurrenceFrequency',
     'RequestSource',
@@ -51,6 +53,14 @@ __all__ = [
     'WebTestKind',
     'WorkbookSharedTypeKind',
 ]
+
+
+class AccessMode(str, Enum):
+    """
+    Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+    """
+    OPEN = "Open"
+    PRIVATE_ONLY = "PrivateOnly"
 
 
 class AggregationTypeEnum(str, Enum):
@@ -364,6 +374,15 @@ class PredictiveAutoscalePolicyScaleMode(str, Enum):
     DISABLED = "Disabled"
     FORECAST_ONLY = "ForecastOnly"
     ENABLED = "Enabled"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 class PublicNetworkAccessType(str, Enum):

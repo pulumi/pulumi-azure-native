@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20221215Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:GalleryImage"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:GalleryImage"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:GalleryImage"},
                 },

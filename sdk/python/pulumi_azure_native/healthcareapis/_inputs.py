@@ -11,6 +11,9 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AnalyticsConnectorDataLakeDataDestinationArgs',
+    'AnalyticsConnectorFhirServiceDataSourceArgs',
+    'AnalyticsConnectorFhirToParquetMappingArgs',
     'CorsConfigurationArgs',
     'FhirServiceAccessPolicyEntryArgs',
     'FhirServiceAcrConfigurationArgs',
@@ -36,6 +39,174 @@ __all__ = [
     'ServicesPropertiesArgs',
     'ServicesResourceIdentityArgs',
 ]
+
+@pulumi.input_type
+class AnalyticsConnectorDataLakeDataDestinationArgs:
+    def __init__(__self__, *,
+                 data_lake_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The Data Lake data destination for Analytics Connector.
+        :param pulumi.Input[str] data_lake_name: The name for the Data Lake.
+        :param pulumi.Input[str] type: Type of data destination.
+               Expected value is 'datalake'.
+        :param pulumi.Input[str] name: Name of data destination.
+        """
+        pulumi.set(__self__, "data_lake_name", data_lake_name)
+        pulumi.set(__self__, "type", 'datalake')
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="dataLakeName")
+    def data_lake_name(self) -> pulumi.Input[str]:
+        """
+        The name for the Data Lake.
+        """
+        return pulumi.get(self, "data_lake_name")
+
+    @data_lake_name.setter
+    def data_lake_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_lake_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of data destination.
+        Expected value is 'datalake'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of data destination.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class AnalyticsConnectorFhirServiceDataSourceArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[Union[str, 'FhirServiceVersion']],
+                 type: pulumi.Input[str],
+                 url: pulumi.Input[str]):
+        """
+        The FHIR service data source for Analytics Connector.
+        :param pulumi.Input[Union[str, 'FhirServiceVersion']] kind: The kind of FHIR Service.
+        :param pulumi.Input[str] type: Type of data source.
+               Expected value is 'fhirservice'.
+        :param pulumi.Input[str] url: The URL of FHIR service.
+        """
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "type", 'fhirservice')
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Union[str, 'FhirServiceVersion']]:
+        """
+        The kind of FHIR Service.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Union[str, 'FhirServiceVersion']]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of data source.
+        Expected value is 'fhirservice'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The URL of FHIR service.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class AnalyticsConnectorFhirToParquetMappingArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 extension_schema_reference: Optional[pulumi.Input[str]] = None,
+                 filter_configuration_reference: Optional[pulumi.Input[str]] = None):
+        """
+        FHIR Service data mapping configuration for Analytics Connector.
+        :param pulumi.Input[str] type: Type of data mapping.
+               Expected value is 'fhirToParquet'.
+        :param pulumi.Input[str] extension_schema_reference: Artifact reference for extension schema.
+        :param pulumi.Input[str] filter_configuration_reference: Artifact reference for filter configurations.
+        """
+        pulumi.set(__self__, "type", 'fhirToParquet')
+        if extension_schema_reference is not None:
+            pulumi.set(__self__, "extension_schema_reference", extension_schema_reference)
+        if filter_configuration_reference is not None:
+            pulumi.set(__self__, "filter_configuration_reference", filter_configuration_reference)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of data mapping.
+        Expected value is 'fhirToParquet'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="extensionSchemaReference")
+    def extension_schema_reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        Artifact reference for extension schema.
+        """
+        return pulumi.get(self, "extension_schema_reference")
+
+    @extension_schema_reference.setter
+    def extension_schema_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extension_schema_reference", value)
+
+    @property
+    @pulumi.getter(name="filterConfigurationReference")
+    def filter_configuration_reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        Artifact reference for filter configurations.
+        """
+        return pulumi.get(self, "filter_configuration_reference")
+
+    @filter_configuration_reference.setter
+    def filter_configuration_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_configuration_reference", value)
+
 
 @pulumi.input_type
 class CorsConfigurationArgs:

@@ -9,6 +9,7 @@ AadIam:
     tracking: "2020-03-01"
     additions:
         DiagnosticSetting: "2017-04-01"
+        azureADMetric: 2020-07-01-preview
 Addons:
     tracking: "2018-03-01"
 Advisor:
@@ -18,6 +19,7 @@ AgFoodPlatform:
 AlertsManagement:
     tracking: "2023-03-01"
     additions:
+        ActionRuleByName: 2019-05-05-preview
         AlertProcessingRuleByName: "2021-08-08"
         SmartDetectorAlertRule: "2021-04-01"
 AnalysisServices:
@@ -27,26 +29,78 @@ ApiCenter:
 ApiManagement:
     tracking: "2022-08-01"
     additions:
+        ProductApiLink: 2022-09-01-preview
+        ProductGroupLink: 2022-09-01-preview
+        Schema: 2021-04-01-preview
+        TagApiLink: 2022-09-01-preview
+        TagOperationLink: 2022-09-01-preview
+        TagProductLink: 2022-09-01-preview
+        Workspace: 2022-09-01-preview
+        WorkspaceApi: 2022-09-01-preview
+        WorkspaceApiOperation: 2022-09-01-preview
+        WorkspaceApiOperationPolicy: 2022-09-01-preview
+        WorkspaceApiPolicy: 2022-09-01-preview
+        WorkspaceApiRelease: 2022-09-01-preview
+        WorkspaceApiSchema: 2022-09-01-preview
+        WorkspaceApiVersionSet: 2022-09-01-preview
+        WorkspaceGlobalSchema: 2022-09-01-preview
+        WorkspaceGroup: 2022-09-01-preview
+        WorkspaceGroupUser: 2022-09-01-preview
+        WorkspaceNamedValue: 2022-09-01-preview
+        WorkspaceNotificationRecipientEmail: 2022-09-01-preview
+        WorkspaceNotificationRecipientUser: 2022-09-01-preview
+        WorkspacePolicy: 2022-09-01-preview
+        WorkspacePolicyFragment: 2022-09-01-preview
+        WorkspaceProduct: 2022-09-01-preview
+        WorkspaceProductApiLink: 2022-09-01-preview
+        WorkspaceProductGroupLink: 2022-09-01-preview
+        WorkspaceProductPolicy: 2022-09-01-preview
+        WorkspaceSubscription: 2022-09-01-preview
+        WorkspaceTag: 2022-09-01-preview
+        WorkspaceTagApiLink: 2022-09-01-preview
+        WorkspaceTagOperationLink: 2022-09-01-preview
+        WorkspaceTagProductLink: 2022-09-01-preview
         listDelegationSettingSecrets: "2021-08-01"
+        listWorkspaceNamedValue: 2022-09-01-preview
+        listWorkspacePolicyFragmentReferences: 2022-09-01-preview
+        listWorkspaceSubscriptionSecrets: 2022-09-01-preview
 App:
     tracking: "2022-10-01"
+    additions:
+        Job: 2023-04-01-preview
+        ManagedCertificate: 2023-04-01-preview
+        listJobSecrets: 2023-04-01-preview
 AppComplianceAutomation:
     tracking: 2022-11-16-preview
 AppConfiguration:
     tracking: "2023-03-01"
 AppPlatform:
     tracking: "2022-12-01"
+    additions:
+        Apm: 2023-05-01-preview
+        ApplicationAccelerator: 2023-05-01-preview
+        ApplicationLiveView: 2023-05-01-preview
+        BuildServiceBuild: 2023-05-01-preview
+        ContainerRegistry: 2023-05-01-preview
+        CustomizedAccelerator: 2023-05-01-preview
+        DevToolPortal: 2023-05-01-preview
+        listApmSecretKeys: 2023-05-01-preview
+        listGatewayEnvSecrets: 2023-05-01-preview
+        listServiceGloballyEnabledApms: 2023-05-01-preview
 Attestation:
     tracking: "2021-06-01"
 Authorization:
     tracking: "2022-06-01"
     additions:
+        AccessReviewHistoryDefinitionById: 2021-12-01-preview
+        AccessReviewScheduleDefinitionById: 2021-12-01-preview
         ManagementLockAtResourceGroupLevel: "2020-05-01"
         ManagementLockAtResourceLevel: "2020-05-01"
         ManagementLockAtSubscriptionLevel: "2020-05-01"
         ManagementLockByScope: "2020-05-01"
         PolicyDefinition: "2021-06-01"
         PolicyDefinitionAtManagementGroup: "2021-06-01"
+        PolicyExemption: 2022-07-01-preview
         PolicySetDefinition: "2021-06-01"
         PolicySetDefinitionAtManagementGroup: "2021-06-01"
         PrivateLinkAssociation: "2020-05-01"
@@ -54,13 +108,23 @@ Authorization:
         RoleAssignment: "2022-04-01"
         RoleDefinition: "2022-04-01"
         RoleManagementPolicyAssignment: "2020-10-01"
+        ScopeAccessReviewHistoryDefinitionById: 2021-12-01-preview
+        ScopeAccessReviewScheduleDefinitionById: 2021-12-01-preview
+        Variable: 2022-08-01-preview
+        VariableAtManagementGroup: 2022-08-01-preview
+        VariableValue: 2022-08-01-preview
+        VariableValueAtManagementGroup: 2022-08-01-preview
 Automanage:
     tracking: "2022-05-04"
+    additions:
+        Account: 2020-06-30-preview
+        ConfigurationProfilePreference: 2020-06-30-preview
 Automation:
     tracking: "2022-08-08"
     additions:
+        PrivateEndpointConnection: 2020-01-13-preview
         SoftwareUpdateConfigurationByName: "2019-06-01"
-        Watcher: "2019-06-01"
+        Watcher: 2020-01-13-preview
         Webhook: "2015-10-31"
 AutonomousDevelopmentPlatform:
     tracking: 2021-11-01-preview
@@ -82,14 +146,28 @@ AzureSphere:
     tracking: 2022-09-01-preview
 AzureStack:
     tracking: "2022-06-01"
+    additions:
+        LinkedSubscription: 2020-06-01-preview
 AzureStackHCI:
     tracking: "2023-03-01"
+    additions:
+        galleryimageRetrieve: 2021-09-01-preview
+        marketplacegalleryimage: 2021-09-01-preview
+        networkinterfaceRetrieve: 2021-09-01-preview
+        storagecontainerRetrieve: 2021-09-01-preview
+        virtualharddiskRetrieve: 2021-09-01-preview
+        virtualmachineRetrieve: 2021-09-01-preview
+        virtualnetworkRetrieve: 2021-09-01-preview
 BareMetalInfrastructure:
     tracking: "2023-04-06"
 Batch:
     tracking: "2022-10-01"
 Billing:
     tracking: "2020-05-01"
+    additions:
+        BillingRoleAssignmentByBillingAccount: 2019-10-01-preview
+        BillingRoleAssignmentByDepartment: 2019-10-01-preview
+        BillingRoleAssignmentByEnrollmentAccount: 2019-10-01-preview
 BillingBenefits: {}
 Blockchain:
     tracking: 2018-06-01-preview
@@ -100,10 +178,12 @@ BotService:
 Cache:
     tracking: "2023-04-01"
     additions:
-        Database: "2022-01-01"
-        EnterprisePrivateEndpointConnection: "2022-01-01"
-        RedisEnterprise: "2022-01-01"
-        listDatabaseKeys: "2022-01-01"
+        AccessPolicy: 2023-05-01-preview
+        AccessPolicyAssignment: 2023-05-01-preview
+        Database: 2023-03-01-preview
+        EnterprisePrivateEndpointConnection: 2023-03-01-preview
+        RedisEnterprise: 2023-03-01-preview
+        listDatabaseKeys: 2023-03-01-preview
 Capacity: {}
 Cdn:
     tracking: "2023-05-01"
@@ -153,6 +233,8 @@ Compute:
         getLogAnalyticExportThrottledRequests: "2023-03-01"
 ConfidentialLedger:
     tracking: "2022-05-13"
+    additions:
+        ManagedCCF: 2023-01-26-preview
 Confluent:
     tracking: "2021-12-01"
 ConnectedVMwarevSphere:
@@ -164,21 +246,53 @@ ContainerInstance:
 ContainerRegistry:
     tracking: "2022-12-01"
     additions:
-        Task: "2019-04-01"
-        listRegistryBuildSourceUploadUrl: "2019-04-01"
-        listRunLogSasUrl: "2019-04-01"
-        listTaskDetails: "2019-04-01"
+        AgentPool: 2019-06-01-preview
+        BuildStep: 2018-02-01-preview
+        CacheRule: 2023-01-01-preview
+        ConnectedRegistry: 2023-01-01-preview
+        CredentialSet: 2023-01-01-preview
+        ExportPipeline: 2023-01-01-preview
+        ImportPipeline: 2023-01-01-preview
+        PipelineRun: 2023-01-01-preview
+        Task: 2019-06-01-preview
+        TaskRun: 2019-06-01-preview
+        getBuildLogLink: 2018-02-01-preview
+        getRegistryBuildSourceUploadUrl: 2018-02-01-preview
+        getRegistryCredentials: 2016-06-27-preview
+        listAgentPoolQueueStatus: 2019-06-01-preview
+        listBuildStepBuildArguments: 2018-02-01-preview
+        listBuildTaskSourceRepositoryProperties: 2018-02-01-preview
+        listRegistryBuildSourceUploadUrl: 2019-06-01-preview
+        listRunLogSasUrl: 2019-06-01-preview
+        listTaskDetails: 2019-06-01-preview
+        listTaskRunDetails: 2019-06-01-preview
 ContainerService:
     tracking: "2023-04-01"
     additions:
-        OpenShiftManagedCluster: "2019-04-30"
+        Fleet: 2023-03-15-preview
+        FleetMember: 2023-03-15-preview
+        ManagedClusterSnapshot: 2023-04-02-preview
+        OpenShiftManagedCluster: 2019-10-27-preview
+        TrustedAccessRoleBinding: 2023-04-02-preview
+        UpdateRun: 2023-03-15-preview
+        listFleetCredentials: 2023-03-15-preview
         listManagedClusterAccessProfile: "2020-03-01"
 ContainerStorage:
     tracking: 2023-03-01-preview
 CostManagement:
     tracking: "2023-03-01"
     additions:
+        Budget: 2023-04-01-preview
+        CloudConnector: 2019-03-01-preview
+        Connector: 2018-08-01-preview
+        CostAllocationRule: 2020-03-01-preview
+        MarkupRule: 2022-10-05-preview
+        Report: 2018-08-01-preview
+        ReportByBillingAccount: 2018-08-01-preview
+        ReportByDepartment: 2018-08-01-preview
+        ReportByResourceGroupName: 2018-08-01-preview
         Setting: "2019-11-01"
+        SettingByScope: 2022-10-05-preview
 CustomProviders:
     tracking: 2018-09-01-preview
 CustomerInsights:
@@ -188,18 +302,29 @@ DBforMariaDB:
     tracking: "2018-06-01"
 DBforMySQL:
     tracking: "2022-01-01"
+    additions:
+        PrivateEndpointConnection: 2022-09-30-preview
+        ServerAdministrator: 2017-12-01-preview
+        ServerKey: 2020-07-01-preview
+        VirtualNetworkRule: 2017-12-01-preview
 DBforPostgreSQL:
     tracking: "2022-12-01"
     additions:
         Cluster: "2022-11-08"
+        Migration: 2023-03-01-preview
         PrivateEndpointConnection: "2022-11-08"
         Role: "2022-11-08"
+        ServerAdministrator: 2017-12-01-preview
+        ServerSecurityAlertPolicy: 2017-12-01-preview
+        VirtualNetworkRule: 2017-12-01-preview
 Dashboard:
     tracking: "2022-08-01"
 DataBox:
     tracking: "2022-12-01"
 DataBoxEdge:
     tracking: "2022-03-01"
+    additions:
+        getMarketplaceImageSasTokenSASToken: 2023-01-01-preview
 DataCatalog:
     tracking: "2016-03-30"
 DataFactory:
@@ -210,6 +335,11 @@ DataLakeStore:
     tracking: "2016-11-01"
 DataMigration:
     tracking: "2021-06-30"
+    additions:
+        DatabaseMigrationsSqlDb: 2022-03-30-preview
+        SqlMigrationService: 2022-03-30-preview
+        listSqlMigrationServiceAuthKeys: 2022-03-30-preview
+        listSqlMigrationServiceMonitoringData: 2022-03-30-preview
 DataProtection:
     tracking: "2023-01-01"
 DataShare:
@@ -228,6 +358,9 @@ DeploymentManager:
     tracking: 2019-11-01-preview
 DesktopVirtualization:
     tracking: "2022-09-09"
+    additions:
+        PrivateEndpointConnectionByHostPool: 2022-10-14-preview
+        PrivateEndpointConnectionByWorkspace: 2022-10-14-preview
 DevCenter:
     tracking: "2023-04-01"
 DevHub:
@@ -252,6 +385,12 @@ DigitalTwins:
     tracking: "2023-01-31"
 DocumentDB:
     tracking: "2023-04-15"
+    additions:
+        CassandraResourceCassandraView: 2023-03-15-preview
+        GraphResourceGraph: 2023-03-15-preview
+        MongoCluster: 2023-03-15-preview
+        MongoClusterFirewallRule: 2023-03-15-preview
+        listMongoClusterConnectionStrings: 2023-03-15-preview
 DomainRegistration:
     tracking: "2022-09-01"
 Dynamics365Fraudprotection:
@@ -261,6 +400,11 @@ Easm:
     tracking: 2023-04-01-preview
 EdgeOrder:
     tracking: "2021-12-01"
+    additions:
+        Address: 2022-05-01-preview
+        OrderItem: 2022-05-01-preview
+        listProductsAndConfigurationProductFamilies: 2022-05-01-preview
+        listProductsAndConfigurations: 2022-05-01-preview
 EdgeOrderPartner: {}
 Education:
     tracking: 2021-12-01-preview
@@ -274,10 +418,29 @@ EnterpriseKnowledgeGraph:
     tracking: "2018-12-03"
 EventGrid:
     tracking: "2022-06-15"
+    additions:
+        CaCertificate: 2023-06-01-preview
+        Client: 2023-06-01-preview
+        ClientGroup: 2023-06-01-preview
+        EventChannel: 2021-10-15-preview
+        Namespace: 2023-06-01-preview
+        NamespaceTopic: 2023-06-01-preview
+        NamespaceTopicEventSubscription: 2023-06-01-preview
+        PartnerDestination: 2023-06-01-preview
+        PermissionBinding: 2023-06-01-preview
+        TopicSpace: 2023-06-01-preview
+        listNamespaceSharedAccessKeys: 2023-06-01-preview
+        listNamespaceTopicSharedAccessKeys: 2023-06-01-preview
 EventHub:
     tracking: "2021-11-01"
+    additions:
+        ApplicationGroup: 2022-10-01-preview
+        NamespaceIpFilterRule: 2018-01-01-preview
+        NamespaceVirtualNetworkRule: 2018-01-01-preview
 ExtendedLocation:
     tracking: "2021-08-15"
+    additions:
+        ResourceSyncRule: 2021-08-31-preview
 Features:
     tracking: "2021-07-01"
 FluidRelay:
@@ -296,11 +459,16 @@ HealthBot:
     tracking: "2022-08-08"
 HealthcareApis:
     tracking: "2023-02-28"
+    additions:
+        AnalyticsConnector: 2022-10-01-preview
 Help: {}
 HybridCloud:
     tracking: 2023-01-01-preview
 HybridCompute:
     tracking: "2022-12-27"
+    additions:
+        MachineRunCommand: 2023-04-25-preview
+        PrivateLinkScopedResource: 2020-08-15-preview
 HybridConnectivity:
     tracking: "2023-03-15"
 HybridContainerService:
@@ -309,6 +477,8 @@ HybridData:
     tracking: "2019-06-01"
 HybridNetwork:
     tracking: "2021-05-01"
+    additions:
+        listVendorSkusCredential: 2022-01-01-preview
 ImportExport:
     tracking: "2021-01-01"
 Insights:
@@ -320,25 +490,40 @@ Insights:
         AutoscaleSetting: "2022-10-01"
         Component: "2020-02-02"
         ComponentCurrentBillingFeature: "2015-05-01"
+        ComponentLinkedStorageAccount: 2020-03-01-preview
         DataCollectionEndpoint: "2022-06-01"
         DataCollectionRule: "2022-06-01"
         DataCollectionRuleAssociation: "2022-06-01"
+        DiagnosticSetting: 2021-05-01-preview
         ExportConfiguration: "2015-05-01"
         Favorite: "2015-05-01"
+        GuestDiagnosticsSettingsAssociation: 2018-06-01-preview
         LogProfile: "2016-03-01"
+        ManagementGroupDiagnosticSetting: 2021-05-01-preview
         MetricAlert: "2018-03-01"
         MyWorkbook: "2021-03-08"
+        PrivateEndpointConnection: 2021-07-01-preview
+        PrivateLinkScope: 2021-07-01-preview
+        PrivateLinkScopedResource: 2021-07-01-preview
         ProactiveDetectionConfiguration: "2015-05-01"
         ScheduledQueryRule: "2022-06-15"
+        SubscriptionDiagnosticSetting: 2021-05-01-preview
+        TenantActionGroup: 2023-05-01-preview
         WebTest: "2022-06-15"
         Workbook: "2022-04-01"
         WorkbookTemplate: "2020-11-20"
+        getDiagnosticServiceTokenReadOnly: 2021-03-03-preview
+        getDiagnosticServiceTokenReadWrite: 2021-03-03-preview
         getLiveToken: "2021-10-14"
+        getTestResultFile: 2020-02-10-preview
+        guestDiagnosticsSetting: 2018-06-01-preview
         listEASubscriptionListMigrationDatePost: "2017-10-01"
 Intune:
     tracking: 2015-01-14-preview
 IoTCentral:
     tracking: "2021-06-01"
+    additions:
+        PrivateEndpointConnection: 2021-11-01-preview
 IoTFirmwareDefense:
     tracking: 2023-02-08-preview
 IoTSecurity:
@@ -347,10 +532,17 @@ KeyVault:
     tracking: "2023-02-01"
 Kubernetes:
     tracking: "2021-10-01"
+    additions:
+        listConnectedClusterUserCredentials: 2021-04-01-preview
 KubernetesConfiguration:
     tracking: "2023-05-01"
+    additions:
+        PrivateEndpointConnection: 2022-04-02-preview
+        PrivateLinkScope: 2022-04-02-preview
 Kusto:
     tracking: "2022-12-29"
+    additions:
+        EventHubConnection: 2018-09-07-preview
 LabServices:
     tracking: "2022-08-01"
     additions:
@@ -371,6 +563,8 @@ Logic:
     tracking: "2019-05-01"
     additions:
         RosettaNetProcessConfiguration: "2016-06-01"
+        WorkflowAccessKey: 2015-02-01-preview
+        listWorkflowAccessKeySecretKeys: 2015-02-01-preview
         listWorkflowVersionCallbackUrl: "2016-06-01"
 Logz:
     tracking: 2022-01-01-preview
@@ -379,6 +573,7 @@ M365SecurityAndCompliance:
 MachineLearning:
     tracking: "2019-10-01"
     additions:
+        CommitmentPlan: 2016-05-01-preview
         WebService: "2017-01-01"
 MachineLearningCompute:
     tracking: 2017-08-01-preview
@@ -386,10 +581,27 @@ MachineLearningExperimentation:
     tracking: 2017-05-01-preview
 MachineLearningServices:
     tracking: "2023-04-01"
+    additions:
+        EnvironmentSpecificationVersion: 2021-03-01-preview
+        FeaturesetContainerEntity: 2023-04-01-preview
+        FeaturesetVersion: 2023-04-01-preview
+        FeaturestoreEntityContainerEntity: 2023-04-01-preview
+        FeaturestoreEntityVersion: 2023-04-01-preview
+        LabelingJob: 2023-04-01-preview
+        LinkedService: 2020-09-01-preview
+        LinkedWorkspace: 2020-05-15-preview
+        MachineLearningDataset: 2020-05-01-preview
+        MachineLearningDatastore: 2020-05-01-preview
+        ManagedNetworkSettingsRule: 2023-04-01-preview
+        getFeaturesetVersionFeature: 2023-02-01-preview
+        listFeaturesetVersionFeatures: 2023-02-01-preview
+        listFeaturesetVersionMaterializationJobs: 2023-04-01-preview
 Maintenance:
     tracking: 2022-11-01-preview
 ManagedIdentity:
     tracking: "2023-01-31"
+    additions:
+        listUserAssignedIdentityAssociatedResources: 2022-01-31-preview
 ManagedNetwork:
     tracking: 2019-06-01-preview
 ManagedNetworkFabric:
@@ -402,6 +614,9 @@ ManagementPartner:
     tracking: "2018-02-01"
 Maps:
     tracking: "2021-02-01"
+    additions:
+        PrivateAtlase: 2020-02-01-preview
+        listAccountSas: 2021-12-01-preview
 Marketplace:
     tracking: "2023-01-01"
 MarketplaceNotifications: {}
@@ -415,6 +630,7 @@ Media:
         Job: "2022-07-01"
         LiveEvent: "2022-11-01"
         LiveOutput: "2022-11-01"
+        MediaGraph: 2020-02-01-preview
         MediaService: "2023-01-01"
         PrivateEndpointConnection: "2023-01-01"
         StreamingEndpoint: "2022-11-01"
@@ -439,19 +655,32 @@ Migrate:
         Group: "2019-10-01"
         HyperVCollector: "2019-10-01"
         ImportCollector: "2019-10-01"
+        MigrateAgent: 2022-05-01-preview
+        MigrateProject: 2018-09-01-preview
         MigrateProjectsControllerMigrateProject: "2020-05-01"
+        ModernizeProject: 2022-05-01-preview
         MoveCollection: "2022-08-01"
         MoveResource: "2022-08-01"
         PrivateEndpointConnection: "2019-10-01"
         PrivateEndpointConnectionControllerPrivateEndpointConnection: "2020-05-01"
         Project: "2019-10-01"
         ServerCollector: "2019-10-01"
+        Solution: 2018-09-01-preview
         VMwareCollector: "2019-10-01"
+        WorkloadDeployment: 2022-05-01-preview
+        WorkloadInstance: 2022-05-01-preview
         getProjectKeys: "2018-02-02"
+        getSolutionConfig: 2018-09-01-preview
+        getWorkloadDeploymentSecretConfigurations: 2022-05-01-preview
 MixedReality:
     tracking: "2021-01-01"
+    additions:
+        ObjectAnchorsAccount: 2021-03-01-preview
+        listObjectAnchorsAccountKeys: 2021-03-01-preview
 MobileNetwork:
     tracking: "2022-11-01"
+    additions:
+        listMobileNetworkSimIds: 2022-04-01-preview
 Monitor:
     tracking: "2023-04-03"
 NetApp:
@@ -473,6 +702,7 @@ Network:
         DdosProtectionPlan: "2022-11-01"
         DnsForwardingRuleset: "2022-07-01"
         DnsResolver: "2022-07-01"
+        DnssecConfig: 2023-07-01-preview
         DscpConfiguration: "2022-11-01"
         Endpoint: "2022-04-01"
         Experiment: "2019-11-01"
@@ -511,9 +741,14 @@ Network:
         NetworkManager: "2022-11-01"
         NetworkProfile: "2022-11-01"
         NetworkSecurityGroup: "2022-11-01"
+        NetworkSecurityPerimeter: 2021-03-01-preview
         NetworkVirtualAppliance: "2022-11-01"
         NetworkVirtualApplianceConnection: "2022-11-01"
         NetworkWatcher: "2022-11-01"
+        NspAccessRule: 2021-02-01-preview
+        NspAssociation: 2021-02-01-preview
+        NspLink: 2021-02-01-preview
+        NspProfile: 2021-02-01-preview
         OutboundEndpoint: "2022-07-01"
         P2sVpnGateway: "2022-11-01"
         P2sVpnServerConfiguration: "2019-07-01"
@@ -541,12 +776,15 @@ Network:
         SecurityAdminConfiguration: "2022-11-01"
         SecurityPartnerProvider: "2022-11-01"
         SecurityRule: "2022-11-01"
+        SecurityUserConfiguration: 2022-04-01-preview
         ServiceEndpointPolicy: "2022-11-01"
         ServiceEndpointPolicyDefinition: "2022-11-01"
         StaticMember: "2022-11-01"
         Subnet: "2022-11-01"
         SubscriptionNetworkManagerConnection: "2022-11-01"
         TrafficManagerUserMetricsKey: "2022-04-01"
+        UserRule: 2022-04-01-preview
+        UserRuleCollection: 2022-04-01-preview
         VirtualApplianceSite: "2022-11-01"
         VirtualHub: "2022-11-01"
         VirtualHubBgpConnection: "2022-11-01"
@@ -582,14 +820,23 @@ Network:
         getVirtualNetworkGatewayVpnclientConnectionHealth: "2022-11-01"
         getVirtualNetworkGatewayVpnclientIpsecParameters: "2022-11-01"
         getVpnLinkConnectionIkeSas: "2022-11-01"
+        listActiveConnectivityConfiguration: 2021-02-01-preview
         listActiveConnectivityConfigurations: "2022-11-01"
+        listActiveSecurityAdminRule: 2021-02-01-preview
         listActiveSecurityAdminRules: "2022-11-01"
+        listActiveSecurityUserRule: 2021-02-01-preview
+        listActiveSecurityUserRules: 2022-04-01-preview
         listDnsForwardingRulesetByVirtualNetwork: "2022-07-01"
         listDnsResolverByVirtualNetwork: "2022-07-01"
+        listEffectiveConnectivityConfiguration: 2021-02-01-preview
+        listEffectiveVirtualNetworkByNetworkGroup: 2021-02-01-preview
+        listEffectiveVirtualNetworkByNetworkManager: 2022-04-01-preview
         listFirewallPolicyIdpsSignature: "2022-11-01"
         listFirewallPolicyIdpsSignaturesFilterValue: "2022-11-01"
+        listListEffectiveVirtualNetworkByNetworkGroup: 2022-04-01-preview
         listNetworkManagerDeploymentStatus: "2022-11-01"
         listNetworkManagerEffectiveConnectivityConfigurations: "2022-11-01"
+        listNetworkManagerEffectiveSecurityAdminRule: 2021-02-01-preview
         listNetworkManagerEffectiveSecurityAdminRules: "2022-11-01"
 NetworkCloud:
     tracking: 2022-12-12-preview
@@ -608,6 +855,7 @@ OperationalInsights:
         DataSource: "2020-08-01"
         LinkedService: "2020-08-01"
         LinkedStorageAccount: "2020-08-01"
+        MachineGroup: 2015-11-01-preview
         Query: "2019-09-01"
         QueryPack: "2019-09-01"
         SavedSearch: "2020-08-01"
@@ -615,6 +863,7 @@ OperationalInsights:
         Table: "2022-10-01"
         Workspace: "2022-10-01"
         getSharedKeys: "2020-08-01"
+        getWorkspaceSharedKeys: 2015-11-01-preview
 OperationsManagement:
     tracking: 2015-11-01-preview
 Orbital:
@@ -679,6 +928,8 @@ Relay:
     tracking: "2021-11-01"
 ResourceConnector:
     tracking: "2022-10-27"
+    additions:
+        listApplianceClusterCustomerUserCredential: 2022-04-15-preview
 ResourceGraph:
     tracking: 2020-04-01-preview
 ResourceHealth:
@@ -691,6 +942,9 @@ Resources:
         DeploymentAtSubscriptionScope: "2022-09-01"
         DeploymentAtTenantScope: "2022-09-01"
         DeploymentScript: "2020-10-01"
+        DeploymentStackAtManagementGroup: 2022-08-01-preview
+        DeploymentStackAtResourceGroup: 2022-08-01-preview
+        DeploymentStackAtSubscription: 2022-08-01-preview
         Resource: "2022-09-01"
         ResourceGroup: "2022-09-01"
         TagAtScope: "2022-09-01"
@@ -713,43 +967,95 @@ Security:
         APICollection: 2022-11-20-preview
         AdaptiveApplicationControl: "2020-01-01"
         AdvancedThreatProtection: "2019-01-01"
+        AlertsSuppressionRule: 2019-01-01-preview
         Application: 2022-07-01-preview
         Assessment: "2021-06-01"
         AssessmentMetadataInSubscription: "2021-06-01"
+        AssessmentsMetadataSubscription: 2019-01-01-preview
+        Assignment: 2021-08-01-preview
+        Automation: 2019-01-01-preview
+        Connector: 2020-01-01-preview
+        CustomAssessmentAutomation: 2021-07-01-preview
+        CustomEntityStoreAssignment: 2021-07-01-preview
         DeviceSecurityGroup: "2019-08-01"
+        GovernanceAssignment: 2022-01-01-preview
+        GovernanceRule: 2022-01-01-preview
+        IngestionSetting: 2021-01-15-preview
         IotSecuritySolution: "2019-08-01"
         JitNetworkAccessPolicy: "2020-01-01"
         SecurityConnector: 2023-03-01-preview
         SecurityConnectorApplication: 2022-07-01-preview
+        SecurityContact: 2020-01-01-preview
         SecurityOperator: 2023-01-01-preview
         ServerVulnerabilityAssessment: "2020-01-01"
         SqlVulnerabilityAssessmentBaselineRule: 2023-02-01-preview
+        Standard: 2021-08-01-preview
+        WorkspaceSetting: 2017-08-01-preview
+        listIngestionSettingConnectionStrings: 2021-01-15-preview
+        listIngestionSettingTokens: 2021-01-15-preview
 SecurityAndCompliance:
     tracking: "2021-03-08"
 SecurityDevOps:
     tracking: 2022-09-01-preview
 SecurityInsights:
     tracking: "2023-02-01"
+    additions:
+        BookmarkRelation: 2023-05-01-preview
+        ContentPackage: 2023-05-01-preview
+        ContentTemplate: 2023-05-01-preview
+        EntityQuery: 2023-05-01-preview
+        FileImport: 2023-05-01-preview
+        Hunt: 2023-05-01-preview
+        HuntComment: 2023-05-01-preview
+        HuntRelation: 2023-05-01-preview
+        IncidentTask: 2023-05-01-preview
+        ProductSetting: 2023-05-01-preview
+        SourceControl: 2023-05-01-preview
+        WorkspaceManagerAssignment: 2023-05-01-preview
+        WorkspaceManagerConfiguration: 2023-05-01-preview
+        WorkspaceManagerGroup: 2023-05-01-preview
+        WorkspaceManagerMember: 2023-05-01-preview
+        getEntitiesGetTimeline: 2023-05-01-preview
+        getEntityInsights: 2023-05-01-preview
+        listSourceControlRepositories: 2023-05-01-preview
 SerialConsole:
     tracking: "2018-05-01"
 ServiceBus:
     tracking: "2021-11-01"
+    additions:
+        NamespaceIpFilterRule: 2018-01-01-preview
+        NamespaceVirtualNetworkRule: 2018-01-01-preview
 ServiceFabric:
     tracking: 2023-03-01-preview
+    additions:
+        listListUpgradableVersionPost: 2020-12-01-preview
 ServiceFabricMesh:
     tracking: 2018-09-01-preview
 ServiceLinker:
     tracking: "2022-05-01"
+    additions:
+        Connector: 2022-11-01-preview
+        ConnectorDryrun: 2022-11-01-preview
+        LinkerDryrun: 2022-11-01-preview
 ServiceNetworking:
     tracking: 2023-05-01-preview
 SignalRService:
     tracking: "2023-02-01"
+    additions:
+        SignalRReplica: 2023-03-01-preview
 SoftwarePlan:
     tracking: "2019-12-01"
 Solutions:
     tracking: "2021-07-01"
 Sql:
     tracking: "2021-11-01"
+    additions:
+        BackupLongTermRetentionPolicy: 2017-03-01-preview
+        DatabaseSqlVulnerabilityAssessmentRuleBaseline: 2022-11-01-preview
+        ManagedInstanceLongTermRetentionPolicy: 2022-11-01-preview
+        SqlVulnerabilityAssessmentRuleBaseline: 2022-11-01-preview
+        SqlVulnerabilityAssessmentsSetting: 2022-11-01-preview
+        StartStopManagedInstanceSchedule: 2022-11-01-preview
 SqlVirtualMachine:
     tracking: "2022-02-01"
 StorSimple:
@@ -771,12 +1077,26 @@ Subscription:
 Support: {}
 Synapse:
     tracking: "2021-06-01"
+    additions:
+        DataConnection: 2021-04-01-preview
+        Database: 2021-04-01-preview
+        DatabasePrincipalAssignment: 2021-04-01-preview
+        KustoPool: 2021-06-01-preview
+        KustoPoolAttachedDatabaseConfiguration: 2021-06-01-preview
+        KustoPoolDataConnection: 2021-06-01-preview
+        KustoPoolDatabase: 2021-06-01-preview
+        KustoPoolDatabasePrincipalAssignment: 2021-06-01-preview
+        KustoPoolPrincipalAssignment: 2021-06-01-preview
+        listKustoPoolFollowerDatabases: 2021-06-01-preview
+        listKustoPoolLanguageExtensions: 2021-06-01-preview
 Syntex:
     tracking: 2022-09-15-preview
 TestBase:
     tracking: 2022-04-01-preview
 TimeSeriesInsights:
     tracking: "2020-05-15"
+    additions:
+        PrivateEndpointConnection: 2021-03-31-preview
 VMwareCloudSimple:
     tracking: "2019-04-01"
 VideoAnalyzer:
@@ -789,6 +1109,8 @@ VisualStudio:
     tracking: 2017-11-01-preview
 VoiceServices:
     tracking: "2023-04-03"
+    additions:
+        Contact: 2022-12-01-preview
 Web:
     additions:
         AppServiceEnvironment: "2022-09-01"
@@ -858,6 +1180,7 @@ Web:
         WebAppVnetConnectionSlot: "2022-09-01"
         listAppServicePlanHybridConnectionKeys: "2022-09-01"
         listConnectionConsentLinks: "2016-06-01"
+        listConnectionKeys: 2015-08-01-preview
         listContainerAppSecrets: "2022-09-01"
         listCustomApiWsdlInterfaces: "2016-06-01"
         listSiteIdentifiersAssignedToHostName: "2022-09-01"
@@ -907,6 +1230,8 @@ Web:
         listWorkflowTriggerCallbackUrl: "2022-09-01"
 WebPubSub:
     tracking: "2023-02-01"
+    additions:
+        WebPubSubReplica: 2023-03-01-preview
 WindowsESU:
     tracking: 2019-09-16-preview
 WindowsIoT:
@@ -914,3 +1239,6 @@ WindowsIoT:
 WorkloadMonitor: {}
 Workloads:
     tracking: "2023-04-01"
+    additions:
+        PhpWorkload: 2021-12-01-preview
+        WordpressInstance: 2021-12-01-preview

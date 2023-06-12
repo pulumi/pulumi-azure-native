@@ -344,6 +344,42 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
+    /// Stop day.
+    /// </summary>
+    [EnumType]
+    public readonly struct DayOfWeek : IEquatable<DayOfWeek>
+    {
+        private readonly string _value;
+
+        private DayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
+        public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
+        public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
+        public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
+        public static DayOfWeek Thursday { get; } = new DayOfWeek("Thursday");
+        public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
+        public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
+
+        public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
+        public static bool operator !=(DayOfWeek left, DayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
+        public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The license type to apply for this elastic pool.
     /// </summary>
     [EnumType]
@@ -1186,6 +1222,37 @@ namespace Pulumi.AzureNative.Sql
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServicePrincipalType other && Equals(other);
         public bool Equals(ServicePrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the state of the SQL Vulnerability Assessment, whether it is enabled or disabled or a state has not been applied yet on the specific database or server.
+    /// </summary>
+    [EnumType]
+    public readonly struct SqlVulnerabilityAssessmentState : IEquatable<SqlVulnerabilityAssessmentState>
+    {
+        private readonly string _value;
+
+        private SqlVulnerabilityAssessmentState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SqlVulnerabilityAssessmentState Enabled { get; } = new SqlVulnerabilityAssessmentState("Enabled");
+        public static SqlVulnerabilityAssessmentState Disabled { get; } = new SqlVulnerabilityAssessmentState("Disabled");
+
+        public static bool operator ==(SqlVulnerabilityAssessmentState left, SqlVulnerabilityAssessmentState right) => left.Equals(right);
+        public static bool operator !=(SqlVulnerabilityAssessmentState left, SqlVulnerabilityAssessmentState right) => !left.Equals(right);
+
+        public static explicit operator string(SqlVulnerabilityAssessmentState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SqlVulnerabilityAssessmentState other && Equals(other);
+        public bool Equals(SqlVulnerabilityAssessmentState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

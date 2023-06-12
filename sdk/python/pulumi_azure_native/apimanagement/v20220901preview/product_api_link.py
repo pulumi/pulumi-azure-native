@@ -170,6 +170,8 @@ class ProductApiLink(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ProductApiLink")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProductApiLink, __self__).__init__(
             'azure-native:apimanagement/v20220901preview:ProductApiLink',
             resource_name,

@@ -25,6 +25,11 @@ export type CassandraResourceCassandraTable = import("./cassandraResourceCassand
 export const CassandraResourceCassandraTable: typeof import("./cassandraResourceCassandraTable").CassandraResourceCassandraTable = null as any;
 utilities.lazyLoad(exports, ["CassandraResourceCassandraTable"], () => require("./cassandraResourceCassandraTable"));
 
+export { CassandraResourceCassandraViewArgs } from "./cassandraResourceCassandraView";
+export type CassandraResourceCassandraView = import("./cassandraResourceCassandraView").CassandraResourceCassandraView;
+export const CassandraResourceCassandraView: typeof import("./cassandraResourceCassandraView").CassandraResourceCassandraView = null as any;
+utilities.lazyLoad(exports, ["CassandraResourceCassandraView"], () => require("./cassandraResourceCassandraView"));
+
 export { DatabaseAccountArgs } from "./databaseAccount";
 export type DatabaseAccount = import("./databaseAccount").DatabaseAccount;
 export const DatabaseAccount: typeof import("./databaseAccount").DatabaseAccount = null as any;
@@ -50,10 +55,20 @@ export const getCassandraResourceCassandraTable: typeof import("./getCassandraRe
 export const getCassandraResourceCassandraTableOutput: typeof import("./getCassandraResourceCassandraTable").getCassandraResourceCassandraTableOutput = null as any;
 utilities.lazyLoad(exports, ["getCassandraResourceCassandraTable","getCassandraResourceCassandraTableOutput"], () => require("./getCassandraResourceCassandraTable"));
 
+export { GetCassandraResourceCassandraViewArgs, GetCassandraResourceCassandraViewResult, GetCassandraResourceCassandraViewOutputArgs } from "./getCassandraResourceCassandraView";
+export const getCassandraResourceCassandraView: typeof import("./getCassandraResourceCassandraView").getCassandraResourceCassandraView = null as any;
+export const getCassandraResourceCassandraViewOutput: typeof import("./getCassandraResourceCassandraView").getCassandraResourceCassandraViewOutput = null as any;
+utilities.lazyLoad(exports, ["getCassandraResourceCassandraView","getCassandraResourceCassandraViewOutput"], () => require("./getCassandraResourceCassandraView"));
+
 export { GetDatabaseAccountArgs, GetDatabaseAccountResult, GetDatabaseAccountOutputArgs } from "./getDatabaseAccount";
 export const getDatabaseAccount: typeof import("./getDatabaseAccount").getDatabaseAccount = null as any;
 export const getDatabaseAccountOutput: typeof import("./getDatabaseAccount").getDatabaseAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
+
+export { GetGraphResourceGraphArgs, GetGraphResourceGraphResult, GetGraphResourceGraphOutputArgs } from "./getGraphResourceGraph";
+export const getGraphResourceGraph: typeof import("./getGraphResourceGraph").getGraphResourceGraph = null as any;
+export const getGraphResourceGraphOutput: typeof import("./getGraphResourceGraph").getGraphResourceGraphOutput = null as any;
+utilities.lazyLoad(exports, ["getGraphResourceGraph","getGraphResourceGraphOutput"], () => require("./getGraphResourceGraph"));
 
 export { GetGremlinResourceGremlinDatabaseArgs, GetGremlinResourceGremlinDatabaseResult, GetGremlinResourceGremlinDatabaseOutputArgs } from "./getGremlinResourceGremlinDatabase";
 export const getGremlinResourceGremlinDatabase: typeof import("./getGremlinResourceGremlinDatabase").getGremlinResourceGremlinDatabase = null as any;
@@ -64,6 +79,16 @@ export { GetGremlinResourceGremlinGraphArgs, GetGremlinResourceGremlinGraphResul
 export const getGremlinResourceGremlinGraph: typeof import("./getGremlinResourceGremlinGraph").getGremlinResourceGremlinGraph = null as any;
 export const getGremlinResourceGremlinGraphOutput: typeof import("./getGremlinResourceGremlinGraph").getGremlinResourceGremlinGraphOutput = null as any;
 utilities.lazyLoad(exports, ["getGremlinResourceGremlinGraph","getGremlinResourceGremlinGraphOutput"], () => require("./getGremlinResourceGremlinGraph"));
+
+export { GetMongoClusterArgs, GetMongoClusterResult, GetMongoClusterOutputArgs } from "./getMongoCluster";
+export const getMongoCluster: typeof import("./getMongoCluster").getMongoCluster = null as any;
+export const getMongoClusterOutput: typeof import("./getMongoCluster").getMongoClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getMongoCluster","getMongoClusterOutput"], () => require("./getMongoCluster"));
+
+export { GetMongoClusterFirewallRuleArgs, GetMongoClusterFirewallRuleResult, GetMongoClusterFirewallRuleOutputArgs } from "./getMongoClusterFirewallRule";
+export const getMongoClusterFirewallRule: typeof import("./getMongoClusterFirewallRule").getMongoClusterFirewallRule = null as any;
+export const getMongoClusterFirewallRuleOutput: typeof import("./getMongoClusterFirewallRule").getMongoClusterFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getMongoClusterFirewallRule","getMongoClusterFirewallRuleOutput"], () => require("./getMongoClusterFirewallRule"));
 
 export { GetMongoDBResourceMongoDBCollectionArgs, GetMongoDBResourceMongoDBCollectionResult, GetMongoDBResourceMongoDBCollectionOutputArgs } from "./getMongoDBResourceMongoDBCollection";
 export const getMongoDBResourceMongoDBCollection: typeof import("./getMongoDBResourceMongoDBCollection").getMongoDBResourceMongoDBCollection = null as any;
@@ -140,6 +165,11 @@ export const getTableResourceTable: typeof import("./getTableResourceTable").get
 export const getTableResourceTableOutput: typeof import("./getTableResourceTable").getTableResourceTableOutput = null as any;
 utilities.lazyLoad(exports, ["getTableResourceTable","getTableResourceTableOutput"], () => require("./getTableResourceTable"));
 
+export { GraphResourceGraphArgs } from "./graphResourceGraph";
+export type GraphResourceGraph = import("./graphResourceGraph").GraphResourceGraph;
+export const GraphResourceGraph: typeof import("./graphResourceGraph").GraphResourceGraph = null as any;
+utilities.lazyLoad(exports, ["GraphResourceGraph"], () => require("./graphResourceGraph"));
+
 export { GremlinResourceGremlinDatabaseArgs } from "./gremlinResourceGremlinDatabase";
 export type GremlinResourceGremlinDatabase = import("./gremlinResourceGremlinDatabase").GremlinResourceGremlinDatabase;
 export const GremlinResourceGremlinDatabase: typeof import("./gremlinResourceGremlinDatabase").GremlinResourceGremlinDatabase = null as any;
@@ -160,10 +190,25 @@ export const listDatabaseAccountKeys: typeof import("./listDatabaseAccountKeys")
 export const listDatabaseAccountKeysOutput: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabaseAccountKeys","listDatabaseAccountKeysOutput"], () => require("./listDatabaseAccountKeys"));
 
+export { ListMongoClusterConnectionStringsArgs, ListMongoClusterConnectionStringsResult, ListMongoClusterConnectionStringsOutputArgs } from "./listMongoClusterConnectionStrings";
+export const listMongoClusterConnectionStrings: typeof import("./listMongoClusterConnectionStrings").listMongoClusterConnectionStrings = null as any;
+export const listMongoClusterConnectionStringsOutput: typeof import("./listMongoClusterConnectionStrings").listMongoClusterConnectionStringsOutput = null as any;
+utilities.lazyLoad(exports, ["listMongoClusterConnectionStrings","listMongoClusterConnectionStringsOutput"], () => require("./listMongoClusterConnectionStrings"));
+
 export { ListNotebookWorkspaceConnectionInfoArgs, ListNotebookWorkspaceConnectionInfoResult, ListNotebookWorkspaceConnectionInfoOutputArgs } from "./listNotebookWorkspaceConnectionInfo";
 export const listNotebookWorkspaceConnectionInfo: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfo = null as any;
 export const listNotebookWorkspaceConnectionInfoOutput: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfoOutput = null as any;
 utilities.lazyLoad(exports, ["listNotebookWorkspaceConnectionInfo","listNotebookWorkspaceConnectionInfoOutput"], () => require("./listNotebookWorkspaceConnectionInfo"));
+
+export { MongoClusterArgs } from "./mongoCluster";
+export type MongoCluster = import("./mongoCluster").MongoCluster;
+export const MongoCluster: typeof import("./mongoCluster").MongoCluster = null as any;
+utilities.lazyLoad(exports, ["MongoCluster"], () => require("./mongoCluster"));
+
+export { MongoClusterFirewallRuleArgs } from "./mongoClusterFirewallRule";
+export type MongoClusterFirewallRule = import("./mongoClusterFirewallRule").MongoClusterFirewallRule;
+export const MongoClusterFirewallRule: typeof import("./mongoClusterFirewallRule").MongoClusterFirewallRule = null as any;
+utilities.lazyLoad(exports, ["MongoClusterFirewallRule"], () => require("./mongoClusterFirewallRule"));
 
 export { MongoDBResourceMongoDBCollectionArgs } from "./mongoDBResourceMongoDBCollection";
 export type MongoDBResourceMongoDBCollection = import("./mongoDBResourceMongoDBCollection").MongoDBResourceMongoDBCollection;
@@ -293,12 +338,20 @@ const _module = {
                 return new CassandraResourceCassandraKeyspace(name, <any>undefined, { urn })
             case "azure-native:documentdb:CassandraResourceCassandraTable":
                 return new CassandraResourceCassandraTable(name, <any>undefined, { urn })
+            case "azure-native:documentdb:CassandraResourceCassandraView":
+                return new CassandraResourceCassandraView(name, <any>undefined, { urn })
             case "azure-native:documentdb:DatabaseAccount":
                 return new DatabaseAccount(name, <any>undefined, { urn })
+            case "azure-native:documentdb:GraphResourceGraph":
+                return new GraphResourceGraph(name, <any>undefined, { urn })
             case "azure-native:documentdb:GremlinResourceGremlinDatabase":
                 return new GremlinResourceGremlinDatabase(name, <any>undefined, { urn })
             case "azure-native:documentdb:GremlinResourceGremlinGraph":
                 return new GremlinResourceGremlinGraph(name, <any>undefined, { urn })
+            case "azure-native:documentdb:MongoCluster":
+                return new MongoCluster(name, <any>undefined, { urn })
+            case "azure-native:documentdb:MongoClusterFirewallRule":
+                return new MongoClusterFirewallRule(name, <any>undefined, { urn })
             case "azure-native:documentdb:MongoDBResourceMongoDBCollection":
                 return new MongoDBResourceMongoDBCollection(name, <any>undefined, { urn })
             case "azure-native:documentdb:MongoDBResourceMongoDBDatabase":

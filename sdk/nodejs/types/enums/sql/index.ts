@@ -156,6 +156,21 @@ export const DatabaseReadScale = {
  */
 export type DatabaseReadScale = (typeof DatabaseReadScale)[keyof typeof DatabaseReadScale];
 
+export const DayOfWeek = {
+    Sunday: "Sunday",
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+} as const;
+
+/**
+ * Stop day.
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
 export const ElasticPoolLicenseType = {
     LicenseIncluded: "LicenseIncluded",
     BasePrice: "BasePrice",
@@ -438,6 +453,16 @@ export const ServicePrincipalType = {
  * Service principal type.
  */
 export type ServicePrincipalType = (typeof ServicePrincipalType)[keyof typeof ServicePrincipalType];
+
+export const SqlVulnerabilityAssessmentState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies the state of the SQL Vulnerability Assessment, whether it is enabled or disabled or a state has not been applied yet on the specific database or server.
+ */
+export type SqlVulnerabilityAssessmentState = (typeof SqlVulnerabilityAssessmentState)[keyof typeof SqlVulnerabilityAssessmentState];
 
 export const SyncConflictResolutionPolicy = {
     HubWin: "HubWin",

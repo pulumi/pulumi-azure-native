@@ -6,8 +6,19 @@ from enum import Enum
 
 __all__ = [
     'AvailabilityType',
+    'CloudInitDataSource',
     'DiagnosticLevel',
+    'DiskFileFormat',
+    'ExtendedLocationTypes',
+    'HyperVGeneration',
+    'IPPoolTypeEnum',
+    'IpAllocationMethodEnum',
     'ManagedServiceIdentityType',
+    'NetworkTypeEnum',
+    'OperatingSystemTypes',
+    'OsTypeEnum',
+    'PrivateIPAllocationMethodEnum',
+    'ResourceIdentityType',
     'SoftwareAssuranceIntent',
     'SoftwareAssuranceStatus',
     'State',
@@ -26,6 +37,14 @@ class AvailabilityType(str, Enum):
     NOTIFY = "Notify"
 
 
+class CloudInitDataSource(str, Enum):
+    """
+    Datasource for the gallery image when provisioning with cloud-init [Azure, NoCloud]
+    """
+    NO_CLOUD = "NoCloud"
+    AZURE = "Azure"
+
+
 class DiagnosticLevel(str, Enum):
     """
     Desired level of diagnostic data emitted by the cluster.
@@ -33,6 +52,45 @@ class DiagnosticLevel(str, Enum):
     OFF = "Off"
     BASIC = "Basic"
     ENHANCED = "Enhanced"
+
+
+class DiskFileFormat(str, Enum):
+    """
+    The format of the actual VHD file [vhd, vhdx]
+    """
+    VHDX = "vhdx"
+    VHD = "vhd"
+
+
+class ExtendedLocationTypes(str, Enum):
+    """
+    The type of the extended location.
+    """
+    CUSTOM_LOCATION = "CustomLocation"
+
+
+class HyperVGeneration(str, Enum):
+    """
+    The hypervisor generation of the Virtual Machine [V1, V2]
+    """
+    V1 = "V1"
+    V2 = "V2"
+
+
+class IPPoolTypeEnum(str, Enum):
+    """
+    ip pool type
+    """
+    VM = "vm"
+    VIPPOOL = "vippool"
+
+
+class IpAllocationMethodEnum(str, Enum):
+    """
+    IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
+    """
+    DYNAMIC = "Dynamic"
+    STATIC = "Static"
 
 
 class ManagedServiceIdentityType(str, Enum):
@@ -43,6 +101,52 @@ class ManagedServiceIdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+
+
+class NetworkTypeEnum(str, Enum):
+    """
+    Type of the network
+    """
+    NAT = "NAT"
+    TRANSPARENT = "Transparent"
+    L2_BRIDGE = "L2Bridge"
+    L2_TUNNEL = "L2Tunnel"
+    ICS = "ICS"
+    PRIVATE = "Private"
+    OVERLAY = "Overlay"
+    INTERNAL = "Internal"
+    MIRRORED = "Mirrored"
+
+
+class OperatingSystemTypes(str, Enum):
+    """
+    operating system type that the gallery image uses. Expected to be linux or windows
+    """
+    WINDOWS = "Windows"
+    LINUX = "Linux"
+
+
+class OsTypeEnum(str, Enum):
+    """
+    OsType - string specifying whether the OS is Linux or Windows
+    """
+    LINUX = "Linux"
+    WINDOWS = "Windows"
+
+
+class PrivateIPAllocationMethodEnum(str, Enum):
+    """
+    PrivateIPAllocationMethod - The private IP address allocation method. Possible values include: 'Static', 'Dynamic'
+    """
+    DYNAMIC = "Dynamic"
+    STATIC = "Static"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The identity type.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 class SoftwareAssuranceIntent(str, Enum):

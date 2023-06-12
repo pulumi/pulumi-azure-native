@@ -172,6 +172,37 @@ namespace Pulumi.AzureNative.ServiceBus
     }
 
     /// <summary>
+    /// The IP Filter Action
+    /// </summary>
+    [EnumType]
+    public readonly struct IPAction : IEquatable<IPAction>
+    {
+        private readonly string _value;
+
+        private IPAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IPAction Accept { get; } = new IPAction("Accept");
+        public static IPAction Reject { get; } = new IPAction("Reject");
+
+        public static bool operator ==(IPAction left, IPAction right) => left.Equals(right);
+        public static bool operator !=(IPAction left, IPAction right) => !left.Equals(right);
+
+        public static explicit operator string(IPAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPAction other && Equals(other);
+        public bool Equals(IPAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enumerates the possible value of keySource for Encryption
     /// </summary>
     [EnumType]

@@ -29,6 +29,7 @@
   "AadIam": {
     "DiagnosticSetting": "2017-04-01",
     "PrivateEndpointConnection": "2020-03-01",
+    "azureADMetric": "2020-07-01-preview",
     "privateLinkForAzureAd": "2020-03-01"
   },
   "Addons": {
@@ -45,6 +46,7 @@
     "Solution": "2021-09-01-preview"
   },
   "AlertsManagement": {
+    "ActionRuleByName": "2019-05-05-preview",
     "AlertProcessingRuleByName": "2021-08-08",
     "PrometheusRuleGroup": "2023-03-01",
     "SmartDetectorAlertRule": "2021-04-01"
@@ -103,15 +105,46 @@
     "PrivateEndpointConnectionByName": "2022-08-01",
     "Product": "2022-08-01",
     "ProductApi": "2022-08-01",
+    "ProductApiLink": "2022-09-01-preview",
     "ProductGroup": "2022-08-01",
+    "ProductGroupLink": "2022-09-01-preview",
     "ProductPolicy": "2022-08-01",
     "ProductWiki": "2022-08-01",
+    "Schema": "2021-04-01-preview",
     "Subscription": "2022-08-01",
     "Tag": "2022-08-01",
+    "TagApiLink": "2022-09-01-preview",
     "TagByApi": "2022-08-01",
     "TagByOperation": "2022-08-01",
     "TagByProduct": "2022-08-01",
+    "TagOperationLink": "2022-09-01-preview",
+    "TagProductLink": "2022-09-01-preview",
     "User": "2022-08-01",
+    "Workspace": "2022-09-01-preview",
+    "WorkspaceApi": "2022-09-01-preview",
+    "WorkspaceApiOperation": "2022-09-01-preview",
+    "WorkspaceApiOperationPolicy": "2022-09-01-preview",
+    "WorkspaceApiPolicy": "2022-09-01-preview",
+    "WorkspaceApiRelease": "2022-09-01-preview",
+    "WorkspaceApiSchema": "2022-09-01-preview",
+    "WorkspaceApiVersionSet": "2022-09-01-preview",
+    "WorkspaceGlobalSchema": "2022-09-01-preview",
+    "WorkspaceGroup": "2022-09-01-preview",
+    "WorkspaceGroupUser": "2022-09-01-preview",
+    "WorkspaceNamedValue": "2022-09-01-preview",
+    "WorkspaceNotificationRecipientEmail": "2022-09-01-preview",
+    "WorkspaceNotificationRecipientUser": "2022-09-01-preview",
+    "WorkspacePolicy": "2022-09-01-preview",
+    "WorkspacePolicyFragment": "2022-09-01-preview",
+    "WorkspaceProduct": "2022-09-01-preview",
+    "WorkspaceProductApiLink": "2022-09-01-preview",
+    "WorkspaceProductGroupLink": "2022-09-01-preview",
+    "WorkspaceProductPolicy": "2022-09-01-preview",
+    "WorkspaceSubscription": "2022-09-01-preview",
+    "WorkspaceTag": "2022-09-01-preview",
+    "WorkspaceTagApiLink": "2022-09-01-preview",
+    "WorkspaceTagOperationLink": "2022-09-01-preview",
+    "WorkspaceTagProductLink": "2022-09-01-preview",
     "getApiManagementServiceDomainOwnershipIdentifier": "2022-08-01",
     "getApiManagementServiceSsoToken": "2022-08-01",
     "getAuthorizationLoginLinkPost": "2022-08-01",
@@ -124,7 +157,10 @@
     "listOpenIdConnectProviderSecrets": "2022-08-01",
     "listPolicyFragmentReferences": "2022-08-01",
     "listSubscriptionSecrets": "2022-08-01",
-    "listTenantAccessSecrets": "2022-08-01"
+    "listTenantAccessSecrets": "2022-08-01",
+    "listWorkspaceNamedValue": "2022-09-01-preview",
+    "listWorkspacePolicyFragmentReferences": "2022-09-01-preview",
+    "listWorkspaceSubscriptionSecrets": "2022-09-01-preview"
   },
   "App": {
     "Certificate": "2022-10-01",
@@ -136,6 +172,8 @@
     "ContainerAppsAuthConfig": "2022-10-01",
     "ContainerAppsSourceControl": "2022-10-01",
     "DaprComponent": "2022-10-01",
+    "Job": "2023-04-01-preview",
+    "ManagedCertificate": "2023-04-01-preview",
     "ManagedEnvironment": "2022-10-01",
     "ManagedEnvironmentsStorage": "2022-10-01",
     "getContainerAppAuthToken": "2022-10-01",
@@ -143,7 +181,8 @@
     "listConnectedEnvironmentsDaprComponentSecrets": "2022-10-01",
     "listContainerAppCustomHostNameAnalysis": "2022-10-01",
     "listContainerAppSecrets": "2022-10-01",
-    "listDaprComponentSecrets": "2022-10-01"
+    "listDaprComponentSecrets": "2022-10-01",
+    "listJobSecrets": "2023-04-01-preview"
   },
   "AppComplianceAutomation": {
     "Report": "2022-11-16-preview"
@@ -158,16 +197,23 @@
   "AppPlatform": {
     "ApiPortal": "2022-12-01",
     "ApiPortalCustomDomain": "2022-12-01",
+    "Apm": "2023-05-01-preview",
     "App": "2022-12-01",
+    "ApplicationAccelerator": "2023-05-01-preview",
+    "ApplicationLiveView": "2023-05-01-preview",
     "Binding": "2022-12-01",
     "BuildServiceAgentPool": "2022-12-01",
+    "BuildServiceBuild": "2023-05-01-preview",
     "BuildServiceBuilder": "2022-12-01",
     "BuildpackBinding": "2022-12-01",
     "Certificate": "2022-12-01",
     "ConfigServer": "2022-12-01",
     "ConfigurationService": "2022-12-01",
+    "ContainerRegistry": "2023-05-01-preview",
     "CustomDomain": "2022-12-01",
+    "CustomizedAccelerator": "2023-05-01-preview",
     "Deployment": "2022-12-01",
+    "DevToolPortal": "2023-05-01-preview",
     "Gateway": "2022-12-01",
     "GatewayCustomDomain": "2022-12-01",
     "GatewayRouteConfig": "2022-12-01",
@@ -180,7 +226,10 @@
     "getBuildServiceResourceUploadUrl": "2022-12-01",
     "getDeploymentLogFileUrl": "2022-12-01",
     "getDeploymentRemoteDebuggingConfig": "2022-12-01",
+    "listApmSecretKeys": "2023-05-01-preview",
     "listBuildServiceBuilderDeployments": "2022-12-01",
+    "listGatewayEnvSecrets": "2023-05-01-preview",
+    "listServiceGloballyEnabledApms": "2023-05-01-preview",
     "listServiceTestKeys": "2022-12-01"
   },
   "Attestation": {
@@ -188,6 +237,8 @@
     "PrivateEndpointConnection": "2021-06-01"
   },
   "Authorization": {
+    "AccessReviewHistoryDefinitionById": "2021-12-01-preview",
+    "AccessReviewScheduleDefinitionById": "2021-12-01-preview",
     "ManagementLockAtResourceGroupLevel": "2020-05-01",
     "ManagementLockAtResourceLevel": "2020-05-01",
     "ManagementLockAtSubscriptionLevel": "2020-05-01",
@@ -195,19 +246,28 @@
     "PolicyAssignment": "2022-06-01",
     "PolicyDefinition": "2021-06-01",
     "PolicyDefinitionAtManagementGroup": "2021-06-01",
+    "PolicyExemption": "2022-07-01-preview",
     "PolicySetDefinition": "2021-06-01",
     "PolicySetDefinitionAtManagementGroup": "2021-06-01",
     "PrivateLinkAssociation": "2020-05-01",
     "ResourceManagementPrivateLink": "2020-05-01",
     "RoleAssignment": "2022-04-01",
     "RoleDefinition": "2022-04-01",
-    "RoleManagementPolicyAssignment": "2020-10-01"
+    "RoleManagementPolicyAssignment": "2020-10-01",
+    "ScopeAccessReviewHistoryDefinitionById": "2021-12-01-preview",
+    "ScopeAccessReviewScheduleDefinitionById": "2021-12-01-preview",
+    "Variable": "2022-08-01-preview",
+    "VariableAtManagementGroup": "2022-08-01-preview",
+    "VariableValue": "2022-08-01-preview",
+    "VariableValueAtManagementGroup": "2022-08-01-preview"
   },
   "Automanage": {
+    "Account": "2020-06-30-preview",
     "ConfigurationProfile": "2022-05-04",
     "ConfigurationProfileAssignment": "2022-05-04",
     "ConfigurationProfileHCIAssignment": "2022-05-04",
     "ConfigurationProfileHCRPAssignment": "2022-05-04",
+    "ConfigurationProfilePreference": "2020-06-30-preview",
     "ConfigurationProfilesVersion": "2022-05-04"
   },
   "Automation": {
@@ -222,6 +282,7 @@
     "HybridRunbookWorkerGroup": "2022-08-08",
     "JobSchedule": "2022-08-08",
     "Module": "2022-08-08",
+    "PrivateEndpointConnection": "2020-01-13-preview",
     "Python2Package": "2022-08-08",
     "Python3Package": "2022-08-08",
     "Runbook": "2022-08-08",
@@ -229,7 +290,7 @@
     "SoftwareUpdateConfigurationByName": "2019-06-01",
     "SourceControl": "2022-08-08",
     "Variable": "2022-08-08",
-    "Watcher": "2019-06-01",
+    "Watcher": "2020-01-13-preview",
     "Webhook": "2015-10-31",
     "listKeyByAutomationAccount": "2022-08-08"
   },
@@ -268,6 +329,7 @@
   },
   "AzureStack": {
     "CustomerSubscription": "2022-06-01",
+    "LinkedSubscription": "2020-06-01-preview",
     "Registration": "2022-06-01",
     "getProduct": "2022-06-01",
     "getProducts": "2022-06-01",
@@ -281,7 +343,14 @@
     "Extension": "2023-03-01",
     "Update": "2023-03-01",
     "UpdateRun": "2023-03-01",
-    "UpdateSummary": "2023-03-01"
+    "UpdateSummary": "2023-03-01",
+    "galleryimageRetrieve": "2021-09-01-preview",
+    "marketplacegalleryimage": "2021-09-01-preview",
+    "networkinterfaceRetrieve": "2021-09-01-preview",
+    "storagecontainerRetrieve": "2021-09-01-preview",
+    "virtualharddiskRetrieve": "2021-09-01-preview",
+    "virtualmachineRetrieve": "2021-09-01-preview",
+    "virtualnetworkRetrieve": "2021-09-01-preview"
   },
   "BareMetalInfrastructure": {
     "AzureBareMetalStorageInstance": "2023-04-06"
@@ -294,6 +363,9 @@
     "listBatchAccountKeys": "2022-10-01"
   },
   "Billing": {
+    "BillingRoleAssignmentByBillingAccount": "2019-10-01-preview",
+    "BillingRoleAssignmentByDepartment": "2019-10-01-preview",
+    "BillingRoleAssignmentByEnrollmentAccount": "2019-10-01-preview",
     "listBillingAccountInvoiceSectionsByCreateSubscriptionPermission": "2020-05-01"
   },
   "BillingBenefits": {},
@@ -321,15 +393,17 @@
     "listQnAMakerEndpointKey": "2022-09-15"
   },
   "Cache": {
-    "Database": "2022-01-01",
-    "EnterprisePrivateEndpointConnection": "2022-01-01",
+    "AccessPolicy": "2023-05-01-preview",
+    "AccessPolicyAssignment": "2023-05-01-preview",
+    "Database": "2023-03-01-preview",
+    "EnterprisePrivateEndpointConnection": "2023-03-01-preview",
     "FirewallRule": "2023-04-01",
     "LinkedServer": "2023-04-01",
     "PatchSchedule": "2023-04-01",
     "PrivateEndpointConnection": "2023-04-01",
     "Redis": "2023-04-01",
-    "RedisEnterprise": "2022-01-01",
-    "listDatabaseKeys": "2022-01-01",
+    "RedisEnterprise": "2023-03-01-preview",
+    "listDatabaseKeys": "2023-03-01-preview",
     "listRedisKeys": "2023-04-01"
   },
   "Capacity": {},
@@ -415,7 +489,8 @@
     "getLogAnalyticExportThrottledRequests": "2023-03-01"
   },
   "ConfidentialLedger": {
-    "Ledger": "2022-05-13"
+    "Ledger": "2022-05-13",
+    "ManagedCCF": "2023-01-26-preview"
   },
   "Confluent": {
     "Organization": "2021-12-01"
@@ -441,27 +516,49 @@
     "ContainerGroup": "2023-05-01"
   },
   "ContainerRegistry": {
+    "AgentPool": "2019-06-01-preview",
+    "BuildStep": "2018-02-01-preview",
+    "CacheRule": "2023-01-01-preview",
+    "ConnectedRegistry": "2023-01-01-preview",
+    "CredentialSet": "2023-01-01-preview",
+    "ExportPipeline": "2023-01-01-preview",
+    "ImportPipeline": "2023-01-01-preview",
+    "PipelineRun": "2023-01-01-preview",
     "PrivateEndpointConnection": "2022-12-01",
     "Registry": "2022-12-01",
     "Replication": "2022-12-01",
     "ScopeMap": "2022-12-01",
-    "Task": "2019-04-01",
+    "Task": "2019-06-01-preview",
+    "TaskRun": "2019-06-01-preview",
     "Token": "2022-12-01",
     "Webhook": "2022-12-01",
+    "getBuildLogLink": "2018-02-01-preview",
+    "getRegistryBuildSourceUploadUrl": "2018-02-01-preview",
+    "getRegistryCredentials": "2016-06-27-preview",
     "getWebhookCallbackConfig": "2022-12-01",
-    "listRegistryBuildSourceUploadUrl": "2019-04-01",
+    "listAgentPoolQueueStatus": "2019-06-01-preview",
+    "listBuildStepBuildArguments": "2018-02-01-preview",
+    "listBuildTaskSourceRepositoryProperties": "2018-02-01-preview",
+    "listRegistryBuildSourceUploadUrl": "2019-06-01-preview",
     "listRegistryCredentials": "2022-12-01",
-    "listRunLogSasUrl": "2019-04-01",
-    "listTaskDetails": "2019-04-01",
+    "listRunLogSasUrl": "2019-06-01-preview",
+    "listTaskDetails": "2019-06-01-preview",
+    "listTaskRunDetails": "2019-06-01-preview",
     "listWebhookEvents": "2022-12-01"
   },
   "ContainerService": {
     "AgentPool": "2023-04-01",
+    "Fleet": "2023-03-15-preview",
+    "FleetMember": "2023-03-15-preview",
     "MaintenanceConfiguration": "2023-04-01",
     "ManagedCluster": "2023-04-01",
-    "OpenShiftManagedCluster": "2019-04-30",
+    "ManagedClusterSnapshot": "2023-04-02-preview",
+    "OpenShiftManagedCluster": "2019-10-27-preview",
     "PrivateEndpointConnection": "2023-04-01",
     "Snapshot": "2023-04-01",
+    "TrustedAccessRoleBinding": "2023-04-02-preview",
+    "UpdateRun": "2023-03-15-preview",
+    "listFleetCredentials": "2023-03-15-preview",
     "listManagedClusterAccessProfile": "2020-03-01",
     "listManagedClusterAdminCredentials": "2023-04-01",
     "listManagedClusterMonitoringUserCredentials": "2023-04-01",
@@ -473,10 +570,20 @@
     "VolumeSnapshot": "2023-03-01-preview"
   },
   "CostManagement": {
+    "Budget": "2023-04-01-preview",
+    "CloudConnector": "2019-03-01-preview",
+    "Connector": "2018-08-01-preview",
+    "CostAllocationRule": "2020-03-01-preview",
     "Export": "2023-03-01",
+    "MarkupRule": "2022-10-05-preview",
+    "Report": "2018-08-01-preview",
+    "ReportByBillingAccount": "2018-08-01-preview",
+    "ReportByDepartment": "2018-08-01-preview",
+    "ReportByResourceGroupName": "2018-08-01-preview",
     "ScheduledAction": "2023-03-01",
     "ScheduledActionByScope": "2023-03-01",
     "Setting": "2019-11-01",
+    "SettingByScope": "2022-10-05-preview",
     "View": "2023-03-01",
     "ViewByScope": "2023-03-01"
   },
@@ -516,7 +623,11 @@
     "Configuration": "2022-01-01",
     "Database": "2022-01-01",
     "FirewallRule": "2022-01-01",
+    "PrivateEndpointConnection": "2022-09-30-preview",
     "Server": "2022-01-01",
+    "ServerAdministrator": "2017-12-01-preview",
+    "ServerKey": "2020-07-01-preview",
+    "VirtualNetworkRule": "2017-12-01-preview",
     "getGetPrivateDnsZoneSuffixExecute": "2022-01-01"
   },
   "DBforPostgreSQL": {
@@ -525,9 +636,13 @@
     "Configuration": "2022-12-01",
     "Database": "2022-12-01",
     "FirewallRule": "2022-12-01",
+    "Migration": "2023-03-01-preview",
     "PrivateEndpointConnection": "2022-11-08",
     "Role": "2022-11-08",
     "Server": "2022-12-01",
+    "ServerAdministrator": "2017-12-01-preview",
+    "ServerSecurityAlertPolicy": "2017-12-01-preview",
+    "VirtualNetworkRule": "2017-12-01-preview",
     "getGetPrivateDnsZoneSuffixExecute": "2022-12-01"
   },
   "Dashboard": {
@@ -552,6 +667,7 @@
     "Trigger": "2022-03-01",
     "User": "2022-03-01",
     "getDeviceExtendedInformation": "2022-03-01",
+    "getMarketplaceImageSasTokenSASToken": "2023-01-01-preview",
     "listOrderDCAccessCode": "2022-03-01"
   },
   "DataCatalog": {
@@ -595,11 +711,15 @@
     "VirtualNetworkRule": "2016-11-01"
   },
   "DataMigration": {
+    "DatabaseMigrationsSqlDb": "2022-03-30-preview",
     "File": "2021-06-30",
     "Project": "2021-06-30",
     "Service": "2021-06-30",
     "ServiceTask": "2021-06-30",
-    "Task": "2021-06-30"
+    "SqlMigrationService": "2022-03-30-preview",
+    "Task": "2021-06-30",
+    "listSqlMigrationServiceAuthKeys": "2022-03-30-preview",
+    "listSqlMigrationServiceMonitoringData": "2022-03-30-preview"
   },
   "DataProtection": {
     "BackupInstance": "2023-01-01",
@@ -655,6 +775,8 @@
     "ApplicationGroup": "2022-09-09",
     "HostPool": "2022-09-09",
     "MSIXPackage": "2022-09-09",
+    "PrivateEndpointConnectionByHostPool": "2022-10-14-preview",
+    "PrivateEndpointConnectionByWorkspace": "2022-10-14-preview",
     "ScalingPlan": "2022-09-09",
     "ScalingPlanPooledSchedule": "2022-09-09",
     "Workspace": "2022-09-09"
@@ -736,9 +858,13 @@
     "CassandraDataCenter": "2023-04-15",
     "CassandraResourceCassandraKeyspace": "2023-04-15",
     "CassandraResourceCassandraTable": "2023-04-15",
+    "CassandraResourceCassandraView": "2023-03-15-preview",
     "DatabaseAccount": "2023-04-15",
+    "GraphResourceGraph": "2023-03-15-preview",
     "GremlinResourceGremlinDatabase": "2023-04-15",
     "GremlinResourceGremlinGraph": "2023-04-15",
+    "MongoCluster": "2023-03-15-preview",
+    "MongoClusterFirewallRule": "2023-03-15-preview",
     "MongoDBResourceMongoDBCollection": "2023-04-15",
     "MongoDBResourceMongoDBDatabase": "2023-04-15",
     "MongoDBResourceMongoRoleDefinition": "2023-04-15",
@@ -756,6 +882,7 @@
     "TableResourceTable": "2023-04-15",
     "listDatabaseAccountConnectionStrings": "2023-04-15",
     "listDatabaseAccountKeys": "2023-04-15",
+    "listMongoClusterConnectionStrings": "2023-03-15-preview",
     "listNotebookWorkspaceConnectionInfo": "2023-04-15"
   },
   "DomainRegistration": {
@@ -773,10 +900,14 @@
     "Workspace": "2023-04-01-preview"
   },
   "EdgeOrder": {
+    "Address": "2022-05-01-preview",
     "AddressByName": "2021-12-01",
+    "OrderItem": "2022-05-01-preview",
     "OrderItemByName": "2021-12-01",
     "listConfigurations": "2021-12-01",
-    "listProductFamilies": "2021-12-01"
+    "listProductFamilies": "2021-12-01",
+    "listProductsAndConfigurationProductFamilies": "2022-05-01-preview",
+    "listProductsAndConfigurations": "2022-05-01-preview"
   },
   "EdgeOrderPartner": {},
   "Education": {
@@ -809,22 +940,32 @@
     "EnterpriseKnowledgeGraph": "2018-12-03"
   },
   "EventGrid": {
+    "CaCertificate": "2023-06-01-preview",
     "Channel": "2022-06-15",
+    "Client": "2023-06-01-preview",
+    "ClientGroup": "2023-06-01-preview",
     "Domain": "2022-06-15",
     "DomainEventSubscription": "2022-06-15",
     "DomainTopic": "2022-06-15",
     "DomainTopicEventSubscription": "2022-06-15",
+    "EventChannel": "2021-10-15-preview",
     "EventSubscription": "2022-06-15",
+    "Namespace": "2023-06-01-preview",
+    "NamespaceTopic": "2023-06-01-preview",
+    "NamespaceTopicEventSubscription": "2023-06-01-preview",
     "PartnerConfiguration": "2022-06-15",
+    "PartnerDestination": "2023-06-01-preview",
     "PartnerNamespace": "2022-06-15",
     "PartnerRegistration": "2022-06-15",
     "PartnerTopic": "2022-06-15",
     "PartnerTopicEventSubscription": "2022-06-15",
+    "PermissionBinding": "2023-06-01-preview",
     "PrivateEndpointConnection": "2022-06-15",
     "SystemTopic": "2022-06-15",
     "SystemTopicEventSubscription": "2022-06-15",
     "Topic": "2022-06-15",
     "TopicEventSubscription": "2022-06-15",
+    "TopicSpace": "2023-06-01-preview",
     "getChannelFullUrl": "2022-06-15",
     "getDomainEventSubscriptionDeliveryAttributes": "2022-06-15",
     "getDomainEventSubscriptionFullUrl": "2022-06-15",
@@ -839,10 +980,13 @@
     "getTopicEventSubscriptionDeliveryAttributes": "2022-06-15",
     "getTopicEventSubscriptionFullUrl": "2022-06-15",
     "listDomainSharedAccessKeys": "2022-06-15",
+    "listNamespaceSharedAccessKeys": "2023-06-01-preview",
+    "listNamespaceTopicSharedAccessKeys": "2023-06-01-preview",
     "listPartnerNamespaceSharedAccessKeys": "2022-06-15",
     "listTopicSharedAccessKeys": "2022-06-15"
   },
   "EventHub": {
+    "ApplicationGroup": "2022-10-01-preview",
     "Cluster": "2021-11-01",
     "ConsumerGroup": "2021-11-01",
     "DisasterRecoveryConfig": "2021-11-01",
@@ -850,7 +994,9 @@
     "EventHubAuthorizationRule": "2021-11-01",
     "Namespace": "2021-11-01",
     "NamespaceAuthorizationRule": "2021-11-01",
+    "NamespaceIpFilterRule": "2018-01-01-preview",
     "NamespaceNetworkRuleSet": "2021-11-01",
+    "NamespaceVirtualNetworkRule": "2018-01-01-preview",
     "PrivateEndpointConnection": "2021-11-01",
     "SchemaRegistry": "2021-11-01",
     "listDisasterRecoveryConfigKeys": "2021-11-01",
@@ -858,7 +1004,8 @@
     "listNamespaceKeys": "2021-11-01"
   },
   "ExtendedLocation": {
-    "CustomLocation": "2021-08-15"
+    "CustomLocation": "2021-08-15",
+    "ResourceSyncRule": "2021-08-31-preview"
   },
   "Features": {
     "SubscriptionFeatureRegistration": "2021-07-01"
@@ -898,6 +1045,7 @@
     "listBotSecrets": "2022-08-08"
   },
   "HealthcareApis": {
+    "AnalyticsConnector": "2022-10-01-preview",
     "DicomService": "2023-02-28",
     "FhirService": "2023-02-28",
     "IotConnector": "2023-02-28",
@@ -915,8 +1063,10 @@
   "HybridCompute": {
     "Machine": "2022-12-27",
     "MachineExtension": "2022-12-27",
+    "MachineRunCommand": "2023-04-25-preview",
     "PrivateEndpointConnection": "2022-12-27",
-    "PrivateLinkScope": "2022-12-27"
+    "PrivateLinkScope": "2022-12-27",
+    "PrivateLinkScopedResource": "2020-08-15-preview"
   },
   "HybridConnectivity": {
     "Endpoint": "2023-03-15",
@@ -943,7 +1093,8 @@
     "Vendor": "2021-05-01",
     "VendorSkuPreview": "2021-05-01",
     "VendorSkus": "2021-05-01",
-    "listDeviceRegistrationKey": "2021-05-01"
+    "listDeviceRegistrationKey": "2021-05-01",
+    "listVendorSkusCredential": "2022-01-01-preview"
   },
   "ImportExport": {
     "Job": "2021-01-01",
@@ -957,20 +1108,33 @@
     "AutoscaleSetting": "2022-10-01",
     "Component": "2020-02-02",
     "ComponentCurrentBillingFeature": "2015-05-01",
+    "ComponentLinkedStorageAccount": "2020-03-01-preview",
     "DataCollectionEndpoint": "2022-06-01",
     "DataCollectionRule": "2022-06-01",
     "DataCollectionRuleAssociation": "2022-06-01",
+    "DiagnosticSetting": "2021-05-01-preview",
     "ExportConfiguration": "2015-05-01",
     "Favorite": "2015-05-01",
+    "GuestDiagnosticsSettingsAssociation": "2018-06-01-preview",
     "LogProfile": "2016-03-01",
+    "ManagementGroupDiagnosticSetting": "2021-05-01-preview",
     "MetricAlert": "2018-03-01",
     "MyWorkbook": "2021-03-08",
+    "PrivateEndpointConnection": "2021-07-01-preview",
+    "PrivateLinkScope": "2021-07-01-preview",
+    "PrivateLinkScopedResource": "2021-07-01-preview",
     "ProactiveDetectionConfiguration": "2015-05-01",
     "ScheduledQueryRule": "2022-06-15",
+    "SubscriptionDiagnosticSetting": "2021-05-01-preview",
+    "TenantActionGroup": "2023-05-01-preview",
     "WebTest": "2022-06-15",
     "Workbook": "2022-04-01",
     "WorkbookTemplate": "2020-11-20",
+    "getDiagnosticServiceTokenReadOnly": "2021-03-03-preview",
+    "getDiagnosticServiceTokenReadWrite": "2021-03-03-preview",
     "getLiveToken": "2021-10-14",
+    "getTestResultFile": "2020-02-10-preview",
+    "guestDiagnosticsSetting": "2018-06-01-preview",
     "listEASubscriptionListMigrationDatePost": "2017-10-01"
   },
   "Intune": {
@@ -978,7 +1142,8 @@
     "IoMAMPolicyByName": "2015-01-14-preview"
   },
   "IoTCentral": {
-    "App": "2021-06-01"
+    "App": "2021-06-01",
+    "PrivateEndpointConnection": "2021-11-01-preview"
   },
   "IoTFirmwareDefense": {
     "Firmware": "2023-02-08-preview",
@@ -1001,11 +1166,14 @@
   },
   "Kubernetes": {
     "ConnectedCluster": "2021-10-01",
-    "listConnectedClusterUserCredential": "2021-10-01"
+    "listConnectedClusterUserCredential": "2021-10-01",
+    "listConnectedClusterUserCredentials": "2021-04-01-preview"
   },
   "KubernetesConfiguration": {
     "Extension": "2023-05-01",
     "FluxConfiguration": "2023-05-01",
+    "PrivateEndpointConnection": "2022-04-02-preview",
+    "PrivateLinkScope": "2022-04-02-preview",
     "SourceControlConfiguration": "2023-05-01"
   },
   "Kusto": {
@@ -1015,6 +1183,7 @@
     "DataConnection": "2022-12-29",
     "Database": "2022-12-29",
     "DatabasePrincipalAssignment": "2022-12-29",
+    "EventHubConnection": "2018-09-07-preview",
     "ManagedPrivateEndpoint": "2022-12-29",
     "PrivateEndpointConnection": "2022-12-29",
     "Script": "2022-12-29",
@@ -1056,6 +1225,7 @@
     "IntegrationServiceEnvironmentManagedApi": "2019-05-01",
     "RosettaNetProcessConfiguration": "2016-06-01",
     "Workflow": "2019-05-01",
+    "WorkflowAccessKey": "2015-02-01-preview",
     "listIntegrationAccountAgreementContentCallbackUrl": "2019-05-01",
     "listIntegrationAccountAssemblyContentCallbackUrl": "2019-05-01",
     "listIntegrationAccountCallbackUrl": "2019-05-01",
@@ -1063,6 +1233,7 @@
     "listIntegrationAccountMapContentCallbackUrl": "2019-05-01",
     "listIntegrationAccountPartnerContentCallbackUrl": "2019-05-01",
     "listIntegrationAccountSchemaContentCallbackUrl": "2019-05-01",
+    "listWorkflowAccessKeySecretKeys": "2015-02-01-preview",
     "listWorkflowCallbackUrl": "2019-05-01",
     "listWorkflowRunActionExpressionTraces": "2019-05-01",
     "listWorkflowRunActionRepetitionExpressionTraces": "2019-05-01",
@@ -1099,6 +1270,7 @@
     "privateLinkServicesForSCCPowershell": "2021-03-25-preview"
   },
   "MachineLearning": {
+    "CommitmentPlan": "2016-05-01-preview",
     "WebService": "2017-01-01",
     "Workspace": "2019-10-01",
     "listWorkspaceKeys": "2019-10-01"
@@ -1124,8 +1296,19 @@
     "DataVersion": "2023-04-01",
     "Datastore": "2023-04-01",
     "EnvironmentContainer": "2023-04-01",
+    "EnvironmentSpecificationVersion": "2021-03-01-preview",
     "EnvironmentVersion": "2023-04-01",
+    "FeaturesetContainerEntity": "2023-04-01-preview",
+    "FeaturesetVersion": "2023-04-01-preview",
+    "FeaturestoreEntityContainerEntity": "2023-04-01-preview",
+    "FeaturestoreEntityVersion": "2023-04-01-preview",
     "Job": "2023-04-01",
+    "LabelingJob": "2023-04-01-preview",
+    "LinkedService": "2020-09-01-preview",
+    "LinkedWorkspace": "2020-05-15-preview",
+    "MachineLearningDataset": "2020-05-01-preview",
+    "MachineLearningDatastore": "2020-05-01-preview",
+    "ManagedNetworkSettingsRule": "2023-04-01-preview",
     "ModelContainer": "2023-04-01",
     "ModelVersion": "2023-04-01",
     "OnlineDeployment": "2023-04-01",
@@ -1145,12 +1328,15 @@
     "Schedule": "2023-04-01",
     "Workspace": "2023-04-01",
     "WorkspaceConnection": "2023-04-01",
+    "getFeaturesetVersionFeature": "2023-02-01-preview",
     "getOnlineDeploymentLogs": "2023-04-01",
     "getOnlineEndpointToken": "2023-04-01",
     "listBatchEndpointKeys": "2023-04-01",
     "listComputeKeys": "2023-04-01",
     "listComputeNodes": "2023-04-01",
     "listDatastoreSecrets": "2023-04-01",
+    "listFeaturesetVersionFeatures": "2023-02-01-preview",
+    "listFeaturesetVersionMaterializationJobs": "2023-04-01-preview",
     "listOnlineEndpointKeys": "2023-04-01",
     "listWorkspaceKeys": "2023-04-01",
     "listWorkspaceNotebookAccessToken": "2023-04-01",
@@ -1164,7 +1350,8 @@
   },
   "ManagedIdentity": {
     "FederatedIdentityCredential": "2023-01-31",
-    "UserAssignedIdentity": "2023-01-31"
+    "UserAssignedIdentity": "2023-01-31",
+    "listUserAssignedIdentityAssociatedResources": "2022-01-31-preview"
   },
   "ManagedNetwork": {
     "ManagedNetwork": "2019-06-01-preview",
@@ -1209,7 +1396,9 @@
   "Maps": {
     "Account": "2021-02-01",
     "Creator": "2021-02-01",
-    "listAccountKeys": "2021-02-01"
+    "PrivateAtlase": "2020-02-01-preview",
+    "listAccountKeys": "2021-02-01",
+    "listAccountSas": "2021-12-01-preview"
   },
   "Marketplace": {
     "PrivateStore": "2023-01-01",
@@ -1229,6 +1418,7 @@
     "Job": "2022-07-01",
     "LiveEvent": "2022-11-01",
     "LiveOutput": "2022-11-01",
+    "MediaGraph": "2020-02-01-preview",
     "MediaService": "2023-01-01",
     "PrivateEndpointConnection": "2023-01-01",
     "StreamingEndpoint": "2022-11-01",
@@ -1253,19 +1443,29 @@
     "Group": "2019-10-01",
     "HyperVCollector": "2019-10-01",
     "ImportCollector": "2019-10-01",
+    "MigrateAgent": "2022-05-01-preview",
+    "MigrateProject": "2018-09-01-preview",
     "MigrateProjectsControllerMigrateProject": "2020-05-01",
+    "ModernizeProject": "2022-05-01-preview",
     "MoveCollection": "2022-08-01",
     "MoveResource": "2022-08-01",
     "PrivateEndpointConnection": "2019-10-01",
     "PrivateEndpointConnectionControllerPrivateEndpointConnection": "2020-05-01",
     "Project": "2019-10-01",
     "ServerCollector": "2019-10-01",
+    "Solution": "2018-09-01-preview",
     "VMwareCollector": "2019-10-01",
-    "getProjectKeys": "2018-02-02"
+    "WorkloadDeployment": "2022-05-01-preview",
+    "WorkloadInstance": "2022-05-01-preview",
+    "getProjectKeys": "2018-02-02",
+    "getSolutionConfig": "2018-09-01-preview",
+    "getWorkloadDeploymentSecretConfigurations": "2022-05-01-preview"
   },
   "MixedReality": {
+    "ObjectAnchorsAccount": "2021-03-01-preview",
     "RemoteRenderingAccount": "2021-01-01",
     "SpatialAnchorsAccount": "2021-01-01",
+    "listObjectAnchorsAccountKeys": "2021-03-01-preview",
     "listRemoteRenderingAccountKeys": "2021-01-01",
     "listSpatialAnchorsAccountKeys": "2021-01-01"
   },
@@ -1280,7 +1480,8 @@
     "SimGroup": "2022-11-01",
     "SimPolicy": "2022-11-01",
     "Site": "2022-11-01",
-    "Slice": "2022-11-01"
+    "Slice": "2022-11-01",
+    "listMobileNetworkSimIds": "2022-04-01-preview"
   },
   "Monitor": {
     "AzureMonitorWorkspace": "2023-04-03"
@@ -1315,6 +1516,7 @@
     "DdosProtectionPlan": "2022-11-01",
     "DnsForwardingRuleset": "2022-07-01",
     "DnsResolver": "2022-07-01",
+    "DnssecConfig": "2023-07-01-preview",
     "DscpConfiguration": "2022-11-01",
     "Endpoint": "2022-04-01",
     "Experiment": "2019-11-01",
@@ -1353,9 +1555,14 @@
     "NetworkManager": "2022-11-01",
     "NetworkProfile": "2022-11-01",
     "NetworkSecurityGroup": "2022-11-01",
+    "NetworkSecurityPerimeter": "2021-03-01-preview",
     "NetworkVirtualAppliance": "2022-11-01",
     "NetworkVirtualApplianceConnection": "2022-11-01",
     "NetworkWatcher": "2022-11-01",
+    "NspAccessRule": "2021-02-01-preview",
+    "NspAssociation": "2021-02-01-preview",
+    "NspLink": "2021-02-01-preview",
+    "NspProfile": "2021-02-01-preview",
     "OutboundEndpoint": "2022-07-01",
     "P2sVpnGateway": "2022-11-01",
     "P2sVpnServerConfiguration": "2019-07-01",
@@ -1383,12 +1590,15 @@
     "SecurityAdminConfiguration": "2022-11-01",
     "SecurityPartnerProvider": "2022-11-01",
     "SecurityRule": "2022-11-01",
+    "SecurityUserConfiguration": "2022-04-01-preview",
     "ServiceEndpointPolicy": "2022-11-01",
     "ServiceEndpointPolicyDefinition": "2022-11-01",
     "StaticMember": "2022-11-01",
     "Subnet": "2022-11-01",
     "SubscriptionNetworkManagerConnection": "2022-11-01",
     "TrafficManagerUserMetricsKey": "2022-04-01",
+    "UserRule": "2022-04-01-preview",
+    "UserRuleCollection": "2022-04-01-preview",
     "VirtualApplianceSite": "2022-11-01",
     "VirtualHub": "2022-11-01",
     "VirtualHubBgpConnection": "2022-11-01",
@@ -1424,14 +1634,23 @@
     "getVirtualNetworkGatewayVpnclientConnectionHealth": "2022-11-01",
     "getVirtualNetworkGatewayVpnclientIpsecParameters": "2022-11-01",
     "getVpnLinkConnectionIkeSas": "2022-11-01",
+    "listActiveConnectivityConfiguration": "2021-02-01-preview",
     "listActiveConnectivityConfigurations": "2022-11-01",
+    "listActiveSecurityAdminRule": "2021-02-01-preview",
     "listActiveSecurityAdminRules": "2022-11-01",
+    "listActiveSecurityUserRule": "2021-02-01-preview",
+    "listActiveSecurityUserRules": "2022-04-01-preview",
     "listDnsForwardingRulesetByVirtualNetwork": "2022-07-01",
     "listDnsResolverByVirtualNetwork": "2022-07-01",
+    "listEffectiveConnectivityConfiguration": "2021-02-01-preview",
+    "listEffectiveVirtualNetworkByNetworkGroup": "2021-02-01-preview",
+    "listEffectiveVirtualNetworkByNetworkManager": "2022-04-01-preview",
     "listFirewallPolicyIdpsSignature": "2022-11-01",
     "listFirewallPolicyIdpsSignaturesFilterValue": "2022-11-01",
+    "listListEffectiveVirtualNetworkByNetworkGroup": "2022-04-01-preview",
     "listNetworkManagerDeploymentStatus": "2022-11-01",
     "listNetworkManagerEffectiveConnectivityConfigurations": "2022-11-01",
+    "listNetworkManagerEffectiveSecurityAdminRule": "2021-02-01-preview",
     "listNetworkManagerEffectiveSecurityAdminRules": "2022-11-01"
   },
   "NetworkCloud": {
@@ -1483,13 +1702,15 @@
     "DataSource": "2020-08-01",
     "LinkedService": "2020-08-01",
     "LinkedStorageAccount": "2020-08-01",
+    "MachineGroup": "2015-11-01-preview",
     "Query": "2019-09-01",
     "QueryPack": "2019-09-01",
     "SavedSearch": "2020-08-01",
     "StorageInsightConfig": "2020-08-01",
     "Table": "2022-10-01",
     "Workspace": "2022-10-01",
-    "getSharedKeys": "2020-08-01"
+    "getSharedKeys": "2020-08-01",
+    "getWorkspaceSharedKeys": "2015-11-01-preview"
   },
   "OperationsManagement": {
     "ManagementAssociation": "2015-11-01-preview",
@@ -1620,6 +1841,7 @@
   },
   "ResourceConnector": {
     "Appliance": "2022-10-27",
+    "listApplianceClusterCustomerUserCredential": "2022-04-15-preview",
     "listApplianceClusterUserCredential": "2022-10-27",
     "listApplianceKeys": "2022-10-27"
   },
@@ -1637,6 +1859,9 @@
     "DeploymentAtSubscriptionScope": "2022-09-01",
     "DeploymentAtTenantScope": "2022-09-01",
     "DeploymentScript": "2020-10-01",
+    "DeploymentStackAtManagementGroup": "2022-08-01-preview",
+    "DeploymentStackAtResourceGroup": "2022-08-01-preview",
+    "DeploymentStackAtSubscription": "2022-08-01-preview",
     "Resource": "2022-09-01",
     "ResourceGroup": "2022-09-01",
     "TagAtScope": "2022-09-01",
@@ -1675,17 +1900,32 @@
     "APICollection": "2022-11-20-preview",
     "AdaptiveApplicationControl": "2020-01-01",
     "AdvancedThreatProtection": "2019-01-01",
+    "AlertsSuppressionRule": "2019-01-01-preview",
     "Application": "2022-07-01-preview",
     "Assessment": "2021-06-01",
     "AssessmentMetadataInSubscription": "2021-06-01",
+    "AssessmentsMetadataSubscription": "2019-01-01-preview",
+    "Assignment": "2021-08-01-preview",
+    "Automation": "2019-01-01-preview",
+    "Connector": "2020-01-01-preview",
+    "CustomAssessmentAutomation": "2021-07-01-preview",
+    "CustomEntityStoreAssignment": "2021-07-01-preview",
     "DeviceSecurityGroup": "2019-08-01",
+    "GovernanceAssignment": "2022-01-01-preview",
+    "GovernanceRule": "2022-01-01-preview",
+    "IngestionSetting": "2021-01-15-preview",
     "IotSecuritySolution": "2019-08-01",
     "JitNetworkAccessPolicy": "2020-01-01",
     "SecurityConnector": "2023-03-01-preview",
     "SecurityConnectorApplication": "2022-07-01-preview",
+    "SecurityContact": "2020-01-01-preview",
     "SecurityOperator": "2023-01-01-preview",
     "ServerVulnerabilityAssessment": "2020-01-01",
-    "SqlVulnerabilityAssessmentBaselineRule": "2023-02-01-preview"
+    "SqlVulnerabilityAssessmentBaselineRule": "2023-02-01-preview",
+    "Standard": "2021-08-01-preview",
+    "WorkspaceSetting": "2017-08-01-preview",
+    "listIngestionSettingConnectionStrings": "2021-01-15-preview",
+    "listIngestionSettingTokens": "2021-01-15-preview"
   },
   "SecurityAndCompliance": {
     "PrivateEndpointConnectionsAdtAPI": "2021-03-08",
@@ -1710,16 +1950,34 @@
     "AlertRule": "2023-02-01",
     "AutomationRule": "2023-02-01",
     "Bookmark": "2023-02-01",
+    "BookmarkRelation": "2023-05-01-preview",
+    "ContentPackage": "2023-05-01-preview",
+    "ContentTemplate": "2023-05-01-preview",
     "DataConnector": "2023-02-01",
+    "EntityQuery": "2023-05-01-preview",
+    "FileImport": "2023-05-01-preview",
+    "Hunt": "2023-05-01-preview",
+    "HuntComment": "2023-05-01-preview",
+    "HuntRelation": "2023-05-01-preview",
     "Incident": "2023-02-01",
     "IncidentComment": "2023-02-01",
     "IncidentRelation": "2023-02-01",
+    "IncidentTask": "2023-05-01-preview",
     "Metadata": "2023-02-01",
+    "ProductSetting": "2023-05-01-preview",
     "SecurityMLAnalyticsSetting": "2023-02-01",
     "SentinelOnboardingState": "2023-02-01",
+    "SourceControl": "2023-05-01-preview",
     "ThreatIntelligenceIndicator": "2023-02-01",
     "Watchlist": "2023-02-01",
-    "WatchlistItem": "2023-02-01"
+    "WatchlistItem": "2023-02-01",
+    "WorkspaceManagerAssignment": "2023-05-01-preview",
+    "WorkspaceManagerConfiguration": "2023-05-01-preview",
+    "WorkspaceManagerGroup": "2023-05-01-preview",
+    "WorkspaceManagerMember": "2023-05-01-preview",
+    "getEntitiesGetTimeline": "2023-05-01-preview",
+    "getEntityInsights": "2023-05-01-preview",
+    "listSourceControlRepositories": "2023-05-01-preview"
   },
   "SerialConsole": {
     "SerialPort": "2018-05-01"
@@ -1729,7 +1987,9 @@
     "MigrationConfig": "2021-11-01",
     "Namespace": "2021-11-01",
     "NamespaceAuthorizationRule": "2021-11-01",
+    "NamespaceIpFilterRule": "2018-01-01-preview",
     "NamespaceNetworkRuleSet": "2021-11-01",
+    "NamespaceVirtualNetworkRule": "2018-01-01-preview",
     "PrivateEndpointConnection": "2021-11-01",
     "Queue": "2021-11-01",
     "QueueAuthorizationRule": "2021-11-01",
@@ -1749,7 +2009,8 @@
     "ManagedCluster": "2023-03-01-preview",
     "NodeType": "2023-03-01-preview",
     "Service": "2023-03-01-preview",
-    "getmanagedAzResiliencyStatus": "2023-03-01-preview"
+    "getmanagedAzResiliencyStatus": "2023-03-01-preview",
+    "listListUpgradableVersionPost": "2020-12-01-preview"
   },
   "ServiceFabricMesh": {
     "Application": "2018-09-01-preview",
@@ -1761,7 +2022,10 @@
     "listSecretValue": "2018-09-01-preview"
   },
   "ServiceLinker": {
+    "Connector": "2022-11-01-preview",
+    "ConnectorDryrun": "2022-11-01-preview",
     "Linker": "2022-05-01",
+    "LinkerDryrun": "2022-11-01-preview",
     "listLinkerConfigurations": "2022-05-01"
   },
   "ServiceNetworking": {
@@ -1774,6 +2038,7 @@
     "SignalRCustomCertificate": "2023-02-01",
     "SignalRCustomDomain": "2023-02-01",
     "SignalRPrivateEndpointConnection": "2023-02-01",
+    "SignalRReplica": "2023-03-01-preview",
     "SignalRSharedPrivateLinkResource": "2023-02-01",
     "listSignalRKeys": "2023-02-01"
   },
@@ -1788,12 +2053,14 @@
     "listApplicationTokens": "2021-07-01"
   },
   "Sql": {
+    "BackupLongTermRetentionPolicy": "2017-03-01-preview",
     "BackupShortTermRetentionPolicy": "2021-11-01",
     "DataMaskingPolicy": "2021-11-01",
     "Database": "2021-11-01",
     "DatabaseAdvisor": "2021-11-01",
     "DatabaseBlobAuditingPolicy": "2021-11-01",
     "DatabaseSecurityAlertPolicy": "2021-11-01",
+    "DatabaseSqlVulnerabilityAssessmentRuleBaseline": "2022-11-01-preview",
     "DatabaseVulnerabilityAssessment": "2021-11-01",
     "DatabaseVulnerabilityAssessmentRuleBaseline": "2021-11-01",
     "DistributedAvailabilityGroup": "2021-11-01",
@@ -1821,6 +2088,7 @@
     "ManagedInstanceAdministrator": "2021-11-01",
     "ManagedInstanceAzureADOnlyAuthentication": "2021-11-01",
     "ManagedInstanceKey": "2021-11-01",
+    "ManagedInstanceLongTermRetentionPolicy": "2022-11-01-preview",
     "ManagedInstancePrivateEndpointConnection": "2021-11-01",
     "ManagedInstanceVulnerabilityAssessment": "2021-11-01",
     "ManagedServerDnsAlias": "2021-11-01",
@@ -1838,6 +2106,9 @@
     "ServerTrustCertificate": "2021-11-01",
     "ServerTrustGroup": "2021-11-01",
     "ServerVulnerabilityAssessment": "2021-11-01",
+    "SqlVulnerabilityAssessmentRuleBaseline": "2022-11-01-preview",
+    "SqlVulnerabilityAssessmentsSetting": "2022-11-01-preview",
+    "StartStopManagedInstanceSchedule": "2022-11-01-preview",
     "SyncAgent": "2021-11-01",
     "SyncGroup": "2021-11-01",
     "SyncMember": "2021-11-01",
@@ -1929,9 +2200,18 @@
   "Support": {},
   "Synapse": {
     "BigDataPool": "2021-06-01",
+    "DataConnection": "2021-04-01-preview",
+    "Database": "2021-04-01-preview",
+    "DatabasePrincipalAssignment": "2021-04-01-preview",
     "IntegrationRuntime": "2021-06-01",
     "IpFirewallRule": "2021-06-01",
     "Key": "2021-06-01",
+    "KustoPool": "2021-06-01-preview",
+    "KustoPoolAttachedDatabaseConfiguration": "2021-06-01-preview",
+    "KustoPoolDataConnection": "2021-06-01-preview",
+    "KustoPoolDatabase": "2021-06-01-preview",
+    "KustoPoolDatabasePrincipalAssignment": "2021-06-01-preview",
+    "KustoPoolPrincipalAssignment": "2021-06-01-preview",
     "PrivateEndpointConnection": "2021-06-01",
     "PrivateLinkHub": "2021-06-01",
     "SqlPool": "2021-06-01",
@@ -1948,7 +2228,9 @@
     "getIntegrationRuntimeConnectionInfo": "2021-06-01",
     "getIntegrationRuntimeObjectMetadatum": "2021-06-01",
     "getIntegrationRuntimeStatus": "2021-06-01",
-    "listIntegrationRuntimeAuthKey": "2021-06-01"
+    "listIntegrationRuntimeAuthKey": "2021-06-01",
+    "listKustoPoolFollowerDatabases": "2021-06-01-preview",
+    "listKustoPoolLanguageExtensions": "2021-06-01-preview"
   },
   "Syntex": {
     "DocumentProcessor": "2022-09-15-preview"
@@ -1970,6 +2252,7 @@
     "AccessPolicy": "2020-05-15",
     "Environment": "2020-05-15",
     "EventSource": "2020-05-15",
+    "PrivateEndpointConnection": "2021-03-31-preview",
     "ReferenceDataSet": "2020-05-15"
   },
   "VMwareCloudSimple": {
@@ -2002,6 +2285,7 @@
   },
   "VoiceServices": {
     "CommunicationsGateway": "2023-04-03",
+    "Contact": "2022-12-01-preview",
     "TestLine": "2023-04-03"
   },
   "Web": {
@@ -2072,6 +2356,7 @@
     "WebAppVnetConnectionSlot": "2022-09-01",
     "listAppServicePlanHybridConnectionKeys": "2022-09-01",
     "listConnectionConsentLinks": "2016-06-01",
+    "listConnectionKeys": "2015-08-01-preview",
     "listContainerAppSecrets": "2022-09-01",
     "listCustomApiWsdlInterfaces": "2016-06-01",
     "listSiteIdentifiersAssignedToHostName": "2022-09-01",
@@ -2126,6 +2411,7 @@
     "WebPubSubCustomDomain": "2023-02-01",
     "WebPubSubHub": "2023-02-01",
     "WebPubSubPrivateEndpointConnection": "2023-02-01",
+    "WebPubSubReplica": "2023-03-01-preview",
     "WebPubSubSharedPrivateLinkResource": "2023-02-01",
     "listWebPubSubKeys": "2023-02-01"
   },
@@ -2137,12 +2423,14 @@
   },
   "WorkloadMonitor": {},
   "Workloads": {
+    "PhpWorkload": "2021-12-01-preview",
     "ProviderInstance": "2023-04-01",
     "SAPApplicationServerInstance": "2023-04-01",
     "SAPCentralInstance": "2023-04-01",
     "SAPDatabaseInstance": "2023-04-01",
     "SAPVirtualInstance": "2023-04-01",
     "SapLandscapeMonitor": "2023-04-01",
+    "WordpressInstance": "2021-12-01-preview",
     "getSAPAvailabilityZoneDetails": "2023-04-01",
     "getSAPDiskConfigurations": "2023-04-01",
     "getSAPSizingRecommendations": "2023-04-01",

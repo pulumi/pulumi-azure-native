@@ -96,6 +96,16 @@ export const Access = {
  */
 export type Access = (typeof Access)[keyof typeof Access];
 
+export const AccessRuleDirection = {
+    Inbound: "Inbound",
+    Outbound: "Outbound",
+} as const;
+
+/**
+ * Direction that specifies whether the access rules is inbound/outbound.
+ */
+export type AccessRuleDirection = (typeof AccessRuleDirection)[keyof typeof AccessRuleDirection];
+
 export const ActionType = {
     AnomalyScoring: "AnomalyScoring",
     Allow: "Allow",
@@ -363,6 +373,17 @@ export const ApplicationGatewayTier = {
  */
 export type ApplicationGatewayTier = (typeof ApplicationGatewayTier)[keyof typeof ApplicationGatewayTier];
 
+export const AssociationAccessMode = {
+    Learning: "Learning",
+    Enforced: "Enforced",
+    Audit: "Audit",
+} as const;
+
+/**
+ * Access mode on the association.
+ */
+export type AssociationAccessMode = (typeof AssociationAccessMode)[keyof typeof AssociationAccessMode];
+
 export const AuthorizationUseStatus = {
     Available: "Available",
     InUse: "InUse",
@@ -588,6 +609,16 @@ export const DdosSettingsProtectionMode = {
  * The DDoS protection mode of the public IP
  */
 export type DdosSettingsProtectionMode = (typeof DdosSettingsProtectionMode)[keyof typeof DdosSettingsProtectionMode];
+
+export const DeleteExistingNSGs = {
+    False: "False",
+    True: "True",
+} as const;
+
+/**
+ * Flag if need to delete existing network security groups.
+ */
+export type DeleteExistingNSGs = (typeof DeleteExistingNSGs)[keyof typeof DeleteExistingNSGs];
 
 export const DeleteExistingPeering = {
     False: "False",
@@ -2092,6 +2123,16 @@ export const UseHubGateway = {
  * Flag if need to use hub gateway.
  */
 export type UseHubGateway = (typeof UseHubGateway)[keyof typeof UseHubGateway];
+
+export const UserRuleKind = {
+    Custom: "Custom",
+    Default: "Default",
+} as const;
+
+/**
+ * Whether the rule is custom or default.
+ */
+export type UserRuleKind = (typeof UserRuleKind)[keyof typeof UserRuleKind];
 
 export const VirtualNetworkEncryptionEnforcement = {
     DropUnencrypted: "DropUnencrypted",

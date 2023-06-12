@@ -12,6 +12,7 @@ __all__ = [
     'ClusterPrincipalRole',
     'Compression',
     'DataConnectionKind',
+    'DataFormat',
     'DatabasePrincipalRole',
     'DatabaseRouting',
     'DefaultPrincipalsModificationKind',
@@ -147,6 +148,15 @@ class DataConnectionKind(str, Enum):
     EVENT_GRID = "EventGrid"
     IOT_HUB = "IotHub"
     COSMOS_DB = "CosmosDb"
+
+
+class DataFormat(str, Enum):
+    """
+    The data format of the message. Optionally the data format can be added to each message.
+    """
+    MULTIJSON = "MULTIJSON"
+    JSON = "JSON"
+    CSV = "CSV"
 
 
 class DatabasePrincipalRole(str, Enum):

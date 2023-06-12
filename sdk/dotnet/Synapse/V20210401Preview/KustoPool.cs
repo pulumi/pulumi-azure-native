@@ -125,6 +125,8 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:kustoPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:KustoPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:kustoPool"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPool"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:kustoPool"},
                 },

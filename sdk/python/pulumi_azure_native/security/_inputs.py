@@ -14,6 +14,18 @@ __all__ = [
     'AdditionalWorkspacesPropertiesArgs',
     'AllowlistCustomAlertRuleArgs',
     'AssessmentStatusArgs',
+    'AssignedComponentItemArgs',
+    'AssignedStandardItemArgs',
+    'AssignmentPropertiesAdditionalDataArgs',
+    'AutomationActionEventHubArgs',
+    'AutomationActionLogicAppArgs',
+    'AutomationActionWorkspaceArgs',
+    'AutomationRuleSetArgs',
+    'AutomationScopeArgs',
+    'AutomationSourceArgs',
+    'AutomationTriggeringRuleArgs',
+    'AwAssumeRoleAuthenticationDetailsPropertiesArgs',
+    'AwsCredsAuthenticationDetailsPropertiesArgs',
     'AwsEnvironmentDataArgs',
     'AwsOrganizationalDataMasterArgs',
     'AwsOrganizationalDataMemberArgs',
@@ -75,12 +87,18 @@ __all__ = [
     'DefenderForServersGcpOfferingVmScannersArgs',
     'DefenderForServersGcpOfferingArgs',
     'DenylistCustomAlertRuleArgs',
+    'GcpCredentialsDetailsPropertiesArgs',
     'GcpOrganizationalDataMemberArgs',
     'GcpOrganizationalDataOrganizationArgs',
     'GcpProjectDetailsArgs',
     'GcpProjectEnvironmentDataArgs',
     'GithubScopeEnvironmentDataArgs',
     'GitlabScopeEnvironmentDataArgs',
+    'GovernanceAssignmentAdditionalDataArgs',
+    'GovernanceEmailNotificationArgs',
+    'GovernanceRuleEmailNotificationArgs',
+    'GovernanceRuleOwnerSourceArgs',
+    'HybridComputeSettingsPropertiesArgs',
     'InformationProtectionAwsOfferingInformationProtectionArgs',
     'InformationProtectionAwsOfferingArgs',
     'JitNetworkAccessPolicyVirtualMachineArgs',
@@ -92,12 +110,20 @@ __all__ = [
     'OnPremiseSqlResourceDetailsArgs',
     'PathRecommendationArgs',
     'ProtectionModeArgs',
+    'ProxyServerPropertiesArgs',
     'PublisherInfoArgs',
     'RecommendationConfigurationPropertiesArgs',
+    'RemediationEtaArgs',
+    'ScopeElementArgs',
     'SecurityAssessmentMetadataPartnerDataArgs',
     'SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs',
     'SecurityAssessmentMetadataPropertiesArgs',
     'SecurityAssessmentPartnerDataArgs',
+    'SecurityContactPropertiesAlertNotificationsArgs',
+    'SecurityContactPropertiesNotificationsByRoleArgs',
+    'ServicePrincipalPropertiesArgs',
+    'StandardComponentPropertiesArgs',
+    'SuppressionAlertsScopeArgs',
     'ThresholdCustomAlertRuleArgs',
     'TimeWindowCustomAlertRuleArgs',
     'UserDefinedResourcesPropertiesArgs',
@@ -271,6 +297,515 @@ class AssessmentStatusArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class AssignedComponentItemArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None):
+        """
+        describe the properties of a security assessment object reference (by key)
+        :param pulumi.Input[str] key: unique key to a security assessment object
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        unique key to a security assessment object
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+
+@pulumi.input_type
+class AssignedStandardItemArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        describe the properties of a of a security standard object reference
+        :param pulumi.Input[str] id: full resourceId of the Microsoft.Security/standard object
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        full resourceId of the Microsoft.Security/standard object
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class AssignmentPropertiesAdditionalDataArgs:
+    def __init__(__self__, *,
+                 exemption_category: Optional[pulumi.Input[str]] = None):
+        """
+        Additional data about the assignment
+        :param pulumi.Input[str] exemption_category: Exemption category of this assignment
+        """
+        if exemption_category is not None:
+            pulumi.set(__self__, "exemption_category", exemption_category)
+
+    @property
+    @pulumi.getter(name="exemptionCategory")
+    def exemption_category(self) -> Optional[pulumi.Input[str]]:
+        """
+        Exemption category of this assignment
+        """
+        return pulumi.get(self, "exemption_category")
+
+    @exemption_category.setter
+    def exemption_category(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exemption_category", value)
+
+
+@pulumi.input_type
+class AutomationActionEventHubArgs:
+    def __init__(__self__, *,
+                 action_type: pulumi.Input[str],
+                 connection_string: Optional[pulumi.Input[str]] = None,
+                 event_hub_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        The target Event Hub to which event data will be exported. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+        :param pulumi.Input[str] action_type: The type of the action that will be triggered by the Automation
+               Expected value is 'EventHub'.
+        :param pulumi.Input[str] connection_string: The target Event Hub connection string (it will not be included in any response).
+        :param pulumi.Input[str] event_hub_resource_id: The target Event Hub Azure Resource ID.
+        """
+        pulumi.set(__self__, "action_type", 'EventHub')
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if event_hub_resource_id is not None:
+            pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> pulumi.Input[str]:
+        """
+        The type of the action that will be triggered by the Automation
+        Expected value is 'EventHub'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target Event Hub connection string (it will not be included in any response).
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter(name="eventHubResourceId")
+    def event_hub_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target Event Hub Azure Resource ID.
+        """
+        return pulumi.get(self, "event_hub_resource_id")
+
+    @event_hub_resource_id.setter
+    def event_hub_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_resource_id", value)
+
+
+@pulumi.input_type
+class AutomationActionLogicAppArgs:
+    def __init__(__self__, *,
+                 action_type: pulumi.Input[str],
+                 logic_app_resource_id: Optional[pulumi.Input[str]] = None,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        The logic app action that should be triggered. To learn more about Microsoft Defender for Cloud's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+        :param pulumi.Input[str] action_type: The type of the action that will be triggered by the Automation
+               Expected value is 'LogicApp'.
+        :param pulumi.Input[str] logic_app_resource_id: The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+        :param pulumi.Input[str] uri: The Logic App trigger URI endpoint (it will not be included in any response).
+        """
+        pulumi.set(__self__, "action_type", 'LogicApp')
+        if logic_app_resource_id is not None:
+            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> pulumi.Input[str]:
+        """
+        The type of the action that will be triggered by the Automation
+        Expected value is 'LogicApp'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter(name="logicAppResourceId")
+    def logic_app_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+        """
+        return pulumi.get(self, "logic_app_resource_id")
+
+    @logic_app_resource_id.setter
+    def logic_app_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logic_app_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Logic App trigger URI endpoint (it will not be included in any response).
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class AutomationActionWorkspaceArgs:
+    def __init__(__self__, *,
+                 action_type: pulumi.Input[str],
+                 workspace_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+        :param pulumi.Input[str] action_type: The type of the action that will be triggered by the Automation
+               Expected value is 'Workspace'.
+        :param pulumi.Input[str] workspace_resource_id: The fully qualified Log Analytics Workspace Azure Resource ID.
+        """
+        pulumi.set(__self__, "action_type", 'Workspace')
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> pulumi.Input[str]:
+        """
+        The type of the action that will be triggered by the Automation
+        Expected value is 'Workspace'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified Log Analytics Workspace Azure Resource ID.
+        """
+        return pulumi.get(self, "workspace_resource_id")
+
+    @workspace_resource_id.setter
+    def workspace_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace_resource_id", value)
+
+
+@pulumi.input_type
+class AutomationRuleSetArgs:
+    def __init__(__self__, *,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationTriggeringRuleArgs']]]] = None):
+        """
+        A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationTriggeringRuleArgs']]]]:
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationTriggeringRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class AutomationScopeArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 scope_path: Optional[pulumi.Input[str]] = None):
+        """
+        A single automation scope.
+        :param pulumi.Input[str] description: The resources scope description.
+        :param pulumi.Input[str] scope_path: The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if scope_path is not None:
+            pulumi.set(__self__, "scope_path", scope_path)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resources scope description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="scopePath")
+    def scope_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+        """
+        return pulumi.get(self, "scope_path")
+
+    @scope_path.setter
+    def scope_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope_path", value)
+
+
+@pulumi.input_type
+class AutomationSourceArgs:
+    def __init__(__self__, *,
+                 event_source: Optional[pulumi.Input[Union[str, 'EventSource']]] = None,
+                 rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleSetArgs']]]] = None):
+        """
+        The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+        :param pulumi.Input[Union[str, 'EventSource']] event_source: A valid event source type.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleSetArgs']]] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+        """
+        if event_source is not None:
+            pulumi.set(__self__, "event_source", event_source)
+        if rule_sets is not None:
+            pulumi.set(__self__, "rule_sets", rule_sets)
+
+    @property
+    @pulumi.getter(name="eventSource")
+    def event_source(self) -> Optional[pulumi.Input[Union[str, 'EventSource']]]:
+        """
+        A valid event source type.
+        """
+        return pulumi.get(self, "event_source")
+
+    @event_source.setter
+    def event_source(self, value: Optional[pulumi.Input[Union[str, 'EventSource']]]):
+        pulumi.set(self, "event_source", value)
+
+    @property
+    @pulumi.getter(name="ruleSets")
+    def rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleSetArgs']]]]:
+        """
+        A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+        """
+        return pulumi.get(self, "rule_sets")
+
+    @rule_sets.setter
+    def rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleSetArgs']]]]):
+        pulumi.set(self, "rule_sets", value)
+
+
+@pulumi.input_type
+class AutomationTriggeringRuleArgs:
+    def __init__(__self__, *,
+                 expected_value: Optional[pulumi.Input[str]] = None,
+                 operator: Optional[pulumi.Input[Union[str, 'Operator']]] = None,
+                 property_j_path: Optional[pulumi.Input[str]] = None,
+                 property_type: Optional[pulumi.Input[Union[str, 'PropertyType']]] = None):
+        """
+        A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+        :param pulumi.Input[str] expected_value: The expected value.
+        :param pulumi.Input[Union[str, 'Operator']] operator: A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+        :param pulumi.Input[str] property_j_path: The JPath of the entity model property that should be checked.
+        :param pulumi.Input[Union[str, 'PropertyType']] property_type: The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+        """
+        if expected_value is not None:
+            pulumi.set(__self__, "expected_value", expected_value)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if property_j_path is not None:
+            pulumi.set(__self__, "property_j_path", property_j_path)
+        if property_type is not None:
+            pulumi.set(__self__, "property_type", property_type)
+
+    @property
+    @pulumi.getter(name="expectedValue")
+    def expected_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expected value.
+        """
+        return pulumi.get(self, "expected_value")
+
+    @expected_value.setter
+    def expected_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expected_value", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[Union[str, 'Operator']]]:
+        """
+        A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[Union[str, 'Operator']]]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="propertyJPath")
+    def property_j_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JPath of the entity model property that should be checked.
+        """
+        return pulumi.get(self, "property_j_path")
+
+    @property_j_path.setter
+    def property_j_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "property_j_path", value)
+
+    @property
+    @pulumi.getter(name="propertyType")
+    def property_type(self) -> Optional[pulumi.Input[Union[str, 'PropertyType']]]:
+        """
+        The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+        """
+        return pulumi.get(self, "property_type")
+
+    @property_type.setter
+    def property_type(self, value: Optional[pulumi.Input[Union[str, 'PropertyType']]]):
+        pulumi.set(self, "property_type", value)
+
+
+@pulumi.input_type
+class AwAssumeRoleAuthenticationDetailsPropertiesArgs:
+    def __init__(__self__, *,
+                 authentication_type: pulumi.Input[str],
+                 aws_assume_role_arn: pulumi.Input[str],
+                 aws_external_id: pulumi.Input[str]):
+        """
+        AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+        :param pulumi.Input[str] authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+               Expected value is 'awsAssumeRole'.
+        :param pulumi.Input[str] aws_assume_role_arn: Assumed role ID is an identifier that you can use to create temporary security credentials.
+        :param pulumi.Input[str] aws_external_id: A unique identifier that is required when you assume a role in another account.
+        """
+        pulumi.set(__self__, "authentication_type", 'awsAssumeRole')
+        pulumi.set(__self__, "aws_assume_role_arn", aws_assume_role_arn)
+        pulumi.set(__self__, "aws_external_id", aws_external_id)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[str]:
+        """
+        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        Expected value is 'awsAssumeRole'.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="awsAssumeRoleArn")
+    def aws_assume_role_arn(self) -> pulumi.Input[str]:
+        """
+        Assumed role ID is an identifier that you can use to create temporary security credentials.
+        """
+        return pulumi.get(self, "aws_assume_role_arn")
+
+    @aws_assume_role_arn.setter
+    def aws_assume_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_assume_role_arn", value)
+
+    @property
+    @pulumi.getter(name="awsExternalId")
+    def aws_external_id(self) -> pulumi.Input[str]:
+        """
+        A unique identifier that is required when you assume a role in another account.
+        """
+        return pulumi.get(self, "aws_external_id")
+
+    @aws_external_id.setter
+    def aws_external_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_external_id", value)
+
+
+@pulumi.input_type
+class AwsCredsAuthenticationDetailsPropertiesArgs:
+    def __init__(__self__, *,
+                 authentication_type: pulumi.Input[str],
+                 aws_access_key_id: pulumi.Input[str],
+                 aws_secret_access_key: pulumi.Input[str]):
+        """
+        AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+        :param pulumi.Input[str] authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+               Expected value is 'awsCreds'.
+        :param pulumi.Input[str] aws_access_key_id: Public key element of the AWS credential object (write only)
+        :param pulumi.Input[str] aws_secret_access_key: Secret key element of the AWS credential object (write only)
+        """
+        pulumi.set(__self__, "authentication_type", 'awsCreds')
+        pulumi.set(__self__, "aws_access_key_id", aws_access_key_id)
+        pulumi.set(__self__, "aws_secret_access_key", aws_secret_access_key)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[str]:
+        """
+        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        Expected value is 'awsCreds'.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="awsAccessKeyId")
+    def aws_access_key_id(self) -> pulumi.Input[str]:
+        """
+        Public key element of the AWS credential object (write only)
+        """
+        return pulumi.get(self, "aws_access_key_id")
+
+    @aws_access_key_id.setter
+    def aws_access_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_access_key_id", value)
+
+    @property
+    @pulumi.getter(name="awsSecretAccessKey")
+    def aws_secret_access_key(self) -> pulumi.Input[str]:
+        """
+        Secret key element of the AWS credential object (write only)
+        """
+        return pulumi.get(self, "aws_secret_access_key")
+
+    @aws_secret_access_key.setter
+    def aws_secret_access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_secret_access_key", value)
 
 
 @pulumi.input_type
@@ -2958,6 +3493,196 @@ class DenylistCustomAlertRuleArgs:
 
 
 @pulumi.input_type
+class GcpCredentialsDetailsPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_provider_x509_cert_url: pulumi.Input[str],
+                 auth_uri: pulumi.Input[str],
+                 authentication_type: pulumi.Input[str],
+                 client_email: pulumi.Input[str],
+                 client_id: pulumi.Input[str],
+                 client_x509_cert_url: pulumi.Input[str],
+                 organization_id: pulumi.Input[str],
+                 private_key: pulumi.Input[str],
+                 private_key_id: pulumi.Input[str],
+                 project_id: pulumi.Input[str],
+                 token_uri: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
+        :param pulumi.Input[str] auth_provider_x509_cert_url: Auth provider x509 certificate URL field of the API key (write only)
+        :param pulumi.Input[str] auth_uri: Auth URI field of the API key (write only)
+        :param pulumi.Input[str] authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+               Expected value is 'gcpCredentials'.
+        :param pulumi.Input[str] client_email: Client email field of the API key (write only)
+        :param pulumi.Input[str] client_id: Client ID field of the API key (write only)
+        :param pulumi.Input[str] client_x509_cert_url: Client x509 certificate URL field of the API key (write only)
+        :param pulumi.Input[str] organization_id: The organization ID of the GCP cloud account
+        :param pulumi.Input[str] private_key: Private key field of the API key (write only)
+        :param pulumi.Input[str] private_key_id: Private key ID field of the API key (write only)
+        :param pulumi.Input[str] project_id: Project ID field of the API key (write only)
+        :param pulumi.Input[str] token_uri: Token URI field of the API key (write only)
+        :param pulumi.Input[str] type: Type field of the API key (write only)
+        """
+        pulumi.set(__self__, "auth_provider_x509_cert_url", auth_provider_x509_cert_url)
+        pulumi.set(__self__, "auth_uri", auth_uri)
+        pulumi.set(__self__, "authentication_type", 'gcpCredentials')
+        pulumi.set(__self__, "client_email", client_email)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_x509_cert_url", client_x509_cert_url)
+        pulumi.set(__self__, "organization_id", organization_id)
+        pulumi.set(__self__, "private_key", private_key)
+        pulumi.set(__self__, "private_key_id", private_key_id)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "token_uri", token_uri)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="authProviderX509CertUrl")
+    def auth_provider_x509_cert_url(self) -> pulumi.Input[str]:
+        """
+        Auth provider x509 certificate URL field of the API key (write only)
+        """
+        return pulumi.get(self, "auth_provider_x509_cert_url")
+
+    @auth_provider_x509_cert_url.setter
+    def auth_provider_x509_cert_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_provider_x509_cert_url", value)
+
+    @property
+    @pulumi.getter(name="authUri")
+    def auth_uri(self) -> pulumi.Input[str]:
+        """
+        Auth URI field of the API key (write only)
+        """
+        return pulumi.get(self, "auth_uri")
+
+    @auth_uri.setter
+    def auth_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_uri", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[str]:
+        """
+        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        Expected value is 'gcpCredentials'.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="clientEmail")
+    def client_email(self) -> pulumi.Input[str]:
+        """
+        Client email field of the API key (write only)
+        """
+        return pulumi.get(self, "client_email")
+
+    @client_email.setter
+    def client_email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_email", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        Client ID field of the API key (write only)
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientX509CertUrl")
+    def client_x509_cert_url(self) -> pulumi.Input[str]:
+        """
+        Client x509 certificate URL field of the API key (write only)
+        """
+        return pulumi.get(self, "client_x509_cert_url")
+
+    @client_x509_cert_url.setter
+    def client_x509_cert_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_x509_cert_url", value)
+
+    @property
+    @pulumi.getter(name="organizationId")
+    def organization_id(self) -> pulumi.Input[str]:
+        """
+        The organization ID of the GCP cloud account
+        """
+        return pulumi.get(self, "organization_id")
+
+    @organization_id.setter
+    def organization_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "organization_id", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> pulumi.Input[str]:
+        """
+        Private key field of the API key (write only)
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_key", value)
+
+    @property
+    @pulumi.getter(name="privateKeyId")
+    def private_key_id(self) -> pulumi.Input[str]:
+        """
+        Private key ID field of the API key (write only)
+        """
+        return pulumi.get(self, "private_key_id")
+
+    @private_key_id.setter
+    def private_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_key_id", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        Project ID field of the API key (write only)
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="tokenUri")
+    def token_uri(self) -> pulumi.Input[str]:
+        """
+        Token URI field of the API key (write only)
+        """
+        return pulumi.get(self, "token_uri")
+
+    @token_uri.setter
+    def token_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token_uri", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type field of the API key (write only)
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class GcpOrganizationalDataMemberArgs:
     def __init__(__self__, *,
                  organization_membership_type: pulumi.Input[str],
@@ -3232,6 +3957,269 @@ class GitlabScopeEnvironmentDataArgs:
     @environment_type.setter
     def environment_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "environment_type", value)
+
+
+@pulumi.input_type
+class GovernanceAssignmentAdditionalDataArgs:
+    def __init__(__self__, *,
+                 ticket_link: Optional[pulumi.Input[str]] = None,
+                 ticket_number: Optional[pulumi.Input[int]] = None,
+                 ticket_status: Optional[pulumi.Input[str]] = None):
+        """
+        Describe the additional data of governance assignment - optional
+        :param pulumi.Input[str] ticket_link: Ticket link associated with this governance assignment - for example: https://snow.com
+        :param pulumi.Input[int] ticket_number: Ticket number associated with this governance assignment
+        :param pulumi.Input[str] ticket_status: The ticket status associated with this governance assignment - for example: Active
+        """
+        if ticket_link is not None:
+            pulumi.set(__self__, "ticket_link", ticket_link)
+        if ticket_number is not None:
+            pulumi.set(__self__, "ticket_number", ticket_number)
+        if ticket_status is not None:
+            pulumi.set(__self__, "ticket_status", ticket_status)
+
+    @property
+    @pulumi.getter(name="ticketLink")
+    def ticket_link(self) -> Optional[pulumi.Input[str]]:
+        """
+        Ticket link associated with this governance assignment - for example: https://snow.com
+        """
+        return pulumi.get(self, "ticket_link")
+
+    @ticket_link.setter
+    def ticket_link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ticket_link", value)
+
+    @property
+    @pulumi.getter(name="ticketNumber")
+    def ticket_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        Ticket number associated with this governance assignment
+        """
+        return pulumi.get(self, "ticket_number")
+
+    @ticket_number.setter
+    def ticket_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ticket_number", value)
+
+    @property
+    @pulumi.getter(name="ticketStatus")
+    def ticket_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ticket status associated with this governance assignment - for example: Active
+        """
+        return pulumi.get(self, "ticket_status")
+
+    @ticket_status.setter
+    def ticket_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ticket_status", value)
+
+
+@pulumi.input_type
+class GovernanceEmailNotificationArgs:
+    def __init__(__self__, *,
+                 disable_manager_email_notification: Optional[pulumi.Input[bool]] = None,
+                 disable_owner_email_notification: Optional[pulumi.Input[bool]] = None):
+        """
+        The governance email weekly notification configuration.
+        :param pulumi.Input[bool] disable_manager_email_notification: Exclude manager from weekly email notification.
+        :param pulumi.Input[bool] disable_owner_email_notification: Exclude  owner from weekly email notification.
+        """
+        if disable_manager_email_notification is not None:
+            pulumi.set(__self__, "disable_manager_email_notification", disable_manager_email_notification)
+        if disable_owner_email_notification is not None:
+            pulumi.set(__self__, "disable_owner_email_notification", disable_owner_email_notification)
+
+    @property
+    @pulumi.getter(name="disableManagerEmailNotification")
+    def disable_manager_email_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Exclude manager from weekly email notification.
+        """
+        return pulumi.get(self, "disable_manager_email_notification")
+
+    @disable_manager_email_notification.setter
+    def disable_manager_email_notification(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_manager_email_notification", value)
+
+    @property
+    @pulumi.getter(name="disableOwnerEmailNotification")
+    def disable_owner_email_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Exclude  owner from weekly email notification.
+        """
+        return pulumi.get(self, "disable_owner_email_notification")
+
+    @disable_owner_email_notification.setter
+    def disable_owner_email_notification(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_owner_email_notification", value)
+
+
+@pulumi.input_type
+class GovernanceRuleEmailNotificationArgs:
+    def __init__(__self__, *,
+                 disable_manager_email_notification: Optional[pulumi.Input[bool]] = None,
+                 disable_owner_email_notification: Optional[pulumi.Input[bool]] = None):
+        """
+        The governance email weekly notification configuration
+        :param pulumi.Input[bool] disable_manager_email_notification: Defines whether manager email notifications are disabled
+        :param pulumi.Input[bool] disable_owner_email_notification: Defines whether owner email notifications are disabled
+        """
+        if disable_manager_email_notification is not None:
+            pulumi.set(__self__, "disable_manager_email_notification", disable_manager_email_notification)
+        if disable_owner_email_notification is not None:
+            pulumi.set(__self__, "disable_owner_email_notification", disable_owner_email_notification)
+
+    @property
+    @pulumi.getter(name="disableManagerEmailNotification")
+    def disable_manager_email_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defines whether manager email notifications are disabled
+        """
+        return pulumi.get(self, "disable_manager_email_notification")
+
+    @disable_manager_email_notification.setter
+    def disable_manager_email_notification(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_manager_email_notification", value)
+
+    @property
+    @pulumi.getter(name="disableOwnerEmailNotification")
+    def disable_owner_email_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defines whether owner email notifications are disabled
+        """
+        return pulumi.get(self, "disable_owner_email_notification")
+
+    @disable_owner_email_notification.setter
+    def disable_owner_email_notification(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_owner_email_notification", value)
+
+
+@pulumi.input_type
+class GovernanceRuleOwnerSourceArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'GovernanceRuleOwnerSourceType']]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Describe the owner source of governance rule
+        :param pulumi.Input[Union[str, 'GovernanceRuleOwnerSourceType']] type: The owner type for the governance rule owner source
+        :param pulumi.Input[str] value: The source value e.g. tag key like owner name or email address
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'GovernanceRuleOwnerSourceType']]]:
+        """
+        The owner type for the governance rule owner source
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'GovernanceRuleOwnerSourceType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source value e.g. tag key like owner name or email address
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class HybridComputeSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 auto_provision: pulumi.Input[Union[str, 'AutoProvision']],
+                 proxy_server: Optional[pulumi.Input['ProxyServerPropertiesArgs']] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_principal: Optional[pulumi.Input['ServicePrincipalPropertiesArgs']] = None):
+        """
+        Settings for hybrid compute management
+        :param pulumi.Input[Union[str, 'AutoProvision']] auto_provision: Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+        :param pulumi.Input['ProxyServerPropertiesArgs'] proxy_server: For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+        :param pulumi.Input[str] region: The location where the metadata of machines will be stored
+        :param pulumi.Input[str] resource_group_name: The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+        :param pulumi.Input['ServicePrincipalPropertiesArgs'] service_principal: An object to access resources that are secured by an Azure AD tenant.
+        """
+        pulumi.set(__self__, "auto_provision", auto_provision)
+        if proxy_server is not None:
+            pulumi.set(__self__, "proxy_server", proxy_server)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if service_principal is not None:
+            pulumi.set(__self__, "service_principal", service_principal)
+
+    @property
+    @pulumi.getter(name="autoProvision")
+    def auto_provision(self) -> pulumi.Input[Union[str, 'AutoProvision']]:
+        """
+        Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+        """
+        return pulumi.get(self, "auto_provision")
+
+    @auto_provision.setter
+    def auto_provision(self, value: pulumi.Input[Union[str, 'AutoProvision']]):
+        pulumi.set(self, "auto_provision", value)
+
+    @property
+    @pulumi.getter(name="proxyServer")
+    def proxy_server(self) -> Optional[pulumi.Input['ProxyServerPropertiesArgs']]:
+        """
+        For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+        """
+        return pulumi.get(self, "proxy_server")
+
+    @proxy_server.setter
+    def proxy_server(self, value: Optional[pulumi.Input['ProxyServerPropertiesArgs']]):
+        pulumi.set(self, "proxy_server", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location where the metadata of machines will be stored
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipal")
+    def service_principal(self) -> Optional[pulumi.Input['ServicePrincipalPropertiesArgs']]:
+        """
+        An object to access resources that are secured by an Azure AD tenant.
+        """
+        return pulumi.get(self, "service_principal")
+
+    @service_principal.setter
+    def service_principal(self, value: Optional[pulumi.Input['ServicePrincipalPropertiesArgs']]):
+        pulumi.set(self, "service_principal", value)
 
 
 @pulumi.input_type
@@ -4057,6 +5045,46 @@ class ProtectionModeArgs:
 
 
 @pulumi.input_type
+class ProxyServerPropertiesArgs:
+    def __init__(__self__, *,
+                 ip: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[str]] = None):
+        """
+        For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+        :param pulumi.Input[str] ip: Proxy server IP
+        :param pulumi.Input[str] port: Proxy server port
+        """
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy server IP
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy server port
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
 class PublisherInfoArgs:
     def __init__(__self__, *,
                  binary_name: Optional[pulumi.Input[str]] = None,
@@ -4166,6 +5194,68 @@ class RecommendationConfigurationPropertiesArgs:
     @status.setter
     def status(self, value: pulumi.Input[Union[str, 'RecommendationConfigStatus']]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class RemediationEtaArgs:
+    def __init__(__self__, *,
+                 eta: pulumi.Input[str],
+                 justification: pulumi.Input[str]):
+        """
+        The ETA (estimated time of arrival) for remediation
+        :param pulumi.Input[str] eta: ETA for remediation.
+        :param pulumi.Input[str] justification: Justification for change of Eta.
+        """
+        pulumi.set(__self__, "eta", eta)
+        pulumi.set(__self__, "justification", justification)
+
+    @property
+    @pulumi.getter
+    def eta(self) -> pulumi.Input[str]:
+        """
+        ETA for remediation.
+        """
+        return pulumi.get(self, "eta")
+
+    @eta.setter
+    def eta(self, value: pulumi.Input[str]):
+        pulumi.set(self, "eta", value)
+
+    @property
+    @pulumi.getter
+    def justification(self) -> pulumi.Input[str]:
+        """
+        Justification for change of Eta.
+        """
+        return pulumi.get(self, "justification")
+
+    @justification.setter
+    def justification(self, value: pulumi.Input[str]):
+        pulumi.set(self, "justification", value)
+
+
+@pulumi.input_type
+class ScopeElementArgs:
+    def __init__(__self__, *,
+                 field: Optional[pulumi.Input[str]] = None):
+        """
+        A more specific scope used to identify the alerts to suppress.
+        :param pulumi.Input[str] field: The alert entity type to suppress by.
+        """
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alert entity type to suppress by.
+        """
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field", value)
 
 
 @pulumi.input_type
@@ -4459,6 +5549,172 @@ class SecurityAssessmentPartnerDataArgs:
     @secret.setter
     def secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class SecurityContactPropertiesAlertNotificationsArgs:
+    def __init__(__self__, *,
+                 minimal_severity: Optional[pulumi.Input[Union[str, 'MinimalSeverity']]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'State']]] = None):
+        """
+        Defines whether to send email notifications about new security alerts
+        :param pulumi.Input[Union[str, 'MinimalSeverity']] minimal_severity: Defines the minimal alert severity which will be sent as email notifications
+        :param pulumi.Input[Union[str, 'State']] state: Defines if email notifications will be sent about new security alerts
+        """
+        if minimal_severity is not None:
+            pulumi.set(__self__, "minimal_severity", minimal_severity)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="minimalSeverity")
+    def minimal_severity(self) -> Optional[pulumi.Input[Union[str, 'MinimalSeverity']]]:
+        """
+        Defines the minimal alert severity which will be sent as email notifications
+        """
+        return pulumi.get(self, "minimal_severity")
+
+    @minimal_severity.setter
+    def minimal_severity(self, value: Optional[pulumi.Input[Union[str, 'MinimalSeverity']]]):
+        pulumi.set(self, "minimal_severity", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'State']]]:
+        """
+        Defines if email notifications will be sent about new security alerts
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class SecurityContactPropertiesNotificationsByRoleArgs:
+    def __init__(__self__, *,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'State']]] = None):
+        """
+        Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]] roles: Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
+        :param pulumi.Input[Union[str, 'State']] state: Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+        """
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]]]:
+        """
+        Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]]]):
+        pulumi.set(self, "roles", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'State']]]:
+        """
+        Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class ServicePrincipalPropertiesArgs:
+    def __init__(__self__, *,
+                 application_id: Optional[pulumi.Input[str]] = None,
+                 secret: Optional[pulumi.Input[str]] = None):
+        """
+        Details of the service principal.
+        :param pulumi.Input[str] application_id: Application ID of service principal.
+        :param pulumi.Input[str] secret: A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+        """
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application ID of service principal.
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_id", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class StandardComponentPropertiesArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None):
+        """
+        Describes properties of an component as related to the standard
+        :param pulumi.Input[str] key: Component Key matching componentMetadata
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Component Key matching componentMetadata
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+
+@pulumi.input_type
+class SuppressionAlertsScopeArgs:
+    def __init__(__self__, *,
+                 all_of: pulumi.Input[Sequence[pulumi.Input['ScopeElementArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ScopeElementArgs']]] all_of: All the conditions inside need to be true in order to suppress the alert
+        """
+        pulumi.set(__self__, "all_of", all_of)
+
+    @property
+    @pulumi.getter(name="allOf")
+    def all_of(self) -> pulumi.Input[Sequence[pulumi.Input['ScopeElementArgs']]]:
+        """
+        All the conditions inside need to be true in order to suppress the alert
+        """
+        return pulumi.get(self, "all_of")
+
+    @all_of.setter
+    def all_of(self, value: pulumi.Input[Sequence[pulumi.Input['ScopeElementArgs']]]):
+        pulumi.set(self, "all_of", value)
 
 
 @pulumi.input_type

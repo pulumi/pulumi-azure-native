@@ -20,6 +20,7 @@ __all__ = [
     'LoadBalancerSku',
     'ManagedClusterSKUName',
     'ManagedClusterSKUTier',
+    'ManagedClusterUpgradeType',
     'NetworkDataplane',
     'NetworkMode',
     'NetworkPlugin',
@@ -232,6 +233,22 @@ class ManagedClusterSKUTier(str, Enum):
     FREE = "Free"
     """
     The cluster management is free, but charged for VM, storage, and networking usage. Best for experimenting, learning, simple testing, or workloads with fewer than 10 nodes. Not recommended for production use cases.
+    """
+
+
+class ManagedClusterUpgradeType(str, Enum):
+    """
+    The upgrade type.
+    Full requires the KubernetesVersion property to be set.
+    NodeImageOnly requires the KubernetesVersion property not to be set.
+    """
+    FULL = "Full"
+    """
+    Full upgrades the control plane and all agent pools of the target ManagedClusters.
+    """
+    NODE_IMAGE_ONLY = "NodeImageOnly"
+    """
+    NodeImageOnly upgrades only the node images of the target ManagedClusters.
     """
 
 

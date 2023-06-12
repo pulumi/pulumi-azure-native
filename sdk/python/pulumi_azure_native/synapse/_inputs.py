@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'AutoPausePropertiesArgs',
     'AutoScalePropertiesArgs',
+    'AzureSkuArgs',
     'CmdkeySetupArgs',
     'ComponentSetupArgs',
     'CspWorkspaceAdminPropertiesArgs',
@@ -38,6 +39,7 @@ __all__ = [
     'ManagedIdentityArgs',
     'ManagedIntegrationRuntimeArgs',
     'ManagedVirtualNetworkSettingsArgs',
+    'OptimizedAutoscaleArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'PurviewConfigurationArgs',
@@ -46,6 +48,7 @@ __all__ = [
     'SkuArgs',
     'SparkConfigPropertiesArgs',
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs',
+    'TableLevelSharingPropertiesArgs',
     'VirtualNetworkProfileArgs',
     'VulnerabilityAssessmentRecurringScansPropertiesArgs',
     'WorkspaceKeyDetailsArgs',
@@ -146,6 +149,60 @@ class AutoScalePropertiesArgs:
     @min_node_count.setter
     def min_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_node_count", value)
+
+
+@pulumi.input_type
+class AzureSkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Union[str, 'SkuName']],
+                 size: pulumi.Input[Union[str, 'SkuSize']],
+                 capacity: Optional[pulumi.Input[int]] = None):
+        """
+        Azure SKU definition.
+        :param pulumi.Input[Union[str, 'SkuName']] name: SKU name.
+        :param pulumi.Input[Union[str, 'SkuSize']] size: SKU size.
+        :param pulumi.Input[int] capacity: The number of instances of the cluster.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "size", size)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
+        """
+        SKU name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Input[Union[str, 'SkuSize']]:
+        """
+        SKU size.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: pulumi.Input[Union[str, 'SkuSize']]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of instances of the cluster.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
 
 
 @pulumi.input_type
@@ -1563,6 +1620,74 @@ class ManagedVirtualNetworkSettingsArgs:
 
 
 @pulumi.input_type
+class OptimizedAutoscaleArgs:
+    def __init__(__self__, *,
+                 is_enabled: pulumi.Input[bool],
+                 maximum: pulumi.Input[int],
+                 minimum: pulumi.Input[int],
+                 version: pulumi.Input[int]):
+        """
+        A class that contains the optimized auto scale definition.
+        :param pulumi.Input[bool] is_enabled: A boolean value that indicate if the optimized autoscale feature is enabled or not.
+        :param pulumi.Input[int] maximum: Maximum allowed instances count.
+        :param pulumi.Input[int] minimum: Minimum allowed instances count.
+        :param pulumi.Input[int] version: The version of the template defined, for instance 1.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "minimum", minimum)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[bool]:
+        """
+        A boolean value that indicate if the optimized autoscale feature is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> pulumi.Input[int]:
+        """
+        Maximum allowed instances count.
+        """
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum", value)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> pulumi.Input[int]:
+        """
+        Minimum allowed instances count.
+        """
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minimum", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[int]:
+        """
+        The version of the template defined, for instance 1.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[int]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
@@ -1880,6 +2005,110 @@ class SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs:
     @result.setter
     def result(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "result", value)
+
+
+@pulumi.input_type
+class TableLevelSharingPropertiesArgs:
+    def __init__(__self__, *,
+                 external_tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 materialized_views_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 materialized_views_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Tables that will be included and excluded in the follower database
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_tables_to_exclude: List of external tables exclude from the follower database
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_tables_to_include: List of external tables to include in the follower database
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] materialized_views_to_exclude: List of materialized views exclude from the follower database
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] materialized_views_to_include: List of materialized views to include in the follower database
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_exclude: List of tables to exclude from the follower database
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_include: List of tables to include in the follower database
+        """
+        if external_tables_to_exclude is not None:
+            pulumi.set(__self__, "external_tables_to_exclude", external_tables_to_exclude)
+        if external_tables_to_include is not None:
+            pulumi.set(__self__, "external_tables_to_include", external_tables_to_include)
+        if materialized_views_to_exclude is not None:
+            pulumi.set(__self__, "materialized_views_to_exclude", materialized_views_to_exclude)
+        if materialized_views_to_include is not None:
+            pulumi.set(__self__, "materialized_views_to_include", materialized_views_to_include)
+        if tables_to_exclude is not None:
+            pulumi.set(__self__, "tables_to_exclude", tables_to_exclude)
+        if tables_to_include is not None:
+            pulumi.set(__self__, "tables_to_include", tables_to_include)
+
+    @property
+    @pulumi.getter(name="externalTablesToExclude")
+    def external_tables_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of external tables exclude from the follower database
+        """
+        return pulumi.get(self, "external_tables_to_exclude")
+
+    @external_tables_to_exclude.setter
+    def external_tables_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_tables_to_exclude", value)
+
+    @property
+    @pulumi.getter(name="externalTablesToInclude")
+    def external_tables_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of external tables to include in the follower database
+        """
+        return pulumi.get(self, "external_tables_to_include")
+
+    @external_tables_to_include.setter
+    def external_tables_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_tables_to_include", value)
+
+    @property
+    @pulumi.getter(name="materializedViewsToExclude")
+    def materialized_views_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of materialized views exclude from the follower database
+        """
+        return pulumi.get(self, "materialized_views_to_exclude")
+
+    @materialized_views_to_exclude.setter
+    def materialized_views_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "materialized_views_to_exclude", value)
+
+    @property
+    @pulumi.getter(name="materializedViewsToInclude")
+    def materialized_views_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of materialized views to include in the follower database
+        """
+        return pulumi.get(self, "materialized_views_to_include")
+
+    @materialized_views_to_include.setter
+    def materialized_views_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "materialized_views_to_include", value)
+
+    @property
+    @pulumi.getter(name="tablesToExclude")
+    def tables_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of tables to exclude from the follower database
+        """
+        return pulumi.get(self, "tables_to_exclude")
+
+    @tables_to_exclude.setter
+    def tables_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tables_to_exclude", value)
+
+    @property
+    @pulumi.getter(name="tablesToInclude")
+    def tables_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of tables to include in the follower database
+        """
+        return pulumi.get(self, "tables_to_include")
+
+    @tables_to_include.setter
+    def tables_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tables_to_include", value)
 
 
 @pulumi.input_type

@@ -372,6 +372,8 @@ class NspAccessRule(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:NspAccessRule")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NspAccessRule, __self__).__init__(
             'azure-native:network/v20210201preview:NspAccessRule',
             resource_name,

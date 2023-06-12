@@ -8,6 +8,99 @@ using Pulumi;
 namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
+    /// The name of blob storage event type to process.
+    /// </summary>
+    [EnumType]
+    public readonly struct BlobStorageEventType : IEquatable<BlobStorageEventType>
+    {
+        private readonly string _value;
+
+        private BlobStorageEventType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BlobStorageEventType Microsoft_Storage_BlobCreated { get; } = new BlobStorageEventType("Microsoft.Storage.BlobCreated");
+        public static BlobStorageEventType Microsoft_Storage_BlobRenamed { get; } = new BlobStorageEventType("Microsoft.Storage.BlobRenamed");
+
+        public static bool operator ==(BlobStorageEventType left, BlobStorageEventType right) => left.Equals(right);
+        public static bool operator !=(BlobStorageEventType left, BlobStorageEventType right) => !left.Equals(right);
+
+        public static explicit operator string(BlobStorageEventType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BlobStorageEventType other && Equals(other);
+        public bool Equals(BlobStorageEventType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Cluster principal role.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterPrincipalRole : IEquatable<ClusterPrincipalRole>
+    {
+        private readonly string _value;
+
+        private ClusterPrincipalRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterPrincipalRole AllDatabasesAdmin { get; } = new ClusterPrincipalRole("AllDatabasesAdmin");
+        public static ClusterPrincipalRole AllDatabasesViewer { get; } = new ClusterPrincipalRole("AllDatabasesViewer");
+
+        public static bool operator ==(ClusterPrincipalRole left, ClusterPrincipalRole right) => left.Equals(right);
+        public static bool operator !=(ClusterPrincipalRole left, ClusterPrincipalRole right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterPrincipalRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterPrincipalRole other && Equals(other);
+        public bool Equals(ClusterPrincipalRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The event hub messages compression type
+    /// </summary>
+    [EnumType]
+    public readonly struct Compression : IEquatable<Compression>
+    {
+        private readonly string _value;
+
+        private Compression(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Compression None { get; } = new Compression("None");
+        public static Compression GZip { get; } = new Compression("GZip");
+
+        public static bool operator ==(Compression left, Compression right) => left.Equals(right);
+        public static bool operator !=(Compression left, Compression right) => !left.Equals(right);
+
+        public static explicit operator string(Compression value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Compression other && Equals(other);
+        public bool Equals(Compression other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the spark config properties file.
     /// </summary>
     [EnumType]
@@ -80,6 +173,38 @@ namespace Pulumi.AzureNative.Synapse
     }
 
     /// <summary>
+    /// Kind of the endpoint for the data connection
+    /// </summary>
+    [EnumType]
+    public readonly struct DataConnectionKind : IEquatable<DataConnectionKind>
+    {
+        private readonly string _value;
+
+        private DataConnectionKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataConnectionKind EventHub { get; } = new DataConnectionKind("EventHub");
+        public static DataConnectionKind EventGrid { get; } = new DataConnectionKind("EventGrid");
+        public static DataConnectionKind IotHub { get; } = new DataConnectionKind("IotHub");
+
+        public static bool operator ==(DataConnectionKind left, DataConnectionKind right) => left.Equals(right);
+        public static bool operator !=(DataConnectionKind left, DataConnectionKind right) => !left.Equals(right);
+
+        public static explicit operator string(DataConnectionKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataConnectionKind other && Equals(other);
+        public bool Equals(DataConnectionKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Compute type of the cluster which will execute data flow job.
     /// </summary>
     [EnumType]
@@ -104,6 +229,163 @@ namespace Pulumi.AzureNative.Synapse
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataFlowComputeType other && Equals(other);
         public bool Equals(DataFlowComputeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Database principal role.
+    /// </summary>
+    [EnumType]
+    public readonly struct DatabasePrincipalRole : IEquatable<DatabasePrincipalRole>
+    {
+        private readonly string _value;
+
+        private DatabasePrincipalRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatabasePrincipalRole Admin { get; } = new DatabasePrincipalRole("Admin");
+        public static DatabasePrincipalRole Ingestor { get; } = new DatabasePrincipalRole("Ingestor");
+        public static DatabasePrincipalRole Monitor { get; } = new DatabasePrincipalRole("Monitor");
+        public static DatabasePrincipalRole User { get; } = new DatabasePrincipalRole("User");
+        public static DatabasePrincipalRole UnrestrictedViewer { get; } = new DatabasePrincipalRole("UnrestrictedViewer");
+        public static DatabasePrincipalRole Viewer { get; } = new DatabasePrincipalRole("Viewer");
+
+        public static bool operator ==(DatabasePrincipalRole left, DatabasePrincipalRole right) => left.Equals(right);
+        public static bool operator !=(DatabasePrincipalRole left, DatabasePrincipalRole right) => !left.Equals(right);
+
+        public static explicit operator string(DatabasePrincipalRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatabasePrincipalRole other && Equals(other);
+        public bool Equals(DatabasePrincipalRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The default principals modification kind
+    /// </summary>
+    [EnumType]
+    public readonly struct DefaultPrincipalsModificationKind : IEquatable<DefaultPrincipalsModificationKind>
+    {
+        private readonly string _value;
+
+        private DefaultPrincipalsModificationKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DefaultPrincipalsModificationKind Union { get; } = new DefaultPrincipalsModificationKind("Union");
+        public static DefaultPrincipalsModificationKind Replace { get; } = new DefaultPrincipalsModificationKind("Replace");
+        public static DefaultPrincipalsModificationKind None { get; } = new DefaultPrincipalsModificationKind("None");
+
+        public static bool operator ==(DefaultPrincipalsModificationKind left, DefaultPrincipalsModificationKind right) => left.Equals(right);
+        public static bool operator !=(DefaultPrincipalsModificationKind left, DefaultPrincipalsModificationKind right) => !left.Equals(right);
+
+        public static explicit operator string(DefaultPrincipalsModificationKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DefaultPrincipalsModificationKind other && Equals(other);
+        public bool Equals(DefaultPrincipalsModificationKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The data format of the message. Optionally the data format can be added to each message.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventGridDataFormat : IEquatable<EventGridDataFormat>
+    {
+        private readonly string _value;
+
+        private EventGridDataFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventGridDataFormat MULTIJSON { get; } = new EventGridDataFormat("MULTIJSON");
+        public static EventGridDataFormat JSON { get; } = new EventGridDataFormat("JSON");
+        public static EventGridDataFormat CSV { get; } = new EventGridDataFormat("CSV");
+        public static EventGridDataFormat TSV { get; } = new EventGridDataFormat("TSV");
+        public static EventGridDataFormat SCSV { get; } = new EventGridDataFormat("SCSV");
+        public static EventGridDataFormat SOHSV { get; } = new EventGridDataFormat("SOHSV");
+        public static EventGridDataFormat PSV { get; } = new EventGridDataFormat("PSV");
+        public static EventGridDataFormat TXT { get; } = new EventGridDataFormat("TXT");
+        public static EventGridDataFormat RAW { get; } = new EventGridDataFormat("RAW");
+        public static EventGridDataFormat SINGLEJSON { get; } = new EventGridDataFormat("SINGLEJSON");
+        public static EventGridDataFormat AVRO { get; } = new EventGridDataFormat("AVRO");
+        public static EventGridDataFormat TSVE { get; } = new EventGridDataFormat("TSVE");
+        public static EventGridDataFormat PARQUET { get; } = new EventGridDataFormat("PARQUET");
+        public static EventGridDataFormat ORC { get; } = new EventGridDataFormat("ORC");
+        public static EventGridDataFormat APACHEAVRO { get; } = new EventGridDataFormat("APACHEAVRO");
+        public static EventGridDataFormat W3CLOGFILE { get; } = new EventGridDataFormat("W3CLOGFILE");
+
+        public static bool operator ==(EventGridDataFormat left, EventGridDataFormat right) => left.Equals(right);
+        public static bool operator !=(EventGridDataFormat left, EventGridDataFormat right) => !left.Equals(right);
+
+        public static explicit operator string(EventGridDataFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventGridDataFormat other && Equals(other);
+        public bool Equals(EventGridDataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The data format of the message. Optionally the data format can be added to each message.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventHubDataFormat : IEquatable<EventHubDataFormat>
+    {
+        private readonly string _value;
+
+        private EventHubDataFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventHubDataFormat MULTIJSON { get; } = new EventHubDataFormat("MULTIJSON");
+        public static EventHubDataFormat JSON { get; } = new EventHubDataFormat("JSON");
+        public static EventHubDataFormat CSV { get; } = new EventHubDataFormat("CSV");
+        public static EventHubDataFormat TSV { get; } = new EventHubDataFormat("TSV");
+        public static EventHubDataFormat SCSV { get; } = new EventHubDataFormat("SCSV");
+        public static EventHubDataFormat SOHSV { get; } = new EventHubDataFormat("SOHSV");
+        public static EventHubDataFormat PSV { get; } = new EventHubDataFormat("PSV");
+        public static EventHubDataFormat TXT { get; } = new EventHubDataFormat("TXT");
+        public static EventHubDataFormat RAW { get; } = new EventHubDataFormat("RAW");
+        public static EventHubDataFormat SINGLEJSON { get; } = new EventHubDataFormat("SINGLEJSON");
+        public static EventHubDataFormat AVRO { get; } = new EventHubDataFormat("AVRO");
+        public static EventHubDataFormat TSVE { get; } = new EventHubDataFormat("TSVE");
+        public static EventHubDataFormat PARQUET { get; } = new EventHubDataFormat("PARQUET");
+        public static EventHubDataFormat ORC { get; } = new EventHubDataFormat("ORC");
+        public static EventHubDataFormat APACHEAVRO { get; } = new EventHubDataFormat("APACHEAVRO");
+        public static EventHubDataFormat W3CLOGFILE { get; } = new EventHubDataFormat("W3CLOGFILE");
+
+        public static bool operator ==(EventHubDataFormat left, EventHubDataFormat right) => left.Equals(right);
+        public static bool operator !=(EventHubDataFormat left, EventHubDataFormat right) => !left.Equals(right);
+
+        public static explicit operator string(EventHubDataFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventHubDataFormat other && Equals(other);
+        public bool Equals(EventHubDataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -269,6 +551,82 @@ namespace Pulumi.AzureNative.Synapse
     }
 
     /// <summary>
+    /// The data format of the message. Optionally the data format can be added to each message.
+    /// </summary>
+    [EnumType]
+    public readonly struct IotHubDataFormat : IEquatable<IotHubDataFormat>
+    {
+        private readonly string _value;
+
+        private IotHubDataFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IotHubDataFormat MULTIJSON { get; } = new IotHubDataFormat("MULTIJSON");
+        public static IotHubDataFormat JSON { get; } = new IotHubDataFormat("JSON");
+        public static IotHubDataFormat CSV { get; } = new IotHubDataFormat("CSV");
+        public static IotHubDataFormat TSV { get; } = new IotHubDataFormat("TSV");
+        public static IotHubDataFormat SCSV { get; } = new IotHubDataFormat("SCSV");
+        public static IotHubDataFormat SOHSV { get; } = new IotHubDataFormat("SOHSV");
+        public static IotHubDataFormat PSV { get; } = new IotHubDataFormat("PSV");
+        public static IotHubDataFormat TXT { get; } = new IotHubDataFormat("TXT");
+        public static IotHubDataFormat RAW { get; } = new IotHubDataFormat("RAW");
+        public static IotHubDataFormat SINGLEJSON { get; } = new IotHubDataFormat("SINGLEJSON");
+        public static IotHubDataFormat AVRO { get; } = new IotHubDataFormat("AVRO");
+        public static IotHubDataFormat TSVE { get; } = new IotHubDataFormat("TSVE");
+        public static IotHubDataFormat PARQUET { get; } = new IotHubDataFormat("PARQUET");
+        public static IotHubDataFormat ORC { get; } = new IotHubDataFormat("ORC");
+        public static IotHubDataFormat APACHEAVRO { get; } = new IotHubDataFormat("APACHEAVRO");
+        public static IotHubDataFormat W3CLOGFILE { get; } = new IotHubDataFormat("W3CLOGFILE");
+
+        public static bool operator ==(IotHubDataFormat left, IotHubDataFormat right) => left.Equals(right);
+        public static bool operator !=(IotHubDataFormat left, IotHubDataFormat right) => !left.Equals(right);
+
+        public static explicit operator string(IotHubDataFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IotHubDataFormat other && Equals(other);
+        public bool Equals(IotHubDataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Kind of the database
+    /// </summary>
+    [EnumType]
+    public readonly struct Kind : IEquatable<Kind>
+    {
+        private readonly string _value;
+
+        private Kind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Kind ReadWrite { get; } = new Kind("ReadWrite");
+        public static Kind ReadOnlyFollowing { get; } = new Kind("ReadOnlyFollowing");
+
+        public static bool operator ==(Kind left, Kind right) => left.Equals(right);
+        public static bool operator !=(Kind left, Kind right) => !left.Equals(right);
+
+        public static explicit operator string(Kind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Kind other && Equals(other);
+        public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The level of compute power that each node in the Big Data pool has.
     /// </summary>
     [EnumType]
@@ -338,6 +696,38 @@ namespace Pulumi.AzureNative.Synapse
     }
 
     /// <summary>
+    /// Principal type.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrincipalType : IEquatable<PrincipalType>
+    {
+        private readonly string _value;
+
+        private PrincipalType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrincipalType App { get; } = new PrincipalType("App");
+        public static PrincipalType Group { get; } = new PrincipalType("Group");
+        public static PrincipalType User { get; } = new PrincipalType("User");
+
+        public static bool operator ==(PrincipalType left, PrincipalType right) => left.Equals(right);
+        public static bool operator !=(PrincipalType left, PrincipalType right) => !left.Equals(right);
+
+        public static explicit operator string(PrincipalType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrincipalType other && Equals(other);
+        public bool Equals(PrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of managed identity for the workspace
     /// </summary>
     [EnumType]
@@ -393,6 +783,70 @@ namespace Pulumi.AzureNative.Synapse
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SensitivityLabelRank other && Equals(other);
         public bool Equals(SensitivityLabelRank other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// SKU name.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuName : IEquatable<SkuName>
+    {
+        private readonly string _value;
+
+        private SkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkuName Compute_optimized { get; } = new SkuName("Compute optimized");
+        public static SkuName Storage_optimized { get; } = new SkuName("Storage optimized");
+
+        public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
+        public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
+
+        public static explicit operator string(SkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
+        public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// SKU size.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuSize : IEquatable<SkuSize>
+    {
+        private readonly string _value;
+
+        private SkuSize(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkuSize Extra_small { get; } = new SkuSize("Extra small");
+        public static SkuSize Small { get; } = new SkuSize("Small");
+        public static SkuSize Medium { get; } = new SkuSize("Medium");
+        public static SkuSize Large { get; } = new SkuSize("Large");
+
+        public static bool operator ==(SkuSize left, SkuSize right) => left.Equals(right);
+        public static bool operator !=(SkuSize left, SkuSize right) => !left.Equals(right);
+
+        public static explicit operator string(SkuSize value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuSize other && Equals(other);
+        public bool Equals(SkuSize other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

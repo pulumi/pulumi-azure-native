@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.App.Outputs
 {
 
     /// <summary>
-    /// Auth Secrets for Container App Scale Rule
+    /// Auth Secrets for Scale Rule
     /// </summary>
     [OutputType]
     public sealed class ScaleRuleAuthResponse
     {
         /// <summary>
-        /// Name of the Container App secret from which to pull the auth params.
+        /// Name of the secret from which to pull the auth params.
         /// </summary>
         public readonly string? SecretRef;
         /// <summary>

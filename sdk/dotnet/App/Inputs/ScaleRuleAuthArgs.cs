@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.App.Inputs
 {
 
     /// <summary>
-    /// Auth Secrets for Container App Scale Rule
+    /// Auth Secrets for Scale Rule
     /// </summary>
     public sealed class ScaleRuleAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Container App secret from which to pull the auth params.
+        /// Name of the secret from which to pull the auth params.
         /// </summary>
         [Input("secretRef")]
         public Input<string>? SecretRef { get; set; }

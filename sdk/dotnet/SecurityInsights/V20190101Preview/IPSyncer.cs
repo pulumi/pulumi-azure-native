@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:IPSyncer"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:IPSyncer"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:IPSyncer"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:IPSyncer"},

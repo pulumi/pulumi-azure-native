@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.EventHub.V20221001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub:ApplicationGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:ApplicationGroup"},
                 },
             };

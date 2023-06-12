@@ -278,6 +278,40 @@ namespace Pulumi.AzureNative.OperationalInsights
     }
 
     /// <summary>
+    /// Type of the machine group
+    /// </summary>
+    [EnumType]
+    public readonly struct MachineGroupType : IEquatable<MachineGroupType>
+    {
+        private readonly string _value;
+
+        private MachineGroupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MachineGroupType Unknown { get; } = new MachineGroupType("unknown");
+        public static MachineGroupType Azure_cs { get; } = new MachineGroupType("azure-cs");
+        public static MachineGroupType Azure_sf { get; } = new MachineGroupType("azure-sf");
+        public static MachineGroupType Azure_vmss { get; } = new MachineGroupType("azure-vmss");
+        public static MachineGroupType User_static { get; } = new MachineGroupType("user-static");
+
+        public static bool operator ==(MachineGroupType left, MachineGroupType right) => left.Equals(right);
+        public static bool operator !=(MachineGroupType left, MachineGroupType right) => !left.Equals(right);
+
+        public static explicit operator string(MachineGroupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MachineGroupType other && Equals(other);
+        public bool Equals(MachineGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The network access type for accessing Log Analytics query.
     /// </summary>
     [EnumType]

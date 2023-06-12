@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Product line
+    /// Product line.
     /// </summary>
     [OutputType]
     public sealed class ProductLineResponse
@@ -33,9 +33,13 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// list of filters supported for a product
+        /// List of filters supported for a product.
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterablePropertyResponse> FilterableProperties;
+        /// <summary>
+        /// The entity responsible for fulfillment of the item at the given hierarchy level.
+        /// </summary>
+        public readonly string FulfilledBy;
         /// <summary>
         /// Hierarchy information of a product.
         /// </summary>
@@ -45,7 +49,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ImageInformationResponse> ImageInformation;
         /// <summary>
-        /// List of products in the product line
+        /// List of products in the product line.
         /// </summary>
         public readonly ImmutableArray<Outputs.ProductResponse> Products;
 
@@ -61,6 +65,8 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
             ImmutableArray<Outputs.FilterablePropertyResponse> filterableProperties,
 
+            string fulfilledBy,
+
             Outputs.HierarchyInformationResponse hierarchyInformation,
 
             ImmutableArray<Outputs.ImageInformationResponse> imageInformation,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
             Description = description;
             DisplayName = displayName;
             FilterableProperties = filterableProperties;
+            FulfilledBy = fulfilledBy;
             HierarchyInformation = hierarchyInformation;
             ImageInformation = imageInformation;
             Products = products;

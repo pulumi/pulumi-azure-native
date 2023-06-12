@@ -43,6 +43,7 @@ __all__ = [
     'RecommendedActionResponse',
     'RecommendedActionStateInfoResponse',
     'ResourceIdentityResponse',
+    'ScheduleItemResponse',
     'ServerExternalAdministratorResponse',
     'ServerInfoResponse',
     'ServerPrivateEndpointConnectionResponse',
@@ -2324,6 +2325,84 @@ class ResourceIdentityResponse(dict):
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ScheduleItemResponse(dict):
+    """
+    Schedule info describing when the server should be started or stopped.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startDay":
+            suggest = "start_day"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "stopDay":
+            suggest = "stop_day"
+        elif key == "stopTime":
+            suggest = "stop_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 start_day: str,
+                 start_time: str,
+                 stop_day: str,
+                 stop_time: str):
+        """
+        Schedule info describing when the server should be started or stopped.
+        :param str start_day: Start day.
+        :param str start_time: Start time.
+        :param str stop_day: Stop day.
+        :param str stop_time: Stop time.
+        """
+        pulumi.set(__self__, "start_day", start_day)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "stop_day", stop_day)
+        pulumi.set(__self__, "stop_time", stop_time)
+
+    @property
+    @pulumi.getter(name="startDay")
+    def start_day(self) -> str:
+        """
+        Start day.
+        """
+        return pulumi.get(self, "start_day")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="stopDay")
+    def stop_day(self) -> str:
+        """
+        Stop day.
+        """
+        return pulumi.get(self, "stop_day")
+
+    @property
+    @pulumi.getter(name="stopTime")
+    def stop_time(self) -> str:
+        """
+        Stop time.
+        """
+        return pulumi.get(self, "stop_time")
 
 
 @pulumi.output_type

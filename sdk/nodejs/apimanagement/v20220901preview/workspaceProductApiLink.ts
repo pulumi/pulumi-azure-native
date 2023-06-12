@@ -87,6 +87,8 @@ export class WorkspaceProductApiLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceProductApiLink" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceProductApiLink.__pulumiType, name, resourceInputs, opts);
     }
 }

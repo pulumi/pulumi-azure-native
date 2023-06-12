@@ -69,4 +69,35 @@ namespace Pulumi.AzureNative.Maps
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The Map account key to use for signing.
+    /// </summary>
+    [EnumType]
+    public readonly struct SigningKey : IEquatable<SigningKey>
+    {
+        private readonly string _value;
+
+        private SigningKey(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SigningKey PrimaryKey { get; } = new SigningKey("primaryKey");
+        public static SigningKey SecondaryKey { get; } = new SigningKey("secondaryKey");
+
+        public static bool operator ==(SigningKey left, SigningKey right) => left.Equals(right);
+        public static bool operator !=(SigningKey left, SigningKey right) => !left.Equals(right);
+
+        public static explicit operator string(SigningKey value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SigningKey other && Equals(other);
+        public bool Equals(SigningKey other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

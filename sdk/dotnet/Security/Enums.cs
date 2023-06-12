@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.Security
 {
     /// <summary>
+    /// The type of the action that will be triggered by the Automation
+    /// </summary>
+    [EnumType]
+    public readonly struct ActionType : IEquatable<ActionType>
+    {
+        private readonly string _value;
+
+        private ActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActionType LogicApp { get; } = new ActionType("LogicApp");
+        public static ActionType EventHub { get; } = new ActionType("EventHub");
+        public static ActionType Workspace { get; } = new ActionType("Workspace");
+
+        public static bool operator ==(ActionType left, ActionType right) => left.Equals(right);
+        public static bool operator !=(ActionType left, ActionType right) => !left.Equals(right);
+
+        public static explicit operator string(ActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActionType other && Equals(other);
+        public bool Equals(ActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Data types sent to workspace.
     /// </summary>
     [EnumType]
@@ -167,10 +199,6 @@ namespace Pulumi.AzureNative.Security
         /// User assessments pushed directly by the user or other third party to Microsoft Defender for Cloud
         /// </summary>
         public static AssessmentType CustomerManaged { get; } = new AssessmentType("CustomerManaged");
-        /// <summary>
-        /// An assessment that was created by a verified 3rd party if the user connected it to ASC
-        /// </summary>
-        public static AssessmentType VerifiedPartner { get; } = new AssessmentType("VerifiedPartner");
 
         public static bool operator ==(AssessmentType left, AssessmentType right) => left.Equals(right);
         public static bool operator !=(AssessmentType left, AssessmentType right) => !left.Equals(right);
@@ -180,6 +208,84 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AssessmentType other && Equals(other);
         public bool Equals(AssessmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthenticationType : IEquatable<AuthenticationType>
+    {
+        private readonly string _value;
+
+        private AuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// AWS cloud account connector user credentials authentication
+        /// </summary>
+        public static AuthenticationType AwsCreds { get; } = new AuthenticationType("awsCreds");
+        /// <summary>
+        /// AWS account connector assume role authentication
+        /// </summary>
+        public static AuthenticationType AwsAssumeRole { get; } = new AuthenticationType("awsAssumeRole");
+        /// <summary>
+        /// GCP account connector service to service authentication
+        /// </summary>
+        public static AuthenticationType GcpCredentials { get; } = new AuthenticationType("gcpCredentials");
+
+        public static bool operator ==(AuthenticationType left, AuthenticationType right) => left.Equals(right);
+        public static bool operator !=(AuthenticationType left, AuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(AuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthenticationType other && Equals(other);
+        public bool Equals(AuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+    /// </summary>
+    [EnumType]
+    public readonly struct AutoProvision : IEquatable<AutoProvision>
+    {
+        private readonly string _value;
+
+        private AutoProvision(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Install missing Azure Arc agents on machines automatically
+        /// </summary>
+        public static AutoProvision On { get; } = new AutoProvision("On");
+        /// <summary>
+        /// Do not install Azure Arc agent on the machines automatically
+        /// </summary>
+        public static AutoProvision Off { get; } = new AutoProvision("Off");
+
+        public static bool operator ==(AutoProvision left, AutoProvision right) => left.Equals(right);
+        public static bool operator !=(AutoProvision left, AutoProvision right) => !left.Equals(right);
+
+        public static explicit operator string(AutoProvision value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoProvision other && Equals(other);
+        public bool Equals(AutoProvision other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -320,6 +426,46 @@ namespace Pulumi.AzureNative.Security
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// A valid event source type.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSource : IEquatable<EventSource>
+    {
+        private readonly string _value;
+
+        private EventSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSource Assessments { get; } = new EventSource("Assessments");
+        public static EventSource AssessmentsSnapshot { get; } = new EventSource("AssessmentsSnapshot");
+        public static EventSource SubAssessments { get; } = new EventSource("SubAssessments");
+        public static EventSource SubAssessmentsSnapshot { get; } = new EventSource("SubAssessmentsSnapshot");
+        public static EventSource Alerts { get; } = new EventSource("Alerts");
+        public static EventSource SecureScores { get; } = new EventSource("SecureScores");
+        public static EventSource SecureScoresSnapshot { get; } = new EventSource("SecureScoresSnapshot");
+        public static EventSource SecureScoreControls { get; } = new EventSource("SecureScoreControls");
+        public static EventSource SecureScoreControlsSnapshot { get; } = new EventSource("SecureScoreControlsSnapshot");
+        public static EventSource RegulatoryComplianceAssessment { get; } = new EventSource("RegulatoryComplianceAssessment");
+        public static EventSource RegulatoryComplianceAssessmentSnapshot { get; } = new EventSource("RegulatoryComplianceAssessmentSnapshot");
+
+        public static bool operator ==(EventSource left, EventSource right) => left.Equals(right);
+        public static bool operator !=(EventSource left, EventSource right) => !left.Equals(right);
+
+        public static explicit operator string(EventSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSource other && Equals(other);
+        public bool Equals(EventSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct ExportData : IEquatable<ExportData>
     {
@@ -343,6 +489,113 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ExportData other && Equals(other);
         public bool Equals(ExportData other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The owner type for the governance rule owner source
+    /// </summary>
+    [EnumType]
+    public readonly struct GovernanceRuleOwnerSourceType : IEquatable<GovernanceRuleOwnerSourceType>
+    {
+        private readonly string _value;
+
+        private GovernanceRuleOwnerSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The rule source type defined using resource tag
+        /// </summary>
+        public static GovernanceRuleOwnerSourceType ByTag { get; } = new GovernanceRuleOwnerSourceType("ByTag");
+        /// <summary>
+        /// The rule source type defined manually
+        /// </summary>
+        public static GovernanceRuleOwnerSourceType Manually { get; } = new GovernanceRuleOwnerSourceType("Manually");
+
+        public static bool operator ==(GovernanceRuleOwnerSourceType left, GovernanceRuleOwnerSourceType right) => left.Equals(right);
+        public static bool operator !=(GovernanceRuleOwnerSourceType left, GovernanceRuleOwnerSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(GovernanceRuleOwnerSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GovernanceRuleOwnerSourceType other && Equals(other);
+        public bool Equals(GovernanceRuleOwnerSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The governance rule source, what the rule affects, e.g. Assessments
+    /// </summary>
+    [EnumType]
+    public readonly struct GovernanceRuleSourceResourceType : IEquatable<GovernanceRuleSourceResourceType>
+    {
+        private readonly string _value;
+
+        private GovernanceRuleSourceResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The source of the governance rule is assessments
+        /// </summary>
+        public static GovernanceRuleSourceResourceType Assessments { get; } = new GovernanceRuleSourceResourceType("Assessments");
+
+        public static bool operator ==(GovernanceRuleSourceResourceType left, GovernanceRuleSourceResourceType right) => left.Equals(right);
+        public static bool operator !=(GovernanceRuleSourceResourceType left, GovernanceRuleSourceResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(GovernanceRuleSourceResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GovernanceRuleSourceResourceType other && Equals(other);
+        public bool Equals(GovernanceRuleSourceResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The rule type of the governance rule, defines the source of the rule e.g. Integrated
+    /// </summary>
+    [EnumType]
+    public readonly struct GovernanceRuleType : IEquatable<GovernanceRuleType>
+    {
+        private readonly string _value;
+
+        private GovernanceRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The source of the rule type definition is integrated
+        /// </summary>
+        public static GovernanceRuleType Integrated { get; } = new GovernanceRuleType("Integrated");
+        /// <summary>
+        /// The source of the rule type definition is ServiceNow
+        /// </summary>
+        public static GovernanceRuleType ServiceNow { get; } = new GovernanceRuleType("ServiceNow");
+
+        public static bool operator ==(GovernanceRuleType left, GovernanceRuleType right) => left.Equals(right);
+        public static bool operator !=(GovernanceRuleType left, GovernanceRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(GovernanceRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GovernanceRuleType other && Equals(other);
+        public bool Equals(GovernanceRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -375,6 +628,47 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ImplementationEffort other && Equals(other);
         public bool Equals(ImplementationEffort other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the minimal alert severity which will be sent as email notifications
+    /// </summary>
+    [EnumType]
+    public readonly struct MinimalSeverity : IEquatable<MinimalSeverity>
+    {
+        private readonly string _value;
+
+        private MinimalSeverity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Get notifications on new alerts with High severity
+        /// </summary>
+        public static MinimalSeverity High { get; } = new MinimalSeverity("High");
+        /// <summary>
+        /// Get notifications on new alerts with medium or high severity
+        /// </summary>
+        public static MinimalSeverity Medium { get; } = new MinimalSeverity("Medium");
+        /// <summary>
+        /// Don't get notifications on new alerts with low, medium or high severity
+        /// </summary>
+        public static MinimalSeverity Low { get; } = new MinimalSeverity("Low");
+
+        public static bool operator ==(MinimalSeverity left, MinimalSeverity right) => left.Equals(right);
+        public static bool operator !=(MinimalSeverity left, MinimalSeverity right) => !left.Equals(right);
+
+        public static explicit operator string(MinimalSeverity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MinimalSeverity other && Equals(other);
+        public bool Equals(MinimalSeverity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -429,6 +723,71 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+    /// </summary>
+    [EnumType]
+    public readonly struct Operator : IEquatable<Operator>
+    {
+        private readonly string _value;
+
+        private Operator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Applies for decimal and non-decimal operands
+        /// </summary>
+        public static Operator EqualsValue { get; } = new Operator("Equals");
+        /// <summary>
+        /// Applies only for decimal operands
+        /// </summary>
+        public static Operator GreaterThan { get; } = new Operator("GreaterThan");
+        /// <summary>
+        /// Applies only for decimal operands
+        /// </summary>
+        public static Operator GreaterThanOrEqualTo { get; } = new Operator("GreaterThanOrEqualTo");
+        /// <summary>
+        /// Applies only for decimal operands
+        /// </summary>
+        public static Operator LesserThan { get; } = new Operator("LesserThan");
+        /// <summary>
+        /// Applies only for decimal operands
+        /// </summary>
+        public static Operator LesserThanOrEqualTo { get; } = new Operator("LesserThanOrEqualTo");
+        /// <summary>
+        /// Applies  for decimal and non-decimal operands
+        /// </summary>
+        public static Operator NotEquals { get; } = new Operator("NotEquals");
+        /// <summary>
+        /// Applies only for non-decimal operands
+        /// </summary>
+        public static Operator Contains { get; } = new Operator("Contains");
+        /// <summary>
+        /// Applies only for non-decimal operands
+        /// </summary>
+        public static Operator StartsWith { get; } = new Operator("StartsWith");
+        /// <summary>
+        /// Applies only for non-decimal operands
+        /// </summary>
+        public static Operator EndsWith { get; } = new Operator("EndsWith");
+
+        public static bool operator ==(Operator left, Operator right) => left.Equals(right);
+        public static bool operator !=(Operator left, Operator right) => !left.Equals(right);
+
+        public static explicit operator string(Operator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Operator other && Equals(other);
+        public bool Equals(Operator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The multi cloud account's membership type in the organization
     /// </summary>
     [EnumType]
@@ -452,6 +811,39 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OrganizationMembershipType other && Equals(other);
         public bool Equals(OrganizationMembershipType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+    /// </summary>
+    [EnumType]
+    public readonly struct PropertyType : IEquatable<PropertyType>
+    {
+        private readonly string _value;
+
+        private PropertyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PropertyType String { get; } = new PropertyType("String");
+        public static PropertyType Integer { get; } = new PropertyType("Integer");
+        public static PropertyType Number { get; } = new PropertyType("Number");
+        public static PropertyType Boolean { get; } = new PropertyType("Boolean");
+
+        public static bool operator ==(PropertyType left, PropertyType right) => left.Equals(right);
+        public static bool operator !=(PropertyType left, PropertyType right) => !left.Equals(right);
+
+        public static explicit operator string(PropertyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PropertyType other && Equals(other);
+        public bool Equals(PropertyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -613,6 +1005,83 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// A possible role to configure sending security notification alerts to
+    /// </summary>
+    [EnumType]
+    public readonly struct Roles : IEquatable<Roles>
+    {
+        private readonly string _value;
+
+        private Roles(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// If enabled, send notification on new alerts to the account admins
+        /// </summary>
+        public static Roles AccountAdmin { get; } = new Roles("AccountAdmin");
+        /// <summary>
+        /// If enabled, send notification on new alerts to the service admins
+        /// </summary>
+        public static Roles ServiceAdmin { get; } = new Roles("ServiceAdmin");
+        /// <summary>
+        /// If enabled, send notification on new alerts to the subscription owners
+        /// </summary>
+        public static Roles Owner { get; } = new Roles("Owner");
+        /// <summary>
+        /// If enabled, send notification on new alerts to the subscription contributors
+        /// </summary>
+        public static Roles Contributor { get; } = new Roles("Contributor");
+
+        public static bool operator ==(Roles left, Roles right) => left.Equals(right);
+        public static bool operator !=(Roles left, Roles right) => !left.Equals(right);
+
+        public static explicit operator string(Roles value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Roles other && Equals(other);
+        public bool Equals(Roles other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Possible states of the rule
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleState : IEquatable<RuleState>
+    {
+        private readonly string _value;
+
+        private RuleState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleState Enabled { get; } = new RuleState("Enabled");
+        public static RuleState Disabled { get; } = new RuleState("Disabled");
+        public static RuleState Expired { get; } = new RuleState("Expired");
+
+        public static bool operator ==(RuleState left, RuleState right) => left.Equals(right);
+        public static bool operator !=(RuleState left, RuleState right) => !left.Equals(right);
+
+        public static explicit operator string(RuleState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleState other && Equals(other);
+        public bool Equals(RuleState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The scanning mode for the VM scan.
     /// </summary>
     [EnumType]
@@ -706,6 +1175,38 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// The severity to relate to the assessments generated by this assessment automation.
+    /// </summary>
+    [EnumType]
+    public readonly struct SeverityEnum : IEquatable<SeverityEnum>
+    {
+        private readonly string _value;
+
+        private SeverityEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SeverityEnum High { get; } = new SeverityEnum("High");
+        public static SeverityEnum Medium { get; } = new SeverityEnum("Medium");
+        public static SeverityEnum Low { get; } = new SeverityEnum("Low");
+
+        public static bool operator ==(SeverityEnum left, SeverityEnum right) => left.Equals(right);
+        public static bool operator !=(SeverityEnum left, SeverityEnum right) => !left.Equals(right);
+
+        public static explicit operator string(SeverityEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SeverityEnum other && Equals(other);
+        public bool Equals(SeverityEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The platform where the assessed resource resides
     /// </summary>
     [EnumType]
@@ -739,6 +1240,74 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Source other && Equals(other);
         public bool Equals(Source other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The cloud that the standard is supported on.
+    /// </summary>
+    [EnumType]
+    public readonly struct StandardSupportedClouds : IEquatable<StandardSupportedClouds>
+    {
+        private readonly string _value;
+
+        private StandardSupportedClouds(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StandardSupportedClouds AWS { get; } = new StandardSupportedClouds("AWS");
+        public static StandardSupportedClouds GCP { get; } = new StandardSupportedClouds("GCP");
+
+        public static bool operator ==(StandardSupportedClouds left, StandardSupportedClouds right) => left.Equals(right);
+        public static bool operator !=(StandardSupportedClouds left, StandardSupportedClouds right) => !left.Equals(right);
+
+        public static explicit operator string(StandardSupportedClouds value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StandardSupportedClouds other && Equals(other);
+        public bool Equals(StandardSupportedClouds other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+    /// </summary>
+    [EnumType]
+    public readonly struct State : IEquatable<State>
+    {
+        private readonly string _value;
+
+        private State(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Send notification on new alerts to the subscription's admins
+        /// </summary>
+        public static State On { get; } = new State("On");
+        /// <summary>
+        /// Don't send notification on new alerts to the subscription's admins
+        /// </summary>
+        public static State Off { get; } = new State("Off");
+
+        public static bool operator ==(State left, State right) => left.Equals(right);
+        public static bool operator !=(State left, State right) => !left.Equals(right);
+
+        public static explicit operator string(State value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is State other && Equals(other);
+        public bool Equals(State other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -833,6 +1402,37 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SubPlan other && Equals(other);
         public bool Equals(SubPlan other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Relevant cloud for the custom assessment automation.
+    /// </summary>
+    [EnumType]
+    public readonly struct SupportedCloudEnum : IEquatable<SupportedCloudEnum>
+    {
+        private readonly string _value;
+
+        private SupportedCloudEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SupportedCloudEnum AWS { get; } = new SupportedCloudEnum("AWS");
+        public static SupportedCloudEnum GCP { get; } = new SupportedCloudEnum("GCP");
+
+        public static bool operator ==(SupportedCloudEnum left, SupportedCloudEnum right) => left.Equals(right);
+        public static bool operator !=(SupportedCloudEnum left, SupportedCloudEnum right) => !left.Equals(right);
+
+        public static explicit operator string(SupportedCloudEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SupportedCloudEnum other && Equals(other);
+        public bool Equals(SupportedCloudEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -5,15 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AddressArgs } from "./address";
+export type Address = import("./address").Address;
+export const Address: typeof import("./address").Address = null as any;
+utilities.lazyLoad(exports, ["Address"], () => require("./address"));
+
 export { AddressByNameArgs } from "./addressByName";
 export type AddressByName = import("./addressByName").AddressByName;
 export const AddressByName: typeof import("./addressByName").AddressByName = null as any;
 utilities.lazyLoad(exports, ["AddressByName"], () => require("./addressByName"));
 
+export { GetAddressArgs, GetAddressResult, GetAddressOutputArgs } from "./getAddress";
+export const getAddress: typeof import("./getAddress").getAddress = null as any;
+export const getAddressOutput: typeof import("./getAddress").getAddressOutput = null as any;
+utilities.lazyLoad(exports, ["getAddress","getAddressOutput"], () => require("./getAddress"));
+
 export { GetAddressByNameArgs, GetAddressByNameResult, GetAddressByNameOutputArgs } from "./getAddressByName";
 export const getAddressByName: typeof import("./getAddressByName").getAddressByName = null as any;
 export const getAddressByNameOutput: typeof import("./getAddressByName").getAddressByNameOutput = null as any;
 utilities.lazyLoad(exports, ["getAddressByName","getAddressByNameOutput"], () => require("./getAddressByName"));
+
+export { GetOrderItemArgs, GetOrderItemResult, GetOrderItemOutputArgs } from "./getOrderItem";
+export const getOrderItem: typeof import("./getOrderItem").getOrderItem = null as any;
+export const getOrderItemOutput: typeof import("./getOrderItem").getOrderItemOutput = null as any;
+utilities.lazyLoad(exports, ["getOrderItem","getOrderItemOutput"], () => require("./getOrderItem"));
 
 export { GetOrderItemByNameArgs, GetOrderItemByNameResult, GetOrderItemByNameOutputArgs } from "./getOrderItemByName";
 export const getOrderItemByName: typeof import("./getOrderItemByName").getOrderItemByName = null as any;
@@ -29,6 +44,21 @@ export { ListProductFamiliesArgs, ListProductFamiliesResult, ListProductFamilies
 export const listProductFamilies: typeof import("./listProductFamilies").listProductFamilies = null as any;
 export const listProductFamiliesOutput: typeof import("./listProductFamilies").listProductFamiliesOutput = null as any;
 utilities.lazyLoad(exports, ["listProductFamilies","listProductFamiliesOutput"], () => require("./listProductFamilies"));
+
+export { ListProductsAndConfigurationProductFamiliesArgs, ListProductsAndConfigurationProductFamiliesResult, ListProductsAndConfigurationProductFamiliesOutputArgs } from "./listProductsAndConfigurationProductFamilies";
+export const listProductsAndConfigurationProductFamilies: typeof import("./listProductsAndConfigurationProductFamilies").listProductsAndConfigurationProductFamilies = null as any;
+export const listProductsAndConfigurationProductFamiliesOutput: typeof import("./listProductsAndConfigurationProductFamilies").listProductsAndConfigurationProductFamiliesOutput = null as any;
+utilities.lazyLoad(exports, ["listProductsAndConfigurationProductFamilies","listProductsAndConfigurationProductFamiliesOutput"], () => require("./listProductsAndConfigurationProductFamilies"));
+
+export { ListProductsAndConfigurationsArgs, ListProductsAndConfigurationsResult, ListProductsAndConfigurationsOutputArgs } from "./listProductsAndConfigurations";
+export const listProductsAndConfigurations: typeof import("./listProductsAndConfigurations").listProductsAndConfigurations = null as any;
+export const listProductsAndConfigurationsOutput: typeof import("./listProductsAndConfigurations").listProductsAndConfigurationsOutput = null as any;
+utilities.lazyLoad(exports, ["listProductsAndConfigurations","listProductsAndConfigurationsOutput"], () => require("./listProductsAndConfigurations"));
+
+export { OrderItemArgs } from "./orderItem";
+export type OrderItem = import("./orderItem").OrderItem;
+export const OrderItem: typeof import("./orderItem").OrderItem = null as any;
+utilities.lazyLoad(exports, ["OrderItem"], () => require("./orderItem"));
 
 export { OrderItemByNameArgs } from "./orderItemByName";
 export type OrderItemByName = import("./orderItemByName").OrderItemByName;
@@ -52,8 +82,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:edgeorder:Address":
+                return new Address(name, <any>undefined, { urn })
             case "azure-native:edgeorder:AddressByName":
                 return new AddressByName(name, <any>undefined, { urn })
+            case "azure-native:edgeorder:OrderItem":
+                return new OrderItem(name, <any>undefined, { urn })
             case "azure-native:edgeorder:OrderItemByName":
                 return new OrderItemByName(name, <any>undefined, { urn })
             default:

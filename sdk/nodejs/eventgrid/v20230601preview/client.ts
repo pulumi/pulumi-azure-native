@@ -123,6 +123,8 @@ export class Client extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:Client" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Client.__pulumiType, name, resourceInputs, opts);
     }
 }

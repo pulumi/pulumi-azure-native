@@ -39,6 +39,36 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
+    /// The type of administrator.
+    /// </summary>
+    [EnumType]
+    public readonly struct AdministratorType : IEquatable<AdministratorType>
+    {
+        private readonly string _value;
+
+        private AdministratorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AdministratorType ActiveDirectory { get; } = new AdministratorType("ActiveDirectory");
+
+        public static bool operator ==(AdministratorType left, AdministratorType right) => left.Equals(right);
+        public static bool operator !=(AdministratorType left, AdministratorType right) => !left.Equals(right);
+
+        public static explicit operator string(AdministratorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdministratorType other && Equals(other);
+        public bool Equals(AdministratorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Data encryption type to depict if it is System Managed vs Azure Key vault.
     /// </summary>
     [EnumType]
@@ -62,6 +92,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ArmServerKeyType other && Equals(other);
         public bool Equals(ArmServerKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// To trigger cancel for entire migration we need to send this flag as True
+    /// </summary>
+    [EnumType]
+    public readonly struct CancelEnum : IEquatable<CancelEnum>
+    {
+        private readonly string _value;
+
+        private CancelEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CancelEnum True { get; } = new CancelEnum("True");
+        public static CancelEnum False { get; } = new CancelEnum("False");
+
+        public static bool operator ==(CancelEnum left, CancelEnum right) => left.Equals(right);
+        public static bool operator !=(CancelEnum left, CancelEnum right) => !left.Equals(right);
+
+        public static explicit operator string(CancelEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CancelEnum other && Equals(other);
+        public bool Equals(CancelEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -199,6 +260,99 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
+    /// Indicates whether to setup LogicalReplicationOnSourceDb, if needed
+    /// </summary>
+    [EnumType]
+    public readonly struct LogicalReplicationOnSourceDbEnum : IEquatable<LogicalReplicationOnSourceDbEnum>
+    {
+        private readonly string _value;
+
+        private LogicalReplicationOnSourceDbEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LogicalReplicationOnSourceDbEnum True { get; } = new LogicalReplicationOnSourceDbEnum("True");
+        public static LogicalReplicationOnSourceDbEnum False { get; } = new LogicalReplicationOnSourceDbEnum("False");
+
+        public static bool operator ==(LogicalReplicationOnSourceDbEnum left, LogicalReplicationOnSourceDbEnum right) => left.Equals(right);
+        public static bool operator !=(LogicalReplicationOnSourceDbEnum left, LogicalReplicationOnSourceDbEnum right) => !left.Equals(right);
+
+        public static explicit operator string(LogicalReplicationOnSourceDbEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LogicalReplicationOnSourceDbEnum other && Equals(other);
+        public bool Equals(LogicalReplicationOnSourceDbEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// There are two types of migration modes Online and Offline
+    /// </summary>
+    [EnumType]
+    public readonly struct MigrationMode : IEquatable<MigrationMode>
+    {
+        private readonly string _value;
+
+        private MigrationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MigrationMode Offline { get; } = new MigrationMode("Offline");
+        public static MigrationMode Online { get; } = new MigrationMode("Online");
+
+        public static bool operator ==(MigrationMode left, MigrationMode right) => left.Equals(right);
+        public static bool operator !=(MigrationMode left, MigrationMode right) => !left.Equals(right);
+
+        public static explicit operator string(MigrationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MigrationMode other && Equals(other);
+        public bool Equals(MigrationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
+    /// </summary>
+    [EnumType]
+    public readonly struct OverwriteDbsInTargetEnum : IEquatable<OverwriteDbsInTargetEnum>
+    {
+        private readonly string _value;
+
+        private OverwriteDbsInTargetEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OverwriteDbsInTargetEnum True { get; } = new OverwriteDbsInTargetEnum("True");
+        public static OverwriteDbsInTargetEnum False { get; } = new OverwriteDbsInTargetEnum("False");
+
+        public static bool operator ==(OverwriteDbsInTargetEnum left, OverwriteDbsInTargetEnum right) => left.Equals(right);
+        public static bool operator !=(OverwriteDbsInTargetEnum left, OverwriteDbsInTargetEnum right) => !left.Equals(right);
+
+        public static explicit operator string(OverwriteDbsInTargetEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OverwriteDbsInTargetEnum other && Equals(other);
+        public bool Equals(OverwriteDbsInTargetEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// If Enabled, Password authentication is enabled.
     /// </summary>
     [EnumType]
@@ -328,6 +482,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
+    /// Specifies the state of the policy, whether it is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerSecurityAlertPolicyState : IEquatable<ServerSecurityAlertPolicyState>
+    {
+        private readonly string _value;
+
+        private ServerSecurityAlertPolicyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerSecurityAlertPolicyState Enabled { get; } = new ServerSecurityAlertPolicyState("Enabled");
+        public static ServerSecurityAlertPolicyState Disabled { get; } = new ServerSecurityAlertPolicyState("Disabled");
+
+        public static bool operator ==(ServerSecurityAlertPolicyState left, ServerSecurityAlertPolicyState right) => left.Equals(right);
+        public static bool operator !=(ServerSecurityAlertPolicyState left, ServerSecurityAlertPolicyState right) => !left.Equals(right);
+
+        public static explicit operator string(ServerSecurityAlertPolicyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerSecurityAlertPolicyState other && Equals(other);
+        public bool Equals(ServerSecurityAlertPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// PostgreSQL Server version.
     /// </summary>
     [EnumType]
@@ -385,6 +570,68 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
         public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the data migration should start right away
+    /// </summary>
+    [EnumType]
+    public readonly struct StartDataMigrationEnum : IEquatable<StartDataMigrationEnum>
+    {
+        private readonly string _value;
+
+        private StartDataMigrationEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StartDataMigrationEnum True { get; } = new StartDataMigrationEnum("True");
+        public static StartDataMigrationEnum False { get; } = new StartDataMigrationEnum("False");
+
+        public static bool operator ==(StartDataMigrationEnum left, StartDataMigrationEnum right) => left.Equals(right);
+        public static bool operator !=(StartDataMigrationEnum left, StartDataMigrationEnum right) => !left.Equals(right);
+
+        public static explicit operator string(StartDataMigrationEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StartDataMigrationEnum other && Equals(other);
+        public bool Equals(StartDataMigrationEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// To trigger cutover for entire migration we need to send this flag as True
+    /// </summary>
+    [EnumType]
+    public readonly struct TriggerCutoverEnum : IEquatable<TriggerCutoverEnum>
+    {
+        private readonly string _value;
+
+        private TriggerCutoverEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TriggerCutoverEnum True { get; } = new TriggerCutoverEnum("True");
+        public static TriggerCutoverEnum False { get; } = new TriggerCutoverEnum("False");
+
+        public static bool operator ==(TriggerCutoverEnum left, TriggerCutoverEnum right) => left.Equals(right);
+        public static bool operator !=(TriggerCutoverEnum left, TriggerCutoverEnum right) => !left.Equals(right);
+
+        public static explicit operator string(TriggerCutoverEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggerCutoverEnum other && Equals(other);
+        public bool Equals(TriggerCutoverEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

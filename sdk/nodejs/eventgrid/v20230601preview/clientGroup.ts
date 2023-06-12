@@ -98,6 +98,8 @@ export class ClientGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:ClientGroup" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ClientGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

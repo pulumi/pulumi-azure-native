@@ -55,6 +55,11 @@ export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule
 export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
 
+export { GetMigrationArgs, GetMigrationResult, GetMigrationOutputArgs } from "./getMigration";
+export const getMigration: typeof import("./getMigration").getMigration = null as any;
+export const getMigrationOutput: typeof import("./getMigration").getMigrationOutput = null as any;
+utilities.lazyLoad(exports, ["getMigration","getMigrationOutput"], () => require("./getMigration"));
+
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -70,6 +75,26 @@ export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
 utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 
+export { GetServerAdministratorArgs, GetServerAdministratorResult, GetServerAdministratorOutputArgs } from "./getServerAdministrator";
+export const getServerAdministrator: typeof import("./getServerAdministrator").getServerAdministrator = null as any;
+export const getServerAdministratorOutput: typeof import("./getServerAdministrator").getServerAdministratorOutput = null as any;
+utilities.lazyLoad(exports, ["getServerAdministrator","getServerAdministratorOutput"], () => require("./getServerAdministrator"));
+
+export { GetServerSecurityAlertPolicyArgs, GetServerSecurityAlertPolicyResult, GetServerSecurityAlertPolicyOutputArgs } from "./getServerSecurityAlertPolicy";
+export const getServerSecurityAlertPolicy: typeof import("./getServerSecurityAlertPolicy").getServerSecurityAlertPolicy = null as any;
+export const getServerSecurityAlertPolicyOutput: typeof import("./getServerSecurityAlertPolicy").getServerSecurityAlertPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getServerSecurityAlertPolicy","getServerSecurityAlertPolicyOutput"], () => require("./getServerSecurityAlertPolicy"));
+
+export { GetVirtualNetworkRuleArgs, GetVirtualNetworkRuleResult, GetVirtualNetworkRuleOutputArgs } from "./getVirtualNetworkRule";
+export const getVirtualNetworkRule: typeof import("./getVirtualNetworkRule").getVirtualNetworkRule = null as any;
+export const getVirtualNetworkRuleOutput: typeof import("./getVirtualNetworkRule").getVirtualNetworkRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetworkRule","getVirtualNetworkRuleOutput"], () => require("./getVirtualNetworkRule"));
+
+export { MigrationArgs } from "./migration";
+export type Migration = import("./migration").Migration;
+export const Migration: typeof import("./migration").Migration = null as any;
+utilities.lazyLoad(exports, ["Migration"], () => require("./migration"));
+
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
@@ -84,6 +109,21 @@ export { ServerArgs } from "./server";
 export type Server = import("./server").Server;
 export const Server: typeof import("./server").Server = null as any;
 utilities.lazyLoad(exports, ["Server"], () => require("./server"));
+
+export { ServerAdministratorArgs } from "./serverAdministrator";
+export type ServerAdministrator = import("./serverAdministrator").ServerAdministrator;
+export const ServerAdministrator: typeof import("./serverAdministrator").ServerAdministrator = null as any;
+utilities.lazyLoad(exports, ["ServerAdministrator"], () => require("./serverAdministrator"));
+
+export { ServerSecurityAlertPolicyArgs } from "./serverSecurityAlertPolicy";
+export type ServerSecurityAlertPolicy = import("./serverSecurityAlertPolicy").ServerSecurityAlertPolicy;
+export const ServerSecurityAlertPolicy: typeof import("./serverSecurityAlertPolicy").ServerSecurityAlertPolicy = null as any;
+utilities.lazyLoad(exports, ["ServerSecurityAlertPolicy"], () => require("./serverSecurityAlertPolicy"));
+
+export { VirtualNetworkRuleArgs } from "./virtualNetworkRule";
+export type VirtualNetworkRule = import("./virtualNetworkRule").VirtualNetworkRule;
+export const VirtualNetworkRule: typeof import("./virtualNetworkRule").VirtualNetworkRule = null as any;
+utilities.lazyLoad(exports, ["VirtualNetworkRule"], () => require("./virtualNetworkRule"));
 
 
 // Export enums:
@@ -136,12 +176,20 @@ const _module = {
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql:Migration":
+                return new Migration(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql:Role":
                 return new Role(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql:Server":
                 return new Server(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql:ServerAdministrator":
+                return new ServerAdministrator(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql:ServerSecurityAlertPolicy":
+                return new ServerSecurityAlertPolicy(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql:VirtualNetworkRule":
+                return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

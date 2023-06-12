@@ -5,14 +5,35 @@
 from enum import Enum
 
 __all__ = [
+    'ActionRuleStatus',
+    'ActionRuleType',
     'ActionType',
     'AlertRuleState',
     'DaysOfWeek',
     'Field',
     'Operator',
     'RecurrenceType',
+    'ScopeType',
     'Severity',
+    'SuppressionType',
 ]
+
+
+class ActionRuleStatus(str, Enum):
+    """
+    Indicates if the given action rule is enabled or disabled
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ActionRuleType(str, Enum):
+    """
+    Indicates type of action rule
+    """
+    SUPPRESSION = "Suppression"
+    ACTION_GROUP = "ActionGroup"
+    DIAGNOSTICS = "Diagnostics"
 
 
 class ActionType(str, Enum):
@@ -80,6 +101,15 @@ class RecurrenceType(str, Enum):
     MONTHLY = "Monthly"
 
 
+class ScopeType(str, Enum):
+    """
+    type of target scope
+    """
+    RESOURCE_GROUP = "ResourceGroup"
+    RESOURCE = "Resource"
+    SUBSCRIPTION = "Subscription"
+
+
 class Severity(str, Enum):
     """
     The alert rule severity.
@@ -89,3 +119,14 @@ class Severity(str, Enum):
     SEV2 = "Sev2"
     SEV3 = "Sev3"
     SEV4 = "Sev4"
+
+
+class SuppressionType(str, Enum):
+    """
+    Specifies when the suppression should be applied
+    """
+    ALWAYS = "Always"
+    ONCE = "Once"
+    DAILY = "Daily"
+    WEEKLY = "Weekly"
+    MONTHLY = "Monthly"

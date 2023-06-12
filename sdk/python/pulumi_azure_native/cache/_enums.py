@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AofFrequency',
     'ClusteringPolicy',
+    'CmkIdentityType',
     'DayOfWeek',
     'EvictionPolicy',
     'ManagedServiceIdentityType',
@@ -35,6 +36,14 @@ class ClusteringPolicy(str, Enum):
     """
     ENTERPRISE_CLUSTER = "EnterpriseCluster"
     OSS_CLUSTER = "OSSCluster"
+
+
+class CmkIdentityType(str, Enum):
+    """
+    Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+    """
+    SYSTEM_ASSIGNED_IDENTITY = "systemAssignedIdentity"
+    USER_ASSIGNED_IDENTITY = "userAssignedIdentity"
 
 
 class DayOfWeek(str, Enum):

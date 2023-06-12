@@ -165,6 +165,8 @@ export class ScopeAccessReviewHistoryDefinitionById extends pulumi.CustomResourc
             resourceInputs["userPrincipalName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization:ScopeAccessReviewHistoryDefinitionById" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScopeAccessReviewHistoryDefinitionById.__pulumiType, name, resourceInputs, opts);
     }
 }

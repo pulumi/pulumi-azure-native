@@ -181,8 +181,16 @@ func buildSpec(providerName string, versions VersionResources, curations Curatio
 	if existing.Additions != nil {
 		existingAdditions = *existing.Additions
 	}
+	sortedVersions := []string{}
+	for version := range versions {
+		sortedVersions = append(sortedVersions, version)
+	}
+	openapi.SortApiVersions(sortedVersions)
 	additions := map[openapi.ResourceName]openapi.ApiVersion{}
-	for apiVersion, resources := range latestVersions {
+	// Loop through every version in order, skipping excluded and private versions
+	// and overwriting additions from previous versions.
+	for _, apiVersion := range sortedVersions {
+		resources := versions[apiVersion]
 		if !providerCuration.Explicit && (trackingPtr == nil || apiVersion == *trackingPtr) {
 			continue
 		}
@@ -191,10 +199,11 @@ func buildSpec(providerName string, versions VersionResources, curations Curatio
 			if exclusionErr != nil {
 				fmt.Printf("Error checking exclusion for %s/%s: %s\n", providerName, resourceName, exclusionErr)
 			}
-			if isExcluded {
+			if isExcluded || openapi.IsPrivate(apiVersion) {
 				continue
-			} else if version, ok := existingAdditions[resourceName]; ok {
-				additions[resourceName] = version
+			}
+			if existingVersion, ok := existingAdditions[resourceName]; ok {
+				additions[resourceName] = existingVersion
 			} else if !trackingResources.Has(resourceName) {
 				additions[resourceName] = apiVersion
 			}
@@ -234,11 +243,11 @@ func findLatestResourceVersions(versions VersionResources, curations providerCur
 		orderedVersions = append(orderedVersions, apiVersion)
 	}
 
-	// Descending order - newest first
-	sort.Sort(sort.Reverse(sort.StringSlice(orderedVersions)))
+	openapi.SortApiVersions(orderedVersions)
 
 	latestResourceVersions := map[openapi.ResourceName]openapi.ApiVersion{}
-	for _, version := range orderedVersions {
+	for i := len(orderedVersions) - 1; i >= 0; i-- {
+		version := orderedVersions[i]
 		resources := minimalVersions[version]
 		for _, resourceName := range resources {
 			// Only add if not already exists
@@ -294,10 +303,31 @@ func filterCandidateVersions(versions VersionResources, previewPolicy string) []
 		// If no more to iterate through, just add
 		if i == 0 || !containsRecentStable(orderedVersions[:i], version) {
 			candidateVersions.Add(version)
+			continue
+		}
+
+		isOld, err := isMoreThanOneYearOld(version)
+		if err != nil {
+			panic(fmt.Errorf("error checking version age: %s", err))
+		}
+		if isOld {
+			candidateVersions.Add(version)
 		}
 	}
 
 	return candidateVersions.SortedValues()
+}
+
+func isMoreThanOneYearOld(version openapi.ApiVersion) (bool, error) {
+	if len(version) < 10 {
+		return false, fmt.Errorf("invalid version string")
+	}
+	asTime, err := time.Parse("2006-01-02", version[:10])
+	if err != nil {
+		return false, err
+	}
+	diff := time.Since(asTime)
+	return diff.Hours() > 24*366, nil
 }
 
 func containsRecentStable(orderedVersions []openapi.ApiVersion, comparisonVersion openapi.ApiVersion) bool {

@@ -12,6 +12,7 @@ __all__ = [
     'LoadBalancerType',
     'PersonalDesktopAssignmentType',
     'PreferredAppGroupType',
+    'PrivateEndpointServiceConnectionStatus',
     'RegistrationTokenOperation',
     'RemoteApplicationType',
     'ResourceIdentityType',
@@ -93,6 +94,15 @@ class PreferredAppGroupType(str, Enum):
     NONE = "None"
     DESKTOP = "Desktop"
     RAIL_APPLICATIONS = "RailApplications"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 class RegistrationTokenOperation(str, Enum):

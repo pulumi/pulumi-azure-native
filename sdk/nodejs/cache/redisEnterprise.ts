@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the RedisEnterprise cluster
- * API Version: 2022-01-01.
+ * API Version: 2023-03-01-preview.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
  */
 export class RedisEnterprise extends pulumi.CustomResource {
@@ -40,9 +40,17 @@ export class RedisEnterprise extends pulumi.CustomResource {
     }
 
     /**
+     * Encryption-at-rest configuration for the cluster.
+     */
+    public readonly encryption!: pulumi.Output<outputs.cache.ClusterPropertiesResponseEncryption | undefined>;
+    /**
      * DNS name of the cluster endpoint
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
+    /**
+     * The identity of the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.cache.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -76,6 +84,10 @@ export class RedisEnterprise extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.cache.EnterpriseSkuResponse>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.cache.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -106,6 +118,8 @@ export class RedisEnterprise extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -118,9 +132,12 @@ export class RedisEnterprise extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["redisVersion"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["minimumTlsVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -129,6 +146,7 @@ export class RedisEnterprise extends pulumi.CustomResource {
             resourceInputs["redisVersion"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
@@ -148,6 +166,14 @@ export interface RedisEnterpriseArgs {
      * The name of the RedisEnterprise cluster.
      */
     clusterName?: pulumi.Input<string>;
+    /**
+     * Encryption-at-rest configuration for the cluster.
+     */
+    encryption?: pulumi.Input<inputs.cache.ClusterPropertiesEncryptionArgs>;
+    /**
+     * The identity of the resource.
+     */
+    identity?: pulumi.Input<inputs.cache.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

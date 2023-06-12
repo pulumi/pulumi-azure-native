@@ -5,6 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessReviewHistoryDefinitionByIdArgs } from "./accessReviewHistoryDefinitionById";
+export type AccessReviewHistoryDefinitionById = import("./accessReviewHistoryDefinitionById").AccessReviewHistoryDefinitionById;
+export const AccessReviewHistoryDefinitionById: typeof import("./accessReviewHistoryDefinitionById").AccessReviewHistoryDefinitionById = null as any;
+utilities.lazyLoad(exports, ["AccessReviewHistoryDefinitionById"], () => require("./accessReviewHistoryDefinitionById"));
+
+export { AccessReviewScheduleDefinitionByIdArgs } from "./accessReviewScheduleDefinitionById";
+export type AccessReviewScheduleDefinitionById = import("./accessReviewScheduleDefinitionById").AccessReviewScheduleDefinitionById;
+export const AccessReviewScheduleDefinitionById: typeof import("./accessReviewScheduleDefinitionById").AccessReviewScheduleDefinitionById = null as any;
+utilities.lazyLoad(exports, ["AccessReviewScheduleDefinitionById"], () => require("./accessReviewScheduleDefinitionById"));
+
+export { GetAccessReviewHistoryDefinitionByIdArgs, GetAccessReviewHistoryDefinitionByIdResult, GetAccessReviewHistoryDefinitionByIdOutputArgs } from "./getAccessReviewHistoryDefinitionById";
+export const getAccessReviewHistoryDefinitionById: typeof import("./getAccessReviewHistoryDefinitionById").getAccessReviewHistoryDefinitionById = null as any;
+export const getAccessReviewHistoryDefinitionByIdOutput: typeof import("./getAccessReviewHistoryDefinitionById").getAccessReviewHistoryDefinitionByIdOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessReviewHistoryDefinitionById","getAccessReviewHistoryDefinitionByIdOutput"], () => require("./getAccessReviewHistoryDefinitionById"));
+
+export { GetAccessReviewScheduleDefinitionByIdArgs, GetAccessReviewScheduleDefinitionByIdResult, GetAccessReviewScheduleDefinitionByIdOutputArgs } from "./getAccessReviewScheduleDefinitionById";
+export const getAccessReviewScheduleDefinitionById: typeof import("./getAccessReviewScheduleDefinitionById").getAccessReviewScheduleDefinitionById = null as any;
+export const getAccessReviewScheduleDefinitionByIdOutput: typeof import("./getAccessReviewScheduleDefinitionById").getAccessReviewScheduleDefinitionByIdOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessReviewScheduleDefinitionById","getAccessReviewScheduleDefinitionByIdOutput"], () => require("./getAccessReviewScheduleDefinitionById"));
+
 export { GetClientConfigResult } from "./getClientConfig";
 export const getClientConfig: typeof import("./getClientConfig").getClientConfig = null as any;
 utilities.lazyLoad(exports, ["getClientConfig"], () => require("./getClientConfig"));
@@ -49,6 +69,11 @@ export const getPolicyDefinitionAtManagementGroup: typeof import("./getPolicyDef
 export const getPolicyDefinitionAtManagementGroupOutput: typeof import("./getPolicyDefinitionAtManagementGroup").getPolicyDefinitionAtManagementGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicyDefinitionAtManagementGroup","getPolicyDefinitionAtManagementGroupOutput"], () => require("./getPolicyDefinitionAtManagementGroup"));
 
+export { GetPolicyExemptionArgs, GetPolicyExemptionResult, GetPolicyExemptionOutputArgs } from "./getPolicyExemption";
+export const getPolicyExemption: typeof import("./getPolicyExemption").getPolicyExemption = null as any;
+export const getPolicyExemptionOutput: typeof import("./getPolicyExemption").getPolicyExemptionOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyExemption","getPolicyExemptionOutput"], () => require("./getPolicyExemption"));
+
 export { GetPolicySetDefinitionArgs, GetPolicySetDefinitionResult, GetPolicySetDefinitionOutputArgs } from "./getPolicySetDefinition";
 export const getPolicySetDefinition: typeof import("./getPolicySetDefinition").getPolicySetDefinition = null as any;
 export const getPolicySetDefinitionOutput: typeof import("./getPolicySetDefinition").getPolicySetDefinitionOutput = null as any;
@@ -83,6 +108,36 @@ export { GetRoleManagementPolicyAssignmentArgs, GetRoleManagementPolicyAssignmen
 export const getRoleManagementPolicyAssignment: typeof import("./getRoleManagementPolicyAssignment").getRoleManagementPolicyAssignment = null as any;
 export const getRoleManagementPolicyAssignmentOutput: typeof import("./getRoleManagementPolicyAssignment").getRoleManagementPolicyAssignmentOutput = null as any;
 utilities.lazyLoad(exports, ["getRoleManagementPolicyAssignment","getRoleManagementPolicyAssignmentOutput"], () => require("./getRoleManagementPolicyAssignment"));
+
+export { GetScopeAccessReviewHistoryDefinitionByIdArgs, GetScopeAccessReviewHistoryDefinitionByIdResult, GetScopeAccessReviewHistoryDefinitionByIdOutputArgs } from "./getScopeAccessReviewHistoryDefinitionById";
+export const getScopeAccessReviewHistoryDefinitionById: typeof import("./getScopeAccessReviewHistoryDefinitionById").getScopeAccessReviewHistoryDefinitionById = null as any;
+export const getScopeAccessReviewHistoryDefinitionByIdOutput: typeof import("./getScopeAccessReviewHistoryDefinitionById").getScopeAccessReviewHistoryDefinitionByIdOutput = null as any;
+utilities.lazyLoad(exports, ["getScopeAccessReviewHistoryDefinitionById","getScopeAccessReviewHistoryDefinitionByIdOutput"], () => require("./getScopeAccessReviewHistoryDefinitionById"));
+
+export { GetScopeAccessReviewScheduleDefinitionByIdArgs, GetScopeAccessReviewScheduleDefinitionByIdResult, GetScopeAccessReviewScheduleDefinitionByIdOutputArgs } from "./getScopeAccessReviewScheduleDefinitionById";
+export const getScopeAccessReviewScheduleDefinitionById: typeof import("./getScopeAccessReviewScheduleDefinitionById").getScopeAccessReviewScheduleDefinitionById = null as any;
+export const getScopeAccessReviewScheduleDefinitionByIdOutput: typeof import("./getScopeAccessReviewScheduleDefinitionById").getScopeAccessReviewScheduleDefinitionByIdOutput = null as any;
+utilities.lazyLoad(exports, ["getScopeAccessReviewScheduleDefinitionById","getScopeAccessReviewScheduleDefinitionByIdOutput"], () => require("./getScopeAccessReviewScheduleDefinitionById"));
+
+export { GetVariableArgs, GetVariableResult, GetVariableOutputArgs } from "./getVariable";
+export const getVariable: typeof import("./getVariable").getVariable = null as any;
+export const getVariableOutput: typeof import("./getVariable").getVariableOutput = null as any;
+utilities.lazyLoad(exports, ["getVariable","getVariableOutput"], () => require("./getVariable"));
+
+export { GetVariableAtManagementGroupArgs, GetVariableAtManagementGroupResult, GetVariableAtManagementGroupOutputArgs } from "./getVariableAtManagementGroup";
+export const getVariableAtManagementGroup: typeof import("./getVariableAtManagementGroup").getVariableAtManagementGroup = null as any;
+export const getVariableAtManagementGroupOutput: typeof import("./getVariableAtManagementGroup").getVariableAtManagementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getVariableAtManagementGroup","getVariableAtManagementGroupOutput"], () => require("./getVariableAtManagementGroup"));
+
+export { GetVariableValueArgs, GetVariableValueResult, GetVariableValueOutputArgs } from "./getVariableValue";
+export const getVariableValue: typeof import("./getVariableValue").getVariableValue = null as any;
+export const getVariableValueOutput: typeof import("./getVariableValue").getVariableValueOutput = null as any;
+utilities.lazyLoad(exports, ["getVariableValue","getVariableValueOutput"], () => require("./getVariableValue"));
+
+export { GetVariableValueAtManagementGroupArgs, GetVariableValueAtManagementGroupResult, GetVariableValueAtManagementGroupOutputArgs } from "./getVariableValueAtManagementGroup";
+export const getVariableValueAtManagementGroup: typeof import("./getVariableValueAtManagementGroup").getVariableValueAtManagementGroup = null as any;
+export const getVariableValueAtManagementGroupOutput: typeof import("./getVariableValueAtManagementGroup").getVariableValueAtManagementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getVariableValueAtManagementGroup","getVariableValueAtManagementGroupOutput"], () => require("./getVariableValueAtManagementGroup"));
 
 export { ManagementLockAtResourceGroupLevelArgs } from "./managementLockAtResourceGroupLevel";
 export type ManagementLockAtResourceGroupLevel = import("./managementLockAtResourceGroupLevel").ManagementLockAtResourceGroupLevel;
@@ -119,6 +174,11 @@ export type PolicyDefinitionAtManagementGroup = import("./policyDefinitionAtMana
 export const PolicyDefinitionAtManagementGroup: typeof import("./policyDefinitionAtManagementGroup").PolicyDefinitionAtManagementGroup = null as any;
 utilities.lazyLoad(exports, ["PolicyDefinitionAtManagementGroup"], () => require("./policyDefinitionAtManagementGroup"));
 
+export { PolicyExemptionArgs } from "./policyExemption";
+export type PolicyExemption = import("./policyExemption").PolicyExemption;
+export const PolicyExemption: typeof import("./policyExemption").PolicyExemption = null as any;
+utilities.lazyLoad(exports, ["PolicyExemption"], () => require("./policyExemption"));
+
 export { PolicySetDefinitionArgs } from "./policySetDefinition";
 export type PolicySetDefinition = import("./policySetDefinition").PolicySetDefinition;
 export const PolicySetDefinition: typeof import("./policySetDefinition").PolicySetDefinition = null as any;
@@ -153,6 +213,36 @@ export { RoleManagementPolicyAssignmentArgs } from "./roleManagementPolicyAssign
 export type RoleManagementPolicyAssignment = import("./roleManagementPolicyAssignment").RoleManagementPolicyAssignment;
 export const RoleManagementPolicyAssignment: typeof import("./roleManagementPolicyAssignment").RoleManagementPolicyAssignment = null as any;
 utilities.lazyLoad(exports, ["RoleManagementPolicyAssignment"], () => require("./roleManagementPolicyAssignment"));
+
+export { ScopeAccessReviewHistoryDefinitionByIdArgs } from "./scopeAccessReviewHistoryDefinitionById";
+export type ScopeAccessReviewHistoryDefinitionById = import("./scopeAccessReviewHistoryDefinitionById").ScopeAccessReviewHistoryDefinitionById;
+export const ScopeAccessReviewHistoryDefinitionById: typeof import("./scopeAccessReviewHistoryDefinitionById").ScopeAccessReviewHistoryDefinitionById = null as any;
+utilities.lazyLoad(exports, ["ScopeAccessReviewHistoryDefinitionById"], () => require("./scopeAccessReviewHistoryDefinitionById"));
+
+export { ScopeAccessReviewScheduleDefinitionByIdArgs } from "./scopeAccessReviewScheduleDefinitionById";
+export type ScopeAccessReviewScheduleDefinitionById = import("./scopeAccessReviewScheduleDefinitionById").ScopeAccessReviewScheduleDefinitionById;
+export const ScopeAccessReviewScheduleDefinitionById: typeof import("./scopeAccessReviewScheduleDefinitionById").ScopeAccessReviewScheduleDefinitionById = null as any;
+utilities.lazyLoad(exports, ["ScopeAccessReviewScheduleDefinitionById"], () => require("./scopeAccessReviewScheduleDefinitionById"));
+
+export { VariableArgs } from "./variable";
+export type Variable = import("./variable").Variable;
+export const Variable: typeof import("./variable").Variable = null as any;
+utilities.lazyLoad(exports, ["Variable"], () => require("./variable"));
+
+export { VariableAtManagementGroupArgs } from "./variableAtManagementGroup";
+export type VariableAtManagementGroup = import("./variableAtManagementGroup").VariableAtManagementGroup;
+export const VariableAtManagementGroup: typeof import("./variableAtManagementGroup").VariableAtManagementGroup = null as any;
+utilities.lazyLoad(exports, ["VariableAtManagementGroup"], () => require("./variableAtManagementGroup"));
+
+export { VariableValueArgs } from "./variableValue";
+export type VariableValue = import("./variableValue").VariableValue;
+export const VariableValue: typeof import("./variableValue").VariableValue = null as any;
+utilities.lazyLoad(exports, ["VariableValue"], () => require("./variableValue"));
+
+export { VariableValueAtManagementGroupArgs } from "./variableValueAtManagementGroup";
+export type VariableValueAtManagementGroup = import("./variableValueAtManagementGroup").VariableValueAtManagementGroup;
+export const VariableValueAtManagementGroup: typeof import("./variableValueAtManagementGroup").VariableValueAtManagementGroup = null as any;
+utilities.lazyLoad(exports, ["VariableValueAtManagementGroup"], () => require("./variableValueAtManagementGroup"));
 
 
 // Export enums:
@@ -217,6 +307,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:authorization:AccessReviewHistoryDefinitionById":
+                return new AccessReviewHistoryDefinitionById(name, <any>undefined, { urn })
+            case "azure-native:authorization:AccessReviewScheduleDefinitionById":
+                return new AccessReviewScheduleDefinitionById(name, <any>undefined, { urn })
             case "azure-native:authorization:ManagementLockAtResourceGroupLevel":
                 return new ManagementLockAtResourceGroupLevel(name, <any>undefined, { urn })
             case "azure-native:authorization:ManagementLockAtResourceLevel":
@@ -231,6 +325,8 @@ const _module = {
                 return new PolicyDefinition(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicyDefinitionAtManagementGroup":
                 return new PolicyDefinitionAtManagementGroup(name, <any>undefined, { urn })
+            case "azure-native:authorization:PolicyExemption":
+                return new PolicyExemption(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicySetDefinition":
                 return new PolicySetDefinition(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicySetDefinitionAtManagementGroup":
@@ -245,6 +341,18 @@ const _module = {
                 return new RoleDefinition(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleManagementPolicyAssignment":
                 return new RoleManagementPolicyAssignment(name, <any>undefined, { urn })
+            case "azure-native:authorization:ScopeAccessReviewHistoryDefinitionById":
+                return new ScopeAccessReviewHistoryDefinitionById(name, <any>undefined, { urn })
+            case "azure-native:authorization:ScopeAccessReviewScheduleDefinitionById":
+                return new ScopeAccessReviewScheduleDefinitionById(name, <any>undefined, { urn })
+            case "azure-native:authorization:Variable":
+                return new Variable(name, <any>undefined, { urn })
+            case "azure-native:authorization:VariableAtManagementGroup":
+                return new VariableAtManagementGroup(name, <any>undefined, { urn })
+            case "azure-native:authorization:VariableValue":
+                return new VariableValue(name, <any>undefined, { urn })
+            case "azure-native:authorization:VariableValueAtManagementGroup":
+                return new VariableValueAtManagementGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Billing type Purchase meter details
+    /// Billing type Purchase meter details.
     /// </summary>
     [OutputType]
     public sealed class PurchaseMeterDetailsResponse
@@ -26,19 +26,19 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly string ChargingType;
         /// <summary>
-        /// Billing unit applicable for Pav2 billing
+        /// Billing unit applicable for Pav2 billing.
         /// </summary>
         public readonly double Multiplier;
         /// <summary>
-        /// Product Id
+        /// Product Id.
         /// </summary>
         public readonly string ProductId;
         /// <summary>
-        /// Sku Id
+        /// Sku Id.
         /// </summary>
         public readonly string SkuId;
         /// <summary>
-        /// Term Id
+        /// Term Id.
         /// </summary>
         public readonly string TermId;
 

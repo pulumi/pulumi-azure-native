@@ -16,6 +16,36 @@ export {
     v20210601preview,
 };
 
+export const BlobStorageEventType = {
+    Microsoft_Storage_BlobCreated: "Microsoft.Storage.BlobCreated",
+    Microsoft_Storage_BlobRenamed: "Microsoft.Storage.BlobRenamed",
+} as const;
+
+/**
+ * The name of blob storage event type to process.
+ */
+export type BlobStorageEventType = (typeof BlobStorageEventType)[keyof typeof BlobStorageEventType];
+
+export const ClusterPrincipalRole = {
+    AllDatabasesAdmin: "AllDatabasesAdmin",
+    AllDatabasesViewer: "AllDatabasesViewer",
+} as const;
+
+/**
+ * Cluster principal role.
+ */
+export type ClusterPrincipalRole = (typeof ClusterPrincipalRole)[keyof typeof ClusterPrincipalRole];
+
+export const Compression = {
+    None: "None",
+    GZip: "GZip",
+} as const;
+
+/**
+ * The event hub messages compression type
+ */
+export type Compression = (typeof Compression)[keyof typeof Compression];
+
 export const ConfigurationType = {
     File: "File",
     Artifact: "Artifact",
@@ -46,6 +76,17 @@ export const CreateMode = {
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
+export const DataConnectionKind = {
+    EventHub: "EventHub",
+    EventGrid: "EventGrid",
+    IotHub: "IotHub",
+} as const;
+
+/**
+ * Kind of the endpoint for the data connection
+ */
+export type DataConnectionKind = (typeof DataConnectionKind)[keyof typeof DataConnectionKind];
+
 export const DataFlowComputeType = {
     General: "General",
     MemoryOptimized: "MemoryOptimized",
@@ -56,6 +97,79 @@ export const DataFlowComputeType = {
  * Compute type of the cluster which will execute data flow job.
  */
 export type DataFlowComputeType = (typeof DataFlowComputeType)[keyof typeof DataFlowComputeType];
+
+export const DatabasePrincipalRole = {
+    Admin: "Admin",
+    Ingestor: "Ingestor",
+    Monitor: "Monitor",
+    User: "User",
+    UnrestrictedViewer: "UnrestrictedViewer",
+    Viewer: "Viewer",
+} as const;
+
+/**
+ * Database principal role.
+ */
+export type DatabasePrincipalRole = (typeof DatabasePrincipalRole)[keyof typeof DatabasePrincipalRole];
+
+export const DefaultPrincipalsModificationKind = {
+    Union: "Union",
+    Replace: "Replace",
+    None: "None",
+} as const;
+
+/**
+ * The default principals modification kind
+ */
+export type DefaultPrincipalsModificationKind = (typeof DefaultPrincipalsModificationKind)[keyof typeof DefaultPrincipalsModificationKind];
+
+export const EventGridDataFormat = {
+    MULTIJSON: "MULTIJSON",
+    JSON: "JSON",
+    CSV: "CSV",
+    TSV: "TSV",
+    SCSV: "SCSV",
+    SOHSV: "SOHSV",
+    PSV: "PSV",
+    TXT: "TXT",
+    RAW: "RAW",
+    SINGLEJSON: "SINGLEJSON",
+    AVRO: "AVRO",
+    TSVE: "TSVE",
+    PARQUET: "PARQUET",
+    ORC: "ORC",
+    APACHEAVRO: "APACHEAVRO",
+    W3CLOGFILE: "W3CLOGFILE",
+} as const;
+
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
+export type EventGridDataFormat = (typeof EventGridDataFormat)[keyof typeof EventGridDataFormat];
+
+export const EventHubDataFormat = {
+    MULTIJSON: "MULTIJSON",
+    JSON: "JSON",
+    CSV: "CSV",
+    TSV: "TSV",
+    SCSV: "SCSV",
+    SOHSV: "SOHSV",
+    PSV: "PSV",
+    TXT: "TXT",
+    RAW: "RAW",
+    SINGLEJSON: "SINGLEJSON",
+    AVRO: "AVRO",
+    TSVE: "TSVE",
+    PARQUET: "PARQUET",
+    ORC: "ORC",
+    APACHEAVRO: "APACHEAVRO",
+    W3CLOGFILE: "W3CLOGFILE",
+} as const;
+
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
+export type EventHubDataFormat = (typeof EventHubDataFormat)[keyof typeof EventHubDataFormat];
 
 export const IntegrationRuntimeEdition = {
     Standard: "Standard",
@@ -109,6 +223,40 @@ export const IntegrationRuntimeType = {
  */
 export type IntegrationRuntimeType = (typeof IntegrationRuntimeType)[keyof typeof IntegrationRuntimeType];
 
+export const IotHubDataFormat = {
+    MULTIJSON: "MULTIJSON",
+    JSON: "JSON",
+    CSV: "CSV",
+    TSV: "TSV",
+    SCSV: "SCSV",
+    SOHSV: "SOHSV",
+    PSV: "PSV",
+    TXT: "TXT",
+    RAW: "RAW",
+    SINGLEJSON: "SINGLEJSON",
+    AVRO: "AVRO",
+    TSVE: "TSVE",
+    PARQUET: "PARQUET",
+    ORC: "ORC",
+    APACHEAVRO: "APACHEAVRO",
+    W3CLOGFILE: "W3CLOGFILE",
+} as const;
+
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
+export type IotHubDataFormat = (typeof IotHubDataFormat)[keyof typeof IotHubDataFormat];
+
+export const Kind = {
+    ReadWrite: "ReadWrite",
+    ReadOnlyFollowing: "ReadOnlyFollowing",
+} as const;
+
+/**
+ * Kind of the database
+ */
+export type Kind = (typeof Kind)[keyof typeof Kind];
+
 export const NodeSize = {
     None: "None",
     Small: "Small",
@@ -136,6 +284,17 @@ export const NodeSizeFamily = {
  */
 export type NodeSizeFamily = (typeof NodeSizeFamily)[keyof typeof NodeSizeFamily];
 
+export const PrincipalType = {
+    App: "App",
+    Group: "Group",
+    User: "User",
+} as const;
+
+/**
+ * Principal type.
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
 export const ResourceIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
@@ -156,6 +315,28 @@ export const SensitivityLabelRank = {
 } as const;
 
 export type SensitivityLabelRank = (typeof SensitivityLabelRank)[keyof typeof SensitivityLabelRank];
+
+export const SkuName = {
+    Compute_optimized: "Compute optimized",
+    Storage_optimized: "Storage optimized",
+} as const;
+
+/**
+ * SKU name.
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const SkuSize = {
+    Extra_small: "Extra small",
+    Small: "Small",
+    Medium: "Medium",
+    Large: "Large",
+} as const;
+
+/**
+ * SKU size.
+ */
+export type SkuSize = (typeof SkuSize)[keyof typeof SkuSize];
 
 export const StorageAccountType = {
     GRS: "GRS",

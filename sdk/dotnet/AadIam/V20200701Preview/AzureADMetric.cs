@@ -68,6 +68,8 @@ namespace Pulumi.AzureNative.AadIam.V20200701Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200701preview:azureADMetric"},
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam:AzureADMetric"},
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam:azureADMetric"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

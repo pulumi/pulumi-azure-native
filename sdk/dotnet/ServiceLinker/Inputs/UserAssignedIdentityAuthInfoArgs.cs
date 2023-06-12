@@ -29,10 +29,34 @@ namespace Pulumi.AzureNative.ServiceLinker.Inputs
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
+        /// Indicates whether to clean up previous operation when Linker is updating or deleting
+        /// </summary>
+        [Input("deleteOrUpdateBehavior")]
+        public InputUnion<string, Pulumi.AzureNative.ServiceLinker.DeleteOrUpdateBehavior>? DeleteOrUpdateBehavior { get; set; }
+
+        [Input("roles")]
+        private InputList<string>? _roles;
+
+        /// <summary>
+        /// Optional, this value specifies the Azure role to be assigned
+        /// </summary>
+        public InputList<string> Roles
+        {
+            get => _roles ?? (_roles = new InputList<string>());
+            set => _roles = value;
+        }
+
+        /// <summary>
         /// Subscription id for userAssignedIdentity.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }
+
+        /// <summary>
+        /// Username created in the database which is mapped to a user in AAD.
+        /// </summary>
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         public UserAssignedIdentityAuthInfoArgs()
         {

@@ -13,49 +13,86 @@ from ._enums import *
 __all__ = [
     'AzureFunctionEventSubscriptionDestinationArgs',
     'BoolEqualsAdvancedFilterArgs',
+    'BoolEqualsFilterArgs',
+    'ClientAuthenticationSettingsArgs',
+    'ClientAuthenticationArgs',
+    'ClientCertificateAuthenticationArgs',
+    'ClientCertificateSubjectDistinguishedNameArgs',
+    'ClientCertificateThumbprintArgs',
     'ConnectionStateArgs',
     'DeadLetterWithResourceIdentityArgs',
+    'DeliveryConfigurationArgs',
     'DeliveryWithResourceIdentityArgs',
     'DynamicDeliveryAttributeMappingArgs',
+    'DynamicRoutingEnrichmentArgs',
+    'EventChannelDestinationArgs',
+    'EventChannelFilterArgs',
+    'EventChannelSourceArgs',
     'EventHubEventSubscriptionDestinationArgs',
     'EventSubscriptionFilterArgs',
     'EventSubscriptionIdentityArgs',
     'EventTypeInfoArgs',
+    'FiltersConfigurationArgs',
     'HybridConnectionEventSubscriptionDestinationArgs',
     'IdentityInfoArgs',
     'InboundIpRuleArgs',
     'InlineEventPropertiesArgs',
     'IsNotNullAdvancedFilterArgs',
+    'IsNotNullFilterArgs',
     'IsNullOrUndefinedAdvancedFilterArgs',
+    'IsNullOrUndefinedFilterArgs',
     'JsonFieldWithDefaultArgs',
     'JsonFieldArgs',
     'JsonInputSchemaMappingArgs',
+    'NamespaceSkuArgs',
     'NumberGreaterThanAdvancedFilterArgs',
+    'NumberGreaterThanFilterArgs',
     'NumberGreaterThanOrEqualsAdvancedFilterArgs',
+    'NumberGreaterThanOrEqualsFilterArgs',
     'NumberInAdvancedFilterArgs',
+    'NumberInFilterArgs',
     'NumberInRangeAdvancedFilterArgs',
+    'NumberInRangeFilterArgs',
     'NumberLessThanAdvancedFilterArgs',
+    'NumberLessThanFilterArgs',
     'NumberLessThanOrEqualsAdvancedFilterArgs',
+    'NumberLessThanOrEqualsFilterArgs',
     'NumberNotInAdvancedFilterArgs',
+    'NumberNotInFilterArgs',
     'NumberNotInRangeAdvancedFilterArgs',
+    'NumberNotInRangeFilterArgs',
     'PartnerAuthorizationArgs',
     'PartnerTopicInfoArgs',
     'PartnerArgs',
+    'PrivateEndpointConnectionArgs',
     'PrivateEndpointArgs',
+    'QueueInfoArgs',
     'RetryPolicyArgs',
+    'RoutingEnrichmentsArgs',
+    'RoutingIdentityInfoArgs',
     'ServiceBusQueueEventSubscriptionDestinationArgs',
     'ServiceBusTopicEventSubscriptionDestinationArgs',
     'StaticDeliveryAttributeMappingArgs',
+    'StaticRoutingEnrichmentArgs',
     'StorageBlobDeadLetterDestinationArgs',
     'StorageQueueEventSubscriptionDestinationArgs',
     'StringBeginsWithAdvancedFilterArgs',
+    'StringBeginsWithFilterArgs',
     'StringContainsAdvancedFilterArgs',
+    'StringContainsFilterArgs',
     'StringEndsWithAdvancedFilterArgs',
+    'StringEndsWithFilterArgs',
     'StringInAdvancedFilterArgs',
+    'StringInFilterArgs',
     'StringNotBeginsWithAdvancedFilterArgs',
+    'StringNotBeginsWithFilterArgs',
     'StringNotContainsAdvancedFilterArgs',
+    'StringNotContainsFilterArgs',
     'StringNotEndsWithAdvancedFilterArgs',
+    'StringNotEndsWithFilterArgs',
     'StringNotInAdvancedFilterArgs',
+    'StringNotInFilterArgs',
+    'TopicSpacesConfigurationArgs',
     'UserIdentityPropertiesArgs',
     'WebHookEventSubscriptionDestinationArgs',
 ]
@@ -211,6 +248,280 @@ class BoolEqualsAdvancedFilterArgs:
 
 
 @pulumi.input_type
+class BoolEqualsFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[bool]] = None):
+        """
+        BoolEquals Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'BoolEquals'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[bool] value: The boolean filter value.
+        """
+        pulumi.set(__self__, "operator_type", 'BoolEquals')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'BoolEquals'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The boolean filter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ClientAuthenticationSettingsArgs:
+    def __init__(__self__, *,
+                 alternative_authentication_name_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlternativeAuthenticationNameSource']]]]] = None):
+        """
+        Client authentication settings for namespace resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlternativeAuthenticationNameSource']]]] alternative_authentication_name_sources: Alternative authentication name sources related to client authentication settings for namespace resource.
+        """
+        if alternative_authentication_name_sources is not None:
+            pulumi.set(__self__, "alternative_authentication_name_sources", alternative_authentication_name_sources)
+
+    @property
+    @pulumi.getter(name="alternativeAuthenticationNameSources")
+    def alternative_authentication_name_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlternativeAuthenticationNameSource']]]]]:
+        """
+        Alternative authentication name sources related to client authentication settings for namespace resource.
+        """
+        return pulumi.get(self, "alternative_authentication_name_sources")
+
+    @alternative_authentication_name_sources.setter
+    def alternative_authentication_name_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlternativeAuthenticationNameSource']]]]]):
+        pulumi.set(self, "alternative_authentication_name_sources", value)
+
+
+@pulumi.input_type
+class ClientAuthenticationArgs:
+    def __init__(__self__, *,
+                 certificate_subject: Optional[pulumi.Input['ClientCertificateSubjectDistinguishedNameArgs']] = None,
+                 certificate_thumbprint: Optional[pulumi.Input['ClientCertificateThumbprintArgs']] = None):
+        """
+        The Authentication properties for the client.
+        :param pulumi.Input['ClientCertificateSubjectDistinguishedNameArgs'] certificate_subject: The CA certificate subject name used for authentication.
+        :param pulumi.Input['ClientCertificateThumbprintArgs'] certificate_thumbprint: The self signed certificate's thumbprints data used for authentication.
+        """
+        if certificate_subject is not None:
+            pulumi.set(__self__, "certificate_subject", certificate_subject)
+        if certificate_thumbprint is not None:
+            pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
+
+    @property
+    @pulumi.getter(name="certificateSubject")
+    def certificate_subject(self) -> Optional[pulumi.Input['ClientCertificateSubjectDistinguishedNameArgs']]:
+        """
+        The CA certificate subject name used for authentication.
+        """
+        return pulumi.get(self, "certificate_subject")
+
+    @certificate_subject.setter
+    def certificate_subject(self, value: Optional[pulumi.Input['ClientCertificateSubjectDistinguishedNameArgs']]):
+        pulumi.set(self, "certificate_subject", value)
+
+    @property
+    @pulumi.getter(name="certificateThumbprint")
+    def certificate_thumbprint(self) -> Optional[pulumi.Input['ClientCertificateThumbprintArgs']]:
+        """
+        The self signed certificate's thumbprints data used for authentication.
+        """
+        return pulumi.get(self, "certificate_thumbprint")
+
+    @certificate_thumbprint.setter
+    def certificate_thumbprint(self, value: Optional[pulumi.Input['ClientCertificateThumbprintArgs']]):
+        pulumi.set(self, "certificate_thumbprint", value)
+
+
+@pulumi.input_type
+class ClientCertificateAuthenticationArgs:
+    def __init__(__self__, *,
+                 allowed_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 validation_scheme: Optional[pulumi.Input[Union[str, 'ClientCertificateValidationScheme']]] = None):
+        """
+        The certificate authentication properties for the client.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_thumbprints: The list of thumbprints that are allowed during client authentication. This property is required only if the validationScheme is 'ThumbprintMatch'.
+        :param pulumi.Input[Union[str, 'ClientCertificateValidationScheme']] validation_scheme: The validation scheme used to authenticate the client. Default value is SubjectMatchesAuthenticationName.
+        """
+        if allowed_thumbprints is not None:
+            pulumi.set(__self__, "allowed_thumbprints", allowed_thumbprints)
+        if validation_scheme is not None:
+            pulumi.set(__self__, "validation_scheme", validation_scheme)
+
+    @property
+    @pulumi.getter(name="allowedThumbprints")
+    def allowed_thumbprints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of thumbprints that are allowed during client authentication. This property is required only if the validationScheme is 'ThumbprintMatch'.
+        """
+        return pulumi.get(self, "allowed_thumbprints")
+
+    @allowed_thumbprints.setter
+    def allowed_thumbprints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_thumbprints", value)
+
+    @property
+    @pulumi.getter(name="validationScheme")
+    def validation_scheme(self) -> Optional[pulumi.Input[Union[str, 'ClientCertificateValidationScheme']]]:
+        """
+        The validation scheme used to authenticate the client. Default value is SubjectMatchesAuthenticationName.
+        """
+        return pulumi.get(self, "validation_scheme")
+
+    @validation_scheme.setter
+    def validation_scheme(self, value: Optional[pulumi.Input[Union[str, 'ClientCertificateValidationScheme']]]):
+        pulumi.set(self, "validation_scheme", value)
+
+
+@pulumi.input_type
+class ClientCertificateSubjectDistinguishedNameArgs:
+    def __init__(__self__, *,
+                 common_name: Optional[pulumi.Input[str]] = None,
+                 country_code: Optional[pulumi.Input[str]] = None,
+                 organization: Optional[pulumi.Input[str]] = None,
+                 organization_unit: Optional[pulumi.Input[str]] = None):
+        """
+        CA certificate subject distinguished name information used by service to authenticate clients.
+        For more information, see https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x500distinguishedname?view=net-6.0#remarks
+        :param pulumi.Input[str] common_name: The common name field in the subject name. The allowed limit is 64 characters and it should be specified.
+        :param pulumi.Input[str] country_code: The country code field in the subject name. If present, the country code should be represented by two-letter code defined in ISO 2166-1 (alpha-2). For example: 'US'.
+        :param pulumi.Input[str] organization: The organization field in the subject name. If present, the allowed limit is 64 characters.
+        :param pulumi.Input[str] organization_unit: The organization unit field in the subject name. If present, the allowed limit is 32 characters.
+        """
+        if common_name is not None:
+            pulumi.set(__self__, "common_name", common_name)
+        if country_code is not None:
+            pulumi.set(__self__, "country_code", country_code)
+        if organization is not None:
+            pulumi.set(__self__, "organization", organization)
+        if organization_unit is not None:
+            pulumi.set(__self__, "organization_unit", organization_unit)
+
+    @property
+    @pulumi.getter(name="commonName")
+    def common_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The common name field in the subject name. The allowed limit is 64 characters and it should be specified.
+        """
+        return pulumi.get(self, "common_name")
+
+    @common_name.setter
+    def common_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "common_name", value)
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The country code field in the subject name. If present, the country code should be represented by two-letter code defined in ISO 2166-1 (alpha-2). For example: 'US'.
+        """
+        return pulumi.get(self, "country_code")
+
+    @country_code.setter
+    def country_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "country_code", value)
+
+    @property
+    @pulumi.getter
+    def organization(self) -> Optional[pulumi.Input[str]]:
+        """
+        The organization field in the subject name. If present, the allowed limit is 64 characters.
+        """
+        return pulumi.get(self, "organization")
+
+    @organization.setter
+    def organization(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "organization", value)
+
+    @property
+    @pulumi.getter(name="organizationUnit")
+    def organization_unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        The organization unit field in the subject name. If present, the allowed limit is 32 characters.
+        """
+        return pulumi.get(self, "organization_unit")
+
+    @organization_unit.setter
+    def organization_unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "organization_unit", value)
+
+
+@pulumi.input_type
+class ClientCertificateThumbprintArgs:
+    def __init__(__self__, *,
+                 primary: Optional[pulumi.Input[str]] = None,
+                 secondary: Optional[pulumi.Input[str]] = None):
+        """
+        Thumbprints are used by the service to validate the device permission when authentication is done using self signed certificate.
+        :param pulumi.Input[str] primary: The primary thumbprint used for validation.
+        :param pulumi.Input[str] secondary: The secondary thumbprint used for validation.
+        """
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if secondary is not None:
+            pulumi.set(__self__, "secondary", secondary)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary thumbprint used for validation.
+        """
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary", value)
+
+    @property
+    @pulumi.getter
+    def secondary(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary thumbprint used for validation.
+        """
+        return pulumi.get(self, "secondary")
+
+    @secondary.setter
+    def secondary(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary", value)
+
+
+@pulumi.input_type
 class ConnectionStateArgs:
     def __init__(__self__, *,
                  actions_required: Optional[pulumi.Input[str]] = None,
@@ -306,6 +617,46 @@ class DeadLetterWithResourceIdentityArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['EventSubscriptionIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+
+@pulumi.input_type
+class DeliveryConfigurationArgs:
+    def __init__(__self__, *,
+                 delivery_mode: Optional[pulumi.Input[Union[str, 'DeliveryMode']]] = None,
+                 queue: Optional[pulumi.Input['QueueInfoArgs']] = None):
+        """
+        Properties of the delivery configuration information of the event subscription.
+        :param pulumi.Input[Union[str, 'DeliveryMode']] delivery_mode: Delivery mode of the event subscription.
+        :param pulumi.Input['QueueInfoArgs'] queue: This property should be populated when deliveryMode is queue and represents information about the queue subscription.
+        """
+        if delivery_mode is not None:
+            pulumi.set(__self__, "delivery_mode", delivery_mode)
+        if queue is not None:
+            pulumi.set(__self__, "queue", queue)
+
+    @property
+    @pulumi.getter(name="deliveryMode")
+    def delivery_mode(self) -> Optional[pulumi.Input[Union[str, 'DeliveryMode']]]:
+        """
+        Delivery mode of the event subscription.
+        """
+        return pulumi.get(self, "delivery_mode")
+
+    @delivery_mode.setter
+    def delivery_mode(self, value: Optional[pulumi.Input[Union[str, 'DeliveryMode']]]):
+        pulumi.set(self, "delivery_mode", value)
+
+    @property
+    @pulumi.getter
+    def queue(self) -> Optional[pulumi.Input['QueueInfoArgs']]:
+        """
+        This property should be populated when deliveryMode is queue and represents information about the queue subscription.
+        """
+        return pulumi.get(self, "queue")
+
+    @queue.setter
+    def queue(self, value: Optional[pulumi.Input['QueueInfoArgs']]):
+        pulumi.set(self, "queue", value)
 
 
 @pulumi.input_type
@@ -405,6 +756,173 @@ class DynamicDeliveryAttributeMappingArgs:
     @source_field.setter
     def source_field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_field", value)
+
+
+@pulumi.input_type
+class DynamicRoutingEnrichmentArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Dynamic routing enrichment key.
+        :param pulumi.Input[str] value: Dynamic routing enrichment value.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dynamic routing enrichment key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dynamic routing enrichment value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EventChannelDestinationArgs:
+    def __init__(__self__, *,
+                 azure_subscription_id: Optional[pulumi.Input[str]] = None,
+                 partner_topic_name: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of the destination of an event channel.
+        :param pulumi.Input[str] azure_subscription_id: Azure subscription ID of the customer creating the event channel. The partner topic
+               associated with the event channel will be created under this Azure subscription.
+        :param pulumi.Input[str] partner_topic_name: Name of the partner topic associated with the event channel.
+        :param pulumi.Input[str] resource_group: Azure Resource Group of the customer creating the event channel. The partner topic
+               associated with the event channel will be created under this resource group.
+        """
+        if azure_subscription_id is not None:
+            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
+        if partner_topic_name is not None:
+            pulumi.set(__self__, "partner_topic_name", partner_topic_name)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+
+    @property
+    @pulumi.getter(name="azureSubscriptionId")
+    def azure_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure subscription ID of the customer creating the event channel. The partner topic
+        associated with the event channel will be created under this Azure subscription.
+        """
+        return pulumi.get(self, "azure_subscription_id")
+
+    @azure_subscription_id.setter
+    def azure_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_subscription_id", value)
+
+    @property
+    @pulumi.getter(name="partnerTopicName")
+    def partner_topic_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the partner topic associated with the event channel.
+        """
+        return pulumi.get(self, "partner_topic_name")
+
+    @partner_topic_name.setter
+    def partner_topic_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_topic_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Resource Group of the customer creating the event channel. The partner topic
+        associated with the event channel will be created under this resource group.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group", value)
+
+
+@pulumi.input_type
+class EventChannelFilterArgs:
+    def __init__(__self__, *,
+                 advanced_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'IsNotNullAdvancedFilterArgs', 'IsNullOrUndefinedAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberInRangeAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'NumberNotInRangeAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotBeginsWithAdvancedFilterArgs', 'StringNotContainsAdvancedFilterArgs', 'StringNotEndsWithAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]] = None,
+                 enable_advanced_filtering_on_arrays: Optional[pulumi.Input[bool]] = None):
+        """
+        Filter for the Event Channel.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'IsNotNullAdvancedFilterArgs', 'IsNullOrUndefinedAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberInRangeAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'NumberNotInRangeAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotBeginsWithAdvancedFilterArgs', 'StringNotContainsAdvancedFilterArgs', 'StringNotEndsWithAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]] advanced_filters: An array of advanced filters that are used for filtering event channels.
+        :param pulumi.Input[bool] enable_advanced_filtering_on_arrays: Allows advanced filters to be evaluated against an array of values instead of expecting a singular value. The default value is either false or null.
+        """
+        if advanced_filters is not None:
+            pulumi.set(__self__, "advanced_filters", advanced_filters)
+        if enable_advanced_filtering_on_arrays is None:
+            enable_advanced_filtering_on_arrays = False
+        if enable_advanced_filtering_on_arrays is not None:
+            pulumi.set(__self__, "enable_advanced_filtering_on_arrays", enable_advanced_filtering_on_arrays)
+
+    @property
+    @pulumi.getter(name="advancedFilters")
+    def advanced_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'IsNotNullAdvancedFilterArgs', 'IsNullOrUndefinedAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberInRangeAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'NumberNotInRangeAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotBeginsWithAdvancedFilterArgs', 'StringNotContainsAdvancedFilterArgs', 'StringNotEndsWithAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]:
+        """
+        An array of advanced filters that are used for filtering event channels.
+        """
+        return pulumi.get(self, "advanced_filters")
+
+    @advanced_filters.setter
+    def advanced_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'IsNotNullAdvancedFilterArgs', 'IsNullOrUndefinedAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberInRangeAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'NumberNotInRangeAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotBeginsWithAdvancedFilterArgs', 'StringNotContainsAdvancedFilterArgs', 'StringNotEndsWithAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]):
+        pulumi.set(self, "advanced_filters", value)
+
+    @property
+    @pulumi.getter(name="enableAdvancedFilteringOnArrays")
+    def enable_advanced_filtering_on_arrays(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allows advanced filters to be evaluated against an array of values instead of expecting a singular value. The default value is either false or null.
+        """
+        return pulumi.get(self, "enable_advanced_filtering_on_arrays")
+
+    @enable_advanced_filtering_on_arrays.setter
+    def enable_advanced_filtering_on_arrays(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_advanced_filtering_on_arrays", value)
+
+
+@pulumi.input_type
+class EventChannelSourceArgs:
+    def __init__(__self__, *,
+                 source: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of the source of an event channel.
+        :param pulumi.Input[str] source: The identifier of the resource that's the source of the events.
+               This represents a unique resource in the partner's resource model.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the resource that's the source of the events.
+        This represents a unique resource in the partner's resource model.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
 
 
 @pulumi.input_type
@@ -660,6 +1178,46 @@ class EventTypeInfoArgs:
     @kind.setter
     def kind(self, value: Optional[pulumi.Input[Union[str, 'EventDefinitionKind']]]):
         pulumi.set(self, "kind", value)
+
+
+@pulumi.input_type
+class FiltersConfigurationArgs:
+    def __init__(__self__, *,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsFilterArgs', 'IsNotNullFilterArgs', 'IsNullOrUndefinedFilterArgs', 'NumberGreaterThanFilterArgs', 'NumberGreaterThanOrEqualsFilterArgs', 'NumberInFilterArgs', 'NumberInRangeFilterArgs', 'NumberLessThanFilterArgs', 'NumberLessThanOrEqualsFilterArgs', 'NumberNotInFilterArgs', 'NumberNotInRangeFilterArgs', 'StringBeginsWithFilterArgs', 'StringContainsFilterArgs', 'StringEndsWithFilterArgs', 'StringInFilterArgs', 'StringNotBeginsWithFilterArgs', 'StringNotContainsFilterArgs', 'StringNotEndsWithFilterArgs', 'StringNotInFilterArgs']]]]] = None,
+                 included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Filters configuration for the Event Subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsFilterArgs', 'IsNotNullFilterArgs', 'IsNullOrUndefinedFilterArgs', 'NumberGreaterThanFilterArgs', 'NumberGreaterThanOrEqualsFilterArgs', 'NumberInFilterArgs', 'NumberInRangeFilterArgs', 'NumberLessThanFilterArgs', 'NumberLessThanOrEqualsFilterArgs', 'NumberNotInFilterArgs', 'NumberNotInRangeFilterArgs', 'StringBeginsWithFilterArgs', 'StringContainsFilterArgs', 'StringEndsWithFilterArgs', 'StringInFilterArgs', 'StringNotBeginsWithFilterArgs', 'StringNotContainsFilterArgs', 'StringNotEndsWithFilterArgs', 'StringNotInFilterArgs']]]] filters: An array of filters that are used for filtering event subscriptions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
+        """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if included_event_types is not None:
+            pulumi.set(__self__, "included_event_types", included_event_types)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsFilterArgs', 'IsNotNullFilterArgs', 'IsNullOrUndefinedFilterArgs', 'NumberGreaterThanFilterArgs', 'NumberGreaterThanOrEqualsFilterArgs', 'NumberInFilterArgs', 'NumberInRangeFilterArgs', 'NumberLessThanFilterArgs', 'NumberLessThanOrEqualsFilterArgs', 'NumberNotInFilterArgs', 'NumberNotInRangeFilterArgs', 'StringBeginsWithFilterArgs', 'StringContainsFilterArgs', 'StringEndsWithFilterArgs', 'StringInFilterArgs', 'StringNotBeginsWithFilterArgs', 'StringNotContainsFilterArgs', 'StringNotEndsWithFilterArgs', 'StringNotInFilterArgs']]]]]:
+        """
+        An array of filters that are used for filtering event subscriptions.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsFilterArgs', 'IsNotNullFilterArgs', 'IsNullOrUndefinedFilterArgs', 'NumberGreaterThanFilterArgs', 'NumberGreaterThanOrEqualsFilterArgs', 'NumberInFilterArgs', 'NumberInRangeFilterArgs', 'NumberLessThanFilterArgs', 'NumberLessThanOrEqualsFilterArgs', 'NumberNotInFilterArgs', 'NumberNotInRangeFilterArgs', 'StringBeginsWithFilterArgs', 'StringContainsFilterArgs', 'StringEndsWithFilterArgs', 'StringInFilterArgs', 'StringNotBeginsWithFilterArgs', 'StringNotContainsFilterArgs', 'StringNotEndsWithFilterArgs', 'StringNotInFilterArgs']]]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter(name="includedEventTypes")
+    def included_event_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
+        """
+        return pulumi.get(self, "included_event_types")
+
+    @included_event_types.setter
+    def included_event_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "included_event_types", value)
 
 
 @pulumi.input_type
@@ -948,12 +1506,94 @@ class IsNotNullAdvancedFilterArgs:
 
 
 @pulumi.input_type
+class IsNotNullFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None):
+        """
+        IsNotNull Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'IsNotNull'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        """
+        pulumi.set(__self__, "operator_type", 'IsNotNull')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'IsNotNull'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+
+@pulumi.input_type
 class IsNullOrUndefinedAdvancedFilterArgs:
     def __init__(__self__, *,
                  operator_type: pulumi.Input[str],
                  key: Optional[pulumi.Input[str]] = None):
         """
         IsNullOrUndefined Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'IsNullOrUndefined'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        """
+        pulumi.set(__self__, "operator_type", 'IsNullOrUndefined')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'IsNullOrUndefined'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+
+@pulumi.input_type
+class IsNullOrUndefinedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None):
+        """
+        IsNullOrUndefined Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'IsNullOrUndefined'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
@@ -1177,6 +1817,50 @@ class JsonInputSchemaMappingArgs:
 
 
 @pulumi.input_type
+class NamespaceSkuArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None):
+        """
+        Represents available Sku pricing tiers.
+        :param pulumi.Input[int] capacity: Specifies the number of Throughput Units that defines the capacity for the namespace. The property default value is
+               1 which signifies 1 Throughput Unit = 1MB/s ingress and 2MB/s egress per namespace. Min capacity is 1 and
+               max allowed capacity is 20.
+        :param pulumi.Input[Union[str, 'SkuName']] name: The name of the SKU.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of Throughput Units that defines the capacity for the namespace. The property default value is
+        1 which signifies 1 Throughput Unit = 1MB/s ingress and 2MB/s egress per namespace. Min capacity is 1 and
+        max allowed capacity is 20.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[Union[str, 'SkuName']]]:
+        """
+        The name of the SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[Union[str, 'SkuName']]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class NumberGreaterThanAdvancedFilterArgs:
     def __init__(__self__, *,
                  operator_type: pulumi.Input[str],
@@ -1184,6 +1868,63 @@ class NumberGreaterThanAdvancedFilterArgs:
                  value: Optional[pulumi.Input[float]] = None):
         """
         NumberGreaterThan Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberGreaterThan'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[float] value: The filter value.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberGreaterThan')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberGreaterThan'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The filter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NumberGreaterThanFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None):
+        """
+        NumberGreaterThan Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberGreaterThan'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
@@ -1291,6 +2032,63 @@ class NumberGreaterThanOrEqualsAdvancedFilterArgs:
 
 
 @pulumi.input_type
+class NumberGreaterThanOrEqualsFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None):
+        """
+        NumberGreaterThanOrEquals Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberGreaterThanOrEquals'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[float] value: The filter value.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberGreaterThanOrEquals')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberGreaterThanOrEquals'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The filter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class NumberInAdvancedFilterArgs:
     def __init__(__self__, *,
                  operator_type: pulumi.Input[str],
@@ -1298,6 +2096,63 @@ class NumberInAdvancedFilterArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None):
         """
         NumberIn Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberIn'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberIn')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberIn'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class NumberInFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None):
+        """
+        NumberIn Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberIn'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
@@ -1405,6 +2260,63 @@ class NumberInRangeAdvancedFilterArgs:
 
 
 @pulumi.input_type
+class NumberInRangeFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]] = None):
+        """
+        NumberInRange Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberInRange'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberInRange')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberInRange'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
 class NumberLessThanAdvancedFilterArgs:
     def __init__(__self__, *,
                  operator_type: pulumi.Input[str],
@@ -1412,6 +2324,63 @@ class NumberLessThanAdvancedFilterArgs:
                  value: Optional[pulumi.Input[float]] = None):
         """
         NumberLessThan Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberLessThan'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[float] value: The filter value.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberLessThan')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberLessThan'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The filter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NumberLessThanFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None):
+        """
+        NumberLessThan Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberLessThan'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
@@ -1519,6 +2488,63 @@ class NumberLessThanOrEqualsAdvancedFilterArgs:
 
 
 @pulumi.input_type
+class NumberLessThanOrEqualsFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None):
+        """
+        NumberLessThanOrEquals Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberLessThanOrEquals'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[float] value: The filter value.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberLessThanOrEquals')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberLessThanOrEquals'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The filter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class NumberNotInAdvancedFilterArgs:
     def __init__(__self__, *,
                  operator_type: pulumi.Input[str],
@@ -1576,6 +2602,63 @@ class NumberNotInAdvancedFilterArgs:
 
 
 @pulumi.input_type
+class NumberNotInFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None):
+        """
+        NumberNotIn Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberNotIn'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberNotIn')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberNotIn'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
 class NumberNotInRangeAdvancedFilterArgs:
     def __init__(__self__, *,
                  operator_type: pulumi.Input[str],
@@ -1583,6 +2666,63 @@ class NumberNotInRangeAdvancedFilterArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]] = None):
         """
         NumberNotInRange Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberNotInRange'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberNotInRange')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberNotInRange'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class NumberNotInRangeFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]] = None):
+        """
+        NumberNotInRange Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberNotInRange'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
@@ -1833,6 +2973,77 @@ class PartnerArgs:
 
 
 @pulumi.input_type
+class PrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input['ConnectionStateArgs']] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
+        :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The Private Endpoint resource for this Connection.
+        :param pulumi.Input['ConnectionStateArgs'] private_link_service_connection_state: Details about the state of the connection.
+        :param pulumi.Input[Union[str, 'ResourceProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
+        """
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        GroupIds from the private link service resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @group_ids.setter
+    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_ids", value)
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointArgs']]:
+        """
+        The Private Endpoint resource for this Connection.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointArgs']]):
+        pulumi.set(self, "private_endpoint", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['ConnectionStateArgs']]:
+        """
+        Details about the state of the connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['ConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]]:
+        """
+        Provisioning state of the Private Endpoint Connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
+
+
+@pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
@@ -1854,6 +3065,114 @@ class PrivateEndpointArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class QueueInfoArgs:
+    def __init__(__self__, *,
+                 dead_letter_destination_with_resource_identity: Optional[pulumi.Input['DeadLetterWithResourceIdentityArgs']] = None,
+                 event_time_to_live: Optional[pulumi.Input[str]] = None,
+                 max_delivery_count: Optional[pulumi.Input[int]] = None,
+                 receive_lock_duration_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Properties of the Queue info for event subscription.
+        :param pulumi.Input['DeadLetterWithResourceIdentityArgs'] dead_letter_destination_with_resource_identity: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+               Uses the managed identity setup on the parent resource (namely, topic) to acquire the authentication tokens being used during delivery / dead-lettering.
+        :param pulumi.Input[str] event_time_to_live: Time span duration in ISO 8601 format that determines how long messages are available to the subscription from the time the message was published.
+               This duration value is expressed using the following format: \\'P(n)Y(n)M(n)DT(n)H(n)M(n)S\\', where:
+                   - (n) is replaced by the value of each time element that follows the (n).
+                   - P is the duration (or Period) designator and is always placed at the beginning of the duration.
+                   - Y is the year designator, and it follows the value for the number of years.
+                   - M is the month designator, and it follows the value for the number of months.
+                   - W is the week designator, and it follows the value for the number of weeks.
+                   - D is the day designator, and it follows the value for the number of days.
+                   - T is the time designator, and it precedes the time components.
+                   - H is the hour designator, and it follows the value for the number of hours.
+                   - M is the minute designator, and it follows the value for the number of minutes.
+                   - S is the second designator, and it follows the value for the number of seconds.
+               This duration value cannot be set greater than the topic’s EventRetentionInDays. It is is an optional field where its minimum value is 1 minute, and its maximum is determined
+               by topic’s EventRetentionInDays value. The followings are examples of valid values:
+                   - \\'P0DT23H12M\\' or \\'PT23H12M\\': for duration of 23 hours and 12 minutes.
+                   - \\'P1D\\' or \\'P1DT0H0M0S\\': for duration of 1 day.
+        :param pulumi.Input[int] max_delivery_count: The maximum delivery count of the events.
+        :param pulumi.Input[int] receive_lock_duration_in_seconds: Maximum period in seconds in which once the message is in received (by the client) state and waiting to be accepted, released or rejected.
+               If this time elapsed after a message has been received by the client and not transitioned into accepted (not processed), released or rejected,
+               the message is available for redelivery. This is an optional field, where default is 60 seconds, minimum is 60 seconds and maximum is 300 seconds.
+        """
+        if dead_letter_destination_with_resource_identity is not None:
+            pulumi.set(__self__, "dead_letter_destination_with_resource_identity", dead_letter_destination_with_resource_identity)
+        if event_time_to_live is not None:
+            pulumi.set(__self__, "event_time_to_live", event_time_to_live)
+        if max_delivery_count is not None:
+            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+        if receive_lock_duration_in_seconds is not None:
+            pulumi.set(__self__, "receive_lock_duration_in_seconds", receive_lock_duration_in_seconds)
+
+    @property
+    @pulumi.getter(name="deadLetterDestinationWithResourceIdentity")
+    def dead_letter_destination_with_resource_identity(self) -> Optional[pulumi.Input['DeadLetterWithResourceIdentityArgs']]:
+        """
+        The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+        Uses the managed identity setup on the parent resource (namely, topic) to acquire the authentication tokens being used during delivery / dead-lettering.
+        """
+        return pulumi.get(self, "dead_letter_destination_with_resource_identity")
+
+    @dead_letter_destination_with_resource_identity.setter
+    def dead_letter_destination_with_resource_identity(self, value: Optional[pulumi.Input['DeadLetterWithResourceIdentityArgs']]):
+        pulumi.set(self, "dead_letter_destination_with_resource_identity", value)
+
+    @property
+    @pulumi.getter(name="eventTimeToLive")
+    def event_time_to_live(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time span duration in ISO 8601 format that determines how long messages are available to the subscription from the time the message was published.
+        This duration value is expressed using the following format: \\'P(n)Y(n)M(n)DT(n)H(n)M(n)S\\', where:
+            - (n) is replaced by the value of each time element that follows the (n).
+            - P is the duration (or Period) designator and is always placed at the beginning of the duration.
+            - Y is the year designator, and it follows the value for the number of years.
+            - M is the month designator, and it follows the value for the number of months.
+            - W is the week designator, and it follows the value for the number of weeks.
+            - D is the day designator, and it follows the value for the number of days.
+            - T is the time designator, and it precedes the time components.
+            - H is the hour designator, and it follows the value for the number of hours.
+            - M is the minute designator, and it follows the value for the number of minutes.
+            - S is the second designator, and it follows the value for the number of seconds.
+        This duration value cannot be set greater than the topic’s EventRetentionInDays. It is is an optional field where its minimum value is 1 minute, and its maximum is determined
+        by topic’s EventRetentionInDays value. The followings are examples of valid values:
+            - \\'P0DT23H12M\\' or \\'PT23H12M\\': for duration of 23 hours and 12 minutes.
+            - \\'P1D\\' or \\'P1DT0H0M0S\\': for duration of 1 day.
+        """
+        return pulumi.get(self, "event_time_to_live")
+
+    @event_time_to_live.setter
+    def event_time_to_live(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_time_to_live", value)
+
+    @property
+    @pulumi.getter(name="maxDeliveryCount")
+    def max_delivery_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum delivery count of the events.
+        """
+        return pulumi.get(self, "max_delivery_count")
+
+    @max_delivery_count.setter
+    def max_delivery_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_delivery_count", value)
+
+    @property
+    @pulumi.getter(name="receiveLockDurationInSeconds")
+    def receive_lock_duration_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum period in seconds in which once the message is in received (by the client) state and waiting to be accepted, released or rejected.
+        If this time elapsed after a message has been received by the client and not transitioned into accepted (not processed), released or rejected,
+        the message is available for redelivery. This is an optional field, where default is 60 seconds, minimum is 60 seconds and maximum is 300 seconds.
+        """
+        return pulumi.get(self, "receive_lock_duration_in_seconds")
+
+    @receive_lock_duration_in_seconds.setter
+    def receive_lock_duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "receive_lock_duration_in_seconds", value)
 
 
 @pulumi.input_type
@@ -1898,6 +3217,67 @@ class RetryPolicyArgs:
     @max_delivery_attempts.setter
     def max_delivery_attempts(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_delivery_attempts", value)
+
+
+@pulumi.input_type
+class RoutingEnrichmentsArgs:
+    def __init__(__self__, *,
+                 dynamic: Optional[pulumi.Input[Sequence[pulumi.Input['DynamicRoutingEnrichmentArgs']]]] = None,
+                 static: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutingEnrichmentArgs']]]] = None):
+        if dynamic is not None:
+            pulumi.set(__self__, "dynamic", dynamic)
+        if static is not None:
+            pulumi.set(__self__, "static", static)
+
+    @property
+    @pulumi.getter
+    def dynamic(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DynamicRoutingEnrichmentArgs']]]]:
+        return pulumi.get(self, "dynamic")
+
+    @dynamic.setter
+    def dynamic(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DynamicRoutingEnrichmentArgs']]]]):
+        pulumi.set(self, "dynamic", value)
+
+    @property
+    @pulumi.getter
+    def static(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutingEnrichmentArgs']]]]:
+        return pulumi.get(self, "static")
+
+    @static.setter
+    def static(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutingEnrichmentArgs']]]]):
+        pulumi.set(self, "static", value)
+
+
+@pulumi.input_type
+class RoutingIdentityInfoArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'RoutingIdentityType']]] = None,
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        Routing identity info for topic spaces configuration.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'RoutingIdentityType']]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'RoutingIdentityType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
 
 
 @pulumi.input_type
@@ -2090,6 +3470,45 @@ class StaticDeliveryAttributeMappingArgs:
 
 
 @pulumi.input_type
+class StaticRoutingEnrichmentArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value_type: Optional[pulumi.Input[Union[str, 'StaticRoutingEnrichmentType']]] = None):
+        """
+        :param pulumi.Input[str] key: Static routing enrichment key.
+        :param pulumi.Input[Union[str, 'StaticRoutingEnrichmentType']] value_type: Static routing enrichment value type. For e.g. this property value can be 'String'.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value_type is not None:
+            pulumi.set(__self__, "value_type", value_type)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Static routing enrichment key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> Optional[pulumi.Input[Union[str, 'StaticRoutingEnrichmentType']]]:
+        """
+        Static routing enrichment value type. For e.g. this property value can be 'String'.
+        """
+        return pulumi.get(self, "value_type")
+
+    @value_type.setter
+    def value_type(self, value: Optional[pulumi.Input[Union[str, 'StaticRoutingEnrichmentType']]]):
+        pulumi.set(self, "value_type", value)
+
+
+@pulumi.input_type
 class StorageBlobDeadLetterDestinationArgs:
     def __init__(__self__, *,
                  endpoint_type: pulumi.Input[str],
@@ -2277,6 +3696,63 @@ class StringBeginsWithAdvancedFilterArgs:
 
 
 @pulumi.input_type
+class StringBeginsWithFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        StringBeginsWith Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringBeginsWith'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringBeginsWith')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringBeginsWith'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
 class StringContainsAdvancedFilterArgs:
     def __init__(__self__, *,
                  operator_type: pulumi.Input[str],
@@ -2284,6 +3760,63 @@ class StringContainsAdvancedFilterArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         StringContains Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringContains'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringContains')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringContains'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class StringContainsFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        StringContains Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringContains'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
@@ -2391,6 +3924,63 @@ class StringEndsWithAdvancedFilterArgs:
 
 
 @pulumi.input_type
+class StringEndsWithFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        StringEndsWith Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringEndsWith'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringEndsWith')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringEndsWith'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
 class StringInAdvancedFilterArgs:
     def __init__(__self__, *,
                  operator_type: pulumi.Input[str],
@@ -2398,6 +3988,63 @@ class StringInAdvancedFilterArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         StringIn Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringIn'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringIn')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringIn'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class StringInFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        StringIn Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringIn'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
@@ -2505,6 +4152,63 @@ class StringNotBeginsWithAdvancedFilterArgs:
 
 
 @pulumi.input_type
+class StringNotBeginsWithFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        StringNotBeginsWith Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringNotBeginsWith'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringNotBeginsWith')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotBeginsWith'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
 class StringNotContainsAdvancedFilterArgs:
     def __init__(__self__, *,
                  operator_type: pulumi.Input[str],
@@ -2512,6 +4216,63 @@ class StringNotContainsAdvancedFilterArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         StringNotContains Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringNotContains'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringNotContains')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotContains'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class StringNotContainsFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        StringNotContains Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringNotContains'.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
@@ -2619,6 +4380,63 @@ class StringNotEndsWithAdvancedFilterArgs:
 
 
 @pulumi.input_type
+class StringNotEndsWithFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        StringNotEndsWith Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringNotEndsWith'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringNotEndsWith')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotEndsWith'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
 class StringNotInAdvancedFilterArgs:
     def __init__(__self__, *,
                  operator_type: pulumi.Input[str],
@@ -2673,6 +4491,193 @@ class StringNotInAdvancedFilterArgs:
     @values.setter
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class StringNotInFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        StringNotIn Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringNotIn'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringNotIn')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotIn'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class TopicSpacesConfigurationArgs:
+    def __init__(__self__, *,
+                 client_authentication: Optional[pulumi.Input['ClientAuthenticationSettingsArgs']] = None,
+                 maximum_client_sessions_per_authentication_name: Optional[pulumi.Input[int]] = None,
+                 maximum_session_expiry_in_hours: Optional[pulumi.Input[int]] = None,
+                 route_topic_resource_id: Optional[pulumi.Input[str]] = None,
+                 routing_enrichments: Optional[pulumi.Input['RoutingEnrichmentsArgs']] = None,
+                 routing_identity_info: Optional[pulumi.Input['RoutingIdentityInfoArgs']] = None,
+                 state: Optional[pulumi.Input[Union[str, 'TopicSpacesConfigurationState']]] = None):
+        """
+        Properties of the Topic Spaces Configuration.
+        :param pulumi.Input['ClientAuthenticationSettingsArgs'] client_authentication: Client authentication settings for topic spaces configuration.
+        :param pulumi.Input[int] maximum_client_sessions_per_authentication_name: The maximum number of sessions per authentication name. The property default value is 1.
+               Min allowed value is 1 and max allowed value is 100.
+        :param pulumi.Input[int] maximum_session_expiry_in_hours: The maximum session expiry in hours. The property default value is 1 hour.
+               Min allowed value is 1 hour and max allowed value is 8 hours.
+        :param pulumi.Input[str] route_topic_resource_id: Fully qualified Azure Resource Id for the Event Grid Topic to which events will be routed to from TopicSpaces under a namespace.
+               This property should be in the following format '/subscriptions/{subId}/resourcegroups/{resourceGroupName}/providers/microsoft.EventGrid/topics/{topicName}'.
+               This topic should reside in the same region where namespace is located.
+        :param pulumi.Input['RoutingEnrichmentsArgs'] routing_enrichments: Routing enrichments for topic spaces configuration
+        :param pulumi.Input['RoutingIdentityInfoArgs'] routing_identity_info: Routing identity info for topic spaces configuration.
+        :param pulumi.Input[Union[str, 'TopicSpacesConfigurationState']] state: Indicate if Topic Spaces Configuration is enabled for the namespace. Default is Disabled.
+        """
+        if client_authentication is not None:
+            pulumi.set(__self__, "client_authentication", client_authentication)
+        if maximum_client_sessions_per_authentication_name is not None:
+            pulumi.set(__self__, "maximum_client_sessions_per_authentication_name", maximum_client_sessions_per_authentication_name)
+        if maximum_session_expiry_in_hours is not None:
+            pulumi.set(__self__, "maximum_session_expiry_in_hours", maximum_session_expiry_in_hours)
+        if route_topic_resource_id is not None:
+            pulumi.set(__self__, "route_topic_resource_id", route_topic_resource_id)
+        if routing_enrichments is not None:
+            pulumi.set(__self__, "routing_enrichments", routing_enrichments)
+        if routing_identity_info is not None:
+            pulumi.set(__self__, "routing_identity_info", routing_identity_info)
+        if state is None:
+            state = 'Disabled'
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="clientAuthentication")
+    def client_authentication(self) -> Optional[pulumi.Input['ClientAuthenticationSettingsArgs']]:
+        """
+        Client authentication settings for topic spaces configuration.
+        """
+        return pulumi.get(self, "client_authentication")
+
+    @client_authentication.setter
+    def client_authentication(self, value: Optional[pulumi.Input['ClientAuthenticationSettingsArgs']]):
+        pulumi.set(self, "client_authentication", value)
+
+    @property
+    @pulumi.getter(name="maximumClientSessionsPerAuthenticationName")
+    def maximum_client_sessions_per_authentication_name(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of sessions per authentication name. The property default value is 1.
+        Min allowed value is 1 and max allowed value is 100.
+        """
+        return pulumi.get(self, "maximum_client_sessions_per_authentication_name")
+
+    @maximum_client_sessions_per_authentication_name.setter
+    def maximum_client_sessions_per_authentication_name(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_client_sessions_per_authentication_name", value)
+
+    @property
+    @pulumi.getter(name="maximumSessionExpiryInHours")
+    def maximum_session_expiry_in_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum session expiry in hours. The property default value is 1 hour.
+        Min allowed value is 1 hour and max allowed value is 8 hours.
+        """
+        return pulumi.get(self, "maximum_session_expiry_in_hours")
+
+    @maximum_session_expiry_in_hours.setter
+    def maximum_session_expiry_in_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_session_expiry_in_hours", value)
+
+    @property
+    @pulumi.getter(name="routeTopicResourceId")
+    def route_topic_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified Azure Resource Id for the Event Grid Topic to which events will be routed to from TopicSpaces under a namespace.
+        This property should be in the following format '/subscriptions/{subId}/resourcegroups/{resourceGroupName}/providers/microsoft.EventGrid/topics/{topicName}'.
+        This topic should reside in the same region where namespace is located.
+        """
+        return pulumi.get(self, "route_topic_resource_id")
+
+    @route_topic_resource_id.setter
+    def route_topic_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_topic_resource_id", value)
+
+    @property
+    @pulumi.getter(name="routingEnrichments")
+    def routing_enrichments(self) -> Optional[pulumi.Input['RoutingEnrichmentsArgs']]:
+        """
+        Routing enrichments for topic spaces configuration
+        """
+        return pulumi.get(self, "routing_enrichments")
+
+    @routing_enrichments.setter
+    def routing_enrichments(self, value: Optional[pulumi.Input['RoutingEnrichmentsArgs']]):
+        pulumi.set(self, "routing_enrichments", value)
+
+    @property
+    @pulumi.getter(name="routingIdentityInfo")
+    def routing_identity_info(self) -> Optional[pulumi.Input['RoutingIdentityInfoArgs']]:
+        """
+        Routing identity info for topic spaces configuration.
+        """
+        return pulumi.get(self, "routing_identity_info")
+
+    @routing_identity_info.setter
+    def routing_identity_info(self, value: Optional[pulumi.Input['RoutingIdentityInfoArgs']]):
+        pulumi.set(self, "routing_identity_info", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'TopicSpacesConfigurationState']]]:
+        """
+        Indicate if Topic Spaces Configuration is enabled for the namespace. Default is Disabled.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'TopicSpacesConfigurationState']]]):
+        pulumi.set(self, "state", value)
 
 
 @pulumi.input_type

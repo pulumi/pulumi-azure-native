@@ -30,6 +30,17 @@ export {
     v20230301preview,
 };
 
+export const ActionType = {
+    LogicApp: "LogicApp",
+    EventHub: "EventHub",
+    Workspace: "Workspace",
+} as const;
+
+/**
+ * The type of the action that will be triggered by the Automation
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
 export const AdditionalWorkspaceDataType = {
     Alerts: "Alerts",
     RawEvents: "RawEvents",
@@ -94,16 +105,48 @@ export const AssessmentType = {
      * User assessments pushed directly by the user or other third party to Microsoft Defender for Cloud
      */
     CustomerManaged: "CustomerManaged",
-    /**
-     * An assessment that was created by a verified 3rd party if the user connected it to ASC
-     */
-    VerifiedPartner: "VerifiedPartner",
 } as const;
 
 /**
  * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
  */
 export type AssessmentType = (typeof AssessmentType)[keyof typeof AssessmentType];
+
+export const AuthenticationType = {
+    /**
+     * AWS cloud account connector user credentials authentication
+     */
+    AwsCreds: "awsCreds",
+    /**
+     * AWS account connector assume role authentication
+     */
+    AwsAssumeRole: "awsAssumeRole",
+    /**
+     * GCP account connector service to service authentication
+     */
+    GcpCredentials: "gcpCredentials",
+} as const;
+
+/**
+ * Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
+
+export const AutoProvision = {
+    /**
+     * Install missing Azure Arc agents on machines automatically
+     */
+    On: "On",
+    /**
+     * Do not install Azure Arc agent on the machines automatically
+     */
+    Off: "Off",
+} as const;
+
+/**
+ * Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+ */
+export type AutoProvision = (typeof AutoProvision)[keyof typeof AutoProvision];
 
 export const Categories = {
     Compute: "Compute",
@@ -154,6 +197,25 @@ export const EnvironmentType = {
  */
 export type EnvironmentType = (typeof EnvironmentType)[keyof typeof EnvironmentType];
 
+export const EventSource = {
+    Assessments: "Assessments",
+    AssessmentsSnapshot: "AssessmentsSnapshot",
+    SubAssessments: "SubAssessments",
+    SubAssessmentsSnapshot: "SubAssessmentsSnapshot",
+    Alerts: "Alerts",
+    SecureScores: "SecureScores",
+    SecureScoresSnapshot: "SecureScoresSnapshot",
+    SecureScoreControls: "SecureScoreControls",
+    SecureScoreControlsSnapshot: "SecureScoreControlsSnapshot",
+    RegulatoryComplianceAssessment: "RegulatoryComplianceAssessment",
+    RegulatoryComplianceAssessmentSnapshot: "RegulatoryComplianceAssessmentSnapshot",
+} as const;
+
+/**
+ * A valid event source type.
+ */
+export type EventSource = (typeof EventSource)[keyof typeof EventSource];
+
 export const ExportData = {
     /**
      * Agent raw events
@@ -162,6 +224,50 @@ export const ExportData = {
 } as const;
 
 export type ExportData = (typeof ExportData)[keyof typeof ExportData];
+
+export const GovernanceRuleOwnerSourceType = {
+    /**
+     * The rule source type defined using resource tag
+     */
+    ByTag: "ByTag",
+    /**
+     * The rule source type defined manually
+     */
+    Manually: "Manually",
+} as const;
+
+/**
+ * The owner type for the governance rule owner source
+ */
+export type GovernanceRuleOwnerSourceType = (typeof GovernanceRuleOwnerSourceType)[keyof typeof GovernanceRuleOwnerSourceType];
+
+export const GovernanceRuleSourceResourceType = {
+    /**
+     * The source of the governance rule is assessments
+     */
+    Assessments: "Assessments",
+} as const;
+
+/**
+ * The governance rule source, what the rule affects, e.g. Assessments
+ */
+export type GovernanceRuleSourceResourceType = (typeof GovernanceRuleSourceResourceType)[keyof typeof GovernanceRuleSourceResourceType];
+
+export const GovernanceRuleType = {
+    /**
+     * The source of the rule type definition is integrated
+     */
+    Integrated: "Integrated",
+    /**
+     * The source of the rule type definition is ServiceNow
+     */
+    ServiceNow: "ServiceNow",
+} as const;
+
+/**
+ * The rule type of the governance rule, defines the source of the rule e.g. Integrated
+ */
+export type GovernanceRuleType = (typeof GovernanceRuleType)[keyof typeof GovernanceRuleType];
 
 export const ImplementationEffort = {
     Low: "Low",
@@ -173,6 +279,26 @@ export const ImplementationEffort = {
  * The implementation effort required to remediate this assessment
  */
 export type ImplementationEffort = (typeof ImplementationEffort)[keyof typeof ImplementationEffort];
+
+export const MinimalSeverity = {
+    /**
+     * Get notifications on new alerts with High severity
+     */
+    High: "High",
+    /**
+     * Get notifications on new alerts with medium or high severity
+     */
+    Medium: "Medium",
+    /**
+     * Don't get notifications on new alerts with low, medium or high severity
+     */
+    Low: "Low",
+} as const;
+
+/**
+ * Defines the minimal alert severity which will be sent as email notifications
+ */
+export type MinimalSeverity = (typeof MinimalSeverity)[keyof typeof MinimalSeverity];
 
 export const OfferingType = {
     CspmMonitorAws: "CspmMonitorAws",
@@ -199,6 +325,50 @@ export const OfferingType = {
  */
 export type OfferingType = (typeof OfferingType)[keyof typeof OfferingType];
 
+export const Operator = {
+    /**
+     * Applies for decimal and non-decimal operands
+     */
+    Equals: "Equals",
+    /**
+     * Applies only for decimal operands
+     */
+    GreaterThan: "GreaterThan",
+    /**
+     * Applies only for decimal operands
+     */
+    GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
+    /**
+     * Applies only for decimal operands
+     */
+    LesserThan: "LesserThan",
+    /**
+     * Applies only for decimal operands
+     */
+    LesserThanOrEqualTo: "LesserThanOrEqualTo",
+    /**
+     * Applies  for decimal and non-decimal operands
+     */
+    NotEquals: "NotEquals",
+    /**
+     * Applies only for non-decimal operands
+     */
+    Contains: "Contains",
+    /**
+     * Applies only for non-decimal operands
+     */
+    StartsWith: "StartsWith",
+    /**
+     * Applies only for non-decimal operands
+     */
+    EndsWith: "EndsWith",
+} as const;
+
+/**
+ * A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
+
 export const OrganizationMembershipType = {
     Member: "Member",
     Organization: "Organization",
@@ -208,6 +378,18 @@ export const OrganizationMembershipType = {
  * The multi cloud account's membership type in the organization
  */
 export type OrganizationMembershipType = (typeof OrganizationMembershipType)[keyof typeof OrganizationMembershipType];
+
+export const PropertyType = {
+    String: "String",
+    Integer: "Integer",
+    Number: "Number",
+    Boolean: "Boolean",
+} as const;
+
+/**
+ * The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+ */
+export type PropertyType = (typeof PropertyType)[keyof typeof PropertyType];
 
 export const Protocol = {
     TCP: "TCP",
@@ -299,6 +481,41 @@ export const RecommendationType = {
  */
 export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
 
+export const Roles = {
+    /**
+     * If enabled, send notification on new alerts to the account admins
+     */
+    AccountAdmin: "AccountAdmin",
+    /**
+     * If enabled, send notification on new alerts to the service admins
+     */
+    ServiceAdmin: "ServiceAdmin",
+    /**
+     * If enabled, send notification on new alerts to the subscription owners
+     */
+    Owner: "Owner",
+    /**
+     * If enabled, send notification on new alerts to the subscription contributors
+     */
+    Contributor: "Contributor",
+} as const;
+
+/**
+ * A possible role to configure sending security notification alerts to
+ */
+export type Roles = (typeof Roles)[keyof typeof Roles];
+
+export const RuleState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    Expired: "Expired",
+} as const;
+
+/**
+ * Possible states of the rule
+ */
+export type RuleState = (typeof RuleState)[keyof typeof RuleState];
+
 export const ScanningMode = {
     Default: "Default",
 } as const;
@@ -329,6 +546,17 @@ export const Severity = {
  */
 export type Severity = (typeof Severity)[keyof typeof Severity];
 
+export const SeverityEnum = {
+    High: "High",
+    Medium: "Medium",
+    Low: "Low",
+} as const;
+
+/**
+ * The severity to relate to the assessments generated by this assessment automation.
+ */
+export type SeverityEnum = (typeof SeverityEnum)[keyof typeof SeverityEnum];
+
 export const Source = {
     /**
      * Resource is in Azure
@@ -348,6 +576,32 @@ export const Source = {
  * The platform where the assessed resource resides
  */
 export type Source = (typeof Source)[keyof typeof Source];
+
+export const StandardSupportedClouds = {
+    AWS: "AWS",
+    GCP: "GCP",
+} as const;
+
+/**
+ * The cloud that the standard is supported on.
+ */
+export type StandardSupportedClouds = (typeof StandardSupportedClouds)[keyof typeof StandardSupportedClouds];
+
+export const State = {
+    /**
+     * Send notification on new alerts to the subscription's admins
+     */
+    On: "On",
+    /**
+     * Don't send notification on new alerts to the subscription's admins
+     */
+    Off: "Off",
+} as const;
+
+/**
+ * Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+ */
+export type State = (typeof State)[keyof typeof State];
 
 export const Status = {
     Revoked: "Revoked",
@@ -379,6 +633,16 @@ export const SubPlan = {
  * The available sub plans
  */
 export type SubPlan = (typeof SubPlan)[keyof typeof SubPlan];
+
+export const SupportedCloudEnum = {
+    AWS: "AWS",
+    GCP: "GCP",
+} as const;
+
+/**
+ * Relevant cloud for the custom assessment automation.
+ */
+export type SupportedCloudEnum = (typeof SupportedCloudEnum)[keyof typeof SupportedCloudEnum];
 
 export const Tactics = {
     Reconnaissance: "Reconnaissance",

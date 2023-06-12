@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20221215Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:VirtualMachine"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualMachine"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualMachine"},
                 },

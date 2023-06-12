@@ -38,6 +38,7 @@ __all__ = [
     'ConnectToTargetSqlSqlDbSyncTaskInputArgs',
     'ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs',
     'DatabaseInfoArgs',
+    'DatabaseMigrationPropertiesSqlDbArgs',
     'FileShareArgs',
     'GetTdeCertificatesSqlTaskInputArgs',
     'GetTdeCertificatesSqlTaskPropertiesArgs',
@@ -93,6 +94,7 @@ __all__ = [
     'ProjectFilePropertiesArgs',
     'SelectedCertificateInputArgs',
     'ServiceSkuArgs',
+    'SqlConnectionInformationArgs',
     'SqlConnectionInfoArgs',
     'SsisMigrationInfoArgs',
     'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs',
@@ -1484,6 +1486,175 @@ class DatabaseInfoArgs:
     @source_database_name.setter
     def source_database_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_database_name", value)
+
+
+@pulumi.input_type
+class DatabaseMigrationPropertiesSqlDbArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 migration_operation_id: Optional[pulumi.Input[str]] = None,
+                 migration_service: Optional[pulumi.Input[str]] = None,
+                 provisioning_error: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 source_database_name: Optional[pulumi.Input[str]] = None,
+                 source_sql_connection: Optional[pulumi.Input['SqlConnectionInformationArgs']] = None,
+                 table_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target_database_collation: Optional[pulumi.Input[str]] = None,
+                 target_sql_connection: Optional[pulumi.Input['SqlConnectionInformationArgs']] = None):
+        """
+        Database Migration Resource properties for SQL database.
+        :param pulumi.Input[str] kind: 
+               Expected value is 'SqlDb'.
+        :param pulumi.Input[str] migration_operation_id: ID tracking current migration operation.
+        :param pulumi.Input[str] migration_service: Resource Id of the Migration Service.
+        :param pulumi.Input[str] provisioning_error: Error message for migration provisioning failure, if any.
+        :param pulumi.Input[str] scope: Resource Id of the target resource (SQL VM or SQL Managed Instance).
+        :param pulumi.Input[str] source_database_name: Name of the source database.
+        :param pulumi.Input['SqlConnectionInformationArgs'] source_sql_connection: Source SQL Server connection details.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] table_list: List of tables to copy.
+        :param pulumi.Input[str] target_database_collation: Database collation to be used for the target database.
+        :param pulumi.Input['SqlConnectionInformationArgs'] target_sql_connection: Target SQL DB connection details.
+        """
+        pulumi.set(__self__, "kind", 'SqlDb')
+        if migration_operation_id is not None:
+            pulumi.set(__self__, "migration_operation_id", migration_operation_id)
+        if migration_service is not None:
+            pulumi.set(__self__, "migration_service", migration_service)
+        if provisioning_error is not None:
+            pulumi.set(__self__, "provisioning_error", provisioning_error)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if source_database_name is not None:
+            pulumi.set(__self__, "source_database_name", source_database_name)
+        if source_sql_connection is not None:
+            pulumi.set(__self__, "source_sql_connection", source_sql_connection)
+        if table_list is not None:
+            pulumi.set(__self__, "table_list", table_list)
+        if target_database_collation is not None:
+            pulumi.set(__self__, "target_database_collation", target_database_collation)
+        if target_sql_connection is not None:
+            pulumi.set(__self__, "target_sql_connection", target_sql_connection)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is 'SqlDb'.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="migrationOperationId")
+    def migration_operation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID tracking current migration operation.
+        """
+        return pulumi.get(self, "migration_operation_id")
+
+    @migration_operation_id.setter
+    def migration_operation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "migration_operation_id", value)
+
+    @property
+    @pulumi.getter(name="migrationService")
+    def migration_service(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id of the Migration Service.
+        """
+        return pulumi.get(self, "migration_service")
+
+    @migration_service.setter
+    def migration_service(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "migration_service", value)
+
+    @property
+    @pulumi.getter(name="provisioningError")
+    def provisioning_error(self) -> Optional[pulumi.Input[str]]:
+        """
+        Error message for migration provisioning failure, if any.
+        """
+        return pulumi.get(self, "provisioning_error")
+
+    @provisioning_error.setter
+    def provisioning_error(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_error", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id of the target resource (SQL VM or SQL Managed Instance).
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="sourceDatabaseName")
+    def source_database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the source database.
+        """
+        return pulumi.get(self, "source_database_name")
+
+    @source_database_name.setter
+    def source_database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_database_name", value)
+
+    @property
+    @pulumi.getter(name="sourceSqlConnection")
+    def source_sql_connection(self) -> Optional[pulumi.Input['SqlConnectionInformationArgs']]:
+        """
+        Source SQL Server connection details.
+        """
+        return pulumi.get(self, "source_sql_connection")
+
+    @source_sql_connection.setter
+    def source_sql_connection(self, value: Optional[pulumi.Input['SqlConnectionInformationArgs']]):
+        pulumi.set(self, "source_sql_connection", value)
+
+    @property
+    @pulumi.getter(name="tableList")
+    def table_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of tables to copy.
+        """
+        return pulumi.get(self, "table_list")
+
+    @table_list.setter
+    def table_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "table_list", value)
+
+    @property
+    @pulumi.getter(name="targetDatabaseCollation")
+    def target_database_collation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Database collation to be used for the target database.
+        """
+        return pulumi.get(self, "target_database_collation")
+
+    @target_database_collation.setter
+    def target_database_collation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_database_collation", value)
+
+    @property
+    @pulumi.getter(name="targetSqlConnection")
+    def target_sql_connection(self) -> Optional[pulumi.Input['SqlConnectionInformationArgs']]:
+        """
+        Target SQL DB connection details.
+        """
+        return pulumi.get(self, "target_sql_connection")
+
+    @target_sql_connection.setter
+    def target_sql_connection(self, value: Optional[pulumi.Input['SqlConnectionInformationArgs']]):
+        pulumi.set(self, "target_sql_connection", value)
 
 
 @pulumi.input_type
@@ -5156,6 +5327,110 @@ class ServiceSkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class SqlConnectionInformationArgs:
+    def __init__(__self__, *,
+                 authentication: Optional[pulumi.Input[str]] = None,
+                 data_source: Optional[pulumi.Input[str]] = None,
+                 encrypt_connection: Optional[pulumi.Input[bool]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 trust_server_certificate: Optional[pulumi.Input[bool]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
+        """
+        Source SQL Connection
+        :param pulumi.Input[str] authentication: Authentication type.
+        :param pulumi.Input[str] data_source: Data source.
+        :param pulumi.Input[bool] encrypt_connection: Whether to encrypt connection or not.
+        :param pulumi.Input[str] password: Password to connect to source SQL.
+        :param pulumi.Input[bool] trust_server_certificate: Whether to trust server certificate or not.
+        :param pulumi.Input[str] user_name: User name to connect to source SQL.
+        """
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if encrypt_connection is not None:
+            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if trust_server_certificate is not None:
+            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[pulumi.Input[str]]:
+        """
+        Authentication type.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data source.
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter(name="encryptConnection")
+    def encrypt_connection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to encrypt connection or not.
+        """
+        return pulumi.get(self, "encrypt_connection")
+
+    @encrypt_connection.setter
+    def encrypt_connection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encrypt_connection", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password to connect to source SQL.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="trustServerCertificate")
+    def trust_server_certificate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to trust server certificate or not.
+        """
+        return pulumi.get(self, "trust_server_certificate")
+
+    @trust_server_certificate.setter
+    def trust_server_certificate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "trust_server_certificate", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        User name to connect to source SQL.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
 
 
 @pulumi.input_type

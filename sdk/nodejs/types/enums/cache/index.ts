@@ -54,6 +54,16 @@ export const ClusteringPolicy = {
  */
 export type ClusteringPolicy = (typeof ClusteringPolicy)[keyof typeof ClusteringPolicy];
 
+export const CmkIdentityType = {
+    SystemAssignedIdentity: "systemAssignedIdentity",
+    UserAssignedIdentity: "userAssignedIdentity",
+} as const;
+
+/**
+ * Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+ */
+export type CmkIdentityType = (typeof CmkIdentityType)[keyof typeof CmkIdentityType];
+
 export const DayOfWeek = {
     Monday: "Monday",
     Tuesday: "Tuesday",

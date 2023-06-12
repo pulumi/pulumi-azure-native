@@ -20,7 +20,11 @@ __all__ = [
     'ContainerServiceSshPublicKeyResponse',
     'CreationDataResponse',
     'CredentialResultResponse',
+    'ErrorAdditionalInfoResponse',
+    'ErrorDetailResponse',
     'ExtendedLocationResponse',
+    'FleetCredentialResultResponse',
+    'FleetHubProfileResponse',
     'KubeletConfigResponse',
     'LinuxOSConfigResponse',
     'ManagedClusterAADProfileResponse',
@@ -48,6 +52,7 @@ __all__ = [
     'ManagedClusterPodIdentityProvisioningErrorResponse',
     'ManagedClusterPodIdentityResponse',
     'ManagedClusterPodIdentityResponseProvisioningInfo',
+    'ManagedClusterPropertiesForSnapshotResponse',
     'ManagedClusterPropertiesResponseAutoScalerProfile',
     'ManagedClusterSKUResponse',
     'ManagedClusterSecurityProfileDefenderResponse',
@@ -61,15 +66,21 @@ __all__ = [
     'ManagedClusterStorageProfileFileCSIDriverResponse',
     'ManagedClusterStorageProfileResponse',
     'ManagedClusterStorageProfileSnapshotControllerResponse',
+    'ManagedClusterUpdateResponse',
+    'ManagedClusterUpgradeSpecResponse',
     'ManagedClusterWindowsProfileResponse',
     'ManagedClusterWorkloadAutoScalerProfileKedaResponse',
     'ManagedClusterWorkloadAutoScalerProfileResponse',
+    'MemberUpdateStatusResponse',
+    'NetworkProfileForSnapshotResponse',
     'NetworkProfileResponse',
+    'OpenShiftAPIPropertiesResponse',
     'OpenShiftManagedClusterAADIdentityProviderResponse',
     'OpenShiftManagedClusterAgentPoolProfileResponse',
     'OpenShiftManagedClusterAuthProfileResponse',
     'OpenShiftManagedClusterIdentityProviderResponse',
     'OpenShiftManagedClusterMasterPoolProfileResponse',
+    'OpenShiftManagedClusterMonitorProfileResponse',
     'OpenShiftRouterProfileResponse',
     'PowerStateResponse',
     'PrivateEndpointResponse',
@@ -81,7 +92,15 @@ __all__ = [
     'SystemDataResponse',
     'TimeInWeekResponse',
     'TimeSpanResponse',
+    'UpdateGroupResponse',
+    'UpdateGroupStatusResponse',
+    'UpdateRunStatusResponse',
+    'UpdateRunStrategyResponse',
+    'UpdateStageResponse',
+    'UpdateStageStatusResponse',
+    'UpdateStatusResponse',
     'UserAssignedIdentityResponse',
+    'WaitStatusResponse',
     'WindowsGmsaProfileResponse',
 ]
 
@@ -655,6 +674,122 @@ class CredentialResultResponse(dict):
 
 
 @pulumi.output_type
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: str):
+        """
+        The resource management error additional info.
+        :param Any info: The additional info.
+        :param str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: str,
+                 target: str):
+        """
+        The error detail.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param str message: The error message.
+        :param str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
 class ExtendedLocationResponse(dict):
     """
     The complex type of the extended location.
@@ -687,6 +822,103 @@ class ExtendedLocationResponse(dict):
         The type of the extended location.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FleetCredentialResultResponse(dict):
+    """
+    One credential result item.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        One credential result item.
+        :param str name: The name of the credential.
+        :param str value: Base64-encoded Kubernetes configuration file.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the credential.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Base64-encoded Kubernetes configuration file.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FleetHubProfileResponse(dict):
+    """
+    The FleetHubProfile configures the fleet hub.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kubernetesVersion":
+            suggest = "kubernetes_version"
+        elif key == "dnsPrefix":
+            suggest = "dns_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetHubProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetHubProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetHubProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fqdn: str,
+                 kubernetes_version: str,
+                 dns_prefix: Optional[str] = None):
+        """
+        The FleetHubProfile configures the fleet hub.
+        :param str fqdn: The FQDN of the Fleet hub.
+        :param str kubernetes_version: The Kubernetes version of the Fleet hub.
+        :param str dns_prefix: DNS prefix used to create the FQDN for the Fleet hub.
+        """
+        pulumi.set(__self__, "fqdn", fqdn)
+        pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+        if dns_prefix is not None:
+            pulumi.set(__self__, "dns_prefix", dns_prefix)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The FQDN of the Fleet hub.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> str:
+        """
+        The Kubernetes version of the Fleet hub.
+        """
+        return pulumi.get(self, "kubernetes_version")
+
+    @property
+    @pulumi.getter(name="dnsPrefix")
+    def dns_prefix(self) -> Optional[str]:
+        """
+        DNS prefix used to create the FQDN for the Fleet hub.
+        """
+        return pulumi.get(self, "dns_prefix")
 
 
 @pulumi.output_type
@@ -3004,6 +3236,85 @@ class ManagedClusterPodIdentityResponseProvisioningInfo(dict):
 
 
 @pulumi.output_type
+class ManagedClusterPropertiesForSnapshotResponse(dict):
+    """
+    managed cluster properties for snapshot, these properties are read only.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkProfile":
+            suggest = "network_profile"
+        elif key == "enableRbac":
+            suggest = "enable_rbac"
+        elif key == "kubernetesVersion":
+            suggest = "kubernetes_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterPropertiesForSnapshotResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterPropertiesForSnapshotResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterPropertiesForSnapshotResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_profile: 'outputs.NetworkProfileForSnapshotResponse',
+                 enable_rbac: Optional[bool] = None,
+                 kubernetes_version: Optional[str] = None,
+                 sku: Optional['outputs.ManagedClusterSKUResponse'] = None):
+        """
+        managed cluster properties for snapshot, these properties are read only.
+        :param 'NetworkProfileForSnapshotResponse' network_profile: The current network profile.
+        :param bool enable_rbac: Whether the cluster has enabled Kubernetes Role-Based Access Control or not.
+        :param str kubernetes_version: The current kubernetes version.
+        :param 'ManagedClusterSKUResponse' sku: The current managed cluster sku.
+        """
+        pulumi.set(__self__, "network_profile", network_profile)
+        if enable_rbac is not None:
+            pulumi.set(__self__, "enable_rbac", enable_rbac)
+        if kubernetes_version is not None:
+            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> 'outputs.NetworkProfileForSnapshotResponse':
+        """
+        The current network profile.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="enableRbac")
+    def enable_rbac(self) -> Optional[bool]:
+        """
+        Whether the cluster has enabled Kubernetes Role-Based Access Control or not.
+        """
+        return pulumi.get(self, "enable_rbac")
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> Optional[str]:
+        """
+        The current kubernetes version.
+        """
+        return pulumi.get(self, "kubernetes_version")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ManagedClusterSKUResponse']:
+        """
+        The current managed cluster sku.
+        """
+        return pulumi.get(self, "sku")
+
+
+@pulumi.output_type
 class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     """
     Parameters to be applied to the cluster-autoscaler when enabled
@@ -3758,6 +4069,83 @@ class ManagedClusterStorageProfileSnapshotControllerResponse(dict):
 
 
 @pulumi.output_type
+class ManagedClusterUpdateResponse(dict):
+    """
+    The update to be applied to the ManagedClusters.
+    """
+    def __init__(__self__, *,
+                 upgrade: 'outputs.ManagedClusterUpgradeSpecResponse'):
+        """
+        The update to be applied to the ManagedClusters.
+        :param 'ManagedClusterUpgradeSpecResponse' upgrade: The upgrade to apply to the ManagedClusters.
+        """
+        pulumi.set(__self__, "upgrade", upgrade)
+
+    @property
+    @pulumi.getter
+    def upgrade(self) -> 'outputs.ManagedClusterUpgradeSpecResponse':
+        """
+        The upgrade to apply to the ManagedClusters.
+        """
+        return pulumi.get(self, "upgrade")
+
+
+@pulumi.output_type
+class ManagedClusterUpgradeSpecResponse(dict):
+    """
+    The upgrade to apply to a ManagedCluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kubernetesVersion":
+            suggest = "kubernetes_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterUpgradeSpecResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterUpgradeSpecResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterUpgradeSpecResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 kubernetes_version: Optional[str] = None):
+        """
+        The upgrade to apply to a ManagedCluster.
+        :param str type: The upgrade type.
+               Full requires the KubernetesVersion property to be set.
+               NodeImageOnly requires the KubernetesVersion property not to be set.
+        :param str kubernetes_version: The Kubernetes version to upgrade the member clusters to.
+        """
+        pulumi.set(__self__, "type", type)
+        if kubernetes_version is not None:
+            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The upgrade type.
+        Full requires the KubernetesVersion property to be set.
+        NodeImageOnly requires the KubernetesVersion property not to be set.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> Optional[str]:
+        """
+        The Kubernetes version to upgrade the member clusters to.
+        """
+        return pulumi.get(self, "kubernetes_version")
+
+
+@pulumi.output_type
 class ManagedClusterWindowsProfileResponse(dict):
     """
     Profile for Windows VMs in the managed cluster.
@@ -3898,6 +4286,176 @@ class ManagedClusterWorkloadAutoScalerProfileResponse(dict):
 
 
 @pulumi.output_type
+class MemberUpdateStatusResponse(dict):
+    """
+    The status of a member update operation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterResourceId":
+            suggest = "cluster_resource_id"
+        elif key == "operationId":
+            suggest = "operation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemberUpdateStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemberUpdateStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemberUpdateStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_resource_id: str,
+                 name: str,
+                 operation_id: str,
+                 status: 'outputs.UpdateStatusResponse'):
+        """
+        The status of a member update operation.
+        :param str cluster_resource_id: The Azure resource id of the target Kubernetes cluster.
+        :param str name: The name of the FleetMember.
+        :param str operation_id: The operation resource id of the latest attempt to perform the operation.
+        :param 'UpdateStatusResponse' status: The status of the MemberUpdate operation.
+        """
+        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operation_id", operation_id)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="clusterResourceId")
+    def cluster_resource_id(self) -> str:
+        """
+        The Azure resource id of the target Kubernetes cluster.
+        """
+        return pulumi.get(self, "cluster_resource_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the FleetMember.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> str:
+        """
+        The operation resource id of the latest attempt to perform the operation.
+        """
+        return pulumi.get(self, "operation_id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.UpdateStatusResponse':
+        """
+        The status of the MemberUpdate operation.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class NetworkProfileForSnapshotResponse(dict):
+    """
+    network profile for managed cluster snapshot, these properties are read only.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loadBalancerSku":
+            suggest = "load_balancer_sku"
+        elif key == "networkMode":
+            suggest = "network_mode"
+        elif key == "networkPlugin":
+            suggest = "network_plugin"
+        elif key == "networkPluginMode":
+            suggest = "network_plugin_mode"
+        elif key == "networkPolicy":
+            suggest = "network_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkProfileForSnapshotResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkProfileForSnapshotResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkProfileForSnapshotResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 load_balancer_sku: Optional[str] = None,
+                 network_mode: Optional[str] = None,
+                 network_plugin: Optional[str] = None,
+                 network_plugin_mode: Optional[str] = None,
+                 network_policy: Optional[str] = None):
+        """
+        network profile for managed cluster snapshot, these properties are read only.
+        :param str load_balancer_sku: loadBalancerSku for managed cluster snapshot.
+        :param str network_mode: networkMode for managed cluster snapshot.
+        :param str network_plugin: networkPlugin for managed cluster snapshot.
+        :param str network_plugin_mode: NetworkPluginMode for managed cluster snapshot.
+        :param str network_policy: networkPolicy for managed cluster snapshot.
+        """
+        if load_balancer_sku is not None:
+            pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
+        if network_mode is not None:
+            pulumi.set(__self__, "network_mode", network_mode)
+        if network_plugin is not None:
+            pulumi.set(__self__, "network_plugin", network_plugin)
+        if network_plugin_mode is not None:
+            pulumi.set(__self__, "network_plugin_mode", network_plugin_mode)
+        if network_policy is not None:
+            pulumi.set(__self__, "network_policy", network_policy)
+
+    @property
+    @pulumi.getter(name="loadBalancerSku")
+    def load_balancer_sku(self) -> Optional[str]:
+        """
+        loadBalancerSku for managed cluster snapshot.
+        """
+        return pulumi.get(self, "load_balancer_sku")
+
+    @property
+    @pulumi.getter(name="networkMode")
+    def network_mode(self) -> Optional[str]:
+        """
+        networkMode for managed cluster snapshot.
+        """
+        return pulumi.get(self, "network_mode")
+
+    @property
+    @pulumi.getter(name="networkPlugin")
+    def network_plugin(self) -> Optional[str]:
+        """
+        networkPlugin for managed cluster snapshot.
+        """
+        return pulumi.get(self, "network_plugin")
+
+    @property
+    @pulumi.getter(name="networkPluginMode")
+    def network_plugin_mode(self) -> Optional[str]:
+        """
+        NetworkPluginMode for managed cluster snapshot.
+        """
+        return pulumi.get(self, "network_plugin_mode")
+
+    @property
+    @pulumi.getter(name="networkPolicy")
+    def network_policy(self) -> Optional[str]:
+        """
+        networkPolicy for managed cluster snapshot.
+        """
+        return pulumi.get(self, "network_policy")
+
+
+@pulumi.output_type
 class NetworkProfileResponse(dict):
     """
     Represents the OpenShift networking configuration
@@ -3905,8 +4463,8 @@ class NetworkProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "peerVnetId":
-            suggest = "peer_vnet_id"
+        if key == "managementSubnetCidr":
+            suggest = "management_subnet_cidr"
         elif key == "vnetCidr":
             suggest = "vnet_cidr"
         elif key == "vnetId":
@@ -3924,17 +4482,17 @@ class NetworkProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 peer_vnet_id: Optional[str] = None,
+                 management_subnet_cidr: Optional[str] = None,
                  vnet_cidr: Optional[str] = None,
                  vnet_id: Optional[str] = None):
         """
         Represents the OpenShift networking configuration
-        :param str peer_vnet_id: CIDR of the Vnet to peer.
+        :param str management_subnet_cidr: CIDR of subnet used to create PLS needed for management of the cluster
         :param str vnet_cidr: CIDR for the OpenShift Vnet.
         :param str vnet_id: ID of the Vnet created for OSA cluster.
         """
-        if peer_vnet_id is not None:
-            pulumi.set(__self__, "peer_vnet_id", peer_vnet_id)
+        if management_subnet_cidr is not None:
+            pulumi.set(__self__, "management_subnet_cidr", management_subnet_cidr)
         if vnet_cidr is None:
             vnet_cidr = '10.0.0.0/8'
         if vnet_cidr is not None:
@@ -3943,12 +4501,12 @@ class NetworkProfileResponse(dict):
             pulumi.set(__self__, "vnet_id", vnet_id)
 
     @property
-    @pulumi.getter(name="peerVnetId")
-    def peer_vnet_id(self) -> Optional[str]:
+    @pulumi.getter(name="managementSubnetCidr")
+    def management_subnet_cidr(self) -> Optional[str]:
         """
-        CIDR of the Vnet to peer.
+        CIDR of subnet used to create PLS needed for management of the cluster
         """
-        return pulumi.get(self, "peer_vnet_id")
+        return pulumi.get(self, "management_subnet_cidr")
 
     @property
     @pulumi.getter(name="vnetCidr")
@@ -3965,6 +4523,46 @@ class NetworkProfileResponse(dict):
         ID of the Vnet created for OSA cluster.
         """
         return pulumi.get(self, "vnet_id")
+
+
+@pulumi.output_type
+class OpenShiftAPIPropertiesResponse(dict):
+    """
+    Defines further properties on the API.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateApiServer":
+            suggest = "private_api_server"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OpenShiftAPIPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OpenShiftAPIPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OpenShiftAPIPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_api_server: Optional[bool] = None):
+        """
+        Defines further properties on the API.
+        :param bool private_api_server: Specifies if API server is public or private.
+        """
+        if private_api_server is not None:
+            pulumi.set(__self__, "private_api_server", private_api_server)
+
+    @property
+    @pulumi.getter(name="privateApiServer")
+    def private_api_server(self) -> Optional[bool]:
+        """
+        Specifies if API server is public or private.
+        """
+        return pulumi.get(self, "private_api_server")
 
 
 @pulumi.output_type
@@ -4248,8 +4846,8 @@ class OpenShiftManagedClusterMasterPoolProfileResponse(dict):
         suggest = None
         if key == "vmSize":
             suggest = "vm_size"
-        elif key == "osType":
-            suggest = "os_type"
+        elif key == "apiProperties":
+            suggest = "api_properties"
         elif key == "subnetCidr":
             suggest = "subnet_cidr"
 
@@ -4267,23 +4865,19 @@ class OpenShiftManagedClusterMasterPoolProfileResponse(dict):
     def __init__(__self__, *,
                  count: int,
                  vm_size: str,
-                 name: Optional[str] = None,
-                 os_type: Optional[str] = None,
+                 api_properties: Optional['outputs.OpenShiftAPIPropertiesResponse'] = None,
                  subnet_cidr: Optional[str] = None):
         """
         OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
         :param int count: Number of masters (VMs) to host docker containers. The default value is 3.
         :param str vm_size: Size of agent VMs.
-        :param str name: Unique name of the master pool profile in the context of the subscription and resource group.
-        :param str os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param 'OpenShiftAPIPropertiesResponse' api_properties: Defines further properties on the API.
         :param str subnet_cidr: Subnet CIDR for the peering.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "vm_size", vm_size)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+        if api_properties is not None:
+            pulumi.set(__self__, "api_properties", api_properties)
         if subnet_cidr is not None:
             pulumi.set(__self__, "subnet_cidr", subnet_cidr)
 
@@ -4304,20 +4898,12 @@ class OpenShiftManagedClusterMasterPoolProfileResponse(dict):
         return pulumi.get(self, "vm_size")
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
+    @pulumi.getter(name="apiProperties")
+    def api_properties(self) -> Optional['outputs.OpenShiftAPIPropertiesResponse']:
         """
-        Unique name of the master pool profile in the context of the subscription and resource group.
+        Defines further properties on the API.
         """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
-        """
-        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        """
-        return pulumi.get(self, "os_type")
+        return pulumi.get(self, "api_properties")
 
     @property
     @pulumi.getter(name="subnetCidr")
@@ -4326,6 +4912,58 @@ class OpenShiftManagedClusterMasterPoolProfileResponse(dict):
         Subnet CIDR for the peering.
         """
         return pulumi.get(self, "subnet_cidr")
+
+
+@pulumi.output_type
+class OpenShiftManagedClusterMonitorProfileResponse(dict):
+    """
+    Defines the configuration for Log Analytics integration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workspaceResourceID":
+            suggest = "workspace_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OpenShiftManagedClusterMonitorProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OpenShiftManagedClusterMonitorProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OpenShiftManagedClusterMonitorProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 workspace_resource_id: Optional[str] = None):
+        """
+        Defines the configuration for Log Analytics integration.
+        :param bool enabled: If the Log analytics integration should be turned on or off
+        :param str workspace_resource_id: Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        If the Log analytics integration should be turned on or off
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="workspaceResourceID")
+    def workspace_resource_id(self) -> Optional[str]:
+        """
+        Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+        """
+        return pulumi.get(self, "workspace_resource_id")
 
 
 @pulumi.output_type
@@ -5289,6 +5927,350 @@ class TimeSpanResponse(dict):
 
 
 @pulumi.output_type
+class UpdateGroupResponse(dict):
+    """
+    A group to be updated.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        A group to be updated.
+        :param str name: The name of the Fleet member group to update. 
+               It should match the name of an existing FleetMember group.
+               A group can only appear once across all UpdateStages in the UpdateRun.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Fleet member group to update. 
+        It should match the name of an existing FleetMember group.
+        A group can only appear once across all UpdateStages in the UpdateRun.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class UpdateGroupStatusResponse(dict):
+    """
+    The status of a UpdateGroup.
+    """
+    def __init__(__self__, *,
+                 members: Sequence['outputs.MemberUpdateStatusResponse'],
+                 name: str,
+                 status: 'outputs.UpdateStatusResponse'):
+        """
+        The status of a UpdateGroup.
+        :param Sequence['MemberUpdateStatusResponse'] members: The list of member this UpdateGroup updates.
+        :param str name: The name of the UpdateGroup.
+        :param 'UpdateStatusResponse' status: The status of the UpdateGroup.
+        """
+        pulumi.set(__self__, "members", members)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def members(self) -> Sequence['outputs.MemberUpdateStatusResponse']:
+        """
+        The list of member this UpdateGroup updates.
+        """
+        return pulumi.get(self, "members")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the UpdateGroup.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.UpdateStatusResponse':
+        """
+        The status of the UpdateGroup.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class UpdateRunStatusResponse(dict):
+    """
+    The status of a UpdateRun.
+    """
+    def __init__(__self__, *,
+                 stages: Sequence['outputs.UpdateStageStatusResponse'],
+                 status: 'outputs.UpdateStatusResponse'):
+        """
+        The status of a UpdateRun.
+        :param Sequence['UpdateStageStatusResponse'] stages: The stages composing an update run. Stages are run sequentially withing an UpdateRun.
+        :param 'UpdateStatusResponse' status: The status of the UpdateRun.
+        """
+        pulumi.set(__self__, "stages", stages)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def stages(self) -> Sequence['outputs.UpdateStageStatusResponse']:
+        """
+        The stages composing an update run. Stages are run sequentially withing an UpdateRun.
+        """
+        return pulumi.get(self, "stages")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.UpdateStatusResponse':
+        """
+        The status of the UpdateRun.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class UpdateRunStrategyResponse(dict):
+    """
+    The UpdateRunStrategy configures the sequence of Stages and Groups in which the clusters will be updated.
+    """
+    def __init__(__self__, *,
+                 stages: Sequence['outputs.UpdateStageResponse']):
+        """
+        The UpdateRunStrategy configures the sequence of Stages and Groups in which the clusters will be updated.
+        :param Sequence['UpdateStageResponse'] stages: The list of stages that compose this update run.
+        """
+        pulumi.set(__self__, "stages", stages)
+
+    @property
+    @pulumi.getter
+    def stages(self) -> Sequence['outputs.UpdateStageResponse']:
+        """
+        The list of stages that compose this update run.
+        """
+        return pulumi.get(self, "stages")
+
+
+@pulumi.output_type
+class UpdateStageResponse(dict):
+    """
+    Contains the groups to be updated by an UpdateRun.
+    Update order:
+    - Sequential between stages: Stages run sequentially. The previous stage must complete before the next one starts.
+    - Parallel within a stage: Groups within a stage run in parallel.
+    - Sequential within a group: Clusters within a group are updated sequentially.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "afterStageWaitInSeconds":
+            suggest = "after_stage_wait_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpdateStageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpdateStageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpdateStageResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 after_stage_wait_in_seconds: Optional[int] = None,
+                 groups: Optional[Sequence['outputs.UpdateGroupResponse']] = None):
+        """
+        Contains the groups to be updated by an UpdateRun.
+        Update order:
+        - Sequential between stages: Stages run sequentially. The previous stage must complete before the next one starts.
+        - Parallel within a stage: Groups within a stage run in parallel.
+        - Sequential within a group: Clusters within a group are updated sequentially.
+        :param str name: The name of the stage. Must be unique within the UpdateRun.
+        :param int after_stage_wait_in_seconds: The time in seconds to wait at the end of this stage before starting the next one. Defaults to 0 seconds if unspecified.
+        :param Sequence['UpdateGroupResponse'] groups: A list of group names that compose the stage.
+               The groups will be updated in parallel. Each group name can only appear once in the UpdateRun.
+        """
+        pulumi.set(__self__, "name", name)
+        if after_stage_wait_in_seconds is not None:
+            pulumi.set(__self__, "after_stage_wait_in_seconds", after_stage_wait_in_seconds)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the stage. Must be unique within the UpdateRun.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="afterStageWaitInSeconds")
+    def after_stage_wait_in_seconds(self) -> Optional[int]:
+        """
+        The time in seconds to wait at the end of this stage before starting the next one. Defaults to 0 seconds if unspecified.
+        """
+        return pulumi.get(self, "after_stage_wait_in_seconds")
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence['outputs.UpdateGroupResponse']]:
+        """
+        A list of group names that compose the stage.
+        The groups will be updated in parallel. Each group name can only appear once in the UpdateRun.
+        """
+        return pulumi.get(self, "groups")
+
+
+@pulumi.output_type
+class UpdateStageStatusResponse(dict):
+    """
+    The status of a UpdateStage.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "afterStageWaitStatus":
+            suggest = "after_stage_wait_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpdateStageStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpdateStageStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpdateStageStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 after_stage_wait_status: 'outputs.WaitStatusResponse',
+                 groups: Sequence['outputs.UpdateGroupStatusResponse'],
+                 name: str,
+                 status: 'outputs.UpdateStatusResponse'):
+        """
+        The status of a UpdateStage.
+        :param 'WaitStatusResponse' after_stage_wait_status: The status of the wait period configured on the UpdateStage.
+        :param Sequence['UpdateGroupStatusResponse'] groups: The list of groups to be updated as part of this UpdateStage.
+        :param str name: The name of the UpdateStage.
+        :param 'UpdateStatusResponse' status: The status of the UpdateStage.
+        """
+        pulumi.set(__self__, "after_stage_wait_status", after_stage_wait_status)
+        pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="afterStageWaitStatus")
+    def after_stage_wait_status(self) -> 'outputs.WaitStatusResponse':
+        """
+        The status of the wait period configured on the UpdateStage.
+        """
+        return pulumi.get(self, "after_stage_wait_status")
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Sequence['outputs.UpdateGroupStatusResponse']:
+        """
+        The list of groups to be updated as part of this UpdateStage.
+        """
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the UpdateStage.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.UpdateStatusResponse':
+        """
+        The status of the UpdateStage.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class UpdateStatusResponse(dict):
+    """
+    The status for an operation or group of operations.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completedTime":
+            suggest = "completed_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpdateStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpdateStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpdateStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 completed_time: str,
+                 error: 'outputs.ErrorDetailResponse',
+                 start_time: str,
+                 state: str):
+        """
+        The status for an operation or group of operations.
+        :param str completed_time: The time the operation or group was completed.
+        :param 'ErrorDetailResponse' error: The error details when a failure is encountered.
+        :param str start_time: The time the operation or group was started.
+        :param str state: The State of the operation or group.
+        """
+        pulumi.set(__self__, "completed_time", completed_time)
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="completedTime")
+    def completed_time(self) -> str:
+        """
+        The time the operation or group was completed.
+        """
+        return pulumi.get(self, "completed_time")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ErrorDetailResponse':
+        """
+        The error details when a failure is encountered.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The time the operation or group was started.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The State of the operation or group.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class UserAssignedIdentityResponse(dict):
     """
     Details about a user assigned identity.
@@ -5354,6 +6336,56 @@ class UserAssignedIdentityResponse(dict):
         The resource ID of the user assigned identity.
         """
         return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class WaitStatusResponse(dict):
+    """
+    The status of the wait duration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "waitDurationInSeconds":
+            suggest = "wait_duration_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WaitStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WaitStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WaitStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: 'outputs.UpdateStatusResponse',
+                 wait_duration_in_seconds: int):
+        """
+        The status of the wait duration.
+        :param 'UpdateStatusResponse' status: The status of the wait duration.
+        :param int wait_duration_in_seconds: The wait duration configured in seconds.
+        """
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "wait_duration_in_seconds", wait_duration_in_seconds)
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.UpdateStatusResponse':
+        """
+        The status of the wait duration.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="waitDurationInSeconds")
+    def wait_duration_in_seconds(self) -> int:
+        """
+        The wait duration configured in seconds.
+        """
+        return pulumi.get(self, "wait_duration_in_seconds")
 
 
 @pulumi.output_type

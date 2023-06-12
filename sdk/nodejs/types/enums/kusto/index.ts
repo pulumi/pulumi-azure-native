@@ -168,6 +168,17 @@ export const DataConnectionKind = {
  */
 export type DataConnectionKind = (typeof DataConnectionKind)[keyof typeof DataConnectionKind];
 
+export const DataFormat = {
+    MULTIJSON: "MULTIJSON",
+    JSON: "JSON",
+    CSV: "CSV",
+} as const;
+
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
+export type DataFormat = (typeof DataFormat)[keyof typeof DataFormat];
+
 export const DatabasePrincipalRole = {
     Admin: "Admin",
     Ingestor: "Ingestor",

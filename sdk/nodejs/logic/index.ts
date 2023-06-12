@@ -70,6 +70,11 @@ export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as a
 export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
 
+export { GetWorkflowAccessKeyArgs, GetWorkflowAccessKeyResult, GetWorkflowAccessKeyOutputArgs } from "./getWorkflowAccessKey";
+export const getWorkflowAccessKey: typeof import("./getWorkflowAccessKey").getWorkflowAccessKey = null as any;
+export const getWorkflowAccessKeyOutput: typeof import("./getWorkflowAccessKey").getWorkflowAccessKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkflowAccessKey","getWorkflowAccessKeyOutput"], () => require("./getWorkflowAccessKey"));
+
 export { IntegrationAccountArgs } from "./integrationAccount";
 export type IntegrationAccount = import("./integrationAccount").IntegrationAccount;
 export const IntegrationAccount: typeof import("./integrationAccount").IntegrationAccount = null as any;
@@ -160,6 +165,11 @@ export const listIntegrationAccountSchemaContentCallbackUrl: typeof import("./li
 export const listIntegrationAccountSchemaContentCallbackUrlOutput: typeof import("./listIntegrationAccountSchemaContentCallbackUrl").listIntegrationAccountSchemaContentCallbackUrlOutput = null as any;
 utilities.lazyLoad(exports, ["listIntegrationAccountSchemaContentCallbackUrl","listIntegrationAccountSchemaContentCallbackUrlOutput"], () => require("./listIntegrationAccountSchemaContentCallbackUrl"));
 
+export { ListWorkflowAccessKeySecretKeysArgs, ListWorkflowAccessKeySecretKeysResult, ListWorkflowAccessKeySecretKeysOutputArgs } from "./listWorkflowAccessKeySecretKeys";
+export const listWorkflowAccessKeySecretKeys: typeof import("./listWorkflowAccessKeySecretKeys").listWorkflowAccessKeySecretKeys = null as any;
+export const listWorkflowAccessKeySecretKeysOutput: typeof import("./listWorkflowAccessKeySecretKeys").listWorkflowAccessKeySecretKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkflowAccessKeySecretKeys","listWorkflowAccessKeySecretKeysOutput"], () => require("./listWorkflowAccessKeySecretKeys"));
+
 export { ListWorkflowCallbackUrlArgs, ListWorkflowCallbackUrlResult, ListWorkflowCallbackUrlOutputArgs } from "./listWorkflowCallbackUrl";
 export const listWorkflowCallbackUrl: typeof import("./listWorkflowCallbackUrl").listWorkflowCallbackUrl = null as any;
 export const listWorkflowCallbackUrlOutput: typeof import("./listWorkflowCallbackUrl").listWorkflowCallbackUrlOutput = null as any;
@@ -199,6 +209,11 @@ export { WorkflowArgs } from "./workflow";
 export type Workflow = import("./workflow").Workflow;
 export const Workflow: typeof import("./workflow").Workflow = null as any;
 utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
+
+export { WorkflowAccessKeyArgs } from "./workflowAccessKey";
+export type WorkflowAccessKey = import("./workflowAccessKey").WorkflowAccessKey;
+export const WorkflowAccessKey: typeof import("./workflowAccessKey").WorkflowAccessKey = null as any;
+utilities.lazyLoad(exports, ["WorkflowAccessKey"], () => require("./workflowAccessKey"));
 
 
 // Export enums:
@@ -249,6 +264,8 @@ const _module = {
                 return new RosettaNetProcessConfiguration(name, <any>undefined, { urn })
             case "azure-native:logic:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
+            case "azure-native:logic:WorkflowAccessKey":
+                return new WorkflowAccessKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

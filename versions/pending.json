@@ -12,6 +12,8 @@
   "Advisor": [],
   "AgFoodPlatform": [],
   "AlertsManagement": [
+    "2019-06-01",
+    "2021-04-01",
     "2021-07-22-preview",
     "2021-08-08",
     "2021-08-08-preview",
@@ -23,6 +25,7 @@
   ],
   "ApiCenter": [],
   "ApiManagement": [
+    "2021-08-01",
     "2021-12-01-preview",
     "2022-04-01-preview",
     "2022-08-01",
@@ -58,7 +61,10 @@
     "2022-07-01-preview",
     "2022-08-01-preview"
   ],
-  "Automanage": [],
+  "Automanage": [
+    "2021-04-30-preview",
+    "2022-05-04"
+  ],
   "Automation": [
     "2017-05-15-preview",
     "2018-01-15",
@@ -76,20 +82,30 @@
   "AzureArcData": [],
   "AzureData": [],
   "AzureSphere": [],
-  "AzureStack": [],
-  "AzureStackHCI": [],
+  "AzureStack": [
+    "2022-06-01"
+  ],
+  "AzureStackHCI": [
+    "2022-01-01",
+    "2022-03-01",
+    "2022-05-01",
+    "2022-09-01",
+    "2022-10-01",
+    "2022-12-01",
+    "2022-12-15-preview",
+    "2023-02-01",
+    "2023-03-01"
+  ],
   "BareMetalInfrastructure": [],
   "Batch": [],
-  "Billing": [],
+  "Billing": [
+    "2020-05-01"
+  ],
   "BillingBenefits": [],
   "Blockchain": [],
   "Blueprint": [],
   "BotService": [],
   "Cache": [
-    "2022-05-01",
-    "2022-06-01",
-    "2022-11-01-preview",
-    "2023-03-01-preview",
     "2023-04-01",
     "2023-05-01-preview"
   ],
@@ -123,6 +139,12 @@
   "Consumption": [],
   "ContainerInstance": [],
   "ContainerRegistry": [
+    "2017-03-01",
+    "2017-06-01-preview",
+    "2017-10-01",
+    "2018-02-01-preview",
+    "2018-09-01",
+    "2019-04-01",
     "2019-05-01",
     "2019-05-01-preview",
     "2019-06-01-preview",
@@ -137,11 +159,6 @@
     "2023-01-01-preview"
   ],
   "ContainerService": [
-    "2019-06-01",
-    "2019-08-01",
-    "2019-09-30-preview",
-    "2019-10-01",
-    "2019-10-27-preview",
     "2019-11-01",
     "2020-01-01",
     "2020-02-01",
@@ -192,6 +209,12 @@
   ],
   "ContainerStorage": [],
   "CostManagement": [
+    "2019-01-01",
+    "2019-03-01-preview",
+    "2019-04-01-preview",
+    "2019-09-01",
+    "2019-10-01",
+    "2019-11-01",
     "2020-03-01-preview",
     "2020-06-01",
     "2020-12-01-preview",
@@ -215,9 +238,37 @@
     "2020-01-01-privatepreview"
   ],
   "DBforMySQL": [
+    "2018-06-01",
+    "2018-06-01-privatepreview",
+    "2020-01-01",
+    "2020-01-01-privatepreview",
+    "2020-07-01-preview",
+    "2020-07-01-privatepreview",
+    "2021-05-01",
+    "2021-05-01-preview",
+    "2021-12-01-preview",
+    "2022-01-01",
     "2022-09-30-preview"
   ],
   "DBforPostgreSQL": [
+    "2018-06-01",
+    "2018-06-01-privatepreview",
+    "2020-01-01",
+    "2020-01-01-privatepreview",
+    "2020-02-14-preview",
+    "2020-02-14-privatepreview",
+    "2020-10-05-privatepreview",
+    "2020-11-05-preview",
+    "2021-03-31-privatepreview",
+    "2021-04-10-privatepreview",
+    "2021-06-01",
+    "2021-06-01-preview",
+    "2021-06-15-privatepreview",
+    "2022-01-20-preview",
+    "2022-03-08-preview",
+    "2022-03-08-privatepreview",
+    "2022-05-01-preview",
+    "2022-11-08",
     "2022-12-01",
     "2023-03-01-preview"
   ],
@@ -268,7 +319,9 @@
     "2023-03-01-preview"
   ],
   "DigitalTwins": [],
-  "DocumentDB": [],
+  "DocumentDB": [
+    "2023-04-15"
+  ],
   "DomainRegistration": [],
   "Dynamics365Fraudprotection": [],
   "DynamicsTelemetry": [],
@@ -283,9 +336,14 @@
   "EngagementFabric": [],
   "EnterpriseKnowledgeGraph": [],
   "EventGrid": [
+    "2021-12-01",
+    "2022-06-15",
     "2023-06-01-preview"
   ],
   "EventHub": [
+    "2021-01-01-preview",
+    "2021-06-01-preview",
+    "2021-11-01",
     "2022-01-01-preview",
     "2022-10-01-preview"
   ],
@@ -302,10 +360,25 @@
   "HanaOnAzure": [],
   "HardwareSecurityModules": [],
   "HealthBot": [],
-  "HealthcareApis": [],
+  "HealthcareApis": [
+    "2022-12-01",
+    "2023-02-28"
+  ],
   "Help": [],
   "HybridCloud": [],
   "HybridCompute": [
+    "2021-01-28-preview",
+    "2021-03-25-preview",
+    "2021-04-22-preview",
+    "2021-05-17-preview",
+    "2021-05-20",
+    "2021-06-10-preview",
+    "2021-12-10-preview",
+    "2022-03-10",
+    "2022-05-10-preview",
+    "2022-08-11-preview",
+    "2022-11-10",
+    "2022-12-27",
     "2022-12-27-preview",
     "2023-03-15-preview",
     "2023-04-25-preview"
@@ -374,11 +447,30 @@
   "IoTSecurity": [],
   "KeyVault": [],
   "Kubernetes": [
+    "2021-10-01",
     "2022-05-01-preview",
     "2022-10-01-preview"
   ],
-  "KubernetesConfiguration": [],
-  "Kusto": [],
+  "KubernetesConfiguration": [
+    "2022-07-01",
+    "2022-11-01",
+    "2023-05-01"
+  ],
+  "Kusto": [
+    "2019-01-21",
+    "2019-05-15",
+    "2019-09-07",
+    "2019-11-09",
+    "2020-02-15",
+    "2020-06-14",
+    "2020-09-18",
+    "2021-01-01",
+    "2021-08-27",
+    "2022-02-01",
+    "2022-07-07",
+    "2022-11-11",
+    "2022-12-29"
+  ],
   "LabServices": [
     "2021-10-01-preview",
     "2021-11-15-preview",
@@ -386,27 +478,50 @@
   ],
   "LoadTestService": [],
   "Logic": [
+    "2015-08-01-preview",
+    "2016-06-01",
     "2018-07-01-preview",
     "2019-05-01"
   ],
   "Logz": [],
   "M365SecurityAndCompliance": [],
   "MachineLearning": [
+    "2017-01-01",
     "2019-10-01"
   ],
   "MachineLearningCompute": [],
   "MachineLearningExperimentation": [],
   "MachineLearningServices": [
+    "2020-05-15-preview",
+    "2020-06-01",
+    "2020-08-01",
+    "2020-09-01-preview",
+    "2021-01-01",
+    "2021-03-01-preview",
+    "2021-04-01",
+    "2021-07-01",
+    "2022-01-01-preview",
+    "2022-02-01-preview",
+    "2022-05-01",
+    "2022-06-01-preview",
+    "2022-10-01",
+    "2022-10-01-preview",
+    "2022-12-01-preview",
+    "2023-02-01-preview",
+    "2023-04-01",
     "2023-04-01-preview"
   ],
   "Maintenance": [],
-  "ManagedIdentity": [],
+  "ManagedIdentity": [
+    "2023-01-31"
+  ],
   "ManagedNetwork": [],
   "ManagedNetworkFabric": [],
   "ManagedServices": [],
   "Management": [],
   "ManagementPartner": [],
   "Maps": [
+    "2021-02-01",
     "2021-07-01-preview",
     "2021-12-01-preview"
   ],
@@ -443,7 +558,9 @@
   "MixedReality": [
     "2021-03-01-preview"
   ],
-  "MobileNetwork": [],
+  "MobileNetwork": [
+    "2022-11-01"
+  ],
   "Monitor": [],
   "NetApp": [],
   "Network": [
@@ -498,6 +615,8 @@
   "OffAzure": [],
   "OpenEnergyPlatform": [],
   "OperationalInsights": [
+    "2019-08-01-preview",
+    "2019-09-01",
     "2019-09-01-preview",
     "2020-03-01-preview",
     "2020-08-01",
@@ -541,7 +660,9 @@
   ],
   "RedHatOpenShift": [],
   "Relay": [],
-  "ResourceConnector": [],
+  "ResourceConnector": [
+    "2022-10-27"
+  ],
   "ResourceGraph": [],
   "ResourceHealth": [],
   "Resources": [
@@ -560,6 +681,7 @@
   "Scheduler": [],
   "Search": [],
   "Security": [
+    "2019-01-01",
     "2019-01-01-preview",
     "2019-08-01",
     "2020-01-01",
@@ -589,10 +711,27 @@
   ],
   "SerialConsole": [],
   "ServiceBus": [
+    "2021-01-01-preview",
+    "2021-06-01-preview",
+    "2021-11-01",
     "2022-01-01-preview",
     "2022-10-01-preview"
   ],
-  "ServiceFabric": [],
+  "ServiceFabric": [
+    "2021-01-01-preview",
+    "2021-05-01",
+    "2021-06-01",
+    "2021-07-01-preview",
+    "2021-09-01-privatepreview",
+    "2021-11-01-preview",
+    "2022-01-01",
+    "2022-02-01-preview",
+    "2022-06-01-preview",
+    "2022-08-01-preview",
+    "2022-10-01-preview",
+    "2023-02-01-preview",
+    "2023-03-01-preview"
+  ],
   "ServiceFabricMesh": [],
   "ServiceLinker": [
     "2022-11-01-preview"
@@ -604,6 +743,16 @@
   "SoftwarePlan": [],
   "Solutions": [],
   "Sql": [
+    "2017-10-01-preview",
+    "2018-06-01-preview",
+    "2019-06-01-preview",
+    "2020-02-02-preview",
+    "2020-08-01-preview",
+    "2020-11-01-preview",
+    "2021-02-01-preview",
+    "2021-05-01-preview",
+    "2021-08-01-preview",
+    "2021-11-01",
     "2021-11-01-preview",
     "2022-02-01-preview",
     "2022-05-01-preview",
@@ -629,6 +778,8 @@
   "Subscription": [],
   "Support": [],
   "Synapse": [
+    "2021-05-01",
+    "2021-06-01",
     "2021-06-01-preview"
   ],
   "Syntex": [],
@@ -642,8 +793,13 @@
   "VideoIndexer": [],
   "VirtualMachineImages": [],
   "VisualStudio": [],
-  "VoiceServices": [],
+  "VoiceServices": [
+    "2023-01-31",
+    "2023-04-03"
+  ],
   "Web": [
+    "2016-03-01",
+    "2016-06-01",
     "2016-08-01",
     "2016-09-01",
     "2018-02-01",
@@ -666,5 +822,8 @@
   "WindowsESU": [],
   "WindowsIoT": [],
   "WorkloadMonitor": [],
-  "Workloads": []
+  "Workloads": [
+    "2022-11-01-preview",
+    "2023-04-01"
+  ]
 }

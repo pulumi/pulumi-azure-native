@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:network:UserRuleCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:UserRuleCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:UserRuleCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:UserRuleCollection"},

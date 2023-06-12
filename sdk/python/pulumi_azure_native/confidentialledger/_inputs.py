@@ -13,7 +13,11 @@ from ._enums import *
 __all__ = [
     'AADBasedSecurityPrincipalArgs',
     'CertBasedSecurityPrincipalArgs',
+    'CertificateTagsArgs',
+    'DeploymentTypeArgs',
     'LedgerPropertiesArgs',
+    'ManagedCCFPropertiesArgs',
+    'MemberIdentityCertificateArgs',
 ]
 
 @pulumi.input_type
@@ -113,6 +117,70 @@ class CertBasedSecurityPrincipalArgs:
 
 
 @pulumi.input_type
+class CertificateTagsArgs:
+    def __init__(__self__, *,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Tags for Managed CCF Certificates
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Additional tags for Managed CCF Certificates
+        """
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Additional tags for Managed CCF Certificates
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class DeploymentTypeArgs:
+    def __init__(__self__, *,
+                 app_source_uri: Optional[pulumi.Input[str]] = None,
+                 language_runtime: Optional[pulumi.Input[Union[str, 'LanguageRuntime']]] = None):
+        """
+        Object representing DeploymentType for Managed CCF.
+        :param pulumi.Input[str] app_source_uri: Source Uri containing ManagedCCF code
+        :param pulumi.Input[Union[str, 'LanguageRuntime']] language_runtime: Unique name for the Managed CCF.
+        """
+        if app_source_uri is not None:
+            pulumi.set(__self__, "app_source_uri", app_source_uri)
+        if language_runtime is not None:
+            pulumi.set(__self__, "language_runtime", language_runtime)
+
+    @property
+    @pulumi.getter(name="appSourceUri")
+    def app_source_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source Uri containing ManagedCCF code
+        """
+        return pulumi.get(self, "app_source_uri")
+
+    @app_source_uri.setter
+    def app_source_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_source_uri", value)
+
+    @property
+    @pulumi.getter(name="languageRuntime")
+    def language_runtime(self) -> Optional[pulumi.Input[Union[str, 'LanguageRuntime']]]:
+        """
+        Unique name for the Managed CCF.
+        """
+        return pulumi.get(self, "language_runtime")
+
+    @language_runtime.setter
+    def language_runtime(self, value: Optional[pulumi.Input[Union[str, 'LanguageRuntime']]]):
+        pulumi.set(self, "language_runtime", value)
+
+
+@pulumi.input_type
 class LedgerPropertiesArgs:
     def __init__(__self__, *,
                  aad_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]]] = None,
@@ -166,5 +234,113 @@ class LedgerPropertiesArgs:
     @ledger_type.setter
     def ledger_type(self, value: Optional[pulumi.Input[Union[str, 'LedgerType']]]):
         pulumi.set(self, "ledger_type", value)
+
+
+@pulumi.input_type
+class ManagedCCFPropertiesArgs:
+    def __init__(__self__, *,
+                 deployment_type: Optional[pulumi.Input['DeploymentTypeArgs']] = None,
+                 member_identity_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]]] = None,
+                 node_count: Optional[pulumi.Input[int]] = None):
+        """
+        Additional Managed CCF properties.
+        :param pulumi.Input['DeploymentTypeArgs'] deployment_type: Deployment Type of Managed CCF
+        :param pulumi.Input[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]] member_identity_certificates: List of member identity certificates for  Managed CCF
+        :param pulumi.Input[int] node_count: Number of CCF nodes in the Managed CCF.
+        """
+        if deployment_type is not None:
+            pulumi.set(__self__, "deployment_type", deployment_type)
+        if member_identity_certificates is not None:
+            pulumi.set(__self__, "member_identity_certificates", member_identity_certificates)
+        if node_count is not None:
+            pulumi.set(__self__, "node_count", node_count)
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> Optional[pulumi.Input['DeploymentTypeArgs']]:
+        """
+        Deployment Type of Managed CCF
+        """
+        return pulumi.get(self, "deployment_type")
+
+    @deployment_type.setter
+    def deployment_type(self, value: Optional[pulumi.Input['DeploymentTypeArgs']]):
+        pulumi.set(self, "deployment_type", value)
+
+    @property
+    @pulumi.getter(name="memberIdentityCertificates")
+    def member_identity_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]]]:
+        """
+        List of member identity certificates for  Managed CCF
+        """
+        return pulumi.get(self, "member_identity_certificates")
+
+    @member_identity_certificates.setter
+    def member_identity_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MemberIdentityCertificateArgs']]]]):
+        pulumi.set(self, "member_identity_certificates", value)
+
+    @property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of CCF nodes in the Managed CCF.
+        """
+        return pulumi.get(self, "node_count")
+
+    @node_count.setter
+    def node_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "node_count", value)
+
+
+@pulumi.input_type
+class MemberIdentityCertificateArgs:
+    def __init__(__self__, *,
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 encryptionkey: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagsArgs']]]] = None):
+        """
+        Object representing MemberIdentityCertificate for Managed CCF.
+        :param pulumi.Input[str] certificate: Member Identity Certificate
+        :param pulumi.Input[str] encryptionkey: Member Identity Certificate Encryption Key
+        """
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if encryptionkey is not None:
+            pulumi.set(__self__, "encryptionkey", encryptionkey)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Member Identity Certificate
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter
+    def encryptionkey(self) -> Optional[pulumi.Input[str]]:
+        """
+        Member Identity Certificate Encryption Key
+        """
+        return pulumi.get(self, "encryptionkey")
+
+    @encryptionkey.setter
+    def encryptionkey(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryptionkey", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagsArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagsArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 

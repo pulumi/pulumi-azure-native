@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'BackendProtocol',
     'BindingType',
+    'DevToolPortalFeatureState',
     'GatewayRouteConfigProtocol',
     'HTTPSchemeType',
     'ManagedIdentityType',
@@ -35,6 +36,20 @@ class BindingType(str, Enum):
     DYNATRACE = "Dynatrace"
     NEW_RELIC = "NewRelic"
     ELASTIC_APM = "ElasticAPM"
+
+
+class DevToolPortalFeatureState(str, Enum):
+    """
+    State of the plugin
+    """
+    ENABLED = "Enabled"
+    """
+    Enable the plugin in Dev Tool Portal.
+    """
+    DISABLED = "Disabled"
+    """
+    Disable the plugin in Dev Tool Portal.
+    """
 
 
 class GatewayRouteConfigProtocol(str, Enum):

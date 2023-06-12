@@ -24,6 +24,9 @@ __all__ = [
     'MachineExtensionInstanceViewResponse',
     'MachineExtensionInstanceViewResponseStatus',
     'MachineExtensionResponse',
+    'MachineRunCommandInstanceViewResponse',
+    'MachineRunCommandInstanceViewResponseStatus',
+    'MachineRunCommandScriptSourceResponse',
     'OSProfileResponse',
     'OSProfileResponseLinuxConfiguration',
     'OSProfileResponseWindowsConfiguration',
@@ -31,6 +34,8 @@ __all__ = [
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
+    'RunCommandInputParameterResponse',
+    'RunCommandManagedIdentityResponse',
     'ServiceStatusResponse',
     'ServiceStatusesResponse',
     'SystemDataResponse',
@@ -1043,6 +1048,209 @@ class MachineExtensionResponse(dict):
 
 
 @pulumi.output_type
+class MachineRunCommandInstanceViewResponse(dict):
+    """
+    Describes the Machine Extension Instance View.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 status: Optional['outputs.MachineRunCommandInstanceViewResponseStatus'] = None):
+        """
+        Describes the Machine Extension Instance View.
+        :param str name: The run command name.
+        :param 'MachineRunCommandInstanceViewResponseStatus' status: Instance view status.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The run command name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['outputs.MachineRunCommandInstanceViewResponseStatus']:
+        """
+        Instance view status.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class MachineRunCommandInstanceViewResponseStatus(dict):
+    """
+    Instance view status.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayStatus":
+            suggest = "display_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MachineRunCommandInstanceViewResponseStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MachineRunCommandInstanceViewResponseStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MachineRunCommandInstanceViewResponseStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 display_status: Optional[str] = None,
+                 level: Optional[str] = None,
+                 message: Optional[str] = None,
+                 time: Optional[str] = None):
+        """
+        Instance view status.
+        :param str code: The status code.
+        :param str display_status: The short localizable label for the status.
+        :param str level: The level code.
+        :param str message: The detailed status message, including for alerts and error messages.
+        :param str time: The time of the status.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if display_status is not None:
+            pulumi.set(__self__, "display_status", display_status)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        The status code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="displayStatus")
+    def display_status(self) -> Optional[str]:
+        """
+        The short localizable label for the status.
+        """
+        return pulumi.get(self, "display_status")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        The level code.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The detailed status message, including for alerts and error messages.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[str]:
+        """
+        The time of the status.
+        """
+        return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class MachineRunCommandScriptSourceResponse(dict):
+    """
+    Describes the script sources for run command. Use only one of script, scriptUri, commandId.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commandId":
+            suggest = "command_id"
+        elif key == "scriptUri":
+            suggest = "script_uri"
+        elif key == "scriptUriManagedIdentity":
+            suggest = "script_uri_managed_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MachineRunCommandScriptSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MachineRunCommandScriptSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MachineRunCommandScriptSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 command_id: Optional[str] = None,
+                 script: Optional[str] = None,
+                 script_uri: Optional[str] = None,
+                 script_uri_managed_identity: Optional['outputs.RunCommandManagedIdentityResponse'] = None):
+        """
+        Describes the script sources for run command. Use only one of script, scriptUri, commandId.
+        :param str command_id: Specifies the commandId of predefined built-in script.
+        :param str script: Specifies the script content to be executed on the machine.
+        :param str script_uri: Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
+        :param 'RunCommandManagedIdentityResponse' script_uri_managed_identity: User-assigned managed identity that has access to scriptUri in case of Azure storage blob. Use an empty object in case of system-assigned identity. Make sure the Azure storage blob exists, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        """
+        if command_id is not None:
+            pulumi.set(__self__, "command_id", command_id)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+        if script_uri is not None:
+            pulumi.set(__self__, "script_uri", script_uri)
+        if script_uri_managed_identity is not None:
+            pulumi.set(__self__, "script_uri_managed_identity", script_uri_managed_identity)
+
+    @property
+    @pulumi.getter(name="commandId")
+    def command_id(self) -> Optional[str]:
+        """
+        Specifies the commandId of predefined built-in script.
+        """
+        return pulumi.get(self, "command_id")
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[str]:
+        """
+        Specifies the script content to be executed on the machine.
+        """
+        return pulumi.get(self, "script")
+
+    @property
+    @pulumi.getter(name="scriptUri")
+    def script_uri(self) -> Optional[str]:
+        """
+        Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
+        """
+        return pulumi.get(self, "script_uri")
+
+    @property
+    @pulumi.getter(name="scriptUriManagedIdentity")
+    def script_uri_managed_identity(self) -> Optional['outputs.RunCommandManagedIdentityResponse']:
+        """
+        User-assigned managed identity that has access to scriptUri in case of Azure storage blob. Use an empty object in case of system-assigned identity. Make sure the Azure storage blob exists, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        """
+        return pulumi.get(self, "script_uri_managed_identity")
+
+
+@pulumi.output_type
 class OSProfileResponse(dict):
     """
     Specifies the operating system settings for the hybrid machine.
@@ -1435,6 +1643,93 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
         The private link service connection status.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class RunCommandInputParameterResponse(dict):
+    """
+    Describes the properties of a run command parameter.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        Describes the properties of a run command parameter.
+        :param str name: The run command parameter name.
+        :param str value: The run command parameter value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The run command parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The run command parameter value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RunCommandManagedIdentityResponse(dict):
+    """
+     Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunCommandManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunCommandManagedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunCommandManagedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 object_id: Optional[str] = None):
+        """
+         Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        :param str client_id: Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
+        :param str object_id: Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
+        """
+        return pulumi.get(self, "object_id")
 
 
 @pulumi.output_type

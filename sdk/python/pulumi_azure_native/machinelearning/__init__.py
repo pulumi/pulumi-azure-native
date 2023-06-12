@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .commitment_plan import *
+from .get_commitment_plan import *
 from .get_web_service import *
 from .get_workspace import *
 from .list_workspace_keys import *

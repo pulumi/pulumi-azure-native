@@ -91,7 +91,7 @@ export class FeaturesetVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230401preview:FeaturesetVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:FeaturesetVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FeaturesetVersion.__pulumiType, name, resourceInputs, opts);
     }

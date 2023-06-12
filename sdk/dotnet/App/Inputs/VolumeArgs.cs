@@ -16,13 +16,31 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Mount options used while mounting the AzureFile. Must be a comma-separated string.
+        /// </summary>
+        [Input("mountOptions")]
+        public Input<string>? MountOptions { get; set; }
+
+        /// <summary>
         /// Volume name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("secrets")]
+        private InputList<Inputs.SecretVolumeItemArgs>? _secrets;
+
         /// <summary>
-        /// Name of storage resource. No need to provide for EmptyDir.
+        /// List of secrets to be added in volume. If no secrets are provided, all secrets in collection will be added to volume.
+        /// </summary>
+        public InputList<Inputs.SecretVolumeItemArgs> Secrets
+        {
+            get => _secrets ?? (_secrets = new InputList<Inputs.SecretVolumeItemArgs>());
+            set => _secrets = value;
+        }
+
+        /// <summary>
+        /// Name of storage resource. No need to provide for EmptyDir and Secret.
         /// </summary>
         [Input("storageName")]
         public Input<string>? StorageName { get; set; }

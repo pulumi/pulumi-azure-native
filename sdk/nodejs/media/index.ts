@@ -85,6 +85,11 @@ export const getLiveOutput: typeof import("./getLiveOutput").getLiveOutput = nul
 export const getLiveOutputOutput: typeof import("./getLiveOutput").getLiveOutputOutput = null as any;
 utilities.lazyLoad(exports, ["getLiveOutput","getLiveOutputOutput"], () => require("./getLiveOutput"));
 
+export { GetMediaGraphArgs, GetMediaGraphResult, GetMediaGraphOutputArgs } from "./getMediaGraph";
+export const getMediaGraph: typeof import("./getMediaGraph").getMediaGraph = null as any;
+export const getMediaGraphOutput: typeof import("./getMediaGraph").getMediaGraphOutput = null as any;
+utilities.lazyLoad(exports, ["getMediaGraph","getMediaGraphOutput"], () => require("./getMediaGraph"));
+
 export { GetMediaServiceArgs, GetMediaServiceResult, GetMediaServiceOutputArgs } from "./getMediaService";
 export const getMediaService: typeof import("./getMediaService").getMediaService = null as any;
 export const getMediaServiceOutput: typeof import("./getMediaService").getMediaServiceOutput = null as any;
@@ -164,6 +169,11 @@ export { LiveOutputArgs } from "./liveOutput";
 export type LiveOutput = import("./liveOutput").LiveOutput;
 export const LiveOutput: typeof import("./liveOutput").LiveOutput = null as any;
 utilities.lazyLoad(exports, ["LiveOutput"], () => require("./liveOutput"));
+
+export { MediaGraphArgs } from "./mediaGraph";
+export type MediaGraph = import("./mediaGraph").MediaGraph;
+export const MediaGraph: typeof import("./mediaGraph").MediaGraph = null as any;
+utilities.lazyLoad(exports, ["MediaGraph"], () => require("./mediaGraph"));
 
 export { MediaServiceArgs } from "./mediaService";
 export type MediaService = import("./mediaService").MediaService;
@@ -247,6 +257,8 @@ const _module = {
                 return new LiveEvent(name, <any>undefined, { urn })
             case "azure-native:media:LiveOutput":
                 return new LiveOutput(name, <any>undefined, { urn })
+            case "azure-native:media:MediaGraph":
+                return new MediaGraph(name, <any>undefined, { urn })
             case "azure-native:media:MediaService":
                 return new MediaService(name, <any>undefined, { urn })
             case "azure-native:media:PrivateEndpointConnection":

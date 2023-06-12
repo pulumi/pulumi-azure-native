@@ -10,6 +10,16 @@ export {
     v20230126preview,
 };
 
+export const LanguageRuntime = {
+    CPP: "CPP",
+    JS: "JS",
+} as const;
+
+/**
+ * Unique name for the Managed CCF.
+ */
+export type LanguageRuntime = (typeof LanguageRuntime)[keyof typeof LanguageRuntime];
+
 export const LedgerRoleName = {
     Reader: "Reader",
     Contributor: "Contributor",

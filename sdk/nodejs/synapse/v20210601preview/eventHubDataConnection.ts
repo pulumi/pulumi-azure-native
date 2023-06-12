@@ -163,7 +163,7 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:EventHubDataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:EventHubDataConnection" }, { type: "azure-native:synapse/v20210401preview:EventHubDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHubDataConnection.__pulumiType, name, resourceInputs, opts);
     }

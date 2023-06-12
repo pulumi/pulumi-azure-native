@@ -98,6 +98,8 @@ export class WorkspacePolicyFragment extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspacePolicyFragment" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspacePolicyFragment.__pulumiType, name, resourceInputs, opts);
     }
 }

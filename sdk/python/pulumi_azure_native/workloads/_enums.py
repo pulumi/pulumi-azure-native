@@ -5,11 +5,27 @@
 from enum import Enum
 
 __all__ = [
+    'AzureFrontDoorEnabled',
     'ConfigurationType',
+    'DatabaseTier',
+    'DatabaseType',
     'DiskSkuName',
+    'DiskStorageType',
+    'EnableBackup',
+    'EnableSslEnforcement',
+    'FileShareStorageType',
+    'FileShareType',
+    'HAEnabled',
+    'LoadBalancerType',
     'ManagedServiceIdentityType',
     'NamingPatternType',
+    'OSImageOffer',
+    'OSImagePublisher',
+    'OSImageSku',
+    'OSImageVersion',
     'OSType',
+    'PHPVersion',
+    'RedisCacheFamily',
     'RoutingPreference',
     'SAPConfigurationType',
     'SAPDatabaseScaleMethod',
@@ -19,8 +35,20 @@ __all__ = [
     'SAPHighAvailabilityType',
     'SAPProductType',
     'SAPSoftwareInstallationType',
+    'SearchType',
+    'SkuTier',
     'SslPreference',
+    'WordpressVersions',
+    'WorkloadKind',
 ]
+
+
+class AzureFrontDoorEnabled(str, Enum):
+    """
+    Whether to enable Azure front door
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ConfigurationType(str, Enum):
@@ -30,6 +58,22 @@ class ConfigurationType(str, Enum):
     SKIP = "Skip"
     CREATE_AND_MOUNT = "CreateAndMount"
     MOUNT = "Mount"
+
+
+class DatabaseTier(str, Enum):
+    """
+    Tier of the server SKU
+    """
+    BURSTABLE = "Burstable"
+    GENERAL_PURPOSE = "GeneralPurpose"
+    MEMORY_OPTIMIZED = "MemoryOptimized"
+
+
+class DatabaseType(str, Enum):
+    """
+    Database type
+    """
+    MY_SQL = "MySql"
 
 
 class DiskSkuName(str, Enum):
@@ -43,6 +87,65 @@ class DiskSkuName(str, Enum):
     PREMIUM_ZRS = "Premium_ZRS"
     STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
     PREMIUM_V2_LRS = "PremiumV2_LRS"
+
+
+class DiskStorageType(str, Enum):
+    """
+    Storage type
+    """
+    PREMIUM_LRS = "Premium_LRS"
+    STANDARD_LRS = "Standard_LRS"
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+
+
+class EnableBackup(str, Enum):
+    """
+    Whether to enable Azure backup for the workload
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class EnableSslEnforcement(str, Enum):
+    """
+    Whether to enable SSL enforcement on the database
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class FileShareStorageType(str, Enum):
+    """
+    File share backing storage type
+    """
+    STANDARD_LRS = "Standard_LRS"
+    STANDARD_GRS = "Standard_GRS"
+    STANDARD_ZRS = "Standard_ZRS"
+    PREMIUM_LRS = "Premium_LRS"
+
+
+class FileShareType(str, Enum):
+    """
+    Share type
+    """
+    NFS_ON_CONTROLLER = "NfsOnController"
+    AZURE_FILES = "AzureFiles"
+
+
+class HAEnabled(str, Enum):
+    """
+    Whether to enable HA for the server
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class LoadBalancerType(str, Enum):
+    """
+    Load balancer type
+    """
+    APPLICATION_GATEWAY = "ApplicationGateway"
+    LOAD_BALANCER = "LoadBalancer"
 
 
 class ManagedServiceIdentityType(str, Enum):
@@ -60,12 +163,58 @@ class NamingPatternType(str, Enum):
     FULL_RESOURCE_NAME = "FullResourceName"
 
 
+class OSImageOffer(str, Enum):
+    """
+    OS image offer
+    """
+    UBUNTU_SERVER = "UbuntuServer"
+
+
+class OSImagePublisher(str, Enum):
+    """
+    OS image publisher
+    """
+    CANONICAL = "Canonical"
+
+
+class OSImageSku(str, Enum):
+    """
+    OS image sku
+    """
+    OS_IMAGE_SKU_18_04_LTS = "18.04-LTS"
+    OS_IMAGE_SKU_16_04_LTS = "16.04-LTS"
+
+
+class OSImageVersion(str, Enum):
+    """
+    OS image version
+    """
+    LATEST = "latest"
+
+
 class OSType(str, Enum):
     """
     The OS Type
     """
     LINUX = "Linux"
     WINDOWS = "Windows"
+
+
+class PHPVersion(str, Enum):
+    """
+    PHP version
+    """
+    PHP_VERSION_7_2 = "7.2"
+    PHP_VERSION_7_3 = "7.3"
+    PHP_VERSION_7_4 = "7.4"
+
+
+class RedisCacheFamily(str, Enum):
+    """
+    Cache family
+    """
+    C = "C"
+    P = "P"
 
 
 class RoutingPreference(str, Enum):
@@ -142,6 +291,23 @@ class SAPSoftwareInstallationType(str, Enum):
     EXTERNAL = "External"
 
 
+class SearchType(str, Enum):
+    """
+    Search type
+    """
+    ELASTIC = "Elastic"
+
+
+class SkuTier(str, Enum):
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
+    FREE = "Free"
+    BASIC = "Basic"
+    STANDARD = "Standard"
+    PREMIUM = "Premium"
+
+
 class SslPreference(str, Enum):
     """
     Gets or sets certificate preference if secure communication is enabled.
@@ -149,3 +315,20 @@ class SslPreference(str, Enum):
     DISABLED = "Disabled"
     ROOT_CERTIFICATE = "RootCertificate"
     SERVER_CERTIFICATE = "ServerCertificate"
+
+
+class WordpressVersions(str, Enum):
+    """
+    Application version
+    """
+    WORDPRESS_VERSIONS_5_4_3 = "5.4.3"
+    WORDPRESS_VERSIONS_5_4_2 = "5.4.2"
+    WORDPRESS_VERSIONS_5_4_1 = "5.4.1"
+    WORDPRESS_VERSIONS_5_4 = "5.4"
+
+
+class WorkloadKind(str, Enum):
+    """
+    Indicates which kind of php workload this resource represent e.g WordPress
+    """
+    WORD_PRESS = "WordPress"

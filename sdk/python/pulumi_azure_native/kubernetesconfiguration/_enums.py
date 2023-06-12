@@ -9,6 +9,8 @@ __all__ = [
     'LevelType',
     'OperatorScopeType',
     'OperatorType',
+    'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccessType',
     'ResourceIdentityType',
     'ScopeType',
     'SourceKindType',
@@ -45,6 +47,29 @@ class OperatorType(str, Enum):
     Type of the operator
     """
     FLUX = "Flux"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+
+
+class PublicNetworkAccessType(str, Enum):
+    """
+    Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+    """
+    ENABLED = "Enabled"
+    """
+    Allows Azure Arc agents to communicate with Azure Arc services over both public (internet) and private endpoints.
+    """
+    DISABLED = "Disabled"
+    """
+    Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
+    """
 
 
 class ResourceIdentityType(str, Enum):

@@ -12,23 +12,88 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccessKeyInfoBaseResponse',
     'AzureKeyVaultPropertiesResponse',
     'AzureResourceResponse',
+    'BasicErrorDryrunPrerequisiteResultResponse',
+    'ConfigurationInfoResponse',
     'ConfluentBootstrapServerResponse',
     'ConfluentSchemaRegistryResponse',
+    'CreateOrUpdateDryrunParametersResponse',
+    'DaprMetadataResponse',
+    'DaprPropertiesResponse',
+    'DryrunOperationPreviewResponse',
+    'FirewallRulesResponse',
     'KeyVaultSecretReferenceSecretInfoResponse',
     'KeyVaultSecretUriSecretInfoResponse',
+    'PermissionsMissingDryrunPrerequisiteResultResponse',
+    'PublicNetworkSolutionResponse',
     'SecretAuthInfoResponse',
     'SecretStoreResponse',
+    'SelfHostedServerResponse',
     'ServicePrincipalCertificateAuthInfoResponse',
     'ServicePrincipalSecretAuthInfoResponse',
     'SourceConfigurationResponse',
     'SystemAssignedIdentityAuthInfoResponse',
     'SystemDataResponse',
+    'UserAccountAuthInfoResponse',
     'UserAssignedIdentityAuthInfoResponse',
     'VNetSolutionResponse',
     'ValueSecretInfoResponse',
 ]
+
+@pulumi.output_type
+class AccessKeyInfoBaseResponse(dict):
+    """
+    The access key directly from target resource properties, which target service is Azure Resource, such as Microsoft.Storage
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessKeyInfoBaseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessKeyInfoBaseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessKeyInfoBaseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: str,
+                 permissions: Optional[Sequence[str]] = None):
+        """
+        The access key directly from target resource properties, which target service is Azure Resource, such as Microsoft.Storage
+        :param str auth_type: The authentication type.
+               Expected value is 'accessKey'.
+        :param Sequence[str] permissions: Permissions of the accessKey. `Read` and `Write` are for Azure Cosmos DB and Azure App Configuration, `Listen`, `Send` and `Manage` are for Azure Event Hub and Azure Service Bus.
+        """
+        pulumi.set(__self__, "auth_type", 'accessKey')
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        The authentication type.
+        Expected value is 'accessKey'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[Sequence[str]]:
+        """
+        Permissions of the accessKey. `Read` and `Write` are for Azure Cosmos DB and Azure App Configuration, `Listen`, `Send` and `Manage` are for Azure Event Hub and Azure Service Bus.
+        """
+        return pulumi.get(self, "permissions")
+
 
 @pulumi.output_type
 class AzureKeyVaultPropertiesResponse(dict):
@@ -149,6 +214,148 @@ class AzureResourceResponse(dict):
 
 
 @pulumi.output_type
+class BasicErrorDryrunPrerequisiteResultResponse(dict):
+    """
+    The represent of basic error
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None):
+        """
+        The represent of basic error
+        :param str type: The type of dryrun result.
+               Expected value is 'basicError'.
+        :param str code: The error code.
+        :param str message: The error message.
+        """
+        pulumi.set(__self__, "type", 'basicError')
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of dryrun result.
+        Expected value is 'basicError'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class ConfigurationInfoResponse(dict):
+    """
+    The configuration information, used to generate configurations or save to applications
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalConfigurations":
+            suggest = "additional_configurations"
+        elif key == "customizedKeys":
+            suggest = "customized_keys"
+        elif key == "daprProperties":
+            suggest = "dapr_properties"
+        elif key == "deleteOrUpdateBehavior":
+            suggest = "delete_or_update_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Optional[str] = None,
+                 additional_configurations: Optional[Mapping[str, str]] = None,
+                 customized_keys: Optional[Mapping[str, str]] = None,
+                 dapr_properties: Optional['outputs.DaprPropertiesResponse'] = None,
+                 delete_or_update_behavior: Optional[str] = None):
+        """
+        The configuration information, used to generate configurations or save to applications
+        :param str action: Optional, indicate whether to apply configurations on source application. If enable, generate configurations and applied to the source application. Default is enable. If optOut, no configuration change will be made on source.
+        :param Mapping[str, str] additional_configurations: A dictionary of additional configurations to be added. Service will auto generate a set of basic configurations and this property is to full fill more customized configurations
+        :param Mapping[str, str] customized_keys: Optional. A dictionary of default key name and customized key name mapping. If not specified, default key name will be used for generate configurations
+        :param 'DaprPropertiesResponse' dapr_properties: Indicates some additional properties for dapr client type
+        :param str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if additional_configurations is not None:
+            pulumi.set(__self__, "additional_configurations", additional_configurations)
+        if customized_keys is not None:
+            pulumi.set(__self__, "customized_keys", customized_keys)
+        if dapr_properties is not None:
+            pulumi.set(__self__, "dapr_properties", dapr_properties)
+        if delete_or_update_behavior is not None:
+            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Optional, indicate whether to apply configurations on source application. If enable, generate configurations and applied to the source application. Default is enable. If optOut, no configuration change will be made on source.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="additionalConfigurations")
+    def additional_configurations(self) -> Optional[Mapping[str, str]]:
+        """
+        A dictionary of additional configurations to be added. Service will auto generate a set of basic configurations and this property is to full fill more customized configurations
+        """
+        return pulumi.get(self, "additional_configurations")
+
+    @property
+    @pulumi.getter(name="customizedKeys")
+    def customized_keys(self) -> Optional[Mapping[str, str]]:
+        """
+        Optional. A dictionary of default key name and customized key name mapping. If not specified, default key name will be used for generate configurations
+        """
+        return pulumi.get(self, "customized_keys")
+
+    @property
+    @pulumi.getter(name="daprProperties")
+    def dapr_properties(self) -> Optional['outputs.DaprPropertiesResponse']:
+        """
+        Indicates some additional properties for dapr client type
+        """
+        return pulumi.get(self, "dapr_properties")
+
+    @property
+    @pulumi.getter(name="deleteOrUpdateBehavior")
+    def delete_or_update_behavior(self) -> Optional[str]:
+        """
+        Indicates whether to clean up previous operation when Linker is updating or deleting
+        """
+        return pulumi.get(self, "delete_or_update_behavior")
+
+
+@pulumi.output_type
 class ConfluentBootstrapServerResponse(dict):
     """
     The service properties when target service type is ConfluentBootstrapServer
@@ -218,6 +425,480 @@ class ConfluentSchemaRegistryResponse(dict):
         The endpoint of service.
         """
         return pulumi.get(self, "endpoint")
+
+
+@pulumi.output_type
+class CreateOrUpdateDryrunParametersResponse(dict):
+    """
+    The dryrun parameters for creation or update a linker
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionName":
+            suggest = "action_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "authInfo":
+            suggest = "auth_info"
+        elif key == "clientType":
+            suggest = "client_type"
+        elif key == "configurationInfo":
+            suggest = "configuration_info"
+        elif key == "publicNetworkSolution":
+            suggest = "public_network_solution"
+        elif key == "secretStore":
+            suggest = "secret_store"
+        elif key == "targetService":
+            suggest = "target_service"
+        elif key == "vNetSolution":
+            suggest = "v_net_solution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CreateOrUpdateDryrunParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CreateOrUpdateDryrunParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CreateOrUpdateDryrunParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_name: str,
+                 provisioning_state: str,
+                 auth_info: Optional[Any] = None,
+                 client_type: Optional[str] = None,
+                 configuration_info: Optional['outputs.ConfigurationInfoResponse'] = None,
+                 public_network_solution: Optional['outputs.PublicNetworkSolutionResponse'] = None,
+                 scope: Optional[str] = None,
+                 secret_store: Optional['outputs.SecretStoreResponse'] = None,
+                 target_service: Optional[Any] = None,
+                 v_net_solution: Optional['outputs.VNetSolutionResponse'] = None):
+        """
+        The dryrun parameters for creation or update a linker
+        :param str action_name: The name of action for you dryrun job.
+               Expected value is 'createOrUpdate'.
+        :param str provisioning_state: The provisioning state. 
+        :param Union['AccessKeyInfoBaseResponse', 'SecretAuthInfoResponse', 'ServicePrincipalCertificateAuthInfoResponse', 'ServicePrincipalSecretAuthInfoResponse', 'SystemAssignedIdentityAuthInfoResponse', 'UserAccountAuthInfoResponse', 'UserAssignedIdentityAuthInfoResponse'] auth_info: The authentication type.
+        :param str client_type: The application client type
+        :param 'ConfigurationInfoResponse' configuration_info: The connection information consumed by applications, including secrets, connection strings.
+        :param 'PublicNetworkSolutionResponse' public_network_solution: The network solution.
+        :param str scope: connection scope in source service.
+        :param 'SecretStoreResponse' secret_store: An option to store secret value in secure place
+        :param Union['AzureResourceResponse', 'ConfluentBootstrapServerResponse', 'ConfluentSchemaRegistryResponse', 'SelfHostedServerResponse'] target_service: The target service properties
+        :param 'VNetSolutionResponse' v_net_solution: The VNet solution.
+        """
+        pulumi.set(__self__, "action_name", 'createOrUpdate')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if auth_info is not None:
+            pulumi.set(__self__, "auth_info", auth_info)
+        if client_type is not None:
+            pulumi.set(__self__, "client_type", client_type)
+        if configuration_info is not None:
+            pulumi.set(__self__, "configuration_info", configuration_info)
+        if public_network_solution is not None:
+            pulumi.set(__self__, "public_network_solution", public_network_solution)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if secret_store is not None:
+            pulumi.set(__self__, "secret_store", secret_store)
+        if target_service is not None:
+            pulumi.set(__self__, "target_service", target_service)
+        if v_net_solution is not None:
+            pulumi.set(__self__, "v_net_solution", v_net_solution)
+
+    @property
+    @pulumi.getter(name="actionName")
+    def action_name(self) -> str:
+        """
+        The name of action for you dryrun job.
+        Expected value is 'createOrUpdate'.
+        """
+        return pulumi.get(self, "action_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state. 
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="authInfo")
+    def auth_info(self) -> Optional[Any]:
+        """
+        The authentication type.
+        """
+        return pulumi.get(self, "auth_info")
+
+    @property
+    @pulumi.getter(name="clientType")
+    def client_type(self) -> Optional[str]:
+        """
+        The application client type
+        """
+        return pulumi.get(self, "client_type")
+
+    @property
+    @pulumi.getter(name="configurationInfo")
+    def configuration_info(self) -> Optional['outputs.ConfigurationInfoResponse']:
+        """
+        The connection information consumed by applications, including secrets, connection strings.
+        """
+        return pulumi.get(self, "configuration_info")
+
+    @property
+    @pulumi.getter(name="publicNetworkSolution")
+    def public_network_solution(self) -> Optional['outputs.PublicNetworkSolutionResponse']:
+        """
+        The network solution.
+        """
+        return pulumi.get(self, "public_network_solution")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        connection scope in source service.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="secretStore")
+    def secret_store(self) -> Optional['outputs.SecretStoreResponse']:
+        """
+        An option to store secret value in secure place
+        """
+        return pulumi.get(self, "secret_store")
+
+    @property
+    @pulumi.getter(name="targetService")
+    def target_service(self) -> Optional[Any]:
+        """
+        The target service properties
+        """
+        return pulumi.get(self, "target_service")
+
+    @property
+    @pulumi.getter(name="vNetSolution")
+    def v_net_solution(self) -> Optional['outputs.VNetSolutionResponse']:
+        """
+        The VNet solution.
+        """
+        return pulumi.get(self, "v_net_solution")
+
+
+@pulumi.output_type
+class DaprMetadataResponse(dict):
+    """
+    The dapr component metadata.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretRef":
+            suggest = "secret_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaprMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaprMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaprMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 secret_ref: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        The dapr component metadata.
+        :param str name: Metadata property name.
+        :param str secret_ref: The secret name where dapr could get value
+        :param str value: Metadata property value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if secret_ref is not None:
+            pulumi.set(__self__, "secret_ref", secret_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Metadata property name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> Optional[str]:
+        """
+        The secret name where dapr could get value
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Metadata property value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DaprPropertiesResponse(dict):
+    """
+    Indicates some additional properties for dapr client type
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentType":
+            suggest = "component_type"
+        elif key == "secretStoreComponent":
+            suggest = "secret_store_component"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaprPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaprPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaprPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_type: Optional[str] = None,
+                 metadata: Optional[Sequence['outputs.DaprMetadataResponse']] = None,
+                 scopes: Optional[Sequence[str]] = None,
+                 secret_store_component: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Indicates some additional properties for dapr client type
+        :param str component_type: The dapr component type
+        :param Sequence['DaprMetadataResponse'] metadata: Additional dapr metadata
+        :param Sequence[str] scopes: The dapr component scopes
+        :param str secret_store_component: The name of a secret store dapr to retrieve secret
+        :param str version: The dapr component version
+        """
+        if component_type is not None:
+            pulumi.set(__self__, "component_type", component_type)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if secret_store_component is not None:
+            pulumi.set(__self__, "secret_store_component", secret_store_component)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="componentType")
+    def component_type(self) -> Optional[str]:
+        """
+        The dapr component type
+        """
+        return pulumi.get(self, "component_type")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Sequence['outputs.DaprMetadataResponse']]:
+        """
+        Additional dapr metadata
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence[str]]:
+        """
+        The dapr component scopes
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter(name="secretStoreComponent")
+    def secret_store_component(self) -> Optional[str]:
+        """
+        The name of a secret store dapr to retrieve secret
+        """
+        return pulumi.get(self, "secret_store_component")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The dapr component version
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class DryrunOperationPreviewResponse(dict):
+    """
+    The preview of the operations for creation
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationType":
+            suggest = "operation_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DryrunOperationPreviewResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DryrunOperationPreviewResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DryrunOperationPreviewResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Optional[str] = None,
+                 description: Optional[str] = None,
+                 name: Optional[str] = None,
+                 operation_type: Optional[str] = None,
+                 scope: Optional[str] = None):
+        """
+        The preview of the operations for creation
+        :param str action: The action defined by RBAC, refer https://docs.microsoft.com/azure/role-based-access-control/role-definitions#actions-format
+        :param str description: The description of the operation
+        :param str name: The operation name
+        :param str operation_type: The operation type
+        :param str scope: The scope of the operation, refer https://docs.microsoft.com/azure/role-based-access-control/scope-overview
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if operation_type is not None:
+            pulumi.set(__self__, "operation_type", operation_type)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action defined by RBAC, refer https://docs.microsoft.com/azure/role-based-access-control/role-definitions#actions-format
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the operation
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The operation name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> Optional[str]:
+        """
+        The operation type
+        """
+        return pulumi.get(self, "operation_type")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        The scope of the operation, refer https://docs.microsoft.com/azure/role-based-access-control/scope-overview
+        """
+        return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class FirewallRulesResponse(dict):
+    """
+    Target service's firewall rules. to allow connections from source service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureServices":
+            suggest = "azure_services"
+        elif key == "callerClientIP":
+            suggest = "caller_client_ip"
+        elif key == "ipRanges":
+            suggest = "ip_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallRulesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallRulesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallRulesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_services: Optional[str] = None,
+                 caller_client_ip: Optional[str] = None,
+                 ip_ranges: Optional[Sequence[str]] = None):
+        """
+        Target service's firewall rules. to allow connections from source service.
+        :param str azure_services: Allow Azure services to access the target service if true.
+        :param str caller_client_ip: Allow caller client IP to access the target service if true. the property is used when connecting local application to target service.
+        :param Sequence[str] ip_ranges: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account.
+        """
+        if azure_services is not None:
+            pulumi.set(__self__, "azure_services", azure_services)
+        if caller_client_ip is not None:
+            pulumi.set(__self__, "caller_client_ip", caller_client_ip)
+        if ip_ranges is not None:
+            pulumi.set(__self__, "ip_ranges", ip_ranges)
+
+    @property
+    @pulumi.getter(name="azureServices")
+    def azure_services(self) -> Optional[str]:
+        """
+        Allow Azure services to access the target service if true.
+        """
+        return pulumi.get(self, "azure_services")
+
+    @property
+    @pulumi.getter(name="callerClientIP")
+    def caller_client_ip(self) -> Optional[str]:
+        """
+        Allow caller client IP to access the target service if true. the property is used when connecting local application to target service.
+        """
+        return pulumi.get(self, "caller_client_ip")
+
+    @property
+    @pulumi.getter(name="ipRanges")
+    def ip_ranges(self) -> Optional[Sequence[str]]:
+        """
+        This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account.
+        """
+        return pulumi.get(self, "ip_ranges")
 
 
 @pulumi.output_type
@@ -339,6 +1020,149 @@ class KeyVaultSecretUriSecretInfoResponse(dict):
 
 
 @pulumi.output_type
+class PermissionsMissingDryrunPrerequisiteResultResponse(dict):
+    """
+    The represent of missing permissions
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recommendedRole":
+            suggest = "recommended_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PermissionsMissingDryrunPrerequisiteResultResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PermissionsMissingDryrunPrerequisiteResultResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PermissionsMissingDryrunPrerequisiteResultResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 permissions: Optional[Sequence[str]] = None,
+                 recommended_role: Optional[str] = None,
+                 scope: Optional[str] = None):
+        """
+        The represent of missing permissions
+        :param str type: The type of dryrun result.
+               Expected value is 'permissionsMissing'.
+        :param Sequence[str] permissions: The permission list
+        :param str recommended_role: The recommended role to resolve permissions missing
+        :param str scope: The permission scope
+        """
+        pulumi.set(__self__, "type", 'permissionsMissing')
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if recommended_role is not None:
+            pulumi.set(__self__, "recommended_role", recommended_role)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of dryrun result.
+        Expected value is 'permissionsMissing'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[Sequence[str]]:
+        """
+        The permission list
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter(name="recommendedRole")
+    def recommended_role(self) -> Optional[str]:
+        """
+        The recommended role to resolve permissions missing
+        """
+        return pulumi.get(self, "recommended_role")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        The permission scope
+        """
+        return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class PublicNetworkSolutionResponse(dict):
+    """
+    Indicates public network solution, include firewall rules
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteOrUpdateBehavior":
+            suggest = "delete_or_update_behavior"
+        elif key == "firewallRules":
+            suggest = "firewall_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicNetworkSolutionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicNetworkSolutionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicNetworkSolutionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Optional[str] = None,
+                 delete_or_update_behavior: Optional[str] = None,
+                 firewall_rules: Optional['outputs.FirewallRulesResponse'] = None):
+        """
+        Indicates public network solution, include firewall rules
+        :param str action: Optional. Indicates public network solution. If enable, enable public network access of target service with best try. Default is enable. If optOut, opt out public network access configuration.
+        :param str delete_or_update_behavior: Indicates whether to clean up previous operation(such as firewall rules) when Linker is updating or deleting
+        :param 'FirewallRulesResponse' firewall_rules: Describe firewall rules of target service to make sure source application could connect to the target.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if delete_or_update_behavior is not None:
+            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+        if firewall_rules is not None:
+            pulumi.set(__self__, "firewall_rules", firewall_rules)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Optional. Indicates public network solution. If enable, enable public network access of target service with best try. Default is enable. If optOut, opt out public network access configuration.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="deleteOrUpdateBehavior")
+    def delete_or_update_behavior(self) -> Optional[str]:
+        """
+        Indicates whether to clean up previous operation(such as firewall rules) when Linker is updating or deleting
+        """
+        return pulumi.get(self, "delete_or_update_behavior")
+
+    @property
+    @pulumi.getter(name="firewallRules")
+    def firewall_rules(self) -> Optional['outputs.FirewallRulesResponse']:
+        """
+        Describe firewall rules of target service to make sure source application could connect to the target.
+        """
+        return pulumi.get(self, "firewall_rules")
+
+
+@pulumi.output_type
 class SecretAuthInfoResponse(dict):
     """
     The authentication info when authType is secret
@@ -415,6 +1239,8 @@ class SecretStoreResponse(dict):
         suggest = None
         if key == "keyVaultId":
             suggest = "key_vault_id"
+        elif key == "keyVaultSecretName":
+            suggest = "key_vault_secret_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SecretStoreResponse. Access the value via the '{suggest}' property getter instead.")
@@ -428,13 +1254,17 @@ class SecretStoreResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_vault_id: Optional[str] = None):
+                 key_vault_id: Optional[str] = None,
+                 key_vault_secret_name: Optional[str] = None):
         """
         An option to store secret value in secure place
         :param str key_vault_id: The key vault id to store secret
+        :param str key_vault_secret_name: The key vault secret name to store secret, only valid when storing one secret
         """
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if key_vault_secret_name is not None:
+            pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -443,6 +1273,50 @@ class SecretStoreResponse(dict):
         The key vault id to store secret
         """
         return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretName")
+    def key_vault_secret_name(self) -> Optional[str]:
+        """
+        The key vault secret name to store secret, only valid when storing one secret
+        """
+        return pulumi.get(self, "key_vault_secret_name")
+
+
+@pulumi.output_type
+class SelfHostedServerResponse(dict):
+    """
+    The service properties when target service type is SelfHostedServer
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 endpoint: Optional[str] = None):
+        """
+        The service properties when target service type is SelfHostedServer
+        :param str type: The target service type.
+               Expected value is 'SelfHostedServer'.
+        :param str endpoint: The endpoint of service.
+        """
+        pulumi.set(__self__, "type", 'SelfHostedServer')
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The target service type.
+        Expected value is 'SelfHostedServer'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[str]:
+        """
+        The endpoint of service.
+        """
+        return pulumi.get(self, "endpoint")
 
 
 @pulumi.output_type
@@ -459,6 +1333,8 @@ class ServicePrincipalCertificateAuthInfoResponse(dict):
             suggest = "client_id"
         elif key == "principalId":
             suggest = "principal_id"
+        elif key == "deleteOrUpdateBehavior":
+            suggest = "delete_or_update_behavior"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServicePrincipalCertificateAuthInfoResponse. Access the value via the '{suggest}' property getter instead.")
@@ -475,7 +1351,9 @@ class ServicePrincipalCertificateAuthInfoResponse(dict):
                  auth_type: str,
                  certificate: str,
                  client_id: str,
-                 principal_id: str):
+                 principal_id: str,
+                 delete_or_update_behavior: Optional[str] = None,
+                 roles: Optional[Sequence[str]] = None):
         """
         The authentication info when authType is servicePrincipal certificate
         :param str auth_type: The authentication type.
@@ -483,11 +1361,17 @@ class ServicePrincipalCertificateAuthInfoResponse(dict):
         :param str certificate: ServicePrincipal certificate for servicePrincipal auth.
         :param str client_id: Application clientId for servicePrincipal auth.
         :param str principal_id: Principal Id for servicePrincipal auth.
+        :param str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
+        :param Sequence[str] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
         """
         pulumi.set(__self__, "auth_type", 'servicePrincipalCertificate')
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
+        if delete_or_update_behavior is not None:
+            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
 
     @property
     @pulumi.getter(name="authType")
@@ -522,6 +1406,22 @@ class ServicePrincipalCertificateAuthInfoResponse(dict):
         """
         return pulumi.get(self, "principal_id")
 
+    @property
+    @pulumi.getter(name="deleteOrUpdateBehavior")
+    def delete_or_update_behavior(self) -> Optional[str]:
+        """
+        Indicates whether to clean up previous operation when Linker is updating or deleting
+        """
+        return pulumi.get(self, "delete_or_update_behavior")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[Sequence[str]]:
+        """
+        Optional, this value specifies the Azure roles to be assigned. Automatically 
+        """
+        return pulumi.get(self, "roles")
+
 
 @pulumi.output_type
 class ServicePrincipalSecretAuthInfoResponse(dict):
@@ -537,6 +1437,10 @@ class ServicePrincipalSecretAuthInfoResponse(dict):
             suggest = "client_id"
         elif key == "principalId":
             suggest = "principal_id"
+        elif key == "deleteOrUpdateBehavior":
+            suggest = "delete_or_update_behavior"
+        elif key == "userName":
+            suggest = "user_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServicePrincipalSecretAuthInfoResponse. Access the value via the '{suggest}' property getter instead.")
@@ -553,7 +1457,10 @@ class ServicePrincipalSecretAuthInfoResponse(dict):
                  auth_type: str,
                  client_id: str,
                  principal_id: str,
-                 secret: str):
+                 secret: str,
+                 delete_or_update_behavior: Optional[str] = None,
+                 roles: Optional[Sequence[str]] = None,
+                 user_name: Optional[str] = None):
         """
         The authentication info when authType is servicePrincipal secret
         :param str auth_type: The authentication type.
@@ -561,11 +1468,20 @@ class ServicePrincipalSecretAuthInfoResponse(dict):
         :param str client_id: ServicePrincipal application clientId for servicePrincipal auth.
         :param str principal_id: Principal Id for servicePrincipal auth.
         :param str secret: Secret for servicePrincipal auth.
+        :param str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
+        :param Sequence[str] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
+        :param str user_name: Username created in the database which is mapped to a user in AAD.
         """
         pulumi.set(__self__, "auth_type", 'servicePrincipalSecret')
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "secret", secret)
+        if delete_or_update_behavior is not None:
+            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter(name="authType")
@@ -599,6 +1515,30 @@ class ServicePrincipalSecretAuthInfoResponse(dict):
         Secret for servicePrincipal auth.
         """
         return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter(name="deleteOrUpdateBehavior")
+    def delete_or_update_behavior(self) -> Optional[str]:
+        """
+        Indicates whether to clean up previous operation when Linker is updating or deleting
+        """
+        return pulumi.get(self, "delete_or_update_behavior")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[Sequence[str]]:
+        """
+        Optional, this value specifies the Azure roles to be assigned. Automatically 
+        """
+        return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        """
+        Username created in the database which is mapped to a user in AAD.
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type
@@ -646,6 +1586,10 @@ class SystemAssignedIdentityAuthInfoResponse(dict):
         suggest = None
         if key == "authType":
             suggest = "auth_type"
+        elif key == "deleteOrUpdateBehavior":
+            suggest = "delete_or_update_behavior"
+        elif key == "userName":
+            suggest = "user_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SystemAssignedIdentityAuthInfoResponse. Access the value via the '{suggest}' property getter instead.")
@@ -659,13 +1603,25 @@ class SystemAssignedIdentityAuthInfoResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 auth_type: str):
+                 auth_type: str,
+                 delete_or_update_behavior: Optional[str] = None,
+                 roles: Optional[Sequence[str]] = None,
+                 user_name: Optional[str] = None):
         """
         The authentication info when authType is systemAssignedIdentity
         :param str auth_type: The authentication type.
                Expected value is 'systemAssignedIdentity'.
+        :param str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
+        :param Sequence[str] roles: Optional, this value specifies the Azure role to be assigned
+        :param str user_name: Username created in the database which is mapped to a user in AAD.
         """
         pulumi.set(__self__, "auth_type", 'systemAssignedIdentity')
+        if delete_or_update_behavior is not None:
+            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter(name="authType")
@@ -675,6 +1631,30 @@ class SystemAssignedIdentityAuthInfoResponse(dict):
         Expected value is 'systemAssignedIdentity'.
         """
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="deleteOrUpdateBehavior")
+    def delete_or_update_behavior(self) -> Optional[str]:
+        """
+        Indicates whether to clean up previous operation when Linker is updating or deleting
+        """
+        return pulumi.get(self, "delete_or_update_behavior")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[Sequence[str]]:
+        """
+        Optional, this value specifies the Azure role to be assigned
+        """
+        return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        """
+        Username created in the database which is mapped to a user in AAD.
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type
@@ -788,6 +1768,101 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class UserAccountAuthInfoResponse(dict):
+    """
+    The authentication info when authType is user account
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "deleteOrUpdateBehavior":
+            suggest = "delete_or_update_behavior"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAccountAuthInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAccountAuthInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAccountAuthInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: str,
+                 delete_or_update_behavior: Optional[str] = None,
+                 principal_id: Optional[str] = None,
+                 roles: Optional[Sequence[str]] = None,
+                 user_name: Optional[str] = None):
+        """
+        The authentication info when authType is user account
+        :param str auth_type: The authentication type.
+               Expected value is 'userAccount'.
+        :param str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
+        :param str principal_id: Principal Id for user account.
+        :param Sequence[str] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
+        :param str user_name: Username created in the database which is mapped to a user in AAD.
+        """
+        pulumi.set(__self__, "auth_type", 'userAccount')
+        if delete_or_update_behavior is not None:
+            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        The authentication type.
+        Expected value is 'userAccount'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="deleteOrUpdateBehavior")
+    def delete_or_update_behavior(self) -> Optional[str]:
+        """
+        Indicates whether to clean up previous operation when Linker is updating or deleting
+        """
+        return pulumi.get(self, "delete_or_update_behavior")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        Principal Id for user account.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[Sequence[str]]:
+        """
+        Optional, this value specifies the Azure roles to be assigned. Automatically 
+        """
+        return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        """
+        Username created in the database which is mapped to a user in AAD.
+        """
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
 class UserAssignedIdentityAuthInfoResponse(dict):
     """
     The authentication info when authType is userAssignedIdentity
@@ -799,8 +1874,12 @@ class UserAssignedIdentityAuthInfoResponse(dict):
             suggest = "auth_type"
         elif key == "clientId":
             suggest = "client_id"
+        elif key == "deleteOrUpdateBehavior":
+            suggest = "delete_or_update_behavior"
         elif key == "subscriptionId":
             suggest = "subscription_id"
+        elif key == "userName":
+            suggest = "user_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityAuthInfoResponse. Access the value via the '{suggest}' property getter instead.")
@@ -816,19 +1895,31 @@ class UserAssignedIdentityAuthInfoResponse(dict):
     def __init__(__self__, *,
                  auth_type: str,
                  client_id: Optional[str] = None,
-                 subscription_id: Optional[str] = None):
+                 delete_or_update_behavior: Optional[str] = None,
+                 roles: Optional[Sequence[str]] = None,
+                 subscription_id: Optional[str] = None,
+                 user_name: Optional[str] = None):
         """
         The authentication info when authType is userAssignedIdentity
         :param str auth_type: The authentication type.
                Expected value is 'userAssignedIdentity'.
         :param str client_id: Client Id for userAssignedIdentity.
+        :param str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
+        :param Sequence[str] roles: Optional, this value specifies the Azure role to be assigned
         :param str subscription_id: Subscription id for userAssignedIdentity.
+        :param str user_name: Username created in the database which is mapped to a user in AAD.
         """
         pulumi.set(__self__, "auth_type", 'userAssignedIdentity')
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
+        if delete_or_update_behavior is not None:
+            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter(name="authType")
@@ -848,6 +1939,22 @@ class UserAssignedIdentityAuthInfoResponse(dict):
         return pulumi.get(self, "client_id")
 
     @property
+    @pulumi.getter(name="deleteOrUpdateBehavior")
+    def delete_or_update_behavior(self) -> Optional[str]:
+        """
+        Indicates whether to clean up previous operation when Linker is updating or deleting
+        """
+        return pulumi.get(self, "delete_or_update_behavior")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[Sequence[str]]:
+        """
+        Optional, this value specifies the Azure role to be assigned
+        """
+        return pulumi.get(self, "roles")
+
+    @property
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> Optional[str]:
         """
@@ -855,20 +1962,57 @@ class UserAssignedIdentityAuthInfoResponse(dict):
         """
         return pulumi.get(self, "subscription_id")
 
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        """
+        Username created in the database which is mapped to a user in AAD.
+        """
+        return pulumi.get(self, "user_name")
+
 
 @pulumi.output_type
 class VNetSolutionResponse(dict):
     """
     The VNet solution for linker
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteOrUpdateBehavior":
+            suggest = "delete_or_update_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VNetSolutionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VNetSolutionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VNetSolutionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 delete_or_update_behavior: Optional[str] = None,
                  type: Optional[str] = None):
         """
         The VNet solution for linker
+        :param str delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         :param str type: Type of VNet solution.
         """
+        if delete_or_update_behavior is not None:
+            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="deleteOrUpdateBehavior")
+    def delete_or_update_behavior(self) -> Optional[str]:
+        """
+        Indicates whether to clean up previous operation when Linker is updating or deleting
+        """
+        return pulumi.get(self, "delete_or_update_behavior")
 
     @property
     @pulumi.getter

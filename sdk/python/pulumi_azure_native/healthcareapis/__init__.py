@@ -6,8 +6,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .analytics_connector import *
 from .dicom_service import *
 from .fhir_service import *
+from .get_analytics_connector import *
 from .get_dicom_service import *
 from .get_fhir_service import *
 from .get_iot_connector import *

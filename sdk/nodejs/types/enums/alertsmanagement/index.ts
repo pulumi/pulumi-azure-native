@@ -16,6 +16,27 @@ export {
     v20210808preview,
 };
 
+export const ActionRuleStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates if the given action rule is enabled or disabled
+ */
+export type ActionRuleStatus = (typeof ActionRuleStatus)[keyof typeof ActionRuleStatus];
+
+export const ActionRuleType = {
+    Suppression: "Suppression",
+    ActionGroup: "ActionGroup",
+    Diagnostics: "Diagnostics",
+} as const;
+
+/**
+ * Indicates type of action rule
+ */
+export type ActionRuleType = (typeof ActionRuleType)[keyof typeof ActionRuleType];
+
 export const ActionType = {
     AddActionGroups: "AddActionGroups",
     RemoveAllActionGroups: "RemoveAllActionGroups",
@@ -93,6 +114,17 @@ export const RecurrenceType = {
  */
 export type RecurrenceType = (typeof RecurrenceType)[keyof typeof RecurrenceType];
 
+export const ScopeType = {
+    ResourceGroup: "ResourceGroup",
+    Resource: "Resource",
+    Subscription: "Subscription",
+} as const;
+
+/**
+ * type of target scope
+ */
+export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
+
 export const Severity = {
     Sev0: "Sev0",
     Sev1: "Sev1",
@@ -105,3 +137,16 @@ export const Severity = {
  * The alert rule severity.
  */
 export type Severity = (typeof Severity)[keyof typeof Severity];
+
+export const SuppressionType = {
+    Always: "Always",
+    Once: "Once",
+    Daily: "Daily",
+    Weekly: "Weekly",
+    Monthly: "Monthly",
+} as const;
+
+/**
+ * Specifies when the suppression should be applied
+ */
+export type SuppressionType = (typeof SuppressionType)[keyof typeof SuppressionType];

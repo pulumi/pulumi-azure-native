@@ -141,6 +141,19 @@ export const LinkedServiceEntityStatus = {
  */
 export type LinkedServiceEntityStatus = (typeof LinkedServiceEntityStatus)[keyof typeof LinkedServiceEntityStatus];
 
+export const MachineGroupType = {
+    Unknown: "unknown",
+    Azure_cs: "azure-cs",
+    Azure_sf: "azure-sf",
+    Azure_vmss: "azure-vmss",
+    User_static: "user-static",
+} as const;
+
+/**
+ * Type of the machine group
+ */
+export type MachineGroupType = (typeof MachineGroupType)[keyof typeof MachineGroupType];
+
 export const PublicNetworkAccessType = {
     /**
      * Enables connectivity to Log Analytics through public DNS.

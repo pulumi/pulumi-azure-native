@@ -7,6 +7,99 @@ using Pulumi;
 
 namespace Pulumi.AzureNative.ServiceLinker
 {
+    [EnumType]
+    public readonly struct AccessKeyPermissions : IEquatable<AccessKeyPermissions>
+    {
+        private readonly string _value;
+
+        private AccessKeyPermissions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessKeyPermissions Read { get; } = new AccessKeyPermissions("Read");
+        public static AccessKeyPermissions Write { get; } = new AccessKeyPermissions("Write");
+        public static AccessKeyPermissions Listen { get; } = new AccessKeyPermissions("Listen");
+        public static AccessKeyPermissions Send { get; } = new AccessKeyPermissions("Send");
+        public static AccessKeyPermissions Manage { get; } = new AccessKeyPermissions("Manage");
+
+        public static bool operator ==(AccessKeyPermissions left, AccessKeyPermissions right) => left.Equals(right);
+        public static bool operator !=(AccessKeyPermissions left, AccessKeyPermissions right) => !left.Equals(right);
+
+        public static explicit operator string(AccessKeyPermissions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessKeyPermissions other && Equals(other);
+        public bool Equals(AccessKeyPermissions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Optional. Indicates public network solution. If enable, enable public network access of target service with best try. Default is enable. If optOut, opt out public network access configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct ActionType : IEquatable<ActionType>
+    {
+        private readonly string _value;
+
+        private ActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActionType Enable { get; } = new ActionType("enable");
+        public static ActionType OptOut { get; } = new ActionType("optOut");
+
+        public static bool operator ==(ActionType left, ActionType right) => left.Equals(right);
+        public static bool operator !=(ActionType left, ActionType right) => !left.Equals(right);
+
+        public static explicit operator string(ActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActionType other && Equals(other);
+        public bool Equals(ActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Allow caller client IP to access the target service if true. the property is used when connecting local application to target service.
+    /// </summary>
+    [EnumType]
+    public readonly struct AllowType : IEquatable<AllowType>
+    {
+        private readonly string _value;
+
+        private AllowType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AllowType @True { get; } = new AllowType("true");
+        public static AllowType @False { get; } = new AllowType("false");
+
+        public static bool operator ==(AllowType left, AllowType right) => left.Equals(right);
+        public static bool operator !=(AllowType left, AllowType right) => !left.Equals(right);
+
+        public static explicit operator string(AllowType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AllowType other && Equals(other);
+        public bool Equals(AllowType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The authentication type.
     /// </summary>
@@ -25,6 +118,8 @@ namespace Pulumi.AzureNative.ServiceLinker
         public static AuthType ServicePrincipalSecret { get; } = new AuthType("servicePrincipalSecret");
         public static AuthType ServicePrincipalCertificate { get; } = new AuthType("servicePrincipalCertificate");
         public static AuthType Secret { get; } = new AuthType("secret");
+        public static AuthType AccessKey { get; } = new AuthType("accessKey");
+        public static AuthType UserAccount { get; } = new AuthType("userAccount");
 
         public static bool operator ==(AuthType left, AuthType right) => left.Equals(right);
         public static bool operator !=(AuthType left, AuthType right) => !left.Equals(right);
@@ -95,6 +190,7 @@ namespace Pulumi.AzureNative.ServiceLinker
         public static ClientType Nodejs { get; } = new ClientType("nodejs");
         public static ClientType SpringBoot { get; } = new ClientType("springBoot");
         public static ClientType Kafka_springBoot { get; } = new ClientType("kafka-springBoot");
+        public static ClientType Dapr { get; } = new ClientType("dapr");
 
         public static bool operator ==(ClientType left, ClientType right) => left.Equals(right);
         public static bool operator !=(ClientType left, ClientType right) => !left.Equals(right);
@@ -104,6 +200,67 @@ namespace Pulumi.AzureNative.ServiceLinker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ClientType other && Equals(other);
         public bool Equals(ClientType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether to clean up previous operation when Linker is updating or deleting
+    /// </summary>
+    [EnumType]
+    public readonly struct DeleteOrUpdateBehavior : IEquatable<DeleteOrUpdateBehavior>
+    {
+        private readonly string _value;
+
+        private DeleteOrUpdateBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeleteOrUpdateBehavior Default { get; } = new DeleteOrUpdateBehavior("Default");
+        public static DeleteOrUpdateBehavior ForcedCleanup { get; } = new DeleteOrUpdateBehavior("ForcedCleanup");
+
+        public static bool operator ==(DeleteOrUpdateBehavior left, DeleteOrUpdateBehavior right) => left.Equals(right);
+        public static bool operator !=(DeleteOrUpdateBehavior left, DeleteOrUpdateBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(DeleteOrUpdateBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeleteOrUpdateBehavior other && Equals(other);
+        public bool Equals(DeleteOrUpdateBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of action for you dryrun job.
+    /// </summary>
+    [EnumType]
+    public readonly struct DryrunActionName : IEquatable<DryrunActionName>
+    {
+        private readonly string _value;
+
+        private DryrunActionName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DryrunActionName CreateOrUpdate { get; } = new DryrunActionName("createOrUpdate");
+
+        public static bool operator ==(DryrunActionName left, DryrunActionName right) => left.Equals(right);
+        public static bool operator !=(DryrunActionName left, DryrunActionName right) => !left.Equals(right);
+
+        public static explicit operator string(DryrunActionName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DryrunActionName other && Equals(other);
+        public bool Equals(DryrunActionName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -159,6 +316,7 @@ namespace Pulumi.AzureNative.ServiceLinker
         public static TargetServiceType AzureResource { get; } = new TargetServiceType("AzureResource");
         public static TargetServiceType ConfluentBootstrapServer { get; } = new TargetServiceType("ConfluentBootstrapServer");
         public static TargetServiceType ConfluentSchemaRegistry { get; } = new TargetServiceType("ConfluentSchemaRegistry");
+        public static TargetServiceType SelfHostedServer { get; } = new TargetServiceType("SelfHostedServer");
 
         public static bool operator ==(TargetServiceType left, TargetServiceType right) => left.Equals(right);
         public static bool operator !=(TargetServiceType left, TargetServiceType right) => !left.Equals(right);

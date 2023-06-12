@@ -17,11 +17,13 @@ __all__ = [
     'IngressClientCertificateMode',
     'IngressTransportMethod',
     'LogLevel',
+    'ManagedCertificateDomainControlValidation',
     'ManagedEnvironmentOutBoundType',
     'ManagedServiceIdentityType',
     'Scheme',
     'SkuName',
     'StorageType',
+    'TriggerType',
     'Type',
     'UnauthenticatedClientActionV2',
 ]
@@ -128,6 +130,15 @@ class LogLevel(str, Enum):
     ERROR = "error"
 
 
+class ManagedCertificateDomainControlValidation(str, Enum):
+    """
+    Selected type of domain control validation for managed certificates.
+    """
+    CNAME = "CNAME"
+    HTTP = "HTTP"
+    TXT = "TXT"
+
+
 class ManagedEnvironmentOutBoundType(str, Enum):
     """
     Outbound type for the cluster
@@ -174,6 +185,16 @@ class StorageType(str, Enum):
     """
     AZURE_FILE = "AzureFile"
     EMPTY_DIR = "EmptyDir"
+    SECRET = "Secret"
+
+
+class TriggerType(str, Enum):
+    """
+    Trigger type of the job
+    """
+    SCHEDULED = "Scheduled"
+    EVENT = "Event"
+    MANUAL = "Manual"
 
 
 class Type(str, Enum):

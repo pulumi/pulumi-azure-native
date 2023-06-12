@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AnalyticsConnectorArgs } from "./analyticsConnector";
+export type AnalyticsConnector = import("./analyticsConnector").AnalyticsConnector;
+export const AnalyticsConnector: typeof import("./analyticsConnector").AnalyticsConnector = null as any;
+utilities.lazyLoad(exports, ["AnalyticsConnector"], () => require("./analyticsConnector"));
+
 export { DicomServiceArgs } from "./dicomService";
 export type DicomService = import("./dicomService").DicomService;
 export const DicomService: typeof import("./dicomService").DicomService = null as any;
@@ -14,6 +19,11 @@ export { FhirServiceArgs } from "./fhirService";
 export type FhirService = import("./fhirService").FhirService;
 export const FhirService: typeof import("./fhirService").FhirService = null as any;
 utilities.lazyLoad(exports, ["FhirService"], () => require("./fhirService"));
+
+export { GetAnalyticsConnectorArgs, GetAnalyticsConnectorResult, GetAnalyticsConnectorOutputArgs } from "./getAnalyticsConnector";
+export const getAnalyticsConnector: typeof import("./getAnalyticsConnector").getAnalyticsConnector = null as any;
+export const getAnalyticsConnectorOutput: typeof import("./getAnalyticsConnector").getAnalyticsConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAnalyticsConnector","getAnalyticsConnectorOutput"], () => require("./getAnalyticsConnector"));
 
 export { GetDicomServiceArgs, GetDicomServiceResult, GetDicomServiceOutputArgs } from "./getDicomService";
 export const getDicomService: typeof import("./getDicomService").getDicomService = null as any;
@@ -108,6 +118,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:healthcareapis:AnalyticsConnector":
+                return new AnalyticsConnector(name, <any>undefined, { urn })
             case "azure-native:healthcareapis:DicomService":
                 return new DicomService(name, <any>undefined, { urn })
             case "azure-native:healthcareapis:FhirService":

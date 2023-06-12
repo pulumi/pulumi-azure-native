@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessPolicyArgs } from "./accessPolicy";
+export type AccessPolicy = import("./accessPolicy").AccessPolicy;
+export const AccessPolicy: typeof import("./accessPolicy").AccessPolicy = null as any;
+utilities.lazyLoad(exports, ["AccessPolicy"], () => require("./accessPolicy"));
+
+export { AccessPolicyAssignmentArgs } from "./accessPolicyAssignment";
+export type AccessPolicyAssignment = import("./accessPolicyAssignment").AccessPolicyAssignment;
+export const AccessPolicyAssignment: typeof import("./accessPolicyAssignment").AccessPolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["AccessPolicyAssignment"], () => require("./accessPolicyAssignment"));
+
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
@@ -19,6 +29,16 @@ export { FirewallRuleArgs } from "./firewallRule";
 export type FirewallRule = import("./firewallRule").FirewallRule;
 export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
 utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
+
+export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
+export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
+export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPolicy","getAccessPolicyOutput"], () => require("./getAccessPolicy"));
+
+export { GetAccessPolicyAssignmentArgs, GetAccessPolicyAssignmentResult, GetAccessPolicyAssignmentOutputArgs } from "./getAccessPolicyAssignment";
+export const getAccessPolicyAssignment: typeof import("./getAccessPolicyAssignment").getAccessPolicyAssignment = null as any;
+export const getAccessPolicyAssignmentOutput: typeof import("./getAccessPolicyAssignment").getAccessPolicyAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPolicyAssignment","getAccessPolicyAssignmentOutput"], () => require("./getAccessPolicyAssignment"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
@@ -138,6 +158,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:cache:AccessPolicy":
+                return new AccessPolicy(name, <any>undefined, { urn })
+            case "azure-native:cache:AccessPolicyAssignment":
+                return new AccessPolicyAssignment(name, <any>undefined, { urn })
             case "azure-native:cache:Database":
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:cache:EnterprisePrivateEndpointConnection":

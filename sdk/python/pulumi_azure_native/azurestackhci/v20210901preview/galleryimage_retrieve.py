@@ -333,7 +333,7 @@ class GalleryimageRetrieve(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:galleryimageRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:GalleryimageRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:galleryimageRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:GalleryimageRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:galleryimageRetrieve")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:galleryimageRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci:GalleryimageRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci:galleryimageRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:GalleryimageRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:galleryimageRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:GalleryimageRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:galleryimageRetrieve")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryimageRetrieve, __self__).__init__(
             'azure-native:azurestackhci/v20210901preview:GalleryimageRetrieve',

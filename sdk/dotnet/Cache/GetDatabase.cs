@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Gets information about a database in a RedisEnterprise cluster.
-        /// API Version: 2022-01-01.
+        /// API Version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:cache:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a database in a RedisEnterprise cluster.
-        /// API Version: 2022-01-01.
+        /// API Version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:cache:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
@@ -128,6 +128,10 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly string ResourceState;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -156,6 +160,8 @@ namespace Pulumi.AzureNative.Cache
 
             string resourceState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             ClientProtocol = clientProtocol;
@@ -169,6 +175,7 @@ namespace Pulumi.AzureNative.Cache
             Port = port;
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
+            SystemData = systemData;
             Type = type;
         }
     }

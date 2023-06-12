@@ -22,13 +22,19 @@ class GetRedisEnterpriseResult:
     """
     Describes the RedisEnterprise cluster
     """
-    def __init__(__self__, host_name=None, id=None, location=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, redis_version=None, resource_state=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, encryption=None, host_name=None, id=None, identity=None, location=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, redis_version=None, resource_state=None, sku=None, system_data=None, tags=None, type=None, zones=None):
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -53,6 +59,9 @@ class GetRedisEnterpriseResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -62,6 +71,14 @@ class GetRedisEnterpriseResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.ClusterPropertiesResponseEncryption']:
+        """
+        Encryption-at-rest configuration for the cluster.
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="hostName")
@@ -78,6 +95,14 @@ class GetRedisEnterpriseResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -144,6 +169,14 @@ class GetRedisEnterpriseResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -174,8 +207,10 @@ class AwaitableGetRedisEnterpriseResult(GetRedisEnterpriseResult):
         if False:
             yield self
         return GetRedisEnterpriseResult(
+            encryption=self.encryption,
             host_name=self.host_name,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             minimum_tls_version=self.minimum_tls_version,
             name=self.name,
@@ -184,6 +219,7 @@ class AwaitableGetRedisEnterpriseResult(GetRedisEnterpriseResult):
             redis_version=self.redis_version,
             resource_state=self.resource_state,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             zones=self.zones)
@@ -194,7 +230,7 @@ def get_redis_enterprise(cluster_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRedisEnterpriseResult:
     """
     Gets information about a RedisEnterprise cluster
-    API Version: 2022-01-01.
+    API Version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
@@ -207,8 +243,10 @@ def get_redis_enterprise(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cache:getRedisEnterprise', __args__, opts=opts, typ=GetRedisEnterpriseResult).value
 
     return AwaitableGetRedisEnterpriseResult(
+        encryption=__ret__.encryption,
         host_name=__ret__.host_name,
         id=__ret__.id,
+        identity=__ret__.identity,
         location=__ret__.location,
         minimum_tls_version=__ret__.minimum_tls_version,
         name=__ret__.name,
@@ -217,6 +255,7 @@ def get_redis_enterprise(cluster_name: Optional[str] = None,
         redis_version=__ret__.redis_version,
         resource_state=__ret__.resource_state,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         zones=__ret__.zones)
@@ -228,7 +267,7 @@ def get_redis_enterprise_output(cluster_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRedisEnterpriseResult]:
     """
     Gets information about a RedisEnterprise cluster
-    API Version: 2022-01-01.
+    API Version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.

@@ -241,7 +241,7 @@ export class ContentTemplate extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230501preview:ContentTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ContentTemplate" }, { type: "azure-native:securityinsights/v20230501preview:ContentTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContentTemplate.__pulumiType, name, resourceInputs, opts);
     }

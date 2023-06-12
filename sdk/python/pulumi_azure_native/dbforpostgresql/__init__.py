@@ -16,12 +16,20 @@ from .get_cluster import *
 from .get_configuration import *
 from .get_database import *
 from .get_firewall_rule import *
+from .get_migration import *
 from .get_private_endpoint_connection import *
 from .get_role import *
 from .get_server import *
+from .get_server_administrator import *
+from .get_server_security_alert_policy import *
+from .get_virtual_network_rule import *
+from .migration import *
 from .private_endpoint_connection import *
 from .role import *
 from .server import *
+from .server_administrator import *
+from .server_security_alert_policy import *
+from .virtual_network_rule import *
 from ._inputs import *
 from . import outputs
 

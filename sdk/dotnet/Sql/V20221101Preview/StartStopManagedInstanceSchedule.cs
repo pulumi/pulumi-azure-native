@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Sql.V20221101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:sql:StartStopManagedInstanceSchedule"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule"},
                 },
             };

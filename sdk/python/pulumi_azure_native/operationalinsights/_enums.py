@@ -12,6 +12,7 @@ __all__ = [
     'DataSourceKind',
     'IdentityType',
     'LinkedServiceEntityStatus',
+    'MachineGroupType',
     'PublicNetworkAccessType',
     'TablePlanEnum',
     'WorkspaceSkuNameEnum',
@@ -125,6 +126,17 @@ class LinkedServiceEntityStatus(str, Enum):
     DELETING = "Deleting"
     PROVISIONING_ACCOUNT = "ProvisioningAccount"
     UPDATING = "Updating"
+
+
+class MachineGroupType(str, Enum):
+    """
+    Type of the machine group
+    """
+    UNKNOWN = "unknown"
+    AZURE_CS = "azure-cs"
+    AZURE_SF = "azure-sf"
+    AZURE_VMSS = "azure-vmss"
+    USER_STATIC = "user-static"
 
 
 class PublicNetworkAccessType(str, Enum):

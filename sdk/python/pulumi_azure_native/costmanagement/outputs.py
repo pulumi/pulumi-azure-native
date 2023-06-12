@@ -12,7 +12,18 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'BudgetComparisonExpressionResponse',
+    'BudgetFilterPropertiesResponse',
+    'BudgetFilterResponse',
+    'BudgetTimePeriodResponse',
     'CommonExportPropertiesResponse',
+    'ConnectorCollectionErrorInfoResponse',
+    'ConnectorCollectionInfoResponse',
+    'CostAllocationProportionResponse',
+    'CostAllocationRuleDetailsResponse',
+    'CostAllocationRulePropertiesResponse',
+    'CurrentSpendResponse',
+    'CustomerMetadataResponse',
     'ErrorDetailsResponse',
     'ExportDatasetConfigurationResponse',
     'ExportDatasetResponse',
@@ -25,9 +36,13 @@ __all__ = [
     'ExportScheduleResponse',
     'ExportTimePeriodResponse',
     'FileDestinationResponse',
+    'ForecastSpendResponse',
     'KpiPropertiesResponse',
     'NotificationPropertiesResponse',
+    'NotificationResponse',
     'PivotPropertiesResponse',
+    'ReportAggregationResponse',
+    'ReportComparisonExpressionResponse',
     'ReportConfigAggregationResponse',
     'ReportConfigComparisonExpressionResponse',
     'ReportConfigDatasetConfigurationResponse',
@@ -36,10 +51,287 @@ __all__ = [
     'ReportConfigGroupingResponse',
     'ReportConfigSortingResponse',
     'ReportConfigTimePeriodResponse',
+    'ReportDatasetConfigurationResponse',
+    'ReportDatasetResponse',
+    'ReportDefinitionResponse',
+    'ReportDeliveryDestinationResponse',
+    'ReportDeliveryInfoResponse',
+    'ReportFilterResponse',
+    'ReportGroupingResponse',
+    'ReportRecurrencePeriodResponse',
+    'ReportScheduleResponse',
+    'ReportTimePeriodResponse',
     'SchedulePropertiesResponse',
     'SettingsPropertiesResponseCache',
+    'SourceCostAllocationResourceResponse',
     'SystemDataResponse',
+    'TagInheritancePropertiesResponse',
+    'TargetCostAllocationResourceResponse',
 ]
+
+@pulumi.output_type
+class BudgetComparisonExpressionResponse(dict):
+    """
+    The comparison expression to be used in the budgets.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        The comparison expression to be used in the budgets.
+        :param str name: The name of the column to use in comparison.
+        :param str operator: The operator to use for comparison.
+        :param Sequence[str] values: Array of values to use for comparison
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to use in comparison.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator to use for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Array of values to use for comparison
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class BudgetFilterPropertiesResponse(dict):
+    """
+    The Dimensions or Tags to filter a budget by.
+
+     Supported for CategoryType(s): Cost, ReservationUtilization.
+    """
+    def __init__(__self__, *,
+                 dimensions: Optional['outputs.BudgetComparisonExpressionResponse'] = None,
+                 tags: Optional['outputs.BudgetComparisonExpressionResponse'] = None):
+        """
+        The Dimensions or Tags to filter a budget by.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+        :param 'BudgetComparisonExpressionResponse' dimensions: Has comparison expression for a dimension.
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+               
+               Supported dimension names for **CategoryType: ReservationUtilization** 
+               - ReservationId
+               - ReservedResourceType
+        :param 'BudgetComparisonExpressionResponse' tags: Has comparison expression for a tag.
+               
+                Supported for CategoryType(s): Cost.
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional['outputs.BudgetComparisonExpressionResponse']:
+        """
+        Has comparison expression for a dimension.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+
+        Supported dimension names for **CategoryType: ReservationUtilization** 
+        - ReservationId
+        - ReservedResourceType
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional['outputs.BudgetComparisonExpressionResponse']:
+        """
+        Has comparison expression for a tag.
+
+         Supported for CategoryType(s): Cost.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class BudgetFilterResponse(dict):
+    """
+    May be used to filter budgets by user-specified dimensions and/or tags.
+
+     Supported for CategoryType(s): Cost, ReservationUtilization.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "and":
+            suggest = "and_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 and_: Optional[Sequence['outputs.BudgetFilterPropertiesResponse']] = None,
+                 dimensions: Optional['outputs.BudgetComparisonExpressionResponse'] = None,
+                 tags: Optional['outputs.BudgetComparisonExpressionResponse'] = None):
+        """
+        May be used to filter budgets by user-specified dimensions and/or tags.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+        :param Sequence['BudgetFilterPropertiesResponse'] and_: The logical "AND" expression. Must have at least 2 items.
+               
+                Supported for CategoryType(s): Cost.
+        :param 'BudgetComparisonExpressionResponse' dimensions: Has comparison expression for a dimension.
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+               
+               Supported dimension names for **CategoryType: ReservationUtilization** 
+               - ReservationId
+               - ReservedResourceType
+        :param 'BudgetComparisonExpressionResponse' tags: Has comparison expression for a tag.
+               
+                Supported for CategoryType(s): Cost.
+        """
+        if and_ is not None:
+            pulumi.set(__self__, "and_", and_)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="and")
+    def and_(self) -> Optional[Sequence['outputs.BudgetFilterPropertiesResponse']]:
+        """
+        The logical "AND" expression. Must have at least 2 items.
+
+         Supported for CategoryType(s): Cost.
+        """
+        return pulumi.get(self, "and_")
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional['outputs.BudgetComparisonExpressionResponse']:
+        """
+        Has comparison expression for a dimension.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+
+        Supported dimension names for **CategoryType: ReservationUtilization** 
+        - ReservationId
+        - ReservedResourceType
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional['outputs.BudgetComparisonExpressionResponse']:
+        """
+        Has comparison expression for a tag.
+
+         Supported for CategoryType(s): Cost.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class BudgetTimePeriodResponse(dict):
+    """
+    The time period that defines the active period of the budget. The budget will evaluate data on or after the startDate and will expire on the endDate.
+
+     Supported for CategoryType(s): Cost, ReservationUtilization.
+
+     Required for CategoryType(s): Cost, ReservationUtilization.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startDate":
+            suggest = "start_date"
+        elif key == "endDate":
+            suggest = "end_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetTimePeriodResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetTimePeriodResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetTimePeriodResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 start_date: str,
+                 end_date: Optional[str] = None):
+        """
+        The time period that defines the active period of the budget. The budget will evaluate data on or after the startDate and will expire on the endDate.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+
+         Required for CategoryType(s): Cost, ReservationUtilization.
+        :param str start_date: The start date for the budget.
+               
+               - Constraints for **CategoryType: Cost** - Must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period.
+               
+               - Constraints for **CategoryType: ReservationUtilization** - Must be on or after the current date and less than the end date.
+        :param str end_date: The end date for the budget.
+               
+               - Constraints for **CategoryType: Cost** - No constraints. If not provided, we default this to 10 years from the start date.
+               
+               - Constraints for **CategoryType: ReservationUtilization** - End date cannot be more than 3 years after the start date.
+        """
+        pulumi.set(__self__, "start_date", start_date)
+        if end_date is not None:
+            pulumi.set(__self__, "end_date", end_date)
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> str:
+        """
+        The start date for the budget.
+
+        - Constraints for **CategoryType: Cost** - Must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period.
+
+        - Constraints for **CategoryType: ReservationUtilization** - Must be on or after the current date and less than the end date.
+        """
+        return pulumi.get(self, "start_date")
+
+    @property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> Optional[str]:
+        """
+        The end date for the budget.
+
+        - Constraints for **CategoryType: Cost** - No constraints. If not provided, we default this to 10 years from the start date.
+
+        - Constraints for **CategoryType: ReservationUtilization** - End date cannot be more than 3 years after the start date.
+        """
+        return pulumi.get(self, "end_date")
+
 
 @pulumi.output_type
 class CommonExportPropertiesResponse(dict):
@@ -142,6 +434,438 @@ class CommonExportPropertiesResponse(dict):
         If requested, has the most recent run history for the export.
         """
         return pulumi.get(self, "run_history")
+
+
+@pulumi.output_type
+class ConnectorCollectionErrorInfoResponse(dict):
+    """
+    Details of any error encountered on last collection attempt
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "errorStartTime":
+            suggest = "error_start_time"
+        elif key == "errorInnerMessage":
+            suggest = "error_inner_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorCollectionErrorInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorCollectionErrorInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorCollectionErrorInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: str,
+                 error_message: str,
+                 error_start_time: str,
+                 error_inner_message: Optional[str] = None):
+        """
+        Details of any error encountered on last collection attempt
+        :param str error_code: Short error message
+        :param str error_message: Detailed error message
+        :param str error_start_time: Time the error started occurring (Last time error occurred in lastRun)
+        :param str error_inner_message: External Provider error message
+        """
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "error_start_time", error_start_time)
+        if error_inner_message is not None:
+            pulumi.set(__self__, "error_inner_message", error_inner_message)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        Short error message
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        Detailed error message
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="errorStartTime")
+    def error_start_time(self) -> str:
+        """
+        Time the error started occurring (Last time error occurred in lastRun)
+        """
+        return pulumi.get(self, "error_start_time")
+
+    @property
+    @pulumi.getter(name="errorInnerMessage")
+    def error_inner_message(self) -> Optional[str]:
+        """
+        External Provider error message
+        """
+        return pulumi.get(self, "error_inner_message")
+
+
+@pulumi.output_type
+class ConnectorCollectionInfoResponse(dict):
+    """
+    Collection and ingestion information
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastRun":
+            suggest = "last_run"
+        elif key == "lastUpdated":
+            suggest = "last_updated"
+        elif key == "sourceLastUpdated":
+            suggest = "source_last_updated"
+        elif key == "lastChecked":
+            suggest = "last_checked"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorCollectionInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorCollectionInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorCollectionInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_run: str,
+                 last_updated: str,
+                 source_last_updated: str,
+                 error: Optional['outputs.ConnectorCollectionErrorInfoResponse'] = None,
+                 last_checked: Optional[str] = None):
+        """
+        Collection and ingestion information
+        :param str last_run: Last time the data acquisition process completed (even if no new data was found)
+        :param str last_updated: Last time the external data was updated into Azure
+        :param str source_last_updated: Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
+        :param 'ConnectorCollectionErrorInfoResponse' error: Error information of last collection
+        :param str last_checked: Last time the data acquisition process initiated connecting to the external provider
+        """
+        pulumi.set(__self__, "last_run", last_run)
+        pulumi.set(__self__, "last_updated", last_updated)
+        pulumi.set(__self__, "source_last_updated", source_last_updated)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if last_checked is not None:
+            pulumi.set(__self__, "last_checked", last_checked)
+
+    @property
+    @pulumi.getter(name="lastRun")
+    def last_run(self) -> str:
+        """
+        Last time the data acquisition process completed (even if no new data was found)
+        """
+        return pulumi.get(self, "last_run")
+
+    @property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> str:
+        """
+        Last time the external data was updated into Azure
+        """
+        return pulumi.get(self, "last_updated")
+
+    @property
+    @pulumi.getter(name="sourceLastUpdated")
+    def source_last_updated(self) -> str:
+        """
+        Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
+        """
+        return pulumi.get(self, "source_last_updated")
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.ConnectorCollectionErrorInfoResponse']:
+        """
+        Error information of last collection
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="lastChecked")
+    def last_checked(self) -> Optional[str]:
+        """
+        Last time the data acquisition process initiated connecting to the external provider
+        """
+        return pulumi.get(self, "last_checked")
+
+
+@pulumi.output_type
+class CostAllocationProportionResponse(dict):
+    """
+    Target resources and allocation
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 percentage: float):
+        """
+        Target resources and allocation
+        :param str name: Target resource for cost allocation
+        :param float percentage: Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "percentage", percentage)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Target resource for cost allocation
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def percentage(self) -> float:
+        """
+        Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
+        """
+        return pulumi.get(self, "percentage")
+
+
+@pulumi.output_type
+class CostAllocationRuleDetailsResponse(dict):
+    """
+    Resource details of the cost allocation rule
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceResources":
+            suggest = "source_resources"
+        elif key == "targetResources":
+            suggest = "target_resources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CostAllocationRuleDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CostAllocationRuleDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CostAllocationRuleDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_resources: Optional[Sequence['outputs.SourceCostAllocationResourceResponse']] = None,
+                 target_resources: Optional[Sequence['outputs.TargetCostAllocationResourceResponse']] = None):
+        """
+        Resource details of the cost allocation rule
+        :param Sequence['SourceCostAllocationResourceResponse'] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
+        :param Sequence['TargetCostAllocationResourceResponse'] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
+        """
+        if source_resources is not None:
+            pulumi.set(__self__, "source_resources", source_resources)
+        if target_resources is not None:
+            pulumi.set(__self__, "target_resources", target_resources)
+
+    @property
+    @pulumi.getter(name="sourceResources")
+    def source_resources(self) -> Optional[Sequence['outputs.SourceCostAllocationResourceResponse']]:
+        """
+        Source resources for cost allocation. At this time, this list can contain no more than one element.
+        """
+        return pulumi.get(self, "source_resources")
+
+    @property
+    @pulumi.getter(name="targetResources")
+    def target_resources(self) -> Optional[Sequence['outputs.TargetCostAllocationResourceResponse']]:
+        """
+        Target resources for cost allocation. At this time, this list can contain no more than one element.
+        """
+        return pulumi.get(self, "target_resources")
+
+
+@pulumi.output_type
+class CostAllocationRulePropertiesResponse(dict):
+    """
+    The properties of a cost allocation rule
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdDate":
+            suggest = "created_date"
+        elif key == "updatedDate":
+            suggest = "updated_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CostAllocationRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CostAllocationRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CostAllocationRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_date: str,
+                 details: 'outputs.CostAllocationRuleDetailsResponse',
+                 status: str,
+                 updated_date: str,
+                 description: Optional[str] = None):
+        """
+        The properties of a cost allocation rule
+        :param str created_date: Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
+        :param 'CostAllocationRuleDetailsResponse' details: Resource information for the cost allocation rule
+        :param str status: Status of the rule
+        :param str updated_date: Time at which the rule was last updated.
+        :param str description: Description of a cost allocation rule.
+        """
+        pulumi.set(__self__, "created_date", created_date)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "updated_date", updated_date)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def details(self) -> 'outputs.CostAllocationRuleDetailsResponse':
+        """
+        Resource information for the cost allocation rule
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the rule
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="updatedDate")
+    def updated_date(self) -> str:
+        """
+        Time at which the rule was last updated.
+        """
+        return pulumi.get(self, "updated_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of a cost allocation rule.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class CurrentSpendResponse(dict):
+    """
+    The current amount of cost which is being tracked for a budget.
+
+     Supported for CategoryType(s): Cost.
+    """
+    def __init__(__self__, *,
+                 amount: float,
+                 unit: str):
+        """
+        The current amount of cost which is being tracked for a budget.
+
+         Supported for CategoryType(s): Cost.
+        :param float amount: The total amount of cost which is being tracked by the budget.
+        :param str unit: The unit of measure for the budget amount.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def amount(self) -> float:
+        """
+        The total amount of cost which is being tracked by the budget.
+        """
+        return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of measure for the budget amount.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class CustomerMetadataResponse(dict):
+    """
+    The customer billing metadata
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "billingAccountId":
+            suggest = "billing_account_id"
+        elif key == "billingProfileId":
+            suggest = "billing_profile_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomerMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomerMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomerMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 billing_account_id: str,
+                 billing_profile_id: str):
+        """
+        The customer billing metadata
+        :param str billing_account_id: Customer billing account id
+        :param str billing_profile_id: Customer billing profile id
+        """
+        pulumi.set(__self__, "billing_account_id", billing_account_id)
+        pulumi.set(__self__, "billing_profile_id", billing_profile_id)
+
+    @property
+    @pulumi.getter(name="billingAccountId")
+    def billing_account_id(self) -> str:
+        """
+        Customer billing account id
+        """
+        return pulumi.get(self, "billing_account_id")
+
+    @property
+    @pulumi.getter(name="billingProfileId")
+    def billing_profile_id(self) -> str:
+        """
+        Customer billing profile id
+        """
+        return pulumi.get(self, "billing_profile_id")
 
 
 @pulumi.output_type
@@ -849,6 +1573,43 @@ class FileDestinationResponse(dict):
 
 
 @pulumi.output_type
+class ForecastSpendResponse(dict):
+    """
+    The forecasted cost which is being tracked for a budget.
+
+     Supported for CategoryType(s): Cost.
+    """
+    def __init__(__self__, *,
+                 amount: float,
+                 unit: str):
+        """
+        The forecasted cost which is being tracked for a budget.
+
+         Supported for CategoryType(s): Cost.
+        :param float amount: The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
+        :param str unit: The unit of measure for the budget amount.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def amount(self) -> float:
+        """
+        The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
+        """
+        return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of measure for the budget amount.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class KpiPropertiesResponse(dict):
     """
     Each KPI must contain a 'type' and 'enabled' key.
@@ -982,6 +1743,208 @@ class NotificationPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class NotificationResponse(dict):
+    """
+    The notification associated with a budget.
+
+     Supported for CategoryType(s): Cost, ReservationUtilization.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contactEmails":
+            suggest = "contact_emails"
+        elif key == "contactGroups":
+            suggest = "contact_groups"
+        elif key == "contactRoles":
+            suggest = "contact_roles"
+        elif key == "thresholdType":
+            suggest = "threshold_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 contact_emails: Sequence[str],
+                 enabled: bool,
+                 operator: str,
+                 threshold: float,
+                 contact_groups: Optional[Sequence[str]] = None,
+                 contact_roles: Optional[Sequence[str]] = None,
+                 frequency: Optional[str] = None,
+                 locale: Optional[str] = None,
+                 threshold_type: Optional[str] = None):
+        """
+        The notification associated with a budget.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+        :param Sequence[str] contact_emails: Email addresses to send the notification to when the threshold is breached. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+        :param bool enabled: The notification is enabled or not.
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+        :param str operator: The comparison operator.
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+               
+                Supported operators for **CategoryType: Cost**
+               - GreaterThan
+               - GreaterThanOrEqualTo
+               
+                Supported operators for **CategoryType: ReservationUtilization**
+               - LessThan
+        :param float threshold: Threshold value associated with a notification. It is always percent with a maximum of 2 decimal places.
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+               
+                **CategoryType: Cost** - Must be between 0 and 1000. Notification is sent when the cost exceeded the threshold.
+               
+                **CategoryType: ReservationUtilization** - Must be between 0 and 100. Notification is sent when a reservation has a utilization percentage below the threshold.
+        :param Sequence[str] contact_groups: Subscription or Resource Group scopes only. Action groups to send the notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id.
+               
+                Supported for CategoryType(s): Cost.
+        :param Sequence[str] contact_roles: Subscription or Resource Group scopes only. Contact roles to send the notification to when the threshold is breached.
+               
+                Supported for CategoryType(s): Cost.
+        :param str frequency: Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).
+               
+                Supported for CategoryType(s): ReservationUtilization.
+        :param str locale: Language in which the recipient will receive the notification, 
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+        :param str threshold_type: The type of threshold.
+               
+                Supported for CategoryType(s): Cost.
+        """
+        pulumi.set(__self__, "contact_emails", contact_emails)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "threshold", threshold)
+        if contact_groups is not None:
+            pulumi.set(__self__, "contact_groups", contact_groups)
+        if contact_roles is not None:
+            pulumi.set(__self__, "contact_roles", contact_roles)
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+        if threshold_type is None:
+            threshold_type = 'Actual'
+        if threshold_type is not None:
+            pulumi.set(__self__, "threshold_type", threshold_type)
+
+    @property
+    @pulumi.getter(name="contactEmails")
+    def contact_emails(self) -> Sequence[str]:
+        """
+        Email addresses to send the notification to when the threshold is breached. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+        """
+        return pulumi.get(self, "contact_emails")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        The notification is enabled or not.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The comparison operator.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+
+         Supported operators for **CategoryType: Cost**
+        - GreaterThan
+        - GreaterThanOrEqualTo
+
+         Supported operators for **CategoryType: ReservationUtilization**
+        - LessThan
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> float:
+        """
+        Threshold value associated with a notification. It is always percent with a maximum of 2 decimal places.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+
+         **CategoryType: Cost** - Must be between 0 and 1000. Notification is sent when the cost exceeded the threshold.
+
+         **CategoryType: ReservationUtilization** - Must be between 0 and 100. Notification is sent when a reservation has a utilization percentage below the threshold.
+        """
+        return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="contactGroups")
+    def contact_groups(self) -> Optional[Sequence[str]]:
+        """
+        Subscription or Resource Group scopes only. Action groups to send the notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id.
+
+         Supported for CategoryType(s): Cost.
+        """
+        return pulumi.get(self, "contact_groups")
+
+    @property
+    @pulumi.getter(name="contactRoles")
+    def contact_roles(self) -> Optional[Sequence[str]]:
+        """
+        Subscription or Resource Group scopes only. Contact roles to send the notification to when the threshold is breached.
+
+         Supported for CategoryType(s): Cost.
+        """
+        return pulumi.get(self, "contact_roles")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[str]:
+        """
+        Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).
+
+         Supported for CategoryType(s): ReservationUtilization.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def locale(self) -> Optional[str]:
+        """
+        Language in which the recipient will receive the notification, 
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+        """
+        return pulumi.get(self, "locale")
+
+    @property
+    @pulumi.getter(name="thresholdType")
+    def threshold_type(self) -> Optional[str]:
+        """
+        The type of threshold.
+
+         Supported for CategoryType(s): Cost.
+        """
+        return pulumi.get(self, "threshold_type")
+
+
+@pulumi.output_type
 class PivotPropertiesResponse(dict):
     """
     Each pivot must contain a 'type' and 'name'.
@@ -1014,6 +1977,83 @@ class PivotPropertiesResponse(dict):
         Data type to show in view.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ReportAggregationResponse(dict):
+    """
+    The aggregation expression to be used in the report.
+    """
+    def __init__(__self__, *,
+                 function: str,
+                 name: str):
+        """
+        The aggregation expression to be used in the report.
+        :param str function: The name of the aggregation function to use.
+        :param str name: The name of the column to aggregate.
+        """
+        pulumi.set(__self__, "function", function)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def function(self) -> str:
+        """
+        The name of the aggregation function to use.
+        """
+        return pulumi.get(self, "function")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to aggregate.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ReportComparisonExpressionResponse(dict):
+    """
+    The comparison expression to be used in the report.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        The comparison expression to be used in the report.
+        :param str name: The name of the column to use in comparison.
+        :param str operator: The operator to use for comparison.
+        :param Sequence[str] values: Array of values to use for comparison
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to use in comparison.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator to use for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Array of values to use for comparison
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type
@@ -1395,6 +2435,549 @@ class ReportConfigTimePeriodResponse(dict):
 
 
 @pulumi.output_type
+class ReportDatasetConfigurationResponse(dict):
+    """
+    The configuration of dataset in the report.
+    """
+    def __init__(__self__, *,
+                 columns: Optional[Sequence[str]] = None):
+        """
+        The configuration of dataset in the report.
+        :param Sequence[str] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence[str]]:
+        """
+        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        return pulumi.get(self, "columns")
+
+
+@pulumi.output_type
+class ReportDatasetResponse(dict):
+    """
+    The definition of data present in the report.
+    """
+    def __init__(__self__, *,
+                 aggregation: Optional[Mapping[str, 'outputs.ReportAggregationResponse']] = None,
+                 configuration: Optional['outputs.ReportDatasetConfigurationResponse'] = None,
+                 filter: Optional['outputs.ReportFilterResponse'] = None,
+                 granularity: Optional[str] = None,
+                 grouping: Optional[Sequence['outputs.ReportGroupingResponse']] = None):
+        """
+        The definition of data present in the report.
+        :param Mapping[str, 'ReportAggregationResponse'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        :param 'ReportDatasetConfigurationResponse' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        :param 'ReportFilterResponse' filter: Has filter expression to use in the report.
+        :param str granularity: The granularity of rows in the report.
+        :param Sequence['ReportGroupingResponse'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        """
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if granularity is not None:
+            pulumi.set(__self__, "granularity", granularity)
+        if grouping is not None:
+            pulumi.set(__self__, "grouping", grouping)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[Mapping[str, 'outputs.ReportAggregationResponse']]:
+        """
+        Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.ReportDatasetConfigurationResponse']:
+        """
+        Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.ReportFilterResponse']:
+        """
+        Has filter expression to use in the report.
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter
+    def granularity(self) -> Optional[str]:
+        """
+        The granularity of rows in the report.
+        """
+        return pulumi.get(self, "granularity")
+
+    @property
+    @pulumi.getter
+    def grouping(self) -> Optional[Sequence['outputs.ReportGroupingResponse']]:
+        """
+        Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        """
+        return pulumi.get(self, "grouping")
+
+
+@pulumi.output_type
+class ReportDefinitionResponse(dict):
+    """
+    The definition of a report.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timePeriod":
+            suggest = "time_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 timeframe: str,
+                 type: str,
+                 dataset: Optional['outputs.ReportDatasetResponse'] = None,
+                 time_period: Optional['outputs.ReportTimePeriodResponse'] = None):
+        """
+        The definition of a report.
+        :param str timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+        :param str type: The type of the report.
+        :param 'ReportDatasetResponse' dataset: Has definition for data in this report.
+        :param 'ReportTimePeriodResponse' time_period: Has time period for pulling data for the report.
+        """
+        pulumi.set(__self__, "timeframe", timeframe)
+        pulumi.set(__self__, "type", type)
+        if dataset is not None:
+            pulumi.set(__self__, "dataset", dataset)
+        if time_period is not None:
+            pulumi.set(__self__, "time_period", time_period)
+
+    @property
+    @pulumi.getter
+    def timeframe(self) -> str:
+        """
+        The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+        """
+        return pulumi.get(self, "timeframe")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the report.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def dataset(self) -> Optional['outputs.ReportDatasetResponse']:
+        """
+        Has definition for data in this report.
+        """
+        return pulumi.get(self, "dataset")
+
+    @property
+    @pulumi.getter(name="timePeriod")
+    def time_period(self) -> Optional['outputs.ReportTimePeriodResponse']:
+        """
+        Has time period for pulling data for the report.
+        """
+        return pulumi.get(self, "time_period")
+
+
+@pulumi.output_type
+class ReportDeliveryDestinationResponse(dict):
+    """
+    The destination information for the delivery of the report.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "rootFolderPath":
+            suggest = "root_folder_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportDeliveryDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportDeliveryDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportDeliveryDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container: str,
+                 resource_id: str,
+                 root_folder_path: Optional[str] = None):
+        """
+        The destination information for the delivery of the report.
+        :param str container: The name of the container where reports will be uploaded.
+        :param str resource_id: The resource id of the storage account where reports will be delivered.
+        :param str root_folder_path: The name of the directory where reports will be uploaded.
+        """
+        pulumi.set(__self__, "container", container)
+        pulumi.set(__self__, "resource_id", resource_id)
+        if root_folder_path is not None:
+            pulumi.set(__self__, "root_folder_path", root_folder_path)
+
+    @property
+    @pulumi.getter
+    def container(self) -> str:
+        """
+        The name of the container where reports will be uploaded.
+        """
+        return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The resource id of the storage account where reports will be delivered.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="rootFolderPath")
+    def root_folder_path(self) -> Optional[str]:
+        """
+        The name of the directory where reports will be uploaded.
+        """
+        return pulumi.get(self, "root_folder_path")
+
+
+@pulumi.output_type
+class ReportDeliveryInfoResponse(dict):
+    """
+    The delivery information associated with a report.
+    """
+    def __init__(__self__, *,
+                 destination: 'outputs.ReportDeliveryDestinationResponse'):
+        """
+        The delivery information associated with a report.
+        :param 'ReportDeliveryDestinationResponse' destination: Has destination for the report being delivered.
+        """
+        pulumi.set(__self__, "destination", destination)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.ReportDeliveryDestinationResponse':
+        """
+        Has destination for the report being delivered.
+        """
+        return pulumi.get(self, "destination")
+
+
+@pulumi.output_type
+class ReportFilterResponse(dict):
+    """
+    The filter expression to be used in the report.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "and":
+            suggest = "and_"
+        elif key == "not":
+            suggest = "not_"
+        elif key == "or":
+            suggest = "or_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 and_: Optional[Sequence['outputs.ReportFilterResponse']] = None,
+                 dimension: Optional['outputs.ReportComparisonExpressionResponse'] = None,
+                 not_: Optional['outputs.ReportFilterResponse'] = None,
+                 or_: Optional[Sequence['outputs.ReportFilterResponse']] = None,
+                 tag: Optional['outputs.ReportComparisonExpressionResponse'] = None):
+        """
+        The filter expression to be used in the report.
+        :param Sequence['ReportFilterResponse'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param 'ReportComparisonExpressionResponse' dimension: Has comparison expression for a dimension
+        :param 'ReportFilterResponse' not_: The logical "NOT" expression.
+        :param Sequence['ReportFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
+        :param 'ReportComparisonExpressionResponse' tag: Has comparison expression for a tag
+        """
+        if and_ is not None:
+            pulumi.set(__self__, "and_", and_)
+        if dimension is not None:
+            pulumi.set(__self__, "dimension", dimension)
+        if not_ is not None:
+            pulumi.set(__self__, "not_", not_)
+        if or_ is not None:
+            pulumi.set(__self__, "or_", or_)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter(name="and")
+    def and_(self) -> Optional[Sequence['outputs.ReportFilterResponse']]:
+        """
+        The logical "AND" expression. Must have at least 2 items.
+        """
+        return pulumi.get(self, "and_")
+
+    @property
+    @pulumi.getter
+    def dimension(self) -> Optional['outputs.ReportComparisonExpressionResponse']:
+        """
+        Has comparison expression for a dimension
+        """
+        return pulumi.get(self, "dimension")
+
+    @property
+    @pulumi.getter(name="not")
+    def not_(self) -> Optional['outputs.ReportFilterResponse']:
+        """
+        The logical "NOT" expression.
+        """
+        return pulumi.get(self, "not_")
+
+    @property
+    @pulumi.getter(name="or")
+    def or_(self) -> Optional[Sequence['outputs.ReportFilterResponse']]:
+        """
+        The logical "OR" expression. Must have at least 2 items.
+        """
+        return pulumi.get(self, "or_")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional['outputs.ReportComparisonExpressionResponse']:
+        """
+        Has comparison expression for a tag
+        """
+        return pulumi.get(self, "tag")
+
+
+@pulumi.output_type
+class ReportGroupingResponse(dict):
+    """
+    The group by expression to be used in the report.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        The group by expression to be used in the report.
+        :param str name: The name of the column to group.
+        :param str type: Has type of the column to group.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Has type of the column to group.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ReportRecurrencePeriodResponse(dict):
+    """
+    The start and end date for recurrence schedule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportRecurrencePeriodResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportRecurrencePeriodResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportRecurrencePeriodResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_: str,
+                 to: Optional[str] = None):
+        """
+        The start and end date for recurrence schedule.
+        :param str from_: The start date of recurrence.
+        :param str to: The end date of recurrence.
+        """
+        pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> str:
+        """
+        The start date of recurrence.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[str]:
+        """
+        The end date of recurrence.
+        """
+        return pulumi.get(self, "to")
+
+
+@pulumi.output_type
+class ReportScheduleResponse(dict):
+    """
+    The schedule associated with a report.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recurrencePeriod":
+            suggest = "recurrence_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 recurrence: str,
+                 recurrence_period: Optional['outputs.ReportRecurrencePeriodResponse'] = None,
+                 status: Optional[str] = None):
+        """
+        The schedule associated with a report.
+        :param str recurrence: The schedule recurrence.
+        :param 'ReportRecurrencePeriodResponse' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        :param str status: The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+        """
+        pulumi.set(__self__, "recurrence", recurrence)
+        if recurrence_period is not None:
+            pulumi.set(__self__, "recurrence_period", recurrence_period)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> str:
+        """
+        The schedule recurrence.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @property
+    @pulumi.getter(name="recurrencePeriod")
+    def recurrence_period(self) -> Optional['outputs.ReportRecurrencePeriodResponse']:
+        """
+        Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        """
+        return pulumi.get(self, "recurrence_period")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ReportTimePeriodResponse(dict):
+    """
+    The start and end date for pulling data for the report.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportTimePeriodResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportTimePeriodResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportTimePeriodResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_: str,
+                 to: str):
+        """
+        The start and end date for pulling data for the report.
+        :param str from_: The start date to pull data from.
+        :param str to: The end date to pull data to.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> str:
+        """
+        The start date to pull data from.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def to(self) -> str:
+        """
+        The end date to pull data to.
+        """
+        return pulumi.get(self, "to")
+
+
+@pulumi.output_type
 class SchedulePropertiesResponse(dict):
     """
     The properties of the schedule.
@@ -1589,6 +3172,67 @@ class SettingsPropertiesResponseCache(dict):
 
 
 @pulumi.output_type
+class SourceCostAllocationResourceResponse(dict):
+    """
+    Source resources for cost allocation
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceCostAllocationResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceCostAllocationResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceCostAllocationResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 resource_type: str,
+                 values: Sequence[str]):
+        """
+        Source resources for cost allocation
+        :param str name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
+        :param str resource_type: Type of resources contained in this cost allocation rule
+        :param Sequence[str] values: Source Resources for cost allocation. This list cannot contain more than 25 values.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        Type of resources contained in this cost allocation rule
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Source Resources for cost allocation. This list cannot contain more than 25 values.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -1696,5 +3340,118 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TagInheritancePropertiesResponse(dict):
+    """
+    The properties of the tag inheritance setting.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferContainerTags":
+            suggest = "prefer_container_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TagInheritancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TagInheritancePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TagInheritancePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefer_container_tags: bool):
+        """
+        The properties of the tag inheritance setting.
+        :param bool prefer_container_tags: When resource has the same tag as subscription or resource group and this property is set to true - the subscription or resource group tag will be applied. If subscription and resource group tags are also the same, subscription tag will be applied.
+        """
+        pulumi.set(__self__, "prefer_container_tags", prefer_container_tags)
+
+    @property
+    @pulumi.getter(name="preferContainerTags")
+    def prefer_container_tags(self) -> bool:
+        """
+        When resource has the same tag as subscription or resource group and this property is set to true - the subscription or resource group tag will be applied. If subscription and resource group tags are also the same, subscription tag will be applied.
+        """
+        return pulumi.get(self, "prefer_container_tags")
+
+
+@pulumi.output_type
+class TargetCostAllocationResourceResponse(dict):
+    """
+    Target resources for cost allocation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyType":
+            suggest = "policy_type"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetCostAllocationResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetCostAllocationResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetCostAllocationResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 policy_type: str,
+                 resource_type: str,
+                 values: Sequence['outputs.CostAllocationProportionResponse']):
+        """
+        Target resources for cost allocation.
+        :param str name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
+        :param str policy_type: Method of cost allocation for the rule
+        :param str resource_type: Type of resources contained in this cost allocation rule
+        :param Sequence['CostAllocationProportionResponse'] values: Target resources for cost allocation. This list cannot contain more than 25 values.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "policy_type", policy_type)
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> str:
+        """
+        Method of cost allocation for the rule
+        """
+        return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        Type of resources contained in this cost allocation rule
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence['outputs.CostAllocationProportionResponse']:
+        """
+        Target resources for cost allocation. This list cannot contain more than 25 values.
+        """
+        return pulumi.get(self, "values")
 
 

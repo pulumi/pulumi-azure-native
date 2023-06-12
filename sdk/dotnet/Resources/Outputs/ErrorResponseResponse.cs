@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
 {
 
     /// <summary>
-    /// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
+    /// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
     /// </summary>
     [OutputType]
     public sealed class ErrorResponseResponse
@@ -23,35 +23,42 @@ namespace Pulumi.AzureNative.Resources.Outputs
         /// <summary>
         /// The error code.
         /// </summary>
-        public readonly string Code;
+        public readonly string? Code;
         /// <summary>
         /// The error details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ErrorResponseResponse> Details;
         /// <summary>
+        /// The error object.
+        /// </summary>
+        public readonly Outputs.ErrorDetailResponse? Error;
+        /// <summary>
         /// The error message.
         /// </summary>
-        public readonly string Message;
+        public readonly string? Message;
         /// <summary>
         /// The error target.
         /// </summary>
-        public readonly string Target;
+        public readonly string? Target;
 
         [OutputConstructor]
         private ErrorResponseResponse(
             ImmutableArray<Outputs.ErrorAdditionalInfoResponse> additionalInfo,
 
-            string code,
+            string? code,
 
             ImmutableArray<Outputs.ErrorResponseResponse> details,
 
-            string message,
+            Outputs.ErrorDetailResponse? error,
 
-            string target)
+            string? message,
+
+            string? target)
         {
             AdditionalInfo = additionalInfo;
             Code = code;
             Details = details;
+            Error = error;
             Message = message;
             Target = target;
         }

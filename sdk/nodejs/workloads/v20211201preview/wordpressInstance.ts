@@ -111,6 +111,8 @@ export class WordpressInstance extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads:WordpressInstance" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WordpressInstance.__pulumiType, name, resourceInputs, opts);
     }
 }

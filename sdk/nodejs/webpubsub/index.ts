@@ -30,6 +30,11 @@ export const getWebPubSubPrivateEndpointConnection: typeof import("./getWebPubSu
 export const getWebPubSubPrivateEndpointConnectionOutput: typeof import("./getWebPubSubPrivateEndpointConnection").getWebPubSubPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getWebPubSubPrivateEndpointConnection","getWebPubSubPrivateEndpointConnectionOutput"], () => require("./getWebPubSubPrivateEndpointConnection"));
 
+export { GetWebPubSubReplicaArgs, GetWebPubSubReplicaResult, GetWebPubSubReplicaOutputArgs } from "./getWebPubSubReplica";
+export const getWebPubSubReplica: typeof import("./getWebPubSubReplica").getWebPubSubReplica = null as any;
+export const getWebPubSubReplicaOutput: typeof import("./getWebPubSubReplica").getWebPubSubReplicaOutput = null as any;
+utilities.lazyLoad(exports, ["getWebPubSubReplica","getWebPubSubReplicaOutput"], () => require("./getWebPubSubReplica"));
+
 export { GetWebPubSubSharedPrivateLinkResourceArgs, GetWebPubSubSharedPrivateLinkResourceResult, GetWebPubSubSharedPrivateLinkResourceOutputArgs } from "./getWebPubSubSharedPrivateLinkResource";
 export const getWebPubSubSharedPrivateLinkResource: typeof import("./getWebPubSubSharedPrivateLinkResource").getWebPubSubSharedPrivateLinkResource = null as any;
 export const getWebPubSubSharedPrivateLinkResourceOutput: typeof import("./getWebPubSubSharedPrivateLinkResource").getWebPubSubSharedPrivateLinkResourceOutput = null as any;
@@ -64,6 +69,11 @@ export { WebPubSubPrivateEndpointConnectionArgs } from "./webPubSubPrivateEndpoi
 export type WebPubSubPrivateEndpointConnection = import("./webPubSubPrivateEndpointConnection").WebPubSubPrivateEndpointConnection;
 export const WebPubSubPrivateEndpointConnection: typeof import("./webPubSubPrivateEndpointConnection").WebPubSubPrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["WebPubSubPrivateEndpointConnection"], () => require("./webPubSubPrivateEndpointConnection"));
+
+export { WebPubSubReplicaArgs } from "./webPubSubReplica";
+export type WebPubSubReplica = import("./webPubSubReplica").WebPubSubReplica;
+export const WebPubSubReplica: typeof import("./webPubSubReplica").WebPubSubReplica = null as any;
+utilities.lazyLoad(exports, ["WebPubSubReplica"], () => require("./webPubSubReplica"));
 
 export { WebPubSubSharedPrivateLinkResourceArgs } from "./webPubSubSharedPrivateLinkResource";
 export type WebPubSubSharedPrivateLinkResource = import("./webPubSubSharedPrivateLinkResource").WebPubSubSharedPrivateLinkResource;
@@ -105,6 +115,8 @@ const _module = {
                 return new WebPubSubHub(name, <any>undefined, { urn })
             case "azure-native:webpubsub:WebPubSubPrivateEndpointConnection":
                 return new WebPubSubPrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:webpubsub:WebPubSubReplica":
+                return new WebPubSubReplica(name, <any>undefined, { urn })
             case "azure-native:webpubsub:WebPubSubSharedPrivateLinkResource":
                 return new WebPubSubSharedPrivateLinkResource(name, <any>undefined, { urn })
             default:

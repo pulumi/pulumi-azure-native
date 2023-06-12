@@ -100,6 +100,14 @@ export const ProjectTargetPlatform = {
  */
 export type ProjectTargetPlatform = (typeof ProjectTargetPlatform)[keyof typeof ProjectTargetPlatform];
 
+export const ResourceType = {
+    SqlMi: "SqlMi",
+    SqlVm: "SqlVm",
+    SqlDb: "SqlDb",
+} as const;
+
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
 export const ServerLevelPermissionsGroup = {
     Default: "Default",
     MigrationFromSqlServerToAzureDB: "MigrationFromSqlServerToAzureDB",

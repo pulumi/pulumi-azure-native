@@ -35,6 +35,16 @@ export const getMSIXPackage: typeof import("./getMSIXPackage").getMSIXPackage = 
 export const getMSIXPackageOutput: typeof import("./getMSIXPackage").getMSIXPackageOutput = null as any;
 utilities.lazyLoad(exports, ["getMSIXPackage","getMSIXPackageOutput"], () => require("./getMSIXPackage"));
 
+export { GetPrivateEndpointConnectionByHostPoolArgs, GetPrivateEndpointConnectionByHostPoolResult, GetPrivateEndpointConnectionByHostPoolOutputArgs } from "./getPrivateEndpointConnectionByHostPool";
+export const getPrivateEndpointConnectionByHostPool: typeof import("./getPrivateEndpointConnectionByHostPool").getPrivateEndpointConnectionByHostPool = null as any;
+export const getPrivateEndpointConnectionByHostPoolOutput: typeof import("./getPrivateEndpointConnectionByHostPool").getPrivateEndpointConnectionByHostPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionByHostPool","getPrivateEndpointConnectionByHostPoolOutput"], () => require("./getPrivateEndpointConnectionByHostPool"));
+
+export { GetPrivateEndpointConnectionByWorkspaceArgs, GetPrivateEndpointConnectionByWorkspaceResult, GetPrivateEndpointConnectionByWorkspaceOutputArgs } from "./getPrivateEndpointConnectionByWorkspace";
+export const getPrivateEndpointConnectionByWorkspace: typeof import("./getPrivateEndpointConnectionByWorkspace").getPrivateEndpointConnectionByWorkspace = null as any;
+export const getPrivateEndpointConnectionByWorkspaceOutput: typeof import("./getPrivateEndpointConnectionByWorkspace").getPrivateEndpointConnectionByWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnectionByWorkspace","getPrivateEndpointConnectionByWorkspaceOutput"], () => require("./getPrivateEndpointConnectionByWorkspace"));
+
 export { GetScalingPlanArgs, GetScalingPlanResult, GetScalingPlanOutputArgs } from "./getScalingPlan";
 export const getScalingPlan: typeof import("./getScalingPlan").getScalingPlan = null as any;
 export const getScalingPlanOutput: typeof import("./getScalingPlan").getScalingPlanOutput = null as any;
@@ -59,6 +69,16 @@ export { MSIXPackageArgs } from "./msixpackage";
 export type MSIXPackage = import("./msixpackage").MSIXPackage;
 export const MSIXPackage: typeof import("./msixpackage").MSIXPackage = null as any;
 utilities.lazyLoad(exports, ["MSIXPackage"], () => require("./msixpackage"));
+
+export { PrivateEndpointConnectionByHostPoolArgs } from "./privateEndpointConnectionByHostPool";
+export type PrivateEndpointConnectionByHostPool = import("./privateEndpointConnectionByHostPool").PrivateEndpointConnectionByHostPool;
+export const PrivateEndpointConnectionByHostPool: typeof import("./privateEndpointConnectionByHostPool").PrivateEndpointConnectionByHostPool = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionByHostPool"], () => require("./privateEndpointConnectionByHostPool"));
+
+export { PrivateEndpointConnectionByWorkspaceArgs } from "./privateEndpointConnectionByWorkspace";
+export type PrivateEndpointConnectionByWorkspace = import("./privateEndpointConnectionByWorkspace").PrivateEndpointConnectionByWorkspace;
+export const PrivateEndpointConnectionByWorkspace: typeof import("./privateEndpointConnectionByWorkspace").PrivateEndpointConnectionByWorkspace = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnectionByWorkspace"], () => require("./privateEndpointConnectionByWorkspace"));
 
 export { ScalingPlanArgs } from "./scalingPlan";
 export type ScalingPlan = import("./scalingPlan").ScalingPlan;
@@ -110,6 +130,10 @@ const _module = {
                 return new HostPool(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:MSIXPackage":
                 return new MSIXPackage(name, <any>undefined, { urn })
+            case "azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool":
+                return new PrivateEndpointConnectionByHostPool(name, <any>undefined, { urn })
+            case "azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace":
+                return new PrivateEndpointConnectionByWorkspace(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:ScalingPlan":
                 return new ScalingPlan(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:ScalingPlanPooledSchedule":

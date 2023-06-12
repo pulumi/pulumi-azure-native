@@ -385,6 +385,38 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// Selected type of domain control validation for managed certificates.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedCertificateDomainControlValidation : IEquatable<ManagedCertificateDomainControlValidation>
+    {
+        private readonly string _value;
+
+        private ManagedCertificateDomainControlValidation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedCertificateDomainControlValidation CNAME { get; } = new ManagedCertificateDomainControlValidation("CNAME");
+        public static ManagedCertificateDomainControlValidation HTTP { get; } = new ManagedCertificateDomainControlValidation("HTTP");
+        public static ManagedCertificateDomainControlValidation TXT { get; } = new ManagedCertificateDomainControlValidation("TXT");
+
+        public static bool operator ==(ManagedCertificateDomainControlValidation left, ManagedCertificateDomainControlValidation right) => left.Equals(right);
+        public static bool operator !=(ManagedCertificateDomainControlValidation left, ManagedCertificateDomainControlValidation right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedCertificateDomainControlValidation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedCertificateDomainControlValidation other && Equals(other);
+        public bool Equals(ManagedCertificateDomainControlValidation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Outbound type for the cluster
     /// </summary>
     [EnumType]
@@ -531,6 +563,7 @@ namespace Pulumi.AzureNative.App
 
         public static StorageType AzureFile { get; } = new StorageType("AzureFile");
         public static StorageType EmptyDir { get; } = new StorageType("EmptyDir");
+        public static StorageType Secret { get; } = new StorageType("Secret");
 
         public static bool operator ==(StorageType left, StorageType right) => left.Equals(right);
         public static bool operator !=(StorageType left, StorageType right) => !left.Equals(right);
@@ -540,6 +573,38 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageType other && Equals(other);
         public bool Equals(StorageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Trigger type of the job
+    /// </summary>
+    [EnumType]
+    public readonly struct TriggerType : IEquatable<TriggerType>
+    {
+        private readonly string _value;
+
+        private TriggerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TriggerType Scheduled { get; } = new TriggerType("Scheduled");
+        public static TriggerType Event { get; } = new TriggerType("Event");
+        public static TriggerType Manual { get; } = new TriggerType("Manual");
+
+        public static bool operator ==(TriggerType left, TriggerType right) => left.Equals(right);
+        public static bool operator !=(TriggerType left, TriggerType right) => !left.Equals(right);
+
+        public static explicit operator string(TriggerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggerType other && Equals(other);
+        public bool Equals(TriggerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -12,15 +12,31 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AcceleratorBasicAuthSettingResponse',
+    'AcceleratorGitRepositoryResponse',
+    'AcceleratorPublicSettingResponse',
+    'AcceleratorSshSettingResponse',
     'ApiPortalCustomDomainPropertiesResponse',
     'ApiPortalInstanceResponse',
     'ApiPortalPropertiesResponse',
     'ApiPortalResourceRequestsResponse',
+    'ApmPropertiesResponse',
+    'ApmReferenceResponse',
     'AppResourcePropertiesResponse',
     'AppVNetAddonsResponse',
+    'ApplicationAcceleratorComponentResponse',
+    'ApplicationAcceleratorInstanceResponse',
+    'ApplicationAcceleratorPropertiesResponse',
+    'ApplicationAcceleratorResourceRequestsResponse',
     'ApplicationInsightsAgentVersionsResponse',
+    'ApplicationLiveViewComponentResponse',
+    'ApplicationLiveViewInstanceResponse',
+    'ApplicationLiveViewPropertiesResponse',
+    'ApplicationLiveViewResourceRequestsResponse',
     'AzureFileVolumeResponse',
     'BindingResourcePropertiesResponse',
+    'BuildPropertiesResponse',
+    'BuildResourceRequestsResponse',
     'BuildResultUserSourceInfoResponse',
     'BuildServiceAgentPoolPropertiesResponse',
     'BuildServiceAgentPoolSizePropertiesResponse',
@@ -29,6 +45,7 @@ __all__ = [
     'BuildpackBindingPropertiesResponse',
     'BuildpackPropertiesResponse',
     'BuildpacksGroupPropertiesResponse',
+    'CertificateReferenceResponse',
     'ClusterResourcePropertiesResponse',
     'ConfigServerGitPropertyResponse',
     'ConfigServerPropertiesResponse',
@@ -40,14 +57,23 @@ __all__ = [
     'ConfigurationServiceResourceRequestsResponse',
     'ConfigurationServiceSettingsResponse',
     'ContainerProbeSettingsResponse',
+    'ContainerRegistryBasicCredentialsResponse',
+    'ContainerRegistryPropertiesResponse',
     'ContentCertificatePropertiesResponse',
     'CustomContainerResponse',
     'CustomContainerUserSourceInfoResponse',
     'CustomDomainPropertiesResponse',
     'CustomPersistentDiskResourceResponse',
+    'CustomizedAcceleratorPropertiesResponse',
     'DeploymentInstanceResponse',
     'DeploymentResourcePropertiesResponse',
     'DeploymentSettingsResponse',
+    'DevToolPortalFeatureDetailResponse',
+    'DevToolPortalFeatureSettingsResponse',
+    'DevToolPortalInstanceResponse',
+    'DevToolPortalPropertiesResponse',
+    'DevToolPortalResourceRequestsResponse',
+    'DevToolPortalSsoPropertiesResponse',
     'ErrorResponse',
     'ExecActionResponse',
     'GatewayApiMetadataPropertiesResponse',
@@ -91,9 +117,270 @@ __all__ = [
     'SystemDataResponse',
     'TCPSocketActionResponse',
     'TemporaryDiskResponse',
+    'TriggeredBuildResultResponse',
     'UploadedUserSourceInfoResponse',
     'UserAssignedManagedIdentityResponse',
 ]
+
+@pulumi.output_type
+class AcceleratorBasicAuthSettingResponse(dict):
+    """
+    Auth setting for basic auth.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "caCertResourceId":
+            suggest = "ca_cert_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AcceleratorBasicAuthSettingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AcceleratorBasicAuthSettingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AcceleratorBasicAuthSettingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: str,
+                 username: str,
+                 ca_cert_resource_id: Optional[str] = None):
+        """
+        Auth setting for basic auth.
+        :param str auth_type: The type of the auth setting.
+               Expected value is 'BasicAuth'.
+        :param str username: Username of git repository basic auth.
+        :param str ca_cert_resource_id: Resource Id of CA certificate for https URL of Git repository.
+        """
+        pulumi.set(__self__, "auth_type", 'BasicAuth')
+        pulumi.set(__self__, "username", username)
+        if ca_cert_resource_id is not None:
+            pulumi.set(__self__, "ca_cert_resource_id", ca_cert_resource_id)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        The type of the auth setting.
+        Expected value is 'BasicAuth'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        Username of git repository basic auth.
+        """
+        return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter(name="caCertResourceId")
+    def ca_cert_resource_id(self) -> Optional[str]:
+        """
+        Resource Id of CA certificate for https URL of Git repository.
+        """
+        return pulumi.get(self, "ca_cert_resource_id")
+
+
+@pulumi.output_type
+class AcceleratorGitRepositoryResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authSetting":
+            suggest = "auth_setting"
+        elif key == "gitTag":
+            suggest = "git_tag"
+        elif key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AcceleratorGitRepositoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AcceleratorGitRepositoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AcceleratorGitRepositoryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_setting: Any,
+                 url: str,
+                 branch: Optional[str] = None,
+                 commit: Optional[str] = None,
+                 git_tag: Optional[str] = None,
+                 interval_in_seconds: Optional[int] = None):
+        """
+        :param Union['AcceleratorBasicAuthSettingResponse', 'AcceleratorPublicSettingResponse', 'AcceleratorSshSettingResponse'] auth_setting: Properties of the auth setting payload.
+        :param str url: Git repository URL for the accelerator.
+        :param str branch: Git repository branch to be used.
+        :param str commit: Git repository commit to be used.
+        :param str git_tag: Git repository tag to be used.
+        :param int interval_in_seconds: Interval for checking for updates to Git or image repository.
+        """
+        pulumi.set(__self__, "auth_setting", auth_setting)
+        pulumi.set(__self__, "url", url)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if commit is not None:
+            pulumi.set(__self__, "commit", commit)
+        if git_tag is not None:
+            pulumi.set(__self__, "git_tag", git_tag)
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+
+    @property
+    @pulumi.getter(name="authSetting")
+    def auth_setting(self) -> Any:
+        """
+        Properties of the auth setting payload.
+        """
+        return pulumi.get(self, "auth_setting")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Git repository URL for the accelerator.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[str]:
+        """
+        Git repository branch to be used.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter
+    def commit(self) -> Optional[str]:
+        """
+        Git repository commit to be used.
+        """
+        return pulumi.get(self, "commit")
+
+    @property
+    @pulumi.getter(name="gitTag")
+    def git_tag(self) -> Optional[str]:
+        """
+        Git repository tag to be used.
+        """
+        return pulumi.get(self, "git_tag")
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[int]:
+        """
+        Interval for checking for updates to Git or image repository.
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+
+@pulumi.output_type
+class AcceleratorPublicSettingResponse(dict):
+    """
+    Auth setting for public url.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "caCertResourceId":
+            suggest = "ca_cert_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AcceleratorPublicSettingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AcceleratorPublicSettingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AcceleratorPublicSettingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: str,
+                 ca_cert_resource_id: Optional[str] = None):
+        """
+        Auth setting for public url.
+        :param str auth_type: The type of the auth setting.
+               Expected value is 'Public'.
+        :param str ca_cert_resource_id: Resource Id of CA certificate for https URL of Git repository.
+        """
+        pulumi.set(__self__, "auth_type", 'Public')
+        if ca_cert_resource_id is not None:
+            pulumi.set(__self__, "ca_cert_resource_id", ca_cert_resource_id)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        The type of the auth setting.
+        Expected value is 'Public'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="caCertResourceId")
+    def ca_cert_resource_id(self) -> Optional[str]:
+        """
+        Resource Id of CA certificate for https URL of Git repository.
+        """
+        return pulumi.get(self, "ca_cert_resource_id")
+
+
+@pulumi.output_type
+class AcceleratorSshSettingResponse(dict):
+    """
+    Auth setting for SSH auth.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AcceleratorSshSettingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AcceleratorSshSettingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AcceleratorSshSettingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: str):
+        """
+        Auth setting for SSH auth.
+        :param str auth_type: The type of the auth setting.
+               Expected value is 'SSH'.
+        """
+        pulumi.set(__self__, "auth_type", 'SSH')
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        The type of the auth setting.
+        Expected value is 'SSH'.
+        """
+        return pulumi.get(self, "auth_type")
+
 
 @pulumi.output_type
 class ApiPortalCustomDomainPropertiesResponse(dict):
@@ -328,6 +615,107 @@ class ApiPortalResourceRequestsResponse(dict):
         Memory allocated to each API portal instance
         """
         return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
+class ApmPropertiesResponse(dict):
+    """
+    Properties of an APM
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApmPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApmPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApmPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 type: str,
+                 properties: Optional[Mapping[str, str]] = None):
+        """
+        Properties of an APM
+        :param str provisioning_state: State of the APM.
+        :param str type: APM Type
+        :param Mapping[str, str] properties: Non-sensitive properties for the APM
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the APM.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        APM Type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Non-sensitive properties for the APM
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class ApmReferenceResponse(dict):
+    """
+    A reference to the APM
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApmReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApmReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApmReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: str):
+        """
+        A reference to the APM
+        :param str resource_id: Resource Id of the APM
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        Resource Id of the APM
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -589,6 +977,186 @@ class AppVNetAddonsResponse(dict):
 
 
 @pulumi.output_type
+class ApplicationAcceleratorComponentResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceRequests":
+            suggest = "resource_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationAcceleratorComponentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationAcceleratorComponentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationAcceleratorComponentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instances: Sequence['outputs.ApplicationAcceleratorInstanceResponse'],
+                 name: str,
+                 resource_requests: Optional['outputs.ApplicationAcceleratorResourceRequestsResponse'] = None):
+        pulumi.set(__self__, "instances", instances)
+        pulumi.set(__self__, "name", name)
+        if resource_requests is not None:
+            pulumi.set(__self__, "resource_requests", resource_requests)
+
+    @property
+    @pulumi.getter
+    def instances(self) -> Sequence['outputs.ApplicationAcceleratorInstanceResponse']:
+        return pulumi.get(self, "instances")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceRequests")
+    def resource_requests(self) -> Optional['outputs.ApplicationAcceleratorResourceRequestsResponse']:
+        return pulumi.get(self, "resource_requests")
+
+
+@pulumi.output_type
+class ApplicationAcceleratorInstanceResponse(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 status: str):
+        """
+        :param str name: Name of the Application Accelerator instance.
+        :param str status: Status of the Application Accelerator instance. It can be Pending, Running, Succeeded, Failed, Unknown.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Application Accelerator instance.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the Application Accelerator instance. It can be Pending, Running, Succeeded, Failed, Unknown.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ApplicationAcceleratorPropertiesResponse(dict):
+    """
+    Application accelerator properties payload
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationAcceleratorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationAcceleratorPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationAcceleratorPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 components: Sequence['outputs.ApplicationAcceleratorComponentResponse'],
+                 provisioning_state: str):
+        """
+        Application accelerator properties payload
+        :param Sequence['ApplicationAcceleratorComponentResponse'] components: Collection of components belong to application accelerator.
+        :param str provisioning_state: State of the application accelerator.
+        """
+        pulumi.set(__self__, "components", components)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def components(self) -> Sequence['outputs.ApplicationAcceleratorComponentResponse']:
+        """
+        Collection of components belong to application accelerator.
+        """
+        return pulumi.get(self, "components")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the application accelerator.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class ApplicationAcceleratorResourceRequestsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationAcceleratorResourceRequestsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationAcceleratorResourceRequestsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationAcceleratorResourceRequestsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu: str,
+                 instance_count: int,
+                 memory: str):
+        """
+        :param str cpu: Cpu allocated to each application accelerator component. 1 core can be represented by 1 or 1000m
+        :param int instance_count: Instance count of the application accelerator component.
+        :param str memory: Memory allocated to each application accelerator component. 1 GB can be represented by 1Gi or 1024Mi.
+        """
+        pulumi.set(__self__, "cpu", cpu)
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> str:
+        """
+        Cpu allocated to each application accelerator component. 1 core can be represented by 1 or 1000m
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> int:
+        """
+        Instance count of the application accelerator component.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> str:
+        """
+        Memory allocated to each application accelerator component. 1 GB can be represented by 1Gi or 1024Mi.
+        """
+        return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
 class ApplicationInsightsAgentVersionsResponse(dict):
     """
     Application Insights agent versions properties payload
@@ -608,6 +1176,211 @@ class ApplicationInsightsAgentVersionsResponse(dict):
         Indicates the version of application insight java agent
         """
         return pulumi.get(self, "java")
+
+
+@pulumi.output_type
+class ApplicationLiveViewComponentResponse(dict):
+    """
+    Application Live View properties payload
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceRequests":
+            suggest = "resource_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationLiveViewComponentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationLiveViewComponentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationLiveViewComponentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instances: Sequence['outputs.ApplicationLiveViewInstanceResponse'],
+                 name: Any,
+                 resource_requests: 'outputs.ApplicationLiveViewResourceRequestsResponse'):
+        """
+        Application Live View properties payload
+        :param Sequence['ApplicationLiveViewInstanceResponse'] instances: Collection of instances belong to Application Live View.
+        :param Any name: Name of the component.
+        :param 'ApplicationLiveViewResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
+        """
+        pulumi.set(__self__, "instances", instances)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_requests", resource_requests)
+
+    @property
+    @pulumi.getter
+    def instances(self) -> Sequence['outputs.ApplicationLiveViewInstanceResponse']:
+        """
+        Collection of instances belong to Application Live View.
+        """
+        return pulumi.get(self, "instances")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Any:
+        """
+        Name of the component.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceRequests")
+    def resource_requests(self) -> 'outputs.ApplicationLiveViewResourceRequestsResponse':
+        """
+        The requested resource quantity for required CPU and Memory.
+        """
+        return pulumi.get(self, "resource_requests")
+
+
+@pulumi.output_type
+class ApplicationLiveViewInstanceResponse(dict):
+    """
+    Collection of instances belong to the Application Live View
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 status: str):
+        """
+        Collection of instances belong to the Application Live View
+        :param str name: Name of the Application Live View instance.
+        :param str status: Status of the Application Live View instance. It can be Pending, Running, Succeeded, Failed, Unknown.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Application Live View instance.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the Application Live View instance. It can be Pending, Running, Succeeded, Failed, Unknown.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ApplicationLiveViewPropertiesResponse(dict):
+    """
+    Application Live View properties payload
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationLiveViewPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationLiveViewPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationLiveViewPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 components: Sequence['outputs.ApplicationLiveViewComponentResponse'],
+                 provisioning_state: str):
+        """
+        Application Live View properties payload
+        :param Sequence['ApplicationLiveViewComponentResponse'] components: Component details of Application Live View
+        :param str provisioning_state: State of the Application Live View.
+        """
+        pulumi.set(__self__, "components", components)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def components(self) -> Sequence['outputs.ApplicationLiveViewComponentResponse']:
+        """
+        Component details of Application Live View
+        """
+        return pulumi.get(self, "components")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the Application Live View.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class ApplicationLiveViewResourceRequestsResponse(dict):
+    """
+    The resource quantity for required CPU and Memory of Application Live View component
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationLiveViewResourceRequestsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationLiveViewResourceRequestsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationLiveViewResourceRequestsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu: str,
+                 instance_count: int,
+                 memory: str):
+        """
+        The resource quantity for required CPU and Memory of Application Live View component
+        :param str cpu: Cpu quantity allocated to each Application Live View component instance. 1 core can be represented by 1 or 1000m.
+        :param int instance_count: Desired instance count of Application Live View component instance.
+        :param str memory: Memory quantity allocated to each Application Live View component instance. 1 GB can be represented by 1Gi or 1024Mi.
+        """
+        pulumi.set(__self__, "cpu", cpu)
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> str:
+        """
+        Cpu quantity allocated to each Application Live View component instance. 1 core can be represented by 1 or 1000m.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> int:
+        """
+        Desired instance count of Application Live View component instance.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> str:
+        """
+        Memory quantity allocated to each Application Live View component instance. 1 GB can be represented by 1Gi or 1024Mi.
+        """
+        return pulumi.get(self, "memory")
 
 
 @pulumi.output_type
@@ -832,6 +1605,191 @@ class BindingResourcePropertiesResponse(dict):
         The Azure resource id of the bound resource
         """
         return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class BuildPropertiesResponse(dict):
+    """
+    Build resource properties payload
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "triggeredBuildResult":
+            suggest = "triggered_build_result"
+        elif key == "agentPool":
+            suggest = "agent_pool"
+        elif key == "relativePath":
+            suggest = "relative_path"
+        elif key == "resourceRequests":
+            suggest = "resource_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 triggered_build_result: 'outputs.TriggeredBuildResultResponse',
+                 agent_pool: Optional[str] = None,
+                 apms: Optional[Sequence['outputs.ApmReferenceResponse']] = None,
+                 builder: Optional[str] = None,
+                 certificates: Optional[Sequence['outputs.CertificateReferenceResponse']] = None,
+                 env: Optional[Mapping[str, str]] = None,
+                 relative_path: Optional[str] = None,
+                 resource_requests: Optional['outputs.BuildResourceRequestsResponse'] = None):
+        """
+        Build resource properties payload
+        :param str provisioning_state: Provisioning state of the KPack build result
+        :param 'TriggeredBuildResultResponse' triggered_build_result:  The build result triggered by this build
+        :param str agent_pool: The resource id of agent pool
+        :param Sequence['ApmReferenceResponse'] apms: The APMs for this build
+        :param str builder: The resource id of builder to build the source code
+        :param Sequence['CertificateReferenceResponse'] certificates: The CA Certificates for this build
+        :param Mapping[str, str] env: The environment variables for this build
+        :param str relative_path: The relative path of source code
+        :param 'BuildResourceRequestsResponse' resource_requests: The customized build resource for this build
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "triggered_build_result", triggered_build_result)
+        if agent_pool is not None:
+            pulumi.set(__self__, "agent_pool", agent_pool)
+        if apms is not None:
+            pulumi.set(__self__, "apms", apms)
+        if builder is not None:
+            pulumi.set(__self__, "builder", builder)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if env is not None:
+            pulumi.set(__self__, "env", env)
+        if relative_path is not None:
+            pulumi.set(__self__, "relative_path", relative_path)
+        if resource_requests is not None:
+            pulumi.set(__self__, "resource_requests", resource_requests)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the KPack build result
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="triggeredBuildResult")
+    def triggered_build_result(self) -> 'outputs.TriggeredBuildResultResponse':
+        """
+         The build result triggered by this build
+        """
+        return pulumi.get(self, "triggered_build_result")
+
+    @property
+    @pulumi.getter(name="agentPool")
+    def agent_pool(self) -> Optional[str]:
+        """
+        The resource id of agent pool
+        """
+        return pulumi.get(self, "agent_pool")
+
+    @property
+    @pulumi.getter
+    def apms(self) -> Optional[Sequence['outputs.ApmReferenceResponse']]:
+        """
+        The APMs for this build
+        """
+        return pulumi.get(self, "apms")
+
+    @property
+    @pulumi.getter
+    def builder(self) -> Optional[str]:
+        """
+        The resource id of builder to build the source code
+        """
+        return pulumi.get(self, "builder")
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[Sequence['outputs.CertificateReferenceResponse']]:
+        """
+        The CA Certificates for this build
+        """
+        return pulumi.get(self, "certificates")
+
+    @property
+    @pulumi.getter
+    def env(self) -> Optional[Mapping[str, str]]:
+        """
+        The environment variables for this build
+        """
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> Optional[str]:
+        """
+        The relative path of source code
+        """
+        return pulumi.get(self, "relative_path")
+
+    @property
+    @pulumi.getter(name="resourceRequests")
+    def resource_requests(self) -> Optional['outputs.BuildResourceRequestsResponse']:
+        """
+        The customized build resource for this build
+        """
+        return pulumi.get(self, "resource_requests")
+
+
+@pulumi.output_type
+class BuildResourceRequestsResponse(dict):
+    """
+    Resource request payload of Build Resource.
+    """
+    def __init__(__self__, *,
+                 cpu: Optional[str] = None,
+                 memory: Optional[str] = None):
+        """
+        Resource request payload of Build Resource.
+        :param str cpu: Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m. 
+               The default value is 1, this should not exceed build service agent pool cpu size.
+        :param str memory: Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi. 
+               The default value is 2Gi, this should not exceed build service agent pool memory size.
+        """
+        if cpu is None:
+            cpu = '1'
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is None:
+            memory = '2Gi'
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[str]:
+        """
+        Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m. 
+        The default value is 1, this should not exceed build service agent pool cpu size.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[str]:
+        """
+        Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi. 
+        The default value is 2Gi, this should not exceed build service agent pool memory size.
+        """
+        return pulumi.get(self, "memory")
 
 
 @pulumi.output_type
@@ -1220,6 +2178,45 @@ class BuildpacksGroupPropertiesResponse(dict):
         Buildpack group name
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class CertificateReferenceResponse(dict):
+    """
+    A reference to the certificate
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: str):
+        """
+        A reference to the certificate
+        :param str resource_id: Resource Id of the certificate
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        Resource Id of the certificate
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -2046,6 +3043,102 @@ class ContainerProbeSettingsResponse(dict):
 
 
 @pulumi.output_type
+class ContainerRegistryBasicCredentialsResponse(dict):
+    """
+    The basic authentication properties for the container registry resource.
+    """
+    def __init__(__self__, *,
+                 server: str,
+                 type: str,
+                 username: str):
+        """
+        The basic authentication properties for the container registry resource.
+        :param str server: The login server of the Container Registry.
+        :param str type: The credential type of the container registry credentials.
+               Expected value is 'BasicAuth'.
+        :param str username: The username of the Container Registry.
+        """
+        pulumi.set(__self__, "server", server)
+        pulumi.set(__self__, "type", 'BasicAuth')
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def server(self) -> str:
+        """
+        The login server of the Container Registry.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The credential type of the container registry credentials.
+        Expected value is 'BasicAuth'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The username of the Container Registry.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ContainerRegistryPropertiesResponse(dict):
+    """
+    Container registry resource payload.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerRegistryPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerRegistryPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerRegistryPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 credentials: 'outputs.ContainerRegistryBasicCredentialsResponse',
+                 provisioning_state: str):
+        """
+        Container registry resource payload.
+        :param 'ContainerRegistryBasicCredentialsResponse' credentials: The credentials of the container registry resource.
+        :param str provisioning_state: State of the Container Registry.
+        """
+        pulumi.set(__self__, "credentials", credentials)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> 'outputs.ContainerRegistryBasicCredentialsResponse':
+        """
+        The credentials of the container registry resource.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the Container Registry.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
 class ContentCertificatePropertiesResponse(dict):
     """
     Properties of certificate imported from key vault.
@@ -2485,6 +3578,92 @@ class CustomPersistentDiskResourceResponse(dict):
 
 
 @pulumi.output_type
+class CustomizedAcceleratorPropertiesResponse(dict):
+    """
+    Customized accelerator properties payload
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gitRepository":
+            suggest = "git_repository"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "acceleratorTags":
+            suggest = "accelerator_tags"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "iconUrl":
+            suggest = "icon_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomizedAcceleratorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomizedAcceleratorPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomizedAcceleratorPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 git_repository: 'outputs.AcceleratorGitRepositoryResponse',
+                 provisioning_state: str,
+                 accelerator_tags: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 icon_url: Optional[str] = None):
+        """
+        Customized accelerator properties payload
+        :param str provisioning_state: State of the customized accelerator.
+        """
+        pulumi.set(__self__, "git_repository", git_repository)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if accelerator_tags is not None:
+            pulumi.set(__self__, "accelerator_tags", accelerator_tags)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if icon_url is not None:
+            pulumi.set(__self__, "icon_url", icon_url)
+
+    @property
+    @pulumi.getter(name="gitRepository")
+    def git_repository(self) -> 'outputs.AcceleratorGitRepositoryResponse':
+        return pulumi.get(self, "git_repository")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the customized accelerator.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="acceleratorTags")
+    def accelerator_tags(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "accelerator_tags")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="iconUrl")
+    def icon_url(self) -> Optional[str]:
+        return pulumi.get(self, "icon_url")
+
+
+@pulumi.output_type
 class DeploymentInstanceResponse(dict):
     """
     Deployment instance payload
@@ -2817,6 +3996,384 @@ class DeploymentSettingsResponse(dict):
         Optional duration in seconds the App Instance needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the App Instance are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 90 seconds.
         """
         return pulumi.get(self, "termination_grace_period_seconds")
+
+
+@pulumi.output_type
+class DevToolPortalFeatureDetailResponse(dict):
+    """
+    Detail settings for Dev Tool Portal feature
+    """
+    def __init__(__self__, *,
+                 route: str,
+                 state: Optional[str] = None):
+        """
+        Detail settings for Dev Tool Portal feature
+        :param str route: Route path to visit the plugin
+        :param str state: State of the plugin
+        """
+        pulumi.set(__self__, "route", route)
+        if state is None:
+            state = 'Enabled'
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def route(self) -> str:
+        """
+        Route path to visit the plugin
+        """
+        return pulumi.get(self, "route")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        State of the plugin
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class DevToolPortalFeatureSettingsResponse(dict):
+    """
+    Settings for Dev Tool Portal
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationAccelerator":
+            suggest = "application_accelerator"
+        elif key == "applicationLiveView":
+            suggest = "application_live_view"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DevToolPortalFeatureSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DevToolPortalFeatureSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DevToolPortalFeatureSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_accelerator: Optional['outputs.DevToolPortalFeatureDetailResponse'] = None,
+                 application_live_view: Optional['outputs.DevToolPortalFeatureDetailResponse'] = None):
+        """
+        Settings for Dev Tool Portal
+        :param 'DevToolPortalFeatureDetailResponse' application_accelerator: Detail of Accelerator plugin
+        :param 'DevToolPortalFeatureDetailResponse' application_live_view: Detail of App Live View plugin
+        """
+        if application_accelerator is not None:
+            pulumi.set(__self__, "application_accelerator", application_accelerator)
+        if application_live_view is not None:
+            pulumi.set(__self__, "application_live_view", application_live_view)
+
+    @property
+    @pulumi.getter(name="applicationAccelerator")
+    def application_accelerator(self) -> Optional['outputs.DevToolPortalFeatureDetailResponse']:
+        """
+        Detail of Accelerator plugin
+        """
+        return pulumi.get(self, "application_accelerator")
+
+    @property
+    @pulumi.getter(name="applicationLiveView")
+    def application_live_view(self) -> Optional['outputs.DevToolPortalFeatureDetailResponse']:
+        """
+        Detail of App Live View plugin
+        """
+        return pulumi.get(self, "application_live_view")
+
+
+@pulumi.output_type
+class DevToolPortalInstanceResponse(dict):
+    """
+    Collection of instances belong to the Dev Tool Portal.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 status: str):
+        """
+        Collection of instances belong to the Dev Tool Portal.
+        :param str name: Name of the Dev Tool Portal instance.
+        :param str status: Status of the Dev Tool Portal instance. It can be Pending, Running, Succeeded, Failed, Unknown.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Dev Tool Portal instance.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the Dev Tool Portal instance. It can be Pending, Running, Succeeded, Failed, Unknown.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DevToolPortalPropertiesResponse(dict):
+    """
+    Dev Tool Portal properties payload
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceRequests":
+            suggest = "resource_requests"
+        elif key == "ssoProperties":
+            suggest = "sso_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DevToolPortalPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DevToolPortalPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DevToolPortalPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instances: Sequence['outputs.DevToolPortalInstanceResponse'],
+                 provisioning_state: str,
+                 resource_requests: 'outputs.DevToolPortalResourceRequestsResponse',
+                 url: str,
+                 features: Optional['outputs.DevToolPortalFeatureSettingsResponse'] = None,
+                 public: Optional[bool] = None,
+                 sso_properties: Optional['outputs.DevToolPortalSsoPropertiesResponse'] = None):
+        """
+        Dev Tool Portal properties payload
+        :param Sequence['DevToolPortalInstanceResponse'] instances: Collection of instances belong to Dev Tool Portal.
+        :param str provisioning_state: State of the Dev Tool Portal.
+        :param 'DevToolPortalResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
+        :param str url: URL of the resource, exposed when 'public' is true.
+        :param 'DevToolPortalFeatureSettingsResponse' features: Settings for Dev Tool Portal
+        :param bool public: Indicates whether the resource exposes public endpoint
+        :param 'DevToolPortalSsoPropertiesResponse' sso_properties: Single sign-on related configuration
+        """
+        pulumi.set(__self__, "instances", instances)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_requests", resource_requests)
+        pulumi.set(__self__, "url", url)
+        if features is not None:
+            pulumi.set(__self__, "features", features)
+        if public is None:
+            public = False
+        if public is not None:
+            pulumi.set(__self__, "public", public)
+        if sso_properties is not None:
+            pulumi.set(__self__, "sso_properties", sso_properties)
+
+    @property
+    @pulumi.getter
+    def instances(self) -> Sequence['outputs.DevToolPortalInstanceResponse']:
+        """
+        Collection of instances belong to Dev Tool Portal.
+        """
+        return pulumi.get(self, "instances")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the Dev Tool Portal.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceRequests")
+    def resource_requests(self) -> 'outputs.DevToolPortalResourceRequestsResponse':
+        """
+        The requested resource quantity for required CPU and Memory.
+        """
+        return pulumi.get(self, "resource_requests")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        URL of the resource, exposed when 'public' is true.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional['outputs.DevToolPortalFeatureSettingsResponse']:
+        """
+        Settings for Dev Tool Portal
+        """
+        return pulumi.get(self, "features")
+
+    @property
+    @pulumi.getter
+    def public(self) -> Optional[bool]:
+        """
+        Indicates whether the resource exposes public endpoint
+        """
+        return pulumi.get(self, "public")
+
+    @property
+    @pulumi.getter(name="ssoProperties")
+    def sso_properties(self) -> Optional['outputs.DevToolPortalSsoPropertiesResponse']:
+        """
+        Single sign-on related configuration
+        """
+        return pulumi.get(self, "sso_properties")
+
+
+@pulumi.output_type
+class DevToolPortalResourceRequestsResponse(dict):
+    """
+    The resource quantity for required CPU and Memory of Dev Tool Portal
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DevToolPortalResourceRequestsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DevToolPortalResourceRequestsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DevToolPortalResourceRequestsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu: str,
+                 instance_count: int,
+                 memory: str):
+        """
+        The resource quantity for required CPU and Memory of Dev Tool Portal
+        :param str cpu: Cpu quantity allocated to each Dev Tool Portal instance. 1 core can be represented by 1 or 1000m
+        :param int instance_count: Desired instance count of Dev Tool Portal.
+        :param str memory: Memory quantity allocated to each Dev Tool Portal instance. 1 GB can be represented by 1Gi or 1024Mi.
+        """
+        pulumi.set(__self__, "cpu", cpu)
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> str:
+        """
+        Cpu quantity allocated to each Dev Tool Portal instance. 1 core can be represented by 1 or 1000m
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> int:
+        """
+        Desired instance count of Dev Tool Portal.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> str:
+        """
+        Memory quantity allocated to each Dev Tool Portal instance. 1 GB can be represented by 1Gi or 1024Mi.
+        """
+        return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
+class DevToolPortalSsoPropertiesResponse(dict):
+    """
+    Single sign-on related configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "metadataUrl":
+            suggest = "metadata_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DevToolPortalSsoPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DevToolPortalSsoPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DevToolPortalSsoPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 metadata_url: Optional[str] = None,
+                 scopes: Optional[Sequence[str]] = None):
+        """
+        Single sign-on related configuration
+        :param str client_id: The public identifier for the application
+        :param str client_secret: The secret known only to the application and the authorization server
+        :param str metadata_url: The URI of a JSON file with generic OIDC provider configuration.
+        :param Sequence[str] scopes: It defines the specific actions applications can be allowed to do on a user's behalf
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if metadata_url is not None:
+            pulumi.set(__self__, "metadata_url", metadata_url)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The public identifier for the application
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        """
+        The secret known only to the application and the authorization server
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="metadataUrl")
+    def metadata_url(self) -> Optional[str]:
+        """
+        The URI of a JSON file with generic OIDC provider configuration.
+        """
+        return pulumi.get(self, "metadata_url")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence[str]]:
+        """
+        It defines the specific actions applications can be allowed to do on a user's behalf
+        """
+        return pulumi.get(self, "scopes")
 
 
 @pulumi.output_type
@@ -5945,6 +7502,29 @@ class TemporaryDiskResponse(dict):
         Size of the temporary disk in GB
         """
         return pulumi.get(self, "size_in_gb")
+
+
+@pulumi.output_type
+class TriggeredBuildResultResponse(dict):
+    """
+    The build result triggered by a build
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        The build result triggered by a build
+        :param str id: The unique build id of this build result
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The unique build id of this build result
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

@@ -138,6 +138,8 @@ export class WorkspaceApiOperation extends pulumi.CustomResource {
             resourceInputs["urlTemplate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceApiOperation" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceApiOperation.__pulumiType, name, resourceInputs, opts);
     }
 }

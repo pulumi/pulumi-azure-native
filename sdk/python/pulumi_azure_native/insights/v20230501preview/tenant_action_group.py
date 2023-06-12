@@ -295,7 +295,7 @@ class TenantActionGroup(pulumi.CustomResource):
             __props__.__dict__["webhook_receivers"] = webhook_receivers
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20230301preview:TenantActionGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:TenantActionGroup"), pulumi.Alias(type_="azure-native:insights/v20230301preview:TenantActionGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TenantActionGroup, __self__).__init__(
             'azure-native:insights/v20230501preview:TenantActionGroup',

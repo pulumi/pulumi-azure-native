@@ -45,6 +45,11 @@ export const getLinkedStorageAccount: typeof import("./getLinkedStorageAccount")
 export const getLinkedStorageAccountOutput: typeof import("./getLinkedStorageAccount").getLinkedStorageAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getLinkedStorageAccount","getLinkedStorageAccountOutput"], () => require("./getLinkedStorageAccount"));
 
+export { GetMachineGroupArgs, GetMachineGroupResult, GetMachineGroupOutputArgs } from "./getMachineGroup";
+export const getMachineGroup: typeof import("./getMachineGroup").getMachineGroup = null as any;
+export const getMachineGroupOutput: typeof import("./getMachineGroup").getMachineGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getMachineGroup","getMachineGroupOutput"], () => require("./getMachineGroup"));
+
 export { GetQueryArgs, GetQueryResult, GetQueryOutputArgs } from "./getQuery";
 export const getQuery: typeof import("./getQuery").getQuery = null as any;
 export const getQueryOutput: typeof import("./getQuery").getQueryOutput = null as any;
@@ -80,6 +85,11 @@ export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null a
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
+export { GetWorkspaceSharedKeysArgs, GetWorkspaceSharedKeysResult, GetWorkspaceSharedKeysOutputArgs } from "./getWorkspaceSharedKeys";
+export const getWorkspaceSharedKeys: typeof import("./getWorkspaceSharedKeys").getWorkspaceSharedKeys = null as any;
+export const getWorkspaceSharedKeysOutput: typeof import("./getWorkspaceSharedKeys").getWorkspaceSharedKeysOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceSharedKeys","getWorkspaceSharedKeysOutput"], () => require("./getWorkspaceSharedKeys"));
+
 export { LinkedServiceArgs } from "./linkedService";
 export type LinkedService = import("./linkedService").LinkedService;
 export const LinkedService: typeof import("./linkedService").LinkedService = null as any;
@@ -89,6 +99,11 @@ export { LinkedStorageAccountArgs } from "./linkedStorageAccount";
 export type LinkedStorageAccount = import("./linkedStorageAccount").LinkedStorageAccount;
 export const LinkedStorageAccount: typeof import("./linkedStorageAccount").LinkedStorageAccount = null as any;
 utilities.lazyLoad(exports, ["LinkedStorageAccount"], () => require("./linkedStorageAccount"));
+
+export { MachineGroupArgs } from "./machineGroup";
+export type MachineGroup = import("./machineGroup").MachineGroup;
+export const MachineGroup: typeof import("./machineGroup").MachineGroup = null as any;
+utilities.lazyLoad(exports, ["MachineGroup"], () => require("./machineGroup"));
 
 export { QueryArgs } from "./query";
 export type Query = import("./query").Query;
@@ -161,6 +176,8 @@ const _module = {
                 return new LinkedService(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:LinkedStorageAccount":
                 return new LinkedStorageAccount(name, <any>undefined, { urn })
+            case "azure-native:operationalinsights:MachineGroup":
+                return new MachineGroup(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:Query":
                 return new Query(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:QueryPack":

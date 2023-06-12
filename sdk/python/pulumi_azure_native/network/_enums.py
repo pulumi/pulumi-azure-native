@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'Access',
+    'AccessRuleDirection',
     'ActionType',
     'AddressPrefixType',
     'AdminRuleKind',
@@ -27,6 +28,7 @@ __all__ = [
     'ApplicationGatewaySslPolicyType',
     'ApplicationGatewaySslProtocol',
     'ApplicationGatewayTier',
+    'AssociationAccessMode',
     'AuthorizationUseStatus',
     'AutoLearnPrivateRangesMode',
     'AzureFirewallApplicationRuleProtocolType',
@@ -48,6 +50,7 @@ __all__ = [
     'CustomIpPrefixType',
     'CustomRuleEnabledState',
     'DdosSettingsProtectionMode',
+    'DeleteExistingNSGs',
     'DeleteExistingPeering',
     'DeleteOptions',
     'DestinationPortBehavior',
@@ -179,6 +182,7 @@ __all__ = [
     'TransformType',
     'TransportProtocol',
     'UseHubGateway',
+    'UserRuleKind',
     'VirtualNetworkEncryptionEnforcement',
     'VirtualNetworkGatewayConnectionMode',
     'VirtualNetworkGatewayConnectionProtocol',
@@ -219,6 +223,14 @@ class Access(str, Enum):
     """
     ALLOW = "Allow"
     DENY = "Deny"
+
+
+class AccessRuleDirection(str, Enum):
+    """
+    Direction that specifies whether the access rules is inbound/outbound.
+    """
+    INBOUND = "Inbound"
+    OUTBOUND = "Outbound"
 
 
 class ActionType(str, Enum):
@@ -446,6 +458,15 @@ class ApplicationGatewayTier(str, Enum):
     WA_F_V2 = "WAF_v2"
 
 
+class AssociationAccessMode(str, Enum):
+    """
+    Access mode on the association.
+    """
+    LEARNING = "Learning"
+    ENFORCED = "Enforced"
+    AUDIT = "Audit"
+
+
 class AuthorizationUseStatus(str, Enum):
     """
     The authorization use status.
@@ -628,6 +649,14 @@ class DdosSettingsProtectionMode(str, Enum):
     VIRTUAL_NETWORK_INHERITED = "VirtualNetworkInherited"
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class DeleteExistingNSGs(str, Enum):
+    """
+    Flag if need to delete existing network security groups.
+    """
+    FALSE = "False"
+    TRUE = "True"
 
 
 class DeleteExistingPeering(str, Enum):
@@ -1870,6 +1899,14 @@ class UseHubGateway(str, Enum):
     """
     FALSE = "False"
     TRUE = "True"
+
+
+class UserRuleKind(str, Enum):
+    """
+    Whether the rule is custom or default.
+    """
+    CUSTOM = "Custom"
+    DEFAULT = "Default"
 
 
 class VirtualNetworkEncryptionEnforcement(str, Enum):

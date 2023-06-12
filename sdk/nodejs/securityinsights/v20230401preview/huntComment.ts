@@ -98,7 +98,7 @@ export class HuntComment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230501preview:HuntComment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:HuntComment" }, { type: "azure-native:securityinsights/v20230501preview:HuntComment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HuntComment.__pulumiType, name, resourceInputs, opts);
     }

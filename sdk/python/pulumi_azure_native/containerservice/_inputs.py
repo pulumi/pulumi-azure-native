@@ -19,6 +19,7 @@ __all__ = [
     'ContainerServiceSshPublicKeyArgs',
     'CreationDataArgs',
     'ExtendedLocationArgs',
+    'FleetHubProfileArgs',
     'KubeletConfigArgs',
     'LinuxOSConfigArgs',
     'ManagedClusterAADProfileArgs',
@@ -54,15 +55,19 @@ __all__ = [
     'ManagedClusterStorageProfileFileCSIDriverArgs',
     'ManagedClusterStorageProfileSnapshotControllerArgs',
     'ManagedClusterStorageProfileArgs',
+    'ManagedClusterUpdateArgs',
+    'ManagedClusterUpgradeSpecArgs',
     'ManagedClusterWindowsProfileArgs',
     'ManagedClusterWorkloadAutoScalerProfileKedaArgs',
     'ManagedClusterWorkloadAutoScalerProfileArgs',
     'NetworkProfileArgs',
+    'OpenShiftAPIPropertiesArgs',
     'OpenShiftManagedClusterAADIdentityProviderArgs',
     'OpenShiftManagedClusterAgentPoolProfileArgs',
     'OpenShiftManagedClusterAuthProfileArgs',
     'OpenShiftManagedClusterIdentityProviderArgs',
     'OpenShiftManagedClusterMasterPoolProfileArgs',
+    'OpenShiftManagedClusterMonitorProfileArgs',
     'OpenShiftRouterProfileArgs',
     'PowerStateArgs',
     'PrivateEndpointArgs',
@@ -73,6 +78,9 @@ __all__ = [
     'SysctlConfigArgs',
     'TimeInWeekArgs',
     'TimeSpanArgs',
+    'UpdateGroupArgs',
+    'UpdateRunStrategyArgs',
+    'UpdateStageArgs',
     'UserAssignedIdentityArgs',
     'WindowsGmsaProfileArgs',
 ]
@@ -579,6 +587,30 @@ class ExtendedLocationArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class FleetHubProfileArgs:
+    def __init__(__self__, *,
+                 dns_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        The FleetHubProfile configures the fleet hub.
+        :param pulumi.Input[str] dns_prefix: DNS prefix used to create the FQDN for the Fleet hub.
+        """
+        if dns_prefix is not None:
+            pulumi.set(__self__, "dns_prefix", dns_prefix)
+
+    @property
+    @pulumi.getter(name="dnsPrefix")
+    def dns_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        DNS prefix used to create the FQDN for the Fleet hub.
+        """
+        return pulumi.get(self, "dns_prefix")
+
+    @dns_prefix.setter
+    def dns_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_prefix", value)
 
 
 @pulumi.input_type
@@ -3200,6 +3232,72 @@ class ManagedClusterStorageProfileArgs:
 
 
 @pulumi.input_type
+class ManagedClusterUpdateArgs:
+    def __init__(__self__, *,
+                 upgrade: pulumi.Input['ManagedClusterUpgradeSpecArgs']):
+        """
+        The update to be applied to the ManagedClusters.
+        :param pulumi.Input['ManagedClusterUpgradeSpecArgs'] upgrade: The upgrade to apply to the ManagedClusters.
+        """
+        pulumi.set(__self__, "upgrade", upgrade)
+
+    @property
+    @pulumi.getter
+    def upgrade(self) -> pulumi.Input['ManagedClusterUpgradeSpecArgs']:
+        """
+        The upgrade to apply to the ManagedClusters.
+        """
+        return pulumi.get(self, "upgrade")
+
+    @upgrade.setter
+    def upgrade(self, value: pulumi.Input['ManagedClusterUpgradeSpecArgs']):
+        pulumi.set(self, "upgrade", value)
+
+
+@pulumi.input_type
+class ManagedClusterUpgradeSpecArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedClusterUpgradeType']],
+                 kubernetes_version: Optional[pulumi.Input[str]] = None):
+        """
+        The upgrade to apply to a ManagedCluster.
+        :param pulumi.Input[Union[str, 'ManagedClusterUpgradeType']] type: The upgrade type.
+               Full requires the KubernetesVersion property to be set.
+               NodeImageOnly requires the KubernetesVersion property not to be set.
+        :param pulumi.Input[str] kubernetes_version: The Kubernetes version to upgrade the member clusters to.
+        """
+        pulumi.set(__self__, "type", type)
+        if kubernetes_version is not None:
+            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedClusterUpgradeType']]:
+        """
+        The upgrade type.
+        Full requires the KubernetesVersion property to be set.
+        NodeImageOnly requires the KubernetesVersion property not to be set.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedClusterUpgradeType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Kubernetes version to upgrade the member clusters to.
+        """
+        return pulumi.get(self, "kubernetes_version")
+
+    @kubernetes_version.setter
+    def kubernetes_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kubernetes_version", value)
+
+
+@pulumi.input_type
 class ManagedClusterWindowsProfileArgs:
     def __init__(__self__, *,
                  admin_username: pulumi.Input[str],
@@ -3336,17 +3434,17 @@ class ManagedClusterWorkloadAutoScalerProfileArgs:
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
-                 peer_vnet_id: Optional[pulumi.Input[str]] = None,
+                 management_subnet_cidr: Optional[pulumi.Input[str]] = None,
                  vnet_cidr: Optional[pulumi.Input[str]] = None,
                  vnet_id: Optional[pulumi.Input[str]] = None):
         """
         Represents the OpenShift networking configuration
-        :param pulumi.Input[str] peer_vnet_id: CIDR of the Vnet to peer.
+        :param pulumi.Input[str] management_subnet_cidr: CIDR of subnet used to create PLS needed for management of the cluster
         :param pulumi.Input[str] vnet_cidr: CIDR for the OpenShift Vnet.
         :param pulumi.Input[str] vnet_id: ID of the Vnet created for OSA cluster.
         """
-        if peer_vnet_id is not None:
-            pulumi.set(__self__, "peer_vnet_id", peer_vnet_id)
+        if management_subnet_cidr is not None:
+            pulumi.set(__self__, "management_subnet_cidr", management_subnet_cidr)
         if vnet_cidr is None:
             vnet_cidr = '10.0.0.0/8'
         if vnet_cidr is not None:
@@ -3355,16 +3453,16 @@ class NetworkProfileArgs:
             pulumi.set(__self__, "vnet_id", vnet_id)
 
     @property
-    @pulumi.getter(name="peerVnetId")
-    def peer_vnet_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="managementSubnetCidr")
+    def management_subnet_cidr(self) -> Optional[pulumi.Input[str]]:
         """
-        CIDR of the Vnet to peer.
+        CIDR of subnet used to create PLS needed for management of the cluster
         """
-        return pulumi.get(self, "peer_vnet_id")
+        return pulumi.get(self, "management_subnet_cidr")
 
-    @peer_vnet_id.setter
-    def peer_vnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "peer_vnet_id", value)
+    @management_subnet_cidr.setter
+    def management_subnet_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "management_subnet_cidr", value)
 
     @property
     @pulumi.getter(name="vnetCidr")
@@ -3389,6 +3487,30 @@ class NetworkProfileArgs:
     @vnet_id.setter
     def vnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_id", value)
+
+
+@pulumi.input_type
+class OpenShiftAPIPropertiesArgs:
+    def __init__(__self__, *,
+                 private_api_server: Optional[pulumi.Input[bool]] = None):
+        """
+        Defines further properties on the API.
+        :param pulumi.Input[bool] private_api_server: Specifies if API server is public or private.
+        """
+        if private_api_server is not None:
+            pulumi.set(__self__, "private_api_server", private_api_server)
+
+    @property
+    @pulumi.getter(name="privateApiServer")
+    def private_api_server(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if API server is public or private.
+        """
+        return pulumi.get(self, "private_api_server")
+
+    @private_api_server.setter
+    def private_api_server(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_api_server", value)
 
 
 @pulumi.input_type
@@ -3652,23 +3774,19 @@ class OpenShiftManagedClusterMasterPoolProfileArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  vm_size: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']],
-                 name: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
+                 api_properties: Optional[pulumi.Input['OpenShiftAPIPropertiesArgs']] = None,
                  subnet_cidr: Optional[pulumi.Input[str]] = None):
         """
         OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
         :param pulumi.Input[int] count: Number of masters (VMs) to host docker containers. The default value is 3.
         :param pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']] vm_size: Size of agent VMs.
-        :param pulumi.Input[str] name: Unique name of the master pool profile in the context of the subscription and resource group.
-        :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param pulumi.Input['OpenShiftAPIPropertiesArgs'] api_properties: Defines further properties on the API.
         :param pulumi.Input[str] subnet_cidr: Subnet CIDR for the peering.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "vm_size", vm_size)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+        if api_properties is not None:
+            pulumi.set(__self__, "api_properties", api_properties)
         if subnet_cidr is not None:
             pulumi.set(__self__, "subnet_cidr", subnet_cidr)
 
@@ -3697,28 +3815,16 @@ class OpenShiftManagedClusterMasterPoolProfileArgs:
         pulumi.set(self, "vm_size", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="apiProperties")
+    def api_properties(self) -> Optional[pulumi.Input['OpenShiftAPIPropertiesArgs']]:
         """
-        Unique name of the master pool profile in the context of the subscription and resource group.
+        Defines further properties on the API.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "api_properties")
 
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OSType']]]:
-        """
-        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        """
-        return pulumi.get(self, "os_type")
-
-    @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OSType']]]):
-        pulumi.set(self, "os_type", value)
+    @api_properties.setter
+    def api_properties(self, value: Optional[pulumi.Input['OpenShiftAPIPropertiesArgs']]):
+        pulumi.set(self, "api_properties", value)
 
     @property
     @pulumi.getter(name="subnetCidr")
@@ -3731,6 +3837,46 @@ class OpenShiftManagedClusterMasterPoolProfileArgs:
     @subnet_cidr.setter
     def subnet_cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_cidr", value)
+
+
+@pulumi.input_type
+class OpenShiftManagedClusterMonitorProfileArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 workspace_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the configuration for Log Analytics integration.
+        :param pulumi.Input[bool] enabled: If the Log analytics integration should be turned on or off
+        :param pulumi.Input[str] workspace_resource_id: Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the Log analytics integration should be turned on or off
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="workspaceResourceID")
+    def workspace_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+        """
+        return pulumi.get(self, "workspace_resource_id")
+
+    @workspace_resource_id.setter
+    def workspace_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace_resource_id", value)
 
 
 @pulumi.input_type
@@ -4563,6 +4709,117 @@ class TimeSpanArgs:
     @start.setter
     def start(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start", value)
+
+
+@pulumi.input_type
+class UpdateGroupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        A group to be updated.
+        :param pulumi.Input[str] name: The name of the Fleet member group to update. 
+               It should match the name of an existing FleetMember group.
+               A group can only appear once across all UpdateStages in the UpdateRun.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Fleet member group to update. 
+        It should match the name of an existing FleetMember group.
+        A group can only appear once across all UpdateStages in the UpdateRun.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class UpdateRunStrategyArgs:
+    def __init__(__self__, *,
+                 stages: pulumi.Input[Sequence[pulumi.Input['UpdateStageArgs']]]):
+        """
+        The UpdateRunStrategy configures the sequence of Stages and Groups in which the clusters will be updated.
+        :param pulumi.Input[Sequence[pulumi.Input['UpdateStageArgs']]] stages: The list of stages that compose this update run.
+        """
+        pulumi.set(__self__, "stages", stages)
+
+    @property
+    @pulumi.getter
+    def stages(self) -> pulumi.Input[Sequence[pulumi.Input['UpdateStageArgs']]]:
+        """
+        The list of stages that compose this update run.
+        """
+        return pulumi.get(self, "stages")
+
+    @stages.setter
+    def stages(self, value: pulumi.Input[Sequence[pulumi.Input['UpdateStageArgs']]]):
+        pulumi.set(self, "stages", value)
+
+
+@pulumi.input_type
+class UpdateStageArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 after_stage_wait_in_seconds: Optional[pulumi.Input[int]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['UpdateGroupArgs']]]] = None):
+        """
+        Contains the groups to be updated by an UpdateRun.
+        Update order:
+        - Sequential between stages: Stages run sequentially. The previous stage must complete before the next one starts.
+        - Parallel within a stage: Groups within a stage run in parallel.
+        - Sequential within a group: Clusters within a group are updated sequentially.
+        :param pulumi.Input[str] name: The name of the stage. Must be unique within the UpdateRun.
+        :param pulumi.Input[int] after_stage_wait_in_seconds: The time in seconds to wait at the end of this stage before starting the next one. Defaults to 0 seconds if unspecified.
+        :param pulumi.Input[Sequence[pulumi.Input['UpdateGroupArgs']]] groups: A list of group names that compose the stage.
+               The groups will be updated in parallel. Each group name can only appear once in the UpdateRun.
+        """
+        pulumi.set(__self__, "name", name)
+        if after_stage_wait_in_seconds is not None:
+            pulumi.set(__self__, "after_stage_wait_in_seconds", after_stage_wait_in_seconds)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the stage. Must be unique within the UpdateRun.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="afterStageWaitInSeconds")
+    def after_stage_wait_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time in seconds to wait at the end of this stage before starting the next one. Defaults to 0 seconds if unspecified.
+        """
+        return pulumi.get(self, "after_stage_wait_in_seconds")
+
+    @after_stage_wait_in_seconds.setter
+    def after_stage_wait_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "after_stage_wait_in_seconds", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UpdateGroupArgs']]]]:
+        """
+        A list of group names that compose the stage.
+        The groups will be updated in parallel. Each group name can only appear once in the UpdateRun.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UpdateGroupArgs']]]]):
+        pulumi.set(self, "groups", value)
 
 
 @pulumi.input_type

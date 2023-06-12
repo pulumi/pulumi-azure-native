@@ -6,7 +6,9 @@ from enum import Enum
 
 __all__ = [
     'CleanupOptions',
+    'DenySettingsMode',
     'DeploymentMode',
+    'DeploymentStacksDeleteDetachEnum',
     'ExpressionEvaluationOptionsScopeType',
     'ExtendedLocationType',
     'ManagedServiceIdentityType',
@@ -25,12 +27,38 @@ class CleanupOptions(str, Enum):
     ON_EXPIRATION = "OnExpiration"
 
 
+class DenySettingsMode(str, Enum):
+    """
+    denySettings Mode.
+    """
+    DENY_DELETE = "denyDelete"
+    """
+    Authorized users are able to read and modify the resources, but cannot delete.
+    """
+    DENY_WRITE_AND_DELETE = "denyWriteAndDelete"
+    """
+    Authorized users can only read from a resource, but cannot modify or delete it.
+    """
+    NONE = "none"
+    """
+    No denyAssignments have been applied.
+    """
+
+
 class DeploymentMode(str, Enum):
     """
     The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
     """
     INCREMENTAL = "Incremental"
     COMPLETE = "Complete"
+
+
+class DeploymentStacksDeleteDetachEnum(str, Enum):
+    """
+    Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+    """
+    DELETE = "delete"
+    DETACH = "detach"
 
 
 class ExpressionEvaluationOptionsScopeType(str, Enum):

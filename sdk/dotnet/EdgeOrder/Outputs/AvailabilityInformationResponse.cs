@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
     public sealed class AvailabilityInformationResponse
     {
         /// <summary>
-        /// Current availability stage of the product. Availability stage
+        /// Current availability stage of the product.
         /// </summary>
         public readonly string AvailabilityStage;
         /// <summary>

@@ -83,6 +83,8 @@ export class WorkspaceNotificationRecipientUser extends pulumi.CustomResource {
             resourceInputs["userId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceNotificationRecipientUser" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceNotificationRecipientUser.__pulumiType, name, resourceInputs, opts);
     }
 }

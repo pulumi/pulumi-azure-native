@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ApplicationSharingPolicy',
+    'AutoDeleteCondition',
     'AutoRebuildSetting',
     'BatchLoggingLevel',
     'BatchOutputAction',
@@ -22,23 +23,31 @@ __all__ = [
     'ContainerType',
     'CredentialsType',
     'DataType',
+    'DatasetType',
     'DatastoreType',
+    'DatastoreTypeArm',
     'DistributionType',
+    'DockerSpecificationType',
     'EarlyTerminationPolicyType',
     'EgressPublicNetworkAccessType',
+    'EmailNotificationEnableType',
     'EncryptionStatus',
     'EndpointAuthMode',
     'EndpointComputeType',
     'EndpointServiceConnectionStatus',
     'EnvironmentVariableType',
+    'FeatureDataType',
     'FeatureLags',
     'FeaturizationMode',
     'ForecastHorizonMode',
     'ForecastingModels',
     'ForecastingPrimaryMetrics',
     'Goal',
+    'Header',
     'IdentityConfigurationType',
+    'ImageAnnotationType',
     'ImageType',
+    'IncrementalDataRefresh',
     'InputDeliveryMode',
     'InstanceSegmentationPrimaryMetrics',
     'JobInputType',
@@ -46,10 +55,15 @@ __all__ = [
     'JobOutputType',
     'JobType',
     'LearningRateScheduler',
+    'LinkedServiceLinkType',
     'LoadBalancerType',
     'LogVerbosity',
+    'MLAssistConfigurationType',
     'ManagedServiceIdentityType',
+    'MaterializationStoreType',
+    'MediaType',
     'ModelSize',
+    'MultiSelect',
     'NCrossValidationsMode',
     'NodesValueType',
     'ObjectDetectionPrimaryMetrics',
@@ -66,6 +80,10 @@ __all__ = [
     'RegressionModels',
     'RegressionPrimaryMetrics',
     'RemoteLoginPortPublicAccess',
+    'ResourceIdentityType',
+    'RuleCategory',
+    'RuleStatus',
+    'RuleType',
     'SamplingAlgorithmType',
     'ScaleType',
     'ScheduleActionType',
@@ -76,6 +94,7 @@ __all__ = [
     'ServiceDataAccessAuthIdentity',
     'ShortSeriesHandlingConfiguration',
     'SkuTier',
+    'SourceType',
     'SshPublicAccess',
     'SslConfigStatus',
     'StackMetaLearnerType',
@@ -84,12 +103,14 @@ __all__ = [
     'TargetLagsMode',
     'TargetRollingWindowSizeMode',
     'TaskType',
+    'TextAnnotationType',
     'TriggerType',
     'UseStl',
     'ValidationMetricType',
     'ValueFormat',
     'VmPriority',
     'VolumeDefinitionType',
+    'WebhookType',
     'WeekDay',
 ]
 
@@ -100,6 +121,14 @@ class ApplicationSharingPolicy(str, Enum):
     """
     PERSONAL = "Personal"
     SHARED = "Shared"
+
+
+class AutoDeleteCondition(str, Enum):
+    """
+    When to check if an asset is expired
+    """
+    CREATED_GREATER_THAN = "CreatedGreaterThan"
+    LAST_ACCESSED_GREATER_THAN = "LastAccessedGreaterThan"
 
 
 class AutoRebuildSetting(str, Enum):
@@ -395,6 +424,14 @@ class DataType(str, Enum):
     MLTABLE = "mltable"
 
 
+class DatasetType(str, Enum):
+    """
+    Specifies dataset type.
+    """
+    TABULAR = "tabular"
+    FILE = "file"
+
+
 class DatastoreType(str, Enum):
     """
     [Required] Storage type backing the datastore.
@@ -405,6 +442,20 @@ class DatastoreType(str, Enum):
     AZURE_FILE = "AzureFile"
 
 
+class DatastoreTypeArm(str, Enum):
+    """
+    Specifies datastore type.
+    """
+    BLOB = "blob"
+    ADLS = "adls"
+    ADLS_GEN2 = "adls-gen2"
+    DBFS = "dbfs"
+    FILE = "file"
+    MYSQLDB = "mysqldb"
+    SQLDB = "sqldb"
+    PSQLDB = "psqldb"
+
+
 class DistributionType(str, Enum):
     """
     [Required] Specifies the type of distribution framework.
@@ -412,6 +463,14 @@ class DistributionType(str, Enum):
     PY_TORCH = "PyTorch"
     TENSOR_FLOW = "TensorFlow"
     MPI = "Mpi"
+
+
+class DockerSpecificationType(str, Enum):
+    """
+    [Required] Docker specification must be either Build or Image
+    """
+    BUILD = "Build"
+    IMAGE = "Image"
 
 
 class EarlyTerminationPolicyType(str, Enum):
@@ -429,6 +488,15 @@ class EgressPublicNetworkAccessType(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class EmailNotificationEnableType(str, Enum):
+    """
+    Enum to determine the email notification type.
+    """
+    JOB_COMPLETED = "JobCompleted"
+    JOB_FAILED = "JobFailed"
+    JOB_CANCELLED = "JobCancelled"
 
 
 class EncryptionStatus(str, Enum):
@@ -472,6 +540,20 @@ class EnvironmentVariableType(str, Enum):
     Type of the Environment Variable. Possible values are: local - For local variable
     """
     LOCAL = "local"
+
+
+class FeatureDataType(str, Enum):
+    """
+    Specifies the data type
+    """
+    STRING = "String"
+    INTEGER = "Integer"
+    LONG = "Long"
+    FLOAT = "Float"
+    DOUBLE = "Double"
+    BINARY = "Binary"
+    DATETIME = "Datetime"
+    BOOLEAN = "Boolean"
 
 
 class FeatureLags(str, Enum):
@@ -643,6 +725,16 @@ class Goal(str, Enum):
     MAXIMIZE = "Maximize"
 
 
+class Header(str, Enum):
+    """
+    Header type.
+    """
+    ALL_FILES_HAVE_SAME_HEADERS = "all_files_have_same_headers"
+    ONLY_FIRST_FILE_HAS_HEADERS = "only_first_file_has_headers"
+    NO_HEADERS = "no_headers"
+    COMBINE_ALL_FILES_HEADERS = "combine_all_files_headers"
+
+
 class IdentityConfigurationType(str, Enum):
     """
     [Required] Specifies the type of identity framework.
@@ -652,12 +744,29 @@ class IdentityConfigurationType(str, Enum):
     USER_IDENTITY = "UserIdentity"
 
 
+class ImageAnnotationType(str, Enum):
+    """
+    Annotation type of image labeling job.
+    """
+    CLASSIFICATION = "Classification"
+    BOUNDING_BOX = "BoundingBox"
+    INSTANCE_SEGMENTATION = "InstanceSegmentation"
+
+
 class ImageType(str, Enum):
     """
     Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
     """
     DOCKER = "docker"
     AZUREML = "azureml"
+
+
+class IncrementalDataRefresh(str, Enum):
+    """
+    Indicates whether to enable incremental data refresh.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class InputDeliveryMode(str, Enum):
@@ -744,6 +853,13 @@ class LearningRateScheduler(str, Enum):
     """
 
 
+class LinkedServiceLinkType(str, Enum):
+    """
+    Type of the link target.
+    """
+    SYNAPSE = "Synapse"
+
+
 class LoadBalancerType(str, Enum):
     """
     Load Balancer Type
@@ -782,6 +898,14 @@ class LogVerbosity(str, Enum):
     """
 
 
+class MLAssistConfigurationType(str, Enum):
+    """
+    [Required] Indicates whether MLAssist feature is enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class ManagedServiceIdentityType(str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -790,6 +914,24 @@ class ManagedServiceIdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class MaterializationStoreType(str, Enum):
+    """
+    Specifies the stores to which materialization should happen
+    """
+    NONE = "None"
+    ONLINE = "Online"
+    OFFLINE = "Offline"
+    ONLINE_AND_OFFLINE = "OnlineAndOffline"
+
+
+class MediaType(str, Enum):
+    """
+    [Required] Media type of the job.
+    """
+    IMAGE = "Image"
+    TEXT = "Text"
 
 
 class ModelSize(str, Enum):
@@ -818,6 +960,14 @@ class ModelSize(str, Enum):
     """
     Extra large size.
     """
+
+
+class MultiSelect(str, Enum):
+    """
+    Indicates whether it is allowed to select multiple classes in this category.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class NCrossValidationsMode(str, Enum):
@@ -1038,6 +1188,42 @@ class RemoteLoginPortPublicAccess(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
 
 
+class ResourceIdentityType(str, Enum):
+    """
+    The identity type.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    NONE = "None"
+
+
+class RuleCategory(str, Enum):
+    """
+    Category of a managed network Outbound Rule of a machine learning workspace.
+    """
+    REQUIRED = "Required"
+    RECOMMENDED = "Recommended"
+    USER_DEFINED = "UserDefined"
+
+
+class RuleStatus(str, Enum):
+    """
+    Status of a managed network Outbound Rule of a machine learning workspace.
+    """
+    INACTIVE = "Inactive"
+    ACTIVE = "Active"
+
+
+class RuleType(str, Enum):
+    """
+    Type of a managed network Outbound Rule of a machine learning workspace.
+    """
+    FQDN = "FQDN"
+    PRIVATE_ENDPOINT = "PrivateEndpoint"
+    SERVICE_TAG = "ServiceTag"
+
+
 class SamplingAlgorithmType(str, Enum):
     """
     [Required] The algorithm used for generating hyperparameter values, along with configuration properties
@@ -1152,6 +1338,15 @@ class SkuTier(str, Enum):
     BASIC = "Basic"
     STANDARD = "Standard"
     PREMIUM = "Premium"
+
+
+class SourceType(str, Enum):
+    """
+    Data source type.
+    """
+    DELIMITED_FILES = "delimited_files"
+    JSON_LINES_FILES = "json_lines_files"
+    PARQUET_FILES = "parquet_files"
 
 
 class SshPublicAccess(str, Enum):
@@ -1316,6 +1511,14 @@ class TaskType(str, Enum):
     """
 
 
+class TextAnnotationType(str, Enum):
+    """
+    Annotation type of text labeling job.
+    """
+    CLASSIFICATION = "Classification"
+    NAMED_ENTITY_RECOGNITION = "NamedEntityRecognition"
+
+
 class TriggerType(str, Enum):
     """
     [Required] 
@@ -1381,6 +1584,13 @@ class VolumeDefinitionType(str, Enum):
     VOLUME = "volume"
     TMPFS = "tmpfs"
     NPIPE = "npipe"
+
+
+class WebhookType(str, Enum):
+    """
+    [Required] Specifies the type of service to send a callback
+    """
+    AZURE_DEV_OPS = "AzureDevOps"
 
 
 class WeekDay(str, Enum):

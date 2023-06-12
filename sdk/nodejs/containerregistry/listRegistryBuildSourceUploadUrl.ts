@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the upload location for the user to be able to upload the source.
- * API Version: 2019-04-01.
+ * API Version: 2019-06-01-preview.
  */
 export function listRegistryBuildSourceUploadUrl(args: ListRegistryBuildSourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListRegistryBuildSourceUploadUrlResult> {
 
@@ -43,7 +43,7 @@ export interface ListRegistryBuildSourceUploadUrlResult {
 }
 /**
  * Get the upload location for the user to be able to upload the source.
- * API Version: 2019-04-01.
+ * API Version: 2019-06-01-preview.
  */
 export function listRegistryBuildSourceUploadUrlOutput(args: ListRegistryBuildSourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRegistryBuildSourceUploadUrlResult> {
     return pulumi.output(args).apply((a: any) => listRegistryBuildSourceUploadUrl(a, opts))

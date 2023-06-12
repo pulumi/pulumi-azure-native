@@ -305,6 +305,11 @@ export const listConnectionConsentLinks: typeof import("./listConnectionConsentL
 export const listConnectionConsentLinksOutput: typeof import("./listConnectionConsentLinks").listConnectionConsentLinksOutput = null as any;
 utilities.lazyLoad(exports, ["listConnectionConsentLinks","listConnectionConsentLinksOutput"], () => require("./listConnectionConsentLinks"));
 
+export { ListConnectionKeysArgs, ListConnectionKeysResult, ListConnectionKeysOutputArgs } from "./listConnectionKeys";
+export const listConnectionKeys: typeof import("./listConnectionKeys").listConnectionKeys = null as any;
+export const listConnectionKeysOutput: typeof import("./listConnectionKeys").listConnectionKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listConnectionKeys","listConnectionKeysOutput"], () => require("./listConnectionKeys"));
+
 export { ListContainerAppSecretsArgs, ListContainerAppSecretsResult, ListContainerAppSecretsOutputArgs } from "./listContainerAppSecrets";
 export const listContainerAppSecrets: typeof import("./listContainerAppSecrets").listContainerAppSecrets = null as any;
 export const listContainerAppSecretsOutput: typeof import("./listContainerAppSecrets").listContainerAppSecretsOutput = null as any;

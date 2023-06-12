@@ -98,6 +98,8 @@ export class WorkspaceGlobalSchema extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceGlobalSchema" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceGlobalSchema.__pulumiType, name, resourceInputs, opts);
     }
 }

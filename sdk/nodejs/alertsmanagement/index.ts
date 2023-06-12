@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ActionRuleByNameArgs } from "./actionRuleByName";
+export type ActionRuleByName = import("./actionRuleByName").ActionRuleByName;
+export const ActionRuleByName: typeof import("./actionRuleByName").ActionRuleByName = null as any;
+utilities.lazyLoad(exports, ["ActionRuleByName"], () => require("./actionRuleByName"));
+
 export { AlertProcessingRuleByNameArgs } from "./alertProcessingRuleByName";
 export type AlertProcessingRuleByName = import("./alertProcessingRuleByName").AlertProcessingRuleByName;
 export const AlertProcessingRuleByName: typeof import("./alertProcessingRuleByName").AlertProcessingRuleByName = null as any;
 utilities.lazyLoad(exports, ["AlertProcessingRuleByName"], () => require("./alertProcessingRuleByName"));
+
+export { GetActionRuleByNameArgs, GetActionRuleByNameResult, GetActionRuleByNameOutputArgs } from "./getActionRuleByName";
+export const getActionRuleByName: typeof import("./getActionRuleByName").getActionRuleByName = null as any;
+export const getActionRuleByNameOutput: typeof import("./getActionRuleByName").getActionRuleByNameOutput = null as any;
+utilities.lazyLoad(exports, ["getActionRuleByName","getActionRuleByNameOutput"], () => require("./getActionRuleByName"));
 
 export { GetAlertProcessingRuleByNameArgs, GetAlertProcessingRuleByNameResult, GetAlertProcessingRuleByNameOutputArgs } from "./getAlertProcessingRuleByName";
 export const getAlertProcessingRuleByName: typeof import("./getAlertProcessingRuleByName").getAlertProcessingRuleByName = null as any;
@@ -62,6 +72,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:alertsmanagement:ActionRuleByName":
+                return new ActionRuleByName(name, <any>undefined, { urn })
             case "azure-native:alertsmanagement:AlertProcessingRuleByName":
                 return new AlertProcessingRuleByName(name, <any>undefined, { urn })
             case "azure-native:alertsmanagement:PrometheusRuleGroup":

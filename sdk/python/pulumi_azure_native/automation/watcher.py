@@ -195,7 +195,7 @@ class Watcher(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the watcher type.
-        API Version: 2019-06-01.
+        API Version: 2020-01-13-preview.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.
@@ -219,7 +219,7 @@ class Watcher(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the watcher type.
-        API Version: 2019-06-01.
+        API Version: 2020-01-13-preview.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
 
         :param str resource_name: The name of the resource.

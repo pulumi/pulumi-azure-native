@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:HuntComment"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:HuntComment"},
                 },
             };

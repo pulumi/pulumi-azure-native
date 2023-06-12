@@ -133,11 +133,11 @@ export type ContinuousTier = (typeof ContinuousTier)[keyof typeof ContinuousTier
 
 export const CreateMode = {
     Default: "Default",
-    Restore: "Restore",
+    PointInTimeRestore: "PointInTimeRestore",
 } as const;
 
 /**
- * Enum to indicate the mode of account creation.
+ * The mode to create a mongo cluster.
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
@@ -264,6 +264,15 @@ export const NetworkAclBypass = {
  * Indicates what services are allowed to bypass firewall checks.
  */
 export type NetworkAclBypass = (typeof NetworkAclBypass)[keyof typeof NetworkAclBypass];
+
+export const NodeKind = {
+    Shard: "Shard",
+} as const;
+
+/**
+ * The node type deployed in the node group.
+ */
+export type NodeKind = (typeof NodeKind)[keyof typeof NodeKind];
 
 export const PartitionKind = {
     Hash: "Hash",

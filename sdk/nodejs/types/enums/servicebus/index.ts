@@ -77,6 +77,16 @@ export const FilterType = {
  */
 export type FilterType = (typeof FilterType)[keyof typeof FilterType];
 
+export const IPAction = {
+    Accept: "Accept",
+    Reject: "Reject",
+} as const;
+
+/**
+ * The IP Filter Action
+ */
+export type IPAction = (typeof IPAction)[keyof typeof IPAction];
+
 export const KeySource = {
     Microsoft_KeyVault: "Microsoft.KeyVault",
 } as const;

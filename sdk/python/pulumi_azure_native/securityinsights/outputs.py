@@ -12,9 +12,13 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ActivityEntityQueriesPropertiesResponseQueryDefinitions',
+    'ActivityTimelineItemResponse',
     'AlertDetailsOverrideResponse',
     'AlertPropertyMappingResponse',
     'AlertsDataTypeOfDataConnectorResponse',
+    'AnomalyTimelineItemResponse',
+    'AssignmentItemResponse',
     'AutomationRuleModifyPropertiesActionResponse',
     'AutomationRulePropertyArrayChangedValuesConditionResponse',
     'AutomationRulePropertyValuesChangedConditionResponse',
@@ -23,18 +27,32 @@ __all__ = [
     'AutomationRuleTriggeringLogicResponse',
     'AwsCloudTrailDataConnectorDataTypesResponse',
     'AwsCloudTrailDataConnectorDataTypesResponseLogs',
+    'AzureDevOpsResourceInfoResponse',
+    'BookmarkTimelineItemResponse',
     'ClientInfoResponse',
+    'ContentPathMapResponse',
     'DataConnectorDataTypeCommonResponse',
+    'DeploymentInfoResponse',
+    'DeploymentResponse',
+    'EntityInsightItemResponse',
+    'EntityInsightItemResponseQueryTimeInterval',
     'EntityMappingResponse',
     'EventGroupingSettingsResponse',
     'FieldMappingResponse',
+    'FileMetadataResponse',
+    'GetInsightsErrorKindResponse',
+    'GetInsightsResultsMetadataResponse',
+    'GitHubResourceInfoResponse',
     'GroupingConfigurationResponse',
+    'HuntOwnerResponse',
     'IncidentAdditionalDataResponse',
     'IncidentConfigurationResponse',
     'IncidentInfoResponse',
     'IncidentLabelResponse',
     'IncidentOwnerInfoResponse',
     'IncidentPropertiesActionResponse',
+    'InsightsTableResultResponse',
+    'InsightsTableResultResponseColumns',
     'MCASDataConnectorDataTypesResponse',
     'MetadataAuthorResponse',
     'MetadataCategoriesResponse',
@@ -49,13 +67,146 @@ __all__ = [
     'PropertyArrayChangedConditionPropertiesResponse',
     'PropertyChangedConditionPropertiesResponse',
     'PropertyConditionPropertiesResponse',
+    'RepoResponse',
+    'RepositoryResourceInfoResponse',
+    'RepositoryResponse',
+    'SecurityAlertTimelineItemResponse',
     'SecurityMLAnalyticsSettingsDataSourceResponse',
     'SystemDataResponse',
     'TIDataConnectorDataTypesResponse',
     'TIDataConnectorDataTypesResponseIndicators',
+    'TimelineAggregationResponse',
+    'TimelineErrorResponse',
+    'TimelineResultsMetadataResponse',
     'UserInfoResponse',
+    'ValidationErrorResponse',
     'WatchlistUserInfoResponse',
+    'WebhookResponse',
 ]
+
+@pulumi.output_type
+class ActivityEntityQueriesPropertiesResponseQueryDefinitions(dict):
+    """
+    The Activity query definitions
+    """
+    def __init__(__self__, *,
+                 query: Optional[str] = None):
+        """
+        The Activity query definitions
+        :param str query: The Activity query to run on a given entity
+        """
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[str]:
+        """
+        The Activity query to run on a given entity
+        """
+        return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class ActivityTimelineItemResponse(dict):
+    """
+    Represents Activity timeline item.
+    """
+    def __init__(__self__, *,
+                 bucket_end_time_utc: str,
+                 bucket_start_time_utc: str,
+                 content: str,
+                 first_activity_time_utc: str,
+                 kind: str,
+                 last_activity_time_utc: str,
+                 query_id: str,
+                 title: str):
+        """
+        Represents Activity timeline item.
+        :param str bucket_end_time_utc: The grouping bucket end time.
+        :param str bucket_start_time_utc: The grouping bucket start time.
+        :param str content: The activity timeline content.
+        :param str first_activity_time_utc: The time of the first activity in the grouping bucket.
+        :param str kind: The entity query kind
+               Expected value is 'Activity'.
+        :param str last_activity_time_utc: The time of the last activity in the grouping bucket.
+        :param str query_id: The activity query id.
+        :param str title: The activity timeline title.
+        """
+        pulumi.set(__self__, "bucket_end_time_utc", bucket_end_time_utc)
+        pulumi.set(__self__, "bucket_start_time_utc", bucket_start_time_utc)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "first_activity_time_utc", first_activity_time_utc)
+        pulumi.set(__self__, "kind", 'Activity')
+        pulumi.set(__self__, "last_activity_time_utc", last_activity_time_utc)
+        pulumi.set(__self__, "query_id", query_id)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="bucketEndTimeUTC")
+    def bucket_end_time_utc(self) -> str:
+        """
+        The grouping bucket end time.
+        """
+        return pulumi.get(self, "bucket_end_time_utc")
+
+    @property
+    @pulumi.getter(name="bucketStartTimeUTC")
+    def bucket_start_time_utc(self) -> str:
+        """
+        The grouping bucket start time.
+        """
+        return pulumi.get(self, "bucket_start_time_utc")
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        """
+        The activity timeline content.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="firstActivityTimeUTC")
+    def first_activity_time_utc(self) -> str:
+        """
+        The time of the first activity in the grouping bucket.
+        """
+        return pulumi.get(self, "first_activity_time_utc")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The entity query kind
+        Expected value is 'Activity'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="lastActivityTimeUTC")
+    def last_activity_time_utc(self) -> str:
+        """
+        The time of the last activity in the grouping bucket.
+        """
+        return pulumi.get(self, "last_activity_time_utc")
+
+    @property
+    @pulumi.getter(name="queryId")
+    def query_id(self) -> str:
+        """
+        The activity query id.
+        """
+        return pulumi.get(self, "query_id")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        The activity timeline title.
+        """
+        return pulumi.get(self, "title")
+
 
 @pulumi.output_type
 class AlertDetailsOverrideResponse(dict):
@@ -226,6 +377,197 @@ class AlertsDataTypeOfDataConnectorResponse(dict):
         Alerts data type connection.
         """
         return pulumi.get(self, "alerts")
+
+
+@pulumi.output_type
+class AnomalyTimelineItemResponse(dict):
+    """
+    Represents anomaly timeline item.
+    """
+    def __init__(__self__, *,
+                 azure_resource_id: str,
+                 display_name: str,
+                 end_time_utc: str,
+                 kind: str,
+                 start_time_utc: str,
+                 time_generated: str,
+                 description: Optional[str] = None,
+                 intent: Optional[str] = None,
+                 product_name: Optional[str] = None,
+                 reasons: Optional[Sequence[str]] = None,
+                 techniques: Optional[Sequence[str]] = None,
+                 vendor: Optional[str] = None):
+        """
+        Represents anomaly timeline item.
+        :param str azure_resource_id: The anomaly azure resource id.
+        :param str display_name: The anomaly name.
+        :param str end_time_utc: The anomaly end time.
+        :param str kind: The entity query kind
+               Expected value is 'Anomaly'.
+        :param str start_time_utc: The anomaly start time.
+        :param str time_generated: The anomaly generated time.
+        :param str description: The anomaly description.
+        :param str intent: The intent of the anomaly.
+        :param str product_name: The anomaly product name.
+        :param Sequence[str] reasons: The reasons that cause the anomaly.
+        :param Sequence[str] techniques: The techniques of the anomaly.
+        :param str vendor: The name of the anomaly vendor.
+        """
+        pulumi.set(__self__, "azure_resource_id", azure_resource_id)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "end_time_utc", end_time_utc)
+        pulumi.set(__self__, "kind", 'Anomaly')
+        pulumi.set(__self__, "start_time_utc", start_time_utc)
+        pulumi.set(__self__, "time_generated", time_generated)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if intent is not None:
+            pulumi.set(__self__, "intent", intent)
+        if product_name is not None:
+            pulumi.set(__self__, "product_name", product_name)
+        if reasons is not None:
+            pulumi.set(__self__, "reasons", reasons)
+        if techniques is not None:
+            pulumi.set(__self__, "techniques", techniques)
+        if vendor is not None:
+            pulumi.set(__self__, "vendor", vendor)
+
+    @property
+    @pulumi.getter(name="azureResourceId")
+    def azure_resource_id(self) -> str:
+        """
+        The anomaly azure resource id.
+        """
+        return pulumi.get(self, "azure_resource_id")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        The anomaly name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="endTimeUtc")
+    def end_time_utc(self) -> str:
+        """
+        The anomaly end time.
+        """
+        return pulumi.get(self, "end_time_utc")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The entity query kind
+        Expected value is 'Anomaly'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> str:
+        """
+        The anomaly start time.
+        """
+        return pulumi.get(self, "start_time_utc")
+
+    @property
+    @pulumi.getter(name="timeGenerated")
+    def time_generated(self) -> str:
+        """
+        The anomaly generated time.
+        """
+        return pulumi.get(self, "time_generated")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The anomaly description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def intent(self) -> Optional[str]:
+        """
+        The intent of the anomaly.
+        """
+        return pulumi.get(self, "intent")
+
+    @property
+    @pulumi.getter(name="productName")
+    def product_name(self) -> Optional[str]:
+        """
+        The anomaly product name.
+        """
+        return pulumi.get(self, "product_name")
+
+    @property
+    @pulumi.getter
+    def reasons(self) -> Optional[Sequence[str]]:
+        """
+        The reasons that cause the anomaly.
+        """
+        return pulumi.get(self, "reasons")
+
+    @property
+    @pulumi.getter
+    def techniques(self) -> Optional[Sequence[str]]:
+        """
+        The techniques of the anomaly.
+        """
+        return pulumi.get(self, "techniques")
+
+    @property
+    @pulumi.getter
+    def vendor(self) -> Optional[str]:
+        """
+        The name of the anomaly vendor.
+        """
+        return pulumi.get(self, "vendor")
+
+
+@pulumi.output_type
+class AssignmentItemResponse(dict):
+    """
+    An entity describing a content item.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssignmentItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssignmentItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssignmentItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[str] = None):
+        """
+        An entity describing a content item.
+        :param str resource_id: The resource id of the content item
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The resource id of the content item
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -626,6 +968,179 @@ class AwsCloudTrailDataConnectorDataTypesResponseLogs(dict):
 
 
 @pulumi.output_type
+class AzureDevOpsResourceInfoResponse(dict):
+    """
+    Resources created in Azure DevOps repository.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pipelineId":
+            suggest = "pipeline_id"
+        elif key == "serviceConnectionId":
+            suggest = "service_connection_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureDevOpsResourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureDevOpsResourceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureDevOpsResourceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pipeline_id: Optional[str] = None,
+                 service_connection_id: Optional[str] = None):
+        """
+        Resources created in Azure DevOps repository.
+        :param str pipeline_id: Id of the pipeline created for the source-control.
+        :param str service_connection_id: Id of the service-connection created for the source-control.
+        """
+        if pipeline_id is not None:
+            pulumi.set(__self__, "pipeline_id", pipeline_id)
+        if service_connection_id is not None:
+            pulumi.set(__self__, "service_connection_id", service_connection_id)
+
+    @property
+    @pulumi.getter(name="pipelineId")
+    def pipeline_id(self) -> Optional[str]:
+        """
+        Id of the pipeline created for the source-control.
+        """
+        return pulumi.get(self, "pipeline_id")
+
+    @property
+    @pulumi.getter(name="serviceConnectionId")
+    def service_connection_id(self) -> Optional[str]:
+        """
+        Id of the service-connection created for the source-control.
+        """
+        return pulumi.get(self, "service_connection_id")
+
+
+@pulumi.output_type
+class BookmarkTimelineItemResponse(dict):
+    """
+    Represents bookmark timeline item.
+    """
+    def __init__(__self__, *,
+                 azure_resource_id: str,
+                 kind: str,
+                 created_by: Optional['outputs.UserInfoResponse'] = None,
+                 display_name: Optional[str] = None,
+                 end_time_utc: Optional[str] = None,
+                 event_time: Optional[str] = None,
+                 labels: Optional[Sequence[str]] = None,
+                 notes: Optional[str] = None,
+                 start_time_utc: Optional[str] = None):
+        """
+        Represents bookmark timeline item.
+        :param str azure_resource_id: The bookmark azure resource id.
+        :param str kind: The entity query kind
+               Expected value is 'Bookmark'.
+        :param 'UserInfoResponse' created_by: Describes a user that created the bookmark
+        :param str display_name: The bookmark display name.
+        :param str end_time_utc: The bookmark end time.
+        :param str event_time: The bookmark event time.
+        :param Sequence[str] labels: List of labels relevant to this bookmark
+        :param str notes: The notes of the bookmark
+        :param str start_time_utc: The bookmark start time.
+        """
+        pulumi.set(__self__, "azure_resource_id", azure_resource_id)
+        pulumi.set(__self__, "kind", 'Bookmark')
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if end_time_utc is not None:
+            pulumi.set(__self__, "end_time_utc", end_time_utc)
+        if event_time is not None:
+            pulumi.set(__self__, "event_time", event_time)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if start_time_utc is not None:
+            pulumi.set(__self__, "start_time_utc", start_time_utc)
+
+    @property
+    @pulumi.getter(name="azureResourceId")
+    def azure_resource_id(self) -> str:
+        """
+        The bookmark azure resource id.
+        """
+        return pulumi.get(self, "azure_resource_id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The entity query kind
+        Expected value is 'Bookmark'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional['outputs.UserInfoResponse']:
+        """
+        Describes a user that created the bookmark
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The bookmark display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="endTimeUtc")
+    def end_time_utc(self) -> Optional[str]:
+        """
+        The bookmark end time.
+        """
+        return pulumi.get(self, "end_time_utc")
+
+    @property
+    @pulumi.getter(name="eventTime")
+    def event_time(self) -> Optional[str]:
+        """
+        The bookmark event time.
+        """
+        return pulumi.get(self, "event_time")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Sequence[str]]:
+        """
+        List of labels relevant to this bookmark
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        """
+        The notes of the bookmark
+        """
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> Optional[str]:
+        """
+        The bookmark start time.
+        """
+        return pulumi.get(self, "start_time_utc")
+
+
+@pulumi.output_type
 class ClientInfoResponse(dict):
     """
     Information on the client (user or application) that made some action
@@ -704,6 +1219,58 @@ class ClientInfoResponse(dict):
 
 
 @pulumi.output_type
+class ContentPathMapResponse(dict):
+    """
+    The mapping of content type to a repo path.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentPathMapResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentPathMapResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentPathMapResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_type: Optional[str] = None,
+                 path: Optional[str] = None):
+        """
+        The mapping of content type to a repo path.
+        :param str content_type: Content type.
+        :param str path: The path to the content.
+        """
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        Content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path to the content.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
 class DataConnectorDataTypeCommonResponse(dict):
     """
     Common field for data type in data connectors.
@@ -724,6 +1291,260 @@ class DataConnectorDataTypeCommonResponse(dict):
         Describe whether this data type connection is enabled or not.
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class DeploymentInfoResponse(dict):
+    """
+    Information regarding a deployment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentFetchStatus":
+            suggest = "deployment_fetch_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment: Optional['outputs.DeploymentResponse'] = None,
+                 deployment_fetch_status: Optional[str] = None,
+                 message: Optional[str] = None):
+        """
+        Information regarding a deployment.
+        :param 'DeploymentResponse' deployment: Deployment information.
+        :param str deployment_fetch_status: Status while fetching the last deployment.
+        :param str message: Additional details about the deployment that can be shown to the user.
+        """
+        if deployment is not None:
+            pulumi.set(__self__, "deployment", deployment)
+        if deployment_fetch_status is not None:
+            pulumi.set(__self__, "deployment_fetch_status", deployment_fetch_status)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def deployment(self) -> Optional['outputs.DeploymentResponse']:
+        """
+        Deployment information.
+        """
+        return pulumi.get(self, "deployment")
+
+    @property
+    @pulumi.getter(name="deploymentFetchStatus")
+    def deployment_fetch_status(self) -> Optional[str]:
+        """
+        Status while fetching the last deployment.
+        """
+        return pulumi.get(self, "deployment_fetch_status")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Additional details about the deployment that can be shown to the user.
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class DeploymentResponse(dict):
+    """
+    Description about a deployment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentId":
+            suggest = "deployment_id"
+        elif key == "deploymentLogsUrl":
+            suggest = "deployment_logs_url"
+        elif key == "deploymentResult":
+            suggest = "deployment_result"
+        elif key == "deploymentState":
+            suggest = "deployment_state"
+        elif key == "deploymentTime":
+            suggest = "deployment_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_id: Optional[str] = None,
+                 deployment_logs_url: Optional[str] = None,
+                 deployment_result: Optional[str] = None,
+                 deployment_state: Optional[str] = None,
+                 deployment_time: Optional[str] = None):
+        """
+        Description about a deployment.
+        :param str deployment_id: Deployment identifier.
+        :param str deployment_logs_url: Url to access repository action logs.
+        :param str deployment_result: The outcome of the deployment.
+        :param str deployment_state: Current status of the deployment.
+        :param str deployment_time: The time when the deployment finished.
+        """
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
+        if deployment_logs_url is not None:
+            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
+        if deployment_result is not None:
+            pulumi.set(__self__, "deployment_result", deployment_result)
+        if deployment_state is not None:
+            pulumi.set(__self__, "deployment_state", deployment_state)
+        if deployment_time is not None:
+            pulumi.set(__self__, "deployment_time", deployment_time)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[str]:
+        """
+        Deployment identifier.
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="deploymentLogsUrl")
+    def deployment_logs_url(self) -> Optional[str]:
+        """
+        Url to access repository action logs.
+        """
+        return pulumi.get(self, "deployment_logs_url")
+
+    @property
+    @pulumi.getter(name="deploymentResult")
+    def deployment_result(self) -> Optional[str]:
+        """
+        The outcome of the deployment.
+        """
+        return pulumi.get(self, "deployment_result")
+
+    @property
+    @pulumi.getter(name="deploymentState")
+    def deployment_state(self) -> Optional[str]:
+        """
+        Current status of the deployment.
+        """
+        return pulumi.get(self, "deployment_state")
+
+    @property
+    @pulumi.getter(name="deploymentTime")
+    def deployment_time(self) -> Optional[str]:
+        """
+        The time when the deployment finished.
+        """
+        return pulumi.get(self, "deployment_time")
+
+
+@pulumi.output_type
+class EntityInsightItemResponse(dict):
+    """
+    Entity insight Item.
+    """
+    def __init__(__self__, *,
+                 chart_query_results: Optional[Sequence['outputs.InsightsTableResultResponse']] = None,
+                 query_id: Optional[str] = None,
+                 query_time_interval: Optional['outputs.EntityInsightItemResponseQueryTimeInterval'] = None,
+                 table_query_results: Optional['outputs.InsightsTableResultResponse'] = None):
+        """
+        Entity insight Item.
+        :param Sequence['InsightsTableResultResponse'] chart_query_results: Query results for table insights query.
+        :param str query_id: The query id of the insight
+        :param 'EntityInsightItemResponseQueryTimeInterval' query_time_interval: The Time interval that the query actually executed on.
+        :param 'InsightsTableResultResponse' table_query_results: Query results for table insights query.
+        """
+        if chart_query_results is not None:
+            pulumi.set(__self__, "chart_query_results", chart_query_results)
+        if query_id is not None:
+            pulumi.set(__self__, "query_id", query_id)
+        if query_time_interval is not None:
+            pulumi.set(__self__, "query_time_interval", query_time_interval)
+        if table_query_results is not None:
+            pulumi.set(__self__, "table_query_results", table_query_results)
+
+    @property
+    @pulumi.getter(name="chartQueryResults")
+    def chart_query_results(self) -> Optional[Sequence['outputs.InsightsTableResultResponse']]:
+        """
+        Query results for table insights query.
+        """
+        return pulumi.get(self, "chart_query_results")
+
+    @property
+    @pulumi.getter(name="queryId")
+    def query_id(self) -> Optional[str]:
+        """
+        The query id of the insight
+        """
+        return pulumi.get(self, "query_id")
+
+    @property
+    @pulumi.getter(name="queryTimeInterval")
+    def query_time_interval(self) -> Optional['outputs.EntityInsightItemResponseQueryTimeInterval']:
+        """
+        The Time interval that the query actually executed on.
+        """
+        return pulumi.get(self, "query_time_interval")
+
+    @property
+    @pulumi.getter(name="tableQueryResults")
+    def table_query_results(self) -> Optional['outputs.InsightsTableResultResponse']:
+        """
+        Query results for table insights query.
+        """
+        return pulumi.get(self, "table_query_results")
+
+
+@pulumi.output_type
+class EntityInsightItemResponseQueryTimeInterval(dict):
+    """
+    The Time interval that the query actually executed on.
+    """
+    def __init__(__self__, *,
+                 end_time: Optional[str] = None,
+                 start_time: Optional[str] = None):
+        """
+        The Time interval that the query actually executed on.
+        :param str end_time: Insight query end time
+        :param str start_time: Insight query start time
+        """
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        """
+        Insight query end time
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Insight query start time
+        """
+        return pulumi.get(self, "start_time")
 
 
 @pulumi.output_type
@@ -873,6 +1694,219 @@ class FieldMappingResponse(dict):
 
 
 @pulumi.output_type
+class FileMetadataResponse(dict):
+    """
+    Represents a file.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteStatus":
+            suggest = "delete_status"
+        elif key == "fileContentUri":
+            suggest = "file_content_uri"
+        elif key == "fileFormat":
+            suggest = "file_format"
+        elif key == "fileName":
+            suggest = "file_name"
+        elif key == "fileSize":
+            suggest = "file_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delete_status: str,
+                 file_content_uri: str,
+                 file_format: Optional[str] = None,
+                 file_name: Optional[str] = None,
+                 file_size: Optional[int] = None):
+        """
+        Represents a file.
+        :param str delete_status: Indicates whether the file was deleted from the storage account.
+        :param str file_content_uri: A URI with a valid SAS token to allow uploading / downloading the file.
+        :param str file_format: The format of the file
+        :param str file_name: The name of the file.
+        :param int file_size: The size of the file.
+        """
+        pulumi.set(__self__, "delete_status", delete_status)
+        pulumi.set(__self__, "file_content_uri", file_content_uri)
+        if file_format is not None:
+            pulumi.set(__self__, "file_format", file_format)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if file_size is not None:
+            pulumi.set(__self__, "file_size", file_size)
+
+    @property
+    @pulumi.getter(name="deleteStatus")
+    def delete_status(self) -> str:
+        """
+        Indicates whether the file was deleted from the storage account.
+        """
+        return pulumi.get(self, "delete_status")
+
+    @property
+    @pulumi.getter(name="fileContentUri")
+    def file_content_uri(self) -> str:
+        """
+        A URI with a valid SAS token to allow uploading / downloading the file.
+        """
+        return pulumi.get(self, "file_content_uri")
+
+    @property
+    @pulumi.getter(name="fileFormat")
+    def file_format(self) -> Optional[str]:
+        """
+        The format of the file
+        """
+        return pulumi.get(self, "file_format")
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[str]:
+        """
+        The name of the file.
+        """
+        return pulumi.get(self, "file_name")
+
+    @property
+    @pulumi.getter(name="fileSize")
+    def file_size(self) -> Optional[int]:
+        """
+        The size of the file.
+        """
+        return pulumi.get(self, "file_size")
+
+
+@pulumi.output_type
+class GetInsightsErrorKindResponse(dict):
+    """
+    GetInsights Query Errors.
+    """
+    def __init__(__self__, *,
+                 error_message: str,
+                 kind: str,
+                 query_id: Optional[str] = None):
+        """
+        GetInsights Query Errors.
+        :param str error_message: the error message
+        :param str kind: the query kind
+        :param str query_id: the query id
+        """
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "kind", kind)
+        if query_id is not None:
+            pulumi.set(__self__, "query_id", query_id)
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        the error message
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        the query kind
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="queryId")
+    def query_id(self) -> Optional[str]:
+        """
+        the query id
+        """
+        return pulumi.get(self, "query_id")
+
+
+@pulumi.output_type
+class GetInsightsResultsMetadataResponse(dict):
+    """
+    Get Insights result metadata.
+    """
+    def __init__(__self__, *,
+                 total_count: int,
+                 errors: Optional[Sequence['outputs.GetInsightsErrorKindResponse']] = None):
+        """
+        Get Insights result metadata.
+        :param int total_count: the total items found for the insights request
+        :param Sequence['GetInsightsErrorKindResponse'] errors: information about the failed queries
+        """
+        pulumi.set(__self__, "total_count", total_count)
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+
+    @property
+    @pulumi.getter(name="totalCount")
+    def total_count(self) -> int:
+        """
+        the total items found for the insights request
+        """
+        return pulumi.get(self, "total_count")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[Sequence['outputs.GetInsightsErrorKindResponse']]:
+        """
+        information about the failed queries
+        """
+        return pulumi.get(self, "errors")
+
+
+@pulumi.output_type
+class GitHubResourceInfoResponse(dict):
+    """
+    Resources created in GitHub repository.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appInstallationId":
+            suggest = "app_installation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GitHubResourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GitHubResourceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GitHubResourceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_installation_id: Optional[str] = None):
+        """
+        Resources created in GitHub repository.
+        :param str app_installation_id: GitHub application installation id.
+        """
+        if app_installation_id is not None:
+            pulumi.set(__self__, "app_installation_id", app_installation_id)
+
+    @property
+    @pulumi.getter(name="appInstallationId")
+    def app_installation_id(self) -> Optional[str]:
+        """
+        GitHub application installation id.
+        """
+        return pulumi.get(self, "app_installation_id")
+
+
+@pulumi.output_type
 class GroupingConfigurationResponse(dict):
     """
     Grouping configuration property bag.
@@ -988,6 +2022,100 @@ class GroupingConfigurationResponse(dict):
         A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
         """
         return pulumi.get(self, "group_by_entities")
+
+
+@pulumi.output_type
+class HuntOwnerResponse(dict):
+    """
+    Describes a user that the hunt is assigned to
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignedTo":
+            suggest = "assigned_to"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "ownerType":
+            suggest = "owner_type"
+        elif key == "userPrincipalName":
+            suggest = "user_principal_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HuntOwnerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HuntOwnerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HuntOwnerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assigned_to: Optional[str] = None,
+                 email: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 owner_type: Optional[str] = None,
+                 user_principal_name: Optional[str] = None):
+        """
+        Describes a user that the hunt is assigned to
+        :param str assigned_to: The name of the user the hunt is assigned to.
+        :param str email: The email of the user the hunt is assigned to.
+        :param str object_id: The object id of the user the hunt is assigned to.
+        :param str owner_type: The type of the owner the hunt is assigned to.
+        :param str user_principal_name: The user principal name of the user the hunt is assigned to.
+        """
+        if assigned_to is not None:
+            pulumi.set(__self__, "assigned_to", assigned_to)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if owner_type is not None:
+            pulumi.set(__self__, "owner_type", owner_type)
+        if user_principal_name is not None:
+            pulumi.set(__self__, "user_principal_name", user_principal_name)
+
+    @property
+    @pulumi.getter(name="assignedTo")
+    def assigned_to(self) -> Optional[str]:
+        """
+        The name of the user the hunt is assigned to.
+        """
+        return pulumi.get(self, "assigned_to")
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        The email of the user the hunt is assigned to.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object id of the user the hunt is assigned to.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="ownerType")
+    def owner_type(self) -> Optional[str]:
+        """
+        The type of the owner the hunt is assigned to.
+        """
+        return pulumi.get(self, "owner_type")
+
+    @property
+    @pulumi.getter(name="userPrincipalName")
+    def user_principal_name(self) -> Optional[str]:
+        """
+        The user principal name of the user the hunt is assigned to.
+        """
+        return pulumi.get(self, "user_principal_name")
 
 
 @pulumi.output_type
@@ -1477,6 +2605,72 @@ class IncidentPropertiesActionResponse(dict):
         The status of the incident
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class InsightsTableResultResponse(dict):
+    """
+    Query results for table insights query.
+    """
+    def __init__(__self__, *,
+                 columns: Optional[Sequence['outputs.InsightsTableResultResponseColumns']] = None,
+                 rows: Optional[Sequence[Sequence[str]]] = None):
+        """
+        Query results for table insights query.
+        :param Sequence['InsightsTableResultResponseColumns'] columns: Columns Metadata of the table
+        :param Sequence[Sequence[str]] rows: Rows data of the table
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if rows is not None:
+            pulumi.set(__self__, "rows", rows)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence['outputs.InsightsTableResultResponseColumns']]:
+        """
+        Columns Metadata of the table
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter
+    def rows(self) -> Optional[Sequence[Sequence[str]]]:
+        """
+        Rows data of the table
+        """
+        return pulumi.get(self, "rows")
+
+
+@pulumi.output_type
+class InsightsTableResultResponseColumns(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str name: the name of the colum
+        :param str type: the type of the colum
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        the name of the colum
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        the type of the colum
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -2170,6 +3364,359 @@ class PropertyConditionPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class RepoResponse(dict):
+    """
+    Represents a repository.
+    """
+    def __init__(__self__, *,
+                 branches: Optional[Sequence[str]] = None,
+                 full_name: Optional[str] = None,
+                 url: Optional[str] = None):
+        """
+        Represents a repository.
+        :param Sequence[str] branches: Array of branches.
+        :param str full_name: The name of the repository.
+        :param str url: The url to access the repository.
+        """
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if full_name is not None:
+            pulumi.set(__self__, "full_name", full_name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def branches(self) -> Optional[Sequence[str]]:
+        """
+        Array of branches.
+        """
+        return pulumi.get(self, "branches")
+
+    @property
+    @pulumi.getter(name="fullName")
+    def full_name(self) -> Optional[str]:
+        """
+        The name of the repository.
+        """
+        return pulumi.get(self, "full_name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        The url to access the repository.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class RepositoryResourceInfoResponse(dict):
+    """
+    Resources created in user's repository for the source-control.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureDevOpsResourceInfo":
+            suggest = "azure_dev_ops_resource_info"
+        elif key == "gitHubResourceInfo":
+            suggest = "git_hub_resource_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryResourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryResourceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryResourceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_dev_ops_resource_info: Optional['outputs.AzureDevOpsResourceInfoResponse'] = None,
+                 git_hub_resource_info: Optional['outputs.GitHubResourceInfoResponse'] = None,
+                 webhook: Optional['outputs.WebhookResponse'] = None):
+        """
+        Resources created in user's repository for the source-control.
+        :param 'AzureDevOpsResourceInfoResponse' azure_dev_ops_resource_info: Resources created in Azure DevOps for this source-control.
+        :param 'GitHubResourceInfoResponse' git_hub_resource_info: Resources created in GitHub for this source-control.
+        :param 'WebhookResponse' webhook: The webhook object created for the source-control.
+        """
+        if azure_dev_ops_resource_info is not None:
+            pulumi.set(__self__, "azure_dev_ops_resource_info", azure_dev_ops_resource_info)
+        if git_hub_resource_info is not None:
+            pulumi.set(__self__, "git_hub_resource_info", git_hub_resource_info)
+        if webhook is not None:
+            pulumi.set(__self__, "webhook", webhook)
+
+    @property
+    @pulumi.getter(name="azureDevOpsResourceInfo")
+    def azure_dev_ops_resource_info(self) -> Optional['outputs.AzureDevOpsResourceInfoResponse']:
+        """
+        Resources created in Azure DevOps for this source-control.
+        """
+        return pulumi.get(self, "azure_dev_ops_resource_info")
+
+    @property
+    @pulumi.getter(name="gitHubResourceInfo")
+    def git_hub_resource_info(self) -> Optional['outputs.GitHubResourceInfoResponse']:
+        """
+        Resources created in GitHub for this source-control.
+        """
+        return pulumi.get(self, "git_hub_resource_info")
+
+    @property
+    @pulumi.getter
+    def webhook(self) -> Optional['outputs.WebhookResponse']:
+        """
+        The webhook object created for the source-control.
+        """
+        return pulumi.get(self, "webhook")
+
+
+@pulumi.output_type
+class RepositoryResponse(dict):
+    """
+    metadata of a repository.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentLogsUrl":
+            suggest = "deployment_logs_url"
+        elif key == "displayUrl":
+            suggest = "display_url"
+        elif key == "pathMapping":
+            suggest = "path_mapping"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch: Optional[str] = None,
+                 deployment_logs_url: Optional[str] = None,
+                 display_url: Optional[str] = None,
+                 path_mapping: Optional[Sequence['outputs.ContentPathMapResponse']] = None,
+                 url: Optional[str] = None):
+        """
+        metadata of a repository.
+        :param str branch: Branch name of repository.
+        :param str deployment_logs_url: Url to access repository action logs.
+        :param str display_url: Display url of repository.
+        :param Sequence['ContentPathMapResponse'] path_mapping: Dictionary of source control content type and path mapping.
+        :param str url: Url of repository.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if deployment_logs_url is not None:
+            pulumi.set(__self__, "deployment_logs_url", deployment_logs_url)
+        if display_url is not None:
+            pulumi.set(__self__, "display_url", display_url)
+        if path_mapping is not None:
+            pulumi.set(__self__, "path_mapping", path_mapping)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[str]:
+        """
+        Branch name of repository.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="deploymentLogsUrl")
+    def deployment_logs_url(self) -> Optional[str]:
+        """
+        Url to access repository action logs.
+        """
+        return pulumi.get(self, "deployment_logs_url")
+
+    @property
+    @pulumi.getter(name="displayUrl")
+    def display_url(self) -> Optional[str]:
+        """
+        Display url of repository.
+        """
+        return pulumi.get(self, "display_url")
+
+    @property
+    @pulumi.getter(name="pathMapping")
+    def path_mapping(self) -> Optional[Sequence['outputs.ContentPathMapResponse']]:
+        """
+        Dictionary of source control content type and path mapping.
+        """
+        return pulumi.get(self, "path_mapping")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        Url of repository.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class SecurityAlertTimelineItemResponse(dict):
+    """
+    Represents security alert timeline item.
+    """
+    def __init__(__self__, *,
+                 alert_type: str,
+                 azure_resource_id: str,
+                 display_name: str,
+                 end_time_utc: str,
+                 intent: str,
+                 kind: str,
+                 severity: str,
+                 start_time_utc: str,
+                 time_generated: str,
+                 description: Optional[str] = None,
+                 product_name: Optional[str] = None,
+                 techniques: Optional[Sequence[str]] = None):
+        """
+        Represents security alert timeline item.
+        :param str alert_type: The name of the alert type.
+        :param str azure_resource_id: The alert azure resource id.
+        :param str display_name: The alert name.
+        :param str end_time_utc: The alert end time.
+        :param str intent: The intent of the alert.
+        :param str kind: The entity query kind
+               Expected value is 'SecurityAlert'.
+        :param str severity: The alert severity.
+        :param str start_time_utc: The alert start time.
+        :param str time_generated: The alert generated time.
+        :param str description: The alert description.
+        :param str product_name: The alert product name.
+        :param Sequence[str] techniques: The techniques of the alert.
+        """
+        pulumi.set(__self__, "alert_type", alert_type)
+        pulumi.set(__self__, "azure_resource_id", azure_resource_id)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "end_time_utc", end_time_utc)
+        pulumi.set(__self__, "intent", intent)
+        pulumi.set(__self__, "kind", 'SecurityAlert')
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "start_time_utc", start_time_utc)
+        pulumi.set(__self__, "time_generated", time_generated)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if product_name is not None:
+            pulumi.set(__self__, "product_name", product_name)
+        if techniques is not None:
+            pulumi.set(__self__, "techniques", techniques)
+
+    @property
+    @pulumi.getter(name="alertType")
+    def alert_type(self) -> str:
+        """
+        The name of the alert type.
+        """
+        return pulumi.get(self, "alert_type")
+
+    @property
+    @pulumi.getter(name="azureResourceId")
+    def azure_resource_id(self) -> str:
+        """
+        The alert azure resource id.
+        """
+        return pulumi.get(self, "azure_resource_id")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        The alert name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="endTimeUtc")
+    def end_time_utc(self) -> str:
+        """
+        The alert end time.
+        """
+        return pulumi.get(self, "end_time_utc")
+
+    @property
+    @pulumi.getter
+    def intent(self) -> str:
+        """
+        The intent of the alert.
+        """
+        return pulumi.get(self, "intent")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The entity query kind
+        Expected value is 'SecurityAlert'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> str:
+        """
+        The alert severity.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> str:
+        """
+        The alert start time.
+        """
+        return pulumi.get(self, "start_time_utc")
+
+    @property
+    @pulumi.getter(name="timeGenerated")
+    def time_generated(self) -> str:
+        """
+        The alert generated time.
+        """
+        return pulumi.get(self, "time_generated")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The alert description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="productName")
+    def product_name(self) -> Optional[str]:
+        """
+        The alert product name.
+        """
+        return pulumi.get(self, "product_name")
+
+    @property
+    @pulumi.getter
+    def techniques(self) -> Optional[Sequence[str]]:
+        """
+        The techniques of the alert.
+        """
+        return pulumi.get(self, "techniques")
+
+
+@pulumi.output_type
 class SecurityMLAnalyticsSettingsDataSourceResponse(dict):
     """
     security ml analytics settings data sources
@@ -2380,6 +3927,129 @@ class TIDataConnectorDataTypesResponseIndicators(dict):
 
 
 @pulumi.output_type
+class TimelineAggregationResponse(dict):
+    """
+    timeline aggregation information per kind
+    """
+    def __init__(__self__, *,
+                 count: int,
+                 kind: str):
+        """
+        timeline aggregation information per kind
+        :param int count: the total items found for a kind
+        :param str kind: the query kind
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        """
+        the total items found for a kind
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        the query kind
+        """
+        return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
+class TimelineErrorResponse(dict):
+    """
+    Timeline Query Errors.
+    """
+    def __init__(__self__, *,
+                 error_message: str,
+                 kind: str,
+                 query_id: Optional[str] = None):
+        """
+        Timeline Query Errors.
+        :param str error_message: the error message
+        :param str kind: the query kind
+        :param str query_id: the query id
+        """
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "kind", kind)
+        if query_id is not None:
+            pulumi.set(__self__, "query_id", query_id)
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        the error message
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        the query kind
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="queryId")
+    def query_id(self) -> Optional[str]:
+        """
+        the query id
+        """
+        return pulumi.get(self, "query_id")
+
+
+@pulumi.output_type
+class TimelineResultsMetadataResponse(dict):
+    """
+    Expansion result metadata.
+    """
+    def __init__(__self__, *,
+                 aggregations: Sequence['outputs.TimelineAggregationResponse'],
+                 total_count: int,
+                 errors: Optional[Sequence['outputs.TimelineErrorResponse']] = None):
+        """
+        Expansion result metadata.
+        :param Sequence['TimelineAggregationResponse'] aggregations: timeline aggregation per kind
+        :param int total_count: the total items found for the timeline request
+        :param Sequence['TimelineErrorResponse'] errors: information about the failure queries
+        """
+        pulumi.set(__self__, "aggregations", aggregations)
+        pulumi.set(__self__, "total_count", total_count)
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+
+    @property
+    @pulumi.getter
+    def aggregations(self) -> Sequence['outputs.TimelineAggregationResponse']:
+        """
+        timeline aggregation per kind
+        """
+        return pulumi.get(self, "aggregations")
+
+    @property
+    @pulumi.getter(name="totalCount")
+    def total_count(self) -> int:
+        """
+        the total items found for the timeline request
+        """
+        return pulumi.get(self, "total_count")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[Sequence['outputs.TimelineErrorResponse']]:
+        """
+        information about the failure queries
+        """
+        return pulumi.get(self, "errors")
+
+
+@pulumi.output_type
 class UserInfoResponse(dict):
     """
     User information that made some action
@@ -2442,6 +4112,59 @@ class UserInfoResponse(dict):
 
 
 @pulumi.output_type
+class ValidationErrorResponse(dict):
+    """
+    Describes an error encountered in the file during validation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorMessages":
+            suggest = "error_messages"
+        elif key == "recordIndex":
+            suggest = "record_index"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ValidationErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ValidationErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ValidationErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_messages: Sequence[str],
+                 record_index: Optional[int] = None):
+        """
+        Describes an error encountered in the file during validation.
+        :param Sequence[str] error_messages: A list of descriptions of the error.
+        :param int record_index: The number of the record that has the error.
+        """
+        pulumi.set(__self__, "error_messages", error_messages)
+        if record_index is not None:
+            pulumi.set(__self__, "record_index", record_index)
+
+    @property
+    @pulumi.getter(name="errorMessages")
+    def error_messages(self) -> Sequence[str]:
+        """
+        A list of descriptions of the error.
+        """
+        return pulumi.get(self, "error_messages")
+
+    @property
+    @pulumi.getter(name="recordIndex")
+    def record_index(self) -> Optional[int]:
+        """
+        The number of the record that has the error.
+        """
+        return pulumi.get(self, "record_index")
+
+
+@pulumi.output_type
 class WatchlistUserInfoResponse(dict):
     """
     User information that made some action
@@ -2501,5 +4224,87 @@ class WatchlistUserInfoResponse(dict):
         The object id of the user.
         """
         return pulumi.get(self, "object_id")
+
+
+@pulumi.output_type
+class WebhookResponse(dict):
+    """
+    Detail about the webhook object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rotateWebhookSecret":
+            suggest = "rotate_webhook_secret"
+        elif key == "webhookId":
+            suggest = "webhook_id"
+        elif key == "webhookSecretUpdateTime":
+            suggest = "webhook_secret_update_time"
+        elif key == "webhookUrl":
+            suggest = "webhook_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebhookResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebhookResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebhookResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rotate_webhook_secret: Optional[bool] = None,
+                 webhook_id: Optional[str] = None,
+                 webhook_secret_update_time: Optional[str] = None,
+                 webhook_url: Optional[str] = None):
+        """
+        Detail about the webhook object.
+        :param bool rotate_webhook_secret: A flag to instruct the backend service to rotate webhook secret.
+        :param str webhook_id: Unique identifier for the webhook.
+        :param str webhook_secret_update_time: Time when the webhook secret was updated.
+        :param str webhook_url: URL that gets invoked by the webhook.
+        """
+        if rotate_webhook_secret is not None:
+            pulumi.set(__self__, "rotate_webhook_secret", rotate_webhook_secret)
+        if webhook_id is not None:
+            pulumi.set(__self__, "webhook_id", webhook_id)
+        if webhook_secret_update_time is not None:
+            pulumi.set(__self__, "webhook_secret_update_time", webhook_secret_update_time)
+        if webhook_url is not None:
+            pulumi.set(__self__, "webhook_url", webhook_url)
+
+    @property
+    @pulumi.getter(name="rotateWebhookSecret")
+    def rotate_webhook_secret(self) -> Optional[bool]:
+        """
+        A flag to instruct the backend service to rotate webhook secret.
+        """
+        return pulumi.get(self, "rotate_webhook_secret")
+
+    @property
+    @pulumi.getter(name="webhookId")
+    def webhook_id(self) -> Optional[str]:
+        """
+        Unique identifier for the webhook.
+        """
+        return pulumi.get(self, "webhook_id")
+
+    @property
+    @pulumi.getter(name="webhookSecretUpdateTime")
+    def webhook_secret_update_time(self) -> Optional[str]:
+        """
+        Time when the webhook secret was updated.
+        """
+        return pulumi.get(self, "webhook_secret_update_time")
+
+    @property
+    @pulumi.getter(name="webhookUrl")
+    def webhook_url(self) -> Optional[str]:
+        """
+        URL that gets invoked by the webhook.
+        """
+        return pulumi.get(self, "webhook_url")
 
 

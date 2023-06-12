@@ -23,6 +23,7 @@ __all__ = [
     'AmlTokenArgs',
     'ArmResourceIdArgs',
     'AssignedUserArgs',
+    'AutoDeleteSettingArgs',
     'AutoForecastHorizonArgs',
     'AutoMLJobArgs',
     'AutoNCrossValidationsArgs',
@@ -34,6 +35,7 @@ __all__ = [
     'AzureBlobDatastoreArgs',
     'AzureDataLakeGen1DatastoreArgs',
     'AzureDataLakeGen2DatastoreArgs',
+    'AzureDevOpsWebhookArgs',
     'AzureFileDatastoreArgs',
     'BanditPolicyArgs',
     'BatchDeploymentArgs',
@@ -80,8 +82,17 @@ __all__ = [
     'DataPathAssetReferenceArgs',
     'DatabricksPropertiesArgs',
     'DatabricksArgs',
+    'DatasetCreateRequestDataPathArgs',
+    'DatasetCreateRequestParametersArgs',
+    'DatasetCreateRequestPathArgs',
+    'DatasetCreateRequestQueryArgs',
+    'DatasetCreateRequestRegistrationArgs',
+    'DatasetCreateRequestTimeSeriesArgs',
     'DefaultScaleSettingsArgs',
     'DeploymentResourceConfigurationArgs',
+    'DockerBuildArgs',
+    'DockerImagePlatformArgs',
+    'DockerImageArgs',
     'DockerArgs',
     'EncryptionKeyVaultPropertiesArgs',
     'EncryptionPropertyArgs',
@@ -89,17 +100,25 @@ __all__ = [
     'EndpointScheduleActionArgs',
     'EndpointArgs',
     'EnvironmentContainerArgs',
+    'EnvironmentSpecificationVersionArgs',
     'EnvironmentVariableArgs',
     'EnvironmentVersionArgs',
+    'FeaturesetContainerArgs',
+    'FeaturesetSpecificationArgs',
+    'FeaturesetVersionArgs',
+    'FeaturestoreEntityContainerArgs',
+    'FeaturestoreEntityVersionArgs',
     'FlavorDataArgs',
     'ForecastingSettingsArgs',
     'ForecastingTrainingSettingsArgs',
     'ForecastingArgs',
+    'FqdnOutboundRuleArgs',
     'GridSamplingAlgorithmArgs',
     'HDInsightPropertiesArgs',
     'HDInsightArgs',
     'IdAssetReferenceArgs',
     'IdentityForCmkArgs',
+    'IdentityArgs',
     'ImageClassificationMultilabelArgs',
     'ImageClassificationArgs',
     'ImageInstanceSegmentationArgs',
@@ -111,6 +130,7 @@ __all__ = [
     'ImageObjectDetectionArgs',
     'ImageSweepSettingsArgs',
     'ImageArgs',
+    'IndexColumnArgs',
     'InferenceContainerPropertiesArgs',
     'InstanceTypeSchemaResourcesArgs',
     'InstanceTypeSchemaArgs',
@@ -120,7 +140,18 @@ __all__ = [
     'KubernetesOnlineDeploymentArgs',
     'KubernetesPropertiesArgs',
     'KubernetesArgs',
+    'LabelCategoryArgs',
+    'LabelClassArgs',
+    'LabelingDataConfigurationArgs',
+    'LabelingJobImagePropertiesArgs',
+    'LabelingJobInstructionsArgs',
+    'LabelingJobTextPropertiesArgs',
+    'LabelingJobArgs',
+    'LinkedServicePropsArgs',
+    'LinkedWorkspacePropsArgs',
     'LiteralJobInputArgs',
+    'MLAssistConfigurationDisabledArgs',
+    'MLAssistConfigurationEnabledArgs',
     'MLFlowModelJobInputArgs',
     'MLFlowModelJobOutputArgs',
     'MLTableDataArgs',
@@ -130,6 +161,8 @@ __all__ = [
     'ManagedIdentityArgs',
     'ManagedOnlineDeploymentArgs',
     'ManagedServiceIdentityArgs',
+    'MaterializationComputeResourceArgs',
+    'MaterializationSettingsArgs',
     'MedianStoppingPolicyArgs',
     'ModelContainerArgs',
     'ModelVersionArgs',
@@ -138,6 +171,7 @@ __all__ = [
     'NlpVerticalLimitSettingsArgs',
     'NoneAuthTypeWorkspaceConnectionPropertiesArgs',
     'NoneDatastoreCredentialsArgs',
+    'NotificationSettingArgs',
     'ObjectiveArgs',
     'OnlineEndpointArgs',
     'OnlineRequestSettingsArgs',
@@ -145,6 +179,8 @@ __all__ = [
     'PATAuthTypeWorkspaceConnectionPropertiesArgs',
     'PersonalComputeInstanceSettingsArgs',
     'PipelineJobArgs',
+    'PrivateEndpointDestinationArgs',
+    'PrivateEndpointOutboundRuleArgs',
     'PrivateEndpointResourceArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'ProbeSettingsArgs',
@@ -170,9 +206,12 @@ __all__ = [
     'ScheduleArgs',
     'ScriptReferenceArgs',
     'ScriptsToExecuteArgs',
+    'SecretConfigurationArgs',
     'ServiceManagedResourcesSettingsArgs',
     'ServicePrincipalDatastoreCredentialsArgs',
     'ServicePrincipalDatastoreSecretsArgs',
+    'ServiceTagDestinationArgs',
+    'ServiceTagOutboundRuleArgs',
     'SetupScriptsArgs',
     'SharedPrivateLinkResourceArgs',
     'SkuArgs',
@@ -1065,6 +1104,47 @@ class AssignedUserArgs:
     @tenant_id.setter
     def tenant_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class AutoDeleteSettingArgs:
+    def __init__(__self__, *,
+                 condition: Optional[pulumi.Input[Union[str, 'AutoDeleteCondition']]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Union[str, 'AutoDeleteCondition']] condition: When to check if an asset is expired
+        :param pulumi.Input[str] value: Expiration condition value.
+        """
+        if condition is None:
+            condition = 'CreatedGreaterThan'
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[Union[str, 'AutoDeleteCondition']]]:
+        """
+        When to check if an asset is expired
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[Union[str, 'AutoDeleteCondition']]]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expiration condition value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1999,6 +2079,47 @@ class AzureDataLakeGen2DatastoreArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class AzureDevOpsWebhookArgs:
+    def __init__(__self__, *,
+                 webhook_type: pulumi.Input[str],
+                 event_type: Optional[pulumi.Input[str]] = None):
+        """
+        Webhook details specific for Azure DevOps
+        :param pulumi.Input[str] webhook_type: Enum to determine the webhook callback service type.
+               Expected value is 'AzureDevOps'.
+        :param pulumi.Input[str] event_type: Send callback on a specified notification event
+        """
+        pulumi.set(__self__, "webhook_type", 'AzureDevOps')
+        if event_type is not None:
+            pulumi.set(__self__, "event_type", event_type)
+
+    @property
+    @pulumi.getter(name="webhookType")
+    def webhook_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine the webhook callback service type.
+        Expected value is 'AzureDevOps'.
+        """
+        return pulumi.get(self, "webhook_type")
+
+    @webhook_type.setter
+    def webhook_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "webhook_type", value)
+
+    @property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Send callback on a specified notification event
+        """
+        return pulumi.get(self, "event_type")
+
+    @event_type.setter
+    def event_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_type", value)
 
 
 @pulumi.input_type
@@ -5938,6 +6059,326 @@ class DatabricksArgs:
 
 
 @pulumi.input_type
+class DatasetCreateRequestDataPathArgs:
+    def __init__(__self__, *,
+                 datastore_name: Optional[pulumi.Input[str]] = None,
+                 relative_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] datastore_name: The datastore name.
+        :param pulumi.Input[str] relative_path: Path within the datastore.
+        """
+        if datastore_name is not None:
+            pulumi.set(__self__, "datastore_name", datastore_name)
+        if relative_path is not None:
+            pulumi.set(__self__, "relative_path", relative_path)
+
+    @property
+    @pulumi.getter(name="datastoreName")
+    def datastore_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The datastore name.
+        """
+        return pulumi.get(self, "datastore_name")
+
+    @datastore_name.setter
+    def datastore_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datastore_name", value)
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path within the datastore.
+        """
+        return pulumi.get(self, "relative_path")
+
+    @relative_path.setter
+    def relative_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "relative_path", value)
+
+
+@pulumi.input_type
+class DatasetCreateRequestParametersArgs:
+    def __init__(__self__, *,
+                 header: Optional[pulumi.Input[Union[str, 'Header']]] = None,
+                 include_path: Optional[pulumi.Input[bool]] = None,
+                 partition_format: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input['DatasetCreateRequestPathArgs']] = None,
+                 query: Optional[pulumi.Input['DatasetCreateRequestQueryArgs']] = None,
+                 separator: Optional[pulumi.Input[str]] = None,
+                 source_type: Optional[pulumi.Input[Union[str, 'SourceType']]] = None):
+        """
+        :param pulumi.Input[Union[str, 'Header']] header: Header type.
+        :param pulumi.Input[bool] include_path: Boolean to keep path information as column in the dataset. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
+        :param pulumi.Input[str] partition_format: The partition information of each path will be extracted into columns based on the specified format. Format part '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute and second for the datetime type. The format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.parquet' where the partition is by country/region and time, partition_format='/{CountryOrRegion}/{PartitionDate:yyyy/MM/dd}/data.csv' creates a string column 'CountryOrRegion' with the value 'USA' and a datetime column 'PartitionDate' with the value '2019-01-01
+        :param pulumi.Input[str] separator: The separator used to split columns for 'delimited_files' sourceType.
+        :param pulumi.Input[Union[str, 'SourceType']] source_type: Data source type.
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if include_path is None:
+            include_path = False
+        if include_path is not None:
+            pulumi.set(__self__, "include_path", include_path)
+        if partition_format is not None:
+            pulumi.set(__self__, "partition_format", partition_format)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if separator is not None:
+            pulumi.set(__self__, "separator", separator)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[pulumi.Input[Union[str, 'Header']]]:
+        """
+        Header type.
+        """
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: Optional[pulumi.Input[Union[str, 'Header']]]):
+        pulumi.set(self, "header", value)
+
+    @property
+    @pulumi.getter(name="includePath")
+    def include_path(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean to keep path information as column in the dataset. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
+        """
+        return pulumi.get(self, "include_path")
+
+    @include_path.setter
+    def include_path(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_path", value)
+
+    @property
+    @pulumi.getter(name="partitionFormat")
+    def partition_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The partition information of each path will be extracted into columns based on the specified format. Format part '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute and second for the datetime type. The format should start from the position of first partition key until the end of file path. For example, given the path '../USA/2019/01/01/data.parquet' where the partition is by country/region and time, partition_format='/{CountryOrRegion}/{PartitionDate:yyyy/MM/dd}/data.csv' creates a string column 'CountryOrRegion' with the value 'USA' and a datetime column 'PartitionDate' with the value '2019-01-01
+        """
+        return pulumi.get(self, "partition_format")
+
+    @partition_format.setter
+    def partition_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition_format", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input['DatasetCreateRequestPathArgs']]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input['DatasetCreateRequestPathArgs']]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input['DatasetCreateRequestQueryArgs']]:
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input['DatasetCreateRequestQueryArgs']]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter
+    def separator(self) -> Optional[pulumi.Input[str]]:
+        """
+        The separator used to split columns for 'delimited_files' sourceType.
+        """
+        return pulumi.get(self, "separator")
+
+    @separator.setter
+    def separator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "separator", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[pulumi.Input[Union[str, 'SourceType']]]:
+        """
+        Data source type.
+        """
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: Optional[pulumi.Input[Union[str, 'SourceType']]]):
+        pulumi.set(self, "source_type", value)
+
+
+@pulumi.input_type
+class DatasetCreateRequestPathArgs:
+    def __init__(__self__, *,
+                 data_path: Optional[pulumi.Input['DatasetCreateRequestDataPathArgs']] = None,
+                 http_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] http_url: The Http URL.
+        """
+        if data_path is not None:
+            pulumi.set(__self__, "data_path", data_path)
+        if http_url is not None:
+            pulumi.set(__self__, "http_url", http_url)
+
+    @property
+    @pulumi.getter(name="dataPath")
+    def data_path(self) -> Optional[pulumi.Input['DatasetCreateRequestDataPathArgs']]:
+        return pulumi.get(self, "data_path")
+
+    @data_path.setter
+    def data_path(self, value: Optional[pulumi.Input['DatasetCreateRequestDataPathArgs']]):
+        pulumi.set(self, "data_path", value)
+
+    @property
+    @pulumi.getter(name="httpUrl")
+    def http_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Http URL.
+        """
+        return pulumi.get(self, "http_url")
+
+    @http_url.setter
+    def http_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_url", value)
+
+
+@pulumi.input_type
+class DatasetCreateRequestQueryArgs:
+    def __init__(__self__, *,
+                 datastore_name: Optional[pulumi.Input[str]] = None,
+                 query: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] datastore_name: The SQL/PostgreSQL/MySQL datastore name.
+        :param pulumi.Input[str] query: SQL Quey.
+        """
+        if datastore_name is not None:
+            pulumi.set(__self__, "datastore_name", datastore_name)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter(name="datastoreName")
+    def datastore_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SQL/PostgreSQL/MySQL datastore name.
+        """
+        return pulumi.get(self, "datastore_name")
+
+    @datastore_name.setter
+    def datastore_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datastore_name", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input[str]]:
+        """
+        SQL Quey.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query", value)
+
+
+@pulumi.input_type
+class DatasetCreateRequestRegistrationArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] description: The description for the dataset.
+        :param pulumi.Input[str] name: The name of the dataset.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags associated with the dataset.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description for the dataset.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags associated with the dataset.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class DatasetCreateRequestTimeSeriesArgs:
+    def __init__(__self__, *,
+                 coarse_grain_timestamp: Optional[pulumi.Input[str]] = None,
+                 fine_grain_timestamp: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] coarse_grain_timestamp: Column name to be used as CoarseGrainTimestamp. Can only be used if 'fineGrainTimestamp' is specified and cannot be same as 'fineGrainTimestamp'.
+        :param pulumi.Input[str] fine_grain_timestamp:  Column name to be used as FineGrainTimestamp
+        """
+        if coarse_grain_timestamp is not None:
+            pulumi.set(__self__, "coarse_grain_timestamp", coarse_grain_timestamp)
+        if fine_grain_timestamp is not None:
+            pulumi.set(__self__, "fine_grain_timestamp", fine_grain_timestamp)
+
+    @property
+    @pulumi.getter(name="coarseGrainTimestamp")
+    def coarse_grain_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        Column name to be used as CoarseGrainTimestamp. Can only be used if 'fineGrainTimestamp' is specified and cannot be same as 'fineGrainTimestamp'.
+        """
+        return pulumi.get(self, "coarse_grain_timestamp")
+
+    @coarse_grain_timestamp.setter
+    def coarse_grain_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "coarse_grain_timestamp", value)
+
+    @property
+    @pulumi.getter(name="fineGrainTimestamp")
+    def fine_grain_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+         Column name to be used as FineGrainTimestamp
+        """
+        return pulumi.get(self, "fine_grain_timestamp")
+
+    @fine_grain_timestamp.setter
+    def fine_grain_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fine_grain_timestamp", value)
+
+
+@pulumi.input_type
 class DefaultScaleSettingsArgs:
     def __init__(__self__, *,
                  scale_type: pulumi.Input[str]):
@@ -6016,6 +6457,165 @@ class DeploymentResourceConfigurationArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
+class DockerBuildArgs:
+    def __init__(__self__, *,
+                 docker_specification_type: pulumi.Input[str],
+                 dockerfile: pulumi.Input[str],
+                 context: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input['DockerImagePlatformArgs']] = None):
+        """
+        Class to represent configuration settings for Docker Build
+        :param pulumi.Input[str] docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
+               Expected value is 'Build'.
+        :param pulumi.Input[str] dockerfile: [Required] Docker command line instructions to assemble an image.
+               <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
+        :param pulumi.Input[str] context: Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.
+               The path is relative to the asset path which must contain a single Blob URI value.
+               <seealso href="https://docs.docker.com/engine/context/working-with-contexts/" />
+        :param pulumi.Input['DockerImagePlatformArgs'] platform: The platform information of the docker image.
+        """
+        pulumi.set(__self__, "docker_specification_type", 'Build')
+        pulumi.set(__self__, "dockerfile", dockerfile)
+        if context is not None:
+            pulumi.set(__self__, "context", context)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+
+    @property
+    @pulumi.getter(name="dockerSpecificationType")
+    def docker_specification_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine docker specification type. Must be either Build or Image.
+        Expected value is 'Build'.
+        """
+        return pulumi.get(self, "docker_specification_type")
+
+    @docker_specification_type.setter
+    def docker_specification_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "docker_specification_type", value)
+
+    @property
+    @pulumi.getter
+    def dockerfile(self) -> pulumi.Input[str]:
+        """
+        [Required] Docker command line instructions to assemble an image.
+        <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
+        """
+        return pulumi.get(self, "dockerfile")
+
+    @dockerfile.setter
+    def dockerfile(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dockerfile", value)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.
+        The path is relative to the asset path which must contain a single Blob URI value.
+        <seealso href="https://docs.docker.com/engine/context/working-with-contexts/" />
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input['DockerImagePlatformArgs']]:
+        """
+        The platform information of the docker image.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input['DockerImagePlatformArgs']]):
+        pulumi.set(self, "platform", value)
+
+
+@pulumi.input_type
+class DockerImagePlatformArgs:
+    def __init__(__self__, *,
+                 operating_system_type: Optional[pulumi.Input[Union[str, 'OperatingSystemType']]] = None):
+        """
+        :param pulumi.Input[Union[str, 'OperatingSystemType']] operating_system_type: The OS type the Environment.
+        """
+        if operating_system_type is not None:
+            pulumi.set(__self__, "operating_system_type", operating_system_type)
+
+    @property
+    @pulumi.getter(name="operatingSystemType")
+    def operating_system_type(self) -> Optional[pulumi.Input[Union[str, 'OperatingSystemType']]]:
+        """
+        The OS type the Environment.
+        """
+        return pulumi.get(self, "operating_system_type")
+
+    @operating_system_type.setter
+    def operating_system_type(self, value: Optional[pulumi.Input[Union[str, 'OperatingSystemType']]]):
+        pulumi.set(self, "operating_system_type", value)
+
+
+@pulumi.input_type
+class DockerImageArgs:
+    def __init__(__self__, *,
+                 docker_image_uri: pulumi.Input[str],
+                 docker_specification_type: pulumi.Input[str],
+                 platform: Optional[pulumi.Input['DockerImagePlatformArgs']] = None):
+        """
+        Class to represent configuration settings for Docker Build
+        :param pulumi.Input[str] docker_image_uri: [Required] Image name of a custom base image.
+               <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+        :param pulumi.Input[str] docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
+               Expected value is 'Image'.
+        :param pulumi.Input['DockerImagePlatformArgs'] platform: The platform information of the docker image.
+        """
+        pulumi.set(__self__, "docker_image_uri", docker_image_uri)
+        pulumi.set(__self__, "docker_specification_type", 'Image')
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+
+    @property
+    @pulumi.getter(name="dockerImageUri")
+    def docker_image_uri(self) -> pulumi.Input[str]:
+        """
+        [Required] Image name of a custom base image.
+        <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+        """
+        return pulumi.get(self, "docker_image_uri")
+
+    @docker_image_uri.setter
+    def docker_image_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "docker_image_uri", value)
+
+    @property
+    @pulumi.getter(name="dockerSpecificationType")
+    def docker_specification_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine docker specification type. Must be either Build or Image.
+        Expected value is 'Image'.
+        """
+        return pulumi.get(self, "docker_specification_type")
+
+    @docker_specification_type.setter
+    def docker_specification_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "docker_specification_type", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input['DockerImagePlatformArgs']]:
+        """
+        The platform information of the docker image.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input['DockerImagePlatformArgs']]):
+        pulumi.set(self, "platform", value)
 
 
 @pulumi.input_type
@@ -6394,6 +6994,129 @@ class EnvironmentContainerArgs:
 
 
 @pulumi.input_type
+class EnvironmentSpecificationVersionArgs:
+    def __init__(__self__, *,
+                 conda_file: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 docker: Optional[pulumi.Input[Union['DockerBuildArgs', 'DockerImageArgs']]] = None,
+                 inference_container_properties: Optional[pulumi.Input['InferenceContainerPropertiesArgs']] = None,
+                 is_anonymous: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Environment specification version details.
+        <see href="https://repo2docker.readthedocs.io/en/latest/specification.html" />
+        :param pulumi.Input[str] conda_file: Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
+               <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[Union['DockerBuildArgs', 'DockerImageArgs']] docker: Configuration settings for Docker.
+        :param pulumi.Input['InferenceContainerPropertiesArgs'] inference_container_properties: Defines configuration specific to inference.
+        :param pulumi.Input[bool] is_anonymous: If the name version are system generated (anonymous registration).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        if conda_file is not None:
+            pulumi.set(__self__, "conda_file", conda_file)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if docker is not None:
+            pulumi.set(__self__, "docker", docker)
+        if inference_container_properties is not None:
+            pulumi.set(__self__, "inference_container_properties", inference_container_properties)
+        if is_anonymous is not None:
+            pulumi.set(__self__, "is_anonymous", is_anonymous)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="condaFile")
+    def conda_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
+        <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
+        """
+        return pulumi.get(self, "conda_file")
+
+    @conda_file.setter
+    def conda_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "conda_file", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def docker(self) -> Optional[pulumi.Input[Union['DockerBuildArgs', 'DockerImageArgs']]]:
+        """
+        Configuration settings for Docker.
+        """
+        return pulumi.get(self, "docker")
+
+    @docker.setter
+    def docker(self, value: Optional[pulumi.Input[Union['DockerBuildArgs', 'DockerImageArgs']]]):
+        pulumi.set(self, "docker", value)
+
+    @property
+    @pulumi.getter(name="inferenceContainerProperties")
+    def inference_container_properties(self) -> Optional[pulumi.Input['InferenceContainerPropertiesArgs']]:
+        """
+        Defines configuration specific to inference.
+        """
+        return pulumi.get(self, "inference_container_properties")
+
+    @inference_container_properties.setter
+    def inference_container_properties(self, value: Optional[pulumi.Input['InferenceContainerPropertiesArgs']]):
+        pulumi.set(self, "inference_container_properties", value)
+
+    @property
+    @pulumi.getter(name="isAnonymous")
+    def is_anonymous(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        return pulumi.get(self, "is_anonymous")
+
+    @is_anonymous.setter
+    def is_anonymous(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_anonymous", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
 class EnvironmentVariableArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'EnvironmentVariableType']]] = None,
@@ -6627,6 +7350,490 @@ class EnvironmentVersionArgs:
     def stage(self) -> Optional[pulumi.Input[str]]:
         """
         Stage in the environment lifecycle assigned to this environment
+        """
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stage", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class FeaturesetContainerArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_archived: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Dto object representing feature set
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[bool] is_archived: Is the asset archived?
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the asset archived?
+        """
+        return pulumi.get(self, "is_archived")
+
+    @is_archived.setter
+    def is_archived(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_archived", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class FeaturesetSpecificationArgs:
+    def __init__(__self__, *,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        Dto object representing specification
+        :param pulumi.Input[str] path: Specifies the spec path
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the spec path
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class FeaturesetVersionArgs:
+    def __init__(__self__, *,
+                 auto_delete_setting: Optional[pulumi.Input['AutoDeleteSettingArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 is_anonymous: Optional[pulumi.Input[bool]] = None,
+                 is_archived: Optional[pulumi.Input[bool]] = None,
+                 materialization_settings: Optional[pulumi.Input['MaterializationSettingsArgs']] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 specification: Optional[pulumi.Input['FeaturesetSpecificationArgs']] = None,
+                 stage: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Dto object representing feature set version
+        :param pulumi.Input['AutoDeleteSettingArgs'] auto_delete_setting: Specifies the lifecycle setting of managed data asset.
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: Specifies list of entities
+        :param pulumi.Input[bool] is_anonymous: If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
+        :param pulumi.Input[bool] is_archived: Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        :param pulumi.Input['MaterializationSettingsArgs'] materialization_settings: Specifies the materialization settings
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input['FeaturesetSpecificationArgs'] specification: Specifies the feature spec details
+        :param pulumi.Input[str] stage: Specifies the asset stage
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        if auto_delete_setting is not None:
+            pulumi.set(__self__, "auto_delete_setting", auto_delete_setting)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if entities is not None:
+            pulumi.set(__self__, "entities", entities)
+        if is_anonymous is None:
+            is_anonymous = False
+        if is_anonymous is not None:
+            pulumi.set(__self__, "is_anonymous", is_anonymous)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if materialization_settings is not None:
+            pulumi.set(__self__, "materialization_settings", materialization_settings)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if specification is not None:
+            pulumi.set(__self__, "specification", specification)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="autoDeleteSetting")
+    def auto_delete_setting(self) -> Optional[pulumi.Input['AutoDeleteSettingArgs']]:
+        """
+        Specifies the lifecycle setting of managed data asset.
+        """
+        return pulumi.get(self, "auto_delete_setting")
+
+    @auto_delete_setting.setter
+    def auto_delete_setting(self, value: Optional[pulumi.Input['AutoDeleteSettingArgs']]):
+        pulumi.set(self, "auto_delete_setting", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies list of entities
+        """
+        return pulumi.get(self, "entities")
+
+    @entities.setter
+    def entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "entities", value)
+
+    @property
+    @pulumi.getter(name="isAnonymous")
+    def is_anonymous(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
+        """
+        return pulumi.get(self, "is_anonymous")
+
+    @is_anonymous.setter
+    def is_anonymous(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_anonymous", value)
+
+    @property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        """
+        return pulumi.get(self, "is_archived")
+
+    @is_archived.setter
+    def is_archived(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_archived", value)
+
+    @property
+    @pulumi.getter(name="materializationSettings")
+    def materialization_settings(self) -> Optional[pulumi.Input['MaterializationSettingsArgs']]:
+        """
+        Specifies the materialization settings
+        """
+        return pulumi.get(self, "materialization_settings")
+
+    @materialization_settings.setter
+    def materialization_settings(self, value: Optional[pulumi.Input['MaterializationSettingsArgs']]):
+        pulumi.set(self, "materialization_settings", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def specification(self) -> Optional[pulumi.Input['FeaturesetSpecificationArgs']]:
+        """
+        Specifies the feature spec details
+        """
+        return pulumi.get(self, "specification")
+
+    @specification.setter
+    def specification(self, value: Optional[pulumi.Input['FeaturesetSpecificationArgs']]):
+        pulumi.set(self, "specification", value)
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the asset stage
+        """
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stage", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class FeaturestoreEntityContainerArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_archived: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Dto object representing feature entity
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[bool] is_archived: Is the asset archived?
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the asset archived?
+        """
+        return pulumi.get(self, "is_archived")
+
+    @is_archived.setter
+    def is_archived(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_archived", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class FeaturestoreEntityVersionArgs:
+    def __init__(__self__, *,
+                 auto_delete_setting: Optional[pulumi.Input['AutoDeleteSettingArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 index_columns: Optional[pulumi.Input[Sequence[pulumi.Input['IndexColumnArgs']]]] = None,
+                 is_anonymous: Optional[pulumi.Input[bool]] = None,
+                 is_archived: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 stage: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Dto object representing feature entity version
+        :param pulumi.Input['AutoDeleteSettingArgs'] auto_delete_setting: Specifies the lifecycle setting of managed data asset.
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[Sequence[pulumi.Input['IndexColumnArgs']]] index_columns: Specifies index columns
+        :param pulumi.Input[bool] is_anonymous: If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
+        :param pulumi.Input[bool] is_archived: Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[str] stage: Specifies the asset stage
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        if auto_delete_setting is not None:
+            pulumi.set(__self__, "auto_delete_setting", auto_delete_setting)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if index_columns is not None:
+            pulumi.set(__self__, "index_columns", index_columns)
+        if is_anonymous is None:
+            is_anonymous = False
+        if is_anonymous is not None:
+            pulumi.set(__self__, "is_anonymous", is_anonymous)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="autoDeleteSetting")
+    def auto_delete_setting(self) -> Optional[pulumi.Input['AutoDeleteSettingArgs']]:
+        """
+        Specifies the lifecycle setting of managed data asset.
+        """
+        return pulumi.get(self, "auto_delete_setting")
+
+    @auto_delete_setting.setter
+    def auto_delete_setting(self, value: Optional[pulumi.Input['AutoDeleteSettingArgs']]):
+        pulumi.set(self, "auto_delete_setting", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="indexColumns")
+    def index_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexColumnArgs']]]]:
+        """
+        Specifies index columns
+        """
+        return pulumi.get(self, "index_columns")
+
+    @index_columns.setter
+    def index_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexColumnArgs']]]]):
+        pulumi.set(self, "index_columns", value)
+
+    @property
+    @pulumi.getter(name="isAnonymous")
+    def is_anonymous(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
+        """
+        return pulumi.get(self, "is_anonymous")
+
+    @is_anonymous.setter
+    def is_anonymous(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_anonymous", value)
+
+    @property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        """
+        return pulumi.get(self, "is_archived")
+
+    @is_archived.setter
+    def is_archived(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_archived", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the asset stage
         """
         return pulumi.get(self, "stage")
 
@@ -7353,6 +8560,75 @@ class ForecastingArgs:
 
 
 @pulumi.input_type
+class FqdnOutboundRuleArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'RuleCategory']]] = None,
+                 destination: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'RuleStatus']]] = None):
+        """
+        FQDN Outbound Rule for the managed network of a machine learning workspace.
+        :param pulumi.Input[str] type: Type of a managed network Outbound Rule of a machine learning workspace.
+               Expected value is 'FQDN'.
+        :param pulumi.Input[Union[str, 'RuleCategory']] category: Category of a managed network Outbound Rule of a machine learning workspace.
+        :param pulumi.Input[Union[str, 'RuleStatus']] status: Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        pulumi.set(__self__, "type", 'FQDN')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of a managed network Outbound Rule of a machine learning workspace.
+        Expected value is 'FQDN'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'RuleCategory']]]:
+        """
+        Category of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'RuleCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'RuleStatus']]]:
+        """
+        Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'RuleStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
 class GridSamplingAlgorithmArgs:
     def __init__(__self__, *,
                  sampling_algorithm_type: pulumi.Input[str]):
@@ -7600,6 +8876,46 @@ class IdentityForCmkArgs:
     @user_assigned_identity.setter
     def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity", value)
+
+
+@pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Identity for the resource.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The user assigned identities associated with the resource.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The user assigned identities associated with the resource.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
@@ -11202,6 +12518,48 @@ class ImageArgs:
 
 
 @pulumi.input_type
+class IndexColumnArgs:
+    def __init__(__self__, *,
+                 column_name: Optional[pulumi.Input[str]] = None,
+                 data_type: Optional[pulumi.Input[Union[str, 'FeatureDataType']]] = None):
+        """
+        Dto object representing index column
+        :param pulumi.Input[str] column_name: Specifies the column name
+        :param pulumi.Input[Union[str, 'FeatureDataType']] data_type: Specifies the data type
+        """
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if data_type is None:
+            data_type = 'String'
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the column name
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "column_name", value)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[pulumi.Input[Union[str, 'FeatureDataType']]]:
+        """
+        Specifies the data type
+        """
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: Optional[pulumi.Input[Union[str, 'FeatureDataType']]]):
+        pulumi.set(self, "data_type", value)
+
+
+@pulumi.input_type
 class InferenceContainerPropertiesArgs:
     def __init__(__self__, *,
                  liveness_route: Optional[pulumi.Input['RouteArgs']] = None,
@@ -12075,6 +13433,672 @@ class KubernetesArgs:
 
 
 @pulumi.input_type
+class LabelCategoryArgs:
+    def __init__(__self__, *,
+                 classes: Optional[pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgs']]]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 multi_select: Optional[pulumi.Input[Union[str, 'MultiSelect']]] = None):
+        """
+        Label category definition
+        :param pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgs']]] classes: Dictionary of label classes in this category.
+        :param pulumi.Input[str] display_name: Display name of the label category.
+        :param pulumi.Input[Union[str, 'MultiSelect']] multi_select: Indicates whether it is allowed to select multiple classes in this category.
+        """
+        if classes is not None:
+            pulumi.set(__self__, "classes", classes)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if multi_select is None:
+            multi_select = 'Disabled'
+        if multi_select is not None:
+            pulumi.set(__self__, "multi_select", multi_select)
+
+    @property
+    @pulumi.getter
+    def classes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgs']]]]:
+        """
+        Dictionary of label classes in this category.
+        """
+        return pulumi.get(self, "classes")
+
+    @classes.setter
+    def classes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgs']]]]):
+        pulumi.set(self, "classes", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Display name of the label category.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="multiSelect")
+    def multi_select(self) -> Optional[pulumi.Input[Union[str, 'MultiSelect']]]:
+        """
+        Indicates whether it is allowed to select multiple classes in this category.
+        """
+        return pulumi.get(self, "multi_select")
+
+    @multi_select.setter
+    def multi_select(self, value: Optional[pulumi.Input[Union[str, 'MultiSelect']]]):
+        pulumi.set(self, "multi_select", value)
+
+
+@pulumi.input_type
+class LabelClassArgs:
+    def __init__(__self__, *,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 subclasses: Optional[pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgs']]]] = None):
+        """
+        Label class definition
+        :param pulumi.Input[str] display_name: Display name of the label class.
+        :param pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgs']]] subclasses: Dictionary of subclasses of the label class.
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if subclasses is not None:
+            pulumi.set(__self__, "subclasses", subclasses)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Display name of the label class.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def subclasses(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgs']]]]:
+        """
+        Dictionary of subclasses of the label class.
+        """
+        return pulumi.get(self, "subclasses")
+
+    @subclasses.setter
+    def subclasses(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['LabelClassArgs']]]]):
+        pulumi.set(self, "subclasses", value)
+
+
+@pulumi.input_type
+class LabelingDataConfigurationArgs:
+    def __init__(__self__, *,
+                 data_id: Optional[pulumi.Input[str]] = None,
+                 incremental_data_refresh: Optional[pulumi.Input[Union[str, 'IncrementalDataRefresh']]] = None):
+        """
+        Labeling data configuration definition
+        :param pulumi.Input[str] data_id: Resource Id of the data asset to perform labeling.
+        :param pulumi.Input[Union[str, 'IncrementalDataRefresh']] incremental_data_refresh: Indicates whether to enable incremental data refresh.
+        """
+        if data_id is not None:
+            pulumi.set(__self__, "data_id", data_id)
+        if incremental_data_refresh is None:
+            incremental_data_refresh = 'Disabled'
+        if incremental_data_refresh is not None:
+            pulumi.set(__self__, "incremental_data_refresh", incremental_data_refresh)
+
+    @property
+    @pulumi.getter(name="dataId")
+    def data_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id of the data asset to perform labeling.
+        """
+        return pulumi.get(self, "data_id")
+
+    @data_id.setter
+    def data_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_id", value)
+
+    @property
+    @pulumi.getter(name="incrementalDataRefresh")
+    def incremental_data_refresh(self) -> Optional[pulumi.Input[Union[str, 'IncrementalDataRefresh']]]:
+        """
+        Indicates whether to enable incremental data refresh.
+        """
+        return pulumi.get(self, "incremental_data_refresh")
+
+    @incremental_data_refresh.setter
+    def incremental_data_refresh(self, value: Optional[pulumi.Input[Union[str, 'IncrementalDataRefresh']]]):
+        pulumi.set(self, "incremental_data_refresh", value)
+
+
+@pulumi.input_type
+class LabelingJobImagePropertiesArgs:
+    def __init__(__self__, *,
+                 media_type: pulumi.Input[str],
+                 annotation_type: Optional[pulumi.Input[Union[str, 'ImageAnnotationType']]] = None):
+        """
+        Properties of a labeling job for image data
+        :param pulumi.Input[str] media_type: Media type of data asset.
+               Expected value is 'Image'.
+        :param pulumi.Input[Union[str, 'ImageAnnotationType']] annotation_type: Annotation type of image labeling job.
+        """
+        pulumi.set(__self__, "media_type", 'Image')
+        if annotation_type is None:
+            annotation_type = 'Classification'
+        if annotation_type is not None:
+            pulumi.set(__self__, "annotation_type", annotation_type)
+
+    @property
+    @pulumi.getter(name="mediaType")
+    def media_type(self) -> pulumi.Input[str]:
+        """
+        Media type of data asset.
+        Expected value is 'Image'.
+        """
+        return pulumi.get(self, "media_type")
+
+    @media_type.setter
+    def media_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "media_type", value)
+
+    @property
+    @pulumi.getter(name="annotationType")
+    def annotation_type(self) -> Optional[pulumi.Input[Union[str, 'ImageAnnotationType']]]:
+        """
+        Annotation type of image labeling job.
+        """
+        return pulumi.get(self, "annotation_type")
+
+    @annotation_type.setter
+    def annotation_type(self, value: Optional[pulumi.Input[Union[str, 'ImageAnnotationType']]]):
+        pulumi.set(self, "annotation_type", value)
+
+
+@pulumi.input_type
+class LabelingJobInstructionsArgs:
+    def __init__(__self__, *,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        Instructions for labeling job
+        :param pulumi.Input[str] uri: The link to a page with detailed labeling instructions for labelers.
+        """
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The link to a page with detailed labeling instructions for labelers.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class LabelingJobTextPropertiesArgs:
+    def __init__(__self__, *,
+                 media_type: pulumi.Input[str],
+                 annotation_type: Optional[pulumi.Input[Union[str, 'TextAnnotationType']]] = None):
+        """
+        Properties of a labeling job for text data
+        :param pulumi.Input[str] media_type: Media type of data asset.
+               Expected value is 'Text'.
+        :param pulumi.Input[Union[str, 'TextAnnotationType']] annotation_type: Annotation type of text labeling job.
+        """
+        pulumi.set(__self__, "media_type", 'Text')
+        if annotation_type is None:
+            annotation_type = 'Classification'
+        if annotation_type is not None:
+            pulumi.set(__self__, "annotation_type", annotation_type)
+
+    @property
+    @pulumi.getter(name="mediaType")
+    def media_type(self) -> pulumi.Input[str]:
+        """
+        Media type of data asset.
+        Expected value is 'Text'.
+        """
+        return pulumi.get(self, "media_type")
+
+    @media_type.setter
+    def media_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "media_type", value)
+
+    @property
+    @pulumi.getter(name="annotationType")
+    def annotation_type(self) -> Optional[pulumi.Input[Union[str, 'TextAnnotationType']]]:
+        """
+        Annotation type of text labeling job.
+        """
+        return pulumi.get(self, "annotation_type")
+
+    @annotation_type.setter
+    def annotation_type(self, value: Optional[pulumi.Input[Union[str, 'TextAnnotationType']]]):
+        pulumi.set(self, "annotation_type", value)
+
+
+@pulumi.input_type
+class LabelingJobArgs:
+    def __init__(__self__, *,
+                 job_type: pulumi.Input[str],
+                 component_id: Optional[pulumi.Input[str]] = None,
+                 compute_id: Optional[pulumi.Input[str]] = None,
+                 data_configuration: Optional[pulumi.Input['LabelingDataConfigurationArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 experiment_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['AmlTokenArgs', 'ManagedIdentityArgs', 'UserIdentityArgs']]] = None,
+                 is_archived: Optional[pulumi.Input[bool]] = None,
+                 job_instructions: Optional[pulumi.Input['LabelingJobInstructionsArgs']] = None,
+                 label_categories: Optional[pulumi.Input[Mapping[str, pulumi.Input['LabelCategoryArgs']]]] = None,
+                 labeling_job_media_properties: Optional[pulumi.Input[Union['LabelingJobImagePropertiesArgs', 'LabelingJobTextPropertiesArgs']]] = None,
+                 ml_assist_configuration: Optional[pulumi.Input[Union['MLAssistConfigurationDisabledArgs', 'MLAssistConfigurationEnabledArgs']]] = None,
+                 notification_setting: Optional[pulumi.Input['NotificationSettingArgs']] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 secrets_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input['SecretConfigurationArgs']]]] = None,
+                 services: Optional[pulumi.Input[Mapping[str, pulumi.Input['JobServiceArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Labeling job definition
+        :param pulumi.Input[str] job_type: Enum to determine the type of job.
+               Expected value is 'Labeling'.
+        :param pulumi.Input[str] component_id: ARM resource ID of the component resource.
+        :param pulumi.Input[str] compute_id: ARM resource ID of the compute resource.
+        :param pulumi.Input['LabelingDataConfigurationArgs'] data_configuration: Configuration of data used in the job.
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[str] display_name: Display name of job.
+        :param pulumi.Input[str] experiment_name: The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        :param pulumi.Input[Union['AmlTokenArgs', 'ManagedIdentityArgs', 'UserIdentityArgs']] identity: Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
+               Defaults to AmlToken if null.
+        :param pulumi.Input[bool] is_archived: Is the asset archived?
+        :param pulumi.Input['LabelingJobInstructionsArgs'] job_instructions: Labeling instructions of the job.
+        :param pulumi.Input[Mapping[str, pulumi.Input['LabelCategoryArgs']]] label_categories: Label categories of the job.
+        :param pulumi.Input[Union['LabelingJobImagePropertiesArgs', 'LabelingJobTextPropertiesArgs']] labeling_job_media_properties: Media type specific properties in the job.
+        :param pulumi.Input[Union['MLAssistConfigurationDisabledArgs', 'MLAssistConfigurationEnabledArgs']] ml_assist_configuration: Configuration of MLAssist feature in the job.
+        :param pulumi.Input['NotificationSettingArgs'] notification_setting: Notification setting for the job
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input['SecretConfigurationArgs']]] secrets_configuration: Configuration for secrets to be made available during runtime.
+        :param pulumi.Input[Mapping[str, pulumi.Input['JobServiceArgs']]] services: List of JobEndpoints.
+               For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "job_type", 'Labeling')
+        if component_id is not None:
+            pulumi.set(__self__, "component_id", component_id)
+        if compute_id is not None:
+            pulumi.set(__self__, "compute_id", compute_id)
+        if data_configuration is not None:
+            pulumi.set(__self__, "data_configuration", data_configuration)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if experiment_name is None:
+            experiment_name = 'Default'
+        if experiment_name is not None:
+            pulumi.set(__self__, "experiment_name", experiment_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if job_instructions is not None:
+            pulumi.set(__self__, "job_instructions", job_instructions)
+        if label_categories is not None:
+            pulumi.set(__self__, "label_categories", label_categories)
+        if labeling_job_media_properties is not None:
+            pulumi.set(__self__, "labeling_job_media_properties", labeling_job_media_properties)
+        if ml_assist_configuration is not None:
+            pulumi.set(__self__, "ml_assist_configuration", ml_assist_configuration)
+        if notification_setting is not None:
+            pulumi.set(__self__, "notification_setting", notification_setting)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if secrets_configuration is not None:
+            pulumi.set(__self__, "secrets_configuration", secrets_configuration)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine the type of job.
+        Expected value is 'Labeling'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "job_type", value)
+
+    @property
+    @pulumi.getter(name="componentId")
+    def component_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the component resource.
+        """
+        return pulumi.get(self, "component_id")
+
+    @component_id.setter
+    def component_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "component_id", value)
+
+    @property
+    @pulumi.getter(name="computeId")
+    def compute_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the compute resource.
+        """
+        return pulumi.get(self, "compute_id")
+
+    @compute_id.setter
+    def compute_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_id", value)
+
+    @property
+    @pulumi.getter(name="dataConfiguration")
+    def data_configuration(self) -> Optional[pulumi.Input['LabelingDataConfigurationArgs']]:
+        """
+        Configuration of data used in the job.
+        """
+        return pulumi.get(self, "data_configuration")
+
+    @data_configuration.setter
+    def data_configuration(self, value: Optional[pulumi.Input['LabelingDataConfigurationArgs']]):
+        pulumi.set(self, "data_configuration", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Display name of job.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @experiment_name.setter
+    def experiment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "experiment_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[Union['AmlTokenArgs', 'ManagedIdentityArgs', 'UserIdentityArgs']]]:
+        """
+        Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
+        Defaults to AmlToken if null.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[Union['AmlTokenArgs', 'ManagedIdentityArgs', 'UserIdentityArgs']]]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the asset archived?
+        """
+        return pulumi.get(self, "is_archived")
+
+    @is_archived.setter
+    def is_archived(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_archived", value)
+
+    @property
+    @pulumi.getter(name="jobInstructions")
+    def job_instructions(self) -> Optional[pulumi.Input['LabelingJobInstructionsArgs']]:
+        """
+        Labeling instructions of the job.
+        """
+        return pulumi.get(self, "job_instructions")
+
+    @job_instructions.setter
+    def job_instructions(self, value: Optional[pulumi.Input['LabelingJobInstructionsArgs']]):
+        pulumi.set(self, "job_instructions", value)
+
+    @property
+    @pulumi.getter(name="labelCategories")
+    def label_categories(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['LabelCategoryArgs']]]]:
+        """
+        Label categories of the job.
+        """
+        return pulumi.get(self, "label_categories")
+
+    @label_categories.setter
+    def label_categories(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['LabelCategoryArgs']]]]):
+        pulumi.set(self, "label_categories", value)
+
+    @property
+    @pulumi.getter(name="labelingJobMediaProperties")
+    def labeling_job_media_properties(self) -> Optional[pulumi.Input[Union['LabelingJobImagePropertiesArgs', 'LabelingJobTextPropertiesArgs']]]:
+        """
+        Media type specific properties in the job.
+        """
+        return pulumi.get(self, "labeling_job_media_properties")
+
+    @labeling_job_media_properties.setter
+    def labeling_job_media_properties(self, value: Optional[pulumi.Input[Union['LabelingJobImagePropertiesArgs', 'LabelingJobTextPropertiesArgs']]]):
+        pulumi.set(self, "labeling_job_media_properties", value)
+
+    @property
+    @pulumi.getter(name="mlAssistConfiguration")
+    def ml_assist_configuration(self) -> Optional[pulumi.Input[Union['MLAssistConfigurationDisabledArgs', 'MLAssistConfigurationEnabledArgs']]]:
+        """
+        Configuration of MLAssist feature in the job.
+        """
+        return pulumi.get(self, "ml_assist_configuration")
+
+    @ml_assist_configuration.setter
+    def ml_assist_configuration(self, value: Optional[pulumi.Input[Union['MLAssistConfigurationDisabledArgs', 'MLAssistConfigurationEnabledArgs']]]):
+        pulumi.set(self, "ml_assist_configuration", value)
+
+    @property
+    @pulumi.getter(name="notificationSetting")
+    def notification_setting(self) -> Optional[pulumi.Input['NotificationSettingArgs']]:
+        """
+        Notification setting for the job
+        """
+        return pulumi.get(self, "notification_setting")
+
+    @notification_setting.setter
+    def notification_setting(self, value: Optional[pulumi.Input['NotificationSettingArgs']]):
+        pulumi.set(self, "notification_setting", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="secretsConfiguration")
+    def secrets_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['SecretConfigurationArgs']]]]:
+        """
+        Configuration for secrets to be made available during runtime.
+        """
+        return pulumi.get(self, "secrets_configuration")
+
+    @secrets_configuration.setter
+    def secrets_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['SecretConfigurationArgs']]]]):
+        pulumi.set(self, "secrets_configuration", value)
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['JobServiceArgs']]]]:
+        """
+        List of JobEndpoints.
+        For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        """
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['JobServiceArgs']]]]):
+        pulumi.set(self, "services", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class LinkedServicePropsArgs:
+    def __init__(__self__, *,
+                 linked_service_resource_id: pulumi.Input[str],
+                 created_time: Optional[pulumi.Input[str]] = None,
+                 link_type: Optional[pulumi.Input['LinkedServiceLinkType']] = None,
+                 modified_time: Optional[pulumi.Input[str]] = None):
+        """
+        LinkedService specific properties.
+        :param pulumi.Input[str] linked_service_resource_id: ResourceId of the link target of the linked service.
+        :param pulumi.Input[str] created_time: The creation time of the linked service.
+        :param pulumi.Input['LinkedServiceLinkType'] link_type: Type of the link target.
+        :param pulumi.Input[str] modified_time: The last modified time of the linked service.
+        """
+        pulumi.set(__self__, "linked_service_resource_id", linked_service_resource_id)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if link_type is not None:
+            pulumi.set(__self__, "link_type", link_type)
+        if modified_time is not None:
+            pulumi.set(__self__, "modified_time", modified_time)
+
+    @property
+    @pulumi.getter(name="linkedServiceResourceId")
+    def linked_service_resource_id(self) -> pulumi.Input[str]:
+        """
+        ResourceId of the link target of the linked service.
+        """
+        return pulumi.get(self, "linked_service_resource_id")
+
+    @linked_service_resource_id.setter
+    def linked_service_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "linked_service_resource_id", value)
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creation time of the linked service.
+        """
+        return pulumi.get(self, "created_time")
+
+    @created_time.setter
+    def created_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_time", value)
+
+    @property
+    @pulumi.getter(name="linkType")
+    def link_type(self) -> Optional[pulumi.Input['LinkedServiceLinkType']]:
+        """
+        Type of the link target.
+        """
+        return pulumi.get(self, "link_type")
+
+    @link_type.setter
+    def link_type(self, value: Optional[pulumi.Input['LinkedServiceLinkType']]):
+        pulumi.set(self, "link_type", value)
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last modified time of the linked service.
+        """
+        return pulumi.get(self, "modified_time")
+
+    @modified_time.setter
+    def modified_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "modified_time", value)
+
+
+@pulumi.input_type
+class LinkedWorkspacePropsArgs:
+    def __init__(__self__, *,
+                 linked_workspace_resource_id: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        LinkedWorkspace specific properties.
+        :param pulumi.Input[str] linked_workspace_resource_id: ResourceId of the link target of the linked workspace.
+        :param pulumi.Input[str] user_assigned_identity_resource_id: ResourceId of the user assigned identity for the linked workspace.
+        """
+        if linked_workspace_resource_id is not None:
+            pulumi.set(__self__, "linked_workspace_resource_id", linked_workspace_resource_id)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @property
+    @pulumi.getter(name="linkedWorkspaceResourceId")
+    def linked_workspace_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ResourceId of the link target of the linked workspace.
+        """
+        return pulumi.get(self, "linked_workspace_resource_id")
+
+    @linked_workspace_resource_id.setter
+    def linked_workspace_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "linked_workspace_resource_id", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ResourceId of the user assigned identity for the linked workspace.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
+    @user_assigned_identity_resource_id.setter
+    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_resource_id", value)
+
+
+@pulumi.input_type
 class LiteralJobInputArgs:
     def __init__(__self__, *,
                  job_input_type: pulumi.Input[str],
@@ -12128,6 +14152,86 @@ class LiteralJobInputArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class MLAssistConfigurationDisabledArgs:
+    def __init__(__self__, *,
+                 ml_assist: pulumi.Input[str]):
+        """
+        Labeling MLAssist configuration definition when MLAssist is disabled
+        :param pulumi.Input[str] ml_assist: 
+               Expected value is 'Disabled'.
+        """
+        pulumi.set(__self__, "ml_assist", 'Disabled')
+
+    @property
+    @pulumi.getter(name="mlAssist")
+    def ml_assist(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is 'Disabled'.
+        """
+        return pulumi.get(self, "ml_assist")
+
+    @ml_assist.setter
+    def ml_assist(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ml_assist", value)
+
+
+@pulumi.input_type
+class MLAssistConfigurationEnabledArgs:
+    def __init__(__self__, *,
+                 inferencing_compute_binding: pulumi.Input[str],
+                 ml_assist: pulumi.Input[str],
+                 training_compute_binding: pulumi.Input[str]):
+        """
+        Labeling MLAssist configuration definition when MLAssist is enabled
+        :param pulumi.Input[str] inferencing_compute_binding: [Required] AML compute binding used in inferencing.
+        :param pulumi.Input[str] ml_assist: 
+               Expected value is 'Enabled'.
+        :param pulumi.Input[str] training_compute_binding: [Required] AML compute binding used in training.
+        """
+        pulumi.set(__self__, "inferencing_compute_binding", inferencing_compute_binding)
+        pulumi.set(__self__, "ml_assist", 'Enabled')
+        pulumi.set(__self__, "training_compute_binding", training_compute_binding)
+
+    @property
+    @pulumi.getter(name="inferencingComputeBinding")
+    def inferencing_compute_binding(self) -> pulumi.Input[str]:
+        """
+        [Required] AML compute binding used in inferencing.
+        """
+        return pulumi.get(self, "inferencing_compute_binding")
+
+    @inferencing_compute_binding.setter
+    def inferencing_compute_binding(self, value: pulumi.Input[str]):
+        pulumi.set(self, "inferencing_compute_binding", value)
+
+    @property
+    @pulumi.getter(name="mlAssist")
+    def ml_assist(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is 'Enabled'.
+        """
+        return pulumi.get(self, "ml_assist")
+
+    @ml_assist.setter
+    def ml_assist(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ml_assist", value)
+
+    @property
+    @pulumi.getter(name="trainingComputeBinding")
+    def training_compute_binding(self) -> pulumi.Input[str]:
+        """
+        [Required] AML compute binding used in training.
+        """
+        return pulumi.get(self, "training_compute_binding")
+
+    @training_compute_binding.setter
+    def training_compute_binding(self, value: pulumi.Input[str]):
+        pulumi.set(self, "training_compute_binding", value)
 
 
 @pulumi.input_type
@@ -13032,6 +15136,119 @@ class ManagedServiceIdentityArgs:
 
 
 @pulumi.input_type
+class MaterializationComputeResourceArgs:
+    def __init__(__self__, *,
+                 instance_type: Optional[pulumi.Input[str]] = None):
+        """
+        Dto object representing compute resource
+        :param pulumi.Input[str] instance_type: Specifies the instance type
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the instance type
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+
+@pulumi.input_type
+class MaterializationSettingsArgs:
+    def __init__(__self__, *,
+                 notification: Optional[pulumi.Input['NotificationSettingArgs']] = None,
+                 resource: Optional[pulumi.Input['MaterializationComputeResourceArgs']] = None,
+                 schedule: Optional[pulumi.Input['RecurrenceTriggerArgs']] = None,
+                 spark_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 store_type: Optional[pulumi.Input[Union[str, 'MaterializationStoreType']]] = None):
+        """
+        :param pulumi.Input['NotificationSettingArgs'] notification: Specifies the notification details
+        :param pulumi.Input['MaterializationComputeResourceArgs'] resource: Specifies the compute resource settings
+        :param pulumi.Input['RecurrenceTriggerArgs'] schedule: Specifies the schedule details
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] spark_configuration: Specifies the spark compute settings
+        :param pulumi.Input[Union[str, 'MaterializationStoreType']] store_type: Specifies the stores to which materialization should happen
+        """
+        if notification is not None:
+            pulumi.set(__self__, "notification", notification)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if spark_configuration is not None:
+            pulumi.set(__self__, "spark_configuration", spark_configuration)
+        if store_type is None:
+            store_type = 'None'
+        if store_type is not None:
+            pulumi.set(__self__, "store_type", store_type)
+
+    @property
+    @pulumi.getter
+    def notification(self) -> Optional[pulumi.Input['NotificationSettingArgs']]:
+        """
+        Specifies the notification details
+        """
+        return pulumi.get(self, "notification")
+
+    @notification.setter
+    def notification(self, value: Optional[pulumi.Input['NotificationSettingArgs']]):
+        pulumi.set(self, "notification", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input['MaterializationComputeResourceArgs']]:
+        """
+        Specifies the compute resource settings
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input['MaterializationComputeResourceArgs']]):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['RecurrenceTriggerArgs']]:
+        """
+        Specifies the schedule details
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['RecurrenceTriggerArgs']]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="sparkConfiguration")
+    def spark_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies the spark compute settings
+        """
+        return pulumi.get(self, "spark_configuration")
+
+    @spark_configuration.setter
+    def spark_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "spark_configuration", value)
+
+    @property
+    @pulumi.getter(name="storeType")
+    def store_type(self) -> Optional[pulumi.Input[Union[str, 'MaterializationStoreType']]]:
+        """
+        Specifies the stores to which materialization should happen
+        """
+        return pulumi.get(self, "store_type")
+
+    @store_type.setter
+    def store_type(self, value: Optional[pulumi.Input[Union[str, 'MaterializationStoreType']]]):
+        pulumi.set(self, "store_type", value)
+
+
+@pulumi.input_type
 class MedianStoppingPolicyArgs:
     def __init__(__self__, *,
                  policy_type: pulumi.Input[str],
@@ -13570,6 +15787,62 @@ class NoneDatastoreCredentialsArgs:
     @credentials_type.setter
     def credentials_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "credentials_type", value)
+
+
+@pulumi.input_type
+class NotificationSettingArgs:
+    def __init__(__self__, *,
+                 email_on: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EmailNotificationEnableType']]]]] = None,
+                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 webhooks: Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureDevOpsWebhookArgs']]]] = None):
+        """
+        Configuration for notification.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'EmailNotificationEnableType']]]] email_on: Send email notification to user on specified notification type
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: This is the email recipient list which has a limitation of 499 characters in total concat with comma separator
+        :param pulumi.Input[Mapping[str, pulumi.Input['AzureDevOpsWebhookArgs']]] webhooks: Send webhook callback to a service. Key is a user-provided name for the webhook.
+        """
+        if email_on is not None:
+            pulumi.set(__self__, "email_on", email_on)
+        if emails is not None:
+            pulumi.set(__self__, "emails", emails)
+        if webhooks is not None:
+            pulumi.set(__self__, "webhooks", webhooks)
+
+    @property
+    @pulumi.getter(name="emailOn")
+    def email_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EmailNotificationEnableType']]]]]:
+        """
+        Send email notification to user on specified notification type
+        """
+        return pulumi.get(self, "email_on")
+
+    @email_on.setter
+    def email_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EmailNotificationEnableType']]]]]):
+        pulumi.set(self, "email_on", value)
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This is the email recipient list which has a limitation of 499 characters in total concat with comma separator
+        """
+        return pulumi.get(self, "emails")
+
+    @emails.setter
+    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "emails", value)
+
+    @property
+    @pulumi.getter
+    def webhooks(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureDevOpsWebhookArgs']]]]:
+        """
+        Send webhook callback to a service. Key is a user-provided name for the webhook.
+        """
+        return pulumi.get(self, "webhooks")
+
+    @webhooks.setter
+    def webhooks(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureDevOpsWebhookArgs']]]]):
+        pulumi.set(self, "webhooks", value)
 
 
 @pulumi.input_type
@@ -14265,6 +16538,139 @@ class PipelineJobArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class PrivateEndpointDestinationArgs:
+    def __init__(__self__, *,
+                 service_resource_id: Optional[pulumi.Input[str]] = None,
+                 spark_enabled: Optional[pulumi.Input[bool]] = None,
+                 spark_status: Optional[pulumi.Input[Union[str, 'RuleStatus']]] = None,
+                 subresource_target: Optional[pulumi.Input[str]] = None):
+        """
+        Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
+        :param pulumi.Input[Union[str, 'RuleStatus']] spark_status: Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        if service_resource_id is not None:
+            pulumi.set(__self__, "service_resource_id", service_resource_id)
+        if spark_enabled is not None:
+            pulumi.set(__self__, "spark_enabled", spark_enabled)
+        if spark_status is not None:
+            pulumi.set(__self__, "spark_status", spark_status)
+        if subresource_target is not None:
+            pulumi.set(__self__, "subresource_target", subresource_target)
+
+    @property
+    @pulumi.getter(name="serviceResourceId")
+    def service_resource_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "service_resource_id")
+
+    @service_resource_id.setter
+    def service_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_resource_id", value)
+
+    @property
+    @pulumi.getter(name="sparkEnabled")
+    def spark_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "spark_enabled")
+
+    @spark_enabled.setter
+    def spark_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "spark_enabled", value)
+
+    @property
+    @pulumi.getter(name="sparkStatus")
+    def spark_status(self) -> Optional[pulumi.Input[Union[str, 'RuleStatus']]]:
+        """
+        Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "spark_status")
+
+    @spark_status.setter
+    def spark_status(self, value: Optional[pulumi.Input[Union[str, 'RuleStatus']]]):
+        pulumi.set(self, "spark_status", value)
+
+    @property
+    @pulumi.getter(name="subresourceTarget")
+    def subresource_target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subresource_target")
+
+    @subresource_target.setter
+    def subresource_target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subresource_target", value)
+
+
+@pulumi.input_type
+class PrivateEndpointOutboundRuleArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'RuleCategory']]] = None,
+                 destination: Optional[pulumi.Input['PrivateEndpointDestinationArgs']] = None,
+                 status: Optional[pulumi.Input[Union[str, 'RuleStatus']]] = None):
+        """
+        Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
+        :param pulumi.Input[str] type: Type of a managed network Outbound Rule of a machine learning workspace.
+               Expected value is 'PrivateEndpoint'.
+        :param pulumi.Input[Union[str, 'RuleCategory']] category: Category of a managed network Outbound Rule of a machine learning workspace.
+        :param pulumi.Input['PrivateEndpointDestinationArgs'] destination: Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
+        :param pulumi.Input[Union[str, 'RuleStatus']] status: Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        pulumi.set(__self__, "type", 'PrivateEndpoint')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of a managed network Outbound Rule of a machine learning workspace.
+        Expected value is 'PrivateEndpoint'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'RuleCategory']]]:
+        """
+        Category of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'RuleCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input['PrivateEndpointDestinationArgs']]:
+        """
+        Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input['PrivateEndpointDestinationArgs']]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'RuleStatus']]]:
+        """
+        Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'RuleStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
@@ -16206,6 +18612,48 @@ class ScriptsToExecuteArgs:
 
 
 @pulumi.input_type
+class SecretConfigurationArgs:
+    def __init__(__self__, *,
+                 uri: Optional[pulumi.Input[str]] = None,
+                 workspace_secret_name: Optional[pulumi.Input[str]] = None):
+        """
+        Secret Configuration definition.
+        :param pulumi.Input[str] uri: Secret Uri.
+               Sample Uri : https://myvault.vault.azure.net/secrets/mysecretname/secretversion
+        :param pulumi.Input[str] workspace_secret_name: Name of secret in workspace key vault.
+        """
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+        if workspace_secret_name is not None:
+            pulumi.set(__self__, "workspace_secret_name", workspace_secret_name)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secret Uri.
+        Sample Uri : https://myvault.vault.azure.net/secrets/mysecretname/secretversion
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter(name="workspaceSecretName")
+    def workspace_secret_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of secret in workspace key vault.
+        """
+        return pulumi.get(self, "workspace_secret_name")
+
+    @workspace_secret_name.setter
+    def workspace_secret_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace_secret_name", value)
+
+
+@pulumi.input_type
 class ServiceManagedResourcesSettingsArgs:
     def __init__(__self__, *,
                  cosmos_db: Optional[pulumi.Input['CosmosDbSettingsArgs']] = None):
@@ -16369,6 +18817,123 @@ class ServicePrincipalDatastoreSecretsArgs:
     @client_secret.setter
     def client_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_secret", value)
+
+
+@pulumi.input_type
+class ServiceTagDestinationArgs:
+    def __init__(__self__, *,
+                 port_ranges: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None):
+        """
+        Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
+        """
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+
+@pulumi.input_type
+class ServiceTagOutboundRuleArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 category: Optional[pulumi.Input[Union[str, 'RuleCategory']]] = None,
+                 destination: Optional[pulumi.Input['ServiceTagDestinationArgs']] = None,
+                 status: Optional[pulumi.Input[Union[str, 'RuleStatus']]] = None):
+        """
+        Service Tag Outbound Rule for the managed network of a machine learning workspace.
+        :param pulumi.Input[str] type: Type of a managed network Outbound Rule of a machine learning workspace.
+               Expected value is 'ServiceTag'.
+        :param pulumi.Input[Union[str, 'RuleCategory']] category: Category of a managed network Outbound Rule of a machine learning workspace.
+        :param pulumi.Input['ServiceTagDestinationArgs'] destination: Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
+        :param pulumi.Input[Union[str, 'RuleStatus']] status: Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        pulumi.set(__self__, "type", 'ServiceTag')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of a managed network Outbound Rule of a machine learning workspace.
+        Expected value is 'ServiceTag'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[str, 'RuleCategory']]]:
+        """
+        Category of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[str, 'RuleCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input['ServiceTagDestinationArgs']]:
+        """
+        Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input['ServiceTagDestinationArgs']]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'RuleStatus']]]:
+        """
+        Status of a managed network Outbound Rule of a machine learning workspace.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'RuleStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

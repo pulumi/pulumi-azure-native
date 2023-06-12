@@ -15,10 +15,25 @@ export type ApiPortalCustomDomain = import("./apiPortalCustomDomain").ApiPortalC
 export const ApiPortalCustomDomain: typeof import("./apiPortalCustomDomain").ApiPortalCustomDomain = null as any;
 utilities.lazyLoad(exports, ["ApiPortalCustomDomain"], () => require("./apiPortalCustomDomain"));
 
+export { ApmArgs } from "./apm";
+export type Apm = import("./apm").Apm;
+export const Apm: typeof import("./apm").Apm = null as any;
+utilities.lazyLoad(exports, ["Apm"], () => require("./apm"));
+
 export { AppArgs } from "./app";
 export type App = import("./app").App;
 export const App: typeof import("./app").App = null as any;
 utilities.lazyLoad(exports, ["App"], () => require("./app"));
+
+export { ApplicationAcceleratorArgs } from "./applicationAccelerator";
+export type ApplicationAccelerator = import("./applicationAccelerator").ApplicationAccelerator;
+export const ApplicationAccelerator: typeof import("./applicationAccelerator").ApplicationAccelerator = null as any;
+utilities.lazyLoad(exports, ["ApplicationAccelerator"], () => require("./applicationAccelerator"));
+
+export { ApplicationLiveViewArgs } from "./applicationLiveView";
+export type ApplicationLiveView = import("./applicationLiveView").ApplicationLiveView;
+export const ApplicationLiveView: typeof import("./applicationLiveView").ApplicationLiveView = null as any;
+utilities.lazyLoad(exports, ["ApplicationLiveView"], () => require("./applicationLiveView"));
 
 export { BindingArgs } from "./binding";
 export type Binding = import("./binding").Binding;
@@ -29,6 +44,11 @@ export { BuildServiceAgentPoolArgs } from "./buildServiceAgentPool";
 export type BuildServiceAgentPool = import("./buildServiceAgentPool").BuildServiceAgentPool;
 export const BuildServiceAgentPool: typeof import("./buildServiceAgentPool").BuildServiceAgentPool = null as any;
 utilities.lazyLoad(exports, ["BuildServiceAgentPool"], () => require("./buildServiceAgentPool"));
+
+export { BuildServiceBuildArgs } from "./buildServiceBuild";
+export type BuildServiceBuild = import("./buildServiceBuild").BuildServiceBuild;
+export const BuildServiceBuild: typeof import("./buildServiceBuild").BuildServiceBuild = null as any;
+utilities.lazyLoad(exports, ["BuildServiceBuild"], () => require("./buildServiceBuild"));
 
 export { BuildServiceBuilderArgs } from "./buildServiceBuilder";
 export type BuildServiceBuilder = import("./buildServiceBuilder").BuildServiceBuilder;
@@ -55,15 +75,30 @@ export type ConfigurationService = import("./configurationService").Configuratio
 export const ConfigurationService: typeof import("./configurationService").ConfigurationService = null as any;
 utilities.lazyLoad(exports, ["ConfigurationService"], () => require("./configurationService"));
 
+export { ContainerRegistryArgs } from "./containerRegistry";
+export type ContainerRegistry = import("./containerRegistry").ContainerRegistry;
+export const ContainerRegistry: typeof import("./containerRegistry").ContainerRegistry = null as any;
+utilities.lazyLoad(exports, ["ContainerRegistry"], () => require("./containerRegistry"));
+
 export { CustomDomainArgs } from "./customDomain";
 export type CustomDomain = import("./customDomain").CustomDomain;
 export const CustomDomain: typeof import("./customDomain").CustomDomain = null as any;
 utilities.lazyLoad(exports, ["CustomDomain"], () => require("./customDomain"));
 
+export { CustomizedAcceleratorArgs } from "./customizedAccelerator";
+export type CustomizedAccelerator = import("./customizedAccelerator").CustomizedAccelerator;
+export const CustomizedAccelerator: typeof import("./customizedAccelerator").CustomizedAccelerator = null as any;
+utilities.lazyLoad(exports, ["CustomizedAccelerator"], () => require("./customizedAccelerator"));
+
 export { DeploymentArgs } from "./deployment";
 export type Deployment = import("./deployment").Deployment;
 export const Deployment: typeof import("./deployment").Deployment = null as any;
 utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+
+export { DevToolPortalArgs } from "./devToolPortal";
+export type DevToolPortal = import("./devToolPortal").DevToolPortal;
+export const DevToolPortal: typeof import("./devToolPortal").DevToolPortal = null as any;
+utilities.lazyLoad(exports, ["DevToolPortal"], () => require("./devToolPortal"));
 
 export { GatewayArgs } from "./gateway";
 export type Gateway = import("./gateway").Gateway;
@@ -90,6 +125,11 @@ export const getApiPortalCustomDomain: typeof import("./getApiPortalCustomDomain
 export const getApiPortalCustomDomainOutput: typeof import("./getApiPortalCustomDomain").getApiPortalCustomDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getApiPortalCustomDomain","getApiPortalCustomDomainOutput"], () => require("./getApiPortalCustomDomain"));
 
+export { GetApmArgs, GetApmResult, GetApmOutputArgs } from "./getApm";
+export const getApm: typeof import("./getApm").getApm = null as any;
+export const getApmOutput: typeof import("./getApm").getApmOutput = null as any;
+utilities.lazyLoad(exports, ["getApm","getApmOutput"], () => require("./getApm"));
+
 export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
 export const getApp: typeof import("./getApp").getApp = null as any;
 export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
@@ -100,6 +140,16 @@ export const getAppResourceUploadUrl: typeof import("./getAppResourceUploadUrl")
 export const getAppResourceUploadUrlOutput: typeof import("./getAppResourceUploadUrl").getAppResourceUploadUrlOutput = null as any;
 utilities.lazyLoad(exports, ["getAppResourceUploadUrl","getAppResourceUploadUrlOutput"], () => require("./getAppResourceUploadUrl"));
 
+export { GetApplicationAcceleratorArgs, GetApplicationAcceleratorResult, GetApplicationAcceleratorOutputArgs } from "./getApplicationAccelerator";
+export const getApplicationAccelerator: typeof import("./getApplicationAccelerator").getApplicationAccelerator = null as any;
+export const getApplicationAcceleratorOutput: typeof import("./getApplicationAccelerator").getApplicationAcceleratorOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationAccelerator","getApplicationAcceleratorOutput"], () => require("./getApplicationAccelerator"));
+
+export { GetApplicationLiveViewArgs, GetApplicationLiveViewResult, GetApplicationLiveViewOutputArgs } from "./getApplicationLiveView";
+export const getApplicationLiveView: typeof import("./getApplicationLiveView").getApplicationLiveView = null as any;
+export const getApplicationLiveViewOutput: typeof import("./getApplicationLiveView").getApplicationLiveViewOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationLiveView","getApplicationLiveViewOutput"], () => require("./getApplicationLiveView"));
+
 export { GetBindingArgs, GetBindingResult, GetBindingOutputArgs } from "./getBinding";
 export const getBinding: typeof import("./getBinding").getBinding = null as any;
 export const getBindingOutput: typeof import("./getBinding").getBindingOutput = null as any;
@@ -109,6 +159,11 @@ export { GetBuildServiceAgentPoolArgs, GetBuildServiceAgentPoolResult, GetBuildS
 export const getBuildServiceAgentPool: typeof import("./getBuildServiceAgentPool").getBuildServiceAgentPool = null as any;
 export const getBuildServiceAgentPoolOutput: typeof import("./getBuildServiceAgentPool").getBuildServiceAgentPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getBuildServiceAgentPool","getBuildServiceAgentPoolOutput"], () => require("./getBuildServiceAgentPool"));
+
+export { GetBuildServiceBuildArgs, GetBuildServiceBuildResult, GetBuildServiceBuildOutputArgs } from "./getBuildServiceBuild";
+export const getBuildServiceBuild: typeof import("./getBuildServiceBuild").getBuildServiceBuild = null as any;
+export const getBuildServiceBuildOutput: typeof import("./getBuildServiceBuild").getBuildServiceBuildOutput = null as any;
+utilities.lazyLoad(exports, ["getBuildServiceBuild","getBuildServiceBuildOutput"], () => require("./getBuildServiceBuild"));
 
 export { GetBuildServiceBuildResultLogArgs, GetBuildServiceBuildResultLogResult, GetBuildServiceBuildResultLogOutputArgs } from "./getBuildServiceBuildResultLog";
 export const getBuildServiceBuildResultLog: typeof import("./getBuildServiceBuildResultLog").getBuildServiceBuildResultLog = null as any;
@@ -145,10 +200,20 @@ export const getConfigurationService: typeof import("./getConfigurationService")
 export const getConfigurationServiceOutput: typeof import("./getConfigurationService").getConfigurationServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationService","getConfigurationServiceOutput"], () => require("./getConfigurationService"));
 
+export { GetContainerRegistryArgs, GetContainerRegistryResult, GetContainerRegistryOutputArgs } from "./getContainerRegistry";
+export const getContainerRegistry: typeof import("./getContainerRegistry").getContainerRegistry = null as any;
+export const getContainerRegistryOutput: typeof import("./getContainerRegistry").getContainerRegistryOutput = null as any;
+utilities.lazyLoad(exports, ["getContainerRegistry","getContainerRegistryOutput"], () => require("./getContainerRegistry"));
+
 export { GetCustomDomainArgs, GetCustomDomainResult, GetCustomDomainOutputArgs } from "./getCustomDomain";
 export const getCustomDomain: typeof import("./getCustomDomain").getCustomDomain = null as any;
 export const getCustomDomainOutput: typeof import("./getCustomDomain").getCustomDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomDomain","getCustomDomainOutput"], () => require("./getCustomDomain"));
+
+export { GetCustomizedAcceleratorArgs, GetCustomizedAcceleratorResult, GetCustomizedAcceleratorOutputArgs } from "./getCustomizedAccelerator";
+export const getCustomizedAccelerator: typeof import("./getCustomizedAccelerator").getCustomizedAccelerator = null as any;
+export const getCustomizedAcceleratorOutput: typeof import("./getCustomizedAccelerator").getCustomizedAcceleratorOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomizedAccelerator","getCustomizedAcceleratorOutput"], () => require("./getCustomizedAccelerator"));
 
 export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
 export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
@@ -164,6 +229,11 @@ export { GetDeploymentRemoteDebuggingConfigArgs, GetDeploymentRemoteDebuggingCon
 export const getDeploymentRemoteDebuggingConfig: typeof import("./getDeploymentRemoteDebuggingConfig").getDeploymentRemoteDebuggingConfig = null as any;
 export const getDeploymentRemoteDebuggingConfigOutput: typeof import("./getDeploymentRemoteDebuggingConfig").getDeploymentRemoteDebuggingConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getDeploymentRemoteDebuggingConfig","getDeploymentRemoteDebuggingConfigOutput"], () => require("./getDeploymentRemoteDebuggingConfig"));
+
+export { GetDevToolPortalArgs, GetDevToolPortalResult, GetDevToolPortalOutputArgs } from "./getDevToolPortal";
+export const getDevToolPortal: typeof import("./getDevToolPortal").getDevToolPortal = null as any;
+export const getDevToolPortalOutput: typeof import("./getDevToolPortal").getDevToolPortalOutput = null as any;
+utilities.lazyLoad(exports, ["getDevToolPortal","getDevToolPortalOutput"], () => require("./getDevToolPortal"));
 
 export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
 export const getGateway: typeof import("./getGateway").getGateway = null as any;
@@ -200,10 +270,20 @@ export const getStorage: typeof import("./getStorage").getStorage = null as any;
 export const getStorageOutput: typeof import("./getStorage").getStorageOutput = null as any;
 utilities.lazyLoad(exports, ["getStorage","getStorageOutput"], () => require("./getStorage"));
 
+export { ListApmSecretKeysArgs, ListApmSecretKeysResult, ListApmSecretKeysOutputArgs } from "./listApmSecretKeys";
+export const listApmSecretKeys: typeof import("./listApmSecretKeys").listApmSecretKeys = null as any;
+export const listApmSecretKeysOutput: typeof import("./listApmSecretKeys").listApmSecretKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listApmSecretKeys","listApmSecretKeysOutput"], () => require("./listApmSecretKeys"));
+
 export { ListBuildServiceBuilderDeploymentsArgs, ListBuildServiceBuilderDeploymentsResult, ListBuildServiceBuilderDeploymentsOutputArgs } from "./listBuildServiceBuilderDeployments";
 export const listBuildServiceBuilderDeployments: typeof import("./listBuildServiceBuilderDeployments").listBuildServiceBuilderDeployments = null as any;
 export const listBuildServiceBuilderDeploymentsOutput: typeof import("./listBuildServiceBuilderDeployments").listBuildServiceBuilderDeploymentsOutput = null as any;
 utilities.lazyLoad(exports, ["listBuildServiceBuilderDeployments","listBuildServiceBuilderDeploymentsOutput"], () => require("./listBuildServiceBuilderDeployments"));
+
+export { ListServiceGloballyEnabledApmsArgs, ListServiceGloballyEnabledApmsResult, ListServiceGloballyEnabledApmsOutputArgs } from "./listServiceGloballyEnabledApms";
+export const listServiceGloballyEnabledApms: typeof import("./listServiceGloballyEnabledApms").listServiceGloballyEnabledApms = null as any;
+export const listServiceGloballyEnabledApmsOutput: typeof import("./listServiceGloballyEnabledApms").listServiceGloballyEnabledApmsOutput = null as any;
+utilities.lazyLoad(exports, ["listServiceGloballyEnabledApms","listServiceGloballyEnabledApmsOutput"], () => require("./listServiceGloballyEnabledApms"));
 
 export { ListServiceTestKeysArgs, ListServiceTestKeysResult, ListServiceTestKeysOutputArgs } from "./listServiceTestKeys";
 export const listServiceTestKeys: typeof import("./listServiceTestKeys").listServiceTestKeys = null as any;
@@ -261,12 +341,20 @@ const _module = {
                 return new ApiPortal(name, <any>undefined, { urn })
             case "azure-native:appplatform:ApiPortalCustomDomain":
                 return new ApiPortalCustomDomain(name, <any>undefined, { urn })
+            case "azure-native:appplatform:Apm":
+                return new Apm(name, <any>undefined, { urn })
             case "azure-native:appplatform:App":
                 return new App(name, <any>undefined, { urn })
+            case "azure-native:appplatform:ApplicationAccelerator":
+                return new ApplicationAccelerator(name, <any>undefined, { urn })
+            case "azure-native:appplatform:ApplicationLiveView":
+                return new ApplicationLiveView(name, <any>undefined, { urn })
             case "azure-native:appplatform:Binding":
                 return new Binding(name, <any>undefined, { urn })
             case "azure-native:appplatform:BuildServiceAgentPool":
                 return new BuildServiceAgentPool(name, <any>undefined, { urn })
+            case "azure-native:appplatform:BuildServiceBuild":
+                return new BuildServiceBuild(name, <any>undefined, { urn })
             case "azure-native:appplatform:BuildServiceBuilder":
                 return new BuildServiceBuilder(name, <any>undefined, { urn })
             case "azure-native:appplatform:BuildpackBinding":
@@ -277,10 +365,16 @@ const _module = {
                 return new ConfigServer(name, <any>undefined, { urn })
             case "azure-native:appplatform:ConfigurationService":
                 return new ConfigurationService(name, <any>undefined, { urn })
+            case "azure-native:appplatform:ContainerRegistry":
+                return new ContainerRegistry(name, <any>undefined, { urn })
             case "azure-native:appplatform:CustomDomain":
                 return new CustomDomain(name, <any>undefined, { urn })
+            case "azure-native:appplatform:CustomizedAccelerator":
+                return new CustomizedAccelerator(name, <any>undefined, { urn })
             case "azure-native:appplatform:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
+            case "azure-native:appplatform:DevToolPortal":
+                return new DevToolPortal(name, <any>undefined, { urn })
             case "azure-native:appplatform:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
             case "azure-native:appplatform:GatewayCustomDomain":
