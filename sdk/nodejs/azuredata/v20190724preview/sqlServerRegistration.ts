@@ -105,7 +105,7 @@ export class SqlServerRegistration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuredata:SqlServerRegistration" }, { type: "azure-native:azuredata/v20170301preview:SqlServerRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuredata:SqlServerRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerRegistration.__pulumiType, name, resourceInputs, opts);
     }

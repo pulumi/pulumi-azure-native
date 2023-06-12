@@ -50,16 +50,10 @@ utilities.lazyLoad(exports, ["listApplicationTokens","listApplicationTokensOutpu
 export * from "../types/enums/solutions";
 
 // Export sub-modules:
-import * as v20160901preview from "./v20160901preview";
-import * as v20171201 from "./v20171201";
-import * as v20180601 from "./v20180601";
 import * as v20190701 from "./v20190701";
 import * as v20210701 from "./v20210701";
 
 export {
-    v20160901preview,
-    v20171201,
-    v20180601,
     v20190701,
     v20210701,
 };

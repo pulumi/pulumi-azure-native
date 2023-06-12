@@ -180,8 +180,6 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Subscription"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Subscription"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Subscription"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Subscription"},

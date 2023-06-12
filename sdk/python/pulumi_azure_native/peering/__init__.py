@@ -25,10 +25,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.peering.v20190801preview as __v20190801preview
-    v20190801preview = __v20190801preview
-    import pulumi_azure_native.peering.v20190901preview as __v20190901preview
-    v20190901preview = __v20190901preview
     import pulumi_azure_native.peering.v20210101 as __v20210101
     v20210101 = __v20210101
     import pulumi_azure_native.peering.v20210601 as __v20210601
@@ -36,8 +32,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.peering.v20221001 as __v20221001
     v20221001 = __v20221001
 else:
-    v20190801preview = _utilities.lazy_import('pulumi_azure_native.peering.v20190801preview')
-    v20190901preview = _utilities.lazy_import('pulumi_azure_native.peering.v20190901preview')
     v20210101 = _utilities.lazy_import('pulumi_azure_native.peering.v20210101')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.peering.v20210601')
     v20221001 = _utilities.lazy_import('pulumi_azure_native.peering.v20221001')

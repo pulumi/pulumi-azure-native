@@ -81,8 +81,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.eventgrid.v20170615preview as __v20170615preview
-    v20170615preview = __v20170615preview
     import pulumi_azure_native.eventgrid.v20200401preview as __v20200401preview
     v20200401preview = __v20200401preview
     import pulumi_azure_native.eventgrid.v20200601 as __v20200601
@@ -96,7 +94,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.eventgrid.v20230601preview as __v20230601preview
     v20230601preview = __v20230601preview
 else:
-    v20170615preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20170615preview')
     v20200401preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20200401preview')
     v20200601 = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20200601')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20210601preview')

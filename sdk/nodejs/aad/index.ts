@@ -30,12 +30,10 @@ utilities.lazyLoad(exports, ["OuContainer"], () => require("./ouContainer"));
 export * from "../types/enums/aad";
 
 // Export sub-modules:
-import * as v20170601 from "./v20170601";
 import * as v20210301 from "./v20210301";
 import * as v20221201 from "./v20221201";
 
 export {
-    v20170601,
     v20210301,
     v20221201,
 };

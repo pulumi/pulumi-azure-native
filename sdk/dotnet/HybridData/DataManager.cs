@@ -81,7 +81,6 @@ namespace Pulumi.AzureNative.HybridData
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybriddata/v20160601:DataManager"},
                     new global::Pulumi.Alias { Type = "azure-native:hybriddata/v20190601:DataManager"},
                 },
             };

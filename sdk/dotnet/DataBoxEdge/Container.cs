@@ -84,10 +84,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Container"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Container"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Container"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Container"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Container"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Container"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Container"},

@@ -257,7 +257,7 @@ class Rollout(pulumi.CustomResource):
             __props__.__dict__["target_service_topology_id"] = target_service_topology_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deploymentmanager/v20180901preview:Rollout"), pulumi.Alias(type_="azure-native:deploymentmanager/v20191101preview:Rollout")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deploymentmanager/v20191101preview:Rollout")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Rollout, __self__).__init__(
             'azure-native:deploymentmanager:Rollout',

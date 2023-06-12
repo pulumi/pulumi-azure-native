@@ -110,8 +110,6 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobDataSet"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobDataSet"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobDataSet"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobDataSet"},

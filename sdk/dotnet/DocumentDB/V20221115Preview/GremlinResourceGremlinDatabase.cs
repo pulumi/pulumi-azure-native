@@ -77,17 +77,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20221115Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:GremlinResourceGremlinDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150401:GremlinResourceGremlinDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150408:GremlinResourceGremlinDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20151106:GremlinResourceGremlinDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160319:GremlinResourceGremlinDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160331:GremlinResourceGremlinDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:GremlinResourceGremlinDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:GremlinResourceGremlinDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:GremlinResourceGremlinDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:GremlinResourceGremlinDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:GremlinResourceGremlinDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:GremlinResourceGremlinDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:GremlinResourceGremlinDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:GremlinResourceGremlinDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:GremlinResourceGremlinDatabase"},

@@ -111,8 +111,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.machinelearningservices.v20180301preview as __v20180301preview
-    v20180301preview = __v20180301preview
     import pulumi_azure_native.machinelearningservices.v20200301 as __v20200301
     v20200301 = __v20200301
     import pulumi_azure_native.machinelearningservices.v20200501preview as __v20200501preview
@@ -142,7 +140,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.machinelearningservices.v20230401preview as __v20230401preview
     v20230401preview = __v20230401preview
 else:
-    v20180301preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20180301preview')
     v20200301 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200301')
     v20200501preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200501preview')
     v20200515preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200515preview')

@@ -218,7 +218,7 @@ export class RegisteredServer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagesync/v20170605preview:RegisteredServer" }, { type: "azure-native:storagesync/v20180402:RegisteredServer" }, { type: "azure-native:storagesync/v20180701:RegisteredServer" }, { type: "azure-native:storagesync/v20181001:RegisteredServer" }, { type: "azure-native:storagesync/v20190201:RegisteredServer" }, { type: "azure-native:storagesync/v20190301:RegisteredServer" }, { type: "azure-native:storagesync/v20190601:RegisteredServer" }, { type: "azure-native:storagesync/v20191001:RegisteredServer" }, { type: "azure-native:storagesync/v20200301:RegisteredServer" }, { type: "azure-native:storagesync/v20200901:RegisteredServer" }, { type: "azure-native:storagesync/v20220601:RegisteredServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagesync/v20200301:RegisteredServer" }, { type: "azure-native:storagesync/v20200901:RegisteredServer" }, { type: "azure-native:storagesync/v20220601:RegisteredServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegisteredServer.__pulumiType, name, resourceInputs, opts);
     }

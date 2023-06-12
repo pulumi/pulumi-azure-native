@@ -143,7 +143,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:relay/v20160701:Namespace" }, { type: "azure-native:relay/v20170401:Namespace" }, { type: "azure-native:relay/v20180101preview:Namespace" }, { type: "azure-native:relay/v20211101:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:relay/v20170401:Namespace" }, { type: "azure-native:relay/v20180101preview:Namespace" }, { type: "azure-native:relay/v20211101:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }

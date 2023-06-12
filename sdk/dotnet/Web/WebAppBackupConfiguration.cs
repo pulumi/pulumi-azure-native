@@ -90,7 +90,6 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppBackupConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppBackupConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppBackupConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppBackupConfiguration"},

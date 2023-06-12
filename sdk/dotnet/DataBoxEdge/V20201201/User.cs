@@ -77,12 +77,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:User"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:User"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:User"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:User"},

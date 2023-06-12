@@ -108,7 +108,6 @@ namespace Pulumi.AzureNative.Attestation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:attestation/v20180901preview:AttestationProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:attestation/v20201001:AttestationProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:attestation/v20210601:AttestationProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:attestation/v20210601preview:AttestationProvider"},

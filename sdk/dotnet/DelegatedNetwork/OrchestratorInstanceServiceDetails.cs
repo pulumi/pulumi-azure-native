@@ -126,7 +126,6 @@ namespace Pulumi.AzureNative.DelegatedNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"},
                     new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"},
                 },
             };

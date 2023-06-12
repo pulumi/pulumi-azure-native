@@ -236,7 +236,7 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:customerinsights:Connector"), pulumi.Alias(type_="azure-native:customerinsights/v20170101:Connector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:customerinsights:Connector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connector, __self__).__init__(
             'azure-native:customerinsights/v20170426:Connector',

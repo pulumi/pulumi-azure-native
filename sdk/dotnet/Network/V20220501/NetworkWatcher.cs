@@ -83,17 +83,6 @@ namespace Pulumi.AzureNative.Network.V20220501
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:NetworkWatcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160901:NetworkWatcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:NetworkWatcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:NetworkWatcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:NetworkWatcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:NetworkWatcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:NetworkWatcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:NetworkWatcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:NetworkWatcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:NetworkWatcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:NetworkWatcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:NetworkWatcher"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180601:NetworkWatcher"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180701:NetworkWatcher"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:NetworkWatcher"},

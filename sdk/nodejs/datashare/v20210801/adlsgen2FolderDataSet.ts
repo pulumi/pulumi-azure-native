@@ -144,7 +144,7 @@ export class ADLSGen2FolderDataSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20181101preview:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20191101:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20200901:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20200901:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ADLSGen2FolderDataSet.__pulumiType, name, resourceInputs, opts);
     }

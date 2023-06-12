@@ -55,13 +55,11 @@ utilities.lazyLoad(exports, ["Replica"], () => require("./replica"));
 export * from "../types/enums/appconfiguration";
 
 // Export sub-modules:
-import * as v20190201preview from "./v20190201preview";
 import * as v20200601 from "./v20200601";
 import * as v20200701preview from "./v20200701preview";
 import * as v20230301 from "./v20230301";
 
 export {
-    v20190201preview,
     v20200601,
     v20200701preview,
     v20230301,

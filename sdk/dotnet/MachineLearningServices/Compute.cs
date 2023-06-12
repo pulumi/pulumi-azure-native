@@ -89,13 +89,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20180301preview:Compute"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20181119:Compute"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190501:Compute"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20190601:Compute"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20191101:Compute"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200101:Compute"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200218preview:Compute"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200301:Compute"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200401:Compute"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:Compute"},

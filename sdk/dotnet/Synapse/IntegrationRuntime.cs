@@ -66,8 +66,6 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:IntegrationRuntime"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:IntegrationRuntime"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:IntegrationRuntime"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:IntegrationRuntime"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:IntegrationRuntime"},

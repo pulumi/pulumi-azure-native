@@ -179,7 +179,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20200301preview:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20201001:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210101preview:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901:Cluster"},

@@ -13,14 +13,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.consumption.v20171230preview as __v20171230preview
-    v20171230preview = __v20171230preview
-    import pulumi_azure_native.consumption.v20181001 as __v20181001
-    v20181001 = __v20181001
-    import pulumi_azure_native.consumption.v20190501 as __v20190501
-    v20190501 = __v20190501
-    import pulumi_azure_native.consumption.v20190601 as __v20190601
-    v20190601 = __v20190601
     import pulumi_azure_native.consumption.v20191001 as __v20191001
     v20191001 = __v20191001
     import pulumi_azure_native.consumption.v20220901 as __v20220901
@@ -28,10 +20,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.consumption.v20230301 as __v20230301
     v20230301 = __v20230301
 else:
-    v20171230preview = _utilities.lazy_import('pulumi_azure_native.consumption.v20171230preview')
-    v20181001 = _utilities.lazy_import('pulumi_azure_native.consumption.v20181001')
-    v20190501 = _utilities.lazy_import('pulumi_azure_native.consumption.v20190501')
-    v20190601 = _utilities.lazy_import('pulumi_azure_native.consumption.v20190601')
     v20191001 = _utilities.lazy_import('pulumi_azure_native.consumption.v20191001')
     v20220901 = _utilities.lazy_import('pulumi_azure_native.consumption.v20220901')
     v20230301 = _utilities.lazy_import('pulumi_azure_native.consumption.v20230301')

@@ -273,7 +273,7 @@ class NotificationChannel(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_identifier"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devtestlab:NotificationChannel"), pulumi.Alias(type_="azure-native:devtestlab/v20160515:NotificationChannel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devtestlab:NotificationChannel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotificationChannel, __self__).__init__(
             'azure-native:devtestlab/v20180915:NotificationChannel',

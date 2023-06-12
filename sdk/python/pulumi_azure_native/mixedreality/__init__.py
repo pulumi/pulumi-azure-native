@@ -20,14 +20,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.mixedreality.v20190228preview as __v20190228preview
-    v20190228preview = __v20190228preview
     import pulumi_azure_native.mixedreality.v20210101 as __v20210101
     v20210101 = __v20210101
     import pulumi_azure_native.mixedreality.v20210301preview as __v20210301preview
     v20210301preview = __v20210301preview
 else:
-    v20190228preview = _utilities.lazy_import('pulumi_azure_native.mixedreality.v20190228preview')
     v20210101 = _utilities.lazy_import('pulumi_azure_native.mixedreality.v20210101')
     v20210301preview = _utilities.lazy_import('pulumi_azure_native.mixedreality.v20210301preview')
 

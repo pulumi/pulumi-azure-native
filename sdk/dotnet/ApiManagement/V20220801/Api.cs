@@ -179,7 +179,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:Api"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Api"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Api"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Api"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Api"},

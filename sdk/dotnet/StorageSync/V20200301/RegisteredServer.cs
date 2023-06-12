@@ -185,14 +185,6 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagesync:RegisteredServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:RegisteredServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180402:RegisteredServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180701:RegisteredServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20181001:RegisteredServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190201:RegisteredServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190301:RegisteredServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190601:RegisteredServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20191001:RegisteredServer"},
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:RegisteredServer"},
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20220601:RegisteredServer"},
                 },

@@ -2,11 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20160331 from "./v20160331";
-import * as v20190801 from "./v20190801";
-import * as v20200301 from "./v20200301";
-import * as v20200601preview from "./v20200601preview";
-import * as v20200901 from "./v20200901";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210315 from "./v20210315";
 import * as v20210401preview from "./v20210401preview";
@@ -20,11 +15,6 @@ import * as v20230315preview from "./v20230315preview";
 import * as v20230415 from "./v20230415";
 
 export {
-    v20160331,
-    v20190801,
-    v20200301,
-    v20200601preview,
-    v20200901,
     v20210301preview,
     v20210315,
     v20210401preview,

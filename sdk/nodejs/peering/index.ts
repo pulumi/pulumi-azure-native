@@ -80,15 +80,11 @@ utilities.lazyLoad(exports, ["RegisteredPrefix"], () => require("./registeredPre
 export * from "../types/enums/peering";
 
 // Export sub-modules:
-import * as v20190801preview from "./v20190801preview";
-import * as v20190901preview from "./v20190901preview";
 import * as v20210101 from "./v20210101";
 import * as v20210601 from "./v20210601";
 import * as v20221001 from "./v20221001";
 
 export {
-    v20190801preview,
-    v20190901preview,
     v20210101,
     v20210601,
     v20221001,

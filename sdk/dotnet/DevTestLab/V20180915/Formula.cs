@@ -113,8 +113,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devtestlab:Formula"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:Formula"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Formula"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

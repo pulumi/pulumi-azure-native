@@ -114,7 +114,6 @@ namespace Pulumi.AzureNative.DataFactory
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Pipeline"},
                     new global::Pulumi.Alias { Type = "azure-native:datafactory/v20180601:Pipeline"},
                 },
             };

@@ -119,7 +119,6 @@ namespace Pulumi.AzureNative.Network.V20201101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:VpnGateway"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:VpnGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180601:VpnGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180701:VpnGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:VpnGateway"},

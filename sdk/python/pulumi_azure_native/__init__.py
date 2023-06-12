@@ -646,14 +646,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "aad/v20170601",
-  "fqn": "pulumi_azure_native.aad.v20170601",
-  "classes": {
-   "azure-native:aad/v20170601:DomainService": "DomainService"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "aad/v20210301",
   "fqn": "pulumi_azure_native.aad.v20210301",
   "classes": {
@@ -748,14 +740,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "advisor/v20160712preview",
-  "fqn": "pulumi_azure_native.advisor.v20160712preview",
-  "classes": {
-   "azure-native:advisor/v20160712preview:Suppression": "Suppression"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "advisor/v20200101",
   "fqn": "pulumi_azure_native.advisor.v20200101",
   "classes": {
@@ -818,14 +802,6 @@ _utilities.register(
    "azure-native:alertsmanagement:AlertProcessingRuleByName": "AlertProcessingRuleByName",
    "azure-native:alertsmanagement:PrometheusRuleGroup": "PrometheusRuleGroup",
    "azure-native:alertsmanagement:SmartDetectorAlertRule": "SmartDetectorAlertRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "alertsmanagement/v20181102privatepreview",
-  "fqn": "pulumi_azure_native.alertsmanagement.v20181102privatepreview",
-  "classes": {
-   "azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName": "ActionRuleByName"
   }
  },
  {
@@ -1007,14 +983,6 @@ _utilities.register(
    "azure-native:apimanagement:WorkspaceTagApiLink": "WorkspaceTagApiLink",
    "azure-native:apimanagement:WorkspaceTagOperationLink": "WorkspaceTagOperationLink",
    "azure-native:apimanagement:WorkspaceTagProductLink": "WorkspaceTagProductLink"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "apimanagement/v20160707",
-  "fqn": "pulumi_azure_native.apimanagement.v20160707",
-  "classes": {
-   "azure-native:apimanagement/v20160707:ApiManagementService": "ApiManagementService"
   }
  },
  {
@@ -1451,14 +1419,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "appconfiguration/v20190201preview",
-  "fqn": "pulumi_azure_native.appconfiguration.v20190201preview",
-  "classes": {
-   "azure-native:appconfiguration/v20190201preview:ConfigurationStore": "ConfigurationStore"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "appconfiguration/v20200601",
   "fqn": "pulumi_azure_native.appconfiguration.v20200601",
   "classes": {
@@ -1724,40 +1684,6 @@ _utilities.register(
    "azure-native:authorization:VariableAtManagementGroup": "VariableAtManagementGroup",
    "azure-native:authorization:VariableValue": "VariableValue",
    "azure-native:authorization:VariableValueAtManagementGroup": "VariableValueAtManagementGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "authorization/v20150101",
-  "fqn": "pulumi_azure_native.authorization.v20150101",
-  "classes": {
-   "azure-native:authorization/v20150101:ManagementLock": "ManagementLock",
-   "azure-native:authorization/v20150101:ManagementLockAtResourceGroupLevel": "ManagementLockAtResourceGroupLevel"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "authorization/v20150701",
-  "fqn": "pulumi_azure_native.authorization.v20150701",
-  "classes": {
-   "azure-native:authorization/v20150701:RoleAssignment": "RoleAssignment"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "authorization/v20160401",
-  "fqn": "pulumi_azure_native.authorization.v20160401",
-  "classes": {
-   "azure-native:authorization/v20160401:PolicyAssignment": "PolicyAssignment",
-   "azure-native:authorization/v20160401:PolicyDefinition": "PolicyDefinition"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "authorization/v20161201",
-  "fqn": "pulumi_azure_native.authorization.v20161201",
-  "classes": {
-   "azure-native:authorization/v20161201:PolicyAssignment": "PolicyAssignment"
   }
  },
  {
@@ -2566,31 +2492,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "batch/v20170101",
-  "fqn": "pulumi_azure_native.batch.v20170101",
-  "classes": {
-   "azure-native:batch/v20170101:BatchAccount": "BatchAccount"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "batch/v20170901",
-  "fqn": "pulumi_azure_native.batch.v20170901",
-  "classes": {
-   "azure-native:batch/v20170901:Application": "Application",
-   "azure-native:batch/v20170901:ApplicationPackage": "ApplicationPackage"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "batch/v20200501",
-  "fqn": "pulumi_azure_native.batch.v20200501",
-  "classes": {
-   "azure-native:batch/v20200501:Pool": "Pool"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "batch/v20210101",
   "fqn": "pulumi_azure_native.batch.v20210101",
   "classes": {
@@ -2681,19 +2582,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "blueprint/v20171111preview",
-  "fqn": "pulumi_azure_native.blueprint.v20171111preview",
-  "classes": {
-   "azure-native:blueprint/v20171111preview:Assignment": "Assignment",
-   "azure-native:blueprint/v20171111preview:Blueprint": "Blueprint",
-   "azure-native:blueprint/v20171111preview:PolicyAssignmentArtifact": "PolicyAssignmentArtifact",
-   "azure-native:blueprint/v20171111preview:PublishedBlueprint": "PublishedBlueprint",
-   "azure-native:blueprint/v20171111preview:RoleAssignmentArtifact": "RoleAssignmentArtifact",
-   "azure-native:blueprint/v20171111preview:TemplateArtifact": "TemplateArtifact"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "blueprint/v20181101preview",
   "fqn": "pulumi_azure_native.blueprint.v20181101preview",
   "classes": {
@@ -2768,39 +2656,6 @@ _utilities.register(
    "azure-native:cache:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:cache:Redis": "Redis",
    "azure-native:cache:RedisEnterprise": "RedisEnterprise"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache/v20150801",
-  "fqn": "pulumi_azure_native.cache.v20150801",
-  "classes": {
-   "azure-native:cache/v20150801:Redis": "Redis"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache/v20160401",
-  "fqn": "pulumi_azure_native.cache.v20160401",
-  "classes": {
-   "azure-native:cache/v20160401:RedisFirewallRule": "RedisFirewallRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache/v20170201",
-  "fqn": "pulumi_azure_native.cache.v20170201",
-  "classes": {
-   "azure-native:cache/v20170201:Redis": "Redis",
-   "azure-native:cache/v20170201:RedisLinkedServer": "RedisLinkedServer"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache/v20190701",
-  "fqn": "pulumi_azure_native.cache.v20190701",
-  "classes": {
-   "azure-native:cache/v20190701:Redis": "Redis"
   }
  },
  {
@@ -2933,23 +2788,6 @@ _utilities.register(
    "azure-native:cdn:RuleSet": "RuleSet",
    "azure-native:cdn:Secret": "Secret",
    "azure-native:cdn:SecurityPolicy": "SecurityPolicy"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cdn/v20160402",
-  "fqn": "pulumi_azure_native.cdn.v20160402",
-  "classes": {
-   "azure-native:cdn/v20160402:Endpoint": "Endpoint",
-   "azure-native:cdn/v20160402:Profile": "Profile"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cdn/v20161002",
-  "fqn": "pulumi_azure_native.cdn.v20161002",
-  "classes": {
-   "azure-native:cdn/v20161002:CustomDomain": "CustomDomain"
   }
  },
  {
@@ -3116,14 +2954,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "cognitiveservices/v20160201preview",
-  "fqn": "pulumi_azure_native.cognitiveservices.v20160201preview",
-  "classes": {
-   "azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount": "CognitiveServicesAccount"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "cognitiveservices/v20170418",
   "fqn": "pulumi_azure_native.cognitiveservices.v20170418",
   "classes": {
@@ -3277,75 +3107,6 @@ _utilities.register(
    "azure-native:compute:VirtualMachineScaleSetVM": "VirtualMachineScaleSetVM",
    "azure-native:compute:VirtualMachineScaleSetVMExtension": "VirtualMachineScaleSetVMExtension",
    "azure-native:compute:VirtualMachineScaleSetVMRunCommand": "VirtualMachineScaleSetVMRunCommand"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "compute/v20150615",
-  "fqn": "pulumi_azure_native.compute.v20150615",
-  "classes": {
-   "azure-native:compute/v20150615:VirtualMachineScaleSet": "VirtualMachineScaleSet"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "compute/v20160430preview",
-  "fqn": "pulumi_azure_native.compute.v20160430preview",
-  "classes": {
-   "azure-native:compute/v20160430preview:AvailabilitySet": "AvailabilitySet",
-   "azure-native:compute/v20160430preview:Disk": "Disk",
-   "azure-native:compute/v20160430preview:Snapshot": "Snapshot",
-   "azure-native:compute/v20160430preview:VirtualMachineScaleSet": "VirtualMachineScaleSet"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "compute/v20170330",
-  "fqn": "pulumi_azure_native.compute.v20170330",
-  "classes": {
-   "azure-native:compute/v20170330:Snapshot": "Snapshot"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "compute/v20180601",
-  "fqn": "pulumi_azure_native.compute.v20180601",
-  "classes": {
-   "azure-native:compute/v20180601:Disk": "Disk",
-   "azure-native:compute/v20180601:Snapshot": "Snapshot"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "compute/v20190301",
-  "fqn": "pulumi_azure_native.compute.v20190301",
-  "classes": {
-   "azure-native:compute/v20190301:GalleryImageVersion": "GalleryImageVersion",
-   "azure-native:compute/v20190301:ProximityPlacementGroup": "ProximityPlacementGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "compute/v20190701",
-  "fqn": "pulumi_azure_native.compute.v20190701",
-  "classes": {
-   "azure-native:compute/v20190701:Disk": "Disk"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "compute/v20191201",
-  "fqn": "pulumi_azure_native.compute.v20191201",
-  "classes": {
-   "azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension": "VirtualMachineScaleSetVMExtension"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "compute/v20200630",
-  "fqn": "pulumi_azure_native.compute.v20200630",
-  "classes": {
-   "azure-native:compute/v20200630:DiskEncryptionSet": "DiskEncryptionSet"
   }
  },
  {
@@ -3631,39 +3392,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "consumption/v20171230preview",
-  "fqn": "pulumi_azure_native.consumption.v20171230preview",
-  "classes": {
-   "azure-native:consumption/v20171230preview:Budget": "Budget"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "consumption/v20181001",
-  "fqn": "pulumi_azure_native.consumption.v20181001",
-  "classes": {
-   "azure-native:consumption/v20181001:Budget": "Budget",
-   "azure-native:consumption/v20181001:BudgetByResourceGroupName": "BudgetByResourceGroupName"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "consumption/v20190501",
-  "fqn": "pulumi_azure_native.consumption.v20190501",
-  "classes": {
-   "azure-native:consumption/v20190501:Budget": "Budget"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "consumption/v20190601",
-  "fqn": "pulumi_azure_native.consumption.v20190601",
-  "classes": {
-   "azure-native:consumption/v20190601:Budget": "Budget"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "consumption/v20191001",
   "fqn": "pulumi_azure_native.consumption.v20191001",
   "classes": {
@@ -3692,22 +3420,6 @@ _utilities.register(
   "fqn": "pulumi_azure_native.containerinstance",
   "classes": {
    "azure-native:containerinstance:ContainerGroup": "ContainerGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "containerinstance/v20170801preview",
-  "fqn": "pulumi_azure_native.containerinstance.v20170801preview",
-  "classes": {
-   "azure-native:containerinstance/v20170801preview:ContainerGroup": "ContainerGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "containerinstance/v20171201preview",
-  "fqn": "pulumi_azure_native.containerinstance.v20171201preview",
-  "classes": {
-   "azure-native:containerinstance/v20171201preview:ContainerGroup": "ContainerGroup"
   }
  },
  {
@@ -3875,47 +3587,6 @@ _utilities.register(
    "azure-native:containerservice:Snapshot": "Snapshot",
    "azure-native:containerservice:TrustedAccessRoleBinding": "TrustedAccessRoleBinding",
    "azure-native:containerservice:UpdateRun": "UpdateRun"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "containerservice/v20170131",
-  "fqn": "pulumi_azure_native.containerservice.v20170131",
-  "classes": {
-   "azure-native:containerservice/v20170131:ContainerService": "ContainerService"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "containerservice/v20170831",
-  "fqn": "pulumi_azure_native.containerservice.v20170831",
-  "classes": {
-   "azure-native:containerservice/v20170831:ManagedCluster": "ManagedCluster"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "containerservice/v20180930preview",
-  "fqn": "pulumi_azure_native.containerservice.v20180930preview",
-  "classes": {
-   "azure-native:containerservice/v20180930preview:OpenShiftManagedCluster": "OpenShiftManagedCluster"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "containerservice/v20190201",
-  "fqn": "pulumi_azure_native.containerservice.v20190201",
-  "classes": {
-   "azure-native:containerservice/v20190201:AgentPool": "AgentPool",
-   "azure-native:containerservice/v20190201:ManagedCluster": "ManagedCluster"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "containerservice/v20190401",
-  "fqn": "pulumi_azure_native.containerservice.v20190401",
-  "classes": {
-   "azure-native:containerservice/v20190401:AgentPool": "AgentPool"
   }
  },
  {
@@ -4159,15 +3830,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "costmanagement/v20180531",
-  "fqn": "pulumi_azure_native.costmanagement.v20180531",
-  "classes": {
-   "azure-native:costmanagement/v20180531:ReportConfig": "ReportConfig",
-   "azure-native:costmanagement/v20180531:ReportConfigByResourceGroupName": "ReportConfigByResourceGroupName"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "costmanagement/v20180801preview",
   "fqn": "pulumi_azure_native.costmanagement.v20180801preview",
   "classes": {
@@ -4305,15 +3967,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "customerinsights/v20170101",
-  "fqn": "pulumi_azure_native.customerinsights.v20170101",
-  "classes": {
-   "azure-native:customerinsights/v20170101:Link": "Link",
-   "azure-native:customerinsights/v20170101:RelationshipLink": "RelationshipLink"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "customerinsights/v20170426",
   "fqn": "pulumi_azure_native.customerinsights.v20170426",
   "classes": {
@@ -4393,14 +4046,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "databox/v20190901",
-  "fqn": "pulumi_azure_native.databox.v20190901",
-  "classes": {
-   "azure-native:databox/v20190901:Job": "Job"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "databox/v20201101",
   "fqn": "pulumi_azure_native.databox.v20201101",
   "classes": {
@@ -4437,32 +4082,6 @@ _utilities.register(
    "azure-native:databoxedge:StorageAccount": "StorageAccount",
    "azure-native:databoxedge:StorageAccountCredential": "StorageAccountCredential",
    "azure-native:databoxedge:User": "User"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "databoxedge/v20190701",
-  "fqn": "pulumi_azure_native.databoxedge.v20190701",
-  "classes": {
-   "azure-native:databoxedge/v20190701:User": "User"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "databoxedge/v20190801",
-  "fqn": "pulumi_azure_native.databoxedge.v20190801",
-  "classes": {
-   "azure-native:databoxedge/v20190801:User": "User"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "databoxedge/v20200501preview",
-  "fqn": "pulumi_azure_native.databoxedge.v20200501preview",
-  "classes": {
-   "azure-native:databoxedge/v20200501preview:Device": "Device",
-   "azure-native:databoxedge/v20200501preview:Order": "Order",
-   "azure-native:databoxedge/v20200501preview:StorageAccount": "StorageAccount"
   }
  },
  {
@@ -4654,14 +4273,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "datafactory/v20170901preview",
-  "fqn": "pulumi_azure_native.datafactory.v20170901preview",
-  "classes": {
-   "azure-native:datafactory/v20170901preview:Factory": "Factory"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "datafactory/v20180601",
   "fqn": "pulumi_azure_native.datafactory.v20180601",
   "classes": {
@@ -4687,14 +4298,6 @@ _utilities.register(
    "azure-native:datalakeanalytics:Account": "Account",
    "azure-native:datalakeanalytics:ComputePolicy": "ComputePolicy",
    "azure-native:datalakeanalytics:FirewallRule": "FirewallRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "datalakeanalytics/v20151001preview",
-  "fqn": "pulumi_azure_native.datalakeanalytics.v20151001preview",
-  "classes": {
-   "azure-native:datalakeanalytics/v20151001preview:Account": "Account"
   }
  },
  {
@@ -4751,22 +4354,6 @@ _utilities.register(
    "azure-native:datamigration:ServiceTask": "ServiceTask",
    "azure-native:datamigration:SqlMigrationService": "SqlMigrationService",
    "azure-native:datamigration:Task": "Task"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "datamigration/v20171115preview",
-  "fqn": "pulumi_azure_native.datamigration.v20171115preview",
-  "classes": {
-   "azure-native:datamigration/v20171115preview:Project": "Project"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "datamigration/v20180331preview",
-  "fqn": "pulumi_azure_native.datamigration.v20180331preview",
-  "classes": {
-   "azure-native:datamigration/v20180331preview:Project": "Project"
   }
  },
  {
@@ -4918,14 +4505,6 @@ _utilities.register(
    "azure-native:datashare:SqlDWTableDataSetMapping": "SqlDWTableDataSetMapping",
    "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSet": "SynapseWorkspaceSqlPoolTableDataSet",
    "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping": "SynapseWorkspaceSqlPoolTableDataSetMapping"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "datashare/v20181101preview",
-  "fqn": "pulumi_azure_native.datashare.v20181101preview",
-  "classes": {
-   "azure-native:datashare/v20181101preview:ShareSubscription": "ShareSubscription"
   }
  },
  {
@@ -5340,15 +4919,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "deploymentmanager/v20180901preview",
-  "fqn": "pulumi_azure_native.deploymentmanager.v20180901preview",
-  "classes": {
-   "azure-native:deploymentmanager/v20180901preview:Rollout": "Rollout",
-   "azure-native:deploymentmanager/v20180901preview:Step": "Step"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "deploymentmanager/v20191101preview",
   "fqn": "pulumi_azure_native.deploymentmanager.v20191101preview",
   "classes": {
@@ -5374,25 +4944,6 @@ _utilities.register(
    "azure-native:desktopvirtualization:ScalingPlan": "ScalingPlan",
    "azure-native:desktopvirtualization:ScalingPlanPooledSchedule": "ScalingPlanPooledSchedule",
    "azure-native:desktopvirtualization:Workspace": "Workspace"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "desktopvirtualization/v20201102preview",
-  "fqn": "pulumi_azure_native.desktopvirtualization.v20201102preview",
-  "classes": {
-   "azure-native:desktopvirtualization/v20201102preview:HostPool": "HostPool"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "desktopvirtualization/v20201110preview",
-  "fqn": "pulumi_azure_native.desktopvirtualization.v20201110preview",
-  "classes": {
-   "azure-native:desktopvirtualization/v20201110preview:ApplicationGroup": "ApplicationGroup",
-   "azure-native:desktopvirtualization/v20201110preview:HostPool": "HostPool",
-   "azure-native:desktopvirtualization/v20201110preview:ScalingPlan": "ScalingPlan",
-   "azure-native:desktopvirtualization/v20201110preview:Workspace": "Workspace"
   }
  },
  {
@@ -5581,15 +5132,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "devices/v20170701",
-  "fqn": "pulumi_azure_native.devices.v20170701",
-  "classes": {
-   "azure-native:devices/v20170701:IotHubResource": "IotHubResource",
-   "azure-native:devices/v20170701:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "devices/v20200301",
   "fqn": "pulumi_azure_native.devices.v20200301",
   "classes": {
@@ -5749,43 +5291,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "devtestlab/v20150521preview",
-  "fqn": "pulumi_azure_native.devtestlab.v20150521preview",
-  "classes": {
-   "azure-native:devtestlab/v20150521preview:ArtifactSourceResource": "ArtifactSourceResource",
-   "azure-native:devtestlab/v20150521preview:CustomImageResource": "CustomImageResource",
-   "azure-native:devtestlab/v20150521preview:FormulaResource": "FormulaResource",
-   "azure-native:devtestlab/v20150521preview:LabResource": "LabResource",
-   "azure-native:devtestlab/v20150521preview:PolicyResource": "PolicyResource",
-   "azure-native:devtestlab/v20150521preview:ScheduleResource": "ScheduleResource",
-   "azure-native:devtestlab/v20150521preview:VirtualMachineResource": "VirtualMachineResource",
-   "azure-native:devtestlab/v20150521preview:VirtualNetworkResource": "VirtualNetworkResource"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devtestlab/v20160515",
-  "fqn": "pulumi_azure_native.devtestlab.v20160515",
-  "classes": {
-   "azure-native:devtestlab/v20160515:ArtifactSource": "ArtifactSource",
-   "azure-native:devtestlab/v20160515:CustomImage": "CustomImage",
-   "azure-native:devtestlab/v20160515:Disk": "Disk",
-   "azure-native:devtestlab/v20160515:Environment": "Environment",
-   "azure-native:devtestlab/v20160515:Formula": "Formula",
-   "azure-native:devtestlab/v20160515:GlobalSchedule": "GlobalSchedule",
-   "azure-native:devtestlab/v20160515:Lab": "Lab",
-   "azure-native:devtestlab/v20160515:NotificationChannel": "NotificationChannel",
-   "azure-native:devtestlab/v20160515:Policy": "Policy",
-   "azure-native:devtestlab/v20160515:Schedule": "Schedule",
-   "azure-native:devtestlab/v20160515:Secret": "Secret",
-   "azure-native:devtestlab/v20160515:User": "User",
-   "azure-native:devtestlab/v20160515:VirtualMachine": "VirtualMachine",
-   "azure-native:devtestlab/v20160515:VirtualMachineSchedule": "VirtualMachineSchedule",
-   "azure-native:devtestlab/v20160515:VirtualNetwork": "VirtualNetwork"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "devtestlab/v20180915",
   "fqn": "pulumi_azure_native.devtestlab.v20180915",
   "classes": {
@@ -5818,15 +5323,6 @@ _utilities.register(
    "azure-native:digitaltwins:DigitalTwinsEndpoint": "DigitalTwinsEndpoint",
    "azure-native:digitaltwins:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:digitaltwins:TimeSeriesDatabaseConnection": "TimeSeriesDatabaseConnection"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "digitaltwins/v20200301preview",
-  "fqn": "pulumi_azure_native.digitaltwins.v20200301preview",
-  "classes": {
-   "azure-native:digitaltwins/v20200301preview:DigitalTwin": "DigitalTwin",
-   "azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint": "DigitalTwinsEndpoint"
   }
  },
  {
@@ -5889,65 +5385,6 @@ _utilities.register(
    "azure-native:documentdb:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
    "azure-native:documentdb:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
    "azure-native:documentdb:TableResourceTable": "TableResourceTable"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "documentdb/v20160331",
-  "fqn": "pulumi_azure_native.documentdb.v20160331",
-  "classes": {
-   "azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace": "DatabaseAccountCassandraKeyspace",
-   "azure-native:documentdb/v20160331:DatabaseAccountCassandraTable": "DatabaseAccountCassandraTable",
-   "azure-native:documentdb/v20160331:DatabaseAccountGremlinDatabase": "DatabaseAccountGremlinDatabase",
-   "azure-native:documentdb/v20160331:DatabaseAccountGremlinGraph": "DatabaseAccountGremlinGraph",
-   "azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection": "DatabaseAccountMongoDBCollection",
-   "azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase": "DatabaseAccountMongoDBDatabase",
-   "azure-native:documentdb/v20160331:DatabaseAccountSqlContainer": "DatabaseAccountSqlContainer",
-   "azure-native:documentdb/v20160331:DatabaseAccountSqlDatabase": "DatabaseAccountSqlDatabase",
-   "azure-native:documentdb/v20160331:DatabaseAccountTable": "DatabaseAccountTable"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "documentdb/v20190801",
-  "fqn": "pulumi_azure_native.documentdb.v20190801",
-  "classes": {
-   "azure-native:documentdb/v20190801:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
-   "azure-native:documentdb/v20190801:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
-   "azure-native:documentdb/v20190801:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
-   "azure-native:documentdb/v20190801:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
-   "azure-native:documentdb/v20190801:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
-   "azure-native:documentdb/v20190801:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
-   "azure-native:documentdb/v20190801:SqlResourceSqlContainer": "SqlResourceSqlContainer",
-   "azure-native:documentdb/v20190801:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
-   "azure-native:documentdb/v20190801:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
-   "azure-native:documentdb/v20190801:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
-   "azure-native:documentdb/v20190801:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
-   "azure-native:documentdb/v20190801:TableResourceTable": "TableResourceTable"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "documentdb/v20200301",
-  "fqn": "pulumi_azure_native.documentdb.v20200301",
-  "classes": {
-   "azure-native:documentdb/v20200301:DatabaseAccount": "DatabaseAccount"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "documentdb/v20200601preview",
-  "fqn": "pulumi_azure_native.documentdb.v20200601preview",
-  "classes": {
-   "azure-native:documentdb/v20200601preview:DatabaseAccount": "DatabaseAccount"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "documentdb/v20200901",
-  "fqn": "pulumi_azure_native.documentdb.v20200901",
-  "classes": {
-   "azure-native:documentdb/v20200901:DatabaseAccount": "DatabaseAccount"
   }
  },
  {
@@ -6448,14 +5885,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "eventgrid/v20170615preview",
-  "fqn": "pulumi_azure_native.eventgrid.v20170615preview",
-  "classes": {
-   "azure-native:eventgrid/v20170615preview:EventSubscription": "EventSubscription"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "eventgrid/v20200401preview",
   "fqn": "pulumi_azure_native.eventgrid.v20200401preview",
   "classes": {
@@ -6579,18 +6008,6 @@ _utilities.register(
    "azure-native:eventhub:NamespaceVirtualNetworkRule": "NamespaceVirtualNetworkRule",
    "azure-native:eventhub:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:eventhub:SchemaRegistry": "SchemaRegistry"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "eventhub/v20150801",
-  "fqn": "pulumi_azure_native.eventhub.v20150801",
-  "classes": {
-   "azure-native:eventhub/v20150801:ConsumerGroup": "ConsumerGroup",
-   "azure-native:eventhub/v20150801:EventHub": "EventHub",
-   "azure-native:eventhub/v20150801:EventHubAuthorizationRule": "EventHubAuthorizationRule",
-   "azure-native:eventhub/v20150801:Namespace": "Namespace",
-   "azure-native:eventhub/v20150801:NamespaceAuthorizationRule": "NamespaceAuthorizationRule"
   }
  },
  {
@@ -6874,14 +6291,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "healthbot/v20201020preview",
-  "fqn": "pulumi_azure_native.healthbot.v20201020preview",
-  "classes": {
-   "azure-native:healthbot/v20201020preview:Getbot": "Getbot"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "healthbot/v20201208",
   "fqn": "pulumi_azure_native.healthbot.v20201208",
   "classes": {
@@ -6918,14 +6327,6 @@ _utilities.register(
    "azure-native:healthcareapis:Service": "Service",
    "azure-native:healthcareapis:Workspace": "Workspace",
    "azure-native:healthcareapis:WorkspacePrivateEndpointConnection": "WorkspacePrivateEndpointConnection"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "healthcareapis/v20200315",
-  "fqn": "pulumi_azure_native.healthcareapis.v20200315",
-  "classes": {
-   "azure-native:healthcareapis/v20200315:Service": "Service"
   }
  },
  {
@@ -7010,23 +6411,6 @@ _utilities.register(
    "azure-native:hybridcompute:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:hybridcompute:PrivateLinkScope": "PrivateLinkScope",
    "azure-native:hybridcompute:PrivateLinkScopedResource": "PrivateLinkScopedResource"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "hybridcompute/v20190318preview",
-  "fqn": "pulumi_azure_native.hybridcompute.v20190318preview",
-  "classes": {
-   "azure-native:hybridcompute/v20190318preview:Machine": "Machine"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "hybridcompute/v20190802preview",
-  "fqn": "pulumi_azure_native.hybridcompute.v20190802preview",
-  "classes": {
-   "azure-native:hybridcompute/v20190802preview:Machine": "Machine",
-   "azure-native:hybridcompute/v20190802preview:MachineExtension": "MachineExtension"
   }
  },
  {
@@ -7640,14 +7024,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "iotcentral/v20180901",
-  "fqn": "pulumi_azure_native.iotcentral.v20180901",
-  "classes": {
-   "azure-native:iotcentral/v20180901:App": "App"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "iotcentral/v20210601",
   "fqn": "pulumi_azure_native.iotcentral.v20210601",
   "classes": {
@@ -7720,14 +7096,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "keyvault/v20180214preview",
-  "fqn": "pulumi_azure_native.keyvault.v20180214preview",
-  "classes": {
-   "azure-native:keyvault/v20180214preview:Vault": "Vault"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "keyvault/v20190901",
   "fqn": "pulumi_azure_native.keyvault.v20190901",
   "classes": {
@@ -7769,14 +7137,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "kubernetes/v20200101preview",
-  "fqn": "pulumi_azure_native.kubernetes.v20200101preview",
-  "classes": {
-   "azure-native:kubernetes/v20200101preview:ConnectedCluster": "ConnectedCluster"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "kubernetes/v20210301",
   "fqn": "pulumi_azure_native.kubernetes.v20210301",
   "classes": {
@@ -7801,14 +7161,6 @@ _utilities.register(
    "azure-native:kubernetesconfiguration:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:kubernetesconfiguration:PrivateLinkScope": "PrivateLinkScope",
    "azure-native:kubernetesconfiguration:SourceControlConfiguration": "SourceControlConfiguration"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "kubernetesconfiguration/v20191101preview",
-  "fqn": "pulumi_azure_native.kubernetesconfiguration.v20191101preview",
-  "classes": {
-   "azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration": "SourceControlConfiguration"
   }
  },
  {
@@ -8279,14 +7631,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "machinelearningcompute/v20170601preview",
-  "fqn": "pulumi_azure_native.machinelearningcompute.v20170601preview",
-  "classes": {
-   "azure-native:machinelearningcompute/v20170601preview:OperationalizationCluster": "OperationalizationCluster"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "machinelearningcompute/v20170801preview",
   "fqn": "pulumi_azure_native.machinelearningcompute.v20170801preview",
   "classes": {
@@ -8361,14 +7705,6 @@ _utilities.register(
    "azure-native:machinelearningservices:Schedule": "Schedule",
    "azure-native:machinelearningservices:Workspace": "Workspace",
    "azure-native:machinelearningservices:WorkspaceConnection": "WorkspaceConnection"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "machinelearningservices/v20180301preview",
-  "fqn": "pulumi_azure_native.machinelearningservices.v20180301preview",
-  "classes": {
-   "azure-native:machinelearningservices/v20180301preview:Workspace": "Workspace"
   }
  },
  {
@@ -8707,14 +8043,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "managedidentity/v20150831preview",
-  "fqn": "pulumi_azure_native.managedidentity.v20150831preview",
-  "classes": {
-   "azure-native:managedidentity/v20150831preview:UserAssignedIdentity": "UserAssignedIdentity"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "managedidentity/v20181130",
   "fqn": "pulumi_azure_native.managedidentity.v20181130",
   "classes": {
@@ -8837,22 +8165,6 @@ _utilities.register(
    "azure-native:management:HierarchySetting": "HierarchySetting",
    "azure-native:management:ManagementGroup": "ManagementGroup",
    "azure-native:management:ManagementGroupSubscription": "ManagementGroupSubscription"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "management/v20171101preview",
-  "fqn": "pulumi_azure_native.management.v20171101preview",
-  "classes": {
-   "azure-native:management/v20171101preview:ManagementGroup": "ManagementGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "management/v20200201",
-  "fqn": "pulumi_azure_native.management.v20200201",
-  "classes": {
-   "azure-native:management/v20200201:ManagementGroup": "ManagementGroup"
   }
  },
  {
@@ -9115,14 +8427,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "migrate/v20171111preview",
-  "fqn": "pulumi_azure_native.migrate.v20171111preview",
-  "classes": {
-   "azure-native:migrate/v20171111preview:Assessment": "Assessment"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "migrate/v20180202",
   "fqn": "pulumi_azure_native.migrate.v20180202",
   "classes": {
@@ -9201,14 +8505,6 @@ _utilities.register(
    "azure-native:mixedreality:ObjectAnchorsAccount": "ObjectAnchorsAccount",
    "azure-native:mixedreality:RemoteRenderingAccount": "RemoteRenderingAccount",
    "azure-native:mixedreality:SpatialAnchorsAccount": "SpatialAnchorsAccount"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "mixedreality/v20190228preview",
-  "fqn": "pulumi_azure_native.mixedreality.v20190228preview",
-  "classes": {
-   "azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount": "SpatialAnchorsAccount"
   }
  },
  {
@@ -9332,74 +8628,6 @@ _utilities.register(
    "azure-native:netapp:Volume": "Volume",
    "azure-native:netapp:VolumeGroup": "VolumeGroup",
    "azure-native:netapp:VolumeQuotaRule": "VolumeQuotaRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "netapp/v20170815",
-  "fqn": "pulumi_azure_native.netapp.v20170815",
-  "classes": {
-   "azure-native:netapp/v20170815:Pool": "Pool",
-   "azure-native:netapp/v20170815:Snapshot": "Snapshot",
-   "azure-native:netapp/v20170815:Volume": "Volume"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "netapp/v20190501",
-  "fqn": "pulumi_azure_native.netapp.v20190501",
-  "classes": {
-   "azure-native:netapp/v20190501:Volume": "Volume"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "netapp/v20190601",
-  "fqn": "pulumi_azure_native.netapp.v20190601",
-  "classes": {
-   "azure-native:netapp/v20190601:Snapshot": "Snapshot"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "netapp/v20190701",
-  "fqn": "pulumi_azure_native.netapp.v20190701",
-  "classes": {
-   "azure-native:netapp/v20190701:Account": "Account",
-   "azure-native:netapp/v20190701:Pool": "Pool",
-   "azure-native:netapp/v20190701:Volume": "Volume"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "netapp/v20190801",
-  "fqn": "pulumi_azure_native.netapp.v20190801",
-  "classes": {
-   "azure-native:netapp/v20190801:Volume": "Volume"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "netapp/v20191001",
-  "fqn": "pulumi_azure_native.netapp.v20191001",
-  "classes": {
-   "azure-native:netapp/v20191001:Snapshot": "Snapshot"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "netapp/v20191101",
-  "fqn": "pulumi_azure_native.netapp.v20191101",
-  "classes": {
-   "azure-native:netapp/v20191101:Snapshot": "Snapshot"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "netapp/v20200201",
-  "fqn": "pulumi_azure_native.netapp.v20200201",
-  "classes": {
-   "azure-native:netapp/v20200201:Volume": "Volume"
   }
  },
  {
@@ -9601,132 +8829,6 @@ _utilities.register(
    "azure-native:network:VpnSite": "VpnSite",
    "azure-native:network:WebApplicationFirewallPolicy": "WebApplicationFirewallPolicy",
    "azure-native:network:Zone": "Zone"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20150501preview",
-  "fqn": "pulumi_azure_native.network.v20150501preview",
-  "classes": {
-   "azure-native:network/v20150501preview:ApplicationGateway": "ApplicationGateway",
-   "azure-native:network/v20150501preview:ExpressRouteCircuit": "ExpressRouteCircuit",
-   "azure-native:network/v20150501preview:LoadBalancer": "LoadBalancer",
-   "azure-native:network/v20150501preview:NetworkInterface": "NetworkInterface",
-   "azure-native:network/v20150501preview:NetworkSecurityGroup": "NetworkSecurityGroup",
-   "azure-native:network/v20150501preview:PublicIpAddress": "PublicIpAddress",
-   "azure-native:network/v20150501preview:RouteTable": "RouteTable",
-   "azure-native:network/v20150501preview:Subnet": "Subnet",
-   "azure-native:network/v20150501preview:VirtualNetwork": "VirtualNetwork"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20150504preview",
-  "fqn": "pulumi_azure_native.network.v20150504preview",
-  "classes": {
-   "azure-native:network/v20150504preview:RecordSet": "RecordSet",
-   "azure-native:network/v20150504preview:Zone": "Zone"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20160330",
-  "fqn": "pulumi_azure_native.network.v20160330",
-  "classes": {
-   "azure-native:network/v20160330:NetworkSecurityGroup": "NetworkSecurityGroup",
-   "azure-native:network/v20160330:PublicIPAddress": "PublicIPAddress",
-   "azure-native:network/v20160330:RouteTable": "RouteTable",
-   "azure-native:network/v20160330:Subnet": "Subnet"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20160401",
-  "fqn": "pulumi_azure_native.network.v20160401",
-  "classes": {
-   "azure-native:network/v20160401:RecordSet": "RecordSet",
-   "azure-native:network/v20160401:Zone": "Zone"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20160601",
-  "fqn": "pulumi_azure_native.network.v20160601",
-  "classes": {
-   "azure-native:network/v20160601:LocalNetworkGateway": "LocalNetworkGateway",
-   "azure-native:network/v20160601:VirtualNetworkGateway": "VirtualNetworkGateway",
-   "azure-native:network/v20160601:VirtualNetworkGatewayConnection": "VirtualNetworkGatewayConnection"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20160901",
-  "fqn": "pulumi_azure_native.network.v20160901",
-  "classes": {
-   "azure-native:network/v20160901:LocalNetworkGateway": "LocalNetworkGateway",
-   "azure-native:network/v20160901:VirtualNetworkGateway": "VirtualNetworkGateway"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20170301",
-  "fqn": "pulumi_azure_native.network.v20170301",
-  "classes": {
-   "azure-native:network/v20170301:Endpoint": "Endpoint",
-   "azure-native:network/v20170301:Profile": "Profile",
-   "azure-native:network/v20170301:RouteFilterRule": "RouteFilterRule",
-   "azure-native:network/v20170301:SecurityRule": "SecurityRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20170901",
-  "fqn": "pulumi_azure_native.network.v20170901",
-  "classes": {
-   "azure-native:network/v20170901:ExpressRouteCircuitPeering": "ExpressRouteCircuitPeering"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20170901preview",
-  "fqn": "pulumi_azure_native.network.v20170901preview",
-  "classes": {
-   "azure-native:network/v20170901preview:TrafficManagerUserMetricsKey": "TrafficManagerUserMetricsKey"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20171001",
-  "fqn": "pulumi_azure_native.network.v20171001",
-  "classes": {
-   "azure-native:network/v20171001:RouteFilterRule": "RouteFilterRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20180101",
-  "fqn": "pulumi_azure_native.network.v20180101",
-  "classes": {
-   "azure-native:network/v20180101:NetworkWatcher": "NetworkWatcher",
-   "azure-native:network/v20180101:PacketCapture": "PacketCapture"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20180201",
-  "fqn": "pulumi_azure_native.network.v20180201",
-  "classes": {
-   "azure-native:network/v20180201:DdosProtectionPlan": "DdosProtectionPlan",
-   "azure-native:network/v20180201:Endpoint": "Endpoint",
-   "azure-native:network/v20180201:Profile": "Profile"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20180401",
-  "fqn": "pulumi_azure_native.network.v20180401",
-  "classes": {
-   "azure-native:network/v20180401:VpnConnection": "VpnConnection"
   }
  },
  {
@@ -10448,26 +9550,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "notificationhubs/v20140901",
-  "fqn": "pulumi_azure_native.notificationhubs.v20140901",
-  "classes": {
-   "azure-native:notificationhubs/v20140901:Namespace": "Namespace",
-   "azure-native:notificationhubs/v20140901:NotificationHub": "NotificationHub"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "notificationhubs/v20160301",
-  "fqn": "pulumi_azure_native.notificationhubs.v20160301",
-  "classes": {
-   "azure-native:notificationhubs/v20160301:Namespace": "Namespace",
-   "azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
-   "azure-native:notificationhubs/v20160301:NotificationHub": "NotificationHub",
-   "azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule": "NotificationHubAuthorizationRule"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "notificationhubs/v20170401",
   "fqn": "pulumi_azure_native.notificationhubs.v20170401",
   "classes": {
@@ -10539,15 +9621,6 @@ _utilities.register(
    "azure-native:operationalinsights:StorageInsightConfig": "StorageInsightConfig",
    "azure-native:operationalinsights:Table": "Table",
    "azure-native:operationalinsights:Workspace": "Workspace"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "operationalinsights/v20150320",
-  "fqn": "pulumi_azure_native.operationalinsights.v20150320",
-  "classes": {
-   "azure-native:operationalinsights/v20150320:SavedSearch": "SavedSearch",
-   "azure-native:operationalinsights/v20150320:StorageInsight": "StorageInsight"
   }
  },
  {
@@ -10696,22 +9769,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "peering/v20190801preview",
-  "fqn": "pulumi_azure_native.peering.v20190801preview",
-  "classes": {
-   "azure-native:peering/v20190801preview:PeeringServicePrefix": "PeeringServicePrefix"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "peering/v20190901preview",
-  "fqn": "pulumi_azure_native.peering.v20190901preview",
-  "classes": {
-   "azure-native:peering/v20190901preview:PeerAsn": "PeerAsn"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "peering/v20210101",
   "fqn": "pulumi_azure_native.peering.v20210101",
   "classes": {
@@ -10757,17 +9814,6 @@ _utilities.register(
    "azure-native:policyinsights:RemediationAtResource": "RemediationAtResource",
    "azure-native:policyinsights:RemediationAtResourceGroup": "RemediationAtResourceGroup",
    "azure-native:policyinsights:RemediationAtSubscription": "RemediationAtSubscription"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "policyinsights/v20180701preview",
-  "fqn": "pulumi_azure_native.policyinsights.v20180701preview",
-  "classes": {
-   "azure-native:policyinsights/v20180701preview:RemediationAtManagementGroup": "RemediationAtManagementGroup",
-   "azure-native:policyinsights/v20180701preview:RemediationAtResource": "RemediationAtResource",
-   "azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup": "RemediationAtResourceGroup",
-   "azure-native:policyinsights/v20180701preview:RemediationAtSubscription": "RemediationAtSubscription"
   }
  },
  {
@@ -10887,14 +9933,6 @@ _utilities.register(
   "classes": {
    "azure-native:powerbidedicated:AutoScaleVCore": "AutoScaleVCore",
    "azure-native:powerbidedicated:CapacityDetails": "CapacityDetails"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "powerbidedicated/v20171001",
-  "fqn": "pulumi_azure_native.powerbidedicated.v20171001",
-  "classes": {
-   "azure-native:powerbidedicated/v20171001:CapacityDetails": "CapacityDetails"
   }
  },
  {
@@ -11105,14 +10143,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "recoveryservices/v20160601",
-  "fqn": "pulumi_azure_native.recoveryservices.v20160601",
-  "classes": {
-   "azure-native:recoveryservices/v20160601:ProtectionPolicy": "ProtectionPolicy"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "recoveryservices/v20180710",
   "fqn": "pulumi_azure_native.recoveryservices.v20180710",
   "classes": {
@@ -11263,14 +10293,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "relay/v20160701",
-  "fqn": "pulumi_azure_native.relay.v20160701",
-  "classes": {
-   "azure-native:relay/v20160701:WCFRelay": "WCFRelay"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "relay/v20170401",
   "fqn": "pulumi_azure_native.relay.v20170401",
   "classes": {
@@ -11372,30 +10394,6 @@ _utilities.register(
    "azure-native:resources:TagAtScope": "TagAtScope",
    "azure-native:resources:TemplateSpec": "TemplateSpec",
    "azure-native:resources:TemplateSpecVersion": "TemplateSpecVersion"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "resources/v20151101",
-  "fqn": "pulumi_azure_native.resources.v20151101",
-  "classes": {
-   "azure-native:resources/v20151101:Resource": "Resource"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "resources/v20160701",
-  "fqn": "pulumi_azure_native.resources.v20160701",
-  "classes": {
-   "azure-native:resources/v20160701:Deployment": "Deployment"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "resources/v20180201",
-  "fqn": "pulumi_azure_native.resources.v20180201",
-  "classes": {
-   "azure-native:resources/v20180201:ResourceGroup": "ResourceGroup"
   }
  },
  {
@@ -11581,14 +10579,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "search/v20191001preview",
-  "fqn": "pulumi_azure_native.search.v20191001preview",
-  "classes": {
-   "azure-native:search/v20191001preview:PrivateEndpointConnection": "PrivateEndpointConnection"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "search/v20200801",
   "fqn": "pulumi_azure_native.search.v20200801",
   "classes": {
@@ -11647,14 +10637,6 @@ _utilities.register(
    "azure-native:security:SqlVulnerabilityAssessmentBaselineRule": "SqlVulnerabilityAssessmentBaselineRule",
    "azure-native:security:Standard": "Standard",
    "azure-native:security:WorkspaceSetting": "WorkspaceSetting"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "security/v20150601preview",
-  "fqn": "pulumi_azure_native.security.v20150601preview",
-  "classes": {
-   "azure-native:security/v20150601preview:AdaptiveApplicationControl": "AdaptiveApplicationControl"
   }
  },
  {
@@ -12268,30 +11250,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "servicebus/v20140901",
-  "fqn": "pulumi_azure_native.servicebus.v20140901",
-  "classes": {
-   "azure-native:servicebus/v20140901:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
-   "azure-native:servicebus/v20140901:QueueAuthorizationRule": "QueueAuthorizationRule",
-   "azure-native:servicebus/v20140901:TopicAuthorizationRule": "TopicAuthorizationRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "servicebus/v20150801",
-  "fqn": "pulumi_azure_native.servicebus.v20150801",
-  "classes": {
-   "azure-native:servicebus/v20150801:Namespace": "Namespace",
-   "azure-native:servicebus/v20150801:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
-   "azure-native:servicebus/v20150801:Queue": "Queue",
-   "azure-native:servicebus/v20150801:QueueAuthorizationRule": "QueueAuthorizationRule",
-   "azure-native:servicebus/v20150801:Subscription": "Subscription",
-   "azure-native:servicebus/v20150801:Topic": "Topic",
-   "azure-native:servicebus/v20150801:TopicAuthorizationRule": "TopicAuthorizationRule"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "servicebus/v20170401",
   "fqn": "pulumi_azure_native.servicebus.v20170401",
   "classes": {
@@ -12359,14 +11317,6 @@ _utilities.register(
    "azure-native:servicefabric:ManagedCluster": "ManagedCluster",
    "azure-native:servicefabric:NodeType": "NodeType",
    "azure-native:servicefabric:Service": "Service"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "servicefabric/v20170701preview",
-  "fqn": "pulumi_azure_native.servicefabric.v20170701preview",
-  "classes": {
-   "azure-native:servicefabric/v20170701preview:Cluster": "Cluster"
   }
  },
  {
@@ -12475,16 +11425,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "servicefabricmesh/v20180701preview",
-  "fqn": "pulumi_azure_native.servicefabricmesh.v20180701preview",
-  "classes": {
-   "azure-native:servicefabricmesh/v20180701preview:Application": "Application",
-   "azure-native:servicefabricmesh/v20180701preview:Network": "Network",
-   "azure-native:servicefabricmesh/v20180701preview:Volume": "Volume"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "servicefabricmesh/v20180901preview",
   "fqn": "pulumi_azure_native.servicefabricmesh.v20180901preview",
   "classes": {
@@ -12571,14 +11511,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "signalrservice/v20181001",
-  "fqn": "pulumi_azure_native.signalrservice.v20181001",
-  "classes": {
-   "azure-native:signalrservice/v20181001:SignalR": "SignalR"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "signalrservice/v20200501",
   "fqn": "pulumi_azure_native.signalrservice.v20200501",
   "classes": {
@@ -12660,32 +11592,6 @@ _utilities.register(
    "azure-native:solutions:Application": "Application",
    "azure-native:solutions:ApplicationDefinition": "ApplicationDefinition",
    "azure-native:solutions:JitRequest": "JitRequest"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "solutions/v20160901preview",
-  "fqn": "pulumi_azure_native.solutions.v20160901preview",
-  "classes": {
-   "azure-native:solutions/v20160901preview:Appliance": "Appliance",
-   "azure-native:solutions/v20160901preview:ApplianceDefinition": "ApplianceDefinition"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "solutions/v20171201",
-  "fqn": "pulumi_azure_native.solutions.v20171201",
-  "classes": {
-   "azure-native:solutions/v20171201:Application": "Application",
-   "azure-native:solutions/v20171201:ApplicationDefinition": "ApplicationDefinition"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "solutions/v20180601",
-  "fqn": "pulumi_azure_native.solutions.v20180601",
-  "classes": {
-   "azure-native:solutions/v20180601:Application": "Application"
   }
  },
  {
@@ -13142,47 +12048,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "storage/v20150501preview",
-  "fqn": "pulumi_azure_native.storage.v20150501preview",
-  "classes": {
-   "azure-native:storage/v20150501preview:StorageAccount": "StorageAccount"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "storage/v20150615",
-  "fqn": "pulumi_azure_native.storage.v20150615",
-  "classes": {
-   "azure-native:storage/v20150615:StorageAccount": "StorageAccount"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "storage/v20180301preview",
-  "fqn": "pulumi_azure_native.storage.v20180301preview",
-  "classes": {
-   "azure-native:storage/v20180301preview:ManagementPolicy": "ManagementPolicy",
-   "azure-native:storage/v20180301preview:StorageAccountManagementPolicies": "StorageAccountManagementPolicies"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "storage/v20181101",
-  "fqn": "pulumi_azure_native.storage.v20181101",
-  "classes": {
-   "azure-native:storage/v20181101:StorageAccount": "StorageAccount"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "storage/v20190401",
-  "fqn": "pulumi_azure_native.storage.v20190401",
-  "classes": {
-   "azure-native:storage/v20190401:BlobContainerImmutabilityPolicy": "BlobContainerImmutabilityPolicy"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "storage/v20210201",
   "fqn": "pulumi_azure_native.storage.v20210201",
   "classes": {
@@ -13242,22 +12107,6 @@ _utilities.register(
    "azure-native:storagecache:AmlFilesystem": "AmlFilesystem",
    "azure-native:storagecache:Cache": "Cache",
    "azure-native:storagecache:StorageTarget": "StorageTarget"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "storagecache/v20191101",
-  "fqn": "pulumi_azure_native.storagecache.v20191101",
-  "classes": {
-   "azure-native:storagecache/v20191101:StorageTarget": "StorageTarget"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "storagecache/v20201001",
-  "fqn": "pulumi_azure_native.storagecache.v20201001",
-  "classes": {
-   "azure-native:storagecache/v20201001:Cache": "Cache"
   }
  },
  {
@@ -13367,57 +12216,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "storagesync/v20170605preview",
-  "fqn": "pulumi_azure_native.storagesync.v20170605preview",
-  "classes": {
-   "azure-native:storagesync/v20170605preview:CloudEndpoint": "CloudEndpoint",
-   "azure-native:storagesync/v20170605preview:RegisteredServer": "RegisteredServer",
-   "azure-native:storagesync/v20170605preview:ServerEndpoint": "ServerEndpoint",
-   "azure-native:storagesync/v20170605preview:StorageSyncService": "StorageSyncService",
-   "azure-native:storagesync/v20170605preview:SyncGroup": "SyncGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "storagesync/v20180402",
-  "fqn": "pulumi_azure_native.storagesync.v20180402",
-  "classes": {
-   "azure-native:storagesync/v20180402:CloudEndpoint": "CloudEndpoint",
-   "azure-native:storagesync/v20180402:RegisteredServer": "RegisteredServer",
-   "azure-native:storagesync/v20180402:ServerEndpoint": "ServerEndpoint",
-   "azure-native:storagesync/v20180402:SyncGroup": "SyncGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "storagesync/v20180701",
-  "fqn": "pulumi_azure_native.storagesync.v20180701",
-  "classes": {
-   "azure-native:storagesync/v20180701:CloudEndpoint": "CloudEndpoint",
-   "azure-native:storagesync/v20180701:RegisteredServer": "RegisteredServer",
-   "azure-native:storagesync/v20180701:ServerEndpoint": "ServerEndpoint"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "storagesync/v20181001",
-  "fqn": "pulumi_azure_native.storagesync.v20181001",
-  "classes": {
-   "azure-native:storagesync/v20181001:CloudEndpoint": "CloudEndpoint",
-   "azure-native:storagesync/v20181001:ServerEndpoint": "ServerEndpoint"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "storagesync/v20191001",
-  "fqn": "pulumi_azure_native.storagesync.v20191001",
-  "classes": {
-   "azure-native:storagesync/v20191001:ServerEndpoint": "ServerEndpoint",
-   "azure-native:storagesync/v20191001:StorageSyncService": "StorageSyncService"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "storagesync/v20200301",
   "fqn": "pulumi_azure_native.storagesync.v20200301",
   "classes": {
@@ -13456,22 +12254,6 @@ _utilities.register(
    "azure-native:storsimple:StorageAccountCredential": "StorageAccountCredential",
    "azure-native:storsimple:Volume": "Volume",
    "azure-native:storsimple:VolumeContainer": "VolumeContainer"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "storsimple/v20161001",
-  "fqn": "pulumi_azure_native.storsimple.v20161001",
-  "classes": {
-   "azure-native:storsimple/v20161001:BackupScheduleGroup": "BackupScheduleGroup",
-   "azure-native:storsimple/v20161001:ChapSetting": "ChapSetting",
-   "azure-native:storsimple/v20161001:FileServer": "FileServer",
-   "azure-native:storsimple/v20161001:FileShare": "FileShare",
-   "azure-native:storsimple/v20161001:IscsiDisk": "IscsiDisk",
-   "azure-native:storsimple/v20161001:IscsiServer": "IscsiServer",
-   "azure-native:storsimple/v20161001:Manager": "Manager",
-   "azure-native:storsimple/v20161001:StorageAccountCredential": "StorageAccountCredential",
-   "azure-native:storsimple/v20161001:StorageDomain": "StorageDomain"
   }
  },
  {
@@ -13561,14 +12343,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "subscription/v20191001preview",
-  "fqn": "pulumi_azure_native.subscription.v20191001preview",
-  "classes": {
-   "azure-native:subscription/v20191001preview:SubscriptionAlias": "SubscriptionAlias"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "subscription/v20200901",
   "fqn": "pulumi_azure_native.subscription.v20200901",
   "classes": {
@@ -13615,15 +12389,6 @@ _utilities.register(
    "azure-native:synapse:WorkspaceAadAdmin": "WorkspaceAadAdmin",
    "azure-native:synapse:WorkspaceManagedSqlServerVulnerabilityAssessment": "WorkspaceManagedSqlServerVulnerabilityAssessment",
    "azure-native:synapse:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "synapse/v20200401preview",
-  "fqn": "pulumi_azure_native.synapse.v20200401preview",
-  "classes": {
-   "azure-native:synapse/v20200401preview:SqlDatabase": "SqlDatabase",
-   "azure-native:synapse/v20200401preview:SqlPoolsV3": "SqlPoolsV3"
   }
  },
  {
@@ -13765,25 +12530,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "timeseriesinsights/v20171115",
-  "fqn": "pulumi_azure_native.timeseriesinsights.v20171115",
-  "classes": {
-   "azure-native:timeseriesinsights/v20171115:AccessPolicy": "AccessPolicy",
-   "azure-native:timeseriesinsights/v20171115:Environment": "Environment",
-   "azure-native:timeseriesinsights/v20171115:ReferenceDataSet": "ReferenceDataSet"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "timeseriesinsights/v20180815preview",
-  "fqn": "pulumi_azure_native.timeseriesinsights.v20180815preview",
-  "classes": {
-   "azure-native:timeseriesinsights/v20180815preview:LongTermEnvironment": "LongTermEnvironment",
-   "azure-native:timeseriesinsights/v20180815preview:StandardEnvironment": "StandardEnvironment"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "timeseriesinsights/v20200515",
   "fqn": "pulumi_azure_native.timeseriesinsights.v20200515",
   "classes": {
@@ -13885,22 +12631,6 @@ _utilities.register(
   "classes": {
    "azure-native:virtualmachineimages:Trigger": "Trigger",
    "azure-native:virtualmachineimages:VirtualMachineImageTemplate": "VirtualMachineImageTemplate"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "virtualmachineimages/v20180201preview",
-  "fqn": "pulumi_azure_native.virtualmachineimages.v20180201preview",
-  "classes": {
-   "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate": "VirtualMachineImageTemplate"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "virtualmachineimages/v20190501preview",
-  "fqn": "pulumi_azure_native.virtualmachineimages.v20190501preview",
-  "classes": {
-   "azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate": "VirtualMachineImageTemplate"
   }
  },
  {
@@ -14075,45 +12805,6 @@ _utilities.register(
    "azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot": "WebAppSwiftVirtualNetworkConnectionSlot",
    "azure-native:web:WebAppVnetConnection": "WebAppVnetConnection",
    "azure-native:web:WebAppVnetConnectionSlot": "WebAppVnetConnectionSlot"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "web/v20150801",
-  "fqn": "pulumi_azure_native.web.v20150801",
-  "classes": {
-   "azure-native:web/v20150801:Certificate": "Certificate",
-   "azure-native:web/v20150801:CertificateCsr": "CertificateCsr",
-   "azure-native:web/v20150801:HostingEnvironment": "HostingEnvironment",
-   "azure-native:web/v20150801:ManagedHostingEnvironment": "ManagedHostingEnvironment",
-   "azure-native:web/v20150801:ServerFarm": "ServerFarm",
-   "azure-native:web/v20150801:ServerFarmRouteForVnet": "ServerFarmRouteForVnet",
-   "azure-native:web/v20150801:Site": "Site",
-   "azure-native:web/v20150801:SiteAppSettings": "SiteAppSettings",
-   "azure-native:web/v20150801:SiteAppSettingsSlot": "SiteAppSettingsSlot",
-   "azure-native:web/v20150801:SiteAuthSettings": "SiteAuthSettings",
-   "azure-native:web/v20150801:SiteAuthSettingsSlot": "SiteAuthSettingsSlot",
-   "azure-native:web/v20150801:SiteBackupConfiguration": "SiteBackupConfiguration",
-   "azure-native:web/v20150801:SiteBackupConfigurationSlot": "SiteBackupConfigurationSlot",
-   "azure-native:web/v20150801:SiteConnectionStrings": "SiteConnectionStrings",
-   "azure-native:web/v20150801:SiteConnectionStringsSlot": "SiteConnectionStringsSlot",
-   "azure-native:web/v20150801:SiteDeployment": "SiteDeployment",
-   "azure-native:web/v20150801:SiteDeploymentSlot": "SiteDeploymentSlot",
-   "azure-native:web/v20150801:SiteHostNameBinding": "SiteHostNameBinding",
-   "azure-native:web/v20150801:SiteHostNameBindingSlot": "SiteHostNameBindingSlot",
-   "azure-native:web/v20150801:SiteInstanceDeployment": "SiteInstanceDeployment",
-   "azure-native:web/v20150801:SiteInstanceDeploymentSlot": "SiteInstanceDeploymentSlot",
-   "azure-native:web/v20150801:SiteLogsConfig": "SiteLogsConfig",
-   "azure-native:web/v20150801:SiteMetadata": "SiteMetadata",
-   "azure-native:web/v20150801:SiteMetadataSlot": "SiteMetadataSlot",
-   "azure-native:web/v20150801:SiteRelayServiceConnection": "SiteRelayServiceConnection",
-   "azure-native:web/v20150801:SiteRelayServiceConnectionSlot": "SiteRelayServiceConnectionSlot",
-   "azure-native:web/v20150801:SiteSlot": "SiteSlot",
-   "azure-native:web/v20150801:SiteSlotConfigNames": "SiteSlotConfigNames",
-   "azure-native:web/v20150801:SiteSourceControl": "SiteSourceControl",
-   "azure-native:web/v20150801:SiteSourceControlSlot": "SiteSourceControlSlot",
-   "azure-native:web/v20150801:SiteVNETConnection": "SiteVNETConnection",
-   "azure-native:web/v20150801:SiteVNETConnectionSlot": "SiteVNETConnectionSlot"
   }
  },
  {
@@ -14505,14 +13196,6 @@ _utilities.register(
   "fqn": "pulumi_azure_native.windowsiot",
   "classes": {
    "azure-native:windowsiot:Service": "Service"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "windowsiot/v20180216preview",
-  "fqn": "pulumi_azure_native.windowsiot.v20180216preview",
-  "classes": {
-   "azure-native:windowsiot/v20180216preview:Service": "Service"
   }
  },
  {

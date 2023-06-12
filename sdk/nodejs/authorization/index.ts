@@ -249,10 +249,6 @@ utilities.lazyLoad(exports, ["VariableValueAtManagementGroup"], () => require(".
 export * from "../types/enums/authorization";
 
 // Export sub-modules:
-import * as v20150101 from "./v20150101";
-import * as v20150701 from "./v20150701";
-import * as v20160401 from "./v20160401";
-import * as v20161201 from "./v20161201";
 import * as v20170401 from "./v20170401";
 import * as v20171001preview from "./v20171001preview";
 import * as v20180101preview from "./v20180101preview";
@@ -276,10 +272,6 @@ import * as v20220701preview from "./v20220701preview";
 import * as v20220801preview from "./v20220801preview";
 
 export {
-    v20150101,
-    v20150701,
-    v20160401,
-    v20161201,
     v20170401,
     v20171001preview,
     v20180101preview,

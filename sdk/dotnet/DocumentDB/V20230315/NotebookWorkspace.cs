@@ -65,12 +65,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:NotebookWorkspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:NotebookWorkspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:NotebookWorkspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:NotebookWorkspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:NotebookWorkspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:NotebookWorkspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:NotebookWorkspace"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:NotebookWorkspace"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:NotebookWorkspace"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:NotebookWorkspace"},

@@ -113,7 +113,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220901Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:Backend"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Backend"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Backend"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Backend"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Backend"},

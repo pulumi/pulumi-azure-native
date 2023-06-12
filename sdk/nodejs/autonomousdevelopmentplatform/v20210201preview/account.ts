@@ -99,7 +99,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:autonomousdevelopmentplatform:Account" }, { type: "azure-native:autonomousdevelopmentplatform/v20200701preview:Account" }, { type: "azure-native:autonomousdevelopmentplatform/v20211101preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:autonomousdevelopmentplatform:Account" }, { type: "azure-native:autonomousdevelopmentplatform/v20211101preview:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }

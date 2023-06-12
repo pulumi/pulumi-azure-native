@@ -95,9 +95,6 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cdn:OriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20191231:OriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:OriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:OriginGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:OriginGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:OriginGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:OriginGroup"},

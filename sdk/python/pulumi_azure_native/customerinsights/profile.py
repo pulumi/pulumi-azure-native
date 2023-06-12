@@ -438,7 +438,7 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:customerinsights/v20170101:Profile"), pulumi.Alias(type_="azure-native:customerinsights/v20170426:Profile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:customerinsights/v20170426:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Profile, __self__).__init__(
             'azure-native:customerinsights:Profile',

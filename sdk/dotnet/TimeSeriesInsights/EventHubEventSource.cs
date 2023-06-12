@@ -140,9 +140,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:EventHubEventSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:EventHubEventSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:EventHubEventSource"},
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:EventHubEventSource"},
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:EventHubEventSource"},
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:EventHubEventSource"},

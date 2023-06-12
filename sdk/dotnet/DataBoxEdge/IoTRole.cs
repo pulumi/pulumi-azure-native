@@ -122,12 +122,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:IoTRole"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:IoTRole"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:IoTRole"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:IoTRole"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:IoTRole"},

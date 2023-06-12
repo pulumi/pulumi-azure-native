@@ -84,7 +84,7 @@ export class ServiceTopology extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:ServiceTopology" }, { type: "azure-native:deploymentmanager/v20180901preview:ServiceTopology" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:ServiceTopology" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceTopology.__pulumiType, name, resourceInputs, opts);
     }

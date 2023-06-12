@@ -150,7 +150,7 @@ export class ServerDetails extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:analysisservices:ServerDetails" }, { type: "azure-native:analysisservices/v20160516:ServerDetails" }, { type: "azure-native:analysisservices/v20170714:ServerDetails" }, { type: "azure-native:analysisservices/v20170801:ServerDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:analysisservices:ServerDetails" }, { type: "azure-native:analysisservices/v20170801:ServerDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerDetails.__pulumiType, name, resourceInputs, opts);
     }

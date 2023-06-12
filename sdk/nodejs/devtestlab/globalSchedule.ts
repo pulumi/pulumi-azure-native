@@ -148,7 +148,7 @@ export class GlobalSchedule extends pulumi.CustomResource {
             resourceInputs["weeklyRecurrence"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20160515:GlobalSchedule" }, { type: "azure-native:devtestlab/v20180915:GlobalSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20180915:GlobalSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GlobalSchedule.__pulumiType, name, resourceInputs, opts);
     }

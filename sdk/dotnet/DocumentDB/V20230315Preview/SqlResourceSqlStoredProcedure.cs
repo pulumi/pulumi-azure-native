@@ -74,12 +74,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlStoredProcedure"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlStoredProcedure"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:SqlResourceSqlStoredProcedure"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlStoredProcedure"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlStoredProcedure"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlStoredProcedure"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:SqlResourceSqlStoredProcedure"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlStoredProcedure"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:SqlResourceSqlStoredProcedure"},

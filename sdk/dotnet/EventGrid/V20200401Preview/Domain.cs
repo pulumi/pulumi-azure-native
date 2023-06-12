@@ -126,10 +126,6 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:Domain"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:Domain"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:Domain"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:Domain"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:Domain"},

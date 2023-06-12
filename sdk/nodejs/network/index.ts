@@ -1364,19 +1364,6 @@ utilities.lazyLoad(exports, ["Zone"], () => require("./zone"));
 export * from "../types/enums/network";
 
 // Export sub-modules:
-import * as v20150501preview from "./v20150501preview";
-import * as v20150504preview from "./v20150504preview";
-import * as v20160330 from "./v20160330";
-import * as v20160401 from "./v20160401";
-import * as v20160601 from "./v20160601";
-import * as v20160901 from "./v20160901";
-import * as v20170301 from "./v20170301";
-import * as v20170901 from "./v20170901";
-import * as v20170901preview from "./v20170901preview";
-import * as v20171001 from "./v20171001";
-import * as v20180101 from "./v20180101";
-import * as v20180201 from "./v20180201";
-import * as v20180401 from "./v20180401";
 import * as v20180501 from "./v20180501";
 import * as v20180601 from "./v20180601";
 import * as v20180701 from "./v20180701";
@@ -1411,19 +1398,6 @@ import * as v20221101 from "./v20221101";
 import * as v20230701preview from "./v20230701preview";
 
 export {
-    v20150501preview,
-    v20150504preview,
-    v20160330,
-    v20160401,
-    v20160601,
-    v20160901,
-    v20170301,
-    v20170901,
-    v20170901preview,
-    v20171001,
-    v20180101,
-    v20180201,
-    v20180401,
     v20180501,
     v20180601,
     v20180701,

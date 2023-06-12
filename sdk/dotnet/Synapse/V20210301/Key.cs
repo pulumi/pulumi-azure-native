@@ -65,8 +65,6 @@ namespace Pulumi.AzureNative.Synapse.V20210301
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:synapse:Key"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:Key"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:Key"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Key"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:Key"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:Key"},

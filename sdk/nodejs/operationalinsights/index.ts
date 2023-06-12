@@ -140,7 +140,6 @@ utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 export * from "../types/enums/operationalinsights";
 
 // Export sub-modules:
-import * as v20150320 from "./v20150320";
 import * as v20151101preview from "./v20151101preview";
 import * as v20190901 from "./v20190901";
 import * as v20190901preview from "./v20190901preview";
@@ -151,7 +150,6 @@ import * as v20211201preview from "./v20211201preview";
 import * as v20221001 from "./v20221001";
 
 export {
-    v20150320,
     v20151101preview,
     v20190901,
     v20190901preview,

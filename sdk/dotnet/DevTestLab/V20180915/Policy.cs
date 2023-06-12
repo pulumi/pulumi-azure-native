@@ -119,8 +119,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devtestlab:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

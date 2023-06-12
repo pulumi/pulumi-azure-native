@@ -180,14 +180,6 @@ namespace Pulumi.AzureNative.StorageSync
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180402:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180701:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20181001:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190201:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190301:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20190601:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20191001:ServerEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200301:ServerEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:ServerEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20220601:ServerEndpoint"},

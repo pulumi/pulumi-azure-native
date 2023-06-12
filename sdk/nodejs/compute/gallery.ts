@@ -119,7 +119,7 @@ export class Gallery extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20180601:Gallery" }, { type: "azure-native:compute/v20190301:Gallery" }, { type: "azure-native:compute/v20190701:Gallery" }, { type: "azure-native:compute/v20191201:Gallery" }, { type: "azure-native:compute/v20200930:Gallery" }, { type: "azure-native:compute/v20210701:Gallery" }, { type: "azure-native:compute/v20211001:Gallery" }, { type: "azure-native:compute/v20220103:Gallery" }, { type: "azure-native:compute/v20220303:Gallery" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20200930:Gallery" }, { type: "azure-native:compute/v20210701:Gallery" }, { type: "azure-native:compute/v20211001:Gallery" }, { type: "azure-native:compute/v20220103:Gallery" }, { type: "azure-native:compute/v20220303:Gallery" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gallery.__pulumiType, name, resourceInputs, opts);
     }

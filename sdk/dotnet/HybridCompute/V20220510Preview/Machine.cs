@@ -89,10 +89,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20220510Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20190318preview:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20190802preview:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20191212:Machine"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200730preview:Machine"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200802:Machine"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:Machine"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:Machine"},

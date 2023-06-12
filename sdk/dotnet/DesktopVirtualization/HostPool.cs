@@ -225,13 +225,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190123preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190924preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20191210preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:HostPool"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:HostPool"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:HostPool"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:HostPool"},

@@ -72,9 +72,6 @@ namespace Pulumi.AzureNative.KeyVault
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20161001:Secret"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20180214:Secret"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20180214preview:Secret"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20190901:Secret"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:Secret"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:Secret"},

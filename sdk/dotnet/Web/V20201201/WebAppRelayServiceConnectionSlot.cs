@@ -80,7 +80,6 @@ namespace Pulumi.AzureNative.Web.V20201201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppRelayServiceConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppRelayServiceConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppRelayServiceConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppRelayServiceConnectionSlot"},

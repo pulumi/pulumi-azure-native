@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.AzureData.V20190724Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azuredata:SqlServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:azuredata/v20170301preview:SqlServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

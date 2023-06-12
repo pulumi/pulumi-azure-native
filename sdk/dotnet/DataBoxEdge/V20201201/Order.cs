@@ -101,12 +101,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Order"},
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Order"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Order"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Order"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Order"},

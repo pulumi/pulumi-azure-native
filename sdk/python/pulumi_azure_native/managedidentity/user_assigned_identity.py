@@ -156,7 +156,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedidentity/v20150831preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20181130:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20210930preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20220131preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20230131:UserAssignedIdentity")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedidentity/v20181130:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20210930preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20220131preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20230131:UserAssignedIdentity")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(UserAssignedIdentity, __self__).__init__(
             'azure-native:managedidentity:UserAssignedIdentity',

@@ -272,7 +272,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20201201:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20210301:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20210501:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20210601:SqlPoolWorkloadGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20210301:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20210501:SqlPoolWorkloadGroup"), pulumi.Alias(type_="azure-native:synapse/v20210601:SqlPoolWorkloadGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlPoolWorkloadGroup, __self__).__init__(
             'azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup',

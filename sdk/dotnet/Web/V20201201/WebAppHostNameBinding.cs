@@ -113,7 +113,6 @@ namespace Pulumi.AzureNative.Web.V20201201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppHostNameBinding"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppHostNameBinding"},

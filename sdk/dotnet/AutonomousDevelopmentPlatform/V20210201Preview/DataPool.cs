@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20210201Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform:DataPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool"},
                     new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool"},
                 },
             };

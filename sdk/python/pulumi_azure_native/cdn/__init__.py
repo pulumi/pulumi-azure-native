@@ -42,10 +42,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.cdn.v20160402 as __v20160402
-    v20160402 = __v20160402
-    import pulumi_azure_native.cdn.v20161002 as __v20161002
-    v20161002 = __v20161002
     import pulumi_azure_native.cdn.v20200901 as __v20200901
     v20200901 = __v20200901
     import pulumi_azure_native.cdn.v20221101preview as __v20221101preview
@@ -53,8 +49,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.cdn.v20230501 as __v20230501
     v20230501 = __v20230501
 else:
-    v20160402 = _utilities.lazy_import('pulumi_azure_native.cdn.v20160402')
-    v20161002 = _utilities.lazy_import('pulumi_azure_native.cdn.v20161002')
     v20200901 = _utilities.lazy_import('pulumi_azure_native.cdn.v20200901')
     v20221101preview = _utilities.lazy_import('pulumi_azure_native.cdn.v20221101preview')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.cdn.v20230501')

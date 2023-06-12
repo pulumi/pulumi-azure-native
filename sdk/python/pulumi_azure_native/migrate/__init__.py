@@ -50,8 +50,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.migrate.v20171111preview as __v20171111preview
-    v20171111preview = __v20171111preview
     import pulumi_azure_native.migrate.v20180202 as __v20180202
     v20180202 = __v20180202
     import pulumi_azure_native.migrate.v20180901preview as __v20180901preview
@@ -67,7 +65,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.migrate.v20220801 as __v20220801
     v20220801 = __v20220801
 else:
-    v20171111preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20171111preview')
     v20180202 = _utilities.lazy_import('pulumi_azure_native.migrate.v20180202')
     v20180901preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20180901preview')
     v20191001 = _utilities.lazy_import('pulumi_azure_native.migrate.v20191001')

@@ -183,7 +183,7 @@ class DataManager(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybriddata/v20160601:DataManager"), pulumi.Alias(type_="azure-native:hybriddata/v20190601:DataManager")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybriddata/v20190601:DataManager")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataManager, __self__).__init__(
             'azure-native:hybriddata:DataManager',

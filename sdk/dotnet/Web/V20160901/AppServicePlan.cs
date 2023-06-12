@@ -174,7 +174,6 @@ namespace Pulumi.AzureNative.Web.V20160901
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:AppServicePlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlan"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlan"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlan"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20200601:AppServicePlan"},

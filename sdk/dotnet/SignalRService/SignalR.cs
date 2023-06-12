@@ -221,8 +221,6 @@ namespace Pulumi.AzureNative.SignalRService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20180301preview:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20181001:SignalR"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20200501:SignalR"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20200701preview:SignalR"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210401preview:SignalR"},

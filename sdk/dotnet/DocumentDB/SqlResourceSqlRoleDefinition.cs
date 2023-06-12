@@ -72,7 +72,6 @@ namespace Pulumi.AzureNative.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210415:SqlResourceSqlRoleDefinition"},

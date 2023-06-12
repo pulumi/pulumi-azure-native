@@ -20,12 +20,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.batch.v20170101 as __v20170101
-    v20170101 = __v20170101
-    import pulumi_azure_native.batch.v20170901 as __v20170901
-    v20170901 = __v20170901
-    import pulumi_azure_native.batch.v20200501 as __v20200501
-    v20200501 = __v20200501
     import pulumi_azure_native.batch.v20210101 as __v20210101
     v20210101 = __v20210101
     import pulumi_azure_native.batch.v20220101 as __v20220101
@@ -35,9 +29,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.batch.v20221001 as __v20221001
     v20221001 = __v20221001
 else:
-    v20170101 = _utilities.lazy_import('pulumi_azure_native.batch.v20170101')
-    v20170901 = _utilities.lazy_import('pulumi_azure_native.batch.v20170901')
-    v20200501 = _utilities.lazy_import('pulumi_azure_native.batch.v20200501')
     v20210101 = _utilities.lazy_import('pulumi_azure_native.batch.v20210101')
     v20220101 = _utilities.lazy_import('pulumi_azure_native.batch.v20220101')
     v20220601 = _utilities.lazy_import('pulumi_azure_native.batch.v20220601')

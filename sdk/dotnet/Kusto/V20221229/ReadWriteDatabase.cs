@@ -103,7 +103,6 @@ namespace Pulumi.AzureNative.Kusto.V20221229
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kusto:ReadWriteDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:ReadWriteDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:ReadWriteDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:ReadWriteDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:ReadWriteDatabase"},
