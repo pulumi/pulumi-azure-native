@@ -156,7 +156,7 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
             resourceInputs["weeklyRecurrence"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20160515:VirtualMachineSchedule" }, { type: "azure-native:devtestlab/v20180915:VirtualMachineSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20180915:VirtualMachineSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineSchedule.__pulumiType, name, resourceInputs, opts);
     }

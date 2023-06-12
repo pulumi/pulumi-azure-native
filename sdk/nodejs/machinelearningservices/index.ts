@@ -510,7 +510,6 @@ utilities.lazyLoad(exports, ["WorkspaceConnection"], () => require("./workspaceC
 export * from "../types/enums/machinelearningservices";
 
 // Export sub-modules:
-import * as v20180301preview from "./v20180301preview";
 import * as v20200301 from "./v20200301";
 import * as v20200501preview from "./v20200501preview";
 import * as v20200515preview from "./v20200515preview";
@@ -527,7 +526,6 @@ import * as v20230401 from "./v20230401";
 import * as v20230401preview from "./v20230401preview";
 
 export {
-    v20180301preview,
     v20200301,
     v20200501preview,
     v20200515preview,

@@ -131,7 +131,6 @@ namespace Pulumi.AzureNative.Network.V20220901
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:VpnSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:VpnSite"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180601:VpnSite"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180701:VpnSite"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:VpnSite"},

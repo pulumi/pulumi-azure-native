@@ -323,8 +323,6 @@ namespace Pulumi.AzureNative.ContainerService.V20230402Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerservice:AgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190201:AgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190401:AgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190601:AgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190801:AgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20191001:AgentPool"},

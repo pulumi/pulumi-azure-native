@@ -132,7 +132,6 @@ namespace Pulumi.AzureNative.MachineLearningCompute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningcompute/v20170601preview:OperationalizationCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster"},
                 },
             };

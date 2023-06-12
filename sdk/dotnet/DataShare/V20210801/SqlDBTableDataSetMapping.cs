@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datashare:SqlDBTableDataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SqlDBTableDataSetMapping"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:SqlDBTableDataSetMapping"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:SqlDBTableDataSetMapping"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SqlDBTableDataSetMapping"},
                 },

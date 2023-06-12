@@ -113,11 +113,6 @@ namespace Pulumi.AzureNative.Network.V20190901
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:ConnectionMonitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:ConnectionMonitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:ConnectionMonitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:ConnectionMonitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:ConnectionMonitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:ConnectionMonitor"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180601:ConnectionMonitor"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180701:ConnectionMonitor"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:ConnectionMonitor"},

@@ -134,7 +134,6 @@ namespace Pulumi.AzureNative.Kusto
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:ReadOnlyFollowingDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:ReadOnlyFollowingDatabase"},

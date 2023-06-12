@@ -290,7 +290,6 @@ utilities.lazyLoad(exports, ["WorkspaceSetting"], () => require("./workspaceSett
 export * from "../types/enums/security";
 
 // Export sub-modules:
-import * as v20150601preview from "./v20150601preview";
 import * as v20170801preview from "./v20170801preview";
 import * as v20190101 from "./v20190101";
 import * as v20190101preview from "./v20190101preview";
@@ -311,7 +310,6 @@ import * as v20230201preview from "./v20230201preview";
 import * as v20230301preview from "./v20230301preview";
 
 export {
-    v20150601preview,
     v20170801preview,
     v20190101,
     v20190101preview,

@@ -50,13 +50,11 @@ utilities.lazyLoad(exports, ["TimeSeriesDatabaseConnection"], () => require("./t
 export * from "../types/enums/digitaltwins";
 
 // Export sub-modules:
-import * as v20200301preview from "./v20200301preview";
 import * as v20201201 from "./v20201201";
 import * as v20210630preview from "./v20210630preview";
 import * as v20230131 from "./v20230131";
 
 export {
-    v20200301preview,
     v20201201,
     v20210630preview,
     v20230131,

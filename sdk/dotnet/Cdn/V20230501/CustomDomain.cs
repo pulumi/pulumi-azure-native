@@ -101,17 +101,6 @@ namespace Pulumi.AzureNative.Cdn.V20230501
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cdn:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20150601:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20160402:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20161002:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20170402:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20171012:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190415:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20191231:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:CustomDomain"},

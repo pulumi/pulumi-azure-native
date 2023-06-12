@@ -46,8 +46,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.recoveryservices.v20160601 as __v20160601
-    v20160601 = __v20160601
     import pulumi_azure_native.recoveryservices.v20180710 as __v20180710
     v20180710 = __v20180710
     import pulumi_azure_native.recoveryservices.v20200202 as __v20200202
@@ -65,7 +63,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.recoveryservices.v20230401 as __v20230401
     v20230401 = __v20230401
 else:
-    v20160601 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20160601')
     v20180710 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20180710')
     v20200202 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20200202')
     v20210101 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20210101')

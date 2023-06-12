@@ -155,10 +155,6 @@ namespace Pulumi.AzureNative.Compute.V20220303
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:compute:GalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:GalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryImage"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:GalleryImage"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryImage"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211001:GalleryImage"},

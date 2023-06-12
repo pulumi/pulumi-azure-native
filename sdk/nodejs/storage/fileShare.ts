@@ -190,7 +190,7 @@ export class FileShare extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20190401:FileShare" }, { type: "azure-native:storage/v20190601:FileShare" }, { type: "azure-native:storage/v20200801preview:FileShare" }, { type: "azure-native:storage/v20210101:FileShare" }, { type: "azure-native:storage/v20210201:FileShare" }, { type: "azure-native:storage/v20210401:FileShare" }, { type: "azure-native:storage/v20210601:FileShare" }, { type: "azure-native:storage/v20210801:FileShare" }, { type: "azure-native:storage/v20210901:FileShare" }, { type: "azure-native:storage/v20220501:FileShare" }, { type: "azure-native:storage/v20220901:FileShare" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20210101:FileShare" }, { type: "azure-native:storage/v20210201:FileShare" }, { type: "azure-native:storage/v20210401:FileShare" }, { type: "azure-native:storage/v20210601:FileShare" }, { type: "azure-native:storage/v20210801:FileShare" }, { type: "azure-native:storage/v20210901:FileShare" }, { type: "azure-native:storage/v20220501:FileShare" }, { type: "azure-native:storage/v20220901:FileShare" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FileShare.__pulumiType, name, resourceInputs, opts);
     }

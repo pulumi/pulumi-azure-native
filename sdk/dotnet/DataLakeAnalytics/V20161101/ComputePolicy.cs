@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics:ComputePolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:ComputePolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20191101preview:ComputePolicy"},
                 },
             };

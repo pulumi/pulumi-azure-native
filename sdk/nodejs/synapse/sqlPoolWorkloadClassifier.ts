@@ -119,7 +119,7 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20201201:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210301:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210401preview:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210501:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210601:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210601preview:SqlPoolWorkloadClassifier" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210301:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210401preview:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210501:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210601:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210601preview:SqlPoolWorkloadClassifier" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlPoolWorkloadClassifier.__pulumiType, name, resourceInputs, opts);
     }

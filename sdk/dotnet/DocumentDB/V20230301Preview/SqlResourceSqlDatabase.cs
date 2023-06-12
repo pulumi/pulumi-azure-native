@@ -77,17 +77,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20230301Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150401:SqlResourceSqlDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150408:SqlResourceSqlDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20151106:SqlResourceSqlDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160319:SqlResourceSqlDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160331:SqlResourceSqlDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:SqlResourceSqlDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:SqlResourceSqlDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:SqlResourceSqlDatabase"},

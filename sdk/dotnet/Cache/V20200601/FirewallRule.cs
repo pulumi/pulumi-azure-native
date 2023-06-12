@@ -65,11 +65,6 @@ namespace Pulumi.AzureNative.Cache.V20200601
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cache:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20160401:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20170201:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20171001:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20180301:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20190701:FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20201201:FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:FirewallRule"},

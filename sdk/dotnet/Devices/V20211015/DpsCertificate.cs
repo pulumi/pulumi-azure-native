@@ -71,10 +71,6 @@ namespace Pulumi.AzureNative.Devices.V20211015
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devices:DpsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20170821preview:DpsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20171115:DpsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20180122:DpsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200101:DpsCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:DpsCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200901preview:DpsCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20220205:DpsCertificate"},

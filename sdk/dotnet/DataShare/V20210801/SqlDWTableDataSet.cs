@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datashare:SqlDWTableDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SqlDWTableDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:SqlDWTableDataSet"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:SqlDWTableDataSet"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SqlDWTableDataSet"},
                 },

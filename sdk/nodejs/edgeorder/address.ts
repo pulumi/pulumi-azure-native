@@ -109,7 +109,7 @@ export class Address extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:Address" }, { type: "azure-native:edgeorder/v20211201:Address" }, { type: "azure-native:edgeorder/v20220501preview:Address" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20211201:Address" }, { type: "azure-native:edgeorder/v20220501preview:Address" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Address.__pulumiType, name, resourceInputs, opts);
     }

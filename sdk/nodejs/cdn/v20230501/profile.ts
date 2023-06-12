@@ -138,7 +138,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn:Profile" }, { type: "azure-native:cdn/v20150601:Profile" }, { type: "azure-native:cdn/v20160402:Profile" }, { type: "azure-native:cdn/v20161002:Profile" }, { type: "azure-native:cdn/v20170402:Profile" }, { type: "azure-native:cdn/v20171012:Profile" }, { type: "azure-native:cdn/v20190415:Profile" }, { type: "azure-native:cdn/v20190615:Profile" }, { type: "azure-native:cdn/v20190615preview:Profile" }, { type: "azure-native:cdn/v20191231:Profile" }, { type: "azure-native:cdn/v20200331:Profile" }, { type: "azure-native:cdn/v20200415:Profile" }, { type: "azure-native:cdn/v20200901:Profile" }, { type: "azure-native:cdn/v20210601:Profile" }, { type: "azure-native:cdn/v20220501preview:Profile" }, { type: "azure-native:cdn/v20221101preview:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn:Profile" }, { type: "azure-native:cdn/v20200901:Profile" }, { type: "azure-native:cdn/v20210601:Profile" }, { type: "azure-native:cdn/v20220501preview:Profile" }, { type: "azure-native:cdn/v20221101preview:Profile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Profile.__pulumiType, name, resourceInputs, opts);
     }

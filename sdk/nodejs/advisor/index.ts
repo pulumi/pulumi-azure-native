@@ -17,13 +17,11 @@ utilities.lazyLoad(exports, ["Suppression"], () => require("./suppression"));
 
 
 // Export sub-modules:
-import * as v20160712preview from "./v20160712preview";
 import * as v20200101 from "./v20200101";
 import * as v20221001 from "./v20221001";
 import * as v20230101 from "./v20230101";
 
 export {
-    v20160712preview,
     v20200101,
     v20221001,
     v20230101,

@@ -59,8 +59,6 @@ namespace Pulumi.AzureNative.Storage.V20220901
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storage:TableServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:TableServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:TableServiceProperties"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:TableServiceProperties"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:TableServiceProperties"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:TableServiceProperties"},

@@ -29,8 +29,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.healthcareapis.v20200315 as __v20200315
-    v20200315 = __v20200315
     import pulumi_azure_native.healthcareapis.v20220515 as __v20220515
     v20220515 = __v20220515
     import pulumi_azure_native.healthcareapis.v20221001preview as __v20221001preview
@@ -40,7 +38,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.healthcareapis.v20230228 as __v20230228
     v20230228 = __v20230228
 else:
-    v20200315 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20200315')
     v20220515 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20220515')
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20221001preview')
     v20221201 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20221201')

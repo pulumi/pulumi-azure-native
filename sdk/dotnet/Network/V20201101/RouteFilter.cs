@@ -95,16 +95,6 @@ namespace Pulumi.AzureNative.Network.V20201101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:RouteFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20161201:RouteFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:RouteFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:RouteFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:RouteFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:RouteFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:RouteFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:RouteFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:RouteFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:RouteFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:RouteFilter"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180601:RouteFilter"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180701:RouteFilter"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:RouteFilter"},

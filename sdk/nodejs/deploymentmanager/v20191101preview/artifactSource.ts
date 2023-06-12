@@ -105,7 +105,7 @@ export class ArtifactSource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:ArtifactSource" }, { type: "azure-native:deploymentmanager/v20180901preview:ArtifactSource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:ArtifactSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArtifactSource.__pulumiType, name, resourceInputs, opts);
     }

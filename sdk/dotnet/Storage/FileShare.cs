@@ -168,9 +168,6 @@ namespace Pulumi.AzureNative.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190401:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:FileShare"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:FileShare"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:FileShare"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:FileShare"},

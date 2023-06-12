@@ -223,7 +223,7 @@ class JitRequest(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_by"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions/v20180301:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20180601:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20180901preview:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20190701:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20210201preview:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20210701:JitRequest")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions/v20190701:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20210201preview:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20210701:JitRequest")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JitRequest, __self__).__init__(
             'azure-native:solutions:JitRequest',

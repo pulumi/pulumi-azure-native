@@ -48,18 +48,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.databoxedge.v20190301 as __v20190301
-    v20190301 = __v20190301
-    import pulumi_azure_native.databoxedge.v20190701 as __v20190701
-    v20190701 = __v20190701
-    import pulumi_azure_native.databoxedge.v20190801 as __v20190801
-    v20190801 = __v20190801
-    import pulumi_azure_native.databoxedge.v20200501preview as __v20200501preview
-    v20200501preview = __v20200501preview
-    import pulumi_azure_native.databoxedge.v20200901 as __v20200901
-    v20200901 = __v20200901
-    import pulumi_azure_native.databoxedge.v20200901preview as __v20200901preview
-    v20200901preview = __v20200901preview
     import pulumi_azure_native.databoxedge.v20201201 as __v20201201
     v20201201 = __v20201201
     import pulumi_azure_native.databoxedge.v20210201 as __v20210201
@@ -79,12 +67,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.databoxedge.v20230101preview as __v20230101preview
     v20230101preview = __v20230101preview
 else:
-    v20190301 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20190301')
-    v20190701 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20190701')
-    v20190801 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20190801')
-    v20200501preview = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20200501preview')
-    v20200901 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20200901')
-    v20200901preview = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20200901preview')
     v20201201 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20201201')
     v20210201 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20210201')
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20210201preview')

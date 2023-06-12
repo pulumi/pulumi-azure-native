@@ -261,7 +261,7 @@ class RemediationAtResource(pulumi.CustomResource):
             __props__.__dict__["status_message"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:policyinsights/v20180701preview:RemediationAtResource"), pulumi.Alias(type_="azure-native:policyinsights/v20190701:RemediationAtResource"), pulumi.Alias(type_="azure-native:policyinsights/v20211001:RemediationAtResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:policyinsights/v20190701:RemediationAtResource"), pulumi.Alias(type_="azure-native:policyinsights/v20211001:RemediationAtResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RemediationAtResource, __self__).__init__(
             'azure-native:policyinsights:RemediationAtResource',

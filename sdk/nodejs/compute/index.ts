@@ -310,14 +310,6 @@ utilities.lazyLoad(exports, ["VirtualMachineScaleSetVMRunCommand"], () => requir
 export * from "../types/enums/compute";
 
 // Export sub-modules:
-import * as v20150615 from "./v20150615";
-import * as v20160430preview from "./v20160430preview";
-import * as v20170330 from "./v20170330";
-import * as v20180601 from "./v20180601";
-import * as v20190301 from "./v20190301";
-import * as v20190701 from "./v20190701";
-import * as v20191201 from "./v20191201";
-import * as v20200630 from "./v20200630";
 import * as v20200930 from "./v20200930";
 import * as v20201201 from "./v20201201";
 import * as v20210301 from "./v20210301";
@@ -330,14 +322,6 @@ import * as v20221101 from "./v20221101";
 import * as v20230301 from "./v20230301";
 
 export {
-    v20150615,
-    v20160430preview,
-    v20170330,
-    v20180601,
-    v20190301,
-    v20190701,
-    v20191201,
-    v20200630,
     v20200930,
     v20201201,
     v20210301,

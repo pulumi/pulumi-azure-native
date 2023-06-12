@@ -123,7 +123,7 @@ export class ADLSGen2StorageAccountDataSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare:ADLSGen2StorageAccountDataSet" }, { type: "azure-native:datashare/v20181101preview:ADLSGen2StorageAccountDataSet" }, { type: "azure-native:datashare/v20191101:ADLSGen2StorageAccountDataSet" }, { type: "azure-native:datashare/v20200901:ADLSGen2StorageAccountDataSet" }, { type: "azure-native:datashare/v20210801:ADLSGen2StorageAccountDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:ADLSGen2StorageAccountDataSet" }, { type: "azure-native:datashare/v20200901:ADLSGen2StorageAccountDataSet" }, { type: "azure-native:datashare/v20210801:ADLSGen2StorageAccountDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ADLSGen2StorageAccountDataSet.__pulumiType, name, resourceInputs, opts);
     }

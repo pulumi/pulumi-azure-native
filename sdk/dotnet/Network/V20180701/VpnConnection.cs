@@ -113,7 +113,6 @@ namespace Pulumi.AzureNative.Network.V20180701
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:VpnConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:VpnConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180601:VpnConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:VpnConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181001:VpnConnection"},

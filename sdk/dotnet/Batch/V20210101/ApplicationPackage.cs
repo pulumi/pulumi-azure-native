@@ -89,16 +89,6 @@ namespace Pulumi.AzureNative.Batch.V20210101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:batch:ApplicationPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:batch/v20151201:ApplicationPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170101:ApplicationPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170501:ApplicationPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170901:ApplicationPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:batch/v20181201:ApplicationPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190401:ApplicationPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190801:ApplicationPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200301:ApplicationPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200501:ApplicationPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200901:ApplicationPackage"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20210601:ApplicationPackage"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220101:ApplicationPackage"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220601:ApplicationPackage"},

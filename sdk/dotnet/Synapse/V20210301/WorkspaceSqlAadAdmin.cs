@@ -77,8 +77,6 @@ namespace Pulumi.AzureNative.Synapse.V20210301
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:synapse:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:WorkspaceSqlAadAdmin"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:WorkspaceSqlAadAdmin"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:WorkspaceSqlAadAdmin"},

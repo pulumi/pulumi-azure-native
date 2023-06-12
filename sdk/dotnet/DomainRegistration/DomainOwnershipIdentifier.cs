@@ -66,11 +66,6 @@ namespace Pulumi.AzureNative.DomainRegistration
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20150401:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20180201:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20190801:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20200601:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20200901:DomainOwnershipIdentifier"},
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20201001:DomainOwnershipIdentifier"},
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20201201:DomainOwnershipIdentifier"},
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210101:DomainOwnershipIdentifier"},

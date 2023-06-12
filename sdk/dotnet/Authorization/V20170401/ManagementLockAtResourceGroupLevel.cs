@@ -71,8 +71,6 @@ namespace Pulumi.AzureNative.Authorization.V20170401
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:authorization:ManagementLockAtResourceGroupLevel"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20150101:ManagementLockAtResourceGroupLevel"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel"},
                 },
             };

@@ -71,10 +71,6 @@ namespace Pulumi.AzureNative.KeyVault.V20190901
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:keyvault:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20150601:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20161001:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20180214:Vault"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20180214preview:Vault"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:Vault"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:Vault"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:Vault"},

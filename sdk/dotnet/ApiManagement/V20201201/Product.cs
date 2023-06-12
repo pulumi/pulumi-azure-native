@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:Product"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Product"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Product"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Product"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Product"},

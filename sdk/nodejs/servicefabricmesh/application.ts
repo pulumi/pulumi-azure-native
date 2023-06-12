@@ -143,7 +143,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["unhealthyEvaluation"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh/v20180701preview:Application" }, { type: "azure-native:servicefabricmesh/v20180901preview:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh/v20180901preview:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }

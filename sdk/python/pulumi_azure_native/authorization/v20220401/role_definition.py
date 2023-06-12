@@ -213,7 +213,7 @@ class RoleDefinition(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_by"] = None
             __props__.__dict__["updated_on"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization:RoleDefinition"), pulumi.Alias(type_="azure-native:authorization/v20150701:RoleDefinition"), pulumi.Alias(type_="azure-native:authorization/v20180101preview:RoleDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization:RoleDefinition"), pulumi.Alias(type_="azure-native:authorization/v20180101preview:RoleDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleDefinition, __self__).__init__(
             'azure-native:authorization/v20220401:RoleDefinition',

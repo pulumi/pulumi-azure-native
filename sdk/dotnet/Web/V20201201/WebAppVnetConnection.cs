@@ -102,7 +102,6 @@ namespace Pulumi.AzureNative.Web.V20201201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppVnetConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppVnetConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppVnetConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppVnetConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppVnetConnection"},

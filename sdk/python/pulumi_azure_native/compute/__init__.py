@@ -71,22 +71,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.compute.v20150615 as __v20150615
-    v20150615 = __v20150615
-    import pulumi_azure_native.compute.v20160430preview as __v20160430preview
-    v20160430preview = __v20160430preview
-    import pulumi_azure_native.compute.v20170330 as __v20170330
-    v20170330 = __v20170330
-    import pulumi_azure_native.compute.v20180601 as __v20180601
-    v20180601 = __v20180601
-    import pulumi_azure_native.compute.v20190301 as __v20190301
-    v20190301 = __v20190301
-    import pulumi_azure_native.compute.v20190701 as __v20190701
-    v20190701 = __v20190701
-    import pulumi_azure_native.compute.v20191201 as __v20191201
-    v20191201 = __v20191201
-    import pulumi_azure_native.compute.v20200630 as __v20200630
-    v20200630 = __v20200630
     import pulumi_azure_native.compute.v20200930 as __v20200930
     v20200930 = __v20200930
     import pulumi_azure_native.compute.v20201201 as __v20201201
@@ -108,14 +92,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.compute.v20230301 as __v20230301
     v20230301 = __v20230301
 else:
-    v20150615 = _utilities.lazy_import('pulumi_azure_native.compute.v20150615')
-    v20160430preview = _utilities.lazy_import('pulumi_azure_native.compute.v20160430preview')
-    v20170330 = _utilities.lazy_import('pulumi_azure_native.compute.v20170330')
-    v20180601 = _utilities.lazy_import('pulumi_azure_native.compute.v20180601')
-    v20190301 = _utilities.lazy_import('pulumi_azure_native.compute.v20190301')
-    v20190701 = _utilities.lazy_import('pulumi_azure_native.compute.v20190701')
-    v20191201 = _utilities.lazy_import('pulumi_azure_native.compute.v20191201')
-    v20200630 = _utilities.lazy_import('pulumi_azure_native.compute.v20200630')
     v20200930 = _utilities.lazy_import('pulumi_azure_native.compute.v20200930')
     v20201201 = _utilities.lazy_import('pulumi_azure_native.compute.v20201201')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.compute.v20210301')

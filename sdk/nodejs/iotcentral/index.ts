@@ -30,12 +30,10 @@ utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./priv
 export * from "../types/enums/iotcentral";
 
 // Export sub-modules:
-import * as v20180901 from "./v20180901";
 import * as v20210601 from "./v20210601";
 import * as v20211101preview from "./v20211101preview";
 
 export {
-    v20180901,
     v20210601,
     v20211101preview,
 };

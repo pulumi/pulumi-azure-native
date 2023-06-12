@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:OpenIdConnectProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:OpenIdConnectProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:OpenIdConnectProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:OpenIdConnectProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:OpenIdConnectProvider"},

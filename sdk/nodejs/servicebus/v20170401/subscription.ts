@@ -179,7 +179,7 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Subscription" }, { type: "azure-native:servicebus/v20140901:Subscription" }, { type: "azure-native:servicebus/v20150801:Subscription" }, { type: "azure-native:servicebus/v20180101preview:Subscription" }, { type: "azure-native:servicebus/v20210101preview:Subscription" }, { type: "azure-native:servicebus/v20210601preview:Subscription" }, { type: "azure-native:servicebus/v20211101:Subscription" }, { type: "azure-native:servicebus/v20220101preview:Subscription" }, { type: "azure-native:servicebus/v20221001preview:Subscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Subscription" }, { type: "azure-native:servicebus/v20180101preview:Subscription" }, { type: "azure-native:servicebus/v20210101preview:Subscription" }, { type: "azure-native:servicebus/v20210601preview:Subscription" }, { type: "azure-native:servicebus/v20211101:Subscription" }, { type: "azure-native:servicebus/v20220101preview:Subscription" }, { type: "azure-native:servicebus/v20221001preview:Subscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Subscription.__pulumiType, name, resourceInputs, opts);
     }

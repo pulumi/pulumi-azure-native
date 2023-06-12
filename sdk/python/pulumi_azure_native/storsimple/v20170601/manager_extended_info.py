@@ -252,7 +252,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple:ManagerExtendedInfo"), pulumi.Alias(type_="azure-native:storsimple/v20161001:ManagerExtendedInfo")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple:ManagerExtendedInfo")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagerExtendedInfo, __self__).__init__(
             'azure-native:storsimple/v20170601:ManagerExtendedInfo',

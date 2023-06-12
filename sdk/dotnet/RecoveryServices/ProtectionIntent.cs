@@ -78,7 +78,6 @@ namespace Pulumi.AzureNative.RecoveryServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20170701:ProtectionIntent"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201:ProtectionIntent"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201preview:ProtectionIntent"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ProtectionIntent"},

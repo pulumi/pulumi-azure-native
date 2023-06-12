@@ -43,8 +43,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.costmanagement.v20180531 as __v20180531
-    v20180531 = __v20180531
     import pulumi_azure_native.costmanagement.v20180801preview as __v20180801preview
     v20180801preview = __v20180801preview
     import pulumi_azure_native.costmanagement.v20190301preview as __v20190301preview
@@ -72,7 +70,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.costmanagement.v20230401preview as __v20230401preview
     v20230401preview = __v20230401preview
 else:
-    v20180531 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20180531')
     v20180801preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20180801preview')
     v20190301preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20190301preview')
     v20190401preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20190401preview')

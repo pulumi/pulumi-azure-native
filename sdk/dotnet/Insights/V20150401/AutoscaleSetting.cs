@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.Insights.V20150401
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:insights:AutoscaleSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20140401:AutoscaleSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210501preview:AutoscaleSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20221001:AutoscaleSetting"},
                 },

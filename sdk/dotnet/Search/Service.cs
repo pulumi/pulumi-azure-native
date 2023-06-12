@@ -156,9 +156,6 @@ namespace Pulumi.AzureNative.Search
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20150819:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20191001preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200313:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:search/v20200801:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:search/v20210401preview:Service"},

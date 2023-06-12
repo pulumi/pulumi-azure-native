@@ -65,7 +65,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationRecoveryServicesProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationRecoveryServicesProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationRecoveryServicesProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationRecoveryServicesProvider"},

@@ -158,16 +158,6 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210701
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20170801preview:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20171001preview:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20171201preview:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20180201preview:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20180401:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20180601:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20180901:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20181001:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20191201:ContainerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20201101:ContainerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20210301:ContainerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20210901:ContainerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20211001:ContainerGroup"},

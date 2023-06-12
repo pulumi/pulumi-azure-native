@@ -170,7 +170,6 @@ utilities.lazyLoad(exports, ["ViewByScope"], () => require("./viewByScope"));
 export * from "../types/enums/costmanagement";
 
 // Export sub-modules:
-import * as v20180531 from "./v20180531";
 import * as v20180801preview from "./v20180801preview";
 import * as v20190301preview from "./v20190301preview";
 import * as v20190401preview from "./v20190401preview";
@@ -186,7 +185,6 @@ import * as v20230301 from "./v20230301";
 import * as v20230401preview from "./v20230401preview";
 
 export {
-    v20180531,
     v20180801preview,
     v20190301preview,
     v20190401preview,

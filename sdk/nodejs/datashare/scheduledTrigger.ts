@@ -143,7 +143,7 @@ export class ScheduledTrigger extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:ScheduledTrigger" }, { type: "azure-native:datashare/v20191101:ScheduledTrigger" }, { type: "azure-native:datashare/v20200901:ScheduledTrigger" }, { type: "azure-native:datashare/v20201001preview:ScheduledTrigger" }, { type: "azure-native:datashare/v20210801:ScheduledTrigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20200901:ScheduledTrigger" }, { type: "azure-native:datashare/v20201001preview:ScheduledTrigger" }, { type: "azure-native:datashare/v20210801:ScheduledTrigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledTrigger.__pulumiType, name, resourceInputs, opts);
     }

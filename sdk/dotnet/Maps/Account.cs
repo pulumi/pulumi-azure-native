@@ -90,7 +90,6 @@ namespace Pulumi.AzureNative.Maps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20170101preview:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20180501:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20210201:Account"},

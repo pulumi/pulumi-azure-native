@@ -90,7 +90,6 @@ namespace Pulumi.AzureNative.KeyVault
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20180214:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20190901:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:PrivateEndpointConnection"},

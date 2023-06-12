@@ -147,7 +147,7 @@ export class SqlPool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPool" }, { type: "azure-native:synapse/v20190601preview:SqlPool" }, { type: "azure-native:synapse/v20200401preview:SqlPool" }, { type: "azure-native:synapse/v20201201:SqlPool" }, { type: "azure-native:synapse/v20210301:SqlPool" }, { type: "azure-native:synapse/v20210401preview:SqlPool" }, { type: "azure-native:synapse/v20210501:SqlPool" }, { type: "azure-native:synapse/v20210601:SqlPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPool" }, { type: "azure-native:synapse/v20210301:SqlPool" }, { type: "azure-native:synapse/v20210401preview:SqlPool" }, { type: "azure-native:synapse/v20210501:SqlPool" }, { type: "azure-native:synapse/v20210601:SqlPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlPool.__pulumiType, name, resourceInputs, opts);
     }

@@ -90,8 +90,6 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200501:DiskAccess"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200630:DiskAccess"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccess"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskAccess"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskAccess"},

@@ -145,11 +145,6 @@ utilities.lazyLoad(exports, ["UpdateRun"], () => require("./updateRun"));
 export * from "../types/enums/containerservice";
 
 // Export sub-modules:
-import * as v20170131 from "./v20170131";
-import * as v20170831 from "./v20170831";
-import * as v20180930preview from "./v20180930preview";
-import * as v20190201 from "./v20190201";
-import * as v20190401 from "./v20190401";
 import * as v20190430 from "./v20190430";
 import * as v20190601 from "./v20190601";
 import * as v20191027preview from "./v20191027preview";
@@ -171,11 +166,6 @@ import * as v20230401 from "./v20230401";
 import * as v20230402preview from "./v20230402preview";
 
 export {
-    v20170131,
-    v20170831,
-    v20180930preview,
-    v20190201,
-    v20190401,
     v20190430,
     v20190601,
     v20191027preview,

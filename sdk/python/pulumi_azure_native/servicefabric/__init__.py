@@ -25,8 +25,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.servicefabric.v20170701preview as __v20170701preview
-    v20170701preview = __v20170701preview
     import pulumi_azure_native.servicefabric.v20200101preview as __v20200101preview
     v20200101preview = __v20200101preview
     import pulumi_azure_native.servicefabric.v20200301 as __v20200301
@@ -46,7 +44,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.servicefabric.v20230301preview as __v20230301preview
     v20230301preview = __v20230301preview
 else:
-    v20170701preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20170701preview')
     v20200101preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20200101preview')
     v20200301 = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20200301')
     v20201201preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20201201preview')

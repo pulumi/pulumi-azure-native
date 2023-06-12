@@ -32,13 +32,11 @@ utilities.lazyLoad(exports, ["UserAssignedIdentity"], () => require("./userAssig
 
 
 // Export sub-modules:
-import * as v20150831preview from "./v20150831preview";
 import * as v20181130 from "./v20181130";
 import * as v20220131preview from "./v20220131preview";
 import * as v20230131 from "./v20230131";
 
 export {
-    v20150831preview,
     v20181130,
     v20220131preview,
     v20230131,

@@ -214,7 +214,7 @@ class StorageAccountCredential(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["volumes_count"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple:StorageAccountCredential"), pulumi.Alias(type_="azure-native:storsimple/v20161001:StorageAccountCredential")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple:StorageAccountCredential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccountCredential, __self__).__init__(
             'azure-native:storsimple/v20170601:StorageAccountCredential',

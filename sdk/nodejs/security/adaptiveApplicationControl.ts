@@ -115,7 +115,7 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
             resourceInputs["vmRecommendations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20150601preview:AdaptiveApplicationControl" }, { type: "azure-native:security/v20200101:AdaptiveApplicationControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20200101:AdaptiveApplicationControl" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AdaptiveApplicationControl.__pulumiType, name, resourceInputs, opts);
     }

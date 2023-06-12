@@ -120,14 +120,6 @@ utilities.lazyLoad(exports, ["VolumeQuotaRule"], () => require("./volumeQuotaRul
 export * from "../types/enums/netapp";
 
 // Export sub-modules:
-import * as v20170815 from "./v20170815";
-import * as v20190501 from "./v20190501";
-import * as v20190601 from "./v20190601";
-import * as v20190701 from "./v20190701";
-import * as v20190801 from "./v20190801";
-import * as v20191001 from "./v20191001";
-import * as v20191101 from "./v20191101";
-import * as v20200201 from "./v20200201";
 import * as v20201201 from "./v20201201";
 import * as v20210401 from "./v20210401";
 import * as v20210401preview from "./v20210401preview";
@@ -137,14 +129,6 @@ import * as v20220501 from "./v20220501";
 import * as v20220901 from "./v20220901";
 
 export {
-    v20170815,
-    v20190501,
-    v20190601,
-    v20190701,
-    v20190801,
-    v20191001,
-    v20191101,
-    v20200201,
     v20201201,
     v20210401,
     v20210401preview,

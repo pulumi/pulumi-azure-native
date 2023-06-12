@@ -100,8 +100,6 @@ utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 export * from "../types/enums/desktopvirtualization";
 
 // Export sub-modules:
-import * as v20201102preview from "./v20201102preview";
-import * as v20201110preview from "./v20201110preview";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210401preview from "./v20210401preview";
 import * as v20220210preview from "./v20220210preview";
@@ -109,8 +107,6 @@ import * as v20220401preview from "./v20220401preview";
 import * as v20221014preview from "./v20221014preview";
 
 export {
-    v20201102preview,
-    v20201110preview,
     v20210201preview,
     v20210401preview,
     v20220210preview,

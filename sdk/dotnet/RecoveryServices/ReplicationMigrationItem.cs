@@ -66,7 +66,6 @@ namespace Pulumi.AzureNative.RecoveryServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationMigrationItem"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationMigrationItem"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationMigrationItem"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationMigrationItem"},

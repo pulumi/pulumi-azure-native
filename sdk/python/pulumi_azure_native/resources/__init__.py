@@ -41,12 +41,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.resources.v20151101 as __v20151101
-    v20151101 = __v20151101
-    import pulumi_azure_native.resources.v20160701 as __v20160701
-    v20160701 = __v20160701
-    import pulumi_azure_native.resources.v20180201 as __v20180201
-    v20180201 = __v20180201
     import pulumi_azure_native.resources.v20190501 as __v20190501
     v20190501 = __v20190501
     import pulumi_azure_native.resources.v20190601preview as __v20190601preview
@@ -66,9 +60,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.resources.v20220901 as __v20220901
     v20220901 = __v20220901
 else:
-    v20151101 = _utilities.lazy_import('pulumi_azure_native.resources.v20151101')
-    v20160701 = _utilities.lazy_import('pulumi_azure_native.resources.v20160701')
-    v20180201 = _utilities.lazy_import('pulumi_azure_native.resources.v20180201')
     v20190501 = _utilities.lazy_import('pulumi_azure_native.resources.v20190501')
     v20190601preview = _utilities.lazy_import('pulumi_azure_native.resources.v20190601preview')
     v20191001 = _utilities.lazy_import('pulumi_azure_native.resources.v20191001')

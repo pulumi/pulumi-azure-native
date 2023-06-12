@@ -29,10 +29,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.desktopvirtualization.v20201102preview as __v20201102preview
-    v20201102preview = __v20201102preview
-    import pulumi_azure_native.desktopvirtualization.v20201110preview as __v20201110preview
-    v20201110preview = __v20201110preview
     import pulumi_azure_native.desktopvirtualization.v20210201preview as __v20210201preview
     v20210201preview = __v20210201preview
     import pulumi_azure_native.desktopvirtualization.v20210401preview as __v20210401preview
@@ -44,8 +40,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.desktopvirtualization.v20221014preview as __v20221014preview
     v20221014preview = __v20221014preview
 else:
-    v20201102preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20201102preview')
-    v20201110preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20201110preview')
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20210201preview')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20210401preview')
     v20220210preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20220210preview')

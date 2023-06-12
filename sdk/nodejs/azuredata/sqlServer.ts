@@ -102,7 +102,7 @@ export class SqlServer extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuredata/v20170301preview:SqlServer" }, { type: "azure-native:azuredata/v20190724preview:SqlServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuredata/v20190724preview:SqlServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServer.__pulumiType, name, resourceInputs, opts);
     }

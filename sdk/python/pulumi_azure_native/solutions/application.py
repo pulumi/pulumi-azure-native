@@ -347,7 +347,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_by"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions/v20160901preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20170901:Application"), pulumi.Alias(type_="azure-native:solutions/v20171201:Application"), pulumi.Alias(type_="azure-native:solutions/v20180201:Application"), pulumi.Alias(type_="azure-native:solutions/v20180301:Application"), pulumi.Alias(type_="azure-native:solutions/v20180601:Application"), pulumi.Alias(type_="azure-native:solutions/v20180901preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20190701:Application"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20210201preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20210701:Application")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions/v20190701:Application"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20210201preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20210701:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azure-native:solutions:Application',

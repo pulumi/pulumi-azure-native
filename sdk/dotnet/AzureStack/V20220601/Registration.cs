@@ -89,7 +89,6 @@ namespace Pulumi.AzureNative.AzureStack.V20220601
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestack:Registration"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20160101:Registration"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestack/v20170601:Registration"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:Registration"},
                 },

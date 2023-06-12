@@ -171,7 +171,7 @@ class Step(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deploymentmanager:Step"), pulumi.Alias(type_="azure-native:deploymentmanager/v20180901preview:Step")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deploymentmanager:Step")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Step, __self__).__init__(
             'azure-native:deploymentmanager/v20191101preview:Step',

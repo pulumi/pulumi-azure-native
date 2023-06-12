@@ -89,7 +89,6 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kusto:EventHubConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:EventHubConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -134,7 +134,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20150521preview:VirtualNetwork" }, { type: "azure-native:devtestlab/v20160515:VirtualNetwork" }, { type: "azure-native:devtestlab/v20180915:VirtualNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20180915:VirtualNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetwork.__pulumiType, name, resourceInputs, opts);
     }
