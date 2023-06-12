@@ -12075,7 +12075,10 @@ class SubResource:
                  id: Optional[str] = None):
         """
         Reference to another subresource.
-        :param str id: Resource ID.
+        :param str id: Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+               An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+               A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+               Example of a relative ID: $self/frontEndConfigurations/my-frontend.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -12084,7 +12087,10 @@ class SubResource:
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Resource ID.
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
         """
         return pulumi.get(self, "id")
 
@@ -12099,7 +12105,10 @@ class SubResourceArgs:
                  id: Optional[pulumi.Input[str]] = None):
         """
         Reference to another subresource.
-        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] id: Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+               An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+               A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+               Example of a relative ID: $self/frontEndConfigurations/my-frontend.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -12108,7 +12117,10 @@ class SubResourceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource ID.
+        Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+        An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+        A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+        Example of a relative ID: $self/frontEndConfigurations/my-frontend.
         """
         return pulumi.get(self, "id")
 
