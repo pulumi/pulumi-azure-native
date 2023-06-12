@@ -98,6 +98,9 @@ AzureStackHCI:
     VirtualHardDisk: 2022-12-15-preview
     VirtualMachine: 2022-12-15-preview
     VirtualNetwork: 2022-12-15-preview
+  notes: |
+    https://learn.microsoft.com/en-us/rest/api/stackhci/
+    Excluded resources from preview version not mentioned in docs.
 BareMetalInfrastructure:
 Batch:
   exclusions:
@@ -277,6 +280,9 @@ HanaOnAzure:
     Only contains preview versions
 HardwareSecurityModules:
 HealthBot:
+  exclusions:
+    # Lower-case typo - invoke still there.
+    getbot: "2020-10-20"
 HealthcareApis:
 HybridCompute:
 HybridConnectivity:
@@ -362,7 +368,8 @@ MachineLearningServices:
     listNotebookKeys: "2021-04-01"
     listStorageAccountKeys: "2021-04-01"
   notes: |
-    The REST API docs only lists 2022-10-01 and 2022-12-01-preview
+    MachineLearningCompute renamed to Compute.
+    The REST API docs only lists 2023-04-01
     so can assume older additions aren't generally needed
     https://learn.microsoft.com/en-us/rest/api/azureml/
 Maintenance:
@@ -382,7 +389,7 @@ Maps:
 Marketplace:
   exclusions:
     PrivateStoreOffer: "2020-01-01"
-  notes: PrivateStoreOffer not included since very first issue
+  notes: PrivateStoreOffer not included since very first issue - renamed to PrivateStoreCollectionOffer
 MarketplaceNotifications:
   notes: Only contains GETs
 MarketplaceOrdering:
@@ -427,6 +434,9 @@ OperationsManagement:
   notes: Only single preview version
 Orbital:
 Peering:
+  exclusions:
+    # Renamed to Prefix in stable release
+    PeeringServicePrefix: "2019-08-01-preview"
 PolicyInsights:
   explicit: true
   notes: Each version appears to be partial
@@ -495,7 +505,9 @@ ServiceFabric:
   exclusions:
     Cluster: "2021-06-01"
     listClusterUpgradableVersions: "2021-06-01"
-  notes: Cluster replaced with ManagedCluster after 2021-06-01
+  notes: |
+    Cluster and ManagedCluster are distinct resources, but adding Cluster at 2021-06-01
+    causes unmergable types for ServiceTypeHealthPolicy.
 ServiceFabricMesh:
   expectTracking: preview
   notes: All versions are previews
@@ -524,11 +536,20 @@ StreamAnalytics:
   preview: exclude
   notes: Last stable version looks pretty complete, just not many updates since
 SubscriptionNetworkManagerConnection:
+Subscription:
+  exclusions:
+    SubscriptionAlias: "2019-10-01-preview"
+  notes: |
+    SubscriptionAlias was renamed to Alias in first stable version.
 Support:
 Synapse:
   exclusions:
     # Case corrected in 2021-06-01-preview and now causes type conflicts
     kustoPool: "2021-04-01-preview"
+    SqlDatabase: "2020-04-01-preview"
+    SqlPoolsV3: "2020-04-01-preview"
+  notes: |
+    The two synapse resources sqldatabase and sqlpoolsv3 only exist in 2020-04-01-preview. These were then not included in the next stable version - the v3 suffix was dropped and the sql prefix was dropped.
 Syntex:
   expectTracking: preview
   notes: Only single preview version
