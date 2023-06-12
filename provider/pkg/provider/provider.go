@@ -1265,7 +1265,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 				continue
 			}
 			if param.Location == "body" {
-				requestBody := k.converter.SdkPropertiesToRequestBody(param.Body.Properties, res.DefaultBody)
+				requestBody := k.converter.SdkPropertiesToRequestBody(param.Body.Properties, res.DefaultBody, id)
 
 				queryParams := map[string]interface{}{"api-version": res.APIVersion}
 				_, _, err := k.azureCreateOrUpdate(ctx, id, requestBody, queryParams, res.UpdateMethod, res.PutAsyncStyle)
@@ -1712,7 +1712,7 @@ func (k *azureNativeProvider) prepareAzureRESTInputs(path string, parameters []r
 		if param.Location != "body" {
 			continue
 		}
-		body = k.converter.SdkPropertiesToRequestBody(param.Body.Properties, methodInputs)
+		body = k.converter.SdkPropertiesToRequestBody(param.Body.Properties, methodInputs, id)
 		break
 	}
 
