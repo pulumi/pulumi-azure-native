@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SignalRService
     {
         /// <summary>
         /// Get the specified private endpoint connection
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetSignalRPrivateEndpointConnectionResult> InvokeAsync(GetSignalRPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSignalRPrivateEndpointConnectionResult>("azure-native:signalrservice:getSignalRPrivateEndpointConnection", args ?? new GetSignalRPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the specified private endpoint connection
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetSignalRPrivateEndpointConnectionResult> Invoke(GetSignalRPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalRPrivateEndpointConnectionResult>("azure-native:signalrservice:getSignalRPrivateEndpointConnection", args ?? new GetSignalRPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

@@ -159,7 +159,7 @@ def get_import_pipeline(import_pipeline_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImportPipelineResult:
     """
     Gets the properties of the import pipeline.
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str import_pipeline_name: The name of the import pipeline.
@@ -193,7 +193,7 @@ def get_import_pipeline_output(import_pipeline_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImportPipelineResult]:
     """
     Gets the properties of the import pipeline.
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str import_pipeline_name: The name of the import pipeline.

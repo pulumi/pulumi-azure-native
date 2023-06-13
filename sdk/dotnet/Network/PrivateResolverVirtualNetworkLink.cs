@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Describes a virtual network link.
-    /// API Version: 2022-07-01.
+    /// Azure REST API version: 2022-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateResolverVirtualNetworkLink")]
     public partial class PrivateResolverVirtualNetworkLink : global::Pulumi.CustomResource

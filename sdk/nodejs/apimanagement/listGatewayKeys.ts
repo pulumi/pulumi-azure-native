@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves gateway keys.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function listGatewayKeys(args: ListGatewayKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListGatewayKeysResult> {
 
@@ -48,7 +48,7 @@ export interface ListGatewayKeysResult {
 }
 /**
  * Retrieves gateway keys.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function listGatewayKeysOutput(args: ListGatewayKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGatewayKeysResult> {
     return pulumi.output(args).apply((a: any) => listGatewayKeys(a, opts))

@@ -316,7 +316,7 @@ class UpdateRun(pulumi.CustomResource):
                  __props__=None):
         """
         Details of an Update run
-        API Version: 2023-03-01.
+        Azure REST API version: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -346,7 +346,7 @@ class UpdateRun(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Details of an Update run
-        API Version: 2023-03-01.
+        Azure REST API version: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param UpdateRunArgs args: The arguments to use to populate this resource's properties.

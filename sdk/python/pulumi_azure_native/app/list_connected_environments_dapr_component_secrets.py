@@ -51,7 +51,7 @@ def list_connected_environments_dapr_component_secrets(component_name: Optional[
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectedEnvironmentsDaprComponentSecretsResult:
     """
     Dapr component Secrets Collection for ListSecrets Action.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -76,7 +76,7 @@ def list_connected_environments_dapr_component_secrets_output(component_name: Op
                                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectedEnvironmentsDaprComponentSecretsResult]:
     """
     Dapr component Secrets Collection for ListSecrets Action.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str component_name: Name of the Dapr Component.

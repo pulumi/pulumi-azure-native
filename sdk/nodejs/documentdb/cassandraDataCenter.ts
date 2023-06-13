@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A managed Cassandra data center.
- * API Version: 2023-04-15.
- * Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-01-preview
  */
 export class CassandraDataCenter extends pulumi.CustomResource {
     /**

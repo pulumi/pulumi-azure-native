@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Gets a Deployment Stack with a given name.
-        /// API Version: 2022-08-01-preview.
+        /// Azure REST API version: 2022-08-01-preview.
         /// </summary>
         public static Task<GetDeploymentStackAtResourceGroupResult> InvokeAsync(GetDeploymentStackAtResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentStackAtResourceGroupResult>("azure-native:resources:getDeploymentStackAtResourceGroup", args ?? new GetDeploymentStackAtResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Deployment Stack with a given name.
-        /// API Version: 2022-08-01-preview.
+        /// Azure REST API version: 2022-08-01-preview.
         /// </summary>
         public static Output<GetDeploymentStackAtResourceGroupResult> Invoke(GetDeploymentStackAtResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtResourceGroupResult>("azure-native:resources:getDeploymentStackAtResourceGroup", args ?? new GetDeploymentStackAtResourceGroupInvokeArgs(), options.WithDefaults());

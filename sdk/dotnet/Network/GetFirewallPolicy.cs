@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Firewall Policy.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetFirewallPolicyResult> InvokeAsync(GetFirewallPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyResult>("azure-native:network:getFirewallPolicy", args ?? new GetFirewallPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Firewall Policy.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetFirewallPolicyResult> Invoke(GetFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyResult>("azure-native:network:getFirewallPolicy", args ?? new GetFirewallPolicyInvokeArgs(), options.WithDefaults());

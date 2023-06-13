@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a VMware collector.
-        /// API Version: 2019-10-01.
+        /// Azure REST API version: 2019-10-01.
         /// </summary>
         public static Task<GetVMwareCollectorResult> InvokeAsync(GetVMwareCollectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVMwareCollectorResult>("azure-native:migrate:getVMwareCollector", args ?? new GetVMwareCollectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a VMware collector.
-        /// API Version: 2019-10-01.
+        /// Azure REST API version: 2019-10-01.
         /// </summary>
         public static Output<GetVMwareCollectorResult> Invoke(GetVMwareCollectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVMwareCollectorResult>("azure-native:migrate:getVMwareCollector", args ?? new GetVMwareCollectorInvokeArgs(), options.WithDefaults());

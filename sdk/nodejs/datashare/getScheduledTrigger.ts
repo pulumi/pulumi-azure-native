@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Trigger in a shareSubscription
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getScheduledTrigger(args: GetScheduledTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledTriggerResult> {
 
@@ -97,7 +97,7 @@ export interface GetScheduledTriggerResult {
 }
 /**
  * Get a Trigger in a shareSubscription
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getScheduledTriggerOutput(args: GetScheduledTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledTriggerResult> {
     return pulumi.output(args).apply((a: any) => getScheduledTrigger(a, opts))

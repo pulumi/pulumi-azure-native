@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get Network Fabric resource details.
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getNetworkFabric(args: GetNetworkFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFabricResult> {
 
@@ -126,7 +126,7 @@ export interface GetNetworkFabricResult {
 }
 /**
  * Get Network Fabric resource details.
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getNetworkFabricOutput(args: GetNetworkFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFabricResult> {
     return pulumi.output(args).apply((a: any) => getNetworkFabric(a, opts))

@@ -135,7 +135,7 @@ def get_frontends_interface(frontend_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontendsInterfaceResult:
     """
     Get a Frontend
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str frontend_name: Frontends
@@ -167,7 +167,7 @@ def get_frontends_interface_output(frontend_name: Optional[pulumi.Input[str]] = 
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontendsInterfaceResult]:
     """
     Get a Frontend
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str frontend_name: Frontends

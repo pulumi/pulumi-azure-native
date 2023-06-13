@@ -123,7 +123,7 @@ def get_connected_environments_certificate(certificate_name: Optional[str] = Non
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedEnvironmentsCertificateResult:
     """
     Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str certificate_name: Name of the Certificate.
@@ -154,7 +154,7 @@ def get_connected_environments_certificate_output(certificate_name: Optional[pul
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedEnvironmentsCertificateResult]:
     """
     Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str certificate_name: Name of the Certificate.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Security assessment metadata
-    /// API Version: 2019-01-01-preview.
+    /// Azure REST API version: 2019-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:AssessmentsMetadataSubscription")]
     public partial class AssessmentsMetadataSubscription : global::Pulumi.CustomResource

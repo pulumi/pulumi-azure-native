@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataFactory
     {
         /// <summary>
         /// Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
-        /// API Version: 2018-06-01.
+        /// Azure REST API version: 2018-06-01.
         /// </summary>
         public static Task<GetIntegrationRuntimeObjectMetadatumResult> InvokeAsync(GetIntegrationRuntimeObjectMetadatumArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeObjectMetadatumResult>("azure-native:datafactory:getIntegrationRuntimeObjectMetadatum", args ?? new GetIntegrationRuntimeObjectMetadatumArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
-        /// API Version: 2018-06-01.
+        /// Azure REST API version: 2018-06-01.
         /// </summary>
         public static Output<GetIntegrationRuntimeObjectMetadatumResult> Invoke(GetIntegrationRuntimeObjectMetadatumInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeObjectMetadatumResult>("azure-native:datafactory:getIntegrationRuntimeObjectMetadatum", args ?? new GetIntegrationRuntimeObjectMetadatumInvokeArgs(), options.WithDefaults());

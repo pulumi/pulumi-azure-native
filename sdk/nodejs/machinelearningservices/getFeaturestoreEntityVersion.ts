@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function getFeaturestoreEntityVersion(args: GetFeaturestoreEntityVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetFeaturestoreEntityVersionResult> {
 
@@ -68,7 +68,7 @@ export interface GetFeaturestoreEntityVersionResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function getFeaturestoreEntityVersionOutput(args: GetFeaturestoreEntityVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeaturestoreEntityVersionResult> {
     return pulumi.output(args).apply((a: any) => getFeaturestoreEntityVersion(a, opts))

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// Build step resource properties
-    /// API Version: 2018-02-01-preview.
+    /// Azure REST API version: 2018-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:BuildStep")]
     public partial class BuildStep : global::Pulumi.CustomResource

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements host GET method.
- * API Version: 2022-07-15-preview.
+ * Azure REST API version: 2022-07-15-preview.
  */
 export function getHost(args: GetHostArgs, opts?: pulumi.InvokeOptions): Promise<GetHostResult> {
 
@@ -110,7 +110,7 @@ export interface GetHostResult {
 }
 /**
  * Implements host GET method.
- * API Version: 2022-07-15-preview.
+ * Azure REST API version: 2022-07-15-preview.
  */
 export function getHostOutput(args: GetHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostResult> {
     return pulumi.output(args).apply((a: any) => getHost(a, opts))

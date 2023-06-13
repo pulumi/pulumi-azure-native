@@ -100,7 +100,7 @@ def get_registry_component_version(component_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryComponentVersionResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str component_name: Container name.
@@ -132,7 +132,7 @@ def get_registry_component_version_output(component_name: Optional[pulumi.Input[
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryComponentVersionResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str component_name: Container name.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
- * API Version: 2021-03-25-preview.
+ * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateLinkServicesForM365ComplianceCenter(args: GetPrivateLinkServicesForM365ComplianceCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForM365ComplianceCenterResult> {
 
@@ -78,7 +78,7 @@ export interface GetPrivateLinkServicesForM365ComplianceCenterResult {
 }
 /**
  * Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
- * API Version: 2021-03-25-preview.
+ * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateLinkServicesForM365ComplianceCenterOutput(args: GetPrivateLinkServicesForM365ComplianceCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForM365ComplianceCenterResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForM365ComplianceCenter(a, opts))

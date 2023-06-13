@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
         /// call the GetItemOperationResult API.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetProtectionIntentResult> InvokeAsync(GetProtectionIntentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectionIntentResult>("azure-native:recoveryservices:getProtectionIntent", args ?? new GetProtectionIntentArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
         /// call the GetItemOperationResult API.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetProtectionIntentResult> Invoke(GetProtectionIntentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectionIntentResult>("azure-native:recoveryservices:getProtectionIntent", args ?? new GetProtectionIntentInvokeArgs(), options.WithDefaults());

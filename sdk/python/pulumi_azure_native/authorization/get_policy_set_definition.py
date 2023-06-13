@@ -169,7 +169,7 @@ def get_policy_set_definition(policy_set_definition_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionResult:
     """
     This operation retrieves the policy set definition in the given subscription with the given name.
-    API Version: 2021-06-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str policy_set_definition_name: The name of the policy set definition to get.
@@ -198,7 +198,7 @@ def get_policy_set_definition_output(policy_set_definition_name: Optional[pulumi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionResult]:
     """
     This operation retrieves the policy set definition in the given subscription with the given name.
-    API Version: 2021-06-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str policy_set_definition_name: The name of the policy set definition to get.

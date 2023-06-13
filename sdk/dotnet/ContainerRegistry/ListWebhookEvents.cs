@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Lists recent events for the specified webhook.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<ListWebhookEventsResult> InvokeAsync(ListWebhookEventsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebhookEventsResult>("azure-native:containerregistry:listWebhookEvents", args ?? new ListWebhookEventsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists recent events for the specified webhook.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<ListWebhookEventsResult> Invoke(ListWebhookEventsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebhookEventsResult>("azure-native:containerregistry:listWebhookEvents", args ?? new ListWebhookEventsInvokeArgs(), options.WithDefaults());

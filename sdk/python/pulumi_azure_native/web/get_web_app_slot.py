@@ -683,7 +683,7 @@ def get_web_app_slot(name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSlotResult:
     """
     Description for Gets the details of a web, mobile, or API app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -760,7 +760,7 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSlotResult]:
     """
     Description for Gets the details of a web, mobile, or API app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.

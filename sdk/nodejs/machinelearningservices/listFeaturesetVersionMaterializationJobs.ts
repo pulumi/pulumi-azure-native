@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A paginated list of FeaturesetJob entities.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function listFeaturesetVersionMaterializationJobs(args: ListFeaturesetVersionMaterializationJobsArgs, opts?: pulumi.InvokeOptions): Promise<ListFeaturesetVersionMaterializationJobsResult> {
 
@@ -76,7 +76,7 @@ export interface ListFeaturesetVersionMaterializationJobsResult {
 }
 /**
  * A paginated list of FeaturesetJob entities.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function listFeaturesetVersionMaterializationJobsOutput(args: ListFeaturesetVersionMaterializationJobsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeaturesetVersionMaterializationJobsResult> {
     return pulumi.output(args).apply((a: any) => listFeaturesetVersionMaterializationJobs(a, opts))

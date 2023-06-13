@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of an inbound endpoint for a DNS resolver.
- * API Version: 2022-07-01.
+ * Azure REST API version: 2022-07-01.
  */
 export function getInboundEndpoint(args: GetInboundEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetInboundEndpointResult> {
 
@@ -83,7 +83,7 @@ export interface GetInboundEndpointResult {
 }
 /**
  * Gets properties of an inbound endpoint for a DNS resolver.
- * API Version: 2022-07-01.
+ * Azure REST API version: 2022-07-01.
  */
 export function getInboundEndpointOutput(args: GetInboundEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInboundEndpointResult> {
     return pulumi.output(args).apply((a: any) => getInboundEndpoint(a, opts))

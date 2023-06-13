@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The CA Certificate resource.
- * API Version: 2023-06-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export class CaCertificate extends pulumi.CustomResource {
     /**

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a network manager security configuration admin rule.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetAdminRuleResult> InvokeAsync(GetAdminRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleResult>("azure-native:network:getAdminRule", args ?? new GetAdminRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager security configuration admin rule.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetAdminRuleResult> Invoke(GetAdminRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdminRuleResult>("azure-native:network:getAdminRule", args ?? new GetAdminRuleInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a azureADMetrics instance with a given name.
- * API Version: 2020-07-01-preview.
+ * Azure REST API version: 2020-07-01-preview.
  */
 export function getAzureADMetric(args: GetAzureADMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureADMetricResult> {
 
@@ -59,7 +59,7 @@ export interface GetAzureADMetricResult {
 }
 /**
  * Gets a azureADMetrics instance with a given name.
- * API Version: 2020-07-01-preview.
+ * Azure REST API version: 2020-07-01-preview.
  */
 export function getAzureADMetricOutput(args: GetAzureADMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureADMetricResult> {
     return pulumi.output(args).apply((a: any) => getAzureADMetric(a, opts))

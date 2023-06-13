@@ -62,7 +62,7 @@ def list_security_advisory_impacted_resource_by_subscription_id_and_event_id(eve
                                                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult:
     """
     Lists impacted resources in the subscription by an event (Security Advisory).
-    API Version: 2022-10-01-preview.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str event_tracking_id: Event Id which uniquely identifies ServiceHealth event.
@@ -85,7 +85,7 @@ def list_security_advisory_impacted_resource_by_subscription_id_and_event_id_out
                                                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult]:
     """
     Lists impacted resources in the subscription by an event (Security Advisory).
-    API Version: 2022-10-01-preview.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str event_tracking_id: Event Id which uniquely identifies ServiceHealth event.

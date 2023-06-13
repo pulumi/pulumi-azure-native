@@ -134,7 +134,7 @@ def get_azure_bare_metal_storage_instance(azure_bare_metal_storage_instance_name
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureBareMetalStorageInstanceResult:
     """
     Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
-    API Version: 2023-04-06.
+    Azure REST API version: 2023-04-06.
 
 
     :param str azure_bare_metal_storage_instance_name: Name of the AzureBareMetalStorage on Azure instance.
@@ -163,7 +163,7 @@ def get_azure_bare_metal_storage_instance_output(azure_bare_metal_storage_instan
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureBareMetalStorageInstanceResult]:
     """
     Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
-    API Version: 2023-04-06.
+    Azure REST API version: 2023-04-06.
 
 
     :param str azure_bare_metal_storage_instance_name: Name of the AzureBareMetalStorage on Azure instance.

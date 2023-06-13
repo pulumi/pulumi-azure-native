@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Shows an inventory item.
- * API Version: 2020-06-05-preview.
+ * Azure REST API version: 2020-06-05-preview.
  */
 export function getInventoryItem(args: GetInventoryItemArgs, opts?: pulumi.InvokeOptions): Promise<GetInventoryItemResult> {
 
@@ -83,7 +83,7 @@ export interface GetInventoryItemResult {
 }
 /**
  * Shows an inventory item.
- * API Version: 2020-06-05-preview.
+ * Azure REST API version: 2020-06-05-preview.
  */
 export function getInventoryItemOutput(args: GetInventoryItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInventoryItemResult> {
     return pulumi.output(args).apply((a: any) => getInventoryItem(a, opts))

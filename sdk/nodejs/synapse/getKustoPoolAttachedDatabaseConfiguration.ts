@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns an attached database configuration.
- * API Version: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function getKustoPoolAttachedDatabaseConfiguration(args: GetKustoPoolAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolAttachedDatabaseConfigurationResult> {
 
@@ -92,7 +92,7 @@ export interface GetKustoPoolAttachedDatabaseConfigurationResult {
 }
 /**
  * Returns an attached database configuration.
- * API Version: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function getKustoPoolAttachedDatabaseConfigurationOutput(args: GetKustoPoolAttachedDatabaseConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolAttachedDatabaseConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getKustoPoolAttachedDatabaseConfiguration(a, opts))

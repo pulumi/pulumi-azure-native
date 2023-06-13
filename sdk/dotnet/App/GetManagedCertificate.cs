@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
-        /// API Version: 2023-04-01-preview.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Task<GetManagedCertificateResult> InvokeAsync(GetManagedCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedCertificateResult>("azure-native:app:getManagedCertificate", args ?? new GetManagedCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
-        /// API Version: 2023-04-01-preview.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Output<GetManagedCertificateResult> Invoke(GetManagedCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedCertificateResult>("azure-native:app:getManagedCertificate", args ?? new GetManagedCertificateInvokeArgs(), options.WithDefaults());

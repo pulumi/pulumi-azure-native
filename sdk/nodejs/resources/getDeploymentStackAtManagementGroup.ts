@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Deployment Stack with a given name.
- * API Version: 2022-08-01-preview.
+ * Azure REST API version: 2022-08-01-preview.
  */
 export function getDeploymentStackAtManagementGroup(args: GetDeploymentStackAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentStackAtManagementGroupResult> {
 
@@ -126,7 +126,7 @@ export interface GetDeploymentStackAtManagementGroupResult {
 }
 /**
  * Gets a Deployment Stack with a given name.
- * API Version: 2022-08-01-preview.
+ * Azure REST API version: 2022-08-01-preview.
  */
 export function getDeploymentStackAtManagementGroupOutput(args: GetDeploymentStackAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentStackAtManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getDeploymentStackAtManagementGroup(a, opts))

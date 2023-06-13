@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Dapr Component.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetConnectedEnvironmentsDaprComponentResult> InvokeAsync(GetConnectedEnvironmentsDaprComponentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedEnvironmentsDaprComponentResult>("azure-native:app:getConnectedEnvironmentsDaprComponent", args ?? new GetConnectedEnvironmentsDaprComponentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Dapr Component.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetConnectedEnvironmentsDaprComponentResult> Invoke(GetConnectedEnvironmentsDaprComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsDaprComponentResult>("azure-native:app:getConnectedEnvironmentsDaprComponent", args ?? new GetConnectedEnvironmentsDaprComponentInvokeArgs(), options.WithDefaults());

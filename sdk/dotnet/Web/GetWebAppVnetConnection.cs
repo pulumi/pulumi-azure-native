@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets a virtual network the app (or deployment slot) is connected to by name.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetWebAppVnetConnectionResult> InvokeAsync(GetWebAppVnetConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionResult>("azure-native:web:getWebAppVnetConnection", args ?? new GetWebAppVnetConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets a virtual network the app (or deployment slot) is connected to by name.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetWebAppVnetConnectionResult> Invoke(GetWebAppVnetConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppVnetConnectionResult>("azure-native:web:getWebAppVnetConnection", args ?? new GetWebAppVnetConnectionInvokeArgs(), options.WithDefaults());

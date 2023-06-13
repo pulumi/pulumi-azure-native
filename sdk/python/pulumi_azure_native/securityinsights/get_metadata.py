@@ -327,7 +327,7 @@ def get_metadata(metadata_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetadataResult:
     """
     Get a Metadata.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str metadata_name: The Metadata name.
@@ -375,7 +375,7 @@ def get_metadata_output(metadata_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetadataResult]:
     """
     Get a Metadata.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str metadata_name: The Metadata name.

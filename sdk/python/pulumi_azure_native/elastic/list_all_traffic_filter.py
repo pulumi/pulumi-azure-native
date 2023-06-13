@@ -50,7 +50,7 @@ def list_all_traffic_filter(monitor_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAllTrafficFilterResult:
     """
     List of elastic traffic filters in the account
-    API Version: 2023-06-01.
+    Azure REST API version: 2023-06-01.
 
 
     :param str monitor_name: Monitor resource name
@@ -72,7 +72,7 @@ def list_all_traffic_filter_output(monitor_name: Optional[pulumi.Input[str]] = N
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAllTrafficFilterResult]:
     """
     List of elastic traffic filters in the account
-    API Version: 2023-06-01.
+    Azure REST API version: 2023-06-01.
 
 
     :param str monitor_name: Monitor resource name

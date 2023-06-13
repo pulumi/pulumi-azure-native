@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.DevHub
 {
     /// <summary>
     /// Resource representation of a workflow
-    /// API Version: 2022-10-11-preview.
-    /// Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2022-10-11-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:devhub:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource

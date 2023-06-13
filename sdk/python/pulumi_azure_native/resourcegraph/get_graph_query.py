@@ -170,7 +170,7 @@ def get_graph_query(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGraphQueryResult:
     """
     Get a single graph query by its resourceName.
-    API Version: 2020-04-01-preview.
+    Azure REST API version: 2020-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -202,7 +202,7 @@ def get_graph_query_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphQueryResult]:
     """
     Get a single graph query by its resourceName.
-    API Version: 2020-04-01-preview.
+    Azure REST API version: 2020-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.

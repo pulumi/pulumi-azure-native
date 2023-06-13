@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get remote debugging config.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getDeploymentRemoteDebuggingConfig(args: GetDeploymentRemoteDebuggingConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentRemoteDebuggingConfigResult> {
 
@@ -53,7 +53,7 @@ export interface GetDeploymentRemoteDebuggingConfigResult {
 }
 /**
  * Get remote debugging config.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getDeploymentRemoteDebuggingConfigOutput(args: GetDeploymentRemoteDebuggingConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentRemoteDebuggingConfigResult> {
     return pulumi.output(args).apply((a: any) => getDeploymentRemoteDebuggingConfig(a, opts))

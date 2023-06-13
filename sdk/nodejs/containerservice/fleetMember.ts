@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
- * API Version: 2023-03-15-preview.
+ * Azure REST API version: 2023-03-15-preview.
  */
 export class FleetMember extends pulumi.CustomResource {
     /**

@@ -50,7 +50,7 @@ def list_apm_secret_keys(apm_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListApmSecretKeysResult:
     """
     List keys of APM sensitive properties.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str apm_name: The name of the APM
@@ -75,7 +75,7 @@ def list_apm_secret_keys_output(apm_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApmSecretKeysResult]:
     """
     List keys of APM sensitive properties.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str apm_name: The name of the APM

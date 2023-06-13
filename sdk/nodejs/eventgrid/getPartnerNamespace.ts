@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a partner namespace.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPartnerNamespace(args: GetPartnerNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerNamespaceResult> {
 
@@ -94,7 +94,7 @@ export interface GetPartnerNamespaceResult {
 }
 /**
  * Get properties of a partner namespace.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPartnerNamespaceOutput(args: GetPartnerNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getPartnerNamespace(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Gremlin graph under an existing Azure Cosmos DB database account.
- * API Version: 2023-04-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getGremlinResourceGremlinGraph(args: GetGremlinResourceGremlinGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGremlinResourceGremlinGraphResult> {
 
@@ -70,7 +70,7 @@ export interface GetGremlinResourceGremlinGraphResult {
 }
 /**
  * Gets the Gremlin graph under an existing Azure Cosmos DB database account.
- * API Version: 2023-04-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getGremlinResourceGremlinGraphOutput(args: GetGremlinResourceGremlinGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGremlinResourceGremlinGraphResult> {
     return pulumi.output(args).apply((a: any) => getGremlinResourceGremlinGraph(a, opts))

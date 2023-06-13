@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a TrafficController
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getTrafficControllerInterface(args: GetTrafficControllerInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficControllerInterfaceResult> {
 
@@ -78,7 +78,7 @@ export interface GetTrafficControllerInterfaceResult {
 }
 /**
  * Get a TrafficController
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getTrafficControllerInterfaceOutput(args: GetTrafficControllerInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficControllerInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getTrafficControllerInterface(a, opts))

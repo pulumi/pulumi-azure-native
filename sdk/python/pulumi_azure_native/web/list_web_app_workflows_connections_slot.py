@@ -111,7 +111,7 @@ def list_web_app_workflows_connections_slot(name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppWorkflowsConnectionsSlotResult:
     """
     Workflow properties definition.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Site name.
@@ -141,7 +141,7 @@ def list_web_app_workflows_connections_slot_output(name: Optional[pulumi.Input[s
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppWorkflowsConnectionsSlotResult]:
     """
     Workflow properties definition.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Site name.

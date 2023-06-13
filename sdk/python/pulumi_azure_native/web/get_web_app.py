@@ -682,7 +682,7 @@ def get_web_app(name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppResult:
     """
     Description for Gets the details of a web, mobile, or API app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -756,7 +756,7 @@ def get_web_app_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppResult]:
     """
     Description for Gets the details of a web, mobile, or API app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.

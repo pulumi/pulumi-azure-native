@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export class DppResourceGuardProxy extends pulumi.CustomResource {
     /**

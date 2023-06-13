@@ -254,7 +254,7 @@ def get_action_group(action_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionGroupResult:
     """
     Get an action group.
-    API Version: 2023-01-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str action_group_name: The name of the action group.
@@ -293,7 +293,7 @@ def get_action_group_output(action_group_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionGroupResult]:
     """
     Get an action group.
-    API Version: 2023-01-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str action_group_name: The name of the action group.

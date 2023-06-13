@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// An UpdateRun is a multi-stage process to perform update operations across members of a Fleet.
-    /// API Version: 2023-03-15-preview.
+    /// Azure REST API version: 2023-03-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:UpdateRun")]
     public partial class UpdateRun : global::Pulumi.CustomResource

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// REST model used to encapsulate the user visible state of a PrivateEndpoint.
-    /// API Version: 2020-05-01.
+    /// Azure REST API version: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:PrivateEndpointConnectionControllerPrivateEndpointConnection")]
     public partial class PrivateEndpointConnectionControllerPrivateEndpointConnection : global::Pulumi.CustomResource

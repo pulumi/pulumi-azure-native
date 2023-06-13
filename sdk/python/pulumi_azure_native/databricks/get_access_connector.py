@@ -134,7 +134,7 @@ def get_access_connector(connector_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessConnectorResult:
     """
     Gets an azure databricks accessConnector.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str connector_name: The name of the azure databricks accessConnector.
@@ -163,7 +163,7 @@ def get_access_connector_output(connector_name: Optional[pulumi.Input[str]] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessConnectorResult]:
     """
     Gets an azure databricks accessConnector.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str connector_name: The name of the azure databricks accessConnector.

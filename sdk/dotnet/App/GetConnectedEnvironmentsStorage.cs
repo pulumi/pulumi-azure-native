@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Get storage for a connectedEnvironment.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetConnectedEnvironmentsStorageResult> InvokeAsync(GetConnectedEnvironmentsStorageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedEnvironmentsStorageResult>("azure-native:app:getConnectedEnvironmentsStorage", args ?? new GetConnectedEnvironmentsStorageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get storage for a connectedEnvironment.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetConnectedEnvironmentsStorageResult> Invoke(GetConnectedEnvironmentsStorageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsStorageResult>("azure-native:app:getConnectedEnvironmentsStorage", args ?? new GetConnectedEnvironmentsStorageInvokeArgs(), options.WithDefaults());

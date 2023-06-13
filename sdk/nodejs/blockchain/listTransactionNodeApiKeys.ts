@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List the API keys for the transaction node.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2018-06-01-preview.
  */
 export function listTransactionNodeApiKeys(args: ListTransactionNodeApiKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTransactionNodeApiKeysResult> {
 
@@ -47,7 +47,7 @@ export interface ListTransactionNodeApiKeysResult {
 }
 /**
  * List the API keys for the transaction node.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2018-06-01-preview.
  */
 export function listTransactionNodeApiKeysOutput(args: ListTransactionNodeApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTransactionNodeApiKeysResult> {
     return pulumi.output(args).apply((a: any) => listTransactionNodeApiKeys(a, opts))

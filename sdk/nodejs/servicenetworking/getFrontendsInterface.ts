@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Frontend
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getFrontendsInterface(args: GetFrontendsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontendsInterfaceResult> {
 
@@ -75,7 +75,7 @@ export interface GetFrontendsInterfaceResult {
 }
 /**
  * Get a Frontend
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getFrontendsInterfaceOutput(args: GetFrontendsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontendsInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getFrontendsInterface(a, opts))

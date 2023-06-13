@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the log profile.
- * API Version: 2016-03-01.
+ * Azure REST API version: 2016-03-01.
  */
 export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {
 
@@ -73,7 +73,7 @@ export interface GetLogProfileResult {
 }
 /**
  * Gets the log profile.
- * API Version: 2016-03-01.
+ * Azure REST API version: 2016-03-01.
  */
 export function getLogProfileOutput(args: GetLogProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogProfileResult> {
     return pulumi.output(args).apply((a: any) => getLogProfile(a, opts))

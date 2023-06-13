@@ -100,7 +100,7 @@ def get_registry_data_version(name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryDataVersionResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str name: Container name.
@@ -132,7 +132,7 @@ def get_registry_data_version_output(name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryDataVersionResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str name: Container name.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the active diagnostic setting for AadIam.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticSettingResult> {
 
@@ -69,7 +69,7 @@ export interface GetDiagnosticSettingResult {
 }
 /**
  * Gets the active diagnostic setting for AadIam.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticSettingResult> {
     return pulumi.output(args).apply((a: any) => getDiagnosticSetting(a, opts))

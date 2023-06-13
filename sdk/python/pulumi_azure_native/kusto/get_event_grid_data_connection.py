@@ -256,7 +256,7 @@ def get_event_grid_data_connection(cluster_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventGridDataConnectionResult:
     """
     Returns a data connection.
-    API Version: 2022-12-29.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -301,7 +301,7 @@ def get_event_grid_data_connection_output(cluster_name: Optional[pulumi.Input[st
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventGridDataConnectionResult]:
     """
     Returns a data connection.
-    API Version: 2022-12-29.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.

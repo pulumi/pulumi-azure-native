@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets the resource description of the specified Event Hubs Cluster.
-        /// API Version: 2021-11-01.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the resource description of the specified Event Hubs Cluster.
-        /// API Version: 2021-11-01.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

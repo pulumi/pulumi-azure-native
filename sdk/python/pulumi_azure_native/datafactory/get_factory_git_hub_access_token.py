@@ -54,7 +54,7 @@ def get_factory_git_hub_access_token(factory_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFactoryGitHubAccessTokenResult:
     """
     Get GitHub Access Token.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str factory_name: The factory name.
@@ -88,7 +88,7 @@ def get_factory_git_hub_access_token_output(factory_name: Optional[pulumi.Input[
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryGitHubAccessTokenResult]:
     """
     Get GitHub Access Token.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str factory_name: The factory name.

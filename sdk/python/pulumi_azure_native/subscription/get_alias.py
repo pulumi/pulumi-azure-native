@@ -97,7 +97,7 @@ def get_alias(alias_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
     Get Alias Subscription.
-    API Version: 2021-10-01.
+    Azure REST API version: 2021-10-01.
 
 
     :param str alias_name: AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
@@ -120,7 +120,7 @@ def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
     Get Alias Subscription.
-    API Version: 2021-10-01.
+    Azure REST API version: 2021-10-01.
 
 
     :param str alias_name: AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.

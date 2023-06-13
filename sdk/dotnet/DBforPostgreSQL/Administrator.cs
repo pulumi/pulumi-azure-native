@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// Represents an Active Directory administrator.
-    /// API Version: 2022-12-01.
+    /// Azure REST API version: 2022-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Administrator")]
     public partial class Administrator : global::Pulumi.CustomResource

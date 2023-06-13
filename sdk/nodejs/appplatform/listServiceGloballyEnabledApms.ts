@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * List globally enabled APMs for a Service.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function listServiceGloballyEnabledApms(args: ListServiceGloballyEnabledApmsArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceGloballyEnabledApmsResult> {
 
@@ -39,7 +39,7 @@ export interface ListServiceGloballyEnabledApmsResult {
 }
 /**
  * List globally enabled APMs for a Service.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function listServiceGloballyEnabledApmsOutput(args: ListServiceGloballyEnabledApmsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceGloballyEnabledApmsResult> {
     return pulumi.output(args).apply((a: any) => listServiceGloballyEnabledApms(a, opts))

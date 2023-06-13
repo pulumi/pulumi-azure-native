@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Monitor
     {
         /// <summary>
         /// Returns the specific Azure Monitor workspace
-        /// API Version: 2023-04-03.
+        /// Azure REST API version: 2023-04-03.
         /// </summary>
         public static Task<GetAzureMonitorWorkspaceResult> InvokeAsync(GetAzureMonitorWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureMonitorWorkspaceResult>("azure-native:monitor:getAzureMonitorWorkspace", args ?? new GetAzureMonitorWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the specific Azure Monitor workspace
-        /// API Version: 2023-04-03.
+        /// Azure REST API version: 2023-04-03.
         /// </summary>
         public static Output<GetAzureMonitorWorkspaceResult> Invoke(GetAzureMonitorWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureMonitorWorkspaceResult>("azure-native:monitor:getAzureMonitorWorkspace", args ?? new GetAzureMonitorWorkspaceInvokeArgs(), options.WithDefaults());

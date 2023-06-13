@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a resource type details in the given subscription and provider.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2020-11-20.
  */
 export function getResourceTypeRegistration(args: GetResourceTypeRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceTypeRegistrationResult> {
 
@@ -48,7 +48,7 @@ export interface GetResourceTypeRegistrationResult {
 }
 /**
  * Gets a resource type details in the given subscription and provider.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2020-11-20.
  */
 export function getResourceTypeRegistrationOutput(args: GetResourceTypeRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceTypeRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getResourceTypeRegistration(a, opts))

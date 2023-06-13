@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns Modeling resources for a given name.
- * API Version: 2022-02-01.
+ * Azure REST API version: 2022-02-01.
  */
 export function getModeling(args: GetModelingArgs, opts?: pulumi.InvokeOptions): Promise<GetModelingResult> {
 
@@ -71,7 +71,7 @@ export interface GetModelingResult {
 }
 /**
  * Returns Modeling resources for a given name.
- * API Version: 2022-02-01.
+ * Azure REST API version: 2022-02-01.
  */
 export function getModelingOutput(args: GetModelingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelingResult> {
     return pulumi.output(args).apply((a: any) => getModeling(a, opts))

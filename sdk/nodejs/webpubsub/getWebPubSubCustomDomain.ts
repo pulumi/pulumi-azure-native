@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a custom domain.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getWebPubSubCustomDomain(args: GetWebPubSubCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubCustomDomainResult> {
 
@@ -71,7 +71,7 @@ export interface GetWebPubSubCustomDomainResult {
 }
 /**
  * Get a custom domain.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getWebPubSubCustomDomainOutput(args: GetWebPubSubCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSubCustomDomain(a, opts))

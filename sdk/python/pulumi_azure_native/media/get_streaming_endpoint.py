@@ -315,7 +315,7 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingEndpointResult:
     """
     Gets a streaming endpoint.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -362,7 +362,7 @@ def get_streaming_endpoint_output(account_name: Optional[pulumi.Input[str]] = No
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingEndpointResult]:
     """
     Gets a streaming endpoint.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The Media Services account name.

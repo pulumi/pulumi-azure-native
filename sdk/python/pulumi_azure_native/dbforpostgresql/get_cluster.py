@@ -410,7 +410,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Gets information about a cluster such as compute and storage configuration and cluster lifecycle metadata such as cluster creation date and time.
-    API Version: 2022-11-08.
+    Azure REST API version: 2022-11-08.
 
 
     :param str cluster_name: The name of the cluster.
@@ -462,7 +462,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Gets information about a cluster such as compute and storage configuration and cluster lifecycle metadata such as cluster creation date and time.
-    API Version: 2022-11-08.
+    Azure REST API version: 2022-11-08.
 
 
     :param str cluster_name: The name of the cluster.

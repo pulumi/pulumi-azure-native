@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 {
     /// <summary>
     /// SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
-    /// API Version: 2022-09-04.
+    /// Azure REST API version: 2022-09-04.
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift:SyncSet")]
     public partial class SyncSet : global::Pulumi.CustomResource

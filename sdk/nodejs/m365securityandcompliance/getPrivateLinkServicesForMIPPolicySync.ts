@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the metadata of a privateLinkServicesForMIPPolicySync resource.
- * API Version: 2021-03-25-preview.
+ * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateLinkServicesForMIPPolicySync(args: GetPrivateLinkServicesForMIPPolicySyncArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForMIPPolicySyncResult> {
 
@@ -78,7 +78,7 @@ export interface GetPrivateLinkServicesForMIPPolicySyncResult {
 }
 /**
  * Get the metadata of a privateLinkServicesForMIPPolicySync resource.
- * API Version: 2021-03-25-preview.
+ * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateLinkServicesForMIPPolicySyncOutput(args: GetPrivateLinkServicesForMIPPolicySyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForMIPPolicySyncResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForMIPPolicySync(a, opts))

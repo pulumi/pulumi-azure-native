@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
-        /// API Version: 2018-05-01.
+        /// Azure REST API version: 2018-05-01.
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure-native:network:getZone", args ?? new GetZoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
-        /// API Version: 2018-05-01.
+        /// Azure REST API version: 2018-05-01.
         /// </summary>
         public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetZoneResult>("azure-native:network:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());

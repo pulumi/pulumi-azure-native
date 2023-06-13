@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the secret of the named value specified by its identifier.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function listWorkspaceNamedValue(args: ListWorkspaceNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNamedValueResult> {
 
@@ -49,7 +49,7 @@ export interface ListWorkspaceNamedValueResult {
 }
 /**
  * Gets the secret of the named value specified by its identifier.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function listWorkspaceNamedValueOutput(args: ListWorkspaceNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNamedValueResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceNamedValue(a, opts))

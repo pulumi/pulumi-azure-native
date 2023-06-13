@@ -254,7 +254,7 @@ def get_datastore(datastore_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatastoreResult:
     """
     Implements datastore GET method.
-    API Version: 2022-07-15-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str datastore_name: Name of the datastore.
@@ -293,7 +293,7 @@ def get_datastore_output(datastore_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatastoreResult]:
     """
     Implements datastore GET method.
-    API Version: 2022-07-15-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str datastore_name: Name of the datastore.

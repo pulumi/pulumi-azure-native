@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a virtual machine from a VM scale set.
- * API Version: 2023-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetVM(args: GetVirtualMachineScaleSetVMArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMResult> {
 
@@ -160,7 +160,7 @@ export interface GetVirtualMachineScaleSetVMResult {
 }
 /**
  * Gets a virtual machine from a VM scale set.
- * API Version: 2023-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetVMOutput(args: GetVirtualMachineScaleSetVMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVM(a, opts))

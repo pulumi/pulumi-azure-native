@@ -146,7 +146,7 @@ def get_disk_access(disk_access_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskAccessResult:
     """
     Gets information about a disk access resource.
-    API Version: 2022-07-02.
+    Azure REST API version: 2022-07-02.
 
 
     :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -176,7 +176,7 @@ def get_disk_access_output(disk_access_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskAccessResult]:
     """
     Gets information about a disk access resource.
-    API Version: 2022-07-02.
+    Azure REST API version: 2022-07-02.
 
 
     :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.

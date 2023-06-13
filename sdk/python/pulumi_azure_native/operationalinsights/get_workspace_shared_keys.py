@@ -61,7 +61,7 @@ def get_workspace_shared_keys(resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceSharedKeysResult:
     """
     Gets the shared keys for a workspace.
-    API Version: 2015-11-01-preview.
+    Azure REST API version: 2015-11-01-preview.
 
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
@@ -84,7 +84,7 @@ def get_workspace_shared_keys_output(resource_group_name: Optional[pulumi.Input[
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceSharedKeysResult]:
     """
     Gets the shared keys for a workspace.
-    API Version: 2015-11-01-preview.
+    Azure REST API version: 2015-11-01-preview.
 
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the access keys of the CommunicationService resource.
- * API Version: 2023-03-31.
+ * Azure REST API version: 2023-03-31.
  */
 export function listCommunicationServiceKeys(args: ListCommunicationServiceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListCommunicationServiceKeysResult> {
 
@@ -51,7 +51,7 @@ export interface ListCommunicationServiceKeysResult {
 }
 /**
  * Get the access keys of the CommunicationService resource.
- * API Version: 2023-03-31.
+ * Azure REST API version: 2023-03-31.
  */
 export function listCommunicationServiceKeysOutput(args: ListCommunicationServiceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCommunicationServiceKeysResult> {
     return pulumi.output(args).apply((a: any) => listCommunicationServiceKeys(a, opts))

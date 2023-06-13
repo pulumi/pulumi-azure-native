@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a virtual wan p2s vpn gateway.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getP2sVpnGateway(args: GetP2sVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayResult> {
 
@@ -94,7 +94,7 @@ export interface GetP2sVpnGatewayResult {
 }
 /**
  * Retrieves the details of a virtual wan p2s vpn gateway.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getP2sVpnGatewayOutput(args: GetP2sVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnGatewayResult> {
     return pulumi.output(args).apply((a: any) => getP2sVpnGateway(a, opts))

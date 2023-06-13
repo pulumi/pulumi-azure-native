@@ -135,7 +135,7 @@ def get_private_resolver_virtual_network_link(dns_forwarding_ruleset_name: Optio
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateResolverVirtualNetworkLinkResult:
     """
     Gets properties of a virtual network link to a DNS forwarding ruleset.
-    API Version: 2022-07-01.
+    Azure REST API version: 2022-07-01.
 
 
     :param str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
@@ -167,7 +167,7 @@ def get_private_resolver_virtual_network_link_output(dns_forwarding_ruleset_name
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateResolverVirtualNetworkLinkResult]:
     """
     Gets properties of a virtual network link to a DNS forwarding ruleset.
-    API Version: 2022-07-01.
+    Azure REST API version: 2022-07-01.
 
 
     :param str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.

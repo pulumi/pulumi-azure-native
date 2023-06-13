@@ -98,7 +98,7 @@ def list_static_site_build_function_app_settings(environment_name: Optional[str]
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteBuildFunctionAppSettingsResult:
     """
     Description for Gets the application settings of a static site build.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str environment_name: The stage site identifier.
@@ -127,7 +127,7 @@ def list_static_site_build_function_app_settings_output(environment_name: Option
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteBuildFunctionAppSettingsResult]:
     """
     Description for Gets the application settings of a static site build.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str environment_name: The stage site identifier.

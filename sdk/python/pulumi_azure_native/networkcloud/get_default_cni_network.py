@@ -289,7 +289,7 @@ def get_default_cni_network(default_cni_network_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultCniNetworkResult:
     """
     Get properties of the provided default CNI network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str default_cni_network_name: The name of the default CNI network.
@@ -331,7 +331,7 @@ def get_default_cni_network_output(default_cni_network_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultCniNetworkResult]:
     """
     Get properties of the provided default CNI network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str default_cni_network_name: The name of the default CNI network.

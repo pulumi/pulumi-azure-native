@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get FarmBeats resource.
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getFarmBeatsModel(args: GetFarmBeatsModelArgs, opts?: pulumi.InvokeOptions): Promise<GetFarmBeatsModelResult> {
 
@@ -86,7 +86,7 @@ export interface GetFarmBeatsModelResult {
 }
 /**
  * Get FarmBeats resource.
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getFarmBeatsModelOutput(args: GetFarmBeatsModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFarmBeatsModelResult> {
     return pulumi.output(args).apply((a: any) => getFarmBeatsModel(a, opts))

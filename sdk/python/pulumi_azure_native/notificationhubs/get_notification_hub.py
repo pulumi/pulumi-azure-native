@@ -207,7 +207,7 @@ def get_notification_hub(namespace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationHubResult:
     """
     Lists the notification hubs associated with a namespace.
-    API Version: 2017-04-01.
+    Azure REST API version: 2017-04-01.
 
 
     :param str namespace_name: The namespace name.
@@ -245,7 +245,7 @@ def get_notification_hub_output(namespace_name: Optional[pulumi.Input[str]] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationHubResult]:
     """
     Lists the notification hubs associated with a namespace.
-    API Version: 2017-04-01.
+    Azure REST API version: 2017-04-01.
 
 
     :param str namespace_name: The namespace name.

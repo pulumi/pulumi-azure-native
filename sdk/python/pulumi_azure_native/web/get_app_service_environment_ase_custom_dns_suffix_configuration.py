@@ -139,7 +139,7 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration(name: Option
                                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult:
     """
     Full view of the custom domain suffix configuration for ASEv3.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the App Service Environment.
@@ -169,7 +169,7 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration_output(name:
                                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult]:
     """
     Full view of the custom domain suffix configuration for ASEv3.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the App Service Environment.

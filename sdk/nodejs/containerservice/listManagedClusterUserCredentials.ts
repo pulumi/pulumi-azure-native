@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The list credential result response.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listManagedClusterUserCredentials(args: ListManagedClusterUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterUserCredentialsResult> {
 
@@ -52,7 +52,7 @@ export interface ListManagedClusterUserCredentialsResult {
 }
 /**
  * The list credential result response.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listManagedClusterUserCredentialsOutput(args: ListManagedClusterUserCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterUserCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listManagedClusterUserCredentials(a, opts))

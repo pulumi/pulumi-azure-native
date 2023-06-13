@@ -163,7 +163,7 @@ class Registry(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        API Version: 2023-04-01.
+        Azure REST API version: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +183,7 @@ class Registry(pulumi.CustomResource):
                  args: RegistryInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2023-04-01.
+        Azure REST API version: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param RegistryInitArgs args: The arguments to use to populate this resource's properties.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevHub
     {
         /// <summary>
         /// Resource representation of a workflow
-        /// API Version: 2022-10-11-preview.
+        /// Azure REST API version: 2022-10-11-preview.
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:devhub:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource representation of a workflow
-        /// API Version: 2022-10-11-preview.
+        /// Azure REST API version: 2022-10-11-preview.
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:devhub:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());

@@ -160,7 +160,7 @@ def get_restore_point(expand: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestorePointResult:
     """
     The operation to get the restore point.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.
@@ -197,7 +197,7 @@ def get_restore_point_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestorePointResult]:
     """
     The operation to get the restore point.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves information about the run-time state of a restore point.

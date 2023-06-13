@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getPrivateEndpointConnectionProxy(args: GetPrivateEndpointConnectionProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionProxyResult> {
 
@@ -75,7 +75,7 @@ export interface GetPrivateEndpointConnectionProxyResult {
 }
 /**
  * (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getPrivateEndpointConnectionProxyOutput(args: GetPrivateEndpointConnectionProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionProxyResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionProxy(a, opts))

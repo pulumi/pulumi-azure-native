@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NotificationHubs
     {
         /// <summary>
         /// Gets the Primary and Secondary ConnectionStrings to the namespace 
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2017-04-01.
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:notificationhubs:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Primary and Secondary ConnectionStrings to the namespace 
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2017-04-01.
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:notificationhubs:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithDefaults());

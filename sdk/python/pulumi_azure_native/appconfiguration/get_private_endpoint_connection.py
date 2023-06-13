@@ -111,7 +111,7 @@ def get_private_endpoint_connection(config_store_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the configuration store.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -141,7 +141,7 @@ def get_private_endpoint_connection_output(config_store_name: Optional[pulumi.In
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the configuration store.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str config_store_name: The name of the configuration store.

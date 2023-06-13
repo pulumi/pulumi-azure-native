@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataProtection
     {
         /// <summary>
         /// Returns a resource belonging to a resource group.
-        /// API Version: 2023-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<GetBackupVaultResult> InvokeAsync(GetBackupVaultArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupVaultResult>("azure-native:dataprotection:getBackupVault", args ?? new GetBackupVaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a resource belonging to a resource group.
-        /// API Version: 2023-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<GetBackupVaultResult> Invoke(GetBackupVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupVaultResult>("azure-native:dataprotection:getBackupVault", args ?? new GetBackupVaultInvokeArgs(), options.WithDefaults());

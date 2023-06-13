@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridConnectivity
     {
         /// <summary>
         /// Fetches the managed proxy details 
-        /// API Version: 2023-03-15.
+        /// Azure REST API version: 2023-03-15.
         /// </summary>
         public static Task<ListEndpointManagedProxyDetailsResult> InvokeAsync(ListEndpointManagedProxyDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEndpointManagedProxyDetailsResult>("azure-native:hybridconnectivity:listEndpointManagedProxyDetails", args ?? new ListEndpointManagedProxyDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Fetches the managed proxy details 
-        /// API Version: 2023-03-15.
+        /// Azure REST API version: 2023-03-15.
         /// </summary>
         public static Output<ListEndpointManagedProxyDetailsResult> Invoke(ListEndpointManagedProxyDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEndpointManagedProxyDetailsResult>("azure-native:hybridconnectivity:listEndpointManagedProxyDetails", args ?? new ListEndpointManagedProxyDetailsInvokeArgs(), options.WithDefaults());

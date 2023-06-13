@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Network Virtual Appliance.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceResult> {
 
@@ -139,7 +139,7 @@ export interface GetNetworkVirtualApplianceResult {
 }
 /**
  * Gets the specified Network Virtual Appliance.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getNetworkVirtualApplianceOutput(args: GetNetworkVirtualApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkVirtualApplianceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkVirtualAppliance(a, opts))

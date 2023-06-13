@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Gets a Kusto cluster database principalAssignment.
-        /// API Version: 2022-12-29.
+        /// Azure REST API version: 2022-12-29.
         /// </summary>
         public static Task<GetDatabasePrincipalAssignmentResult> InvokeAsync(GetDatabasePrincipalAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabasePrincipalAssignmentResult>("azure-native:kusto:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Kusto cluster database principalAssignment.
-        /// API Version: 2022-12-29.
+        /// Azure REST API version: 2022-12-29.
         /// </summary>
         public static Output<GetDatabasePrincipalAssignmentResult> Invoke(GetDatabasePrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabasePrincipalAssignmentResult>("azure-native:kusto:getDatabasePrincipalAssignment", args ?? new GetDatabasePrincipalAssignmentInvokeArgs(), options.WithDefaults());

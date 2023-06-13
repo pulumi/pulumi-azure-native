@@ -87,7 +87,7 @@ def get_function(function_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionResult:
     """
     Gets details about the specified function.
-    API Version: 2020-03-01.
+    Azure REST API version: 2020-03-01.
 
 
     :param str function_name: The name of the function.
@@ -115,7 +115,7 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
     """
     Gets details about the specified function.
-    API Version: 2020-03-01.
+    Azure REST API version: 2020-03-01.
 
 
     :param str function_name: The name of the function.

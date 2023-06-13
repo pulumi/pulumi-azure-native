@@ -160,7 +160,7 @@ def get_policy_assignment_artifact(artifact_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyAssignmentArtifactResult:
     """
     Get a blueprint artifact.
-    API Version: 2018-11-01-preview.
+    Azure REST API version: 2018-11-01-preview.
 
 
     :param str artifact_name: Name of the blueprint artifact.
@@ -194,7 +194,7 @@ def get_policy_assignment_artifact_output(artifact_name: Optional[pulumi.Input[s
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentArtifactResult]:
     """
     Get a blueprint artifact.
-    API Version: 2018-11-01-preview.
+    Azure REST API version: 2018-11-01-preview.
 
 
     :param str artifact_name: Name of the blueprint artifact.

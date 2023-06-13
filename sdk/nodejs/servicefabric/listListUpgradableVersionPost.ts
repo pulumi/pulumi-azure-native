@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * If a target is not provided, it will get the minimum and maximum versions available from the current cluster version. If a target is given, it will provide the required path to get from the current cluster version to the target version.
- * API Version: 2020-12-01-preview.
+ * Azure REST API version: 2020-12-01-preview.
  */
 export function listListUpgradableVersionPost(args: ListListUpgradableVersionPostArgs, opts?: pulumi.InvokeOptions): Promise<ListListUpgradableVersionPostResult> {
 
@@ -41,7 +41,7 @@ export interface ListListUpgradableVersionPostResult {
 }
 /**
  * If a target is not provided, it will get the minimum and maximum versions available from the current cluster version. If a target is given, it will provide the required path to get from the current cluster version to the target version.
- * API Version: 2020-12-01-preview.
+ * Azure REST API version: 2020-12-01-preview.
  */
 export function listListUpgradableVersionPostOutput(args: ListListUpgradableVersionPostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListUpgradableVersionPostResult> {
     return pulumi.output(args).apply((a: any) => listListUpgradableVersionPost(a, opts))

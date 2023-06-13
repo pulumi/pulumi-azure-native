@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get details of a hostname configuration
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetGatewayHostnameConfigurationResult> InvokeAsync(GetGatewayHostnameConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayHostnameConfigurationResult>("azure-native:apimanagement:getGatewayHostnameConfiguration", args ?? new GetGatewayHostnameConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get details of a hostname configuration
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetGatewayHostnameConfigurationResult> Invoke(GetGatewayHostnameConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayHostnameConfigurationResult>("azure-native:apimanagement:getGatewayHostnameConfiguration", args ?? new GetGatewayHostnameConfigurationInvokeArgs(), options.WithDefaults());

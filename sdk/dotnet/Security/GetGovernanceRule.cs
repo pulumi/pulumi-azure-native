@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Get a specific governance rule for the requested scope by ruleId
-        /// API Version: 2022-01-01-preview.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetGovernanceRuleResult> InvokeAsync(GetGovernanceRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGovernanceRuleResult>("azure-native:security:getGovernanceRule", args ?? new GetGovernanceRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific governance rule for the requested scope by ruleId
-        /// API Version: 2022-01-01-preview.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetGovernanceRuleResult> Invoke(GetGovernanceRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGovernanceRuleResult>("azure-native:security:getGovernanceRule", args ?? new GetGovernanceRuleInvokeArgs(), options.WithDefaults());

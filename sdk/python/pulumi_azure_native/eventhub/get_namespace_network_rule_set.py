@@ -158,7 +158,7 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceNetworkRuleSetResult:
     """
     Gets NetworkRuleSet for a Namespace.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str namespace_name: The Namespace name
@@ -189,7 +189,7 @@ def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceNetworkRuleSetResult]:
     """
     Gets NetworkRuleSet for a Namespace.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str namespace_name: The Namespace name

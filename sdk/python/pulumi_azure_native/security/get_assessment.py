@@ -159,7 +159,7 @@ def get_assessment(assessment_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
     Get a security assessment on your scanned resource
-    API Version: 2021-06-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str assessment_name: The Assessment Key - Unique key for the assessment type
@@ -193,7 +193,7 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentResult]:
     """
     Get a security assessment on your scanned resource
-    API Version: 2021-06-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str assessment_name: The Assessment Key - Unique key for the assessment type

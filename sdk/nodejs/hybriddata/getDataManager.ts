@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified data manager resource.
- * API Version: 2019-06-01.
+ * Azure REST API version: 2019-06-01.
  */
 export function getDataManager(args: GetDataManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataManagerResult> {
 
@@ -69,7 +69,7 @@ export interface GetDataManagerResult {
 }
 /**
  * Gets information about the specified data manager resource.
- * API Version: 2019-06-01.
+ * Azure REST API version: 2019-06-01.
  */
 export function getDataManagerOutput(args: GetDataManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataManagerResult> {
     return pulumi.output(args).apply((a: any) => getDataManager(a, opts))

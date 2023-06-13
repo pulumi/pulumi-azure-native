@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getProtectedItem(args: GetProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectedItemResult> {
 
@@ -88,7 +88,7 @@ export interface GetProtectedItemResult {
 /**
  * Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectedItemResult> {
     return pulumi.output(args).apply((a: any) => getProtectedItem(a, opts))

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StorageCache
 {
     /// <summary>
     /// An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-    /// API Version: 2023-05-01.
+    /// Azure REST API version: 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache:AmlFilesystem")]
     public partial class AmlFilesystem : global::Pulumi.CustomResource

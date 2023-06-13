@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
- * API Version: 2023-04-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getTableResourceTable(args: GetTableResourceTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResourceTableResult> {
 
@@ -65,7 +65,7 @@ export interface GetTableResourceTableResult {
 }
 /**
  * Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
- * API Version: 2023-04-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getTableResourceTableOutput(args: GetTableResourceTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResourceTableResult> {
     return pulumi.output(args).apply((a: any) => getTableResourceTable(a, opts))

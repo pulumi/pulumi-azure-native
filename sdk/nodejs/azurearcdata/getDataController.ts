@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves a dataController resource
- * API Version: 2023-01-15-preview.
+ * Azure REST API version: 2023-01-15-preview.
  */
 export function getDataController(args: GetDataControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataControllerResult> {
 
@@ -70,7 +70,7 @@ export interface GetDataControllerResult {
 }
 /**
  * Retrieves a dataController resource
- * API Version: 2023-01-15-preview.
+ * Azure REST API version: 2023-01-15-preview.
  */
 export function getDataControllerOutput(args: GetDataControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataControllerResult> {
     return pulumi.output(args).apply((a: any) => getDataController(a, opts))

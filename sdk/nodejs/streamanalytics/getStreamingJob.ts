@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details about the specified streaming job.
- * API Version: 2020-03-01.
+ * Azure REST API version: 2020-03-01.
  */
 export function getStreamingJob(args: GetStreamingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingJobResult> {
 
@@ -159,7 +159,7 @@ export interface GetStreamingJobResult {
 }
 /**
  * Gets details about the specified streaming job.
- * API Version: 2020-03-01.
+ * Azure REST API version: 2020-03-01.
  */
 export function getStreamingJobOutput(args: GetStreamingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingJobResult> {
     return pulumi.output(args).apply((a: any) => getStreamingJob(a, opts))

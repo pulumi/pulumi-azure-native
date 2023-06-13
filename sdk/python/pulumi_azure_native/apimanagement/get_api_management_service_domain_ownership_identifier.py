@@ -46,7 +46,7 @@ class AwaitableGetApiManagementServiceDomainOwnershipIdentifierResult(GetApiMana
 def get_api_management_service_domain_ownership_identifier(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceDomainOwnershipIdentifierResult:
     """
     Get the custom domain ownership identifier for an API Management service.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

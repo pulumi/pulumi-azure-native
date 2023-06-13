@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a relation for a given incident.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetIncidentRelationResult> InvokeAsync(GetIncidentRelationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentRelationResult>("azure-native:securityinsights:getIncidentRelation", args ?? new GetIncidentRelationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a relation for a given incident.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetIncidentRelationResult> Invoke(GetIncidentRelationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentRelationResult>("azure-native:securityinsights:getIncidentRelation", args ?? new GetIncidentRelationInvokeArgs(), options.WithDefaults());

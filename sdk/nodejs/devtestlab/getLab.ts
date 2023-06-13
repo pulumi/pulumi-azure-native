@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get lab.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
 
@@ -145,7 +145,7 @@ export interface GetLabResult {
 }
 /**
  * Get lab.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
     return pulumi.output(args).apply((a: any) => getLab(a, opts))

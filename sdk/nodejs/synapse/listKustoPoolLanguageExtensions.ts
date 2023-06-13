@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a list of language extensions that can run within KQL queries.
- * API Version: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function listKustoPoolLanguageExtensions(args: ListKustoPoolLanguageExtensionsArgs, opts?: pulumi.InvokeOptions): Promise<ListKustoPoolLanguageExtensionsResult> {
 
@@ -47,7 +47,7 @@ export interface ListKustoPoolLanguageExtensionsResult {
 }
 /**
  * Returns a list of language extensions that can run within KQL queries.
- * API Version: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function listKustoPoolLanguageExtensionsOutput(args: ListKustoPoolLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKustoPoolLanguageExtensionsResult> {
     return pulumi.output(args).apply((a: any) => listKustoPoolLanguageExtensions(a, opts))

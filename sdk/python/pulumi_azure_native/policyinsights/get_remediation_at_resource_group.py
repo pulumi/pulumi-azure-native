@@ -242,7 +242,7 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtResourceGroupResult:
     """
     Gets an existing remediation at resource group scope.
-    API Version: 2021-10-01.
+    Azure REST API version: 2021-10-01.
 
 
     :param str remediation_name: The name of the remediation.
@@ -280,7 +280,7 @@ def get_remediation_at_resource_group_output(remediation_name: Optional[pulumi.I
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemediationAtResourceGroupResult]:
     """
     Gets an existing remediation at resource group scope.
-    API Version: 2021-10-01.
+    Azure REST API version: 2021-10-01.
 
 
     :param str remediation_name: The name of the remediation.

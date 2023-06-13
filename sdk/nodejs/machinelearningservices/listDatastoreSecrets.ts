@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Base definition for datastore secrets.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listDatastoreSecrets(args: ListDatastoreSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatastoreSecretsResult> {
 
@@ -44,7 +44,7 @@ export interface ListDatastoreSecretsResult {
 }
 /**
  * Base definition for datastore secrets.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listDatastoreSecretsOutput(args: ListDatastoreSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatastoreSecretsResult> {
     return pulumi.output(args).apply((a: any) => listDatastoreSecrets(a, opts))

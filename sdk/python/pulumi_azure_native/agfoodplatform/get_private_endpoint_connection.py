@@ -135,7 +135,7 @@ def get_private_endpoint_connection(farm_beats_resource_name: Optional[str] = No
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Get Private endpoint connection object.
-    API Version: 2021-09-01-preview.
+    Azure REST API version: 2021-09-01-preview.
 
 
     :param str farm_beats_resource_name: FarmBeats resource name.
@@ -167,7 +167,7 @@ def get_private_endpoint_connection_output(farm_beats_resource_name: Optional[pu
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get Private endpoint connection object.
-    API Version: 2021-09-01-preview.
+    Azure REST API version: 2021-09-01-preview.
 
 
     :param str farm_beats_resource_name: FarmBeats resource name.

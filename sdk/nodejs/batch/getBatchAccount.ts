@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified Batch account.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchAccountResult> {
 
@@ -124,7 +124,7 @@ export interface GetBatchAccountResult {
 }
 /**
  * Gets information about the specified Batch account.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getBatchAccountOutput(args: GetBatchAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchAccountResult> {
     return pulumi.output(args).apply((a: any) => getBatchAccount(a, opts))

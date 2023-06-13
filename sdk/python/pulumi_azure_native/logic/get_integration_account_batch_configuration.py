@@ -111,7 +111,7 @@ def get_integration_account_batch_configuration(batch_configuration_name: Option
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountBatchConfigurationResult:
     """
     Get a batch configuration for an integration account.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str batch_configuration_name: The batch configuration name.
@@ -141,7 +141,7 @@ def get_integration_account_batch_configuration_output(batch_configuration_name:
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountBatchConfigurationResult]:
     """
     Get a batch configuration for an integration account.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str batch_configuration_name: The batch configuration name.

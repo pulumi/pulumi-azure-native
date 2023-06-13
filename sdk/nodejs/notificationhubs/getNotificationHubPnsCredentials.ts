@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the PNS Credentials associated with a notification hub .
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function getNotificationHubPnsCredentials(args: GetNotificationHubPnsCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubPnsCredentialsResult> {
 
@@ -91,7 +91,7 @@ export interface GetNotificationHubPnsCredentialsResult {
 }
 /**
  * Lists the PNS Credentials associated with a notification hub .
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubPnsCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubPnsCredentialsResult> {
     return pulumi.output(args).apply((a: any) => getNotificationHubPnsCredentials(a, opts))

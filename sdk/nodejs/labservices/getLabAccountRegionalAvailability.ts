@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get regional availability information for each size category configured under a lab account
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function getLabAccountRegionalAvailability(args: GetLabAccountRegionalAvailabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetLabAccountRegionalAvailabilityResult> {
 
@@ -42,7 +42,7 @@ export interface GetLabAccountRegionalAvailabilityResult {
 }
 /**
  * Get regional availability information for each size category configured under a lab account
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function getLabAccountRegionalAvailabilityOutput(args: GetLabAccountRegionalAvailabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabAccountRegionalAvailabilityResult> {
     return pulumi.output(args).apply((a: any) => getLabAccountRegionalAvailability(a, opts))

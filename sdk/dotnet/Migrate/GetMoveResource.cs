@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Gets the Move Resource.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetMoveResourceResult> InvokeAsync(GetMoveResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMoveResourceResult>("azure-native:migrate:getMoveResource", args ?? new GetMoveResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Move Resource.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetMoveResourceResult> Invoke(GetMoveResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMoveResourceResult>("azure-native:migrate:getMoveResource", args ?? new GetMoveResourceInvokeArgs(), options.WithDefaults());

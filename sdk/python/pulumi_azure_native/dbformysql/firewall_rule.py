@@ -109,8 +109,7 @@ class FirewallRule(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a server firewall rule.
-        API Version: 2022-01-01.
-        Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,8 +127,7 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server firewall rule.
-        API Version: 2022-01-01.
-        Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.

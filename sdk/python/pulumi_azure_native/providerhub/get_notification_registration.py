@@ -83,7 +83,7 @@ def get_notification_registration(notification_registration_name: Optional[str] 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationRegistrationResult:
     """
     Gets the notification registration details.
-    API Version: 2020-11-20.
+    Azure REST API version: 2020-11-20.
 
 
     :param str notification_registration_name: The notification registration.
@@ -108,7 +108,7 @@ def get_notification_registration_output(notification_registration_name: Optiona
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationRegistrationResult]:
     """
     Gets the notification registration details.
-    API Version: 2020-11-20.
+    Azure REST API version: 2020-11-20.
 
 
     :param str notification_registration_name: The notification registration.

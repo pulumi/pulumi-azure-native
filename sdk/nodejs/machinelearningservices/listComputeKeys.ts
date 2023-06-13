@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listComputeKeys(args: ListComputeKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListComputeKeysResult> {
 
@@ -44,7 +44,7 @@ export interface ListComputeKeysResult {
 }
 /**
  * Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listComputeKeysOutput(args: ListComputeKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListComputeKeysResult> {
     return pulumi.output(args).apply((a: any) => listComputeKeys(a, opts))

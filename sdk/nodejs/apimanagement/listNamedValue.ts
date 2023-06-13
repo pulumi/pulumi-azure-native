@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the secret of the named value specified by its identifier.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function listNamedValue(args: ListNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<ListNamedValueResult> {
 
@@ -44,7 +44,7 @@ export interface ListNamedValueResult {
 }
 /**
  * Gets the secret of the named value specified by its identifier.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function listNamedValueOutput(args: ListNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamedValueResult> {
     return pulumi.output(args).apply((a: any) => listNamedValue(a, opts))

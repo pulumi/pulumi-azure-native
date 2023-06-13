@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific role by name.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getMECRole(args: GetMECRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetMECRoleResult> {
 
@@ -80,7 +80,7 @@ export interface GetMECRoleResult {
 }
 /**
  * Gets a specific role by name.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getMECRoleOutput(args: GetMECRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMECRoleResult> {
     return pulumi.output(args).apply((a: any) => getMECRole(a, opts))

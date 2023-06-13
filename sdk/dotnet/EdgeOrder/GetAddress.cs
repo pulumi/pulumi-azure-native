@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EdgeOrder
     {
         /// <summary>
         /// Get information about the specified address.
-        /// API Version: 2022-05-01-preview.
+        /// Azure REST API version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetAddressResult> InvokeAsync(GetAddressArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddressResult>("azure-native:edgeorder:getAddress", args ?? new GetAddressArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about the specified address.
-        /// API Version: 2022-05-01-preview.
+        /// Azure REST API version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetAddressResult> Invoke(GetAddressInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddressResult>("azure-native:edgeorder:getAddress", args ?? new GetAddressInvokeArgs(), options.WithDefaults());

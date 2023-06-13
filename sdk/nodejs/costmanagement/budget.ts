@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A budget resource.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export class Budget extends pulumi.CustomResource {
     /**

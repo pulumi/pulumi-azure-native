@@ -88,7 +88,7 @@ def get_workspace_tag_product_link(product_link_id: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceTagProductLinkResult:
     """
     Gets the product link for the tag.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str product_link_id: Tag-product link identifier. Must be unique in the current API Management service instance.
@@ -122,7 +122,7 @@ def get_workspace_tag_product_link_output(product_link_id: Optional[pulumi.Input
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceTagProductLinkResult]:
     """
     Gets the product link for the tag.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str product_link_id: Tag-product link identifier. Must be unique in the current API Management service instance.

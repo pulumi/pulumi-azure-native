@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the recommended SAP Availability Zone Pair Details for your region.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getSAPAvailabilityZoneDetails(args: GetSAPAvailabilityZoneDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPAvailabilityZoneDetailsResult> {
 
@@ -52,7 +52,7 @@ export interface GetSAPAvailabilityZoneDetailsResult {
 }
 /**
  * Get the recommended SAP Availability Zone Pair Details for your region.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getSAPAvailabilityZoneDetailsOutput(args: GetSAPAvailabilityZoneDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPAvailabilityZoneDetailsResult> {
     return pulumi.output(args).apply((a: any) => getSAPAvailabilityZoneDetails(a, opts))

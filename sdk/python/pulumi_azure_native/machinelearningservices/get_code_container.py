@@ -99,7 +99,7 @@ def get_code_container(name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCodeContainerResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str name: Container name. This is case-sensitive.
@@ -128,7 +128,7 @@ def get_code_container_output(name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodeContainerResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str name: Container name. This is case-sensitive.

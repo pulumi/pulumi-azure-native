@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an Event Grid data connection.
- * API Version: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export class EventGridDataConnection extends pulumi.CustomResource {
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Capability resource that extends a Target resource.
- * API Version: 2022-10-01-preview.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getCapability(args: GetCapabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetCapabilityResult> {
 
@@ -78,7 +78,7 @@ export interface GetCapabilityResult {
 }
 /**
  * Get a Capability resource that extends a Target resource.
- * API Version: 2022-10-01-preview.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getCapabilityOutput(args: GetCapabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapabilityResult> {
     return pulumi.output(args).apply((a: any) => getCapability(a, opts))

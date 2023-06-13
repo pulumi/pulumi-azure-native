@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// List globally enabled APMs for a Service.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<ListServiceGloballyEnabledApmsResult> InvokeAsync(ListServiceGloballyEnabledApmsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListServiceGloballyEnabledApmsResult>("azure-native:appplatform:listServiceGloballyEnabledApms", args ?? new ListServiceGloballyEnabledApmsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List globally enabled APMs for a Service.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<ListServiceGloballyEnabledApmsResult> Invoke(ListServiceGloballyEnabledApmsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListServiceGloballyEnabledApmsResult>("azure-native:appplatform:listServiceGloballyEnabledApms", args ?? new ListServiceGloballyEnabledApmsInvokeArgs(), options.WithDefaults());

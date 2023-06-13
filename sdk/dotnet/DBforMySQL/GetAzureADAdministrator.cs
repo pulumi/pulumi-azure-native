@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Gets information about an azure ad administrator.
-        /// API Version: 2022-01-01.
+        /// Azure REST API version: 2022-01-01.
         /// </summary>
         public static Task<GetAzureADAdministratorResult> InvokeAsync(GetAzureADAdministratorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureADAdministratorResult>("azure-native:dbformysql:getAzureADAdministrator", args ?? new GetAzureADAdministratorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about an azure ad administrator.
-        /// API Version: 2022-01-01.
+        /// Azure REST API version: 2022-01-01.
         /// </summary>
         public static Output<GetAzureADAdministratorResult> Invoke(GetAzureADAdministratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureADAdministratorResult>("azure-native:dbformysql:getAzureADAdministrator", args ?? new GetAzureADAdministratorInvokeArgs(), options.WithDefaults());

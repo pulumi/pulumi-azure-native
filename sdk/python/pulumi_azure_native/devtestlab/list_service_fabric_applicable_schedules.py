@@ -124,7 +124,7 @@ def list_service_fabric_applicable_schedules(lab_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServiceFabricApplicableSchedulesResult:
     """
     Lists the applicable start/stop schedules, if any.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str lab_name: The name of the lab.
@@ -158,7 +158,7 @@ def list_service_fabric_applicable_schedules_output(lab_name: Optional[pulumi.In
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServiceFabricApplicableSchedulesResult]:
     """
     Lists the applicable start/stop schedules, if any.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str lab_name: The name of the lab.

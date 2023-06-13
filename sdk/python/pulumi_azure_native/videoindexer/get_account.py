@@ -194,7 +194,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Gets the properties of an Azure Video Indexer account.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str account_name: The name of the Azure Video Indexer account.
@@ -228,7 +228,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Gets the properties of an Azure Video Indexer account.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str account_name: The name of the Azure Video Indexer account.

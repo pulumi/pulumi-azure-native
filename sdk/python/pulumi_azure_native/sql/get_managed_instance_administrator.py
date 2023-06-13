@@ -122,7 +122,7 @@ def get_managed_instance_administrator(administrator_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceAdministratorResult:
     """
     Gets a managed instance administrator.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str managed_instance_name: The name of the managed instance.
@@ -152,7 +152,7 @@ def get_managed_instance_administrator_output(administrator_name: Optional[pulum
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceAdministratorResult]:
     """
     Gets a managed instance administrator.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str managed_instance_name: The name of the managed instance.

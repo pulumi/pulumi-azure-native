@@ -111,7 +111,7 @@ def get_solution(farm_beats_resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionResult:
     """
     Get installed Solution details by Solution id.
-    API Version: 2021-09-01-preview.
+    Azure REST API version: 2021-09-01-preview.
 
 
     :param str farm_beats_resource_name: FarmBeats resource name.
@@ -141,7 +141,7 @@ def get_solution_output(farm_beats_resource_name: Optional[pulumi.Input[str]] = 
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionResult]:
     """
     Get installed Solution details by Solution id.
-    API Version: 2021-09-01-preview.
+    Azure REST API version: 2021-09-01-preview.
 
 
     :param str farm_beats_resource_name: FarmBeats resource name.

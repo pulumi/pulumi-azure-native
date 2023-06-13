@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of an event subscription of a domain.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getDomainEventSubscription(args: GetDomainEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainEventSubscriptionResult> {
 
@@ -107,7 +107,7 @@ export interface GetDomainEventSubscriptionResult {
 }
 /**
  * Get properties of an event subscription of a domain.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getDomainEventSubscriptionOutput(args: GetDomainEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getDomainEventSubscription(a, opts))

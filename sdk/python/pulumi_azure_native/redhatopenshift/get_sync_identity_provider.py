@@ -96,7 +96,7 @@ def get_sync_identity_provider(child_resource_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncIdentityProviderResult:
     """
     The operation returns properties of a SyncIdentityProvider.
-    API Version: 2022-09-04.
+    Azure REST API version: 2022-09-04.
 
 
     :param str child_resource_name: The name of the SyncIdentityProvider resource.
@@ -125,7 +125,7 @@ def get_sync_identity_provider_output(child_resource_name: Optional[pulumi.Input
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncIdentityProviderResult]:
     """
     The operation returns properties of a SyncIdentityProvider.
-    API Version: 2022-09-04.
+    Azure REST API version: 2022-09-04.
 
 
     :param str child_resource_name: The name of the SyncIdentityProvider resource.

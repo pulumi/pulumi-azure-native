@@ -136,7 +136,7 @@ def get_application_type_version(application_type_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationTypeVersionResult:
     """
     Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str application_type_name: The name of the application type name resource.
@@ -171,7 +171,7 @@ def get_application_type_version_output(application_type_name: Optional[pulumi.I
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationTypeVersionResult]:
     """
     Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str application_type_name: The name of the application type name resource.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container App Auth Token.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getContainerAppAuthToken(args: GetContainerAppAuthTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppAuthTokenResult> {
 
@@ -70,7 +70,7 @@ export interface GetContainerAppAuthTokenResult {
 }
 /**
  * Container App Auth Token.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getContainerAppAuthTokenOutput(args: GetContainerAppAuthTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppAuthTokenResult> {
     return pulumi.output(args).apply((a: any) => getContainerAppAuthToken(a, opts))

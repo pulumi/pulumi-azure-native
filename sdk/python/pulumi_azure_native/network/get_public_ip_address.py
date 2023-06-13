@@ -339,7 +339,7 @@ def get_public_ip_address(expand: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPAddressResult:
     """
     Gets the specified public IP address in a specified resource group.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.
@@ -388,7 +388,7 @@ def get_public_ip_address_output(expand: Optional[pulumi.Input[Optional[str]]] =
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIPAddressResult]:
     """
     Gets the specified public IP address in a specified resource group.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.

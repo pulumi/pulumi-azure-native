@@ -83,7 +83,7 @@ def get_subscription_feature_registration(feature_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionFeatureRegistrationResult:
     """
     Returns a feature registration
-    API Version: 2021-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str feature_name: The feature name.
@@ -108,7 +108,7 @@ def get_subscription_feature_registration_output(feature_name: Optional[pulumi.I
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionFeatureRegistrationResult]:
     """
     Returns a feature registration
-    API Version: 2021-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str feature_name: The feature name.

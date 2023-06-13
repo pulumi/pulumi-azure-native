@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a list of products.
- * API Version: 2022-06-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function listProducts(args: ListProductsArgs, opts?: pulumi.InvokeOptions): Promise<ListProductsResult> {
 
@@ -51,7 +51,7 @@ export interface ListProductsResult {
 }
 /**
  * Returns a list of products.
- * API Version: 2022-06-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function listProductsOutput(args: ListProductsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductsResult> {
     return pulumi.output(args).apply((a: any) => listProducts(a, opts))

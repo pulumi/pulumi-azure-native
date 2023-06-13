@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
     {
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
-        /// API Version: 2021-03-25-preview.
+        /// Azure REST API version: 2021-03-25-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsForSCCPowershellResult> InvokeAsync(GetPrivateEndpointConnectionsForSCCPowershellArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsForSCCPowershellResult>("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsForSCCPowershell", args ?? new GetPrivateEndpointConnectionsForSCCPowershellArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
-        /// API Version: 2021-03-25-preview.
+        /// Azure REST API version: 2021-03-25-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsForSCCPowershellResult> Invoke(GetPrivateEndpointConnectionsForSCCPowershellInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsForSCCPowershellResult>("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsForSCCPowershell", args ?? new GetPrivateEndpointConnectionsForSCCPowershellInvokeArgs(), options.WithDefaults());

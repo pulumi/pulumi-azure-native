@@ -87,7 +87,7 @@ def get_product_wiki(product_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductWikiResult:
     """
     Gets the details of the Wiki for a Product specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
@@ -115,7 +115,7 @@ def get_product_wiki_output(product_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductWikiResult]:
     """
     Gets the details of the Wiki for a Product specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.

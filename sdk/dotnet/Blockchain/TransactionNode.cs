@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.Blockchain
 {
     /// <summary>
     /// Payload of the transaction node which is the request/response of the resource provider.
-    /// API Version: 2018-06-01-preview.
-    /// Previous API Version: 2018-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2018-06-01-preview. Prior API version in Azure Native 1.x: 2018-06-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:blockchain:TransactionNode")]
     public partial class TransactionNode : global::Pulumi.CustomResource

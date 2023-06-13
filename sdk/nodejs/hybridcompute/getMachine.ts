@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about the model view or the instance view of a hybrid machine.
- * API Version: 2022-12-27.
+ * Azure REST API version: 2022-12-27.
  */
 export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineResult> {
 
@@ -187,7 +187,7 @@ export interface GetMachineResult {
 }
 /**
  * Retrieves information about the model view or the instance view of a hybrid machine.
- * API Version: 2022-12-27.
+ * Azure REST API version: 2022-12-27.
  */
 export function getMachineOutput(args: GetMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineResult> {
     return pulumi.output(args).apply((a: any) => getMachine(a, opts))

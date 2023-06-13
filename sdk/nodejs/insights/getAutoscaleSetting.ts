@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an autoscale setting
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getAutoscaleSetting(args: GetAutoscaleSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscaleSettingResult> {
 
@@ -86,7 +86,7 @@ export interface GetAutoscaleSettingResult {
 }
 /**
  * Gets an autoscale setting
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getAutoscaleSettingOutput(args: GetAutoscaleSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoscaleSettingResult> {
     return pulumi.output(args).apply((a: any) => getAutoscaleSetting(a, opts))

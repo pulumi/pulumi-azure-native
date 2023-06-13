@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing the config for the solution in the migrate project.
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function getSolutionConfig(args: GetSolutionConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionConfigResult> {
 
@@ -44,7 +44,7 @@ export interface GetSolutionConfigResult {
 }
 /**
  * Class representing the config for the solution in the migrate project.
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function getSolutionConfigOutput(args: GetSolutionConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionConfigResult> {
     return pulumi.output(args).apply((a: any) => getSolutionConfig(a, opts))

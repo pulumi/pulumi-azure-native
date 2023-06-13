@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// View a threat intelligence indicator by name.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetThreatIntelligenceIndicatorResult> InvokeAsync(GetThreatIntelligenceIndicatorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetThreatIntelligenceIndicatorResult>("azure-native:securityinsights:getThreatIntelligenceIndicator", args ?? new GetThreatIntelligenceIndicatorArgs(), options.WithDefaults());
 
         /// <summary>
         /// View a threat intelligence indicator by name.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetThreatIntelligenceIndicatorResult> Invoke(GetThreatIntelligenceIndicatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThreatIntelligenceIndicatorResult>("azure-native:securityinsights:getThreatIntelligenceIndicator", args ?? new GetThreatIntelligenceIndicatorInvokeArgs(), options.WithDefaults());

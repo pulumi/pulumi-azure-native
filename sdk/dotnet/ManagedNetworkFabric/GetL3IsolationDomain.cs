@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Retrieves details of this L3 Isolation Domain.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Task<GetL3IsolationDomainResult> InvokeAsync(GetL3IsolationDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetL3IsolationDomainResult>("azure-native:managednetworkfabric:getL3IsolationDomain", args ?? new GetL3IsolationDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves details of this L3 Isolation Domain.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Output<GetL3IsolationDomainResult> Invoke(GetL3IsolationDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL3IsolationDomainResult>("azure-native:managednetworkfabric:getL3IsolationDomain", args ?? new GetL3IsolationDomainInvokeArgs(), options.WithDefaults());

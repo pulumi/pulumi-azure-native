@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of an event subscription of a partner topic.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPartnerTopicEventSubscription(args: GetPartnerTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicEventSubscriptionResult> {
 
@@ -107,7 +107,7 @@ export interface GetPartnerTopicEventSubscriptionResult {
 }
 /**
  * Get properties of an event subscription of a partner topic.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPartnerTopicEventSubscriptionOutput(args: GetPartnerTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getPartnerTopicEventSubscription(a, opts))

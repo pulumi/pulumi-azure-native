@@ -122,7 +122,7 @@ def get_vault(resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVaultResult:
     """
     Gets the specified Azure key vault.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the Resource Group to which the vault belongs.
@@ -150,7 +150,7 @@ def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVaultResult]:
     """
     Gets the specified Azure key vault.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the Resource Group to which the vault belongs.

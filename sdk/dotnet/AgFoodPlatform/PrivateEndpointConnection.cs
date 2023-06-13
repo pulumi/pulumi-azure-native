@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 {
     /// <summary>
     /// The private endpoint connection resource.
-    /// API Version: 2021-09-01-preview.
+    /// Azure REST API version: 2021-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

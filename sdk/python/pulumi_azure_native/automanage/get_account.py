@@ -110,7 +110,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Get information about a Automanage account
-    API Version: 2020-06-30-preview.
+    Azure REST API version: 2020-06-30-preview.
 
 
     :param str account_name: The Automanage account name.
@@ -137,7 +137,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Get information about a Automanage account
-    API Version: 2020-06-30-preview.
+    Azure REST API version: 2020-06-30-preview.
 
 
     :param str account_name: The Automanage account name.

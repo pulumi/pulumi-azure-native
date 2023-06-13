@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List configurations for the given product family, product line and product for the given subscription.
- * API Version: 2022-05-01-preview.
+ * Azure REST API version: 2022-05-01-preview.
  */
 export function listProductsAndConfigurations(args?: ListProductsAndConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListProductsAndConfigurationsResult> {
     args = args || {};
@@ -52,7 +52,7 @@ export interface ListProductsAndConfigurationsResult {
 }
 /**
  * List configurations for the given product family, product line and product for the given subscription.
- * API Version: 2022-05-01-preview.
+ * Azure REST API version: 2022-05-01-preview.
  */
 export function listProductsAndConfigurationsOutput(args?: ListProductsAndConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductsAndConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => listProductsAndConfigurations(a, opts))

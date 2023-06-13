@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Retrieve the source control identified by source control name.
-        /// API Version: 2022-08-08.
+        /// Azure REST API version: 2022-08-08.
         /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:automation:getSourceControl", args ?? new GetSourceControlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the source control identified by source control name.
-        /// API Version: 2022-08-08.
+        /// Azure REST API version: 2022-08-08.
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:automation:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());

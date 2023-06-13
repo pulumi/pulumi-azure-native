@@ -302,7 +302,7 @@ def get_registry(registry_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryResult:
     """
     Gets the properties of the specified container registry.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str registry_name: The name of the container registry.
@@ -345,7 +345,7 @@ def get_registry_output(registry_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryResult]:
     """
     Gets the properties of the specified container registry.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str registry_name: The name of the container registry.

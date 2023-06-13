@@ -481,7 +481,7 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessReviewScheduleDefinitionByIdResult:
     """
     Get single access review definition
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2021-12-01-preview.
 
 
     :param str schedule_definition_id: The id of the access review schedule definition.
@@ -536,7 +536,7 @@ def get_access_review_schedule_definition_by_id_output(schedule_definition_id: O
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessReviewScheduleDefinitionByIdResult]:
     """
     Get single access review definition
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2021-12-01-preview.
 
 
     :param str schedule_definition_id: The id of the access review schedule definition.

@@ -195,7 +195,7 @@ def get_sim_policy(mobile_network_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimPolicyResult:
     """
     Gets information about the specified SIM policy.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -232,7 +232,7 @@ def get_sim_policy_output(mobile_network_name: Optional[pulumi.Input[str]] = Non
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimPolicyResult]:
     """
     Gets information about the specified SIM policy.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str mobile_network_name: The name of the mobile network.

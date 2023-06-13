@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// Get a Service Fabric node type of a given managed cluster.
-        /// API Version: 2023-03-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetNodeTypeResult> InvokeAsync(GetNodeTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Service Fabric node type of a given managed cluster.
-        /// API Version: 2023-03-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetNodeTypeResult> Invoke(GetNodeTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeInvokeArgs(), options.WithDefaults());

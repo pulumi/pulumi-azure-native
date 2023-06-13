@@ -112,7 +112,7 @@ def get_file(file_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileResult:
     """
     The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
-    API Version: 2021-06-30.
+    Azure REST API version: 2021-06-30.
 
 
     :param str file_name: Name of the File
@@ -145,7 +145,7 @@ def get_file_output(file_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileResult]:
     """
     The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
-    API Version: 2021-06-30.
+    Azure REST API version: 2021-06-30.
 
 
     :param str file_name: Name of the File

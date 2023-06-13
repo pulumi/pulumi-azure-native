@@ -122,7 +122,7 @@ def get_linked_service(linked_service_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedServiceResult:
     """
     Gets a linked service instance.
-    API Version: 2020-08-01.
+    Azure REST API version: 2020-08-01.
 
 
     :param str linked_service_name: Name of the linked service.
@@ -153,7 +153,7 @@ def get_linked_service_output(linked_service_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedServiceResult]:
     """
     Gets a linked service instance.
-    API Version: 2020-08-01.
+    Azure REST API version: 2020-08-01.
 
 
     :param str linked_service_name: Name of the linked service.

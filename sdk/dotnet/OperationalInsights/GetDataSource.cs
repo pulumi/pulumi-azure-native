@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Gets a datasource instance.
-        /// API Version: 2020-08-01.
+        /// Azure REST API version: 2020-08-01.
         /// </summary>
         public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-native:operationalinsights:getDataSource", args ?? new GetDataSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a datasource instance.
-        /// API Version: 2020-08-01.
+        /// Azure REST API version: 2020-08-01.
         /// </summary>
         public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("azure-native:operationalinsights:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());

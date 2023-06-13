@@ -62,7 +62,7 @@ def get_app_resource_upload_url(app_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResourceUploadUrlResult:
     """
     Get an resource upload URL for an App, which may be artifacts or source archive.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str app_name: The name of the App resource.
@@ -88,7 +88,7 @@ def get_app_resource_upload_url_output(app_name: Optional[pulumi.Input[str]] = N
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResourceUploadUrlResult]:
     """
     Get an resource upload URL for an App, which may be artifacts or source archive.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str app_name: The name of the App resource.

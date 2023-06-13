@@ -185,7 +185,7 @@ def get_kusto_pool_database_principal_assignment(database_name: Optional[str] = 
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKustoPoolDatabasePrincipalAssignmentResult:
     """
     Gets a Kusto pool database principalAssignment.
-    API Version: 2021-06-01-preview.
+    Azure REST API version: 2021-06-01-preview.
 
 
     :param str database_name: The name of the database in the Kusto pool.
@@ -227,7 +227,7 @@ def get_kusto_pool_database_principal_assignment_output(database_name: Optional[
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKustoPoolDatabasePrincipalAssignmentResult]:
     """
     Gets a Kusto pool database principalAssignment.
-    API Version: 2021-06-01-preview.
+    Azure REST API version: 2021-06-01-preview.
 
 
     :param str database_name: The name of the database in the Kusto pool.

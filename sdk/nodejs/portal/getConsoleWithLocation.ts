@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the console for the user.
- * API Version: 2018-10-01.
+ * Azure REST API version: 2018-10-01.
  */
 export function getConsoleWithLocation(args: GetConsoleWithLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleWithLocationResult> {
 
@@ -42,7 +42,7 @@ export interface GetConsoleWithLocationResult {
 }
 /**
  * Gets the console for the user.
- * API Version: 2018-10-01.
+ * Azure REST API version: 2018-10-01.
  */
 export function getConsoleWithLocationOutput(args: GetConsoleWithLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleWithLocationResult> {
     return pulumi.output(args).apply((a: any) => getConsoleWithLocation(a, opts))

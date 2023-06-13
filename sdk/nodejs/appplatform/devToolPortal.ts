@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Dev Tool Portal resource
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export class DevToolPortal extends pulumi.CustomResource {
     /**

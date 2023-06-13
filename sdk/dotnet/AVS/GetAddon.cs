@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// An addon resource
-        /// API Version: 2022-05-01.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:avs:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// An addon resource
-        /// API Version: 2022-05-01.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:avs:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());

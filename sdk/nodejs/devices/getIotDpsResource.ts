@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the metadata of the provisioning service without SAS keys.
- * API Version: 2022-12-12.
+ * Azure REST API version: 2022-12-12.
  */
 export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourceResult> {
 
@@ -82,7 +82,7 @@ export interface GetIotDpsResourceResult {
 }
 /**
  * Get the metadata of the provisioning service without SAS keys.
- * API Version: 2022-12-12.
+ * Azure REST API version: 2022-12-12.
  */
 export function getIotDpsResourceOutput(args: GetIotDpsResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourceResult> {
     return pulumi.output(args).apply((a: any) => getIotDpsResource(a, opts))

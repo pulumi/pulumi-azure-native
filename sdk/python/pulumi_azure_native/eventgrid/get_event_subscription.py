@@ -222,7 +222,7 @@ def get_event_subscription(event_subscription_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventSubscriptionResult:
     """
     Get properties of an event subscription.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription.
@@ -258,7 +258,7 @@ def get_event_subscription_output(event_subscription_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionResult]:
     """
     Get properties of an event subscription.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription.

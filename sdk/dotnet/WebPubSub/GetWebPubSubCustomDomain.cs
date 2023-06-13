@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.WebPubSub
     {
         /// <summary>
         /// Get a custom domain.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetWebPubSubCustomDomainResult> InvokeAsync(GetWebPubSubCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubCustomDomainResult>("azure-native:webpubsub:getWebPubSubCustomDomain", args ?? new GetWebPubSubCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a custom domain.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetWebPubSubCustomDomainResult> Invoke(GetWebPubSubCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubCustomDomainResult>("azure-native:webpubsub:getWebPubSubCustomDomain", args ?? new GetWebPubSubCustomDomainInvokeArgs(), options.WithDefaults());

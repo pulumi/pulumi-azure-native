@@ -171,7 +171,7 @@ def get_change_data_capture(change_data_capture_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChangeDataCaptureResult:
     """
     Gets a change data capture.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str change_data_capture_name: The change data capture name.
@@ -206,7 +206,7 @@ def get_change_data_capture_output(change_data_capture_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChangeDataCaptureResult]:
     """
     Gets a change data capture.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str change_data_capture_name: The change data capture name.

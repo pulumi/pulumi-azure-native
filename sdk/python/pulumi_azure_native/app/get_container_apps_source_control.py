@@ -137,7 +137,7 @@ def get_container_apps_source_control(container_app_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerAppsSourceControlResult:
     """
     Container App SourceControl.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str container_app_name: Name of the Container App.
@@ -169,7 +169,7 @@ def get_container_apps_source_control_output(container_app_name: Optional[pulumi
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppsSourceControlResult]:
     """
     Container App SourceControl.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str container_app_name: Name of the Container App.

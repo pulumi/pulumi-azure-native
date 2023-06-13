@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a disaster recovery configuration.
- * API Version: 2014-04-01.
+ * Azure REST API version: 2014-04-01.
  */
 export function getDisasterRecoveryConfiguration(args: GetDisasterRecoveryConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigurationResult> {
 
@@ -84,7 +84,7 @@ export interface GetDisasterRecoveryConfigurationResult {
 }
 /**
  * Gets a disaster recovery configuration.
- * API Version: 2014-04-01.
+ * Azure REST API version: 2014-04-01.
  */
 export function getDisasterRecoveryConfigurationOutput(args: GetDisasterRecoveryConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDisasterRecoveryConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getDisasterRecoveryConfiguration(a, opts))

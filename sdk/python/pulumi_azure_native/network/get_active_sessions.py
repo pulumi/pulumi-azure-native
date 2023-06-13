@@ -62,7 +62,7 @@ def get_active_sessions(bastion_host_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActiveSessionsResult:
     """
     Returns the list of currently active sessions on the Bastion.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.
@@ -85,7 +85,7 @@ def get_active_sessions_output(bastion_host_name: Optional[pulumi.Input[str]] = 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActiveSessionsResult]:
     """
     Returns the list of currently active sessions on the Bastion.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.

@@ -207,7 +207,7 @@ def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevBoxDefinitionResult:
     """
     Gets a Dev Box definition
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str dev_box_definition_name: The name of the Dev Box definition.
@@ -245,7 +245,7 @@ def get_dev_box_definition_output(dev_box_definition_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevBoxDefinitionResult]:
     """
     Gets a Dev Box definition
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str dev_box_definition_name: The name of the Dev Box definition.

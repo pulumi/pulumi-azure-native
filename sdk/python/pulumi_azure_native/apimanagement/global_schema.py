@@ -127,7 +127,7 @@ class GlobalSchema(pulumi.CustomResource):
                  __props__=None):
         """
         Global Schema Contract details.
-        API Version: 2022-08-01.
+        Azure REST API version: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +146,7 @@ class GlobalSchema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Global Schema Contract details.
-        API Version: 2022-08-01.
+        Azure REST API version: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param GlobalSchemaArgs args: The arguments to use to populate this resource's properties.

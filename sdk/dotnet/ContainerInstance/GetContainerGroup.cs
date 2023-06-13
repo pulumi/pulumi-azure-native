@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerInstance
     {
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-        /// API Version: 2023-05-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-        /// API Version: 2023-05-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());

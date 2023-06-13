@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a bookmark.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetBookmarkResult> InvokeAsync(GetBookmarkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkResult>("azure-native:securityinsights:getBookmark", args ?? new GetBookmarkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a bookmark.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetBookmarkResult> Invoke(GetBookmarkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBookmarkResult>("azure-native:securityinsights:getBookmark", args ?? new GetBookmarkInvokeArgs(), options.WithDefaults());

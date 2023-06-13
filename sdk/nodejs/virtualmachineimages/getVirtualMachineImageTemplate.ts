@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a virtual machine image template
- * API Version: 2022-07-01.
+ * Azure REST API version: 2022-07-01.
  */
 export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineImageTemplateResult> {
 
@@ -114,7 +114,7 @@ export interface GetVirtualMachineImageTemplateResult {
 }
 /**
  * Get information about a virtual machine image template
- * API Version: 2022-07-01.
+ * Azure REST API version: 2022-07-01.
  */
 export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineImageTemplate(a, opts))

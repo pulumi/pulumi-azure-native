@@ -183,7 +183,7 @@ def get_notification_hub_pns_credentials(namespace_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationHubPnsCredentialsResult:
     """
     Lists the PNS Credentials associated with a notification hub .
-    API Version: 2017-04-01.
+    Azure REST API version: 2017-04-01.
 
 
     :param str namespace_name: The namespace name.
@@ -219,7 +219,7 @@ def get_notification_hub_pns_credentials_output(namespace_name: Optional[pulumi.
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationHubPnsCredentialsResult]:
     """
     Lists the PNS Credentials associated with a notification hub .
-    API Version: 2017-04-01.
+    Azure REST API version: 2017-04-01.
 
 
     :param str namespace_name: The namespace name.

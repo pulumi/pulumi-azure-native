@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRoute Circuit Authorization
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-05-01.
  */
 export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationResult> {
 
@@ -68,7 +68,7 @@ export interface GetAuthorizationResult {
 }
 /**
  * ExpressRoute Circuit Authorization
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-05-01.
  */
 export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationResult> {
     return pulumi.output(args).apply((a: any) => getAuthorization(a, opts))

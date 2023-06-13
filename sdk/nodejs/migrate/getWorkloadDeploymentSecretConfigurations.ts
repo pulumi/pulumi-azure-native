@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the secrets of the workload deployment.
- * API Version: 2022-05-01-preview.
+ * Azure REST API version: 2022-05-01-preview.
  */
 export function getWorkloadDeploymentSecretConfigurations(args: GetWorkloadDeploymentSecretConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadDeploymentSecretConfigurationsResult> {
 
@@ -69,7 +69,7 @@ export interface GetWorkloadDeploymentSecretConfigurationsResult {
 }
 /**
  * Gets the secrets of the workload deployment.
- * API Version: 2022-05-01-preview.
+ * Azure REST API version: 2022-05-01-preview.
  */
 export function getWorkloadDeploymentSecretConfigurationsOutput(args: GetWorkloadDeploymentSecretConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadDeploymentSecretConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadDeploymentSecretConfigurations(a, opts))

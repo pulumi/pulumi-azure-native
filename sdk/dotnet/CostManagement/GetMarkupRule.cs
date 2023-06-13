@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// Get a markup rule by its rule name.
-        /// API Version: 2022-10-05-preview.
+        /// Azure REST API version: 2022-10-05-preview.
         /// </summary>
         public static Task<GetMarkupRuleResult> InvokeAsync(GetMarkupRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMarkupRuleResult>("azure-native:costmanagement:getMarkupRule", args ?? new GetMarkupRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a markup rule by its rule name.
-        /// API Version: 2022-10-05-preview.
+        /// Azure REST API version: 2022-10-05-preview.
         /// </summary>
         public static Output<GetMarkupRuleResult> Invoke(GetMarkupRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMarkupRuleResult>("azure-native:costmanagement:getMarkupRule", args ?? new GetMarkupRuleInvokeArgs(), options.WithDefaults());

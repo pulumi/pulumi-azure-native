@@ -62,7 +62,7 @@ def list_domain_recommendations(keywords: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainRecommendationsResult:
     """
     Description for Get domain name recommendations based on keywords.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str keywords: Keywords to be used for generating domain recommendations.
@@ -85,7 +85,7 @@ def list_domain_recommendations_output(keywords: Optional[pulumi.Input[Optional[
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainRecommendationsResult]:
     """
     Description for Get domain name recommendations based on keywords.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str keywords: Keywords to be used for generating domain recommendations.

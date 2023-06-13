@@ -109,7 +109,7 @@ def get_vendor(vendor_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVendorResult:
     """
     Gets information about the specified vendor.
-    API Version: 2021-05-01.
+    Azure REST API version: 2021-05-01.
 
 
     :param str vendor_name: The name of the vendor.
@@ -133,7 +133,7 @@ def get_vendor_output(vendor_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorResult]:
     """
     Gets information about the specified vendor.
-    API Version: 2021-05-01.
+    Azure REST API version: 2021-05-01.
 
 
     :param str vendor_name: The name of the vendor.

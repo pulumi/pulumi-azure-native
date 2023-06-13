@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns an AML file system.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getAmlFilesystem(args: GetAmlFilesystemArgs, opts?: pulumi.InvokeOptions): Promise<GetAmlFilesystemResult> {
 
@@ -110,7 +110,7 @@ export interface GetAmlFilesystemResult {
 }
 /**
  * Returns an AML file system.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getAmlFilesystemOutput(args: GetAmlFilesystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmlFilesystemResult> {
     return pulumi.output(args).apply((a: any) => getAmlFilesystem(a, opts))

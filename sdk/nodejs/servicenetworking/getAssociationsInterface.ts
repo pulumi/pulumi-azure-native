@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Association
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getAssociationsInterface(args: GetAssociationsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationsInterfaceResult> {
 
@@ -79,7 +79,7 @@ export interface GetAssociationsInterfaceResult {
 }
 /**
  * Get a Association
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getAssociationsInterfaceOutput(args: GetAssociationsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationsInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getAssociationsInterface(a, opts))

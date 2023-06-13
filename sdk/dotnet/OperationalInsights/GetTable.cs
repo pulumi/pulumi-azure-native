@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Gets a Log Analytics workspace table.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:operationalinsights:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Log Analytics workspace table.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:operationalinsights:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());

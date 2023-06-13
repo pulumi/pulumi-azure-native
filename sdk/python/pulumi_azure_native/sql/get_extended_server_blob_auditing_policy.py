@@ -286,7 +286,7 @@ def get_extended_server_blob_auditing_policy(blob_auditing_policy_name: Optional
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtendedServerBlobAuditingPolicyResult:
     """
     Gets an extended server's blob auditing policy.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.
@@ -324,7 +324,7 @@ def get_extended_server_blob_auditing_policy_output(blob_auditing_policy_name: O
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtendedServerBlobAuditingPolicyResult]:
     """
     Gets an extended server's blob auditing policy.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.

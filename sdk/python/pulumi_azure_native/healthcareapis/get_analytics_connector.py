@@ -183,7 +183,7 @@ def get_analytics_connector(analytics_connector_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAnalyticsConnectorResult:
     """
     Gets the properties of the specified Analytics Connector.
-    API Version: 2022-10-01-preview.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str analytics_connector_name: The name of Analytics Connector resource.
@@ -219,7 +219,7 @@ def get_analytics_connector_output(analytics_connector_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalyticsConnectorResult]:
     """
     Gets the properties of the specified Analytics Connector.
-    API Version: 2022-10-01-preview.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str analytics_connector_name: The name of Analytics Connector resource.

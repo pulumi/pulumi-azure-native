@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Managed cluster.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
 
@@ -218,7 +218,7 @@ export interface GetManagedClusterResult {
 }
 /**
  * Managed cluster.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getManagedCluster(a, opts))

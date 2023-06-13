@@ -171,7 +171,7 @@ def get_mhsm_private_endpoint_connection(name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMHSMPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the managed HSM Pool.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str name: Name of the managed HSM Pool
@@ -206,7 +206,7 @@ def get_mhsm_private_endpoint_connection_output(name: Optional[pulumi.Input[str]
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMHSMPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the managed HSM Pool.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str name: Name of the managed HSM Pool

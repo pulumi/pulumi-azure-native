@@ -158,7 +158,7 @@ def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityLogAlertResult:
     """
     Get an Activity Log Alert rule.
-    API Version: 2020-10-01.
+    Azure REST API version: 2020-10-01.
 
 
     :param str activity_log_alert_name: The name of the Activity Log Alert rule.
@@ -189,7 +189,7 @@ def get_activity_log_alert_output(activity_log_alert_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityLogAlertResult]:
     """
     Get an Activity Log Alert rule.
-    API Version: 2020-10-01.
+    Azure REST API version: 2020-10-01.
 
 
     :param str activity_log_alert_name: The name of the Activity Log Alert rule.

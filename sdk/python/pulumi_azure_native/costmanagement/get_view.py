@@ -265,7 +265,7 @@ def get_view(view_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewResult:
     """
     Gets the view by view name.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str view_name: View name
@@ -302,7 +302,7 @@ def get_view_output(view_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
     """
     Gets the view by view name.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str view_name: View name

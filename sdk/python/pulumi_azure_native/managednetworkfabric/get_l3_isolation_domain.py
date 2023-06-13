@@ -242,7 +242,7 @@ def get_l3_isolation_domain(l3_isolation_domain_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetL3IsolationDomainResult:
     """
     Retrieves details of this L3 Isolation Domain.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str l3_isolation_domain_name: Name of the L3 Isolation Domain
@@ -280,7 +280,7 @@ def get_l3_isolation_domain_output(l3_isolation_domain_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL3IsolationDomainResult]:
     """
     Retrieves details of this L3 Isolation Domain.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str l3_isolation_domain_name: Name of the L3 Isolation Domain

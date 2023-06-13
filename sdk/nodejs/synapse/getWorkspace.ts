@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a workspace
- * API Version: 2021-06-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -142,7 +142,7 @@ export interface GetWorkspaceResult {
 }
 /**
  * Gets a workspace
- * API Version: 2021-06-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

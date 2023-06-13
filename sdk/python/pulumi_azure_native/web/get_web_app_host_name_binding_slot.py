@@ -195,7 +195,7 @@ def get_web_app_host_name_binding_slot(host_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHostNameBindingSlotResult:
     """
     Description for Get the named hostname binding for an app (or deployment slot, if specified).
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str host_name: Hostname in the hostname binding.
@@ -235,7 +235,7 @@ def get_web_app_host_name_binding_slot_output(host_name: Optional[pulumi.Input[s
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppHostNameBindingSlotResult]:
     """
     Description for Get the named hostname binding for an app (or deployment slot, if specified).
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str host_name: Hostname in the hostname binding.

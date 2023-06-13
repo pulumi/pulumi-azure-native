@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Fabric definition.
-    /// API Version: 2023-04-01.
-    /// Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationFabric")]
     public partial class ReplicationFabric : global::Pulumi.CustomResource

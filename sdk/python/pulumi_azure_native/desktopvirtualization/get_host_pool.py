@@ -425,7 +425,7 @@ def get_host_pool(host_pool_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHostPoolResult:
     """
     Get a host pool.
-    API Version: 2022-09-09.
+    Azure REST API version: 2022-09-09.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -479,7 +479,7 @@ def get_host_pool_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostPoolResult]:
     """
     Get a host pool.
-    API Version: 2022-09-09.
+    Azure REST API version: 2022-09-09.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

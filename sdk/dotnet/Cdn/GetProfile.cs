@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
-        /// API Version: 2023-05-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
-        /// API Version: 2023-05-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());

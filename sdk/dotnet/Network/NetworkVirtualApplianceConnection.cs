@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// NetworkVirtualApplianceConnection resource.
-    /// API Version: 2022-11-01.
+    /// Azure REST API version: 2022-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkVirtualApplianceConnection")]
     public partial class NetworkVirtualApplianceConnection : global::Pulumi.CustomResource

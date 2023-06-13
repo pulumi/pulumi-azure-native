@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Details of an Update run
-    /// API Version: 2023-03-01.
+    /// Azure REST API version: 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:UpdateRun")]
     public partial class UpdateRun : global::Pulumi.CustomResource

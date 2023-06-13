@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Advisor
     {
         /// <summary>
         /// Obtains the details of a suppression.
-        /// API Version: 2023-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<GetSuppressionResult> InvokeAsync(GetSuppressionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azure-native:advisor:getSuppression", args ?? new GetSuppressionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Obtains the details of a suppression.
-        /// API Version: 2023-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<GetSuppressionResult> Invoke(GetSuppressionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionResult>("azure-native:advisor:getSuppression", args ?? new GetSuppressionInvokeArgs(), options.WithDefaults());

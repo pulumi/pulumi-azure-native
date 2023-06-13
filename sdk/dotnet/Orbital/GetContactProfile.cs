@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Orbital
     {
         /// <summary>
         /// Gets the specified contact Profile in a specified resource group.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetContactProfileResult> InvokeAsync(GetContactProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactProfileResult>("azure-native:orbital:getContactProfile", args ?? new GetContactProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified contact Profile in a specified resource group.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetContactProfileResult> Invoke(GetContactProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactProfileResult>("azure-native:orbital:getContactProfile", args ?? new GetContactProfileInvokeArgs(), options.WithDefaults());

@@ -148,7 +148,7 @@ def list_endpoint_ingress_gateway_credentials(endpoint_name: Optional[str] = Non
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEndpointIngressGatewayCredentialsResult:
     """
     Gets the ingress gateway endpoint credentials
-    API Version: 2023-03-15.
+    Azure REST API version: 2023-03-15.
 
 
     :param str endpoint_name: The endpoint name.
@@ -184,7 +184,7 @@ def list_endpoint_ingress_gateway_credentials_output(endpoint_name: Optional[pul
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEndpointIngressGatewayCredentialsResult]:
     """
     Gets the ingress gateway endpoint credentials
-    API Version: 2023-03-15.
+    Azure REST API version: 2023-03-15.
 
 
     :param str endpoint_name: The endpoint name.

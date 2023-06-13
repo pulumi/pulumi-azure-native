@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Bastion Host.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetBastionHostResult> InvokeAsync(GetBastionHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBastionHostResult>("azure-native:network:getBastionHost", args ?? new GetBastionHostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Bastion Host.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetBastionHostResult> Invoke(GetBastionHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBastionHostResult>("azure-native:network:getBastionHost", args ?? new GetBastionHostInvokeArgs(), options.WithDefaults());

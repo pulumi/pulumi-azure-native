@@ -181,8 +181,7 @@ class DedicatedHsm(pulumi.CustomResource):
                  __props__=None):
         """
         Resource information with extended details.
-        API Version: 2021-11-30.
-        Previous API Version: 2018-10-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2021-11-30. Prior API version in Azure Native 1.x: 2018-10-31-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,8 +203,7 @@ class DedicatedHsm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource information with extended details.
-        API Version: 2021-11-30.
-        Previous API Version: 2018-10-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2021-11-30. Prior API version in Azure Native 1.x: 2018-10-31-preview
 
         :param str resource_name: The name of the resource.
         :param DedicatedHsmArgs args: The arguments to use to populate this resource's properties.

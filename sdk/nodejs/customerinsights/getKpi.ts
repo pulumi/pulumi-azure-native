@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a KPI in the hub.
- * API Version: 2017-04-26.
+ * Azure REST API version: 2017-04-26.
  */
 export function getKpi(args: GetKpiArgs, opts?: pulumi.InvokeOptions): Promise<GetKpiResult> {
 
@@ -131,7 +131,7 @@ export interface GetKpiResult {
 }
 /**
  * Gets a KPI in the hub.
- * API Version: 2017-04-26.
+ * Azure REST API version: 2017-04-26.
  */
 export function getKpiOutput(args: GetKpiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKpiResult> {
     return pulumi.output(args).apply((a: any) => getKpi(a, opts))

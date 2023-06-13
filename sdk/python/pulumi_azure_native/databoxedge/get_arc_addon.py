@@ -197,7 +197,7 @@ def get_arc_addon(addon_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArcAddonResult:
     """
     Gets a specific addon by name.
-    API Version: 2022-03-01.
+    Azure REST API version: 2022-03-01.
 
 
     :param str addon_name: The addon name.
@@ -237,7 +237,7 @@ def get_arc_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArcAddonResult]:
     """
     Gets a specific addon by name.
-    API Version: 2022-03-01.
+    Azure REST API version: 2022-03-01.
 
 
     :param str addon_name: The addon name.

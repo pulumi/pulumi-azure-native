@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the named value specified by its identifier.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetNamedValueResult> InvokeAsync(GetNamedValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamedValueResult>("azure-native:apimanagement:getNamedValue", args ?? new GetNamedValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the named value specified by its identifier.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetNamedValueResult> Invoke(GetNamedValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamedValueResult>("azure-native:apimanagement:getNamedValue", args ?? new GetNamedValueInvokeArgs(), options.WithDefaults());

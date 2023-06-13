@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of an extension associated with a Visual Studio Team Services account resource.
- * API Version: 2017-11-01-preview.
+ * Azure REST API version: 2017-11-01-preview.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
 
@@ -71,7 +71,7 @@ export interface GetExtensionResult {
 }
 /**
  * Gets the details of an extension associated with a Visual Studio Team Services account resource.
- * API Version: 2017-11-01-preview.
+ * Azure REST API version: 2017-11-01-preview.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))

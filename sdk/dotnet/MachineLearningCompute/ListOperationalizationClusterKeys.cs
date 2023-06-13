@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningCompute
     {
         /// <summary>
         /// Gets the credentials for the specified cluster such as Storage, ACR and ACS credentials. This is a long running operation because it fetches keys from dependencies.
-        /// API Version: 2017-08-01-preview.
+        /// Azure REST API version: 2017-08-01-preview.
         /// </summary>
         public static Task<ListOperationalizationClusterKeysResult> InvokeAsync(ListOperationalizationClusterKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListOperationalizationClusterKeysResult>("azure-native:machinelearningcompute:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the credentials for the specified cluster such as Storage, ACR and ACS credentials. This is a long running operation because it fetches keys from dependencies.
-        /// API Version: 2017-08-01-preview.
+        /// Azure REST API version: 2017-08-01-preview.
         /// </summary>
         public static Output<ListOperationalizationClusterKeysResult> Invoke(ListOperationalizationClusterKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListOperationalizationClusterKeysResult>("azure-native:machinelearningcompute:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysInvokeArgs(), options.WithDefaults());

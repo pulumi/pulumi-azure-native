@@ -230,7 +230,7 @@ def get_elastic_san(elastic_san_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticSanResult:
     """
     Get a ElasticSan.
-    API Version: 2021-11-20-preview.
+    Azure REST API version: 2021-11-20-preview.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -267,7 +267,7 @@ def get_elastic_san_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticSanResult]:
     """
     Get a ElasticSan.
-    API Version: 2021-11-20-preview.
+    Azure REST API version: 2021-11-20-preview.
 
 
     :param str elastic_san_name: The name of the ElasticSan.

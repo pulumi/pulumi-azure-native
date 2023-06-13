@@ -194,7 +194,7 @@ def get_identity_provider(identity_provider_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityProviderResult:
     """
     Gets the configuration details of the identity Provider configured in specified service instance.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.
@@ -231,7 +231,7 @@ def get_identity_provider_output(identity_provider_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityProviderResult]:
     """
     Gets the configuration details of the identity Provider configured in specified service instance.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.

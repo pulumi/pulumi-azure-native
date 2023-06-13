@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Maintenance
     {
         /// <summary>
         /// Maintenance configuration record type
-        /// API Version: 2022-11-01-preview.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetMaintenanceConfigurationResult> InvokeAsync(GetMaintenanceConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-native:maintenance:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Maintenance configuration record type
-        /// API Version: 2022-11-01-preview.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetMaintenanceConfigurationResult> Invoke(GetMaintenanceConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceConfigurationResult>("azure-native:maintenance:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationInvokeArgs(), options.WithDefaults());

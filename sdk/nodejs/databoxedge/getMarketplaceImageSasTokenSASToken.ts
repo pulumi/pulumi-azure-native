@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2023-01-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getMarketplaceImageSasTokenSASToken(args: GetMarketplaceImageSasTokenSASTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetMarketplaceImageSasTokenSASTokenResult> {
 
@@ -37,7 +37,7 @@ export interface GetMarketplaceImageSasTokenSASTokenResult {
     readonly status?: string;
 }
 /**
- * API Version: 2023-01-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getMarketplaceImageSasTokenSASTokenOutput(args: GetMarketplaceImageSasTokenSASTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarketplaceImageSasTokenSASTokenResult> {
     return pulumi.output(args).apply((a: any) => getMarketplaceImageSasTokenSASToken(a, opts))

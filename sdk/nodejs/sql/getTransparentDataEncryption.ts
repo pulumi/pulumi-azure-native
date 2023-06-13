@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a logical database's transparent data encryption.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getTransparentDataEncryption(args: GetTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTransparentDataEncryptionResult> {
 
@@ -61,7 +61,7 @@ export interface GetTransparentDataEncryptionResult {
 }
 /**
  * Gets a logical database's transparent data encryption.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getTransparentDataEncryptionOutput(args: GetTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransparentDataEncryptionResult> {
     return pulumi.output(args).apply((a: any) => getTransparentDataEncryption(a, opts))

@@ -98,7 +98,7 @@ def list_web_app_function_keys(function_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionKeysResult:
     """
     Description for Get function keys for a function in a web site, or a deployment slot.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str function_name: Function name.
@@ -127,7 +127,7 @@ def list_web_app_function_keys_output(function_name: Optional[pulumi.Input[str]]
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppFunctionKeysResult]:
     """
     Description for Get function keys for a function in a web site, or a deployment slot.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str function_name: Function name.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists a Channel registration for a Bot Service including secrets
- * API Version: 2022-09-15.
+ * Azure REST API version: 2022-09-15.
  */
 export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListChannelWithKeysResult> {
 
@@ -103,7 +103,7 @@ export interface ListChannelWithKeysResult {
 }
 /**
  * Lists a Channel registration for a Bot Service including secrets
- * API Version: 2022-09-15.
+ * Azure REST API version: 2022-09-15.
  */
 export function listChannelWithKeysOutput(args: ListChannelWithKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListChannelWithKeysResult> {
     return pulumi.output(args).apply((a: any) => listChannelWithKeys(a, opts))

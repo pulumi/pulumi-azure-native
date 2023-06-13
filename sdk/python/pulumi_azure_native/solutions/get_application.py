@@ -350,7 +350,7 @@ def get_application(application_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Gets the managed application.
-    API Version: 2021-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str application_name: The name of the managed application.
@@ -397,7 +397,7 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Gets the managed application.
-    API Version: 2021-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str application_name: The name of the managed application.

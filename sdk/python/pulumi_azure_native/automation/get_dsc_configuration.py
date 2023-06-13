@@ -231,7 +231,7 @@ def get_dsc_configuration(automation_account_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscConfigurationResult:
     """
     Retrieve the configuration identified by configuration name.
-    API Version: 2022-08-08.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -271,7 +271,7 @@ def get_dsc_configuration_output(automation_account_name: Optional[pulumi.Input[
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDscConfigurationResult]:
     """
     Retrieve the configuration identified by configuration name.
-    API Version: 2022-08-08.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a VPN site.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetVpnSiteResult> InvokeAsync(GetVpnSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnSiteResult>("azure-native:network:getVpnSite", args ?? new GetVpnSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a VPN site.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetVpnSiteResult> Invoke(GetVpnSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnSiteResult>("azure-native:network:getVpnSite", args ?? new GetVpnSiteInvokeArgs(), options.WithDefaults());

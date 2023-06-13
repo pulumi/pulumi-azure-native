@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
     {
         /// <summary>
         /// Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
-        /// API Version: 2021-03-25-preview.
+        /// Azure REST API version: 2021-03-25-preview.
         /// </summary>
         public static Task<GetPrivateLinkServicesForO365ManagementActivityAPIResult> InvokeAsync(GetPrivateLinkServicesForO365ManagementActivityAPIArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServicesForO365ManagementActivityAPIResult>("azure-native:m365securityandcompliance:getPrivateLinkServicesForO365ManagementActivityAPI", args ?? new GetPrivateLinkServicesForO365ManagementActivityAPIArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
-        /// API Version: 2021-03-25-preview.
+        /// Azure REST API version: 2021-03-25-preview.
         /// </summary>
         public static Output<GetPrivateLinkServicesForO365ManagementActivityAPIResult> Invoke(GetPrivateLinkServicesForO365ManagementActivityAPIInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForO365ManagementActivityAPIResult>("azure-native:m365securityandcompliance:getPrivateLinkServicesForO365ManagementActivityAPI", args ?? new GetPrivateLinkServicesForO365ManagementActivityAPIInvokeArgs(), options.WithDefaults());

@@ -183,7 +183,7 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProximityPlacementGroupResult:
     """
     Retrieves information about a proximity placement group .
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
@@ -219,7 +219,7 @@ def get_proximity_placement_group_output(include_colocation_status: Optional[pul
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProximityPlacementGroupResult]:
     """
     Retrieves information about a proximity placement group .
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.

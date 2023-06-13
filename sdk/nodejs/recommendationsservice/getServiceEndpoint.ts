@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns ServiceEndpoint resources for a given name.
- * API Version: 2022-02-01.
+ * Azure REST API version: 2022-02-01.
  */
 export function getServiceEndpoint(args: GetServiceEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointResult> {
 
@@ -71,7 +71,7 @@ export interface GetServiceEndpointResult {
 }
 /**
  * Returns ServiceEndpoint resources for a given name.
- * API Version: 2022-02-01.
+ * Azure REST API version: 2022-02-01.
  */
 export function getServiceEndpointOutput(args: GetServiceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointResult> {
     return pulumi.output(args).apply((a: any) => getServiceEndpoint(a, opts))

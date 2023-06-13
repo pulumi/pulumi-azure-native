@@ -99,7 +99,7 @@ def get_application_live_view(application_live_view_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationLiveViewResult:
     """
     Get the Application Live  and its properties.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str application_live_view_name: The name of Application Live View.
@@ -128,7 +128,7 @@ def get_application_live_view_output(application_live_view_name: Optional[pulumi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationLiveViewResult]:
     """
     Get the Application Live  and its properties.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str application_live_view_name: The name of Application Live View.

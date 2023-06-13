@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get a single favorite by its FavoriteId, defined within an Application Insights component.
-        /// API Version: 2015-05-01.
+        /// Azure REST API version: 2015-05-01.
         /// </summary>
         public static Task<GetFavoriteResult> InvokeAsync(GetFavoriteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteResult>("azure-native:insights:getFavorite", args ?? new GetFavoriteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single favorite by its FavoriteId, defined within an Application Insights component.
-        /// API Version: 2015-05-01.
+        /// Azure REST API version: 2015-05-01.
         /// </summary>
         public static Output<GetFavoriteResult> Invoke(GetFavoriteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFavoriteResult>("azure-native:insights:getFavorite", args ?? new GetFavoriteInvokeArgs(), options.WithDefaults());

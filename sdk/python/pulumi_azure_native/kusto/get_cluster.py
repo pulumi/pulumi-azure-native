@@ -434,7 +434,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Gets a Kusto cluster.
-    API Version: 2022-12-29.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -488,7 +488,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Gets a Kusto cluster.
-    API Version: 2022-12-29.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.

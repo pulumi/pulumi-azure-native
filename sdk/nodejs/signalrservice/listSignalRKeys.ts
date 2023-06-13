@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the access keys of the resource.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function listSignalRKeys(args: ListSignalRKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSignalRKeysResult> {
 
@@ -51,7 +51,7 @@ export interface ListSignalRKeysResult {
 }
 /**
  * Get the access keys of the resource.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function listSignalRKeysOutput(args: ListSignalRKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSignalRKeysResult> {
     return pulumi.output(args).apply((a: any) => listSignalRKeys(a, opts))

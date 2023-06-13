@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get the policy configuration at the GraphQL API Resolver level.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetGraphQLApiResolverPolicyResult> InvokeAsync(GetGraphQLApiResolverPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGraphQLApiResolverPolicyResult>("azure-native:apimanagement:getGraphQLApiResolverPolicy", args ?? new GetGraphQLApiResolverPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the policy configuration at the GraphQL API Resolver level.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetGraphQLApiResolverPolicyResult> Invoke(GetGraphQLApiResolverPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphQLApiResolverPolicyResult>("azure-native:apimanagement:getGraphQLApiResolverPolicy", args ?? new GetGraphQLApiResolverPolicyInvokeArgs(), options.WithDefaults());

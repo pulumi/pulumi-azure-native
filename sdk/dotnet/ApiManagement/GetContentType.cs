@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetContentTypeResult> InvokeAsync(GetContentTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContentTypeResult>("azure-native:apimanagement:getContentType", args ?? new GetContentTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetContentTypeResult> Invoke(GetContentTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentTypeResult>("azure-native:apimanagement:getContentType", args ?? new GetContentTypeInvokeArgs(), options.WithDefaults());

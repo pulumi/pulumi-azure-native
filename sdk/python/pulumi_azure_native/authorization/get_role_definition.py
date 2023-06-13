@@ -182,7 +182,7 @@ def get_role_definition(role_definition_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleDefinitionResult:
     """
     Get role definition by name (GUID).
-    API Version: 2022-04-01.
+    Azure REST API version: 2022-04-01.
 
 
     :param str role_definition_id: The ID of the role definition.
@@ -215,7 +215,7 @@ def get_role_definition_output(role_definition_id: Optional[pulumi.Input[str]] =
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleDefinitionResult]:
     """
     Get role definition by name (GUID).
-    API Version: 2022-04-01.
+    Azure REST API version: 2022-04-01.
 
 
     :param str role_definition_id: The ID of the role definition.

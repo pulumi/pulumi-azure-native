@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the properties of an connectedEnvironment.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getConnectedEnvironment(args: GetConnectedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentResult> {
 
@@ -90,7 +90,7 @@ export interface GetConnectedEnvironmentResult {
 }
 /**
  * Get the properties of an connectedEnvironment.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getConnectedEnvironmentOutput(args: GetConnectedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getConnectedEnvironment(a, opts))

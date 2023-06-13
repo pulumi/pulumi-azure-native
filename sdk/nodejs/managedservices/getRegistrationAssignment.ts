@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the specified registration assignment.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationAssignmentResult> {
 
@@ -63,7 +63,7 @@ export interface GetRegistrationAssignmentResult {
 }
 /**
  * Gets the details of the specified registration assignment.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getRegistrationAssignment(a, opts))

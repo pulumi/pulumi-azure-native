@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Firmware analysis workspace.
- * API Version: 2023-02-08-preview.
+ * Azure REST API version: 2023-02-08-preview.
  */
 export class Workspace extends pulumi.CustomResource {
     /**

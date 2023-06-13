@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an authorization rule for a namespace by name.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
 
@@ -103,7 +103,7 @@ export interface GetNamespaceAuthorizationRuleResult {
 }
 /**
  * Gets an authorization rule for a namespace by name.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))

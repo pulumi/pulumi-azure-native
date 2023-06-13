@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// Get a DataSet in a share
-        /// API Version: 2021-08-01.
+        /// Azure REST API version: 2021-08-01.
         /// </summary>
         public static Task<GetADLSGen1FileDataSetResult> InvokeAsync(GetADLSGen1FileDataSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetADLSGen1FileDataSetResult>("azure-native:datashare:getADLSGen1FileDataSet", args ?? new GetADLSGen1FileDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataSet in a share
-        /// API Version: 2021-08-01.
+        /// Azure REST API version: 2021-08-01.
         /// </summary>
         public static Output<GetADLSGen1FileDataSetResult> Invoke(GetADLSGen1FileDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen1FileDataSetResult>("azure-native:datashare:getADLSGen1FileDataSet", args ?? new GetADLSGen1FileDataSetInvokeArgs(), options.WithDefaults());

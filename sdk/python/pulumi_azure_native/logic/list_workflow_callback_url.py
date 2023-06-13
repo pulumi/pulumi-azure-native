@@ -113,7 +113,7 @@ def list_workflow_callback_url(key_type: Optional[Union[str, 'KeyType']] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowCallbackUrlResult:
     """
     Get the workflow callback Url.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param Union[str, 'KeyType'] key_type: The key type.
@@ -146,7 +146,7 @@ def list_workflow_callback_url_output(key_type: Optional[pulumi.Input[Optional[U
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowCallbackUrlResult]:
     """
     Get the workflow callback Url.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param Union[str, 'KeyType'] key_type: The key type.

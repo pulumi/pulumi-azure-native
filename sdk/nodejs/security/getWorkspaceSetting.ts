@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
- * API Version: 2017-08-01-preview.
+ * Azure REST API version: 2017-08-01-preview.
  */
 export function getWorkspaceSetting(args: GetWorkspaceSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSettingResult> {
 
@@ -50,7 +50,7 @@ export interface GetWorkspaceSettingResult {
 }
 /**
  * Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
- * API Version: 2017-08-01-preview.
+ * Azure REST API version: 2017-08-01-preview.
  */
 export function getWorkspaceSettingOutput(args: GetWorkspaceSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSettingResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceSetting(a, opts))

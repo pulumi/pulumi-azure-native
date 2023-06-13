@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified NSP profile.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-02-01-preview.
  */
 export function getNspProfile(args: GetNspProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNspProfileResult> {
 
@@ -68,7 +68,7 @@ export interface GetNspProfileResult {
 }
 /**
  * Gets the specified NSP profile.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-02-01-preview.
  */
 export function getNspProfileOutput(args: GetNspProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspProfileResult> {
     return pulumi.output(args).apply((a: any) => getNspProfile(a, opts))

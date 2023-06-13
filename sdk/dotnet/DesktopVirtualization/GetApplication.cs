@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get an application.
-        /// API Version: 2022-09-09.
+        /// Azure REST API version: 2022-09-09.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:desktopvirtualization:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an application.
-        /// API Version: 2022-09-09.
+        /// Azure REST API version: 2022-09-09.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:desktopvirtualization:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

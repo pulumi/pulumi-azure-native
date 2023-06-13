@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get a Service and its properties.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:appplatform:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Service and its properties.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:appplatform:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

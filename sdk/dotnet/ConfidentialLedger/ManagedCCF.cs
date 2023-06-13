@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
 {
     /// <summary>
     /// Managed CCF. Contains the properties of Managed CCF Resource.
-    /// API Version: 2023-01-26-preview.
+    /// Azure REST API version: 2023-01-26-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:confidentialledger:ManagedCCF")]
     public partial class ManagedCCF : global::Pulumi.CustomResource

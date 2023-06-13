@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The EngagementFabric account
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -62,7 +62,7 @@ export interface GetAccountResult {
 }
 /**
  * The EngagementFabric account
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

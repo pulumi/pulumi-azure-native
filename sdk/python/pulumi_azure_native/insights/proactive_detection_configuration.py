@@ -180,8 +180,7 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         Properties that define a ProactiveDetection configuration.
-        API Version: 2015-05-01.
-        Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2015-05-01. Prior API version in Azure Native 1.x: 2015-05-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,8 +202,7 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties that define a ProactiveDetection configuration.
-        API Version: 2015-05-01.
-        Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2015-05-01. Prior API version in Azure Native 1.x: 2015-05-01
 
         :param str resource_name: The name of the resource.
         :param ProactiveDetectionConfigurationArgs args: The arguments to use to populate this resource's properties.

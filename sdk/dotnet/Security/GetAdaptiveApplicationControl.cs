@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Gets an application control VM/server group.
-        /// API Version: 2020-01-01.
+        /// Azure REST API version: 2020-01-01.
         /// </summary>
         public static Task<GetAdaptiveApplicationControlResult> InvokeAsync(GetAdaptiveApplicationControlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdaptiveApplicationControlResult>("azure-native:security:getAdaptiveApplicationControl", args ?? new GetAdaptiveApplicationControlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an application control VM/server group.
-        /// API Version: 2020-01-01.
+        /// Azure REST API version: 2020-01-01.
         /// </summary>
         public static Output<GetAdaptiveApplicationControlResult> Invoke(GetAdaptiveApplicationControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdaptiveApplicationControlResult>("azure-native:security:getAdaptiveApplicationControl", args ?? new GetAdaptiveApplicationControlInvokeArgs(), options.WithDefaults());

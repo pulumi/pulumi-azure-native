@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Get access review history definition by definition Id
-        /// API Version: 2021-12-01-preview.
+        /// Azure REST API version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetAccessReviewHistoryDefinitionByIdResult> InvokeAsync(GetAccessReviewHistoryDefinitionByIdArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessReviewHistoryDefinitionByIdResult>("azure-native:authorization:getAccessReviewHistoryDefinitionById", args ?? new GetAccessReviewHistoryDefinitionByIdArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get access review history definition by definition Id
-        /// API Version: 2021-12-01-preview.
+        /// Azure REST API version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetAccessReviewHistoryDefinitionByIdResult> Invoke(GetAccessReviewHistoryDefinitionByIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessReviewHistoryDefinitionByIdResult>("azure-native:authorization:getAccessReviewHistoryDefinitionById", args ?? new GetAccessReviewHistoryDefinitionByIdInvokeArgs(), options.WithDefaults());

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Subscription
     {
         /// <summary>
         /// Get Alias Subscription.
-        /// API Version: 2021-10-01.
+        /// Azure REST API version: 2021-10-01.
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("azure-native:subscription:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Alias Subscription.
-        /// API Version: 2021-10-01.
+        /// Azure REST API version: 2021-10-01.
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("azure-native:subscription:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());

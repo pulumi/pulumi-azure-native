@@ -216,7 +216,7 @@ class Firmware(pulumi.CustomResource):
                  __props__=None):
         """
         Firmware definition
-        API Version: 2023-02-08-preview.
+        Azure REST API version: 2023-02-08-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,7 +240,7 @@ class Firmware(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Firmware definition
-        API Version: 2023-02-08-preview.
+        Azure REST API version: 2023-02-08-preview.
 
         :param str resource_name: The name of the resource.
         :param FirmwareArgs args: The arguments to use to populate this resource's properties.

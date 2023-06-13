@@ -173,7 +173,7 @@ def get_workspace_api_operation(api_id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceApiOperationResult:
     """
     Gets the details of the API Operation specified by its identifier.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -214,7 +214,7 @@ def get_workspace_api_operation_output(api_id: Optional[pulumi.Input[str]] = Non
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceApiOperationResult]:
     """
     Gets the details of the API Operation specified by its identifier.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

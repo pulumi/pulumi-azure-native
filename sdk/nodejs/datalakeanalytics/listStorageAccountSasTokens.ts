@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
- * API Version: 2019-11-01-preview.
+ * Azure REST API version: 2019-11-01-preview.
  */
 export function listStorageAccountSasTokens(args: ListStorageAccountSasTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountSasTokensResult> {
 
@@ -56,7 +56,7 @@ export interface ListStorageAccountSasTokensResult {
 }
 /**
  * Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
- * API Version: 2019-11-01-preview.
+ * Azure REST API version: 2019-11-01-preview.
  */
 export function listStorageAccountSasTokensOutput(args: ListStorageAccountSasTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountSasTokensResult> {
     return pulumi.output(args).apply((a: any) => listStorageAccountSasTokens(a, opts))

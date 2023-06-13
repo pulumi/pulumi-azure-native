@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Datadog
     {
         /// <summary>
         /// Response of a list operation.
-        /// API Version: 2022-06-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Task<ListMonitorHostsResult> InvokeAsync(ListMonitorHostsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitorHostsResult>("azure-native:datadog:listMonitorHosts", args ?? new ListMonitorHostsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
-        /// API Version: 2022-06-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Output<ListMonitorHostsResult> Invoke(ListMonitorHostsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorHostsResult>("azure-native:datadog:listMonitorHosts", args ?? new ListMonitorHostsInvokeArgs(), options.WithDefaults());

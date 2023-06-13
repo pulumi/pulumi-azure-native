@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Primary and Secondary ConnectionStrings to the namespace
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function listNamespaceKeys(args: ListNamespaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNamespaceKeysResult> {
 
@@ -60,7 +60,7 @@ export interface ListNamespaceKeysResult {
 }
 /**
  * Gets the Primary and Secondary ConnectionStrings to the namespace
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {
     return pulumi.output(args).apply((a: any) => listNamespaceKeys(a, opts))

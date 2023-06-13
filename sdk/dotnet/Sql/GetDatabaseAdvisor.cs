@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a database advisor.
-        /// API Version: 2021-11-01.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetDatabaseAdvisorResult> InvokeAsync(GetDatabaseAdvisorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAdvisorResult>("azure-native:sql:getDatabaseAdvisor", args ?? new GetDatabaseAdvisorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a database advisor.
-        /// API Version: 2021-11-01.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetDatabaseAdvisorResult> Invoke(GetDatabaseAdvisorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAdvisorResult>("azure-native:sql:getDatabaseAdvisor", args ?? new GetDatabaseAdvisorInvokeArgs(), options.WithDefaults());

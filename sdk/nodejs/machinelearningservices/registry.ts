@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export class Registry extends pulumi.CustomResource {
     /**

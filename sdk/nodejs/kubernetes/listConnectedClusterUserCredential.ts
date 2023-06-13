@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets cluster user credentials of the connected cluster with a specified resource group and name.
- * API Version: 2021-10-01.
+ * Azure REST API version: 2021-10-01.
  */
 export function listConnectedClusterUserCredential(args: ListConnectedClusterUserCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectedClusterUserCredentialResult> {
 
@@ -56,7 +56,7 @@ export interface ListConnectedClusterUserCredentialResult {
 }
 /**
  * Gets cluster user credentials of the connected cluster with a specified resource group and name.
- * API Version: 2021-10-01.
+ * Azure REST API version: 2021-10-01.
  */
 export function listConnectedClusterUserCredentialOutput(args: ListConnectedClusterUserCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectedClusterUserCredentialResult> {
     return pulumi.output(args).apply((a: any) => listConnectedClusterUserCredential(a, opts))

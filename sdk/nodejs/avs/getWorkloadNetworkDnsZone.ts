@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * NSX DNS Zone
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-05-01.
  */
 export function getWorkloadNetworkDnsZone(args: GetWorkloadNetworkDnsZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDnsZoneResult> {
 
@@ -80,7 +80,7 @@ export interface GetWorkloadNetworkDnsZoneResult {
 }
 /**
  * NSX DNS Zone
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-05-01.
  */
 export function getWorkloadNetworkDnsZoneOutput(args: GetWorkloadNetworkDnsZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsZoneResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadNetworkDnsZone(a, opts))

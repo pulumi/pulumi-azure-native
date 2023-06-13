@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a partner configuration.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPartnerConfiguration(args: GetPartnerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerConfigurationResult> {
 
@@ -65,7 +65,7 @@ export interface GetPartnerConfigurationResult {
 }
 /**
  * Get properties of a partner configuration.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPartnerConfigurationOutput(args: GetPartnerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getPartnerConfiguration(a, opts))

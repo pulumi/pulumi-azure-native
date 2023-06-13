@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Policy fragment contract details.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export class WorkspacePolicyFragment extends pulumi.CustomResource {
     /**

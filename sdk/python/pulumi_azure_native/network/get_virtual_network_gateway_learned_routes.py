@@ -50,7 +50,7 @@ def get_virtual_network_gateway_learned_routes(resource_group_name: Optional[str
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayLearnedRoutesResult:
     """
     This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -72,7 +72,7 @@ def get_virtual_network_gateway_learned_routes_output(resource_group_name: Optio
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayLearnedRoutesResult]:
     """
     This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str resource_group_name: The name of the resource group.

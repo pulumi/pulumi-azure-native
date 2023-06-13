@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ProviderHub
     {
         /// <summary>
         /// Gets the default rollout details.
-        /// API Version: 2020-11-20.
+        /// Azure REST API version: 2020-11-20.
         /// </summary>
         public static Task<GetDefaultRolloutResult> InvokeAsync(GetDefaultRolloutArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultRolloutResult>("azure-native:providerhub:getDefaultRollout", args ?? new GetDefaultRolloutArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the default rollout details.
-        /// API Version: 2020-11-20.
+        /// Azure REST API version: 2020-11-20.
         /// </summary>
         public static Output<GetDefaultRolloutResult> Invoke(GetDefaultRolloutInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultRolloutResult>("azure-native:providerhub:getDefaultRollout", args ?? new GetDefaultRolloutInvokeArgs(), options.WithDefaults());

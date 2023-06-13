@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified custom IP prefix in a specified resource group.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetCustomIPPrefixResult> InvokeAsync(GetCustomIPPrefixArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomIPPrefixResult>("azure-native:network:getCustomIPPrefix", args ?? new GetCustomIPPrefixArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified custom IP prefix in a specified resource group.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetCustomIPPrefixResult> Invoke(GetCustomIPPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomIPPrefixResult>("azure-native:network:getCustomIPPrefix", args ?? new GetCustomIPPrefixInvokeArgs(), options.WithDefaults());

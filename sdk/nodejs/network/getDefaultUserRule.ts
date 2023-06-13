@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a user rule.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getDefaultUserRule(args: GetDefaultUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultUserRuleResult> {
 
@@ -114,7 +114,7 @@ export interface GetDefaultUserRuleResult {
 }
 /**
  * Gets a user rule.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getDefaultUserRuleOutput(args: GetDefaultUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultUserRuleResult> {
     return pulumi.output(args).apply((a: any) => getDefaultUserRule(a, opts))

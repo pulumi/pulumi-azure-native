@@ -256,7 +256,7 @@ def get_origin(endpoint_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginResult:
     """
     Gets an existing origin within an endpoint.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -301,7 +301,7 @@ def get_origin_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginResult]:
     """
     Gets an existing origin within an endpoint.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.

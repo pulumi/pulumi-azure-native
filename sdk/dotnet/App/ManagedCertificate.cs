@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
-    /// API Version: 2023-04-01-preview.
+    /// Azure REST API version: 2023-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ManagedCertificate")]
     public partial class ManagedCertificate : global::Pulumi.CustomResource

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
     /// Represents a Administrator.
-    /// API Version: 2022-01-01.
+    /// Azure REST API version: 2022-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:AzureADAdministrator")]
     public partial class AzureADAdministrator : global::Pulumi.CustomResource

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a setting.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getAnomalies(args: GetAnomaliesArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomaliesResult> {
 
@@ -72,7 +72,7 @@ export interface GetAnomaliesResult {
 }
 /**
  * Gets a setting.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getAnomaliesOutput(args: GetAnomaliesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomaliesResult> {
     return pulumi.output(args).apply((a: any) => getAnomalies(a, opts))

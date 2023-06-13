@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 {
     /// <summary>
     /// An event source that receives its data from an Azure EventHub.
-    /// API Version: 2020-05-15.
-    /// Previous API Version: 2020-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights:EventHubEventSource")]
     public partial class EventHubEventSource : global::Pulumi.CustomResource

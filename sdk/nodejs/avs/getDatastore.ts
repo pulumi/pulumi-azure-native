@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A datastore resource
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-05-01.
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
 
@@ -76,7 +76,7 @@ export interface GetDatastoreResult {
 }
 /**
  * A datastore resource
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-05-01.
  */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
     return pulumi.output(args).apply((a: any) => getDatastore(a, opts))

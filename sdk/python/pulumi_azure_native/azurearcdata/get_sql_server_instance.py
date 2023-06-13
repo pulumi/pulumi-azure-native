@@ -122,7 +122,7 @@ def get_sql_server_instance(resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerInstanceResult:
     """
     Retrieves a SQL Server Instance resource
-    API Version: 2023-01-15-preview.
+    Azure REST API version: 2023-01-15-preview.
 
 
     :param str resource_group_name: The name of the Azure resource group
@@ -150,7 +150,7 @@ def get_sql_server_instance_output(resource_group_name: Optional[pulumi.Input[st
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerInstanceResult]:
     """
     Retrieves a SQL Server Instance resource
-    API Version: 2023-01-15-preview.
+    Azure REST API version: 2023-01-15-preview.
 
 
     :param str resource_group_name: The name of the Azure resource group

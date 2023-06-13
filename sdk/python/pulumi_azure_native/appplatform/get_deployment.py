@@ -112,7 +112,7 @@ def get_deployment(app_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
     Get a Deployment and its properties.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str app_name: The name of the App resource.
@@ -145,7 +145,7 @@ def get_deployment_output(app_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     Get a Deployment and its properties.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str app_name: The name of the App resource.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided bare metal machine.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2022-12-12-preview.
         /// </summary>
         public static Task<GetBareMetalMachineResult> InvokeAsync(GetBareMetalMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBareMetalMachineResult>("azure-native:networkcloud:getBareMetalMachine", args ?? new GetBareMetalMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided bare metal machine.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2022-12-12-preview.
         /// </summary>
         public static Output<GetBareMetalMachineResult> Invoke(GetBareMetalMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineResult>("azure-native:networkcloud:getBareMetalMachine", args ?? new GetBareMetalMachineInvokeArgs(), options.WithDefaults());

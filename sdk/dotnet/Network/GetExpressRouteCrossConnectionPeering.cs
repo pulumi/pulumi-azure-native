@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified peering for the ExpressRouteCrossConnection.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetExpressRouteCrossConnectionPeeringResult> InvokeAsync(GetExpressRouteCrossConnectionPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCrossConnectionPeeringResult>("azure-native:network:getExpressRouteCrossConnectionPeering", args ?? new GetExpressRouteCrossConnectionPeeringArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified peering for the ExpressRouteCrossConnection.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetExpressRouteCrossConnectionPeeringResult> Invoke(GetExpressRouteCrossConnectionPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCrossConnectionPeeringResult>("azure-native:network:getExpressRouteCrossConnectionPeering", args ?? new GetExpressRouteCrossConnectionPeeringInvokeArgs(), options.WithDefaults());

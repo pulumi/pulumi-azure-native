@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the module type.
-    /// API Version: 2022-08-08.
+    /// Azure REST API version: 2022-08-08.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Python3Package")]
     public partial class Python3Package : global::Pulumi.CustomResource

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EngagementFabric
     {
         /// <summary>
         /// List of the EngagementFabric channel descriptions
-        /// API Version: 2018-09-01-preview.
+        /// Azure REST API version: 2018-09-01-preview.
         /// </summary>
         public static Task<ListAccountChannelTypesResult> InvokeAsync(ListAccountChannelTypesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccountChannelTypesResult>("azure-native:engagementfabric:listAccountChannelTypes", args ?? new ListAccountChannelTypesArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of the EngagementFabric channel descriptions
-        /// API Version: 2018-09-01-preview.
+        /// Azure REST API version: 2018-09-01-preview.
         /// </summary>
         public static Output<ListAccountChannelTypesResult> Invoke(ListAccountChannelTypesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccountChannelTypesResult>("azure-native:engagementfabric:listAccountChannelTypes", args ?? new ListAccountChannelTypesInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export class ConnectedEnvironmentsCertificate extends pulumi.CustomResource {
     /**

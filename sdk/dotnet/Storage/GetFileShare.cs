@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Gets properties of a specified share.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetFileShareResult> InvokeAsync(GetFileShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-native:storage:getFileShare", args ?? new GetFileShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a specified share.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetFileShareResult> Invoke(GetFileShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileShareResult>("azure-native:storage:getFileShare", args ?? new GetFileShareInvokeArgs(), options.WithDefaults());

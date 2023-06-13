@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a list of database principals of the given Kusto cluster and database.
- * API Version: 2022-12-29.
+ * Azure REST API version: 2022-12-29.
  */
 export function listDatabasePrincipals(args: ListDatabasePrincipalsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabasePrincipalsResult> {
 
@@ -47,7 +47,7 @@ export interface ListDatabasePrincipalsResult {
 }
 /**
  * Returns a list of database principals of the given Kusto cluster and database.
- * API Version: 2022-12-29.
+ * Azure REST API version: 2022-12-29.
  */
 export function listDatabasePrincipalsOutput(args: ListDatabasePrincipalsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabasePrincipalsResult> {
     return pulumi.output(args).apply((a: any) => listDatabasePrincipals(a, opts))

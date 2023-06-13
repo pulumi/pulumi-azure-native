@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Cassandra view under an existing Azure Cosmos DB database account.
- * API Version: 2023-03-15-preview.
+ * Azure REST API version: 2023-03-15-preview.
  */
 export function getCassandraResourceCassandraView(args: GetCassandraResourceCassandraViewArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraViewResult> {
 
@@ -74,7 +74,7 @@ export interface GetCassandraResourceCassandraViewResult {
 }
 /**
  * Gets the Cassandra view under an existing Azure Cosmos DB database account.
- * API Version: 2023-03-15-preview.
+ * Azure REST API version: 2023-03-15-preview.
  */
 export function getCassandraResourceCassandraViewOutput(args: GetCassandraResourceCassandraViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraViewResult> {
     return pulumi.output(args).apply((a: any) => getCassandraResourceCassandraView(a, opts))

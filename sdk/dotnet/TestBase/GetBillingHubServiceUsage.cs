@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// 
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetBillingHubServiceUsageResult> InvokeAsync(GetBillingHubServiceUsageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingHubServiceUsageResult>("azure-native:testbase:getBillingHubServiceUsage", args ?? new GetBillingHubServiceUsageArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetBillingHubServiceUsageResult> Invoke(GetBillingHubServiceUsageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingHubServiceUsageResult>("azure-native:testbase:getBillingHubServiceUsage", args ?? new GetBillingHubServiceUsageInvokeArgs(), options.WithDefaults());

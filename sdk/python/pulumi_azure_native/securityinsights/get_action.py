@@ -124,7 +124,7 @@ def get_action(action_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionResult:
     """
     Gets the action of alert rule.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str action_id: Action ID
@@ -158,7 +158,7 @@ def get_action_output(action_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionResult]:
     """
     Gets the action of alert rule.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str action_id: Action ID

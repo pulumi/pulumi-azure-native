@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a data connector.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getAwsCloudTrailDataConnector(args: GetAwsCloudTrailDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsCloudTrailDataConnectorResult> {
 
@@ -76,7 +76,7 @@ export interface GetAwsCloudTrailDataConnectorResult {
 }
 /**
  * Gets a data connector.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getAwsCloudTrailDataConnectorOutput(args: GetAwsCloudTrailDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsCloudTrailDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAwsCloudTrailDataConnector(a, opts))

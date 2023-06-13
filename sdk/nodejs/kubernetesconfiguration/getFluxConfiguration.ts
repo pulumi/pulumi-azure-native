@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details of the Flux Configuration.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getFluxConfiguration(args: GetFluxConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetFluxConfigurationResult> {
 
@@ -145,7 +145,7 @@ export interface GetFluxConfigurationResult {
 }
 /**
  * Gets details of the Flux Configuration.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getFluxConfigurationOutput(args: GetFluxConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluxConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getFluxConfiguration(a, opts))

@@ -50,7 +50,7 @@ def list_fleet_credentials(fleet_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFleetCredentialsResult:
     """
     Lists the user credentials of a Fleet.
-    API Version: 2023-03-15-preview.
+    Azure REST API version: 2023-03-15-preview.
 
 
     :param str fleet_name: The name of the Fleet resource.
@@ -72,7 +72,7 @@ def list_fleet_credentials_output(fleet_name: Optional[pulumi.Input[str]] = None
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFleetCredentialsResult]:
     """
     Lists the user credentials of a Fleet.
-    API Version: 2023-03-15-preview.
+    Azure REST API version: 2023-03-15-preview.
 
 
     :param str fleet_name: The name of the Fleet resource.

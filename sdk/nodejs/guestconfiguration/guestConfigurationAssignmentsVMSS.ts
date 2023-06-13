@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
- * API Version: 2022-01-25.
+ * Azure REST API version: 2022-01-25.
  */
 export class GuestConfigurationAssignmentsVMSS extends pulumi.CustomResource {
     /**

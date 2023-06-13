@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of ARM tracked top level resource.
- * API Version: 2022-06-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleResult> {
 
@@ -111,7 +111,7 @@ export interface GetDataCollectionRuleResult {
 }
 /**
  * Definition of ARM tracked top level resource.
- * API Version: 2022-06-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
     return pulumi.output(args).apply((a: any) => getDataCollectionRule(a, opts))

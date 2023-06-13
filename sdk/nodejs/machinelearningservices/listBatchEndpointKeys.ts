@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Keys for endpoint authentication.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listBatchEndpointKeys(args: ListBatchEndpointKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListBatchEndpointKeysResult> {
 
@@ -48,7 +48,7 @@ export interface ListBatchEndpointKeysResult {
 }
 /**
  * Keys for endpoint authentication.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listBatchEndpointKeysOutput(args: ListBatchEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBatchEndpointKeysResult> {
     return pulumi.output(args).apply((a: any) => listBatchEndpointKeys(a, opts))

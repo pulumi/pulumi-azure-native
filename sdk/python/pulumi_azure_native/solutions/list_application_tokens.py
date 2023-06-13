@@ -52,7 +52,7 @@ def list_application_tokens(application_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListApplicationTokensResult:
     """
     List tokens for application.
-    API Version: 2021-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str application_name: The name of the managed application.
@@ -80,7 +80,7 @@ def list_application_tokens_output(application_name: Optional[pulumi.Input[str]]
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApplicationTokensResult]:
     """
     List tokens for application.
-    API Version: 2021-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str application_name: The name of the managed application.

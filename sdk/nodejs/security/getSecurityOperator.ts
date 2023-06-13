@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific security operator for the requested scope.
- * API Version: 2023-01-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getSecurityOperator(args: GetSecurityOperatorArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityOperatorResult> {
 
@@ -54,7 +54,7 @@ export interface GetSecurityOperatorResult {
 }
 /**
  * Get a specific security operator for the requested scope.
- * API Version: 2023-01-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getSecurityOperatorOutput(args: GetSecurityOperatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityOperatorResult> {
     return pulumi.output(args).apply((a: any) => getSecurityOperator(a, opts))

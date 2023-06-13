@@ -99,7 +99,7 @@ def get_backup_short_term_retention_policy(database_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupShortTermRetentionPolicyResult:
     """
     Gets a database's short term retention policy.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str database_name: The name of the database.
@@ -131,7 +131,7 @@ def get_backup_short_term_retention_policy_output(database_name: Optional[pulumi
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupShortTermRetentionPolicyResult]:
     """
     Gets a database's short term retention policy.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str database_name: The name of the database.

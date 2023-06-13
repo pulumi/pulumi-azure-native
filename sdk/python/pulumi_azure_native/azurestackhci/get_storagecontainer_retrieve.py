@@ -188,7 +188,7 @@ def get_storagecontainer_retrieve(resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStoragecontainerRetrieveResult:
     """
     Gets storagecontainers by resource name
-    API Version: 2021-09-01-preview.
+    Azure REST API version: 2021-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -221,7 +221,7 @@ def get_storagecontainer_retrieve_output(resource_group_name: Optional[pulumi.In
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStoragecontainerRetrieveResult]:
     """
     Gets storagecontainers by resource name
-    API Version: 2021-09-01-preview.
+    Azure REST API version: 2021-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

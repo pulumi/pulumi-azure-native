@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Search
     {
         /// <summary>
         /// Gets the search service with the given name in the given resource group.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:search:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the search service with the given name in the given resource group.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:search:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

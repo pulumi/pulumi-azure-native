@@ -93,7 +93,7 @@ class BuildStep(pulumi.CustomResource):
                  __props__=None):
         """
         Build step resource properties
-        API Version: 2018-02-01-preview.
+        Azure REST API version: 2018-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +110,7 @@ class BuildStep(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Build step resource properties
-        API Version: 2018-02-01-preview.
+        Azure REST API version: 2018-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param BuildStepArgs args: The arguments to use to populate this resource's properties.

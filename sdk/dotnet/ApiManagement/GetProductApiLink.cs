@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the API link for the product.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetProductApiLinkResult> InvokeAsync(GetProductApiLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductApiLinkResult>("azure-native:apimanagement:getProductApiLink", args ?? new GetProductApiLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the API link for the product.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetProductApiLinkResult> Invoke(GetProductApiLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductApiLinkResult>("azure-native:apimanagement:getProductApiLink", args ?? new GetProductApiLinkInvokeArgs(), options.WithDefaults());

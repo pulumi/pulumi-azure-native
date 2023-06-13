@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get domain name recommendations based on keywords.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listDomainRecommendations(args?: ListDomainRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainRecommendationsResult> {
     args = args || {};
@@ -47,7 +47,7 @@ export interface ListDomainRecommendationsResult {
 }
 /**
  * Description for Get domain name recommendations based on keywords.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listDomainRecommendationsOutput(args?: ListDomainRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainRecommendationsResult> {
     return pulumi.output(args).apply((a: any) => listDomainRecommendations(a, opts))

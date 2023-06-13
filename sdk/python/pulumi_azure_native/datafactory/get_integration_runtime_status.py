@@ -63,7 +63,7 @@ def get_integration_runtime_status(factory_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeStatusResult:
     """
     Gets detailed status information for an integration runtime.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str factory_name: The factory name.
@@ -89,7 +89,7 @@ def get_integration_runtime_status_output(factory_name: Optional[pulumi.Input[st
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeStatusResult]:
     """
     Gets detailed status information for an integration runtime.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str factory_name: The factory name.

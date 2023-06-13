@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get the policy configuration at the API level.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetWorkspacePolicyResult> InvokeAsync(GetWorkspacePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspacePolicyResult>("azure-native:apimanagement:getWorkspacePolicy", args ?? new GetWorkspacePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the policy configuration at the API level.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetWorkspacePolicyResult> Invoke(GetWorkspacePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspacePolicyResult>("azure-native:apimanagement:getWorkspacePolicy", args ?? new GetWorkspacePolicyInvokeArgs(), options.WithDefaults());

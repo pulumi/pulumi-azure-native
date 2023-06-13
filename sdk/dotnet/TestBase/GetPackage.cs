@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// Gets a Test Base Package.
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetPackageResult> InvokeAsync(GetPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPackageResult>("azure-native:testbase:getPackage", args ?? new GetPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Test Base Package.
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("azure-native:testbase:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());

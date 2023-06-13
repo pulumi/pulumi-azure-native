@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a virtual network link to the specified Private DNS zone.
-        /// API Version: 2020-06-01.
+        /// Azure REST API version: 2020-06-01.
         /// </summary>
         public static Task<GetVirtualNetworkLinkResult> InvokeAsync(GetVirtualNetworkLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkLinkResult>("azure-native:network:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a virtual network link to the specified Private DNS zone.
-        /// API Version: 2020-06-01.
+        /// Azure REST API version: 2020-06-01.
         /// </summary>
         public static Output<GetVirtualNetworkLinkResult> Invoke(GetVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkLinkResult>("azure-native:network:getVirtualNetworkLink", args ?? new GetVirtualNetworkLinkInvokeArgs(), options.WithDefaults());

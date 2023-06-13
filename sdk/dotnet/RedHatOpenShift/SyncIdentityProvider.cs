@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 {
     /// <summary>
     /// SyncIdentityProvider represents a SyncIdentityProvider
-    /// API Version: 2022-09-04.
+    /// Azure REST API version: 2022-09-04.
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift:SyncIdentityProvider")]
     public partial class SyncIdentityProvider : global::Pulumi.CustomResource

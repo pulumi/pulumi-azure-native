@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Get the properties of an connectedEnvironment.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetConnectedEnvironmentResult> InvokeAsync(GetConnectedEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedEnvironmentResult>("azure-native:app:getConnectedEnvironment", args ?? new GetConnectedEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of an connectedEnvironment.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetConnectedEnvironmentResult> Invoke(GetConnectedEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentResult>("azure-native:app:getConnectedEnvironment", args ?? new GetConnectedEnvironmentInvokeArgs(), options.WithDefaults());

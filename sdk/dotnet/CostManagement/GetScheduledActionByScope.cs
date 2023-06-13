@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// Get the shared scheduled action from the given scope by name.
-        /// API Version: 2023-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Task<GetScheduledActionByScopeResult> InvokeAsync(GetScheduledActionByScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledActionByScopeResult>("azure-native:costmanagement:getScheduledActionByScope", args ?? new GetScheduledActionByScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the shared scheduled action from the given scope by name.
-        /// API Version: 2023-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Output<GetScheduledActionByScopeResult> Invoke(GetScheduledActionByScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionByScopeResult>("azure-native:costmanagement:getScheduledActionByScope", args ?? new GetScheduledActionByScopeInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation returns properties of a Secret.
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
 
@@ -63,7 +63,7 @@ export interface GetSecretResult {
 }
 /**
  * The operation returns properties of a Secret.
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply((a: any) => getSecret(a, opts))

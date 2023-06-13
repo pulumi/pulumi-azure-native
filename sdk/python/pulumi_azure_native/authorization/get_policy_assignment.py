@@ -242,7 +242,7 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyAssignmentResult:
     """
     This operation retrieves a single policy assignment, given its name and the scope it was created at.
-    API Version: 2022-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str policy_assignment_name: The name of the policy assignment to get.
@@ -280,7 +280,7 @@ def get_policy_assignment_output(policy_assignment_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
     """
     This operation retrieves a single policy assignment, given its name and the scope it was created at.
-    API Version: 2022-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str policy_assignment_name: The name of the policy assignment to get.

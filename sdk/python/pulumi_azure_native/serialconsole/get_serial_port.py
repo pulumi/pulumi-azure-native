@@ -88,7 +88,7 @@ def get_serial_port(parent_resource: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSerialPortResult:
     """
     Gets the configured settings for a serial port
-    API Version: 2018-05-01.
+    Azure REST API version: 2018-05-01.
 
 
     :param str parent_resource: The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
@@ -122,7 +122,7 @@ def get_serial_port_output(parent_resource: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSerialPortResult]:
     """
     Gets the configured settings for a serial port
-    API Version: 2018-05-01.
+    Azure REST API version: 2018-05-01.
 
 
     :param str parent_resource: The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.

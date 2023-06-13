@@ -254,7 +254,7 @@ def get_network_fabric_controller(network_fabric_controller_name: Optional[str] 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkFabricControllerResult:
     """
     Shows the provisioning status of Network Fabric Controller.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str network_fabric_controller_name: Name of the Network Fabric Controller
@@ -293,7 +293,7 @@ def get_network_fabric_controller_output(network_fabric_controller_name: Optiona
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkFabricControllerResult]:
     """
     Shows the provisioning status of Network Fabric Controller.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str network_fabric_controller_name: Name of the Network Fabric Controller

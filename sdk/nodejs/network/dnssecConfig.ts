@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents the DNSSEC configuration.
- * API Version: 2023-07-01-preview.
+ * Azure REST API version: 2023-07-01-preview.
  */
 export class DnssecConfig extends pulumi.CustomResource {
     /**

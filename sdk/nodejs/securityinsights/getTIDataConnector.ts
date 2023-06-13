@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a data connector.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getTIDataConnector(args: GetTIDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetTIDataConnectorResult> {
 
@@ -80,7 +80,7 @@ export interface GetTIDataConnectorResult {
 }
 /**
  * Gets a data connector.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getTIDataConnectorOutput(args: GetTIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTIDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getTIDataConnector(a, opts))

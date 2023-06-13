@@ -194,7 +194,7 @@ def get_connected_environment(connected_environment_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedEnvironmentResult:
     """
     Get the properties of an connectedEnvironment.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str connected_environment_name: Name of the connectedEnvironment.
@@ -228,7 +228,7 @@ def get_connected_environment_output(connected_environment_name: Optional[pulumi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedEnvironmentResult]:
     """
     Get the properties of an connectedEnvironment.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str connected_environment_name: Name of the connectedEnvironment.

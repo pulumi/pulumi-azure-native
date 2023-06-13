@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a snapshot.
- * API Version: 2022-07-02.
+ * Azure REST API version: 2022-07-02.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
 
@@ -162,7 +162,7 @@ export interface GetSnapshotResult {
 }
 /**
  * Gets information about a snapshot.
- * API Version: 2022-07-02.
+ * Azure REST API version: 2022-07-02.
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))

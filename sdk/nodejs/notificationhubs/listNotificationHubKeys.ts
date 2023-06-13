@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Primary and Secondary ConnectionStrings to the NotificationHub
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function listNotificationHubKeys(args: ListNotificationHubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNotificationHubKeysResult> {
 
@@ -65,7 +65,7 @@ export interface ListNotificationHubKeysResult {
 }
 /**
  * Gets the Primary and Secondary ConnectionStrings to the NotificationHub
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function listNotificationHubKeysOutput(args: ListNotificationHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotificationHubKeysResult> {
     return pulumi.output(args).apply((a: any) => listNotificationHubKeys(a, opts))

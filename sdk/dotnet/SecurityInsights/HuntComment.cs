@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents a Hunt Comment in Azure Security Insights
-    /// API Version: 2023-05-01-preview.
+    /// Azure REST API version: 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:HuntComment")]
     public partial class HuntComment : global::Pulumi.CustomResource

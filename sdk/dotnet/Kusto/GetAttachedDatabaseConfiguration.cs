@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Returns an attached database configuration.
-        /// API Version: 2022-12-29.
+        /// Azure REST API version: 2022-12-29.
         /// </summary>
         public static Task<GetAttachedDatabaseConfigurationResult> InvokeAsync(GetAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns an attached database configuration.
-        /// API Version: 2022-12-29.
+        /// Azure REST API version: 2022-12-29.
         /// </summary>
         public static Output<GetAttachedDatabaseConfigurationResult> Invoke(GetAttachedDatabaseConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationInvokeArgs(), options.WithDefaults());

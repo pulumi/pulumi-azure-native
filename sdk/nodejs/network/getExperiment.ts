@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the properties of an Experiment
- * API Version: 2019-11-01.
+ * Azure REST API version: 2019-11-01.
  */
 export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
 
@@ -91,7 +91,7 @@ export interface GetExperimentResult {
 }
 /**
  * Defines the properties of an Experiment
- * API Version: 2019-11-01.
+ * Azure REST API version: 2019-11-01.
  */
 export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentResult> {
     return pulumi.output(args).apply((a: any) => getExperiment(a, opts))

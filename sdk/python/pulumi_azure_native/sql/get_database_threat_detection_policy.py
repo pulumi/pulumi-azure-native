@@ -183,7 +183,7 @@ def get_database_threat_detection_policy(database_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseThreatDetectionPolicyResult:
     """
     Gets a database's threat detection policy.
-    API Version: 2014-04-01.
+    Azure REST API version: 2014-04-01.
 
 
     :param str database_name: The name of the database for which database Threat Detection policy is defined.
@@ -222,7 +222,7 @@ def get_database_threat_detection_policy_output(database_name: Optional[pulumi.I
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseThreatDetectionPolicyResult]:
     """
     Gets a database's threat detection policy.
-    API Version: 2014-04-01.
+    Azure REST API version: 2014-04-01.
 
 
     :param str database_name: The name of the database for which database Threat Detection policy is defined.

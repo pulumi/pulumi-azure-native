@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets marketplacegalleryimages by resource name
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getMarketplacegalleryimage(args: GetMarketplacegalleryimageArgs, opts?: pulumi.InvokeOptions): Promise<GetMarketplacegalleryimageResult> {
 
@@ -102,7 +102,7 @@ export interface GetMarketplacegalleryimageResult {
 }
 /**
  * Gets marketplacegalleryimages by resource name
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getMarketplacegalleryimageOutput(args: GetMarketplacegalleryimageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarketplacegalleryimageResult> {
     return pulumi.output(args).apply((a: any) => getMarketplacegalleryimage(a, opts))

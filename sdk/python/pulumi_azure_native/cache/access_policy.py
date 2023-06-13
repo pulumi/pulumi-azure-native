@@ -92,7 +92,7 @@ class AccessPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Response to get/put access policy.
-        API Version: 2023-05-01-preview.
+        Azure REST API version: 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -109,7 +109,7 @@ class AccessPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response to get/put access policy.
-        API Version: 2023-05-01-preview.
+        Azure REST API version: 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.

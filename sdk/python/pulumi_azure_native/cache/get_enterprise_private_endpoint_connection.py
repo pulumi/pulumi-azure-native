@@ -123,7 +123,7 @@ def get_enterprise_private_endpoint_connection(cluster_name: Optional[str] = Non
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnterprisePrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
@@ -154,7 +154,7 @@ def get_enterprise_private_endpoint_connection_output(cluster_name: Optional[pul
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterprisePrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.

@@ -187,7 +187,7 @@ class Client(pulumi.CustomResource):
                  __props__=None):
         """
         The Client resource.
-        API Version: 2023-06-01-preview.
+        Azure REST API version: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,7 +211,7 @@ class Client(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Client resource.
-        API Version: 2023-06-01-preview.
+        Azure REST API version: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ClientArgs args: The arguments to use to populate this resource's properties.

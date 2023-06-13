@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Policy fragment contract details.
-    /// API Version: 2022-09-01-preview.
+    /// Azure REST API version: 2022-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspacePolicyFragment")]
     public partial class WorkspacePolicyFragment : global::Pulumi.CustomResource

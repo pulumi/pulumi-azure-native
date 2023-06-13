@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Product-API link details.
-    /// API Version: 2022-09-01-preview.
+    /// Azure REST API version: 2022-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceProductApiLink")]
     public partial class WorkspaceProductApiLink : global::Pulumi.CustomResource

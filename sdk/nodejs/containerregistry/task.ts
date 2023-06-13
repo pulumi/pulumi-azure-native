@@ -10,8 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The task that has the ARM resource and task properties.
  * The task will have all information to schedule a run against it.
- * API Version: 2019-06-01-preview.
- * Previous API Version: 2019-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 1.x: 2019-06-01-preview
  */
 export class Task extends pulumi.CustomResource {
     /**

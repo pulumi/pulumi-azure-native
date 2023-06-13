@@ -122,7 +122,7 @@ def get_migrate_projects_controller_migrate_project(migrate_project_name: Option
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrateProjectsControllerMigrateProjectResult:
     """
     Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
-    API Version: 2020-05-01.
+    Azure REST API version: 2020-05-01.
 
 
     :param str migrate_project_name: Migrate project name.
@@ -150,7 +150,7 @@ def get_migrate_projects_controller_migrate_project_output(migrate_project_name:
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrateProjectsControllerMigrateProjectResult]:
     """
     Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
-    API Version: 2020-05-01.
+    Azure REST API version: 2020-05-01.
 
 
     :param str migrate_project_name: Migrate project name.

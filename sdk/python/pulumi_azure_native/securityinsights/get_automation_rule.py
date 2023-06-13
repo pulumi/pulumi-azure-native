@@ -192,7 +192,7 @@ def get_automation_rule(automation_rule_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationRuleResult:
     """
     Gets the automation rule.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str automation_rule_id: Automation rule ID
@@ -229,7 +229,7 @@ def get_automation_rule_output(automation_rule_id: Optional[pulumi.Input[str]] =
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationRuleResult]:
     """
     Gets the automation rule.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str automation_rule_id: Automation rule ID

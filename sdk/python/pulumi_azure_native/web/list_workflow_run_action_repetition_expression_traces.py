@@ -72,7 +72,7 @@ def list_workflow_run_action_repetition_expression_traces(action_name: Optional[
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowRunActionRepetitionExpressionTracesResult:
     """
     Lists a workflow run expression trace.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str action_name: The workflow action name.
@@ -108,7 +108,7 @@ def list_workflow_run_action_repetition_expression_traces_output(action_name: Op
                                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowRunActionRepetitionExpressionTracesResult]:
     """
     Lists a workflow run expression trace.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str action_name: The workflow action name.

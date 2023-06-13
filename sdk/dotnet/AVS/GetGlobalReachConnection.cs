@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// A global reach connection resource
-        /// API Version: 2022-05-01.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Task<GetGlobalReachConnectionResult> InvokeAsync(GetGlobalReachConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalReachConnectionResult>("azure-native:avs:getGlobalReachConnection", args ?? new GetGlobalReachConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A global reach connection resource
-        /// API Version: 2022-05-01.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Output<GetGlobalReachConnectionResult> Invoke(GetGlobalReachConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalReachConnectionResult>("azure-native:avs:getGlobalReachConnection", args ?? new GetGlobalReachConnectionInvokeArgs(), options.WithDefaults());

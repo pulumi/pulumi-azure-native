@@ -209,7 +209,7 @@ def get_backup(account_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupResult:
     """
     Gets the specified backup of the volume
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -253,7 +253,7 @@ def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupResult]:
     """
     Gets the specified backup of the volume
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account

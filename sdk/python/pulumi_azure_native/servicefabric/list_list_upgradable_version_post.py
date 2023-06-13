@@ -47,7 +47,7 @@ def list_list_upgradable_version_post(cluster_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListListUpgradableVersionPostResult:
     """
     If a target is not provided, it will get the minimum and maximum versions available from the current cluster version. If a target is given, it will provide the required path to get from the current cluster version to the target version.
-    API Version: 2020-12-01-preview.
+    Azure REST API version: 2020-12-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -72,7 +72,7 @@ def list_list_upgradable_version_post_output(cluster_name: Optional[pulumi.Input
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListListUpgradableVersionPostResult]:
     """
     If a target is not provided, it will get the minimum and maximum versions available from the current cluster version. If a target is given, it will provide the required path to get from the current cluster version to the target version.
-    API Version: 2020-12-01-preview.
+    Azure REST API version: 2020-12-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.

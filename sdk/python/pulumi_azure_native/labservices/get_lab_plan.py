@@ -218,7 +218,7 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabPlanResult:
     """
     Retrieves the properties of a Lab Plan.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
@@ -254,7 +254,7 @@ def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabPlanResult]:
     """
     Retrieves the properties of a Lab Plan.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.

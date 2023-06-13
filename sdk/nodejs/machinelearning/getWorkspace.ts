@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified machine learning workspace.
- * API Version: 2019-10-01.
+ * Azure REST API version: 2019-10-01.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -94,7 +94,7 @@ export interface GetWorkspaceResult {
 }
 /**
  * Gets the properties of the specified machine learning workspace.
- * API Version: 2019-10-01.
+ * Azure REST API version: 2019-10-01.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// Storage resource for connectedEnvironment.
-    /// API Version: 2022-10-01.
+    /// Azure REST API version: 2022-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ConnectedEnvironmentsStorage")]
     public partial class ConnectedEnvironmentsStorage : global::Pulumi.CustomResource

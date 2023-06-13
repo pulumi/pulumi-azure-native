@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceLinker
     {
         /// <summary>
         /// list source configurations for a linker.
-        /// API Version: 2022-05-01.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Task<ListLinkerConfigurationsResult> InvokeAsync(ListLinkerConfigurationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListLinkerConfigurationsResult>("azure-native:servicelinker:listLinkerConfigurations", args ?? new ListLinkerConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// list source configurations for a linker.
-        /// API Version: 2022-05-01.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Output<ListLinkerConfigurationsResult> Invoke(ListLinkerConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLinkerConfigurationsResult>("azure-native:servicelinker:listLinkerConfigurations", args ?? new ListLinkerConfigurationsInvokeArgs(), options.WithDefaults());

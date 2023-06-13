@@ -290,7 +290,7 @@ def get_communications_gateway(communications_gateway_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommunicationsGatewayResult:
     """
     Get a CommunicationsGateway
-    API Version: 2023-04-03.
+    Azure REST API version: 2023-04-03.
 
 
     :param str communications_gateway_name: Unique identifier for this deployment
@@ -332,7 +332,7 @@ def get_communications_gateway_output(communications_gateway_name: Optional[pulu
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommunicationsGatewayResult]:
     """
     Get a CommunicationsGateway
-    API Version: 2023-04-03.
+    Azure REST API version: 2023-04-03.
 
 
     :param str communications_gateway_name: Unique identifier for this deployment

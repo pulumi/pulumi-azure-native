@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Get role definition by name (GUID).
-        /// API Version: 2022-04-01.
+        /// Azure REST API version: 2022-04-01.
         /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure-native:authorization:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get role definition by name (GUID).
-        /// API Version: 2022-04-01.
+        /// Azure REST API version: 2022-04-01.
         /// </summary>
         public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure-native:authorization:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());

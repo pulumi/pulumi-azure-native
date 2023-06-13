@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the patching schedule of a redis cache.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchScheduleResult> {
 
@@ -63,7 +63,7 @@ export interface GetPatchScheduleResult {
 }
 /**
  * Gets the patching schedule of a redis cache.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getPatchScheduleOutput(args: GetPatchScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchScheduleResult> {
     return pulumi.output(args).apply((a: any) => getPatchSchedule(a, opts))

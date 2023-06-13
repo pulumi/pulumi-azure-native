@@ -242,7 +242,7 @@ def get_maintenance_configuration(resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceConfigurationResult:
     """
     Maintenance configuration record type
-    API Version: 2022-11-01-preview.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str resource_group_name: Resource Group Name
@@ -280,7 +280,7 @@ def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.In
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
     """
     Maintenance configuration record type
-    API Version: 2022-11-01-preview.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str resource_group_name: Resource Group Name

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSetMapping in a shareSubscription
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getADLSGen2FolderDataSetMapping(args: GetADLSGen2FolderDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FolderDataSetMappingResult> {
 
@@ -101,7 +101,7 @@ export interface GetADLSGen2FolderDataSetMappingResult {
 }
 /**
  * Get a DataSetMapping in a shareSubscription
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getADLSGen2FolderDataSetMappingOutput(args: GetADLSGen2FolderDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FolderDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getADLSGen2FolderDataSetMapping(a, opts))

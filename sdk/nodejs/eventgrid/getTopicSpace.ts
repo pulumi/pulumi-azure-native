@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a topic space.
- * API Version: 2023-06-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getTopicSpace(args: GetTopicSpaceArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicSpaceResult> {
 
@@ -75,7 +75,7 @@ export interface GetTopicSpaceResult {
 }
 /**
  * Get properties of a topic space.
- * API Version: 2023-06-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getTopicSpaceOutput(args: GetTopicSpaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicSpaceResult> {
     return pulumi.output(args).apply((a: any) => getTopicSpace(a, opts))

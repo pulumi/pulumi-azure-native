@@ -123,7 +123,7 @@ def get_federated_identity_credential(federated_identity_credential_resource_nam
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFederatedIdentityCredentialResult:
     """
     Gets the federated identity credential.
-    API Version: 2023-01-31.
+    Azure REST API version: 2023-01-31.
 
 
     :param str federated_identity_credential_resource_name: The name of the federated identity credential resource.
@@ -154,7 +154,7 @@ def get_federated_identity_credential_output(federated_identity_credential_resou
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedIdentityCredentialResult]:
     """
     Gets the federated identity credential.
-    API Version: 2023-01-31.
+    Azure REST API version: 2023-01-31.
 
 
     :param str federated_identity_credential_resource_name: The name of the federated identity credential resource.

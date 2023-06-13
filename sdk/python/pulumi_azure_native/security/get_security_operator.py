@@ -86,7 +86,7 @@ def get_security_operator(pricing_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityOperatorResult:
     """
     Get a specific security operator for the requested scope.
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str pricing_name: name of the pricing configuration
@@ -111,7 +111,7 @@ def get_security_operator_output(pricing_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityOperatorResult]:
     """
     Get a specific security operator for the requested scope.
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str pricing_name: name of the pricing configuration

@@ -268,7 +268,7 @@ def list_task_details(registry_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTaskDetailsResult:
     """
     Returns a task with extended information that includes all secrets.
-    API Version: 2019-06-01-preview.
+    Azure REST API version: 2019-06-01-preview.
 
 
     :param str registry_name: The name of the container registry.
@@ -311,7 +311,7 @@ def list_task_details_output(registry_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTaskDetailsResult]:
     """
     Returns a task with extended information that includes all secrets.
-    API Version: 2019-06-01-preview.
+    Azure REST API version: 2019-06-01-preview.
 
 
     :param str registry_name: The name of the container registry.

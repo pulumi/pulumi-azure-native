@@ -111,7 +111,7 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Get a private endpoint connection
-    API Version: 2021-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str account_name: The name of the account.
@@ -141,7 +141,7 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get a private endpoint connection
-    API Version: 2021-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str account_name: The name of the account.

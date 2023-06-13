@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified packet core data plane.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getPacketCoreDataPlane(args: GetPacketCoreDataPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCoreDataPlaneResult> {
 
@@ -75,7 +75,7 @@ export interface GetPacketCoreDataPlaneResult {
 }
 /**
  * Gets information about the specified packet core data plane.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getPacketCoreDataPlaneOutput(args: GetPacketCoreDataPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCoreDataPlaneResult> {
     return pulumi.output(args).apply((a: any) => getPacketCoreDataPlane(a, opts))

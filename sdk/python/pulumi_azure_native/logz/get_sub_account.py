@@ -122,7 +122,7 @@ def get_sub_account(monitor_name: Optional[str] = None,
                     sub_account_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubAccountResult:
     """
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str monitor_name: Monitor resource name
@@ -153,7 +153,7 @@ def get_sub_account_output(monitor_name: Optional[pulumi.Input[str]] = None,
                            sub_account_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubAccountResult]:
     """
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str monitor_name: Monitor resource name

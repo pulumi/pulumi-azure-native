@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties of the specified bandwidth setting name.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function getBandwidthSetting(args: GetBandwidthSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthSettingResult> {
 
@@ -67,7 +67,7 @@ export interface GetBandwidthSettingResult {
 }
 /**
  * Returns the properties of the specified bandwidth setting name.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function getBandwidthSettingOutput(args: GetBandwidthSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBandwidthSettingResult> {
     return pulumi.output(args).apply((a: any) => getBandwidthSetting(a, opts))

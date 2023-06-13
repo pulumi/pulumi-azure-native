@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the provider registration details.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2020-11-20.
  */
 export function getProviderRegistration(args: GetProviderRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderRegistrationResult> {
 
@@ -43,7 +43,7 @@ export interface GetProviderRegistrationResult {
 }
 /**
  * Gets the provider registration details.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2020-11-20.
  */
 export function getProviderRegistrationOutput(args: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getProviderRegistration(a, opts))

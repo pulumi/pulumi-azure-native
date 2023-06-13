@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB Mongo Role Definition with the given Id.
-        /// API Version: 2023-04-15.
+        /// Azure REST API version: 2023-04-15.
         /// </summary>
         public static Task<GetMongoDBResourceMongoRoleDefinitionResult> InvokeAsync(GetMongoDBResourceMongoRoleDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoRoleDefinitionResult>("azure-native:documentdb:getMongoDBResourceMongoRoleDefinition", args ?? new GetMongoDBResourceMongoRoleDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB Mongo Role Definition with the given Id.
-        /// API Version: 2023-04-15.
+        /// Azure REST API version: 2023-04-15.
         /// </summary>
         public static Output<GetMongoDBResourceMongoRoleDefinitionResult> Invoke(GetMongoDBResourceMongoRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMongoDBResourceMongoRoleDefinitionResult>("azure-native:documentdb:getMongoDBResourceMongoRoleDefinition", args ?? new GetMongoDBResourceMongoRoleDefinitionInvokeArgs(), options.WithDefaults());

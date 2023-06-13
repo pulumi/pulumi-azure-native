@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements HybridIdentityMetadata GET method.
- * API Version: 2022-05-21-preview.
+ * Azure REST API version: 2022-05-21-preview.
  */
 export function getHybridIdentityMetadata(args: GetHybridIdentityMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridIdentityMetadataResult> {
 
@@ -75,7 +75,7 @@ export interface GetHybridIdentityMetadataResult {
 }
 /**
  * Implements HybridIdentityMetadata GET method.
- * API Version: 2022-05-21-preview.
+ * Azure REST API version: 2022-05-21-preview.
  */
 export function getHybridIdentityMetadataOutput(args: GetHybridIdentityMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadataResult> {
     return pulumi.output(args).apply((a: any) => getHybridIdentityMetadata(a, opts))

@@ -135,7 +135,7 @@ def get_fleet_member(fleet_member_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetMemberResult:
     """
     Get a FleetMember
-    API Version: 2023-03-15-preview.
+    Azure REST API version: 2023-03-15-preview.
 
 
     :param str fleet_member_name: The name of the Fleet member resource.
@@ -167,7 +167,7 @@ def get_fleet_member_output(fleet_member_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetMemberResult]:
     """
     Get a FleetMember
-    API Version: 2023-03-15-preview.
+    Azure REST API version: 2023-03-15-preview.
 
 
     :param str fleet_member_name: The name of the Fleet member resource.

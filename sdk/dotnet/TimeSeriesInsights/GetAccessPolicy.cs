@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     {
         /// <summary>
         /// Gets the access policy with the specified name in the specified environment.
-        /// API Version: 2020-05-15.
+        /// Azure REST API version: 2020-05-15.
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-native:timeseriesinsights:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the access policy with the specified name in the specified environment.
-        /// API Version: 2020-05-15.
+        /// Azure REST API version: 2020-05-15.
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:timeseriesinsights:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Get the details of a Streaming Locator in the Media Services account
-        /// API Version: 2023-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<GetStreamingLocatorResult> InvokeAsync(GetStreamingLocatorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamingLocatorResult>("azure-native:media:getStreamingLocator", args ?? new GetStreamingLocatorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the details of a Streaming Locator in the Media Services account
-        /// API Version: 2023-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<GetStreamingLocatorResult> Invoke(GetStreamingLocatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingLocatorResult>("azure-native:media:getStreamingLocator", args ?? new GetStreamingLocatorInvokeArgs(), options.WithDefaults());

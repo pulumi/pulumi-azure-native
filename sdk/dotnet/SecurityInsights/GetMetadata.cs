@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Get a Metadata.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetMetadataResult> InvokeAsync(GetMetadataArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetadataResult>("azure-native:securityinsights:getMetadata", args ?? new GetMetadataArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Metadata.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetMetadataResult> Invoke(GetMetadataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetadataResult>("azure-native:securityinsights:getMetadata", args ?? new GetMetadataInvokeArgs(), options.WithDefaults());

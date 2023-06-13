@@ -73,7 +73,7 @@ def list_batch_account_keys(account_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBatchAccountKeysResult:
     """
     This operation applies only to Batch accounts with allowedAuthenticationModes containing 'SharedKey'. If the Batch account doesn't contain 'SharedKey' in its allowedAuthenticationMode, clients cannot use shared keys to authenticate, and must use another allowedAuthenticationModes instead. In this case, getting the keys will fail.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -97,7 +97,7 @@ def list_batch_account_keys_output(account_name: Optional[pulumi.Input[str]] = N
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBatchAccountKeysResult]:
     """
     This operation applies only to Batch accounts with allowedAuthenticationModes containing 'SharedKey'. If the Batch account doesn't contain 'SharedKey' in its allowedAuthenticationMode, clients cannot use shared keys to authenticate, and must use another allowedAuthenticationModes instead. In this case, getting the keys will fail.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str account_name: The name of the Batch account.

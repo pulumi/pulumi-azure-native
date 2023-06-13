@@ -101,7 +101,7 @@ def get_api_operation_policy(api_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiOperationPolicyResult:
     """
     Get the policy configuration at the API Operation level.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -139,7 +139,7 @@ def get_api_operation_policy_output(api_id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiOperationPolicyResult]:
     """
     Get the policy configuration at the API Operation level.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

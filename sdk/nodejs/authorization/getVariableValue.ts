@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves a single variable value; given its name, subscription it was created at and the variable it's created for.
- * API Version: 2022-08-01-preview.
+ * Azure REST API version: 2022-08-01-preview.
  */
 export function getVariableValue(args: GetVariableValueArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableValueResult> {
 
@@ -58,7 +58,7 @@ export interface GetVariableValueResult {
 }
 /**
  * This operation retrieves a single variable value; given its name, subscription it was created at and the variable it's created for.
- * API Version: 2022-08-01-preview.
+ * Azure REST API version: 2022-08-01-preview.
  */
 export function getVariableValueOutput(args: GetVariableValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableValueResult> {
     return pulumi.output(args).apply((a: any) => getVariableValue(a, opts))

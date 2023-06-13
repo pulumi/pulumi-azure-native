@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified saved search for a given workspace.
- * API Version: 2020-08-01.
+ * Azure REST API version: 2020-08-01.
  */
 export function getSavedSearch(args: GetSavedSearchArgs, opts?: pulumi.InvokeOptions): Promise<GetSavedSearchResult> {
 
@@ -87,7 +87,7 @@ export interface GetSavedSearchResult {
 }
 /**
  * Gets the specified saved search for a given workspace.
- * API Version: 2020-08-01.
+ * Azure REST API version: 2020-08-01.
  */
 export function getSavedSearchOutput(args: GetSavedSearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSavedSearchResult> {
     return pulumi.output(args).apply((a: any) => getSavedSearch(a, opts))

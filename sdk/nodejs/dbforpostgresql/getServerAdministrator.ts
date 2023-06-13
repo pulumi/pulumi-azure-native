@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a AAD server administrator.
- * API Version: 2017-12-01-preview.
+ * Azure REST API version: 2017-12-01-preview.
  */
 export function getServerAdministrator(args: GetServerAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAdministratorResult> {
 
@@ -63,7 +63,7 @@ export interface GetServerAdministratorResult {
 }
 /**
  * Gets information about a AAD server administrator.
- * API Version: 2017-12-01-preview.
+ * Azure REST API version: 2017-12-01-preview.
  */
 export function getServerAdministratorOutput(args: GetServerAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAdministratorResult> {
     return pulumi.output(args).apply((a: any) => getServerAdministrator(a, opts))

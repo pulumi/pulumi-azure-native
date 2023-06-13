@@ -146,7 +146,7 @@ def get_delegated_subnet_service_details(resource_group_name: Optional[str] = No
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDelegatedSubnetServiceDetailsResult:
     """
     Gets details about the specified dnc DelegatedSubnet Link.
-    API Version: 2021-03-15.
+    Azure REST API version: 2021-03-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -176,7 +176,7 @@ def get_delegated_subnet_service_details_output(resource_group_name: Optional[pu
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDelegatedSubnetServiceDetailsResult]:
     """
     Gets details about the specified dnc DelegatedSubnet Link.
-    API Version: 2021-03-15.
+    Azure REST API version: 2021-03-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

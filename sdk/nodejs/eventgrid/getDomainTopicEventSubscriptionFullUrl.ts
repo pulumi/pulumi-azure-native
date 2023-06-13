@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the full endpoint URL for a nested event subscription for domain topic.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getDomainTopicEventSubscriptionFullUrl(args: GetDomainTopicEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicEventSubscriptionFullUrlResult> {
 
@@ -49,7 +49,7 @@ export interface GetDomainTopicEventSubscriptionFullUrlResult {
 }
 /**
  * Get the full endpoint URL for a nested event subscription for domain topic.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getDomainTopicEventSubscriptionFullUrlOutput(args: GetDomainTopicEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicEventSubscriptionFullUrlResult> {
     return pulumi.output(args).apply((a: any) => getDomainTopicEventSubscriptionFullUrl(a, opts))

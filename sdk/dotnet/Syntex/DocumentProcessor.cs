@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.Syntex
 {
     /// <summary>
     /// Document processor details
-    /// API Version: 2022-09-15-preview.
-    /// Previous API Version: 2022-09-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2022-09-15-preview. Prior API version in Azure Native 1.x: 2022-09-15-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:syntex:DocumentProcessor")]
     public partial class DocumentProcessor : global::Pulumi.CustomResource

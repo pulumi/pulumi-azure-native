@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Resources
 {
     /// <summary>
     /// Deployment stack object.
-    /// API Version: 2022-08-01-preview.
+    /// Azure REST API version: 2022-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentStackAtManagementGroup")]
     public partial class DeploymentStackAtManagementGroup : global::Pulumi.CustomResource

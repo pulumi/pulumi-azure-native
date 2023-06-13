@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a managed database's long term retention policy.
- * API Version: 2022-11-01-preview.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getManagedInstanceLongTermRetentionPolicy(args: GetManagedInstanceLongTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceLongTermRetentionPolicyResult> {
 
@@ -73,7 +73,7 @@ export interface GetManagedInstanceLongTermRetentionPolicyResult {
 }
 /**
  * Gets a managed database's long term retention policy.
- * API Version: 2022-11-01-preview.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getManagedInstanceLongTermRetentionPolicyOutput(args: GetManagedInstanceLongTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceLongTermRetentionPolicyResult> {
     return pulumi.output(args).apply((a: any) => getManagedInstanceLongTermRetentionPolicy(a, opts))

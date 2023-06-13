@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Gets a deployment.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetDeploymentAtTenantScopeResult> InvokeAsync(GetDeploymentAtTenantScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtTenantScopeResult>("azure-native:resources:getDeploymentAtTenantScope", args ?? new GetDeploymentAtTenantScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a deployment.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetDeploymentAtTenantScopeResult> Invoke(GetDeploymentAtTenantScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentAtTenantScopeResult>("azure-native:resources:getDeploymentAtTenantScope", args ?? new GetDeploymentAtTenantScopeInvokeArgs(), options.WithDefaults());

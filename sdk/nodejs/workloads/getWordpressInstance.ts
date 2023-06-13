@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the WordPress instance resource.
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2021-12-01-preview.
  */
 export function getWordpressInstance(args: GetWordpressInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetWordpressInstanceResult> {
 
@@ -74,7 +74,7 @@ export interface GetWordpressInstanceResult {
 }
 /**
  * Gets the WordPress instance resource.
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2021-12-01-preview.
  */
 export function getWordpressInstanceOutput(args: GetWordpressInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWordpressInstanceResult> {
     return pulumi.output(args).apply((a: any) => getWordpressInstance(a, opts))

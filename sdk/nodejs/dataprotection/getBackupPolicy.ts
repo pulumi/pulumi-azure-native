@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a backup policy belonging to a backup vault
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
 
@@ -60,7 +60,7 @@ export interface GetBackupPolicyResult {
 }
 /**
  * Gets a backup policy belonging to a backup vault
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBackupPolicy(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityDevOps
     {
         /// <summary>
         /// 
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetAzureDevOpsConnectorResult> InvokeAsync(GetAzureDevOpsConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureDevOpsConnectorResult>("azure-native:securitydevops:getAzureDevOpsConnector", args ?? new GetAzureDevOpsConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetAzureDevOpsConnectorResult> Invoke(GetAzureDevOpsConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureDevOpsConnectorResult>("azure-native:securitydevops:getAzureDevOpsConnector", args ?? new GetAzureDevOpsConnectorInvokeArgs(), options.WithDefaults());

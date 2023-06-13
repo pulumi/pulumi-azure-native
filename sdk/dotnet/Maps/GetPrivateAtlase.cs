@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Maps
     {
         /// <summary>
         /// [Deprecated] Get a Private Atlas resource.
-        /// API Version: 2020-02-01-preview.
+        /// Azure REST API version: 2020-02-01-preview.
         /// </summary>
         public static Task<GetPrivateAtlaseResult> InvokeAsync(GetPrivateAtlaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateAtlaseResult>("azure-native:maps:getPrivateAtlase", args ?? new GetPrivateAtlaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// [Deprecated] Get a Private Atlas resource.
-        /// API Version: 2020-02-01-preview.
+        /// Azure REST API version: 2020-02-01-preview.
         /// </summary>
         public static Output<GetPrivateAtlaseResult> Invoke(GetPrivateAtlaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateAtlaseResult>("azure-native:maps:getPrivateAtlase", args ?? new GetPrivateAtlaseInvokeArgs(), options.WithDefaults());

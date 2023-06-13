@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// API Version Set Contract details.
-    /// API Version: 2022-09-01-preview.
+    /// Azure REST API version: 2022-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceApiVersionSet")]
     public partial class WorkspaceApiVersionSet : global::Pulumi.CustomResource

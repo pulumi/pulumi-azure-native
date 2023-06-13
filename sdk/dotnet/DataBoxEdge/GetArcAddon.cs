@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Gets a specific addon by name.
-        /// API Version: 2022-03-01.
+        /// Azure REST API version: 2022-03-01.
         /// </summary>
         public static Task<GetArcAddonResult> InvokeAsync(GetArcAddonArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArcAddonResult>("azure-native:databoxedge:getArcAddon", args ?? new GetArcAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific addon by name.
-        /// API Version: 2022-03-01.
+        /// Azure REST API version: 2022-03-01.
         /// </summary>
         public static Output<GetArcAddonResult> Invoke(GetArcAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArcAddonResult>("azure-native:databoxedge:getArcAddon", args ?? new GetArcAddonInvokeArgs(), options.WithDefaults());

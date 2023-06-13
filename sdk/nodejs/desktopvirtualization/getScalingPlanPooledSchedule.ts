@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a ScalingPlanPooledSchedule.
- * API Version: 2022-09-09.
+ * Azure REST API version: 2022-09-09.
  */
 export function getScalingPlanPooledSchedule(args: GetScalingPlanPooledScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanPooledScheduleResult> {
 
@@ -127,7 +127,7 @@ export interface GetScalingPlanPooledScheduleResult {
 }
 /**
  * Get a ScalingPlanPooledSchedule.
- * API Version: 2022-09-09.
+ * Azure REST API version: 2022-09-09.
  */
 export function getScalingPlanPooledScheduleOutput(args: GetScalingPlanPooledScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanPooledScheduleResult> {
     return pulumi.output(args).apply((a: any) => getScalingPlanPooledSchedule(a, opts))

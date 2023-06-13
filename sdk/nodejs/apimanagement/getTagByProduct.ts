@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get tag associated with the Product.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getTagByProduct(args: GetTagByProductArgs, opts?: pulumi.InvokeOptions): Promise<GetTagByProductResult> {
 
@@ -61,7 +61,7 @@ export interface GetTagByProductResult {
 }
 /**
  * Get tag associated with the Product.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getTagByProductOutput(args: GetTagByProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByProductResult> {
     return pulumi.output(args).apply((a: any) => getTagByProduct(a, opts))

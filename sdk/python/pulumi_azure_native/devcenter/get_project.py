@@ -170,7 +170,7 @@ def get_project(project_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     Gets a specific project.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str project_name: The name of the project.
@@ -202,7 +202,7 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
     Gets a specific project.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str project_name: The name of the project.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the cluster customer credentials for the dedicated appliance.
- * API Version: 2022-10-27.
+ * Azure REST API version: 2022-10-27.
  */
 export function listApplianceKeys(args: ListApplianceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListApplianceKeysResult> {
 
@@ -50,7 +50,7 @@ export interface ListApplianceKeysResult {
 }
 /**
  * Returns the cluster customer credentials for the dedicated appliance.
- * API Version: 2022-10-27.
+ * Azure REST API version: 2022-10-27.
  */
 export function listApplianceKeysOutput(args: ListApplianceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplianceKeysResult> {
     return pulumi.output(args).apply((a: any) => listApplianceKeys(a, opts))

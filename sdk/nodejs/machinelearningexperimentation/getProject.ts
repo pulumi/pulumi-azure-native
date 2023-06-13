@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified machine learning project.
- * API Version: 2017-05-01-preview.
+ * Azure REST API version: 2017-05-01-preview.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
 
@@ -97,7 +97,7 @@ export interface GetProjectResult {
 }
 /**
  * Gets the properties of the specified machine learning project.
- * API Version: 2017-05-01-preview.
+ * Azure REST API version: 2017-05-01-preview.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply((a: any) => getProject(a, opts))

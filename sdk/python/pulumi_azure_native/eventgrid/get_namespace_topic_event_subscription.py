@@ -136,7 +136,7 @@ def get_namespace_topic_event_subscription(event_subscription_name: Optional[str
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceTopicEventSubscriptionResult:
     """
     Get properties of an event subscription of a namespace topic.
-    API Version: 2023-06-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -171,7 +171,7 @@ def get_namespace_topic_event_subscription_output(event_subscription_name: Optio
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceTopicEventSubscriptionResult]:
     """
     Get properties of an event subscription of a namespace topic.
-    API Version: 2023-06-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

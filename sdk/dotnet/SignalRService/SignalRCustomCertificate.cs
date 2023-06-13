@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.SignalRService
 {
     /// <summary>
     /// A custom certificate.
-    /// API Version: 2023-02-01.
-    /// Previous API Version: 2022-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice:SignalRCustomCertificate")]
     public partial class SignalRCustomCertificate : global::Pulumi.CustomResource

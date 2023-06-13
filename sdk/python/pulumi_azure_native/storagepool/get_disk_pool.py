@@ -218,7 +218,7 @@ def get_disk_pool(disk_pool_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskPoolResult:
     """
     Get a Disk pool.
-    API Version: 2021-08-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str disk_pool_name: The name of the Disk Pool.
@@ -254,7 +254,7 @@ def get_disk_pool_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskPoolResult]:
     """
     Get a Disk pool.
-    API Version: 2021-08-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str disk_pool_name: The name of the Disk Pool.

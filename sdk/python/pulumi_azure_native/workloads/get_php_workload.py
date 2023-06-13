@@ -314,7 +314,7 @@ def get_php_workload(php_workload_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPhpWorkloadResult:
     """
     Gets the PHP workload resource.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2021-12-01-preview.
 
 
     :param str php_workload_name: Php workload name
@@ -358,7 +358,7 @@ def get_php_workload_output(php_workload_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPhpWorkloadResult]:
     """
     Gets the PHP workload resource.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2021-12-01-preview.
 
 
     :param str php_workload_name: Php workload name

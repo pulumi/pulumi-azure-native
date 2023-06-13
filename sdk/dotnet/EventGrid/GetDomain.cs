@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a domain.
-        /// API Version: 2022-06-15.
+        /// Azure REST API version: 2022-06-15.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:eventgrid:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a domain.
-        /// API Version: 2022-06-15.
+        /// Azure REST API version: 2022-06-15.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:eventgrid:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());

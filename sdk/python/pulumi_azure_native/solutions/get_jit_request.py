@@ -206,7 +206,7 @@ def get_jit_request(jit_request_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJitRequestResult:
     """
     Gets the JIT request.
-    API Version: 2021-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str jit_request_name: The name of the JIT request.
@@ -241,7 +241,7 @@ def get_jit_request_output(jit_request_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJitRequestResult]:
     """
     Gets the JIT request.
-    API Version: 2021-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str jit_request_name: The name of the JIT request.

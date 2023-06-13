@@ -99,7 +99,7 @@ def get_sync_set(child_resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncSetResult:
     """
     The operation returns properties of a SyncSet.
-    API Version: 2022-09-04.
+    Azure REST API version: 2022-09-04.
 
 
     :param str child_resource_name: The name of the SyncSet resource.
@@ -128,7 +128,7 @@ def get_sync_set_output(child_resource_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncSetResult]:
     """
     The operation returns properties of a SyncSet.
-    API Version: 2022-09-04.
+    Azure REST API version: 2022-09-04.
 
 
     :param str child_resource_name: The name of the SyncSet resource.

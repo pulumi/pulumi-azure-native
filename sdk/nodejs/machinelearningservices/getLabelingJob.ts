@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function getLabelingJob(args: GetLabelingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelingJobResult> {
 
@@ -73,7 +73,7 @@ export interface GetLabelingJobResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function getLabelingJobOutput(args: GetLabelingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelingJobResult> {
     return pulumi.output(args).apply((a: any) => getLabelingJob(a, opts))

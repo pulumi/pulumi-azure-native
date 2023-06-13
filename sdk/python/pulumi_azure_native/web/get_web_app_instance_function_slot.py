@@ -243,7 +243,7 @@ def get_web_app_instance_function_slot(function_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppInstanceFunctionSlotResult:
     """
     Description for Get function information by its ID for web site, or a deployment slot.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str function_name: Function name.
@@ -287,7 +287,7 @@ def get_web_app_instance_function_slot_output(function_name: Optional[pulumi.Inp
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppInstanceFunctionSlotResult]:
     """
     Description for Get function information by its ID for web site, or a deployment slot.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str function_name: Function name.

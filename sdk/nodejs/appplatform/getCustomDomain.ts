@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the custom domain of one lifecycle application.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
 
@@ -68,7 +68,7 @@ export interface GetCustomDomainResult {
 }
 /**
  * Get the custom domain of one lifecycle application.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getCustomDomain(a, opts))

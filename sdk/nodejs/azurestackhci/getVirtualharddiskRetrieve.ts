@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets virtualharddisks by resource name
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getVirtualharddiskRetrieve(args: GetVirtualharddiskRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualharddiskRetrieveResult> {
 
@@ -95,7 +95,7 @@ export interface GetVirtualharddiskRetrieveResult {
 }
 /**
  * Gets virtualharddisks by resource name
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getVirtualharddiskRetrieveOutput(args: GetVirtualharddiskRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualharddiskRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getVirtualharddiskRetrieve(a, opts))

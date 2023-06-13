@@ -195,7 +195,7 @@ def get_firmware(firmware_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirmwareResult:
     """
     Get firmware.
-    API Version: 2023-02-08-preview.
+    Azure REST API version: 2023-02-08-preview.
 
 
     :param str firmware_id: The id of the firmware.
@@ -232,7 +232,7 @@ def get_firmware_output(firmware_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirmwareResult]:
     """
     Get firmware.
-    API Version: 2023-02-08-preview.
+    Azure REST API version: 2023-02-08-preview.
 
 
     :param str firmware_id: The id of the firmware.

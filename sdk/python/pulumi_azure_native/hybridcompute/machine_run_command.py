@@ -301,7 +301,7 @@ class MachineRunCommand(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Run Command
-        API Version: 2023-04-25-preview.
+        Azure REST API version: 2023-04-25-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -330,7 +330,7 @@ class MachineRunCommand(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Run Command
-        API Version: 2023-04-25-preview.
+        Azure REST API version: 2023-04-25-preview.
 
         :param str resource_name: The name of the resource.
         :param MachineRunCommandArgs args: The arguments to use to populate this resource's properties.

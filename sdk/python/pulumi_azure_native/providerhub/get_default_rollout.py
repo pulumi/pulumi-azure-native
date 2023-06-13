@@ -86,7 +86,7 @@ def get_default_rollout(provider_namespace: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultRolloutResult:
     """
     Gets the default rollout details.
-    API Version: 2020-11-20.
+    Azure REST API version: 2020-11-20.
 
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -111,7 +111,7 @@ def get_default_rollout_output(provider_namespace: Optional[pulumi.Input[str]] =
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultRolloutResult]:
     """
     Gets the default rollout details.
-    API Version: 2020-11-20.
+    Azure REST API version: 2020-11-20.
 
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.

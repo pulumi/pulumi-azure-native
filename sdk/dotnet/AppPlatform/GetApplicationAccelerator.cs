@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get the application accelerator.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetApplicationAcceleratorResult> InvokeAsync(GetApplicationAcceleratorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationAcceleratorResult>("azure-native:appplatform:getApplicationAccelerator", args ?? new GetApplicationAcceleratorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the application accelerator.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetApplicationAcceleratorResult> Invoke(GetApplicationAcceleratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationAcceleratorResult>("azure-native:appplatform:getApplicationAccelerator", args ?? new GetApplicationAcceleratorInvokeArgs(), options.WithDefaults());

@@ -242,7 +242,7 @@ def get_governance_rule(rule_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGovernanceRuleResult:
     """
     Get a specific governance rule for the requested scope by ruleId
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str rule_id: The governance rule key - unique key for the standard governance rule (GUID)
@@ -280,7 +280,7 @@ def get_governance_rule_output(rule_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGovernanceRuleResult]:
     """
     Get a specific governance rule for the requested scope by ruleId
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str rule_id: The governance rule key - unique key for the standard governance rule (GUID)

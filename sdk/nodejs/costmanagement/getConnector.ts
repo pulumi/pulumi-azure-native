@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a connector definition
- * API Version: 2018-08-01-preview.
+ * Azure REST API version: 2018-08-01-preview.
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
 
@@ -94,7 +94,7 @@ export interface GetConnectorResult {
 }
 /**
  * Get a connector definition
- * API Version: 2018-08-01-preview.
+ * Azure REST API version: 2018-08-01-preview.
  */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
     return pulumi.output(args).apply((a: any) => getConnector(a, opts))

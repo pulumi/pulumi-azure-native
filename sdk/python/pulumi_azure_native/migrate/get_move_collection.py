@@ -146,7 +146,7 @@ def get_move_collection(move_collection_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMoveCollectionResult:
     """
     Gets the move collection.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str move_collection_name: The Move Collection Name.
@@ -176,7 +176,7 @@ def get_move_collection_output(move_collection_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMoveCollectionResult]:
     """
     Gets the move collection.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str move_collection_name: The Move Collection Name.

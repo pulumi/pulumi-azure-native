@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceLinker
 {
     /// <summary>
     /// a dryrun job resource
-    /// API Version: 2022-11-01-preview.
+    /// Azure REST API version: 2022-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicelinker:LinkerDryrun")]
     public partial class LinkerDryrun : global::Pulumi.CustomResource

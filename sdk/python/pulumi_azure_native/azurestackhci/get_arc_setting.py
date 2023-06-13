@@ -207,7 +207,7 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArcSettingResult:
     """
     Get ArcSetting resource details of HCI Cluster.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
@@ -245,7 +245,7 @@ def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArcSettingResult]:
     """
     Get ArcSetting resource details of HCI Cluster.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.

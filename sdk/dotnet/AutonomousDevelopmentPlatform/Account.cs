@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
 {
     /// <summary>
     /// ADP account
-    /// API Version: 2021-11-01-preview.
-    /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform:Account")]
     public partial class Account : global::Pulumi.CustomResource

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Logic
     {
         /// <summary>
         /// Get the callback url for a trigger of a workflow version.
-        /// API Version: 2019-05-01.
+        /// Azure REST API version: 2019-05-01.
         /// </summary>
         public static Task<ListWorkflowVersionTriggerCallbackUrlResult> InvokeAsync(ListWorkflowVersionTriggerCallbackUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowVersionTriggerCallbackUrlResult>("azure-native:logic:listWorkflowVersionTriggerCallbackUrl", args ?? new ListWorkflowVersionTriggerCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the callback url for a trigger of a workflow version.
-        /// API Version: 2019-05-01.
+        /// Azure REST API version: 2019-05-01.
         /// </summary>
         public static Output<ListWorkflowVersionTriggerCallbackUrlResult> Invoke(ListWorkflowVersionTriggerCallbackUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkflowVersionTriggerCallbackUrlResult>("azure-native:logic:listWorkflowVersionTriggerCallbackUrl", args ?? new ListWorkflowVersionTriggerCallbackUrlInvokeArgs(), options.WithDefaults());

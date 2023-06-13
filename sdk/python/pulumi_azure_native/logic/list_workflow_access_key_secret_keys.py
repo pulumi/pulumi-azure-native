@@ -59,7 +59,7 @@ def list_workflow_access_key_secret_keys(access_key_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowAccessKeySecretKeysResult:
     """
     Lists secret keys.
-    API Version: 2015-02-01-preview.
+    Azure REST API version: 2015-02-01-preview.
 
 
     :param str access_key_name: The workflow access key name.
@@ -85,7 +85,7 @@ def list_workflow_access_key_secret_keys_output(access_key_name: Optional[pulumi
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowAccessKeySecretKeysResult]:
     """
     Lists secret keys.
-    API Version: 2015-02-01-preview.
+    Azure REST API version: 2015-02-01-preview.
 
 
     :param str access_key_name: The workflow access key name.

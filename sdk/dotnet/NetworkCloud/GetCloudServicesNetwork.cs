@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided cloud services network.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2022-12-12-preview.
         /// </summary>
         public static Task<GetCloudServicesNetworkResult> InvokeAsync(GetCloudServicesNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudServicesNetworkResult>("azure-native:networkcloud:getCloudServicesNetwork", args ?? new GetCloudServicesNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided cloud services network.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2022-12-12-preview.
         /// </summary>
         public static Output<GetCloudServicesNetworkResult> Invoke(GetCloudServicesNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServicesNetworkResult>("azure-native:networkcloud:getCloudServicesNetwork", args ?? new GetCloudServicesNetworkInvokeArgs(), options.WithDefaults());

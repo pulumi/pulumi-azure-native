@@ -135,7 +135,7 @@ def get_partner_registration(partner_registration_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerRegistrationResult:
     """
     Gets a partner registration with the specified parameters.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str partner_registration_name: Name of the partner registration.
@@ -164,7 +164,7 @@ def get_partner_registration_output(partner_registration_name: Optional[pulumi.I
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerRegistrationResult]:
     """
     Gets a partner registration with the specified parameters.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str partner_registration_name: Name of the partner registration.

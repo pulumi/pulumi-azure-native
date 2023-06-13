@@ -161,7 +161,7 @@ def get_service_fabric(expand: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceFabricResult:
     """
     Get service fabric.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
@@ -201,7 +201,7 @@ def get_service_fabric_output(expand: Optional[pulumi.Input[Optional[str]]] = No
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceFabricResult]:
     """
     Get service fabric.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=applicableSchedule)'

@@ -101,7 +101,7 @@ def get_labeling_job(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabelingJobResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01-preview.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str id: The name and identifier for the LabelingJob.
@@ -136,7 +136,7 @@ def get_labeling_job_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabelingJobResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01-preview.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str id: The name and identifier for the LabelingJob.

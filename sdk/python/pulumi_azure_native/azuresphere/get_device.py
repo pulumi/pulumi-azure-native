@@ -173,7 +173,7 @@ def get_device(catalog_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
     Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog
@@ -214,7 +214,7 @@ def get_device_output(catalog_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
     """
     Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog

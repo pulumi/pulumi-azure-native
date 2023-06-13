@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a msixpackage.
- * API Version: 2022-09-09.
+ * Azure REST API version: 2022-09-09.
  */
 export function getMSIXPackage(args: GetMSIXPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetMSIXPackageResult> {
 
@@ -103,7 +103,7 @@ export interface GetMSIXPackageResult {
 }
 /**
  * Get a msixpackage.
- * API Version: 2022-09-09.
+ * Azure REST API version: 2022-09-09.
  */
 export function getMSIXPackageOutput(args: GetMSIXPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMSIXPackageResult> {
     return pulumi.output(args).apply((a: any) => getMSIXPackage(a, opts))

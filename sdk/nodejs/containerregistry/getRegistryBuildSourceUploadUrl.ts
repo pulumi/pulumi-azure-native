@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the upload location for the user to be able to upload the source.
- * API Version: 2018-02-01-preview.
+ * Azure REST API version: 2018-02-01-preview.
  */
 export function getRegistryBuildSourceUploadUrl(args: GetRegistryBuildSourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryBuildSourceUploadUrlResult> {
 
@@ -43,7 +43,7 @@ export interface GetRegistryBuildSourceUploadUrlResult {
 }
 /**
  * Get the upload location for the user to be able to upload the source.
- * API Version: 2018-02-01-preview.
+ * Azure REST API version: 2018-02-01-preview.
  */
 export function getRegistryBuildSourceUploadUrlOutput(args: GetRegistryBuildSourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryBuildSourceUploadUrlResult> {
     return pulumi.output(args).apply((a: any) => getRegistryBuildSourceUploadUrl(a, opts))

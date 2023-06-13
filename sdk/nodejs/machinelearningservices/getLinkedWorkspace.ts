@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the detail of a linked workspace.
- * API Version: 2020-05-15-preview.
+ * Azure REST API version: 2020-05-15-preview.
  */
 export function getLinkedWorkspace(args: GetLinkedWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedWorkspaceResult> {
 
@@ -59,7 +59,7 @@ export interface GetLinkedWorkspaceResult {
 }
 /**
  * Get the detail of a linked workspace.
- * API Version: 2020-05-15-preview.
+ * Azure REST API version: 2020-05-15-preview.
  */
 export function getLinkedWorkspaceOutput(args: GetLinkedWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getLinkedWorkspace(a, opts))

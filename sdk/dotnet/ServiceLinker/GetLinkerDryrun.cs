@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceLinker
     {
         /// <summary>
         /// get a dryrun job
-        /// API Version: 2022-11-01-preview.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetLinkerDryrunResult> InvokeAsync(GetLinkerDryrunArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkerDryrunResult>("azure-native:servicelinker:getLinkerDryrun", args ?? new GetLinkerDryrunArgs(), options.WithDefaults());
 
         /// <summary>
         /// get a dryrun job
-        /// API Version: 2022-11-01-preview.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetLinkerDryrunResult> Invoke(GetLinkerDryrunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkerDryrunResult>("azure-native:servicelinker:getLinkerDryrun", args ?? new GetLinkerDryrunInvokeArgs(), options.WithDefaults());

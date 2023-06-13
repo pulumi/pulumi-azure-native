@@ -164,8 +164,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Defines web application firewall policy.
-        API Version: 2022-11-01.
-        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,8 +185,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines web application firewall policy.
-        API Version: 2022-11-01.
-        Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param WebApplicationFirewallPolicyArgs args: The arguments to use to populate this resource's properties.

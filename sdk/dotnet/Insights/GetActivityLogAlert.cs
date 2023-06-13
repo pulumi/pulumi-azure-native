@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get an Activity Log Alert rule.
-        /// API Version: 2020-10-01.
+        /// Azure REST API version: 2020-10-01.
         /// </summary>
         public static Task<GetActivityLogAlertResult> InvokeAsync(GetActivityLogAlertArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActivityLogAlertResult>("azure-native:insights:getActivityLogAlert", args ?? new GetActivityLogAlertArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an Activity Log Alert rule.
-        /// API Version: 2020-10-01.
+        /// Azure REST API version: 2020-10-01.
         /// </summary>
         public static Output<GetActivityLogAlertResult> Invoke(GetActivityLogAlertInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActivityLogAlertResult>("azure-native:insights:getActivityLogAlert", args ?? new GetActivityLogAlertInvokeArgs(), options.WithDefaults());

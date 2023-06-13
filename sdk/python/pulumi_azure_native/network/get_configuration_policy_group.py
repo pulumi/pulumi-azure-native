@@ -147,7 +147,7 @@ def get_configuration_policy_group(configuration_policy_group_name: Optional[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationPolicyGroupResult:
     """
     Retrieves the details of a ConfigurationPolicyGroup.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str configuration_policy_group_name: The name of the ConfigurationPolicyGroup being retrieved.
@@ -180,7 +180,7 @@ def get_configuration_policy_group_output(configuration_policy_group_name: Optio
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationPolicyGroupResult]:
     """
     Retrieves the details of a ConfigurationPolicyGroup.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str configuration_policy_group_name: The name of the ConfigurationPolicyGroup being retrieved.

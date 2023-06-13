@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Maps Account.
- * API Version: 2021-02-01.
+ * Azure REST API version: 2021-02-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -74,7 +74,7 @@ export interface GetAccountResult {
 }
 /**
  * Get a Maps Account.
- * API Version: 2021-02-01.
+ * Azure REST API version: 2021-02-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

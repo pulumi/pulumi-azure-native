@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a relation for a given incident.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getIncidentRelation(args: GetIncidentRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentRelationResult> {
 
@@ -84,7 +84,7 @@ export interface GetIncidentRelationResult {
 }
 /**
  * Gets a relation for a given incident.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getIncidentRelationOutput(args: GetIncidentRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentRelationResult> {
     return pulumi.output(args).apply((a: any) => getIncidentRelation(a, opts))

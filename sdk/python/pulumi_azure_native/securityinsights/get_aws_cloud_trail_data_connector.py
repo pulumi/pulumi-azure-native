@@ -136,7 +136,7 @@ def get_aws_cloud_trail_data_connector(data_connector_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAwsCloudTrailDataConnectorResult:
     """
     Gets a data connector.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str data_connector_id: Connector ID
@@ -168,7 +168,7 @@ def get_aws_cloud_trail_data_connector_output(data_connector_id: Optional[pulumi
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAwsCloudTrailDataConnectorResult]:
     """
     Gets a data connector.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str data_connector_id: Connector ID

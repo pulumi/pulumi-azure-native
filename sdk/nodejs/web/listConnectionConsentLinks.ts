@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the consent links of a connection
- * API Version: 2016-06-01.
+ * Azure REST API version: 2016-06-01.
  */
 export function listConnectionConsentLinks(args: ListConnectionConsentLinksArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectionConsentLinksResult> {
 
@@ -52,7 +52,7 @@ export interface ListConnectionConsentLinksResult {
 }
 /**
  * Lists the consent links of a connection
- * API Version: 2016-06-01.
+ * Azure REST API version: 2016-06-01.
  */
 export function listConnectionConsentLinksOutput(args: ListConnectionConsentLinksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionConsentLinksResult> {
     return pulumi.output(args).apply((a: any) => listConnectionConsentLinks(a, opts))

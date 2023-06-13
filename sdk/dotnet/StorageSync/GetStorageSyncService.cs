@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StorageSync
     {
         /// <summary>
         /// Get a given StorageSyncService.
-        /// API Version: 2022-06-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Task<GetStorageSyncServiceResult> InvokeAsync(GetStorageSyncServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageSyncServiceResult>("azure-native:storagesync:getStorageSyncService", args ?? new GetStorageSyncServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a given StorageSyncService.
-        /// API Version: 2022-06-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Output<GetStorageSyncServiceResult> Invoke(GetStorageSyncServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageSyncServiceResult>("azure-native:storagesync:getStorageSyncService", args ?? new GetStorageSyncServiceInvokeArgs(), options.WithDefaults());

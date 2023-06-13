@@ -243,7 +243,7 @@ def get_load_balancer(expand: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
     Gets the specified load balancer.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.
@@ -284,7 +284,7 @@ def get_load_balancer_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Gets the specified load balancer.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the active diagnostic settings for the specified resource.
- * API Version: 2021-05-01-preview.
+ * Azure REST API version: 2021-05-01-preview.
  */
 export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticSettingResult> {
 
@@ -90,7 +90,7 @@ export interface GetDiagnosticSettingResult {
 }
 /**
  * Gets the active diagnostic settings for the specified resource.
- * API Version: 2021-05-01-preview.
+ * Azure REST API version: 2021-05-01-preview.
  */
 export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticSettingResult> {
     return pulumi.output(args).apply((a: any) => getDiagnosticSetting(a, opts))

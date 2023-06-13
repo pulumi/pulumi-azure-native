@@ -149,7 +149,7 @@ def get_schedule(pool_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
     Gets a schedule resource.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str pool_name: Name of the pool.
@@ -188,7 +188,7 @@ def get_schedule_output(pool_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Gets a schedule resource.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str pool_name: Name of the pool.

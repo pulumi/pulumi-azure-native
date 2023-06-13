@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Application accelerator resource
-    /// API Version: 2023-05-01-preview.
+    /// Azure REST API version: 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:ApplicationAccelerator")]
     public partial class ApplicationAccelerator : global::Pulumi.CustomResource

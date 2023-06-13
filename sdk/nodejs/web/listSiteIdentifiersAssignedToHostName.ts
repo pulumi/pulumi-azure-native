@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for List all apps that are assigned to a hostname.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listSiteIdentifiersAssignedToHostName(args?: ListSiteIdentifiersAssignedToHostNameArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteIdentifiersAssignedToHostNameResult> {
     args = args || {};
@@ -42,7 +42,7 @@ export interface ListSiteIdentifiersAssignedToHostNameResult {
 }
 /**
  * Description for List all apps that are assigned to a hostname.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listSiteIdentifiersAssignedToHostNameOutput(args?: ListSiteIdentifiersAssignedToHostNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteIdentifiersAssignedToHostNameResult> {
     return pulumi.output(args).apply((a: any) => listSiteIdentifiersAssignedToHostName(a, opts))

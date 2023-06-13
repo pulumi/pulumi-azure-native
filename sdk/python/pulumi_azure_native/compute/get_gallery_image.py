@@ -279,7 +279,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageResult:
     """
     Retrieves information about a gallery image definition.
-    API Version: 2022-03-03.
+    Azure REST API version: 2022-03-03.
 
 
     :param str gallery_image_name: The name of the gallery image definition to be retrieved.
@@ -323,7 +323,7 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryImageResult]:
     """
     Retrieves information about a gallery image definition.
-    API Version: 2022-03-03.
+    Azure REST API version: 2022-03-03.
 
 
     :param str gallery_image_name: The name of the gallery image definition to be retrieved.

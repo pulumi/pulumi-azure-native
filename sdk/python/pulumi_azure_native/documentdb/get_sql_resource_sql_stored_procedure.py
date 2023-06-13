@@ -110,7 +110,7 @@ def get_sql_resource_sql_stored_procedure(account_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlStoredProcedureResult:
     """
     Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
-    API Version: 2023-04-15.
+    Azure REST API version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -146,7 +146,7 @@ def get_sql_resource_sql_stored_procedure_output(account_name: Optional[pulumi.I
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlStoredProcedureResult]:
     """
     Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
-    API Version: 2023-04-15.
+    Azure REST API version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.

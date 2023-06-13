@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Get the management lock of a resource or any level below resource.
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2020-05-01.
         /// </summary>
         public static Task<GetManagementLockAtResourceLevelResult> InvokeAsync(GetManagementLockAtResourceLevelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtResourceLevelResult>("azure-native:authorization:getManagementLockAtResourceLevel", args ?? new GetManagementLockAtResourceLevelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the management lock of a resource or any level below resource.
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2020-05-01.
         /// </summary>
         public static Output<GetManagementLockAtResourceLevelResult> Invoke(GetManagementLockAtResourceLevelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementLockAtResourceLevelResult>("azure-native:authorization:getManagementLockAtResourceLevel", args ?? new GetManagementLockAtResourceLevelInvokeArgs(), options.WithDefaults());

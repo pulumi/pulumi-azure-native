@@ -122,7 +122,7 @@ def get_project(project_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     Get the project with the specified name.
-    API Version: 2019-10-01.
+    Azure REST API version: 2019-10-01.
 
 
     :param str project_name: Name of the Azure Migrate project.
@@ -150,7 +150,7 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
     Get the project with the specified name.
-    API Version: 2019-10-01.
+    Azure REST API version: 2019-10-01.
 
 
     :param str project_name: Name of the Azure Migrate project.

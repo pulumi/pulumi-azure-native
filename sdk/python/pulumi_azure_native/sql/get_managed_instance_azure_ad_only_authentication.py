@@ -86,7 +86,7 @@ def get_managed_instance_azure_ad_only_authentication(authentication_name: Optio
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceAzureADOnlyAuthenticationResult:
     """
     Gets a specific Azure Active Directory only authentication property.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str authentication_name: The name of server azure active directory only authentication.
@@ -114,7 +114,7 @@ def get_managed_instance_azure_ad_only_authentication_output(authentication_name
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceAzureADOnlyAuthenticationResult]:
     """
     Gets a specific Azure Active Directory only authentication property.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str authentication_name: The name of server azure active directory only authentication.

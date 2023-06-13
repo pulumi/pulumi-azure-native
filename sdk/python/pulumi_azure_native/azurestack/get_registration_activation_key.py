@@ -49,7 +49,7 @@ def get_registration_activation_key(registration_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationActivationKeyResult:
     """
     Returns Azure Stack Activation Key.
-    API Version: 2022-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str registration_name: Name of the Azure Stack registration.
@@ -71,7 +71,7 @@ def get_registration_activation_key_output(registration_name: Optional[pulumi.In
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationActivationKeyResult]:
     """
     Returns Azure Stack Activation Key.
-    API Version: 2022-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str registration_name: Name of the Azure Stack registration.

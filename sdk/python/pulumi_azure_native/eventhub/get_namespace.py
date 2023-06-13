@@ -314,7 +314,7 @@ def get_namespace(namespace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceResult:
     """
     Gets the description of the specified namespace.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str namespace_name: The Namespace name
@@ -358,7 +358,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Gets the description of the specified namespace.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str namespace_name: The Namespace name

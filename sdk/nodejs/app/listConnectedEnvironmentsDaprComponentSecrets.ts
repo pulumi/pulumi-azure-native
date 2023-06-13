@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Dapr component Secrets Collection for ListSecrets Action.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function listConnectedEnvironmentsDaprComponentSecrets(args: ListConnectedEnvironmentsDaprComponentSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectedEnvironmentsDaprComponentSecretsResult> {
 
@@ -47,7 +47,7 @@ export interface ListConnectedEnvironmentsDaprComponentSecretsResult {
 }
 /**
  * Dapr component Secrets Collection for ListSecrets Action.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function listConnectedEnvironmentsDaprComponentSecretsOutput(args: ListConnectedEnvironmentsDaprComponentSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectedEnvironmentsDaprComponentSecretsResult> {
     return pulumi.output(args).apply((a: any) => listConnectedEnvironmentsDaprComponentSecrets(a, opts))

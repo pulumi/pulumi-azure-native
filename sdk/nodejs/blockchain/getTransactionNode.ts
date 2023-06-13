@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of the transaction node.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2018-06-01-preview.
  */
 export function getTransactionNode(args: GetTransactionNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetTransactionNodeResult> {
 
@@ -83,7 +83,7 @@ export interface GetTransactionNodeResult {
 }
 /**
  * Get the details of the transaction node.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2018-06-01-preview.
  */
 export function getTransactionNodeOutput(args: GetTransactionNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransactionNodeResult> {
     return pulumi.output(args).apply((a: any) => getTransactionNode(a, opts))

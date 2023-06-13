@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a shared access policy by name from an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
- * API Version: 2021-07-02.
+ * Azure REST API version: 2021-07-02.
  */
 export function listIotHubResourceKeysForKeyName(args: ListIotHubResourceKeysForKeyNameArgs, opts?: pulumi.InvokeOptions): Promise<ListIotHubResourceKeysForKeyNameResult> {
 
@@ -56,7 +56,7 @@ export interface ListIotHubResourceKeysForKeyNameResult {
 }
 /**
  * Get a shared access policy by name from an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
- * API Version: 2021-07-02.
+ * Azure REST API version: 2021-07-02.
  */
 export function listIotHubResourceKeysForKeyNameOutput(args: ListIotHubResourceKeysForKeyNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotHubResourceKeysForKeyNameResult> {
     return pulumi.output(args).apply((a: any) => listIotHubResourceKeysForKeyName(a, opts))

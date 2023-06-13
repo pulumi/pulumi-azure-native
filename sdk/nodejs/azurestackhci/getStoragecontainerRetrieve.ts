@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets storagecontainers by resource name
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getStoragecontainerRetrieve(args: GetStoragecontainerRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetStoragecontainerRetrieveResult> {
 
@@ -81,7 +81,7 @@ export interface GetStoragecontainerRetrieveResult {
 }
 /**
  * Gets storagecontainers by resource name
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getStoragecontainerRetrieveOutput(args: GetStoragecontainerRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStoragecontainerRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getStoragecontainerRetrieve(a, opts))

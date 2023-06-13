@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Shared Access Authorization Token for the User.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getUserSharedAccessToken(args: GetUserSharedAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSharedAccessTokenResult> {
 
@@ -57,7 +57,7 @@ export interface GetUserSharedAccessTokenResult {
 }
 /**
  * Gets the Shared Access Authorization Token for the User.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getUserSharedAccessTokenOutput(args: GetUserSharedAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSharedAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => getUserSharedAccessToken(a, opts))

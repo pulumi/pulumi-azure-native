@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
 {
     /// <summary>
     /// A class represent an AppComplianceAutomation report resource.
-    /// API Version: 2022-11-16-preview.
-    /// Previous API Version: 2022-11-16-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2022-11-16-preview. Prior API version in Azure Native 1.x: 2022-11-16-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:appcomplianceautomation:Report")]
     public partial class Report : global::Pulumi.CustomResource

@@ -99,7 +99,7 @@ def get_apm(apm_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApmResult:
     """
     Get the APM by name.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str apm_name: The name of the APM
@@ -128,7 +128,7 @@ def get_apm_output(apm_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApmResult]:
     """
     Get the APM by name.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str apm_name: The name of the APM

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Log Analytics Workspace ID and Primary Key for the specified project.
- * API Version: 2018-02-02.
+ * Azure REST API version: 2018-02-02.
  */
 export function getProjectKeys(args: GetProjectKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectKeysResult> {
 
@@ -43,7 +43,7 @@ export interface GetProjectKeysResult {
 }
 /**
  * Gets the Log Analytics Workspace ID and Primary Key for the specified project.
- * API Version: 2018-02-02.
+ * Azure REST API version: 2018-02-02.
  */
 export function getProjectKeysOutput(args: GetProjectKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectKeysResult> {
     return pulumi.output(args).apply((a: any) => getProjectKeys(a, opts))

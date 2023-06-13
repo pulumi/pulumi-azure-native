@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a server.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
 
@@ -123,7 +123,7 @@ export interface GetServerResult {
 }
 /**
  * Gets a server.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))

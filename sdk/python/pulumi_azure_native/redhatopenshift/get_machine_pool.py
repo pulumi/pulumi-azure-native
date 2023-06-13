@@ -96,7 +96,7 @@ def get_machine_pool(child_resource_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachinePoolResult:
     """
     The operation returns properties of a MachinePool.
-    API Version: 2022-09-04.
+    Azure REST API version: 2022-09-04.
 
 
     :param str child_resource_name: The name of the MachinePool resource.
@@ -125,7 +125,7 @@ def get_machine_pool_output(child_resource_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachinePoolResult]:
     """
     The operation returns properties of a MachinePool.
-    API Version: 2022-09-04.
+    Azure REST API version: 2022-09-04.
 
 
     :param str child_resource_name: The name of the MachinePool resource.

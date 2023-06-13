@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Run Command
- * API Version: 2023-04-25-preview.
+ * Azure REST API version: 2023-04-25-preview.
  */
 export class MachineRunCommand extends pulumi.CustomResource {
     /**

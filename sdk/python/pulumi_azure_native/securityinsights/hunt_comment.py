@@ -109,7 +109,7 @@ class HuntComment(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Hunt Comment in Azure Security Insights
-        API Version: 2023-05-01-preview.
+        Azure REST API version: 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +127,7 @@ class HuntComment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Hunt Comment in Azure Security Insights
-        API Version: 2023-05-01-preview.
+        Azure REST API version: 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param HuntCommentArgs args: The arguments to use to populate this resource's properties.

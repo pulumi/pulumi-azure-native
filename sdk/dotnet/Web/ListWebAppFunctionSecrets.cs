@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Get function secrets for a function in a web site, or a deployment slot.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<ListWebAppFunctionSecretsResult> InvokeAsync(ListWebAppFunctionSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionSecretsResult>("azure-native:web:listWebAppFunctionSecrets", args ?? new ListWebAppFunctionSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get function secrets for a function in a web site, or a deployment slot.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<ListWebAppFunctionSecretsResult> Invoke(ListWebAppFunctionSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppFunctionSecretsResult>("azure-native:web:listWebAppFunctionSecrets", args ?? new ListWebAppFunctionSecretsInvokeArgs(), options.WithDefaults());

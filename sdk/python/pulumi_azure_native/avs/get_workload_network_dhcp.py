@@ -87,7 +87,7 @@ def get_workload_network_dhcp(dhcp_id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkDhcpResult:
     """
     NSX DHCP
-    API Version: 2022-05-01.
+    Azure REST API version: 2022-05-01.
 
 
     :param str dhcp_id: NSX DHCP identifier. Generally the same as the DHCP display name
@@ -115,7 +115,7 @@ def get_workload_network_dhcp_output(dhcp_id: Optional[pulumi.Input[str]] = None
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkDhcpResult]:
     """
     NSX DHCP
-    API Version: 2022-05-01.
+    Azure REST API version: 2022-05-01.
 
 
     :param str dhcp_id: NSX DHCP identifier. Generally the same as the DHCP display name

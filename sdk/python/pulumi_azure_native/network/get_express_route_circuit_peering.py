@@ -327,7 +327,7 @@ def get_express_route_circuit_peering(circuit_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitPeeringResult:
     """
     Gets the specified peering for the express route circuit.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str circuit_name: The name of the express route circuit.
@@ -375,7 +375,7 @@ def get_express_route_circuit_peering_output(circuit_name: Optional[pulumi.Input
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitPeeringResult]:
     """
     Gets the specified peering for the express route circuit.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str circuit_name: The name of the express route circuit.

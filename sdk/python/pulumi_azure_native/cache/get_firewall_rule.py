@@ -98,7 +98,7 @@ def get_firewall_rule(cache_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
     Gets a single firewall rule in a specified redis cache.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str cache_name: The name of the Redis cache.
@@ -127,7 +127,7 @@ def get_firewall_rule_output(cache_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     Gets a single firewall rule in a specified redis cache.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str cache_name: The name of the Redis cache.

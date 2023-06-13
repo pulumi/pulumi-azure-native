@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets all linked storage account of a specific data source type associated with the specified workspace.
- * API Version: 2020-08-01.
+ * Azure REST API version: 2020-08-01.
  */
 export function getLinkedStorageAccount(args: GetLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedStorageAccountResult> {
 
@@ -60,7 +60,7 @@ export interface GetLinkedStorageAccountResult {
 }
 /**
  * Gets all linked storage account of a specific data source type associated with the specified workspace.
- * API Version: 2020-08-01.
+ * Azure REST API version: 2020-08-01.
  */
 export function getLinkedStorageAccountOutput(args: GetLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedStorageAccountResult> {
     return pulumi.output(args).apply((a: any) => getLinkedStorageAccount(a, opts))

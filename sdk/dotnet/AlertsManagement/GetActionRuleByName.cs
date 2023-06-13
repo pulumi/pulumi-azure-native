@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AlertsManagement
     {
         /// <summary>
         /// Get a specific action rule
-        /// API Version: 2019-05-05-preview.
+        /// Azure REST API version: 2019-05-05-preview.
         /// </summary>
         public static Task<GetActionRuleByNameResult> InvokeAsync(GetActionRuleByNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionRuleByNameResult>("azure-native:alertsmanagement:getActionRuleByName", args ?? new GetActionRuleByNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific action rule
-        /// API Version: 2019-05-05-preview.
+        /// Azure REST API version: 2019-05-05-preview.
         /// </summary>
         public static Output<GetActionRuleByNameResult> Invoke(GetActionRuleByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionRuleByNameResult>("azure-native:alertsmanagement:getActionRuleByName", args ?? new GetActionRuleByNameInvokeArgs(), options.WithDefaults());

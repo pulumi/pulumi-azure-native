@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// List Paths supported by this Streaming Locator
-        /// API Version: 2023-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<ListStreamingLocatorPathsResult> InvokeAsync(ListStreamingLocatorPathsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorPathsResult>("azure-native:media:listStreamingLocatorPaths", args ?? new ListStreamingLocatorPathsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List Paths supported by this Streaming Locator
-        /// API Version: 2023-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<ListStreamingLocatorPathsResult> Invoke(ListStreamingLocatorPathsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStreamingLocatorPathsResult>("azure-native:media:listStreamingLocatorPaths", args ?? new ListStreamingLocatorPathsInvokeArgs(), options.WithDefaults());

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Orbital
 {
     /// <summary>
     /// Customer creates a contact resource for a spacecraft resource.
-    /// API Version: 2022-11-01.
+    /// Azure REST API version: 2022-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:Contact")]
     public partial class Contact : global::Pulumi.CustomResource

@@ -170,7 +170,7 @@ def get_availability_set(availability_set_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilitySetResult:
     """
     Retrieves information about an availability set.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str availability_set_name: The name of the availability set.
@@ -202,7 +202,7 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilitySetResult]:
     """
     Retrieves information about an availability set.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str availability_set_name: The name of the availability set.

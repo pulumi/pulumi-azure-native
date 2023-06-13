@@ -135,7 +135,7 @@ def get_api_tag_description(api_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiTagDescriptionResult:
     """
     Get Tag description in scope of API
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -170,7 +170,7 @@ def get_api_tag_description_output(api_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiTagDescriptionResult]:
     """
     Get Tag description in scope of API
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

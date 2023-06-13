@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets the details of a static site.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getStaticSite(args: GetStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteResult> {
 
@@ -142,7 +142,7 @@ export interface GetStaticSiteResult {
 }
 /**
  * Description for Gets the details of a static site.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getStaticSiteOutput(args: GetStaticSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteResult> {
     return pulumi.output(args).apply((a: any) => getStaticSite(a, opts))

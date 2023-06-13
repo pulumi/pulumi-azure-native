@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation returns properties of a MachinePool.
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export function getMachinePool(args: GetMachinePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetMachinePoolResult> {
 
@@ -60,7 +60,7 @@ export interface GetMachinePoolResult {
 }
 /**
  * The operation returns properties of a MachinePool.
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export function getMachinePoolOutput(args: GetMachinePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachinePoolResult> {
     return pulumi.output(args).apply((a: any) => getMachinePool(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * list source configurations for a linker.
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-05-01.
  */
 export function listLinkerConfigurations(args: ListLinkerConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListLinkerConfigurationsResult> {
 
@@ -42,7 +42,7 @@ export interface ListLinkerConfigurationsResult {
 }
 /**
  * list source configurations for a linker.
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-05-01.
  */
 export function listLinkerConfigurationsOutput(args: ListLinkerConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLinkerConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => listLinkerConfigurations(a, opts))

@@ -206,7 +206,7 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerNamespaceResult:
     """
     Get properties of a partner namespace.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str partner_namespace_name: Name of the partner namespace.
@@ -241,7 +241,7 @@ def get_partner_namespace_output(partner_namespace_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerNamespaceResult]:
     """
     Get properties of a partner namespace.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str partner_namespace_name: Name of the partner namespace.

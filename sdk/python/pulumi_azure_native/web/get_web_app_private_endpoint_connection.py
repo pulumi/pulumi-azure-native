@@ -132,7 +132,7 @@ def get_web_app_private_endpoint_connection(name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPrivateEndpointConnectionResult:
     """
     Description for Gets a private endpoint connection
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the site.
@@ -164,7 +164,7 @@ def get_web_app_private_endpoint_connection_output(name: Optional[pulumi.Input[s
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPrivateEndpointConnectionResult]:
     """
     Description for Gets a private endpoint connection
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the site.

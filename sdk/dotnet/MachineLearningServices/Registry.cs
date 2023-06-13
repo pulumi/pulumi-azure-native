@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
-    /// API Version: 2023-04-01.
+    /// Azure REST API version: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Registry")]
     public partial class Registry : global::Pulumi.CustomResource

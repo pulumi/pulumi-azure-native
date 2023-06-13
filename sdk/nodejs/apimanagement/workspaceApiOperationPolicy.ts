@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Policy Contract details.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export class WorkspaceApiOperationPolicy extends pulumi.CustomResource {
     /**

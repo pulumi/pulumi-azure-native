@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// List of all zones and associated hosts for a cluster
-        /// API Version: 2022-05-01.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Task<ListClusterZonesResult> InvokeAsync(ListClusterZonesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListClusterZonesResult>("azure-native:avs:listClusterZones", args ?? new ListClusterZonesArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of all zones and associated hosts for a cluster
-        /// API Version: 2022-05-01.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Output<ListClusterZonesResult> Invoke(ListClusterZonesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListClusterZonesResult>("azure-native:avs:listClusterZones", args ?? new ListClusterZonesInvokeArgs(), options.WithDefaults());

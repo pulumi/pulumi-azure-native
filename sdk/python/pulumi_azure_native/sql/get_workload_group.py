@@ -147,7 +147,7 @@ def get_workload_group(database_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadGroupResult:
     """
     Gets a workload group
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str database_name: The name of the database.
@@ -183,7 +183,7 @@ def get_workload_group_output(database_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadGroupResult]:
     """
     Gets a workload group
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str database_name: The name of the database.

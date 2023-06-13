@@ -99,7 +99,7 @@ def get_dev_tool_portal(dev_tool_portal_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevToolPortalResult:
     """
     Get the Application Live  and its properties.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str dev_tool_portal_name: The name of Dev Tool Portal.
@@ -128,7 +128,7 @@ def get_dev_tool_portal_output(dev_tool_portal_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevToolPortalResult]:
     """
     Get the Application Live  and its properties.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str dev_tool_portal_name: The name of Dev Tool Portal.

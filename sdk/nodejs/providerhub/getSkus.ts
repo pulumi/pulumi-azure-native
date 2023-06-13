@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the sku details for the given resource type and sku name.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2020-11-20.
  */
 export function getSkus(args: GetSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusResult> {
 
@@ -53,7 +53,7 @@ export interface GetSkusResult {
 }
 /**
  * Gets the sku details for the given resource type and sku name.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2020-11-20.
  */
 export function getSkusOutput(args: GetSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusResult> {
     return pulumi.output(args).apply((a: any) => getSkus(a, opts))

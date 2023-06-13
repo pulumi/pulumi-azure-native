@@ -206,7 +206,7 @@ def get_order(device_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderResult:
     """
     The order details.
-    API Version: 2022-03-01.
+    Azure REST API version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -241,7 +241,7 @@ def get_order_output(device_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderResult]:
     """
     The order details.
-    API Version: 2022-03-01.
+    Azure REST API version: 2022-03-01.
 
 
     :param str device_name: The device name.

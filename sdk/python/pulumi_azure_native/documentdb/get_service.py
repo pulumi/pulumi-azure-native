@@ -87,7 +87,7 @@ def get_service(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Gets the status of service.
-    API Version: 2023-04-15.
+    Azure REST API version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -115,7 +115,7 @@ def get_service_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Gets the status of service.
-    API Version: 2023-04-15.
+    Azure REST API version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.

@@ -158,7 +158,7 @@ def get_product(product_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
     Gets the details of the product specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
@@ -192,7 +192,7 @@ def get_product_output(product_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
     """
     Gets the details of the product specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.

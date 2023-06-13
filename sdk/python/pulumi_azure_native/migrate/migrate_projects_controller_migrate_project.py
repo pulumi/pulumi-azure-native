@@ -114,7 +114,7 @@ class MigrateProjectsControllerMigrateProject(pulumi.CustomResource):
                  __props__=None):
         """
         Migrate project.
-        API Version: 2020-05-01.
+        Azure REST API version: 2020-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,7 +132,7 @@ class MigrateProjectsControllerMigrateProject(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Migrate project.
-        API Version: 2020-05-01.
+        Azure REST API version: 2020-05-01.
 
         :param str resource_name: The name of the resource.
         :param MigrateProjectsControllerMigrateProjectArgs args: The arguments to use to populate this resource's properties.

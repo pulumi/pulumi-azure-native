@@ -207,7 +207,7 @@ def get_network_security_group(expand: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSecurityGroupResult:
     """
     Gets the specified network security group.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.
@@ -245,7 +245,7 @@ def get_network_security_group_output(expand: Optional[pulumi.Input[Optional[str
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSecurityGroupResult]:
     """
     Gets the specified network security group.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.

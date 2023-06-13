@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SignalRService
     {
         /// <summary>
         /// Get the access keys of the resource.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<ListSignalRKeysResult> InvokeAsync(ListSignalRKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSignalRKeysResult>("azure-native:signalrservice:listSignalRKeys", args ?? new ListSignalRKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the access keys of the resource.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<ListSignalRKeysResult> Invoke(ListSignalRKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSignalRKeysResult>("azure-native:signalrservice:listSignalRKeys", args ?? new ListSignalRKeysInvokeArgs(), options.WithDefaults());

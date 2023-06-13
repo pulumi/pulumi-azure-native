@@ -96,7 +96,7 @@ class ServiceTask(pulumi.CustomResource):
                  __props__=None):
         """
         A task resource
-        API Version: 2021-06-30.
+        Azure REST API version: 2021-06-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,7 +113,7 @@ class ServiceTask(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A task resource
-        API Version: 2021-06-30.
+        Azure REST API version: 2021-06-30.
 
         :param str resource_name: The name of the resource.
         :param ServiceTaskArgs args: The arguments to use to populate this resource's properties.

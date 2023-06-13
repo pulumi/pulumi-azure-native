@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Get particular Arc Extension of HCI Cluster.
-        /// API Version: 2023-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:azurestackhci:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get particular Arc Extension of HCI Cluster.
-        /// API Version: 2023-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:azurestackhci:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());

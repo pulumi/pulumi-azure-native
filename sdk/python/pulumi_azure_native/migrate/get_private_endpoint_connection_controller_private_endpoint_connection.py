@@ -111,7 +111,7 @@ def get_private_endpoint_connection_controller_private_endpoint_connection(migra
                                                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult:
     """
     Get the private endpoint with the specified name.
-    API Version: 2020-05-01.
+    Azure REST API version: 2020-05-01.
 
 
     :param str migrate_project_name: Migrate project name.
@@ -141,7 +141,7 @@ def get_private_endpoint_connection_controller_private_endpoint_connection_outpu
                                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult]:
     """
     Get the private endpoint with the specified name.
-    API Version: 2020-05-01.
+    Azure REST API version: 2020-05-01.
 
 
     :param str migrate_project_name: Migrate project name.

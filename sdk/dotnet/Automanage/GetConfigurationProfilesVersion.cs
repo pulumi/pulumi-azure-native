@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Automanage
     {
         /// <summary>
         /// Get information about a configuration profile version
-        /// API Version: 2022-05-04.
+        /// Azure REST API version: 2022-05-04.
         /// </summary>
         public static Task<GetConfigurationProfilesVersionResult> InvokeAsync(GetConfigurationProfilesVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfilesVersionResult>("azure-native:automanage:getConfigurationProfilesVersion", args ?? new GetConfigurationProfilesVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a configuration profile version
-        /// API Version: 2022-05-04.
+        /// Azure REST API version: 2022-05-04.
         /// </summary>
         public static Output<GetConfigurationProfilesVersionResult> Invoke(GetConfigurationProfilesVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilesVersionResult>("azure-native:automanage:getConfigurationProfilesVersion", args ?? new GetConfigurationProfilesVersionInvokeArgs(), options.WithDefaults());

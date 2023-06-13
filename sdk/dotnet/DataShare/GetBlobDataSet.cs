@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataShare
     {
         /// <summary>
         /// Get a DataSet in a share
-        /// API Version: 2021-08-01.
+        /// Azure REST API version: 2021-08-01.
         /// </summary>
         public static Task<GetBlobDataSetResult> InvokeAsync(GetBlobDataSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobDataSetResult>("azure-native:datashare:getBlobDataSet", args ?? new GetBlobDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DataSet in a share
-        /// API Version: 2021-08-01.
+        /// Azure REST API version: 2021-08-01.
         /// </summary>
         public static Output<GetBlobDataSetResult> Invoke(GetBlobDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobDataSetResult>("azure-native:datashare:getBlobDataSet", args ?? new GetBlobDataSetInvokeArgs(), options.WithDefaults());

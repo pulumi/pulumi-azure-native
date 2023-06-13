@@ -50,7 +50,7 @@ def list_agent_pool_queue_status(agent_pool_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAgentPoolQueueStatusResult:
     """
     Gets the count of queued runs for a given agent pool.
-    API Version: 2019-06-01-preview.
+    Azure REST API version: 2019-06-01-preview.
 
 
     :param str agent_pool_name: The name of the agent pool.
@@ -75,7 +75,7 @@ def list_agent_pool_queue_status_output(agent_pool_name: Optional[pulumi.Input[s
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAgentPoolQueueStatusResult]:
     """
     Gets the count of queued runs for a given agent pool.
-    API Version: 2019-06-01-preview.
+    Azure REST API version: 2019-06-01-preview.
 
 
     :param str agent_pool_name: The name of the agent pool.

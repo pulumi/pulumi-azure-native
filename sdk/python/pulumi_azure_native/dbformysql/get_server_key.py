@@ -122,7 +122,7 @@ def get_server_key(key_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerKeyResult:
     """
     Gets a server key.
-    API Version: 2020-07-01-preview.
+    Azure REST API version: 2020-07-01-preview.
 
 
     :param str key_name: The name of the server key.
@@ -153,7 +153,7 @@ def get_server_key_output(key_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerKeyResult]:
     """
     Gets a server key.
-    API Version: 2020-07-01-preview.
+    Azure REST API version: 2020-07-01-preview.
 
 
     :param str key_name: The name of the server key.

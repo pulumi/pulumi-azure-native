@@ -245,7 +245,7 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Contains information about a database Threat Detection policy.
-        API Version: 2014-04-01.
+        Azure REST API version: 2014-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,7 +271,7 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains information about a database Threat Detection policy.
-        API Version: 2014-04-01.
+        Azure REST API version: 2014-04-01.
 
         :param str resource_name: The name of the resource.
         :param DatabaseThreatDetectionPolicyArgs args: The arguments to use to populate this resource's properties.

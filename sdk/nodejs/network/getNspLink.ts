@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified NSP link resource.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-02-01-preview.
  */
 export function getNspLink(args: GetNspLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetNspLinkResult> {
 
@@ -96,7 +96,7 @@ export interface GetNspLinkResult {
 }
 /**
  * Gets the specified NSP link resource.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-02-01-preview.
  */
 export function getNspLinkOutput(args: GetNspLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspLinkResult> {
     return pulumi.output(args).apply((a: any) => getNspLink(a, opts))

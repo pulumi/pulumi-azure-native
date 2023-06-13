@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the VMSS VM run command.
- * API Version: 2023-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetVMRunCommand(args: GetVirtualMachineScaleSetVMRunCommandArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMRunCommandResult> {
 
@@ -129,7 +129,7 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
 }
 /**
  * The operation to get the VMSS VM run command.
- * API Version: 2023-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetVMRunCommandOutput(args: GetVirtualMachineScaleSetVMRunCommandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMRunCommandResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVMRunCommand(a, opts))

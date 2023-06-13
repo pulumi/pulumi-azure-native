@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Workload deployment model.
- * API Version: 2022-05-01-preview.
+ * Azure REST API version: 2022-05-01-preview.
  */
 export class WorkloadDeployment extends pulumi.CustomResource {
     /**

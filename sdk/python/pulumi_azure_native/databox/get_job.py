@@ -315,7 +315,7 @@ def get_job(expand: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Gets information about the specified job.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.
@@ -362,7 +362,7 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
     Gets information about the specified job.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.

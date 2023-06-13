@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * List primary and secondary keys for a specific key name
- * API Version: 2022-12-12.
+ * Azure REST API version: 2022-12-12.
  */
 export function listIotDpsResourceKeysForKeyName(args: ListIotDpsResourceKeysForKeyNameArgs, opts?: pulumi.InvokeOptions): Promise<ListIotDpsResourceKeysForKeyNameResult> {
 
@@ -56,7 +56,7 @@ export interface ListIotDpsResourceKeysForKeyNameResult {
 }
 /**
  * List primary and secondary keys for a specific key name
- * API Version: 2022-12-12.
+ * Azure REST API version: 2022-12-12.
  */
 export function listIotDpsResourceKeysForKeyNameOutput(args: ListIotDpsResourceKeysForKeyNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysForKeyNameResult> {
     return pulumi.output(args).apply((a: any) => listIotDpsResourceKeysForKeyName(a, opts))

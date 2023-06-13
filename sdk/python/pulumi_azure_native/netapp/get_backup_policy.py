@@ -219,7 +219,7 @@ def get_backup_policy(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
     Get a particular backup Policy
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -258,7 +258,7 @@ def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupPolicyResult]:
     """
     Get a particular backup Policy
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account

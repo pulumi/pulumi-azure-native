@@ -66,7 +66,7 @@ def list_featureset_version_features(name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFeaturesetVersionFeaturesResult:
     """
     A paginated list of Feature entities.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str name: Featureset name. This is case-sensitive.
@@ -101,7 +101,7 @@ def list_featureset_version_features_output(name: Optional[pulumi.Input[str]] = 
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFeaturesetVersionFeaturesResult]:
     """
     A paginated list of Feature entities.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str name: Featureset name. This is case-sensitive.

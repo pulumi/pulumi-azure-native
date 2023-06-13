@@ -159,7 +159,7 @@ def get_schedule(lab_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
     Returns the properties of a lab Schedule.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
@@ -193,7 +193,7 @@ def get_schedule_output(lab_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Returns the properties of a lab Schedule.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.

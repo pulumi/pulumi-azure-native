@@ -237,7 +237,7 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticPoolResult:
     """
     Gets an elastic pool.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str elastic_pool_name: The name of the elastic pool.
@@ -277,7 +277,7 @@ def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticPoolResult]:
     """
     Gets an elastic pool.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str elastic_pool_name: The name of the elastic pool.

@@ -109,7 +109,7 @@ def get_web_app_swift_virtual_network_connection(name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSwiftVirtualNetworkConnectionResult:
     """
     Description for Gets a Swift Virtual Network connection.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -136,7 +136,7 @@ def get_web_app_swift_virtual_network_connection_output(name: Optional[pulumi.In
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSwiftVirtualNetworkConnectionResult]:
     """
     Description for Gets a Swift Virtual Network connection.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.

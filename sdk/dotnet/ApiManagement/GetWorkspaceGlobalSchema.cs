@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the Schema specified by its identifier.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetWorkspaceGlobalSchemaResult> InvokeAsync(GetWorkspaceGlobalSchemaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceGlobalSchemaResult>("azure-native:apimanagement:getWorkspaceGlobalSchema", args ?? new GetWorkspaceGlobalSchemaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Schema specified by its identifier.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetWorkspaceGlobalSchemaResult> Invoke(GetWorkspaceGlobalSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceGlobalSchemaResult>("azure-native:apimanagement:getWorkspaceGlobalSchema", args ?? new GetWorkspaceGlobalSchemaInvokeArgs(), options.WithDefaults());

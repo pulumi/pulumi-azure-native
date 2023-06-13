@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a database's threat detection policy.
- * API Version: 2014-04-01.
+ * Azure REST API version: 2014-04-01.
  */
 export function getDatabaseThreatDetectionPolicy(args: GetDatabaseThreatDetectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseThreatDetectionPolicyResult> {
 
@@ -93,7 +93,7 @@ export interface GetDatabaseThreatDetectionPolicyResult {
 }
 /**
  * Gets a database's threat detection policy.
- * API Version: 2014-04-01.
+ * Azure REST API version: 2014-04-01.
  */
 export function getDatabaseThreatDetectionPolicyOutput(args: GetDatabaseThreatDetectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseThreatDetectionPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseThreatDetectionPolicy(a, opts))

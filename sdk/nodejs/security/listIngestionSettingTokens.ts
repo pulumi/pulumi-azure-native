@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the token that is used for correlating ingested telemetry with the resources in the subscription.
- * API Version: 2021-01-15-preview.
+ * Azure REST API version: 2021-01-15-preview.
  */
 export function listIngestionSettingTokens(args: ListIngestionSettingTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListIngestionSettingTokensResult> {
 
@@ -34,7 +34,7 @@ export interface ListIngestionSettingTokensResult {
 }
 /**
  * Returns the token that is used for correlating ingested telemetry with the resources in the subscription.
- * API Version: 2021-01-15-preview.
+ * Azure REST API version: 2021-01-15-preview.
  */
 export function listIngestionSettingTokensOutput(args: ListIngestionSettingTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIngestionSettingTokensResult> {
     return pulumi.output(args).apply((a: any) => listIngestionSettingTokens(a, opts))

@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Description of Rule Resource.
-    /// API Version: 2021-11-01.
-    /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:Rule")]
     public partial class Rule : global::Pulumi.CustomResource

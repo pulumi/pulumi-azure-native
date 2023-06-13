@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
- * API Version: 2022-01-25.
- * Previous API Version: 2020-06-25. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2022-01-25. Prior API version in Azure Native 1.x: 2020-06-25
  */
 export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
     /**

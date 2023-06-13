@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get the properties of the provided cluster manager.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2022-12-12-preview.
         /// </summary>
         public static Task<GetClusterManagerResult> InvokeAsync(GetClusterManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterManagerResult>("azure-native:networkcloud:getClusterManager", args ?? new GetClusterManagerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of the provided cluster manager.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2022-12-12-preview.
         /// </summary>
         public static Output<GetClusterManagerResult> Invoke(GetClusterManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterManagerResult>("azure-native:networkcloud:getClusterManager", args ?? new GetClusterManagerInvokeArgs(), options.WithDefaults());

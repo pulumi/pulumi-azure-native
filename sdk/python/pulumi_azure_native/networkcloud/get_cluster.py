@@ -396,7 +396,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Get properties of the provided cluster.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str cluster_name: The name of the cluster.
@@ -447,7 +447,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Get properties of the provided cluster.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str cluster_name: The name of the cluster.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a shareSubscription in an account
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getShareSubscription(args: GetShareSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetShareSubscriptionResult> {
 
@@ -119,7 +119,7 @@ export interface GetShareSubscriptionResult {
 }
 /**
  * Get a shareSubscription in an account
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getShareSubscriptionOutput(args: GetShareSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getShareSubscription(a, opts))

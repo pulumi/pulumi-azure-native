@@ -147,7 +147,7 @@ def get_ca_certificate(ca_certificate_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCaCertificateResult:
     """
     Get properties of a CA certificate.
-    API Version: 2023-06-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str ca_certificate_name: Name of the CA certificate.
@@ -180,7 +180,7 @@ def get_ca_certificate_output(ca_certificate_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCaCertificateResult]:
     """
     Get properties of a CA certificate.
-    API Version: 2023-06-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str ca_certificate_name: Name of the CA certificate.

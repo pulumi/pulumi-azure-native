@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the API link for the product.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getProductApiLink(args: GetProductApiLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetProductApiLinkResult> {
 
@@ -61,7 +61,7 @@ export interface GetProductApiLinkResult {
 }
 /**
  * Gets the API link for the product.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getProductApiLinkOutput(args: GetProductApiLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductApiLinkResult> {
     return pulumi.output(args).apply((a: any) => getProductApiLink(a, opts))

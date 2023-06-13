@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * List deployments that are using the builder.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function listBuildServiceBuilderDeployments(args: ListBuildServiceBuilderDeploymentsArgs, opts?: pulumi.InvokeOptions): Promise<ListBuildServiceBuilderDeploymentsResult> {
 
@@ -49,7 +49,7 @@ export interface ListBuildServiceBuilderDeploymentsResult {
 }
 /**
  * List deployments that are using the builder.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function listBuildServiceBuilderDeploymentsOutput(args: ListBuildServiceBuilderDeploymentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildServiceBuilderDeploymentsResult> {
     return pulumi.output(args).apply((a: any) => listBuildServiceBuilderDeployments(a, opts))

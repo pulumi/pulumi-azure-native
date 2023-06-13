@@ -195,7 +195,7 @@ def get_blob_service_properties(account_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobServicePropertiesResult:
     """
     Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -232,7 +232,7 @@ def get_blob_service_properties_output(account_name: Optional[pulumi.Input[str]]
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobServicePropertiesResult]:
     """
     Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

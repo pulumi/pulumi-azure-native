@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of a virtual network link to a DNS forwarding ruleset.
- * API Version: 2022-07-01.
+ * Azure REST API version: 2022-07-01.
  */
 export function getPrivateResolverVirtualNetworkLink(args: GetPrivateResolverVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateResolverVirtualNetworkLinkResult> {
 
@@ -75,7 +75,7 @@ export interface GetPrivateResolverVirtualNetworkLinkResult {
 }
 /**
  * Gets properties of a virtual network link to a DNS forwarding ruleset.
- * API Version: 2022-07-01.
+ * Azure REST API version: 2022-07-01.
  */
 export function getPrivateResolverVirtualNetworkLinkOutput(args: GetPrivateResolverVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateResolverVirtualNetworkLinkResult> {
     return pulumi.output(args).apply((a: any) => getPrivateResolverVirtualNetworkLink(a, opts))

@@ -111,7 +111,7 @@ def get_guest_configuration_assignments_vmss(name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestConfigurationAssignmentsVMSSResult:
     """
     Get information about a guest configuration assignment for VMSS
-    API Version: 2022-01-25.
+    Azure REST API version: 2022-01-25.
 
 
     :param str name: The guest configuration assignment name.
@@ -141,7 +141,7 @@ def get_guest_configuration_assignments_vmss_output(name: Optional[pulumi.Input[
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestConfigurationAssignmentsVMSSResult]:
     """
     Get information about a guest configuration assignment for VMSS
-    API Version: 2022-01-25.
+    Azure REST API version: 2022-01-25.
 
 
     :param str name: The guest configuration assignment name.

@@ -350,7 +350,7 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceCertificateOrderResult:
     """
     Description for Get a certificate order.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str certificate_order_name: Name of the certificate order..
@@ -397,7 +397,7 @@ def get_app_service_certificate_order_output(certificate_order_name: Optional[pu
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceCertificateOrderResult]:
     """
     Description for Get a certificate order.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str certificate_order_name: Name of the certificate order..

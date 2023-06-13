@@ -175,7 +175,7 @@ class KustoPoolDatabasePrincipalAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a database principal assignment.
-        API Version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,7 +197,7 @@ class KustoPoolDatabasePrincipalAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a database principal assignment.
-        API Version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param KustoPoolDatabasePrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.

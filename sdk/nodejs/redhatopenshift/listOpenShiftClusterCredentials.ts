@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation returns the credentials.
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export function listOpenShiftClusterCredentials(args: ListOpenShiftClusterCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenShiftClusterCredentialsResult> {
 
@@ -43,7 +43,7 @@ export interface ListOpenShiftClusterCredentialsResult {
 }
 /**
  * The operation returns the credentials.
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export function listOpenShiftClusterCredentialsOutput(args: ListOpenShiftClusterCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOpenShiftClusterCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listOpenShiftClusterCredentials(a, opts))

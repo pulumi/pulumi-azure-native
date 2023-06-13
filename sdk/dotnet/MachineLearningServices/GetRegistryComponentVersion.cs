@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetRegistryComponentVersionResult> InvokeAsync(GetRegistryComponentVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryComponentVersionResult>("azure-native:machinelearningservices:getRegistryComponentVersion", args ?? new GetRegistryComponentVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetRegistryComponentVersionResult> Invoke(GetRegistryComponentVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryComponentVersionResult>("azure-native:machinelearningservices:getRegistryComponentVersion", args ?? new GetRegistryComponentVersionInvokeArgs(), options.WithDefaults());

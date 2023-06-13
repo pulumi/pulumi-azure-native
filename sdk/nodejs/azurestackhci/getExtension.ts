@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get particular Arc Extension of HCI Cluster.
- * API Version: 2023-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
 
@@ -108,7 +108,7 @@ export interface GetExtensionResult {
 }
 /**
  * Get particular Arc Extension of HCI Cluster.
- * API Version: 2023-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))

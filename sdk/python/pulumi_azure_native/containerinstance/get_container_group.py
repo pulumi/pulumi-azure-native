@@ -329,7 +329,7 @@ def get_container_group(container_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerGroupResult:
     """
     Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str container_group_name: The name of the container group.
@@ -374,7 +374,7 @@ def get_container_group_output(container_group_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerGroupResult]:
     """
     Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str container_group_name: The name of the container group.

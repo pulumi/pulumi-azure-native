@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// List deployments that are using the builder.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<ListBuildServiceBuilderDeploymentsResult> InvokeAsync(ListBuildServiceBuilderDeploymentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBuildServiceBuilderDeploymentsResult>("azure-native:appplatform:listBuildServiceBuilderDeployments", args ?? new ListBuildServiceBuilderDeploymentsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List deployments that are using the builder.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<ListBuildServiceBuilderDeploymentsResult> Invoke(ListBuildServiceBuilderDeploymentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBuildServiceBuilderDeploymentsResult>("azure-native:appplatform:listBuildServiceBuilderDeployments", args ?? new ListBuildServiceBuilderDeploymentsInvokeArgs(), options.WithDefaults());

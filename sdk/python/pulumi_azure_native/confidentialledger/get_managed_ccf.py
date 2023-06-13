@@ -122,7 +122,7 @@ def get_managed_ccf(app_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedCCFResult:
     """
     Retrieves the properties of a Managed CCF app.
-    API Version: 2023-01-26-preview.
+    Azure REST API version: 2023-01-26-preview.
 
 
     :param str app_name: Name of the Managed CCF
@@ -150,7 +150,7 @@ def get_managed_ccf_output(app_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedCCFResult]:
     """
     Retrieves the properties of a Managed CCF app.
-    API Version: 2023-01-26-preview.
+    Azure REST API version: 2023-01-26-preview.
 
 
     :param str app_name: Name of the Managed CCF

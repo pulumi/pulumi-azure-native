@@ -279,7 +279,7 @@ def get_server(expand: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
     Gets a server.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str expand: The child resources to include in the response.
@@ -323,7 +323,7 @@ def get_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
     Gets a server.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str expand: The child resources to include in the response.

@@ -160,7 +160,7 @@ def get_read_write_database(cluster_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReadWriteDatabaseResult:
     """
     Returns a database.
-    API Version: 2022-12-29.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -194,7 +194,7 @@ def get_read_write_database_output(cluster_name: Optional[pulumi.Input[str]] = N
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReadWriteDatabaseResult]:
     """
     Returns a database.
-    API Version: 2022-12-29.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.

@@ -159,7 +159,7 @@ def get_transaction_node(blockchain_member_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransactionNodeResult:
     """
     Get the details of the transaction node.
-    API Version: 2018-06-01-preview.
+    Azure REST API version: 2018-06-01-preview.
 
 
     :param str blockchain_member_name: Blockchain member name.
@@ -193,7 +193,7 @@ def get_transaction_node_output(blockchain_member_name: Optional[pulumi.Input[st
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransactionNodeResult]:
     """
     Get the details of the transaction node.
-    API Version: 2018-06-01-preview.
+    Azure REST API version: 2018-06-01-preview.
 
 
     :param str blockchain_member_name: Blockchain member name.

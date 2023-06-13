@@ -52,7 +52,7 @@ def get_domain_topic_event_subscription_delivery_attributes(domain_name: Optiona
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainTopicEventSubscriptionDeliveryAttributesResult:
     """
     Get all delivery attributes for an event subscription for domain topic.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str domain_name: Name of the top level domain.
@@ -80,7 +80,7 @@ def get_domain_topic_event_subscription_delivery_attributes_output(domain_name: 
                                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainTopicEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription for domain topic.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str domain_name: Name of the top level domain.

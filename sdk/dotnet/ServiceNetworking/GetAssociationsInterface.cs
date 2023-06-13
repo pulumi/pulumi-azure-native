@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceNetworking
     {
         /// <summary>
         /// Get a Association
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetAssociationsInterfaceResult> InvokeAsync(GetAssociationsInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssociationsInterfaceResult>("azure-native:servicenetworking:getAssociationsInterface", args ?? new GetAssociationsInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Association
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetAssociationsInterfaceResult> Invoke(GetAssociationsInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssociationsInterfaceResult>("azure-native:servicenetworking:getAssociationsInterface", args ?? new GetAssociationsInterfaceInvokeArgs(), options.WithDefaults());

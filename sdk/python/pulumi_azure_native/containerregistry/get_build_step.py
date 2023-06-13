@@ -88,7 +88,7 @@ def get_build_step(build_task_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildStepResult:
     """
     Gets the build step for a build task.
-    API Version: 2018-02-01-preview.
+    Azure REST API version: 2018-02-01-preview.
 
 
     :param str build_task_name: The name of the container registry build task.
@@ -119,7 +119,7 @@ def get_build_step_output(build_task_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildStepResult]:
     """
     Gets the build step for a build task.
-    API Version: 2018-02-01-preview.
+    Azure REST API version: 2018-02-01-preview.
 
 
     :param str build_task_name: The name of the container registry build task.

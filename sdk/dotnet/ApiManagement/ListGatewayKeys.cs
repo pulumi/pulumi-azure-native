@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Retrieves gateway keys.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<ListGatewayKeysResult> InvokeAsync(ListGatewayKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListGatewayKeysResult>("azure-native:apimanagement:listGatewayKeys", args ?? new ListGatewayKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves gateway keys.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<ListGatewayKeysResult> Invoke(ListGatewayKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGatewayKeysResult>("azure-native:apimanagement:listGatewayKeys", args ?? new ListGatewayKeysInvokeArgs(), options.WithDefaults());

@@ -110,7 +110,7 @@ def get_custom_entity_store_assignment(custom_entity_store_assignment_name: Opti
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomEntityStoreAssignmentResult:
     """
     Gets a single custom entity store assignment by name for the provided subscription and resource group.
-    API Version: 2021-07-01-preview.
+    Azure REST API version: 2021-07-01-preview.
 
 
     :param str custom_entity_store_assignment_name: Name of the custom entity store assignment. Generated name is GUID.
@@ -137,7 +137,7 @@ def get_custom_entity_store_assignment_output(custom_entity_store_assignment_nam
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomEntityStoreAssignmentResult]:
     """
     Gets a single custom entity store assignment by name for the provided subscription and resource group.
-    API Version: 2021-07-01-preview.
+    Azure REST API version: 2021-07-01-preview.
 
 
     :param str custom_entity_store_assignment_name: Name of the custom entity store assignment. Generated name is GUID.

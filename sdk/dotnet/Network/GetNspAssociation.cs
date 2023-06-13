@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified NSP association by name.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetNspAssociationResult> InvokeAsync(GetNspAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNspAssociationResult>("azure-native:network:getNspAssociation", args ?? new GetNspAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified NSP association by name.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetNspAssociationResult> Invoke(GetNspAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNspAssociationResult>("azure-native:network:getNspAssociation", args ?? new GetNspAssociationInvokeArgs(), options.WithDefaults());

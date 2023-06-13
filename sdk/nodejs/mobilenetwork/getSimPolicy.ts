@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified SIM policy.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getSimPolicy(args: GetSimPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSimPolicyResult> {
 
@@ -95,7 +95,7 @@ export interface GetSimPolicyResult {
 }
 /**
  * Gets information about the specified SIM policy.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getSimPolicyOutput(args: GetSimPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSimPolicy(a, opts))

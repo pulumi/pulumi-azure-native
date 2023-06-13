@@ -135,7 +135,7 @@ def get_data_pool(account_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataPoolResult:
     """
     Gets the properties of a Data Pool
-    API Version: 2021-11-01-preview.
+    Azure REST API version: 2021-11-01-preview.
 
 
     :param str account_name: The name of the ADP account
@@ -167,7 +167,7 @@ def get_data_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataPoolResult]:
     """
     Gets the properties of a Data Pool
-    API Version: 2021-11-01-preview.
+    Azure REST API version: 2021-11-01-preview.
 
 
     :param str account_name: The name of the ADP account

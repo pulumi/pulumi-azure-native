@@ -98,7 +98,7 @@ def get_access_policy(access_policy_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPolicyResult:
     """
     Gets the detailed information about an access policy of a redis cache
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str access_policy_name: The name of the access policy that is being added to the Redis cache.
@@ -127,7 +127,7 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
     Gets the detailed information about an access policy of a redis cache
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str access_policy_name: The name of the access policy that is being added to the Redis cache.

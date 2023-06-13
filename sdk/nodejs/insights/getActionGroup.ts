@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an action group.
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
 
@@ -110,7 +110,7 @@ export interface GetActionGroupResult {
 }
 /**
  * Get an action group.
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionGroupResult> {
     return pulumi.output(args).apply((a: any) => getActionGroup(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getRegistryModelVersion(args: GetRegistryModelVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryModelVersionResult> {
 
@@ -68,7 +68,7 @@ export interface GetRegistryModelVersionResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getRegistryModelVersionOutput(args: GetRegistryModelVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryModelVersionResult> {
     return pulumi.output(args).apply((a: any) => getRegistryModelVersion(a, opts))

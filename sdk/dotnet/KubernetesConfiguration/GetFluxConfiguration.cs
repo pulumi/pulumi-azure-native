@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     {
         /// <summary>
         /// Gets details of the Flux Configuration.
-        /// API Version: 2023-05-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Task<GetFluxConfigurationResult> InvokeAsync(GetFluxConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration:getFluxConfiguration", args ?? new GetFluxConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets details of the Flux Configuration.
-        /// API Version: 2023-05-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Output<GetFluxConfigurationResult> Invoke(GetFluxConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration:getFluxConfiguration", args ?? new GetFluxConfigurationInvokeArgs(), options.WithDefaults());

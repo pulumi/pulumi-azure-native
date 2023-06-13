@@ -195,7 +195,7 @@ def get_query(id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueryResult:
     """
     Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
-    API Version: 2019-09-01.
+    Azure REST API version: 2019-09-01.
 
 
     :param str id: The id of a specific query defined in the Log Analytics QueryPack
@@ -232,7 +232,7 @@ def get_query_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueryResult]:
     """
     Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
-    API Version: 2019-09-01.
+    Azure REST API version: 2019-09-01.
 
 
     :param str id: The id of a specific query defined in the Log Analytics QueryPack

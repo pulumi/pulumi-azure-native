@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a streaming endpoint.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getStreamingEndpoint(args: GetStreamingEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingEndpointResult> {
 
@@ -135,7 +135,7 @@ export interface GetStreamingEndpointResult {
 }
 /**
  * Gets a streaming endpoint.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getStreamingEndpointOutput(args: GetStreamingEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingEndpointResult> {
     return pulumi.output(args).apply((a: any) => getStreamingEndpoint(a, opts))

@@ -254,7 +254,7 @@ def get_host(host_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHostResult:
     """
     Implements host GET method.
-    API Version: 2022-07-15-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str host_name: Name of the host.
@@ -293,7 +293,7 @@ def get_host_output(host_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostResult]:
     """
     Implements host GET method.
-    API Version: 2022-07-15-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str host_name: Name of the host.

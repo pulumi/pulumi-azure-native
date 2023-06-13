@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
- * API Version: 2023-03-01-preview.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -92,7 +92,7 @@ export interface GetApplicationResult {
 }
 /**
  * Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
- * API Version: 2023-03-01-preview.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

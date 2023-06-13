@@ -146,7 +146,7 @@ def get_route(resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResult:
     """
     Gets the specified route from a route table.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -179,7 +179,7 @@ def get_route_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
     """
     Gets the specified route from a route table.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str resource_group_name: The name of the resource group.

@@ -146,7 +146,7 @@ def get_configuration(configuration_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationResult:
     """
     Gets information about a configuration of server.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str configuration_name: The name of the server configuration.
@@ -179,7 +179,7 @@ def get_configuration_output(configuration_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Gets information about a configuration of server.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str configuration_name: The name of the server configuration.

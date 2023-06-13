@@ -123,7 +123,7 @@ def get_sql_server_database(database_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerDatabaseResult:
     """
     Retrieves an Arc Sql Server database.
-    API Version: 2023-01-15-preview.
+    Azure REST API version: 2023-01-15-preview.
 
 
     :param str database_name: Name of the database
@@ -154,7 +154,7 @@ def get_sql_server_database_output(database_name: Optional[pulumi.Input[str]] = 
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerDatabaseResult]:
     """
     Retrieves an Arc Sql Server database.
-    API Version: 2023-01-15-preview.
+    Azure REST API version: 2023-01-15-preview.
 
 
     :param str database_name: Name of the database

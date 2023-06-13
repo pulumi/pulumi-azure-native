@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the specified scope assignment.
- * API Version: 2019-06-01-preview.
+ * Azure REST API version: 2019-06-01-preview.
  */
 export function getScopeAssignment(args: GetScopeAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeAssignmentResult> {
 
@@ -63,7 +63,7 @@ export interface GetScopeAssignmentResult {
 }
 /**
  * Get the specified scope assignment.
- * API Version: 2019-06-01-preview.
+ * Azure REST API version: 2019-06-01-preview.
  */
 export function getScopeAssignmentOutput(args: GetScopeAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getScopeAssignment(a, opts))

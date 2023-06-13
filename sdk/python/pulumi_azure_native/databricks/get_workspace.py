@@ -326,7 +326,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Gets the workspace.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -371,7 +371,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Gets the workspace.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

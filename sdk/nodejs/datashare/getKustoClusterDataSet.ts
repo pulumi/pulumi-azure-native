@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSet in a share
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getKustoClusterDataSet(args: GetKustoClusterDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoClusterDataSetResult> {
 
@@ -85,7 +85,7 @@ export interface GetKustoClusterDataSetResult {
 }
 /**
  * Get a DataSet in a share
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getKustoClusterDataSetOutput(args: GetKustoClusterDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoClusterDataSetResult> {
     return pulumi.output(args).apply((a: any) => getKustoClusterDataSet(a, opts))

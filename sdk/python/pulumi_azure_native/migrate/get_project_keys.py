@@ -61,7 +61,7 @@ def get_project_keys(project_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectKeysResult:
     """
     Gets the Log Analytics Workspace ID and Primary Key for the specified project.
-    API Version: 2018-02-02.
+    Azure REST API version: 2018-02-02.
 
 
     :param str project_name: Name of the Azure Migrate project.
@@ -84,7 +84,7 @@ def get_project_keys_output(project_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectKeysResult]:
     """
     Gets the Log Analytics Workspace ID and Primary Key for the specified project.
-    API Version: 2018-02-02.
+    Azure REST API version: 2018-02-02.
 
 
     :param str project_name: Name of the Azure Migrate project.

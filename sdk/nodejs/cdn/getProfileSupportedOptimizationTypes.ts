@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getProfileSupportedOptimizationTypes(args: GetProfileSupportedOptimizationTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileSupportedOptimizationTypesResult> {
 
@@ -39,7 +39,7 @@ export interface GetProfileSupportedOptimizationTypesResult {
 }
 /**
  * Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getProfileSupportedOptimizationTypesOutput(args: GetProfileSupportedOptimizationTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileSupportedOptimizationTypesResult> {
     return pulumi.output(args).apply((a: any) => getProfileSupportedOptimizationTypes(a, opts))

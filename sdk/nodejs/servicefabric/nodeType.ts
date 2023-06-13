@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
- * API Version: 2023-03-01-preview.
- * Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
  */
 export class NodeType extends pulumi.CustomResource {
     /**

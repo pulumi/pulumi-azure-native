@@ -6,8 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Log Analytics QueryPack definition.
- * API Version: 2019-09-01.
- * Previous API Version: 2019-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2019-09-01. Prior API version in Azure Native 1.x: 2019-09-01
  */
 export class QueryPack extends pulumi.CustomResource {
     /**

@@ -111,7 +111,7 @@ def get_private_atlase(account_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateAtlaseResult:
     """
     [Deprecated] Get a Private Atlas resource.
-    API Version: 2020-02-01-preview.
+    Azure REST API version: 2020-02-01-preview.
 
 
     :param str account_name: The name of the Maps Account.
@@ -141,7 +141,7 @@ def get_private_atlase_output(account_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateAtlaseResult]:
     """
     [Deprecated] Get a Private Atlas resource.
-    API Version: 2020-02-01-preview.
+    Azure REST API version: 2020-02-01-preview.
 
 
     :param str account_name: The name of the Maps Account.

@@ -230,7 +230,7 @@ def get_redis_enterprise(cluster_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRedisEnterpriseResult:
     """
     Gets information about a RedisEnterprise cluster
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
@@ -267,7 +267,7 @@ def get_redis_enterprise_output(cluster_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRedisEnterpriseResult]:
     """
     Gets information about a RedisEnterprise cluster
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.

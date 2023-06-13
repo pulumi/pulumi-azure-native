@@ -134,7 +134,7 @@ def get_managed_environment_auth_token(environment_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedEnvironmentAuthTokenResult:
     """
     Checks if resource name is available.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -163,7 +163,7 @@ def get_managed_environment_auth_token_output(environment_name: Optional[pulumi.
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentAuthTokenResult]:
     """
     Checks if resource name is available.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str environment_name: Name of the Managed Environment.

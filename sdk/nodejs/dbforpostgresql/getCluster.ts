@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a cluster such as compute and storage configuration and cluster lifecycle metadata such as cluster creation date and time.
- * API Version: 2022-11-08.
+ * Azure REST API version: 2022-11-08.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -162,7 +162,7 @@ export interface GetClusterResult {
 }
 /**
  * Gets information about a cluster such as compute and storage configuration and cluster lifecycle metadata such as cluster creation date and time.
- * API Version: 2022-11-08.
+ * Azure REST API version: 2022-11-08.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

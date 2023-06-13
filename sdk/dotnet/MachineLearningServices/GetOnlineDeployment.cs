@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// 
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetOnlineDeploymentResult> InvokeAsync(GetOnlineDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOnlineDeploymentResult>("azure-native:machinelearningservices:getOnlineDeployment", args ?? new GetOnlineDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetOnlineDeploymentResult> Invoke(GetOnlineDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOnlineDeploymentResult>("azure-native:machinelearningservices:getOnlineDeployment", args ?? new GetOnlineDeploymentInvokeArgs(), options.WithDefaults());

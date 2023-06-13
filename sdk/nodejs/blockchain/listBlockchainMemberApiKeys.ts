@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the API keys for a blockchain member.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2018-06-01-preview.
  */
 export function listBlockchainMemberApiKeys(args: ListBlockchainMemberApiKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListBlockchainMemberApiKeysResult> {
 
@@ -42,7 +42,7 @@ export interface ListBlockchainMemberApiKeysResult {
 }
 /**
  * Lists the API keys for a blockchain member.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2018-06-01-preview.
  */
 export function listBlockchainMemberApiKeysOutput(args: ListBlockchainMemberApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBlockchainMemberApiKeysResult> {
     return pulumi.output(args).apply((a: any) => listBlockchainMemberApiKeys(a, opts))

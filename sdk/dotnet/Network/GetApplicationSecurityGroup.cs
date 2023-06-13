@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets information about the specified application security group.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetApplicationSecurityGroupResult> InvokeAsync(GetApplicationSecurityGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationSecurityGroupResult>("azure-native:network:getApplicationSecurityGroup", args ?? new GetApplicationSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified application security group.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetApplicationSecurityGroupResult> Invoke(GetApplicationSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationSecurityGroupResult>("azure-native:network:getApplicationSecurityGroup", args ?? new GetApplicationSecurityGroupInvokeArgs(), options.WithDefaults());

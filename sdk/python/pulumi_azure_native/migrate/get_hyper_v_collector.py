@@ -81,7 +81,7 @@ def get_hyper_v_collector(hyper_v_collector_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHyperVCollectorResult:
     """
     Get a Hyper-V collector.
-    API Version: 2019-10-01.
+    Azure REST API version: 2019-10-01.
 
 
     :param str hyper_v_collector_name: Unique name of a Hyper-V collector within a project.
@@ -110,7 +110,7 @@ def get_hyper_v_collector_output(hyper_v_collector_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHyperVCollectorResult]:
     """
     Get a Hyper-V collector.
-    API Version: 2019-10-01.
+    Azure REST API version: 2019-10-01.
 
 
     :param str hyper_v_collector_name: Unique name of a Hyper-V collector within a project.

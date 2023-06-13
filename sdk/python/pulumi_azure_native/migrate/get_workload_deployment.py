@@ -109,7 +109,7 @@ def get_workload_deployment(modernize_project_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadDeploymentResult:
     """
     Gets the details of the workload deployment.
-    API Version: 2022-05-01-preview.
+    Azure REST API version: 2022-05-01-preview.
 
 
     :param str modernize_project_name: ModernizeProject name.
@@ -142,7 +142,7 @@ def get_workload_deployment_output(modernize_project_name: Optional[pulumi.Input
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadDeploymentResult]:
     """
     Gets the details of the workload deployment.
-    API Version: 2022-05-01-preview.
+    Azure REST API version: 2022-05-01-preview.
 
 
     :param str modernize_project_name: ModernizeProject name.

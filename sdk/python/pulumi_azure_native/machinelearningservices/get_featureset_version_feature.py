@@ -88,7 +88,7 @@ def get_featureset_version_feature(feature_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFeaturesetVersionFeatureResult:
     """
     Dto object representing feature
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str feature_name: Specifies name of the feature.
@@ -122,7 +122,7 @@ def get_featureset_version_feature_output(feature_name: Optional[pulumi.Input[Op
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFeaturesetVersionFeatureResult]:
     """
     Dto object representing feature
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str feature_name: Specifies name of the feature.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the container registries resource.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getContainerRegistry(args: GetContainerRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRegistryResult> {
 
@@ -63,7 +63,7 @@ export interface GetContainerRegistryResult {
 }
 /**
  * Get the container registries resource.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getContainerRegistryOutput(args: GetContainerRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRegistryResult> {
     return pulumi.output(args).apply((a: any) => getContainerRegistry(a, opts))

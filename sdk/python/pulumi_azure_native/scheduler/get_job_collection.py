@@ -107,7 +107,7 @@ def get_job_collection(job_collection_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobCollectionResult:
     """
     Gets a job collection.
-    API Version: 2016-03-01.
+    Azure REST API version: 2016-03-01.
 
 
     :param str job_collection_name: The job collection name.
@@ -134,7 +134,7 @@ def get_job_collection_output(job_collection_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobCollectionResult]:
     """
     Gets a job collection.
-    API Version: 2016-03-01.
+    Azure REST API version: 2016-03-01.
 
 
     :param str job_collection_name: The job collection name.

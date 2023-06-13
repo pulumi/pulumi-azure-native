@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Lists the secrets for an existing static site.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<ListStaticSiteSecretsResult> InvokeAsync(ListStaticSiteSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteSecretsResult>("azure-native:web:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Lists the secrets for an existing static site.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<ListStaticSiteSecretsResult> Invoke(ListStaticSiteSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStaticSiteSecretsResult>("azure-native:web:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsInvokeArgs(), options.WithDefaults());

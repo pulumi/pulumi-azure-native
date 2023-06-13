@@ -134,7 +134,7 @@ def get_linker_dryrun(dryrun_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkerDryrunResult:
     """
     get a dryrun job
-    API Version: 2022-11-01-preview.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str dryrun_name: The name of dryrun.
@@ -163,7 +163,7 @@ def get_linker_dryrun_output(dryrun_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkerDryrunResult]:
     """
     get a dryrun job
-    API Version: 2022-11-01-preview.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str dryrun_name: The name of dryrun.

@@ -183,7 +183,7 @@ def get_connectivity_configuration(configuration_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectivityConfigurationResult:
     """
     Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str configuration_name: The name of the network manager connectivity configuration.
@@ -219,7 +219,7 @@ def get_connectivity_configuration_output(configuration_name: Optional[pulumi.In
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectivityConfigurationResult]:
     """
     Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str configuration_name: The name of the network manager connectivity configuration.

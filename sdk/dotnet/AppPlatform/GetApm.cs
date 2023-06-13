@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get the APM by name.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetApmResult> InvokeAsync(GetApmArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApmResult>("azure-native:appplatform:getApm", args ?? new GetApmArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the APM by name.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetApmResult> Invoke(GetApmInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApmResult>("azure-native:appplatform:getApm", args ?? new GetApmInvokeArgs(), options.WithDefaults());

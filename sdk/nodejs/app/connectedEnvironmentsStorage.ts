@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Storage resource for connectedEnvironment.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export class ConnectedEnvironmentsStorage extends pulumi.CustomResource {
     /**

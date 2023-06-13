@@ -122,7 +122,7 @@ def get_solution(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionResult:
     """
     Retrieves the user solution.
-    API Version: 2015-11-01-preview.
+    Azure REST API version: 2015-11-01-preview.
 
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
@@ -150,7 +150,7 @@ def get_solution_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionResult]:
     """
     Retrieves the user solution.
-    API Version: 2015-11-01-preview.
+    Azure REST API version: 2015-11-01-preview.
 
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// The operation that retrieves information about the capacity reservation.
-        /// API Version: 2023-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Task<GetCapacityReservationResult> InvokeAsync(GetCapacityReservationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationResult>("azure-native:compute:getCapacityReservation", args ?? new GetCapacityReservationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation that retrieves information about the capacity reservation.
-        /// API Version: 2023-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Output<GetCapacityReservationResult> Invoke(GetCapacityReservationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityReservationResult>("azure-native:compute:getCapacityReservation", args ?? new GetCapacityReservationInvokeArgs(), options.WithDefaults());

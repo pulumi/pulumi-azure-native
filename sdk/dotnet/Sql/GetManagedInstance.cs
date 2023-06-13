@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a managed instance.
-        /// API Version: 2021-11-01.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetManagedInstanceResult> InvokeAsync(GetManagedInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceResult>("azure-native:sql:getManagedInstance", args ?? new GetManagedInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a managed instance.
-        /// API Version: 2021-11-01.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetManagedInstanceResult> Invoke(GetManagedInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure-native:sql:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified nat gateway in a specified resource group.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
 
@@ -99,7 +99,7 @@ export interface GetNatGatewayResult {
 }
 /**
  * Gets the specified nat gateway in a specified resource group.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
     return pulumi.output(args).apply((a: any) => getNatGateway(a, opts))

@@ -111,7 +111,7 @@ def get_private_endpoint(cluster_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointResult:
     """
     Gets information about the specified Private Endpoint.
-    API Version: 2020-03-01.
+    Azure REST API version: 2020-03-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -141,7 +141,7 @@ def get_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointResult]:
     """
     Gets information about the specified Private Endpoint.
-    API Version: 2020-03-01.
+    Azure REST API version: 2020-03-01.
 
 
     :param str cluster_name: The name of the cluster.

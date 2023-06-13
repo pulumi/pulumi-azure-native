@@ -100,7 +100,7 @@ def get_featureset_version(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFeaturesetVersionResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01-preview.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str name: Container name. This is case-sensitive.
@@ -132,7 +132,7 @@ def get_featureset_version_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFeaturesetVersionResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01-preview.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str name: Container name. This is case-sensitive.

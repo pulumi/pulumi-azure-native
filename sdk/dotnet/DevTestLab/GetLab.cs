@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevTestLab
     {
         /// <summary>
         /// Get lab.
-        /// API Version: 2018-09-15.
+        /// Azure REST API version: 2018-09-15.
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:devtestlab:getLab", args ?? new GetLabArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get lab.
-        /// API Version: 2018-09-15.
+        /// Azure REST API version: 2018-09-15.
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:devtestlab:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());

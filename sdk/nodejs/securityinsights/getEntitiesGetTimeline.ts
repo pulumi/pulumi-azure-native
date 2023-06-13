@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Timeline for an entity.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getEntitiesGetTimeline(args: GetEntitiesGetTimelineArgs, opts?: pulumi.InvokeOptions): Promise<GetEntitiesGetTimelineResult> {
 
@@ -71,7 +71,7 @@ export interface GetEntitiesGetTimelineResult {
 }
 /**
  * Timeline for an entity.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getEntitiesGetTimelineOutput(args: GetEntitiesGetTimelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntitiesGetTimelineResult> {
     return pulumi.output(args).apply((a: any) => getEntitiesGetTimeline(a, opts))

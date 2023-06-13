@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Image
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
 
@@ -95,7 +95,7 @@ export interface GetImageResult {
 }
 /**
  * Get a Image
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
     return pulumi.output(args).apply((a: any) => getImage(a, opts))

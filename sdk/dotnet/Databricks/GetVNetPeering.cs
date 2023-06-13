@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Databricks
     {
         /// <summary>
         /// Gets the workspace vNet Peering.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetVNetPeeringResult> InvokeAsync(GetVNetPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVNetPeeringResult>("azure-native:databricks:getVNetPeering", args ?? new GetVNetPeeringArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the workspace vNet Peering.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetVNetPeeringResult> Invoke(GetVNetPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVNetPeeringResult>("azure-native:databricks:getVNetPeering", args ?? new GetVNetPeeringInvokeArgs(), options.WithDefaults());

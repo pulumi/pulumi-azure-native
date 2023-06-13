@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the primary and secondary connection strings for the Namespace.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function listNamespaceKeys(args: ListNamespaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNamespaceKeysResult> {
 
@@ -68,7 +68,7 @@ export interface ListNamespaceKeysResult {
 }
 /**
  * Gets the primary and secondary connection strings for the Namespace.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {
     return pulumi.output(args).apply((a: any) => listNamespaceKeys(a, opts))

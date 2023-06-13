@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a hunt, without relations and comments.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getHunt(args: GetHuntArgs, opts?: pulumi.InvokeOptions): Promise<GetHuntResult> {
 
@@ -95,7 +95,7 @@ export interface GetHuntResult {
 }
 /**
  * Gets a hunt, without relations and comments.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getHuntOutput(args: GetHuntOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHuntResult> {
     return pulumi.output(args).apply((a: any) => getHunt(a, opts))

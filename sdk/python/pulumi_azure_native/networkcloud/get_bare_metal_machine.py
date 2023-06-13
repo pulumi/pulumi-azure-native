@@ -443,7 +443,7 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBareMetalMachineResult:
     """
     Get properties of the provided bare metal machine.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str bare_metal_machine_name: The name of the bare metal machine.
@@ -498,7 +498,7 @@ def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBareMetalMachineResult]:
     """
     Get properties of the provided bare metal machine.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str bare_metal_machine_name: The name of the bare metal machine.

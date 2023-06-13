@@ -303,7 +303,7 @@ def get_topic(namespace_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
     Returns a description for the specified topic.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str namespace_name: The namespace name
@@ -349,7 +349,7 @@ def get_topic_output(namespace_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
     Returns a description for the specified topic.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str namespace_name: The namespace name

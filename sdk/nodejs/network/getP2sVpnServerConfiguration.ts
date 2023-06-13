@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a P2SVpnServerConfiguration.
- * API Version: 2019-07-01.
+ * Azure REST API version: 2019-07-01.
  */
 export function getP2sVpnServerConfiguration(args: GetP2sVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnServerConfigurationResult> {
 
@@ -95,7 +95,7 @@ export interface GetP2sVpnServerConfigurationResult {
 }
 /**
  * Retrieves the details of a P2SVpnServerConfiguration.
- * API Version: 2019-07-01.
+ * Azure REST API version: 2019-07-01.
  */
 export function getP2sVpnServerConfigurationOutput(args: GetP2sVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnServerConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getP2sVpnServerConfiguration(a, opts))

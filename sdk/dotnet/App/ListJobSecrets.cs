@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Container Apps Job Secrets Collection ARM resource.
-        /// API Version: 2023-04-01-preview.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Task<ListJobSecretsResult> InvokeAsync(ListJobSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListJobSecretsResult>("azure-native:app:listJobSecrets", args ?? new ListJobSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container Apps Job Secrets Collection ARM resource.
-        /// API Version: 2023-04-01-preview.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Output<ListJobSecretsResult> Invoke(ListJobSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListJobSecretsResult>("azure-native:app:listJobSecrets", args ?? new ListJobSecretsInvokeArgs(), options.WithDefaults());

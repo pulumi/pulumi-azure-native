@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents a Package in Azure Security Insights.
-    /// API Version: 2023-05-01-preview.
+    /// Azure REST API version: 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:ContentPackage")]
     public partial class ContentPackage : global::Pulumi.CustomResource

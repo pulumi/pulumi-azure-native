@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets an API Management service resource description.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetApiManagementServiceResult> InvokeAsync(GetApiManagementServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceResult>("azure-native:apimanagement:getApiManagementService", args ?? new GetApiManagementServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an API Management service resource description.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetApiManagementServiceResult> Invoke(GetApiManagementServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceResult>("azure-native:apimanagement:getApiManagementService", args ?? new GetApiManagementServiceInvokeArgs(), options.WithDefaults());

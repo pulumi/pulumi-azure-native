@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets a private endpoint connection
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppPrivateEndpointConnectionSlot(args: GetWebAppPrivateEndpointConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPrivateEndpointConnectionSlotResult> {
 
@@ -77,7 +77,7 @@ export interface GetWebAppPrivateEndpointConnectionSlotResult {
 }
 /**
  * Description for Gets a private endpoint connection
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppPrivateEndpointConnectionSlotOutput(args: GetWebAppPrivateEndpointConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPrivateEndpointConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppPrivateEndpointConnectionSlot(a, opts))

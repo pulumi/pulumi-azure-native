@@ -173,7 +173,7 @@ def get_read_write_database(database_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReadWriteDatabaseResult:
     """
     Returns a database.
-    API Version: 2021-06-01-preview.
+    Azure REST API version: 2021-06-01-preview.
 
 
     :param str database_name: The name of the database in the Kusto pool.
@@ -211,7 +211,7 @@ def get_read_write_database_output(database_name: Optional[pulumi.Input[str]] = 
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReadWriteDatabaseResult]:
     """
     Returns a database.
-    API Version: 2021-06-01-preview.
+    Azure REST API version: 2021-06-01-preview.
 
 
     :param str database_name: The name of the database in the Kusto pool.

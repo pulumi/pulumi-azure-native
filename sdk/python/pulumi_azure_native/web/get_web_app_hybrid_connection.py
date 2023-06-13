@@ -184,7 +184,7 @@ def get_web_app_hybrid_connection(name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHybridConnectionResult:
     """
     Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: The name of the web app.
@@ -223,7 +223,7 @@ def get_web_app_hybrid_connection_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppHybridConnectionResult]:
     """
     Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: The name of the web app.

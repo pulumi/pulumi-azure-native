@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines an Network Experiment Profile and lists of Experiments
- * API Version: 2019-11-01.
+ * Azure REST API version: 2019-11-01.
  */
 export function getNetworkExperimentProfile(args: GetNetworkExperimentProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkExperimentProfileResult> {
 
@@ -67,7 +67,7 @@ export interface GetNetworkExperimentProfileResult {
 }
 /**
  * Defines an Network Experiment Profile and lists of Experiments
- * API Version: 2019-11-01.
+ * Azure REST API version: 2019-11-01.
  */
 export function getNetworkExperimentProfileOutput(args: GetNetworkExperimentProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkExperimentProfileResult> {
     return pulumi.output(args).apply((a: any) => getNetworkExperimentProfile(a, opts))

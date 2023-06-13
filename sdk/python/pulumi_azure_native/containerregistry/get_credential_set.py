@@ -148,7 +148,7 @@ def get_credential_set(credential_set_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCredentialSetResult:
     """
     Gets the properties of the specified credential set resource.
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str credential_set_name: The name of the credential set.
@@ -181,7 +181,7 @@ def get_credential_set_output(credential_set_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCredentialSetResult]:
     """
     Gets the properties of the specified credential set resource.
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str credential_set_name: The name of the credential set.

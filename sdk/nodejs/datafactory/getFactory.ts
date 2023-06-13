@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a factory.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
 
@@ -98,7 +98,7 @@ export interface GetFactoryResult {
 }
 /**
  * Gets a factory.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryResult> {
     return pulumi.output(args).apply((a: any) => getFactory(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a credential.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getCredentialOperation(args: GetCredentialOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialOperationResult> {
 
@@ -63,7 +63,7 @@ export interface GetCredentialOperationResult {
 }
 /**
  * Gets a credential.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getCredentialOperationOutput(args: GetCredentialOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialOperationResult> {
     return pulumi.output(args).apply((a: any) => getCredentialOperation(a, opts))

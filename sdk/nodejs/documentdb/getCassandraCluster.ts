@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the properties of a managed Cassandra cluster.
- * API Version: 2023-04-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getCassandraCluster(args: GetCassandraClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraClusterResult> {
 
@@ -66,7 +66,7 @@ export interface GetCassandraClusterResult {
 }
 /**
  * Get the properties of a managed Cassandra cluster.
- * API Version: 2023-04-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getCassandraClusterOutput(args: GetCassandraClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraClusterResult> {
     return pulumi.output(args).apply((a: any) => getCassandraCluster(a, opts))

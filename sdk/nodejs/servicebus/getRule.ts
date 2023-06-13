@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the description for the specified rule.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
 
@@ -89,7 +89,7 @@ export interface GetRuleResult {
 }
 /**
  * Retrieves the description for the specified rule.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
     return pulumi.output(args).apply((a: any) => getRule(a, opts))

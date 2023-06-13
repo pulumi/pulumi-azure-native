@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get the named public certificate for an app (or deployment slot, if specified).
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppPublicCertificateSlot(args: GetWebAppPublicCertificateSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPublicCertificateSlotResult> {
 
@@ -73,7 +73,7 @@ export interface GetWebAppPublicCertificateSlotResult {
 }
 /**
  * Description for Get the named public certificate for an app (or deployment slot, if specified).
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppPublicCertificateSlotOutput(args: GetWebAppPublicCertificateSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPublicCertificateSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppPublicCertificateSlot(a, opts))

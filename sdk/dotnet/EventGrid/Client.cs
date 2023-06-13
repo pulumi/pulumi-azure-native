@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// The Client resource.
-    /// API Version: 2023-06-01-preview.
+    /// Azure REST API version: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Client")]
     public partial class Client : global::Pulumi.CustomResource

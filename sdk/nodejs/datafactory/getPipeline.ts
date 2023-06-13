@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a pipeline.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
 
@@ -95,7 +95,7 @@ export interface GetPipelineResult {
 }
 /**
  * Gets a pipeline.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
     return pulumi.output(args).apply((a: any) => getPipeline(a, opts))

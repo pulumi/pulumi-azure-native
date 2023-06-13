@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Address Resource.
- * API Version: 2022-05-01-preview.
+ * Azure REST API version: 2022-05-01-preview.
  */
 export class Address extends pulumi.CustomResource {
     /**

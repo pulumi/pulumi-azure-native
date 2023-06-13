@@ -88,7 +88,7 @@ def get_workspace_tag_operation_link(operation_link_id: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceTagOperationLinkResult:
     """
     Gets the operation link for the tag.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str operation_link_id: Tag-operation link identifier. Must be unique in the current API Management service instance.
@@ -122,7 +122,7 @@ def get_workspace_tag_operation_link_output(operation_link_id: Optional[pulumi.I
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceTagOperationLinkResult]:
     """
     Gets the operation link for the tag.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str operation_link_id: Tag-operation link identifier. Must be unique in the current API Management service instance.

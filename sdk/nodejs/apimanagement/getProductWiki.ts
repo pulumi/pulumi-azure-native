@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the Wiki for a Product specified by its identifier.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getProductWiki(args: GetProductWikiArgs, opts?: pulumi.InvokeOptions): Promise<GetProductWikiResult> {
 
@@ -59,7 +59,7 @@ export interface GetProductWikiResult {
 }
 /**
  * Gets the details of the Wiki for a Product specified by its identifier.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getProductWikiOutput(args: GetProductWikiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductWikiResult> {
     return pulumi.output(args).apply((a: any) => getProductWiki(a, opts))

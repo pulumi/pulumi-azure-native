@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a configuration of server.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
 
@@ -103,7 +103,7 @@ export interface GetConfigurationResult {
 }
 /**
  * Gets information about a configuration of server.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))

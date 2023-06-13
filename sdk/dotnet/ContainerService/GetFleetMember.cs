@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Get a FleetMember
-        /// API Version: 2023-03-15-preview.
+        /// Azure REST API version: 2023-03-15-preview.
         /// </summary>
         public static Task<GetFleetMemberResult> InvokeAsync(GetFleetMemberArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetMemberResult>("azure-native:containerservice:getFleetMember", args ?? new GetFleetMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a FleetMember
-        /// API Version: 2023-03-15-preview.
+        /// Azure REST API version: 2023-03-15-preview.
         /// </summary>
         public static Output<GetFleetMemberResult> Invoke(GetFleetMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetMemberResult>("azure-native:containerservice:getFleetMember", args ?? new GetFleetMemberInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The resource that defines the source location where the artifacts are located.
- * API Version: 2019-11-01-preview.
+ * Azure REST API version: 2019-11-01-preview.
  */
 export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactSourceResult> {
 
@@ -70,7 +70,7 @@ export interface GetArtifactSourceResult {
 }
 /**
  * The resource that defines the source location where the artifacts are located.
- * API Version: 2019-11-01-preview.
+ * Azure REST API version: 2019-11-01-preview.
  */
 export function getArtifactSourceOutput(args: GetArtifactSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactSourceResult> {
     return pulumi.output(args).apply((a: any) => getArtifactSource(a, opts))

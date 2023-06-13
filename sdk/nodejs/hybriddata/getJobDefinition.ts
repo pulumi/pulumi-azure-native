@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This method gets job definition object by name.
- * API Version: 2019-06-01.
+ * Azure REST API version: 2019-06-01.
  */
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
 
@@ -96,7 +96,7 @@ export interface GetJobDefinitionResult {
 }
 /**
  * This method gets job definition object by name.
- * API Version: 2019-06-01.
+ * Azure REST API version: 2019-06-01.
  */
 export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getJobDefinition(a, opts))

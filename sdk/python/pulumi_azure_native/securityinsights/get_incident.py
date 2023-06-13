@@ -327,7 +327,7 @@ def get_incident(incident_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentResult:
     """
     Gets a given incident.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str incident_id: Incident ID
@@ -375,7 +375,7 @@ def get_incident_output(incident_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentResult]:
     """
     Gets a given incident.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str incident_id: Incident ID

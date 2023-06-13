@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     {
         /// <summary>
         /// List all the firewall rules in a given server.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbforpostgresql:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// List all the firewall rules in a given server.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbforpostgresql:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());

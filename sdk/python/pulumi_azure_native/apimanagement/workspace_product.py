@@ -211,7 +211,7 @@ class WorkspaceProduct(pulumi.CustomResource):
                  __props__=None):
         """
         Product details.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2022-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,7 +235,7 @@ class WorkspaceProduct(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Product details.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2022-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceProductArgs args: The arguments to use to populate this resource's properties.

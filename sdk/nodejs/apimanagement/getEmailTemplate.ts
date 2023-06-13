@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the email template specified by its identifier.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailTemplateResult> {
 
@@ -79,7 +79,7 @@ export interface GetEmailTemplateResult {
 }
 /**
  * Gets the details of the email template specified by its identifier.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getEmailTemplateOutput(args: GetEmailTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailTemplateResult> {
     return pulumi.output(args).apply((a: any) => getEmailTemplate(a, opts))

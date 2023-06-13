@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Fetches the details of a ExpressRoute gateway in a resource group.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetExpressRouteGatewayResult> InvokeAsync(GetExpressRouteGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteGatewayResult>("azure-native:network:getExpressRouteGateway", args ?? new GetExpressRouteGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Fetches the details of a ExpressRoute gateway in a resource group.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetExpressRouteGatewayResult> Invoke(GetExpressRouteGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteGatewayResult>("azure-native:network:getExpressRouteGateway", args ?? new GetExpressRouteGatewayInvokeArgs(), options.WithDefaults());

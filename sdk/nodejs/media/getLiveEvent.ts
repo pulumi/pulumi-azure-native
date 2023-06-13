@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of a live event.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getLiveEvent(args: GetLiveEventArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventResult> {
 
@@ -119,7 +119,7 @@ export interface GetLiveEventResult {
 }
 /**
  * Gets properties of a live event.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getLiveEventOutput(args: GetLiveEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventResult> {
     return pulumi.output(args).apply((a: any) => getLiveEvent(a, opts))

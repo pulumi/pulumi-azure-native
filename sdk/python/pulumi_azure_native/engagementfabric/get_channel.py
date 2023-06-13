@@ -110,7 +110,7 @@ def get_channel(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
     The EngagementFabric channel
-    API Version: 2018-09-01-preview.
+    Azure REST API version: 2018-09-01-preview.
 
 
     :param str account_name: Account Name
@@ -140,7 +140,7 @@ def get_channel_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
     The EngagementFabric channel
-    API Version: 2018-09-01-preview.
+    Azure REST API version: 2018-09-01-preview.
 
 
     :param str account_name: Account Name

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Contains information about a database Threat Detection policy.
-    /// API Version: 2014-04-01.
+    /// Azure REST API version: 2014-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DatabaseThreatDetectionPolicy")]
     public partial class DatabaseThreatDetectionPolicy : global::Pulumi.CustomResource

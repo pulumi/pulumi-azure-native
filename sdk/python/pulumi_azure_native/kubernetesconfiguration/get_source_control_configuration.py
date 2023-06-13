@@ -245,7 +245,7 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSourceControlConfigurationResult:
     """
     Gets details of the Source Control Configuration.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
@@ -292,7 +292,7 @@ def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlConfigurationResult]:
     """
     Gets details of the Source Control Configuration.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.

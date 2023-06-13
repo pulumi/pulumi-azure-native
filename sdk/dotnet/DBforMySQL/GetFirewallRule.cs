@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Gets information about a server firewall rule.
-        /// API Version: 2022-01-01.
+        /// Azure REST API version: 2022-01-01.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbformysql:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a server firewall rule.
-        /// API Version: 2022-01-01.
+        /// Azure REST API version: 2022-01-01.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbformysql:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());

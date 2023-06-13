@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided cloud services network.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2022-12-12-preview.
  */
 export function getCloudServicesNetwork(args: GetCloudServicesNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudServicesNetworkResult> {
 
@@ -109,7 +109,7 @@ export interface GetCloudServicesNetworkResult {
 }
 /**
  * Get properties of the provided cloud services network.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2022-12-12-preview.
  */
 export function getCloudServicesNetworkOutput(args: GetCloudServicesNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudServicesNetworkResult> {
     return pulumi.output(args).apply((a: any) => getCloudServicesNetwork(a, opts))

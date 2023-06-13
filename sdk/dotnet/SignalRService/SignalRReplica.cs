@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SignalRService
 {
     /// <summary>
     /// A class represent a replica resource.
-    /// API Version: 2023-03-01-preview.
+    /// Azure REST API version: 2023-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice:SignalRReplica")]
     public partial class SignalRReplica : global::Pulumi.CustomResource

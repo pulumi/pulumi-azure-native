@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a database's blob auditing policy.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getDatabaseBlobAuditingPolicy(args: GetDatabaseBlobAuditingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseBlobAuditingPolicyResult> {
 
@@ -168,7 +168,7 @@ export interface GetDatabaseBlobAuditingPolicyResult {
 }
 /**
  * Gets a database's blob auditing policy.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getDatabaseBlobAuditingPolicyOutput(args: GetDatabaseBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseBlobAuditingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseBlobAuditingPolicy(a, opts))

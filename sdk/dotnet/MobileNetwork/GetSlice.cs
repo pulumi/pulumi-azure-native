@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Gets information about the specified network slice.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetSliceResult> InvokeAsync(GetSliceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSliceResult>("azure-native:mobilenetwork:getSlice", args ?? new GetSliceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified network slice.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetSliceResult> Invoke(GetSliceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSliceResult>("azure-native:mobilenetwork:getSlice", args ?? new GetSliceInvokeArgs(), options.WithDefaults());

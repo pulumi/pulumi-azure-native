@@ -99,7 +99,7 @@ def get_policy(format: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
     Get the Global policy definition of the Api Management service.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str format: Policy Export Format.
@@ -131,7 +131,7 @@ def get_policy_output(format: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Get the Global policy definition of the Api Management service.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str format: Policy Export Format.

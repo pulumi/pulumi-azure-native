@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get SQL pool properties
- * API Version: 2021-06-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getSqlPool(args: GetSqlPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolResult> {
 
@@ -103,7 +103,7 @@ export interface GetSqlPoolResult {
 }
 /**
  * Get SQL pool properties
- * API Version: 2021-06-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getSqlPoolOutput(args: GetSqlPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolResult> {
     return pulumi.output(args).apply((a: any) => getSqlPool(a, opts))

@@ -341,7 +341,7 @@ def get_watchlist(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatchlistResult:
     """
     Get a watchlist, without its watchlist items.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -390,7 +390,7 @@ def get_watchlist_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWatchlistResult]:
     """
     Get a watchlist, without its watchlist items.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

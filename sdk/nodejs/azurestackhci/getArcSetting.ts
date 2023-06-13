@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get ArcSetting resource details of HCI Cluster.
- * API Version: 2023-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getArcSetting(args: GetArcSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetArcSettingResult> {
 
@@ -99,7 +99,7 @@ export interface GetArcSettingResult {
 }
 /**
  * Get ArcSetting resource details of HCI Cluster.
- * API Version: 2023-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getArcSettingOutput(args: GetArcSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcSettingResult> {
     return pulumi.output(args).apply((a: any) => getArcSetting(a, opts))

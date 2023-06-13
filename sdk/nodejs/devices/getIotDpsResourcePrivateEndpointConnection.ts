@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get private endpoint connection properties
- * API Version: 2022-12-12.
+ * Azure REST API version: 2022-12-12.
  */
 export function getIotDpsResourcePrivateEndpointConnection(args: GetIotDpsResourcePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourcePrivateEndpointConnectionResult> {
 
@@ -63,7 +63,7 @@ export interface GetIotDpsResourcePrivateEndpointConnectionResult {
 }
 /**
  * Get private endpoint connection properties
- * API Version: 2022-12-12.
+ * Azure REST API version: 2022-12-12.
  */
 export function getIotDpsResourcePrivateEndpointConnectionOutput(args: GetIotDpsResourcePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourcePrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getIotDpsResourcePrivateEndpointConnection(a, opts))

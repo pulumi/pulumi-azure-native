@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Managed instance's Start/Stop schedule.
-    /// API Version: 2022-11-01-preview.
+    /// Azure REST API version: 2022-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:StartStopManagedInstanceSchedule")]
     public partial class StartStopManagedInstanceSchedule : global::Pulumi.CustomResource

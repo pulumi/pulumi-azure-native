@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the alert rule.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getFusionAlertRule(args: GetFusionAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFusionAlertRuleResult> {
 
@@ -100,7 +100,7 @@ export interface GetFusionAlertRuleResult {
 }
 /**
  * Gets the alert rule.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getFusionAlertRuleOutput(args: GetFusionAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFusionAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getFusionAlertRule(a, opts))

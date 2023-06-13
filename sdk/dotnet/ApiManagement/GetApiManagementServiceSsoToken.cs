@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetApiManagementServiceSsoTokenResult> InvokeAsync(GetApiManagementServiceSsoTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceSsoTokenResult>("azure-native:apimanagement:getApiManagementServiceSsoToken", args ?? new GetApiManagementServiceSsoTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetApiManagementServiceSsoTokenResult> Invoke(GetApiManagementServiceSsoTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceSsoTokenResult>("azure-native:apimanagement:getApiManagementServiceSsoToken", args ?? new GetApiManagementServiceSsoTokenInvokeArgs(), options.WithDefaults());

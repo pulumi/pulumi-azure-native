@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified NSP link resource.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetNspLinkResult> InvokeAsync(GetNspLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNspLinkResult>("azure-native:network:getNspLink", args ?? new GetNspLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified NSP link resource.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetNspLinkResult> Invoke(GetNspLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNspLinkResult>("azure-native:network:getNspLink", args ?? new GetNspLinkInvokeArgs(), options.WithDefaults());

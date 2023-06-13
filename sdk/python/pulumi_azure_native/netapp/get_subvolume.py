@@ -125,7 +125,7 @@ def get_subvolume(account_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubvolumeResult:
     """
     Returns the path associated with the subvolumeName provided
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -162,7 +162,7 @@ def get_subvolume_output(account_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubvolumeResult]:
     """
     Returns the path associated with the subvolumeName provided
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account

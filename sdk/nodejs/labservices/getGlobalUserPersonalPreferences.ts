@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get personal preferences for a user
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function getGlobalUserPersonalPreferences(args: GetGlobalUserPersonalPreferencesArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserPersonalPreferencesResult> {
 
@@ -56,7 +56,7 @@ export interface GetGlobalUserPersonalPreferencesResult {
 }
 /**
  * Get personal preferences for a user
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function getGlobalUserPersonalPreferencesOutput(args: GetGlobalUserPersonalPreferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserPersonalPreferencesResult> {
     return pulumi.output(args).apply((a: any) => getGlobalUserPersonalPreferences(a, opts))

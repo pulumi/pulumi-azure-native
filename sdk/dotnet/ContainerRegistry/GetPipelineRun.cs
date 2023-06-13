@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the detailed information for a given pipeline run.
-        /// API Version: 2023-01-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Task<GetPipelineRunResult> InvokeAsync(GetPipelineRunArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPipelineRunResult>("azure-native:containerregistry:getPipelineRun", args ?? new GetPipelineRunArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the detailed information for a given pipeline run.
-        /// API Version: 2023-01-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Output<GetPipelineRunResult> Invoke(GetPipelineRunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineRunResult>("azure-native:containerregistry:getPipelineRun", args ?? new GetPipelineRunInvokeArgs(), options.WithDefaults());

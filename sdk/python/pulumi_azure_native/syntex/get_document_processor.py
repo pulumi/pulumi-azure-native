@@ -122,7 +122,7 @@ def get_document_processor(processor_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDocumentProcessorResult:
     """
     Returns a document processor for a given name.
-    API Version: 2022-09-15-preview.
+    Azure REST API version: 2022-09-15-preview.
 
 
     :param str processor_name: The name of document processor resource.
@@ -150,7 +150,7 @@ def get_document_processor_output(processor_name: Optional[pulumi.Input[str]] = 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentProcessorResult]:
     """
     Returns a document processor for a given name.
-    API Version: 2022-09-15-preview.
+    Azure REST API version: 2022-09-15-preview.
 
 
     :param str processor_name: The name of document processor resource.

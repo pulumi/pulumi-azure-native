@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Settings for ingesting security data and logs to correlate with resources associated with the subscription.
- * API Version: 2021-01-15-preview.
+ * Azure REST API version: 2021-01-15-preview.
  */
 export function getIngestionSetting(args: GetIngestionSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetIngestionSettingResult> {
 
@@ -42,7 +42,7 @@ export interface GetIngestionSettingResult {
 }
 /**
  * Settings for ingesting security data and logs to correlate with resources associated with the subscription.
- * API Version: 2021-01-15-preview.
+ * Azure REST API version: 2021-01-15-preview.
  */
 export function getIngestionSettingOutput(args: GetIngestionSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIngestionSettingResult> {
     return pulumi.output(args).apply((a: any) => getIngestionSetting(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Portal
     {
         /// <summary>
         /// Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
-        /// API Version: 2018-10-01.
+        /// Azure REST API version: 2018-10-01.
         /// </summary>
         public static Task<GetUserSettingsResult> InvokeAsync(GetUserSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsResult>("azure-native:portal:getUserSettings", args ?? new GetUserSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
-        /// API Version: 2018-10-01.
+        /// Azure REST API version: 2018-10-01.
         /// </summary>
         public static Output<GetUserSettingsResult> Invoke(GetUserSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserSettingsResult>("azure-native:portal:getUserSettings", args ?? new GetUserSettingsInvokeArgs(), options.WithDefaults());

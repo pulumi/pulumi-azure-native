@@ -112,7 +112,7 @@ def list_endpoint_credentials(endpoint_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEndpointCredentialsResult:
     """
     Gets the endpoint access credentials to the resource.
-    API Version: 2023-03-15.
+    Azure REST API version: 2023-03-15.
 
 
     :param str endpoint_name: The endpoint name.
@@ -145,7 +145,7 @@ def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[str]] 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEndpointCredentialsResult]:
     """
     Gets the endpoint access credentials to the resource.
-    API Version: 2023-03-15.
+    Azure REST API version: 2023-03-15.
 
 
     :param str endpoint_name: The endpoint name.

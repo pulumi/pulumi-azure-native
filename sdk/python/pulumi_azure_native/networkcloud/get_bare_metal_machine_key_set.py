@@ -252,7 +252,7 @@ def get_bare_metal_machine_key_set(bare_metal_machine_key_set_name: Optional[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBareMetalMachineKeySetResult:
     """
     Get bare metal machine key set of the provided cluster.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str bare_metal_machine_key_set_name: The name of the bare metal machine key set.
@@ -294,7 +294,7 @@ def get_bare_metal_machine_key_set_output(bare_metal_machine_key_set_name: Optio
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBareMetalMachineKeySetResult]:
     """
     Get bare metal machine key set of the provided cluster.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str bare_metal_machine_key_set_name: The name of the bare metal machine key set.

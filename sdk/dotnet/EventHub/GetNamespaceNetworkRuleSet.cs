@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets NetworkRuleSet for a Namespace.
-        /// API Version: 2021-11-01.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetNamespaceNetworkRuleSetResult> InvokeAsync(GetNamespaceNetworkRuleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceNetworkRuleSetResult>("azure-native:eventhub:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets NetworkRuleSet for a Namespace.
-        /// API Version: 2021-11-01.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetNamespaceNetworkRuleSetResult> Invoke(GetNamespaceNetworkRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceNetworkRuleSetResult>("azure-native:eventhub:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetInvokeArgs(), options.WithDefaults());

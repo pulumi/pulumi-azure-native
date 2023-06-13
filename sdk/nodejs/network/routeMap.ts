@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The RouteMap child resource of a Virtual hub.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export class RouteMap extends pulumi.CustomResource {
     /**

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// APM Resource object
-    /// API Version: 2023-05-01-preview.
+    /// Azure REST API version: 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Apm")]
     public partial class Apm : global::Pulumi.CustomResource

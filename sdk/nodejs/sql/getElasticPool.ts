@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an elastic pool.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
 
@@ -113,7 +113,7 @@ export interface GetElasticPoolResult {
 }
 /**
  * Gets an elastic pool.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticPoolResult> {
     return pulumi.output(args).apply((a: any) => getElasticPool(a, opts))

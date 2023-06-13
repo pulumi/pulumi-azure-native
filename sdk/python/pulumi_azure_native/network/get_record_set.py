@@ -268,7 +268,7 @@ def get_record_set(record_type: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRecordSetResult:
     """
     Gets a record set.
-    API Version: 2018-05-01.
+    Azure REST API version: 2018-05-01.
 
 
     :param str record_type: The type of DNS record in this record set.
@@ -314,7 +314,7 @@ def get_record_set_output(record_type: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecordSetResult]:
     """
     Gets a record set.
-    API Version: 2018-05-01.
+    Azure REST API version: 2018-05-01.
 
 
     :param str record_type: The type of DNS record in this record set.

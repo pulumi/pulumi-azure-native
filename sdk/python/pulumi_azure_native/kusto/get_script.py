@@ -136,7 +136,7 @@ def get_script(cluster_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScriptResult:
     """
     Gets a Kusto cluster database script.
-    API Version: 2022-12-29.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -171,7 +171,7 @@ def get_script_output(cluster_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScriptResult]:
     """
     Gets a Kusto cluster database script.
-    API Version: 2022-12-29.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.

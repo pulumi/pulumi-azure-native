@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Metadata.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getMetadata(args: GetMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataResult> {
 
@@ -139,7 +139,7 @@ export interface GetMetadataResult {
 }
 /**
  * Get a Metadata.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getMetadataOutput(args: GetMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataResult> {
     return pulumi.output(args).apply((a: any) => getMetadata(a, opts))

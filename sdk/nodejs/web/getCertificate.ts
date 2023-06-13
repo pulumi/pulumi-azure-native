@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get a certificate.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
@@ -142,7 +142,7 @@ export interface GetCertificateResult {
 }
 /**
  * Description for Get a certificate.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))

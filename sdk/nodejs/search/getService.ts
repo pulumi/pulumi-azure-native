@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the search service with the given name in the given resource group.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -118,7 +118,7 @@ export interface GetServiceResult {
 }
 /**
  * Gets the search service with the given name in the given resource group.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

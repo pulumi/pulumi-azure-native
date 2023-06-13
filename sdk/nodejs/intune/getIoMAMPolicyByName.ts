@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns Intune iOS policies.
- * API Version: 2015-01-14-preview.
+ * Azure REST API version: 2015-01-14-preview.
  */
 export function getIoMAMPolicyByName(args: GetIoMAMPolicyByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetIoMAMPolicyByNameResult> {
 
@@ -80,7 +80,7 @@ export interface GetIoMAMPolicyByNameResult {
 }
 /**
  * Returns Intune iOS policies.
- * API Version: 2015-01-14-preview.
+ * Azure REST API version: 2015-01-14-preview.
  */
 export function getIoMAMPolicyByNameOutput(args: GetIoMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoMAMPolicyByNameResult> {
     return pulumi.output(args).apply((a: any) => getIoMAMPolicyByName(a, opts))

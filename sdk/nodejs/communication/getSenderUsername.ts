@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a valid sender username for a domains resource.
- * API Version: 2023-03-31.
+ * Azure REST API version: 2023-03-31.
  */
 export function getSenderUsername(args: GetSenderUsernameArgs, opts?: pulumi.InvokeOptions): Promise<GetSenderUsernameResult> {
 
@@ -80,7 +80,7 @@ export interface GetSenderUsernameResult {
 }
 /**
  * Get a valid sender username for a domains resource.
- * API Version: 2023-03-31.
+ * Azure REST API version: 2023-03-31.
  */
 export function getSenderUsernameOutput(args: GetSenderUsernameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSenderUsernameResult> {
     return pulumi.output(args).apply((a: any) => getSenderUsername(a, opts))

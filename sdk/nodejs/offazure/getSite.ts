@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Site REST Resource.
- * API Version: 2020-07-07.
+ * Azure REST API version: 2020-07-07.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
 
@@ -67,7 +67,7 @@ export interface GetSiteResult {
 }
 /**
  * Site REST Resource.
- * API Version: 2020-07-07.
+ * Azure REST API version: 2020-07-07.
  */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
     return pulumi.output(args).apply((a: any) => getSite(a, opts))

@@ -65,7 +65,7 @@ def list_connected_cluster_user_credentials(authentication_method: Optional[Unio
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectedClusterUserCredentialsResult:
     """
     Gets cluster user credentials of the connected cluster with a specified resource group and name.
-    API Version: 2021-04-01-preview.
+    Azure REST API version: 2021-04-01-preview.
 
 
     :param Union[str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.
@@ -94,7 +94,7 @@ def list_connected_cluster_user_credentials_output(authentication_method: Option
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectedClusterUserCredentialsResult]:
     """
     Gets cluster user credentials of the connected cluster with a specified resource group and name.
-    API Version: 2021-04-01-preview.
+    Azure REST API version: 2021-04-01-preview.
 
 
     :param Union[str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.

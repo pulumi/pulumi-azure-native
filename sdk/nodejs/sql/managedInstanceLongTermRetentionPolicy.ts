@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A long term retention policy.
- * API Version: 2022-11-01-preview.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResource {
     /**

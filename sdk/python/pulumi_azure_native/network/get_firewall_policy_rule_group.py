@@ -123,7 +123,7 @@ def get_firewall_policy_rule_group(firewall_policy_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyRuleGroupResult:
     """
     Gets the specified FirewallPolicyRuleGroup.
-    API Version: 2020-04-01.
+    Azure REST API version: 2020-04-01.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.
@@ -154,7 +154,7 @@ def get_firewall_policy_rule_group_output(firewall_policy_name: Optional[pulumi.
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallPolicyRuleGroupResult]:
     """
     Gets the specified FirewallPolicyRuleGroup.
-    API Version: 2020-04-01.
+    Azure REST API version: 2020-04-01.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.

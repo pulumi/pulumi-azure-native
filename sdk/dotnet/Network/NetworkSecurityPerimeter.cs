@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The Network Security Perimeter resource
-    /// API Version: 2021-03-01-preview.
-    /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2021-03-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityPerimeter")]
     public partial class NetworkSecurityPerimeter : global::Pulumi.CustomResource

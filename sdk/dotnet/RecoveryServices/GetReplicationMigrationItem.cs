@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Migration item.
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetReplicationMigrationItemResult> InvokeAsync(GetReplicationMigrationItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationMigrationItemResult>("azure-native:recoveryservices:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Migration item.
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetReplicationMigrationItemResult> Invoke(GetReplicationMigrationItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationMigrationItemResult>("azure-native:recoveryservices:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemInvokeArgs(), options.WithDefaults());

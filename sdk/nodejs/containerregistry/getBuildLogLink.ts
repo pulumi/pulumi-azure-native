@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a link to download the build logs.
- * API Version: 2018-02-01-preview.
+ * Azure REST API version: 2018-02-01-preview.
  */
 export function getBuildLogLink(args: GetBuildLogLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildLogLinkResult> {
 
@@ -44,7 +44,7 @@ export interface GetBuildLogLinkResult {
 }
 /**
  * Gets a link to download the build logs.
- * API Version: 2018-02-01-preview.
+ * Azure REST API version: 2018-02-01-preview.
  */
 export function getBuildLogLinkOutput(args: GetBuildLogLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildLogLinkResult> {
     return pulumi.output(args).apply((a: any) => getBuildLogLink(a, opts))

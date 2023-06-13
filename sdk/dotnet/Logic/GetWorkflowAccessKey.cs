@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Logic
     {
         /// <summary>
         /// Gets a workflow access key.
-        /// API Version: 2015-02-01-preview.
+        /// Azure REST API version: 2015-02-01-preview.
         /// </summary>
         public static Task<GetWorkflowAccessKeyResult> InvokeAsync(GetWorkflowAccessKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowAccessKeyResult>("azure-native:logic:getWorkflowAccessKey", args ?? new GetWorkflowAccessKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a workflow access key.
-        /// API Version: 2015-02-01-preview.
+        /// Azure REST API version: 2015-02-01-preview.
         /// </summary>
         public static Output<GetWorkflowAccessKeyResult> Invoke(GetWorkflowAccessKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowAccessKeyResult>("azure-native:logic:getWorkflowAccessKey", args ?? new GetWorkflowAccessKeyInvokeArgs(), options.WithDefaults());

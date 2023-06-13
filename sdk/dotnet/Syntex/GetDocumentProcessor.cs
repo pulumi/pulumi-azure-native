@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Syntex
     {
         /// <summary>
         /// Returns a document processor for a given name.
-        /// API Version: 2022-09-15-preview.
+        /// Azure REST API version: 2022-09-15-preview.
         /// </summary>
         public static Task<GetDocumentProcessorResult> InvokeAsync(GetDocumentProcessorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDocumentProcessorResult>("azure-native:syntex:getDocumentProcessor", args ?? new GetDocumentProcessorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a document processor for a given name.
-        /// API Version: 2022-09-15-preview.
+        /// Azure REST API version: 2022-09-15-preview.
         /// </summary>
         public static Output<GetDocumentProcessorResult> Invoke(GetDocumentProcessorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentProcessorResult>("azure-native:syntex:getDocumentProcessor", args ?? new GetDocumentProcessorInvokeArgs(), options.WithDefaults());

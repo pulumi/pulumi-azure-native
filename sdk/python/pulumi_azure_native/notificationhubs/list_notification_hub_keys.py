@@ -99,7 +99,7 @@ def list_notification_hub_keys(authorization_rule_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNotificationHubKeysResult:
     """
     Gets the Primary and Secondary ConnectionStrings to the NotificationHub
-    API Version: 2017-04-01.
+    Azure REST API version: 2017-04-01.
 
 
     :param str authorization_rule_name: The connection string of the NotificationHub for the specified authorizationRule.
@@ -131,7 +131,7 @@ def list_notification_hub_keys_output(authorization_rule_name: Optional[pulumi.I
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNotificationHubKeysResult]:
     """
     Gets the Primary and Secondary ConnectionStrings to the NotificationHub
-    API Version: 2017-04-01.
+    Azure REST API version: 2017-04-01.
 
 
     :param str authorization_rule_name: The connection string of the NotificationHub for the specified authorizationRule.

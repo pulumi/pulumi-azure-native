@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Kusto pool.
- * API Version: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function getKustoPool(args: GetKustoPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolResult> {
 
@@ -115,7 +115,7 @@ export interface GetKustoPoolResult {
 }
 /**
  * Gets a Kusto pool.
- * API Version: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function getKustoPoolOutput(args: GetKustoPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolResult> {
     return pulumi.output(args).apply((a: any) => getKustoPool(a, opts))

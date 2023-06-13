@@ -232,7 +232,7 @@ class Connector(pulumi.CustomResource):
                  __props__=None):
         """
         Linker of source and target resource
-        API Version: 2022-11-01-preview.
+        Azure REST API version: 2022-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,7 +257,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Linker of source and target resource
-        API Version: 2022-11-01-preview.
+        Azure REST API version: 2022-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

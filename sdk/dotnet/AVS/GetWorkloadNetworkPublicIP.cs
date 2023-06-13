@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// NSX Public IP Block
-        /// API Version: 2022-05-01.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Task<GetWorkloadNetworkPublicIPResult> InvokeAsync(GetWorkloadNetworkPublicIPArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkPublicIPResult>("azure-native:avs:getWorkloadNetworkPublicIP", args ?? new GetWorkloadNetworkPublicIPArgs(), options.WithDefaults());
 
         /// <summary>
         /// NSX Public IP Block
-        /// API Version: 2022-05-01.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Output<GetWorkloadNetworkPublicIPResult> Invoke(GetWorkloadNetworkPublicIPInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkPublicIPResult>("azure-native:avs:getWorkloadNetworkPublicIP", args ?? new GetWorkloadNetworkPublicIPInvokeArgs(), options.WithDefaults());

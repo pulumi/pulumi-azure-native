@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * NSX DHCP
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-05-01.
  */
 export function getWorkloadNetworkDhcp(args: GetWorkloadNetworkDhcpArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDhcpResult> {
 
@@ -59,7 +59,7 @@ export interface GetWorkloadNetworkDhcpResult {
 }
 /**
  * NSX DHCP
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-05-01.
  */
 export function getWorkloadNetworkDhcpOutput(args: GetWorkloadNetworkDhcpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDhcpResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadNetworkDhcp(a, opts))

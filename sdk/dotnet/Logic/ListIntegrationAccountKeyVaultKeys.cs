@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Logic
     {
         /// <summary>
         /// Gets the integration account's Key Vault keys.
-        /// API Version: 2019-05-01.
+        /// Azure REST API version: 2019-05-01.
         /// </summary>
         public static Task<ListIntegrationAccountKeyVaultKeysResult> InvokeAsync(ListIntegrationAccountKeyVaultKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the integration account's Key Vault keys.
-        /// API Version: 2019-05-01.
+        /// Azure REST API version: 2019-05-01.
         /// </summary>
         public static Output<ListIntegrationAccountKeyVaultKeysResult> Invoke(ListIntegrationAccountKeyVaultKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysInvokeArgs(), options.WithDefaults());

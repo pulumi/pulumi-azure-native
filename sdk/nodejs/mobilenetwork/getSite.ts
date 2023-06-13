@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified mobile network site.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
 
@@ -75,7 +75,7 @@ export interface GetSiteResult {
 }
 /**
  * Gets information about the specified mobile network site.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
     return pulumi.output(args).apply((a: any) => getSite(a, opts))

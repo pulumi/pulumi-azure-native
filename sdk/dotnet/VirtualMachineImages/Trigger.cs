@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
 {
     /// <summary>
     /// Represents a trigger that can invoke an image template build.
-    /// API Version: 2022-07-01.
+    /// Azure REST API version: 2022-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:virtualmachineimages:Trigger")]
     public partial class Trigger : global::Pulumi.CustomResource

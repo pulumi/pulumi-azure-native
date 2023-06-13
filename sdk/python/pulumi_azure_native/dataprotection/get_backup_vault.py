@@ -146,7 +146,7 @@ def get_backup_vault(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupVaultResult:
     """
     Returns a resource belonging to a resource group.
-    API Version: 2023-01-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -176,7 +176,7 @@ def get_backup_vault_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupVaultResult]:
     """
     Returns a resource belonging to a resource group.
-    API Version: 2023-01-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

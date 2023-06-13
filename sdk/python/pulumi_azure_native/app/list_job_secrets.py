@@ -50,7 +50,7 @@ def list_job_secrets(job_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListJobSecretsResult:
     """
     Container Apps Job Secrets Collection ARM resource.
-    API Version: 2023-04-01-preview.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str job_name: Job Name
@@ -72,7 +72,7 @@ def list_job_secrets_output(job_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListJobSecretsResult]:
     """
     Container Apps Job Secrets Collection ARM resource.
-    API Version: 2023-04-01-preview.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str job_name: Job Name

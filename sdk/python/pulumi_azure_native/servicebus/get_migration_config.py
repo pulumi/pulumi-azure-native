@@ -159,7 +159,7 @@ def get_migration_config(config_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrationConfigResult:
     """
     Retrieves Migration Config
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str config_name: The configuration name. Should always be "$default".
@@ -193,7 +193,7 @@ def get_migration_config_output(config_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrationConfigResult]:
     """
     Retrieves Migration Config
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str config_name: The configuration name. Should always be "$default".

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get track ingest heartbeat events telemetry of a live event.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getLiveEventTrackIngestHeartbeats(args: GetLiveEventTrackIngestHeartbeatsArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventTrackIngestHeartbeatsResult> {
 
@@ -47,7 +47,7 @@ export interface GetLiveEventTrackIngestHeartbeatsResult {
 }
 /**
  * Get track ingest heartbeat events telemetry of a live event.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getLiveEventTrackIngestHeartbeatsOutput(args: GetLiveEventTrackIngestHeartbeatsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventTrackIngestHeartbeatsResult> {
     return pulumi.output(args).apply((a: any) => getLiveEventTrackIngestHeartbeats(a, opts))

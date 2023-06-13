@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a partner registration with the specified parameters.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPartnerRegistration(args: GetPartnerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerRegistrationResult> {
 
@@ -71,7 +71,7 @@ export interface GetPartnerRegistrationResult {
 }
 /**
  * Gets a partner registration with the specified parameters.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPartnerRegistrationOutput(args: GetPartnerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getPartnerRegistration(a, opts))

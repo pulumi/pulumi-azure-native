@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Lists all effective virtual networks by specified network group.
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Task<ListListEffectiveVirtualNetworkByNetworkGroupResult> InvokeAsync(ListListEffectiveVirtualNetworkByNetworkGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network:listListEffectiveVirtualNetworkByNetworkGroup", args ?? new ListListEffectiveVirtualNetworkByNetworkGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists all effective virtual networks by specified network group.
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Output<ListListEffectiveVirtualNetworkByNetworkGroupResult> Invoke(ListListEffectiveVirtualNetworkByNetworkGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network:listListEffectiveVirtualNetworkByNetworkGroup", args ?? new ListListEffectiveVirtualNetworkByNetworkGroupInvokeArgs(), options.WithDefaults());

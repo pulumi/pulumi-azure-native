@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.WebPubSub
 {
     /// <summary>
     /// A custom domain
-    /// API Version: 2023-02-01.
+    /// Azure REST API version: 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubCustomDomain")]
     public partial class WebPubSubCustomDomain : global::Pulumi.CustomResource

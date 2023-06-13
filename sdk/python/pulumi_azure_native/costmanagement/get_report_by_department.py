@@ -134,7 +134,7 @@ def get_report_by_department(department_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportByDepartmentResult:
     """
     Gets the report for a department by report name.
-    API Version: 2018-08-01-preview.
+    Azure REST API version: 2018-08-01-preview.
 
 
     :param str department_id: Department ID
@@ -163,7 +163,7 @@ def get_report_by_department_output(department_id: Optional[pulumi.Input[str]] =
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportByDepartmentResult]:
     """
     Gets the report for a department by report name.
-    API Version: 2018-08-01-preview.
+    Azure REST API version: 2018-08-01-preview.
 
 
     :param str department_id: Department ID

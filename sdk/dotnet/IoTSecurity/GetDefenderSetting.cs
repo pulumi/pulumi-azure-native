@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTSecurity
     {
         /// <summary>
         /// Get IoT Defender Settings
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetDefenderSettingResult> InvokeAsync(GetDefenderSettingArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefenderSettingResult>("azure-native:iotsecurity:getDefenderSetting", args ?? new GetDefenderSettingArgs(), options.WithDefaults());

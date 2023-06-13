@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets the WordPress instance resource.
-        /// API Version: 2021-12-01-preview.
+        /// Azure REST API version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetWordpressInstanceResult> InvokeAsync(GetWordpressInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWordpressInstanceResult>("azure-native:workloads:getWordpressInstance", args ?? new GetWordpressInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the WordPress instance resource.
-        /// API Version: 2021-12-01-preview.
+        /// Azure REST API version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetWordpressInstanceResult> Invoke(GetWordpressInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWordpressInstanceResult>("azure-native:workloads:getWordpressInstance", args ?? new GetWordpressInstanceInvokeArgs(), options.WithDefaults());

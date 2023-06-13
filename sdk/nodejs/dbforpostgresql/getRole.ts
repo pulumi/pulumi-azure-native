@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a cluster role.
- * API Version: 2022-11-08.
+ * Azure REST API version: 2022-11-08.
  */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
 
@@ -63,7 +63,7 @@ export interface GetRoleResult {
 }
 /**
  * Gets information about a cluster role.
- * API Version: 2022-11-08.
+ * Azure REST API version: 2022-11-08.
  */
 export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleResult> {
     return pulumi.output(args).apply((a: any) => getRole(a, opts))

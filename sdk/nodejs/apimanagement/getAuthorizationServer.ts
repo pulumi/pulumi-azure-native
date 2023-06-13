@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the authorization server specified by its identifier.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getAuthorizationServer(args: GetAuthorizationServerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationServerResult> {
 
@@ -127,7 +127,7 @@ export interface GetAuthorizationServerResult {
 }
 /**
  * Gets the details of the authorization server specified by its identifier.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getAuthorizationServerOutput(args: GetAuthorizationServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationServerResult> {
     return pulumi.output(args).apply((a: any) => getAuthorizationServer(a, opts))

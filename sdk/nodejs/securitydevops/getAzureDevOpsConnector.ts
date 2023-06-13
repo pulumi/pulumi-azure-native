@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getAzureDevOpsConnector(args: GetAzureDevOpsConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureDevOpsConnectorResult> {
 
@@ -58,7 +58,7 @@ export interface GetAzureDevOpsConnectorResult {
     readonly type: string;
 }
 /**
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getAzureDevOpsConnectorOutput(args: GetAzureDevOpsConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureDevOpsConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAzureDevOpsConnector(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Namespace topic details.
- * API Version: 2023-06-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export class NamespaceTopic extends pulumi.CustomResource {
     /**

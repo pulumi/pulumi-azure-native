@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Get a Datastore by name.
-        /// API Version: 2020-05-01-preview.
+        /// Azure REST API version: 2020-05-01-preview.
         /// </summary>
         public static Task<GetMachineLearningDatastoreResult> InvokeAsync(GetMachineLearningDatastoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningDatastoreResult>("azure-native:machinelearningservices:getMachineLearningDatastore", args ?? new GetMachineLearningDatastoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Datastore by name.
-        /// API Version: 2020-05-01-preview.
+        /// Azure REST API version: 2020-05-01-preview.
         /// </summary>
         public static Output<GetMachineLearningDatastoreResult> Invoke(GetMachineLearningDatastoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineLearningDatastoreResult>("azure-native:machinelearningservices:getMachineLearningDatastore", args ?? new GetMachineLearningDatastoreInvokeArgs(), options.WithDefaults());

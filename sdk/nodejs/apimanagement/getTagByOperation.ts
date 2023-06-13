@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get tag associated with the Operation.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getTagByOperation(args: GetTagByOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetTagByOperationResult> {
 
@@ -66,7 +66,7 @@ export interface GetTagByOperationResult {
 }
 /**
  * Get tag associated with the Operation.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getTagByOperationOutput(args: GetTagByOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByOperationResult> {
     return pulumi.output(args).apply((a: any) => getTagByOperation(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Kusto pool database principalAssignment.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-04-01-preview.
  */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
 
@@ -97,7 +97,7 @@ export interface GetDatabasePrincipalAssignmentResult {
 }
 /**
  * Gets a Kusto pool database principalAssignment.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-04-01-preview.
  */
 export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getDatabasePrincipalAssignment(a, opts))

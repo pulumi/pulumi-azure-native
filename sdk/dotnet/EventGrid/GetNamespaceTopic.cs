@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a namespace topic.
-        /// API Version: 2023-06-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetNamespaceTopicResult> InvokeAsync(GetNamespaceTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceTopicResult>("azure-native:eventgrid:getNamespaceTopic", args ?? new GetNamespaceTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a namespace topic.
-        /// API Version: 2023-06-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetNamespaceTopicResult> Invoke(GetNamespaceTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicResult>("azure-native:eventgrid:getNamespaceTopic", args ?? new GetNamespaceTopicInvokeArgs(), options.WithDefaults());

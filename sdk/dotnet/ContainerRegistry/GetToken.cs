@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the specified token.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<GetTokenResult> InvokeAsync(GetTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTokenResult>("azure-native:containerregistry:getToken", args ?? new GetTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified token.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<GetTokenResult> Invoke(GetTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTokenResult>("azure-native:containerregistry:getToken", args ?? new GetTokenInvokeArgs(), options.WithDefaults());

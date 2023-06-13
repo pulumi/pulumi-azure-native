@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataMigration
     {
         /// <summary>
         /// Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
-        /// API Version: 2022-03-30-preview.
+        /// Azure REST API version: 2022-03-30-preview.
         /// </summary>
         public static Task<ListSqlMigrationServiceMonitoringDataResult> InvokeAsync(ListSqlMigrationServiceMonitoringDataArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSqlMigrationServiceMonitoringDataResult>("azure-native:datamigration:listSqlMigrationServiceMonitoringData", args ?? new ListSqlMigrationServiceMonitoringDataArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
-        /// API Version: 2022-03-30-preview.
+        /// Azure REST API version: 2022-03-30-preview.
         /// </summary>
         public static Output<ListSqlMigrationServiceMonitoringDataResult> Invoke(ListSqlMigrationServiceMonitoringDataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceMonitoringDataResult>("azure-native:datamigration:listSqlMigrationServiceMonitoringData", args ?? new ListSqlMigrationServiceMonitoringDataInvokeArgs(), options.WithDefaults());

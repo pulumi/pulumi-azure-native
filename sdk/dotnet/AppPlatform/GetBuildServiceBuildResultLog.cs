@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get a KPack build result log download URL.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<GetBuildServiceBuildResultLogResult> InvokeAsync(GetBuildServiceBuildResultLogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceBuildResultLogResult>("azure-native:appplatform:getBuildServiceBuildResultLog", args ?? new GetBuildServiceBuildResultLogArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a KPack build result log download URL.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<GetBuildServiceBuildResultLogResult> Invoke(GetBuildServiceBuildResultLogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildServiceBuildResultLogResult>("azure-native:appplatform:getBuildServiceBuildResultLog", args ?? new GetBuildServiceBuildResultLogInvokeArgs(), options.WithDefaults());

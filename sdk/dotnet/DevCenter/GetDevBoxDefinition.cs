@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a Dev Box definition
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetDevBoxDefinitionResult> InvokeAsync(GetDevBoxDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevBoxDefinitionResult>("azure-native:devcenter:getDevBoxDefinition", args ?? new GetDevBoxDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Dev Box definition
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetDevBoxDefinitionResult> Invoke(GetDevBoxDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevBoxDefinitionResult>("azure-native:devcenter:getDevBoxDefinition", args ?? new GetDevBoxDefinitionInvokeArgs(), options.WithDefaults());

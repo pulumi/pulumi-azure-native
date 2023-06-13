@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Implements Access Control List GET method.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Task<GetAccessControlListResult> InvokeAsync(GetAccessControlListArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessControlListResult>("azure-native:managednetworkfabric:getAccessControlList", args ?? new GetAccessControlListArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements Access Control List GET method.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Output<GetAccessControlListResult> Invoke(GetAccessControlListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessControlListResult>("azure-native:managednetworkfabric:getAccessControlList", args ?? new GetAccessControlListInvokeArgs(), options.WithDefaults());

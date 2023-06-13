@@ -135,7 +135,7 @@ def get_administrator(object_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdministratorResult:
     """
     Gets information about a server.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str object_id: Guid of the objectId for the administrator.
@@ -167,7 +167,7 @@ def get_administrator_output(object_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdministratorResult]:
     """
     Gets information about a server.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str object_id: Guid of the objectId for the administrator.

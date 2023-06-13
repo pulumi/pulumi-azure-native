@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Gets a Kusto cluster database script.
-        /// API Version: 2022-12-29.
+        /// Azure REST API version: 2022-12-29.
         /// </summary>
         public static Task<GetScriptResult> InvokeAsync(GetScriptArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("azure-native:kusto:getScript", args ?? new GetScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Kusto cluster database script.
-        /// API Version: 2022-12-29.
+        /// Azure REST API version: 2022-12-29.
         /// </summary>
         public static Output<GetScriptResult> Invoke(GetScriptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScriptResult>("azure-native:kusto:getScript", args ?? new GetScriptInvokeArgs(), options.WithDefaults());

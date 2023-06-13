@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Gets the detailed information about an access policy of a redis cache
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-native:cache:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the detailed information about an access policy of a redis cache
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:cache:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());

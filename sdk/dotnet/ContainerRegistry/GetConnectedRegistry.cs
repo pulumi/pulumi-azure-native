@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the connected registry.
-        /// API Version: 2023-01-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Task<GetConnectedRegistryResult> InvokeAsync(GetConnectedRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedRegistryResult>("azure-native:containerregistry:getConnectedRegistry", args ?? new GetConnectedRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the connected registry.
-        /// API Version: 2023-01-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Output<GetConnectedRegistryResult> Invoke(GetConnectedRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedRegistryResult>("azure-native:containerregistry:getConnectedRegistry", args ?? new GetConnectedRegistryInvokeArgs(), options.WithDefaults());

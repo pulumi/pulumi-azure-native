@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the JIT request.
- * API Version: 2021-07-01.
+ * Azure REST API version: 2021-07-01.
  */
 export function getJitRequest(args: GetJitRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetJitRequestResult> {
 
@@ -94,7 +94,7 @@ export interface GetJitRequestResult {
 }
 /**
  * Gets the JIT request.
- * API Version: 2021-07-01.
+ * Azure REST API version: 2021-07-01.
  */
 export function getJitRequestOutput(args: GetJitRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitRequestResult> {
     return pulumi.output(args).apply((a: any) => getJitRequest(a, opts))

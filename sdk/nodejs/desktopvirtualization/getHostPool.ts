@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a host pool.
- * API Version: 2022-09-09.
+ * Azure REST API version: 2022-09-09.
  */
 export function getHostPool(args: GetHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolResult> {
 
@@ -161,7 +161,7 @@ export interface GetHostPoolResult {
 }
 /**
  * Get a host pool.
- * API Version: 2022-09-09.
+ * Azure REST API version: 2022-09-09.
  */
 export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolResult> {
     return pulumi.output(args).apply((a: any) => getHostPool(a, opts))

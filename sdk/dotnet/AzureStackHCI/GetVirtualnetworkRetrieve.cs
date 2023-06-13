@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// The virtual network resource definition.
-        /// API Version: 2021-09-01-preview.
+        /// Azure REST API version: 2021-09-01-preview.
         /// </summary>
         public static Task<GetVirtualnetworkRetrieveResult> InvokeAsync(GetVirtualnetworkRetrieveArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualnetworkRetrieveResult>("azure-native:azurestackhci:getVirtualnetworkRetrieve", args ?? new GetVirtualnetworkRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
         /// The virtual network resource definition.
-        /// API Version: 2021-09-01-preview.
+        /// Azure REST API version: 2021-09-01-preview.
         /// </summary>
         public static Output<GetVirtualnetworkRetrieveResult> Invoke(GetVirtualnetworkRetrieveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualnetworkRetrieveResult>("azure-native:azurestackhci:getVirtualnetworkRetrieve", args ?? new GetVirtualnetworkRetrieveInvokeArgs(), options.WithDefaults());

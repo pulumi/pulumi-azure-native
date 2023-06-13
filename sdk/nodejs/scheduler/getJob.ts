@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a job.
- * API Version: 2016-03-01.
+ * Azure REST API version: 2016-03-01.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
 
@@ -56,7 +56,7 @@ export interface GetJobResult {
 }
 /**
  * Gets a job.
- * API Version: 2016-03-01.
+ * Azure REST API version: 2016-03-01.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))

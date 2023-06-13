@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Peering
     {
         /// <summary>
         /// Gets an existing peering service with the specified name under the given subscription and resource group.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetPeeringServiceResult> InvokeAsync(GetPeeringServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing peering service with the specified name under the given subscription and resource group.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetPeeringServiceResult> Invoke(GetPeeringServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceInvokeArgs(), options.WithDefaults());

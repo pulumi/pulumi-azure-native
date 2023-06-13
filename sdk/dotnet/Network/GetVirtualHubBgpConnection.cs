@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a Virtual Hub Bgp Connection.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetVirtualHubBgpConnectionResult> InvokeAsync(GetVirtualHubBgpConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubBgpConnectionResult>("azure-native:network:getVirtualHubBgpConnection", args ?? new GetVirtualHubBgpConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a Virtual Hub Bgp Connection.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetVirtualHubBgpConnectionResult> Invoke(GetVirtualHubBgpConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubBgpConnectionResult>("azure-native:network:getVirtualHubBgpConnection", args ?? new GetVirtualHubBgpConnectionInvokeArgs(), options.WithDefaults());

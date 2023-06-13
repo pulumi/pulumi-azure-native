@@ -92,7 +92,7 @@ def get_workspace_connection(connection_name: Optional[str] = None,
                              workspace_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceConnectionResult:
     """
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str connection_name: Friendly name of the workspace connection
@@ -120,7 +120,7 @@ def get_workspace_connection_output(connection_name: Optional[pulumi.Input[str]]
                                     workspace_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceConnectionResult]:
     """
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str connection_name: Friendly name of the workspace connection

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the description of an existing time series database connection.
- * API Version: 2023-01-31.
+ * Azure REST API version: 2023-01-31.
  */
 export function getTimeSeriesDatabaseConnection(args: GetTimeSeriesDatabaseConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetTimeSeriesDatabaseConnectionResult> {
 
@@ -63,7 +63,7 @@ export interface GetTimeSeriesDatabaseConnectionResult {
 }
 /**
  * Get the description of an existing time series database connection.
- * API Version: 2023-01-31.
+ * Azure REST API version: 2023-01-31.
  */
 export function getTimeSeriesDatabaseConnectionOutput(args: GetTimeSeriesDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTimeSeriesDatabaseConnectionResult> {
     return pulumi.output(args).apply((a: any) => getTimeSeriesDatabaseConnection(a, opts))

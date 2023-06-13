@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the detailed information for a given pipeline run.
- * API Version: 2023-01-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getPipelineRun(args: GetPipelineRunArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineRunResult> {
 
@@ -75,7 +75,7 @@ export interface GetPipelineRunResult {
 }
 /**
  * Gets the detailed information for a given pipeline run.
- * API Version: 2023-01-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getPipelineRunOutput(args: GetPipelineRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineRunResult> {
     return pulumi.output(args).apply((a: any) => getPipelineRun(a, opts))

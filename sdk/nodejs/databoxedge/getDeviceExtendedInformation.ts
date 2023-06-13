@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getDeviceExtendedInformation(args: GetDeviceExtendedInformationArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceExtendedInformationResult> {
 
@@ -114,7 +114,7 @@ export interface GetDeviceExtendedInformationResult {
 }
 /**
  * Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getDeviceExtendedInformationOutput(args: GetDeviceExtendedInformationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceExtendedInformationResult> {
     return pulumi.output(args).apply((a: any) => getDeviceExtendedInformation(a, opts))

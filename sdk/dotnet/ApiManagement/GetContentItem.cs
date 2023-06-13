@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Returns the developer portal's content item specified by its identifier.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetContentItemResult> InvokeAsync(GetContentItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContentItemResult>("azure-native:apimanagement:getContentItem", args ?? new GetContentItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the developer portal's content item specified by its identifier.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetContentItemResult> Invoke(GetContentItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentItemResult>("azure-native:apimanagement:getContentItem", args ?? new GetContentItemInvokeArgs(), options.WithDefaults());

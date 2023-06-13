@@ -207,7 +207,7 @@ def get_external_network(external_network_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExternalNetworkResult:
     """
     Implements ExternalNetworks GET method.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str external_network_name: Name of the ExternalNetwork
@@ -245,7 +245,7 @@ def get_external_network_output(external_network_name: Optional[pulumi.Input[str
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExternalNetworkResult]:
     """
     Implements ExternalNetworks GET method.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str external_network_name: Name of the ExternalNetwork

@@ -99,7 +99,7 @@ def get_registry_component_container(component_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryComponentContainerResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str component_name: Container name.
@@ -128,7 +128,7 @@ def get_registry_component_container_output(component_name: Optional[pulumi.Inpu
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryComponentContainerResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str component_name: Container name.

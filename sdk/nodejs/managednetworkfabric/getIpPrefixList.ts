@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements Ip Prefix List GET method.
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getIpPrefixList(args: GetIpPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetIpPrefixListResult> {
 
@@ -82,7 +82,7 @@ export interface GetIpPrefixListResult {
 }
 /**
  * Implements Ip Prefix List GET method.
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getIpPrefixListOutput(args: GetIpPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpPrefixListResult> {
     return pulumi.output(args).apply((a: any) => getIpPrefixList(a, opts))

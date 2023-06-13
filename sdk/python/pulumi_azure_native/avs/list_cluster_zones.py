@@ -51,7 +51,7 @@ def list_cluster_zones(cluster_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterZonesResult:
     """
     List of all zones and associated hosts for a cluster
-    API Version: 2022-05-01.
+    Azure REST API version: 2022-05-01.
 
 
     :param str cluster_name: Name of the cluster in the private cloud
@@ -76,7 +76,7 @@ def list_cluster_zones_output(cluster_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterZonesResult]:
     """
     List of all zones and associated hosts for a cluster
-    API Version: 2022-05-01.
+    Azure REST API version: 2022-05-01.
 
 
     :param str cluster_name: Name of the cluster in the private cloud

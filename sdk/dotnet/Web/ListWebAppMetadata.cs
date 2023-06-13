@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets the metadata of an app.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<ListWebAppMetadataResult> InvokeAsync(ListWebAppMetadataArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppMetadataResult>("azure-native:web:listWebAppMetadata", args ?? new ListWebAppMetadataArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets the metadata of an app.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<ListWebAppMetadataResult> Invoke(ListWebAppMetadataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppMetadataResult>("azure-native:web:listWebAppMetadata", args ?? new ListWebAppMetadataInvokeArgs(), options.WithDefaults());

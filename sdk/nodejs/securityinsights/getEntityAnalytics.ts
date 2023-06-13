@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a setting.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getEntityAnalytics(args: GetEntityAnalyticsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityAnalyticsResult> {
 
@@ -72,7 +72,7 @@ export interface GetEntityAnalyticsResult {
 }
 /**
  * Gets a setting.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getEntityAnalyticsOutput(args: GetEntityAnalyticsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityAnalyticsResult> {
     return pulumi.output(args).apply((a: any) => getEntityAnalytics(a, opts))

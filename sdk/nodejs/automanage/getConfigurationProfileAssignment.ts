@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a configuration profile assignment
- * API Version: 2022-05-04.
+ * Azure REST API version: 2022-05-04.
  */
 export function getConfigurationProfileAssignment(args: GetConfigurationProfileAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileAssignmentResult> {
 
@@ -67,7 +67,7 @@ export interface GetConfigurationProfileAssignmentResult {
 }
 /**
  * Get information about a configuration profile assignment
- * API Version: 2022-05-04.
+ * Azure REST API version: 2022-05-04.
  */
 export function getConfigurationProfileAssignmentOutput(args: GetConfigurationProfileAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfileAssignment(a, opts))

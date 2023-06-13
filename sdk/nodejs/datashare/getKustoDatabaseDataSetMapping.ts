@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSetMapping in a shareSubscription
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getKustoDatabaseDataSetMapping(args: GetKustoDatabaseDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoDatabaseDataSetMappingResult> {
 
@@ -89,7 +89,7 @@ export interface GetKustoDatabaseDataSetMappingResult {
 }
 /**
  * Get a DataSetMapping in a shareSubscription
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getKustoDatabaseDataSetMappingOutput(args: GetKustoDatabaseDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoDatabaseDataSetMappingResult> {
     return pulumi.output(args).apply((a: any) => getKustoDatabaseDataSetMapping(a, opts))

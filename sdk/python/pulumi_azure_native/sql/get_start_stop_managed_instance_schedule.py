@@ -147,7 +147,7 @@ def get_start_stop_managed_instance_schedule(managed_instance_name: Optional[str
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStartStopManagedInstanceScheduleResult:
     """
     Gets the managed instance's Start/Stop schedule.
-    API Version: 2022-11-01-preview.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str managed_instance_name: The name of the managed instance.
@@ -180,7 +180,7 @@ def get_start_stop_managed_instance_schedule_output(managed_instance_name: Optio
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStartStopManagedInstanceScheduleResult]:
     """
     Gets the managed instance's Start/Stop schedule.
-    API Version: 2022-11-01-preview.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str managed_instance_name: The name of the managed instance.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
- * API Version: 2021-10-01.
+ * Azure REST API version: 2021-10-01.
  */
 export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedClusterResult> {
 
@@ -114,7 +114,7 @@ export interface GetConnectedClusterResult {
 }
 /**
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
- * API Version: 2021-10-01.
+ * Azure REST API version: 2021-10-01.
  */
 export function getConnectedClusterOutput(args: GetConnectedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedClusterResult> {
     return pulumi.output(args).apply((a: any) => getConnectedCluster(a, opts))

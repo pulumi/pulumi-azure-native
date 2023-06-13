@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the schema configuration at the API level.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiSchema(args: GetApiSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetApiSchemaResult> {
 
@@ -73,7 +73,7 @@ export interface GetApiSchemaResult {
 }
 /**
  * Get the schema configuration at the API level.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiSchemaOutput(args: GetApiSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiSchemaResult> {
     return pulumi.output(args).apply((a: any) => getApiSchema(a, opts))

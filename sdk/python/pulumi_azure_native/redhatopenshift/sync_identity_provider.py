@@ -90,7 +90,7 @@ class SyncIdentityProvider(pulumi.CustomResource):
                  __props__=None):
         """
         SyncIdentityProvider represents a SyncIdentityProvider
-        API Version: 2022-09-04.
+        Azure REST API version: 2022-09-04.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,7 +106,7 @@ class SyncIdentityProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SyncIdentityProvider represents a SyncIdentityProvider
-        API Version: 2022-09-04.
+        Azure REST API version: 2022-09-04.
 
         :param str resource_name: The name of the resource.
         :param SyncIdentityProviderArgs args: The arguments to use to populate this resource's properties.

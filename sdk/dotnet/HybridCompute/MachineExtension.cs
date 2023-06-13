@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// Describes a Machine Extension.
-    /// API Version: 2022-12-27.
-    /// Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2020-08-02
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource

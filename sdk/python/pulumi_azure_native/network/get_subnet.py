@@ -316,7 +316,7 @@ def get_subnet(expand: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetResult:
     """
     Gets the specified subnet by virtual network and resource group.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.
@@ -366,7 +366,7 @@ def get_subnet_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetResult]:
     """
     Gets the specified subnet by virtual network and resource group.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.

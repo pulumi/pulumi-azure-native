@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// A SQL DB Table data set mapping.
-    /// API Version: 2021-08-01.
-    /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:SqlDBTableDataSetMapping")]
     public partial class SqlDBTableDataSetMapping : global::Pulumi.CustomResource

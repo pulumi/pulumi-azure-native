@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the policy configuration at the GraphQL API Resolver level.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getGraphQLApiResolverPolicy(args: GetGraphQLApiResolverPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLApiResolverPolicyResult> {
 
@@ -75,7 +75,7 @@ export interface GetGraphQLApiResolverPolicyResult {
 }
 /**
  * Get the policy configuration at the GraphQL API Resolver level.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getGraphQLApiResolverPolicyOutput(args: GetGraphQLApiResolverPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLApiResolverPolicyResult> {
     return pulumi.output(args).apply((a: any) => getGraphQLApiResolverPolicy(a, opts))

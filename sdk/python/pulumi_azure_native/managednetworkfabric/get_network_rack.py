@@ -170,7 +170,7 @@ def get_network_rack(network_rack_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkRackResult:
     """
     Get Network Rack resource details.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str network_rack_name: Name of the Network Rack
@@ -202,7 +202,7 @@ def get_network_rack_output(network_rack_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkRackResult]:
     """
     Get Network Rack resource details.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str network_rack_name: Name of the Network Rack

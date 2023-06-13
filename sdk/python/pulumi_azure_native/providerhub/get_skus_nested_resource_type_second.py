@@ -83,7 +83,7 @@ def get_skus_nested_resource_type_second(nested_resource_type_first: Optional[st
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSkusNestedResourceTypeSecondResult:
     """
     Gets the sku details for the given resource type and sku name.
-    API Version: 2020-11-20.
+    Azure REST API version: 2020-11-20.
 
 
     :param str nested_resource_type_first: The first child resource type.
@@ -117,7 +117,7 @@ def get_skus_nested_resource_type_second_output(nested_resource_type_first: Opti
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSkusNestedResourceTypeSecondResult]:
     """
     Gets the sku details for the given resource type and sku name.
-    API Version: 2020-11-20.
+    Azure REST API version: 2020-11-20.
 
 
     :param str nested_resource_type_first: The first child resource type.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a managed instance.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getManagedInstance(args: GetManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceResult> {
 
@@ -169,7 +169,7 @@ export interface GetManagedInstanceResult {
 }
 /**
  * Gets a managed instance.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceResult> {
     return pulumi.output(args).apply((a: any) => getManagedInstance(a, opts))

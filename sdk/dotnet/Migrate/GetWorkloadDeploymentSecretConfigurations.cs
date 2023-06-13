@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Gets the secrets of the workload deployment.
-        /// API Version: 2022-05-01-preview.
+        /// Azure REST API version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetWorkloadDeploymentSecretConfigurationsResult> InvokeAsync(GetWorkloadDeploymentSecretConfigurationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadDeploymentSecretConfigurationsResult>("azure-native:migrate:getWorkloadDeploymentSecretConfigurations", args ?? new GetWorkloadDeploymentSecretConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the secrets of the workload deployment.
-        /// API Version: 2022-05-01-preview.
+        /// Azure REST API version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetWorkloadDeploymentSecretConfigurationsResult> Invoke(GetWorkloadDeploymentSecretConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadDeploymentSecretConfigurationsResult>("azure-native:migrate:getWorkloadDeploymentSecretConfigurations", args ?? new GetWorkloadDeploymentSecretConfigurationsInvokeArgs(), options.WithDefaults());

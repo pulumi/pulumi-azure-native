@@ -97,7 +97,7 @@ def list_static_site_configured_roles(name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteConfiguredRolesResult:
     """
     Description for Lists the roles configured for the static site.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the static site.
@@ -123,7 +123,7 @@ def list_static_site_configured_roles_output(name: Optional[pulumi.Input[str]] =
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteConfiguredRolesResult]:
     """
     Description for Lists the roles configured for the static site.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the static site.

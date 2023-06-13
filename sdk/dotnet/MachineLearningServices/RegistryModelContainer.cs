@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
-    /// API Version: 2023-04-01.
+    /// Azure REST API version: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:RegistryModelContainer")]
     public partial class RegistryModelContainer : global::Pulumi.CustomResource

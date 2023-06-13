@@ -159,7 +159,7 @@ def get_virtual_network_link(private_zone_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkLinkResult:
     """
     Gets a virtual network link to the specified Private DNS zone.
-    API Version: 2020-06-01.
+    Azure REST API version: 2020-06-01.
 
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
@@ -193,7 +193,7 @@ def get_virtual_network_link_output(private_zone_name: Optional[pulumi.Input[str
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkLinkResult]:
     """
     Gets a virtual network link to the specified Private DNS zone.
-    API Version: 2020-06-01.
+    Azure REST API version: 2020-06-01.
 
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).

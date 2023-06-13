@@ -99,7 +99,7 @@ def get_connected_environments_storage(connected_environment_name: Optional[str]
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedEnvironmentsStorageResult:
     """
     Get storage for a connectedEnvironment.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str connected_environment_name: Name of the Environment.
@@ -128,7 +128,7 @@ def get_connected_environments_storage_output(connected_environment_name: Option
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedEnvironmentsStorageResult]:
     """
     Get storage for a connectedEnvironment.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str connected_environment_name: Name of the Environment.

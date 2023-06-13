@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EdgeOrder
     {
         /// <summary>
         /// List configurations for the given product family, product line and product for the given subscription.
-        /// API Version: 2022-05-01-preview.
+        /// Azure REST API version: 2022-05-01-preview.
         /// </summary>
         public static Task<ListProductsAndConfigurationsResult> InvokeAsync(ListProductsAndConfigurationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListProductsAndConfigurationsResult>("azure-native:edgeorder:listProductsAndConfigurations", args ?? new ListProductsAndConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List configurations for the given product family, product line and product for the given subscription.
-        /// API Version: 2022-05-01-preview.
+        /// Azure REST API version: 2022-05-01-preview.
         /// </summary>
         public static Output<ListProductsAndConfigurationsResult> Invoke(ListProductsAndConfigurationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListProductsAndConfigurationsResult>("azure-native:edgeorder:listProductsAndConfigurations", args ?? new ListProductsAndConfigurationsInvokeArgs(), options.WithDefaults());

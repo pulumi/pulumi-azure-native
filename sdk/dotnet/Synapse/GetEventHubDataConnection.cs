@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Returns a data connection.
-        /// API Version: 2021-06-01-preview.
+        /// Azure REST API version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetEventHubDataConnectionResult> InvokeAsync(GetEventHubDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubDataConnectionResult>("azure-native:synapse:getEventHubDataConnection", args ?? new GetEventHubDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a data connection.
-        /// API Version: 2021-06-01-preview.
+        /// Azure REST API version: 2021-06-01-preview.
         /// </summary>
         public static Output<GetEventHubDataConnectionResult> Invoke(GetEventHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubDataConnectionResult>("azure-native:synapse:getEventHubDataConnection", args ?? new GetEventHubDataConnectionInvokeArgs(), options.WithDefaults());

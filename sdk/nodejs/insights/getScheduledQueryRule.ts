@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve an scheduled query rule definition.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
 
@@ -142,7 +142,7 @@ export interface GetScheduledQueryRuleResult {
 }
 /**
  * Retrieve an scheduled query rule definition.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRuleResult> {
     return pulumi.output(args).apply((a: any) => getScheduledQueryRule(a, opts))

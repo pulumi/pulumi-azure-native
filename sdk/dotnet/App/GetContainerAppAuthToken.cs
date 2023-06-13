@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Container App Auth Token.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetContainerAppAuthTokenResult> InvokeAsync(GetContainerAppAuthTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppAuthTokenResult>("azure-native:app:getContainerAppAuthToken", args ?? new GetContainerAppAuthTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container App Auth Token.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetContainerAppAuthTokenResult> Invoke(GetContainerAppAuthTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppAuthTokenResult>("azure-native:app:getContainerAppAuthToken", args ?? new GetContainerAppAuthTokenInvokeArgs(), options.WithDefaults());

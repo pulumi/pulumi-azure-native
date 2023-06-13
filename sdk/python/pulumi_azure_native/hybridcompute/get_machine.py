@@ -471,7 +471,7 @@ def get_machine(expand: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineResult:
     """
     Retrieves information about the model view or the instance view of a hybrid machine.
-    API Version: 2022-12-27.
+    Azure REST API version: 2022-12-27.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -531,7 +531,7 @@ def get_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineResult]:
     """
     Retrieves information about the model view or the instance view of a hybrid machine.
-    API Version: 2022-12-27.
+    Azure REST API version: 2022-12-27.
 
 
     :param str expand: The expand expression to apply on the operation.

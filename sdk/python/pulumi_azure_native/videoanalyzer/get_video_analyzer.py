@@ -218,7 +218,7 @@ def get_video_analyzer(account_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVideoAnalyzerResult:
     """
     Get the details of the specified Video Analyzer account
-    API Version: 2021-11-01-preview.
+    Azure REST API version: 2021-11-01-preview.
 
 
     :param str account_name: The Video Analyzer account name.
@@ -254,7 +254,7 @@ def get_video_analyzer_output(account_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVideoAnalyzerResult]:
     """
     Get the details of the specified Video Analyzer account
-    API Version: 2021-11-01-preview.
+    Azure REST API version: 2021-11-01-preview.
 
 
     :param str account_name: The Video Analyzer account name.

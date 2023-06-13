@@ -123,7 +123,7 @@ def get_static_site_user_provided_function_app_for_static_site_build(environment
                                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult:
     """
     Description for Gets the details of the user provided function app registered with a static site build
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str environment_name: The stage site identifier.
@@ -157,7 +157,7 @@ def get_static_site_user_provided_function_app_for_static_site_build_output(envi
                                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult]:
     """
     Description for Gets the details of the user provided function app registered with a static site build
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str environment_name: The stage site identifier.

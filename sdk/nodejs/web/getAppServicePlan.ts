@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get an App Service plan.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
 
@@ -164,7 +164,7 @@ export interface GetAppServicePlanResult {
 }
 /**
  * Description for Get an App Service plan.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServicePlanResult> {
     return pulumi.output(args).apply((a: any) => getAppServicePlan(a, opts))

@@ -67,7 +67,7 @@ def list_network_manager_deployment_status(deployment_types: Optional[Sequence[U
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNetworkManagerDeploymentStatusResult:
     """
     Post to List of Network Manager Deployment Status.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param Sequence[Union[str, 'ConfigurationType']] deployment_types: List of deployment types.
@@ -102,7 +102,7 @@ def list_network_manager_deployment_status_output(deployment_types: Optional[pul
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNetworkManagerDeploymentStatusResult]:
     """
     Post to List of Network Manager Deployment Status.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param Sequence[Union[str, 'ConfigurationType']] deployment_types: List of deployment types.

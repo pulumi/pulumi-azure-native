@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Authorization Provider contract.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export class AuthorizationProvider extends pulumi.CustomResource {
     /**

@@ -113,7 +113,7 @@ class Fleet(pulumi.CustomResource):
                  __props__=None):
         """
         The Fleet resource.
-        API Version: 2023-03-15-preview.
+        Azure REST API version: 2023-03-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +131,7 @@ class Fleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Fleet resource.
-        API Version: 2023-03-15-preview.
+        Azure REST API version: 2023-03-15-preview.
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

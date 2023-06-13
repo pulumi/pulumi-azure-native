@@ -227,7 +227,7 @@ def get_policy(policy_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
     Retrieve protection policy with specified name within a resource group.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.
@@ -264,7 +264,7 @@ def get_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Retrieve protection policy with specified name within a resource group.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.

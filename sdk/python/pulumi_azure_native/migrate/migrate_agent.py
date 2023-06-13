@@ -129,7 +129,7 @@ class MigrateAgent(pulumi.CustomResource):
                  __props__=None):
         """
         MigrateAgent model.
-        API Version: 2022-05-01-preview.
+        Azure REST API version: 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +148,7 @@ class MigrateAgent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         MigrateAgent model.
-        API Version: 2022-05-01-preview.
+        Azure REST API version: 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MigrateAgentArgs args: The arguments to use to populate this resource's properties.

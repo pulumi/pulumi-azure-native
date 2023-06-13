@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the modernizeProject agent.
- * API Version: 2022-05-01-preview.
+ * Azure REST API version: 2022-05-01-preview.
  */
 export function getMigrateAgent(args: GetMigrateAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrateAgentResult> {
 
@@ -69,7 +69,7 @@ export interface GetMigrateAgentResult {
 }
 /**
  * Gets the details of the modernizeProject agent.
- * API Version: 2022-05-01-preview.
+ * Azure REST API version: 2022-05-01-preview.
  */
 export function getMigrateAgentOutput(args: GetMigrateAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateAgentResult> {
     return pulumi.output(args).apply((a: any) => getMigrateAgent(a, opts))

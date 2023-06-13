@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     {
         /// <summary>
         /// The operation returns properties of a MachinePool.
-        /// API Version: 2022-09-04.
+        /// Azure REST API version: 2022-09-04.
         /// </summary>
         public static Task<GetMachinePoolResult> InvokeAsync(GetMachinePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachinePoolResult>("azure-native:redhatopenshift:getMachinePool", args ?? new GetMachinePoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns properties of a MachinePool.
-        /// API Version: 2022-09-04.
+        /// Azure REST API version: 2022-09-04.
         /// </summary>
         public static Output<GetMachinePoolResult> Invoke(GetMachinePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachinePoolResult>("azure-native:redhatopenshift:getMachinePool", args ?? new GetMachinePoolInvokeArgs(), options.WithDefaults());

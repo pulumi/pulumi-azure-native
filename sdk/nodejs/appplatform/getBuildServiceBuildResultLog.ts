@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a KPack build result log download URL.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getBuildServiceBuildResultLog(args: GetBuildServiceBuildResultLogArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceBuildResultLogResult> {
 
@@ -54,7 +54,7 @@ export interface GetBuildServiceBuildResultLogResult {
 }
 /**
  * Get a KPack build result log download URL.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getBuildServiceBuildResultLogOutput(args: GetBuildServiceBuildResultLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceBuildResultLogResult> {
     return pulumi.output(args).apply((a: any) => getBuildServiceBuildResultLog(a, opts))

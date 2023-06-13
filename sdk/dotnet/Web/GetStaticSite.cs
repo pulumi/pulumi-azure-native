@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets the details of a static site.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetStaticSiteResult> InvokeAsync(GetStaticSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteResult>("azure-native:web:getStaticSite", args ?? new GetStaticSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets the details of a static site.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetStaticSiteResult> Invoke(GetStaticSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteResult>("azure-native:web:getStaticSite", args ?? new GetStaticSiteInvokeArgs(), options.WithDefaults());

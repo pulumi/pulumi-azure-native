@@ -279,7 +279,7 @@ def get_prediction(hub_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPredictionResult:
     """
     Gets a Prediction in the hub.
-    API Version: 2017-04-26.
+    Azure REST API version: 2017-04-26.
 
 
     :param str hub_name: The name of the hub.
@@ -323,7 +323,7 @@ def get_prediction_output(hub_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPredictionResult]:
     """
     Gets a Prediction in the hub.
-    API Version: 2017-04-26.
+    Azure REST API version: 2017-04-26.
 
 
     :param str hub_name: The name of the hub.

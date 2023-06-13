@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.FluidRelay
     {
         /// <summary>
         /// A FluidRelay Server.
-        /// API Version: 2022-06-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Task<GetFluidRelayServerResult> InvokeAsync(GetFluidRelayServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// A FluidRelay Server.
-        /// API Version: 2022-06-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Output<GetFluidRelayServerResult> Invoke(GetFluidRelayServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerInvokeArgs(), options.WithDefaults());

@@ -49,7 +49,7 @@ def list_service_globally_enabled_apms(resource_group_name: Optional[str] = None
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServiceGloballyEnabledApmsResult:
     """
     List globally enabled APMs for a Service.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -71,7 +71,7 @@ def list_service_globally_enabled_apms_output(resource_group_name: Optional[pulu
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServiceGloballyEnabledApmsResult]:
     """
     List globally enabled APMs for a Service.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

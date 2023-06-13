@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the notification registration details.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2020-11-20.
  */
 export function getNotificationRegistration(args: GetNotificationRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationRegistrationResult> {
 
@@ -51,7 +51,7 @@ export interface GetNotificationRegistrationResult {
 }
 /**
  * Gets the notification registration details.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2020-11-20.
  */
 export function getNotificationRegistrationOutput(args: GetNotificationRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getNotificationRegistration(a, opts))

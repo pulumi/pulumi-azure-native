@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an entity query.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getActivityCustomEntityQuery(args: GetActivityCustomEntityQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityCustomEntityQueryResult> {
 
@@ -112,7 +112,7 @@ export interface GetActivityCustomEntityQueryResult {
 }
 /**
  * Gets an entity query.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getActivityCustomEntityQueryOutput(args: GetActivityCustomEntityQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityCustomEntityQueryResult> {
     return pulumi.output(args).apply((a: any) => getActivityCustomEntityQuery(a, opts))

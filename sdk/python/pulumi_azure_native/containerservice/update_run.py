@@ -116,7 +116,7 @@ class UpdateRun(pulumi.CustomResource):
                  __props__=None):
         """
         An UpdateRun is a multi-stage process to perform update operations across members of a Fleet.
-        API Version: 2023-03-15-preview.
+        Azure REST API version: 2023-03-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,7 +136,7 @@ class UpdateRun(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An UpdateRun is a multi-stage process to perform update operations across members of a Fleet.
-        API Version: 2023-03-15-preview.
+        Azure REST API version: 2023-03-15-preview.
 
         :param str resource_name: The name of the resource.
         :param UpdateRunArgs args: The arguments to use to populate this resource's properties.

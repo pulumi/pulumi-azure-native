@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the PHP workload resource.
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2021-12-01-preview.
  */
 export function getPhpWorkload(args: GetPhpWorkloadArgs, opts?: pulumi.InvokeOptions): Promise<GetPhpWorkloadResult> {
 
@@ -130,7 +130,7 @@ export interface GetPhpWorkloadResult {
 }
 /**
  * Gets the PHP workload resource.
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2021-12-01-preview.
  */
 export function getPhpWorkloadOutput(args: GetPhpWorkloadOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPhpWorkloadResult> {
     return pulumi.output(args).apply((a: any) => getPhpWorkload(a, opts))

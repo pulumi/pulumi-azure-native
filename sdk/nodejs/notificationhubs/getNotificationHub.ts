@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the notification hubs associated with a namespace.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function getNotificationHub(args: GetNotificationHubArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubResult> {
 
@@ -99,7 +99,7 @@ export interface GetNotificationHubResult {
 }
 /**
  * Lists the notification hubs associated with a namespace.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function getNotificationHubOutput(args: GetNotificationHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubResult> {
     return pulumi.output(args).apply((a: any) => getNotificationHub(a, opts))

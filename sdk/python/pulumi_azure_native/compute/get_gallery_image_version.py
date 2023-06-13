@@ -161,7 +161,7 @@ def get_gallery_image_version(expand: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageVersionResult:
     """
     Retrieves information about a gallery image version.
-    API Version: 2022-03-03.
+    Azure REST API version: 2022-03-03.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -201,7 +201,7 @@ def get_gallery_image_version_output(expand: Optional[pulumi.Input[Optional[str]
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryImageVersionResult]:
     """
     Retrieves information about a gallery image version.
-    API Version: 2022-03-03.
+    Azure REST API version: 2022-03-03.
 
 
     :param str expand: The expand expression to apply on the operation.

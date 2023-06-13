@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a file test result for the matching test
- * API Version: 2020-02-10-preview.
+ * Azure REST API version: 2020-02-10-preview.
  */
 export function getTestResultFile(args: GetTestResultFileArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultFileResult> {
 
@@ -68,7 +68,7 @@ export interface GetTestResultFileResult {
 }
 /**
  * Returns a file test result for the matching test
- * API Version: 2020-02-10-preview.
+ * Azure REST API version: 2020-02-10-preview.
  */
 export function getTestResultFileOutput(args: GetTestResultFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultFileResult> {
     return pulumi.output(args).apply((a: any) => getTestResultFile(a, opts))

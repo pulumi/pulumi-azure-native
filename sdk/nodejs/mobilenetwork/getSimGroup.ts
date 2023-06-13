@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified SIM group.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getSimGroup(args: GetSimGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSimGroupResult> {
 
@@ -78,7 +78,7 @@ export interface GetSimGroupResult {
 }
 /**
  * Gets information about the specified SIM group.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getSimGroupOutput(args: GetSimGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimGroupResult> {
     return pulumi.output(args).apply((a: any) => getSimGroup(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Lists the login credentials for the specified container registry.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<ListRegistryCredentialsResult> InvokeAsync(ListRegistryCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-native:containerregistry:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the login credentials for the specified container registry.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<ListRegistryCredentialsResult> Invoke(ListRegistryCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRegistryCredentialsResult>("azure-native:containerregistry:listRegistryCredentials", args ?? new ListRegistryCredentialsInvokeArgs(), options.WithDefaults());

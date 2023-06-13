@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets the details of a web, mobile, or API app.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetWebAppResult> InvokeAsync(GetWebAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppResult>("azure-native:web:getWebApp", args ?? new GetWebAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets the details of a web, mobile, or API app.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetWebAppResult> Invoke(GetWebAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppResult>("azure-native:web:getWebApp", args ?? new GetWebAppInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the report for a billing account by report name.
- * API Version: 2018-08-01-preview.
+ * Azure REST API version: 2018-08-01-preview.
  */
 export function getReportByBillingAccount(args: GetReportByBillingAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetReportByBillingAccountResult> {
 
@@ -70,7 +70,7 @@ export interface GetReportByBillingAccountResult {
 }
 /**
  * Gets the report for a billing account by report name.
- * API Version: 2018-08-01-preview.
+ * Azure REST API version: 2018-08-01-preview.
  */
 export function getReportByBillingAccountOutput(args: GetReportByBillingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByBillingAccountResult> {
     return pulumi.output(args).apply((a: any) => getReportByBillingAccount(a, opts))

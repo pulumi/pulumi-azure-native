@@ -206,7 +206,7 @@ def get_profile(profile_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileResult:
     """
     Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
@@ -241,7 +241,7 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
     """
     Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.

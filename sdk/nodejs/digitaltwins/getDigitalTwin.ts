@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get DigitalTwinsInstances resource.
- * API Version: 2023-01-31.
+ * Azure REST API version: 2023-01-31.
  */
 export function getDigitalTwin(args: GetDigitalTwinArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinResult> {
 
@@ -90,7 +90,7 @@ export interface GetDigitalTwinResult {
 }
 /**
  * Get DigitalTwinsInstances resource.
- * API Version: 2023-01-31.
+ * Azure REST API version: 2023-01-31.
  */
 export function getDigitalTwinOutput(args: GetDigitalTwinOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinResult> {
     return pulumi.output(args).apply((a: any) => getDigitalTwin(a, opts))

@@ -214,7 +214,7 @@ class ContactProfile(pulumi.CustomResource):
                  __props__=None):
         """
         Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-        API Version: 2022-11-01.
+        Azure REST API version: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,7 +238,7 @@ class ContactProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-        API Version: 2022-11-01.
+        Azure REST API version: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param ContactProfileArgs args: The arguments to use to populate this resource's properties.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Connector model definition
- * API Version: 2018-08-01-preview.
+ * Azure REST API version: 2018-08-01-preview.
  */
 export class Connector extends pulumi.CustomResource {
     /**

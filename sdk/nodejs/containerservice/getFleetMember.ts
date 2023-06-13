@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a FleetMember
- * API Version: 2023-03-15-preview.
+ * Azure REST API version: 2023-03-15-preview.
  */
 export function getFleetMember(args: GetFleetMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetMemberResult> {
 
@@ -75,7 +75,7 @@ export interface GetFleetMemberResult {
 }
 /**
  * Get a FleetMember
- * API Version: 2023-03-15-preview.
+ * Azure REST API version: 2023-03-15-preview.
  */
 export function getFleetMemberOutput(args: GetFleetMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetMemberResult> {
     return pulumi.output(args).apply((a: any) => getFleetMember(a, opts))

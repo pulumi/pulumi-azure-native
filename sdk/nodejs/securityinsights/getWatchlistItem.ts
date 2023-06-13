@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a watchlist item.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getWatchlistItem(args: GetWatchlistItemArgs, opts?: pulumi.InvokeOptions): Promise<GetWatchlistItemResult> {
 
@@ -108,7 +108,7 @@ export interface GetWatchlistItemResult {
 }
 /**
  * Get a watchlist item.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getWatchlistItemOutput(args: GetWatchlistItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatchlistItemResult> {
     return pulumi.output(args).apply((a: any) => getWatchlistItem(a, opts))

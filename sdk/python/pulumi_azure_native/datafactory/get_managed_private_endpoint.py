@@ -100,7 +100,7 @@ def get_managed_private_endpoint(factory_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedPrivateEndpointResult:
     """
     Gets a managed private endpoint.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str factory_name: The factory name.
@@ -132,7 +132,7 @@ def get_managed_private_endpoint_output(factory_name: Optional[pulumi.Input[str]
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPrivateEndpointResult]:
     """
     Gets a managed private endpoint.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str factory_name: The factory name.

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets the application settings of an app.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppApplicationSettingsSlot(args: ListWebAppApplicationSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppApplicationSettingsSlotResult> {
 
@@ -60,7 +60,7 @@ export interface ListWebAppApplicationSettingsSlotResult {
 }
 /**
  * Description for Gets the application settings of an app.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppApplicationSettingsSlotOutput(args: ListWebAppApplicationSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppApplicationSettingsSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppApplicationSettingsSlot(a, opts))

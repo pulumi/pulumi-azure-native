@@ -99,7 +99,7 @@ def get_gateway(gateway_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
     Gets the details of the Gateway specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -128,7 +128,7 @@ def get_gateway_output(gateway_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Gets the details of the Gateway specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'

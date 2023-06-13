@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a server encryption protector.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getEncryptionProtector(args: GetEncryptionProtectorArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionProtectorResult> {
 
@@ -84,7 +84,7 @@ export interface GetEncryptionProtectorResult {
 }
 /**
  * Gets a server encryption protector.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getEncryptionProtectorOutput(args: GetEncryptionProtectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionProtectorResult> {
     return pulumi.output(args).apply((a: any) => getEncryptionProtector(a, opts))

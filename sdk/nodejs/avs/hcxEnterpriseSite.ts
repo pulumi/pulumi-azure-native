@@ -6,8 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * An HCX Enterprise Site resource
- * API Version: 2022-05-01.
- * Previous API Version: 2020-03-20. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20
  */
 export class HcxEnterpriseSite extends pulumi.CustomResource {
     /**

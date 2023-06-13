@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a resource management private link(resource-level).
- * API Version: 2020-05-01.
+ * Azure REST API version: 2020-05-01.
  */
 export function getResourceManagementPrivateLink(args: GetResourceManagementPrivateLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceManagementPrivateLinkResult> {
 
@@ -52,7 +52,7 @@ export interface GetResourceManagementPrivateLinkResult {
 }
 /**
  * Get a resource management private link(resource-level).
- * API Version: 2020-05-01.
+ * Azure REST API version: 2020-05-01.
  */
 export function getResourceManagementPrivateLinkOutput(args: GetResourceManagementPrivateLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceManagementPrivateLinkResult> {
     return pulumi.output(args).apply((a: any) => getResourceManagementPrivateLink(a, opts))

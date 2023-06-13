@@ -56,7 +56,7 @@ def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCustomApiWsdlInterfacesResult:
     """
     This returns the list of interfaces in the WSDL
-    API Version: 2016-06-01.
+    Azure REST API version: 2016-06-01.
 
 
     :param str content: The WSDL content
@@ -90,7 +90,7 @@ def list_custom_api_wsdl_interfaces_output(content: Optional[pulumi.Input[Option
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCustomApiWsdlInterfacesResult]:
     """
     This returns the list of interfaces in the WSDL
-    API Version: 2016-06-01.
+    Azure REST API version: 2016-06-01.
 
 
     :param str content: The WSDL content

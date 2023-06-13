@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a cluster role.
- * API Version: 2022-11-08.
+ * Azure REST API version: 2022-11-08.
  */
 export class Role extends pulumi.CustomResource {
     /**

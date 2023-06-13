@@ -149,7 +149,7 @@ def get_update_run(fleet_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUpdateRunResult:
     """
     Get a UpdateRun
-    API Version: 2023-03-15-preview.
+    Azure REST API version: 2023-03-15-preview.
 
 
     :param str fleet_name: The name of the Fleet resource.
@@ -182,7 +182,7 @@ def get_update_run_output(fleet_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUpdateRunResult]:
     """
     Get a UpdateRun
-    API Version: 2023-03-15-preview.
+    Azure REST API version: 2023-03-15-preview.
 
 
     :param str fleet_name: The name of the Fleet resource.

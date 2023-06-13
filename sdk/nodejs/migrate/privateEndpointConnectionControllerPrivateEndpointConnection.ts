@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * REST model used to encapsulate the user visible state of a PrivateEndpoint.
- * API Version: 2020-05-01.
+ * Azure REST API version: 2020-05-01.
  */
 export class PrivateEndpointConnectionControllerPrivateEndpointConnection extends pulumi.CustomResource {
     /**

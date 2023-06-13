@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.MixedReality
 {
     /// <summary>
     /// ObjectAnchorsAccount Response.
-    /// API Version: 2021-03-01-preview.
-    /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2021-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:mixedreality:ObjectAnchorsAccount")]
     public partial class ObjectAnchorsAccount : global::Pulumi.CustomResource

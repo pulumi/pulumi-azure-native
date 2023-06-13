@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Logic
     {
         /// <summary>
         /// Get the content callback url.
-        /// API Version: 2019-05-01.
+        /// Azure REST API version: 2019-05-01.
         /// </summary>
         public static Task<ListIntegrationAccountAgreementContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountAgreementContentCallbackUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountAgreementContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountAgreementContentCallbackUrl", args ?? new ListIntegrationAccountAgreementContentCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the content callback url.
-        /// API Version: 2019-05-01.
+        /// Azure REST API version: 2019-05-01.
         /// </summary>
         public static Output<ListIntegrationAccountAgreementContentCallbackUrlResult> Invoke(ListIntegrationAccountAgreementContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountAgreementContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountAgreementContentCallbackUrl", args ?? new ListIntegrationAccountAgreementContentCallbackUrlInvokeArgs(), options.WithDefaults());

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Product-API link details.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export class WorkspaceProductApiLink extends pulumi.CustomResource {
     /**

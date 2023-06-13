@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a description for the specified consumer group.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getConsumerGroup(args: GetConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumerGroupResult> {
 
@@ -80,7 +80,7 @@ export interface GetConsumerGroupResult {
 }
 /**
  * Gets a description for the specified consumer group.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getConsumerGroupOutput(args: GetConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumerGroupResult> {
     return pulumi.output(args).apply((a: any) => getConsumerGroup(a, opts))

@@ -147,7 +147,7 @@ def get_output(job_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutputResult:
     """
     Gets details about the specified output.
-    API Version: 2020-03-01.
+    Azure REST API version: 2020-03-01.
 
 
     :param str job_name: The name of the streaming job.
@@ -180,7 +180,7 @@ def get_output_output(job_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutputResult]:
     """
     Gets details about the specified output.
-    API Version: 2020-03-01.
+    Azure REST API version: 2020-03-01.
 
 
     :param str job_name: The name of the streaming job.

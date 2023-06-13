@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DBforMariaDB
     {
         /// <summary>
         /// Gets information about a database.
-        /// API Version: 2018-06-01.
+        /// Azure REST API version: 2018-06-01.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:dbformariadb:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a database.
-        /// API Version: 2018-06-01.
+        /// Azure REST API version: 2018-06-01.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:dbformariadb:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());

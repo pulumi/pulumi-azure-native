@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a Traffic Manager profile.
-        /// API Version: 2022-04-01.
+        /// Azure REST API version: 2022-04-01.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:network:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Traffic Manager profile.
-        /// API Version: 2022-04-01.
+        /// Azure REST API version: 2022-04-01.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:network:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());

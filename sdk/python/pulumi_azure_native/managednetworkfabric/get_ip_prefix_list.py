@@ -170,7 +170,7 @@ def get_ip_prefix_list(ip_prefix_list_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpPrefixListResult:
     """
     Implements Ip Prefix List GET method.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str ip_prefix_list_name: Name of the Ip Prefix List
@@ -202,7 +202,7 @@ def get_ip_prefix_list_output(ip_prefix_list_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpPrefixListResult]:
     """
     Implements Ip Prefix List GET method.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str ip_prefix_list_name: Name of the Ip Prefix List

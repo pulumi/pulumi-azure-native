@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Returns the properties of a lab Schedule.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:labservices:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of a lab Schedule.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:labservices:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());

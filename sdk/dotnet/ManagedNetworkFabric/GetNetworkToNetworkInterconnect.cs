@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Implements NetworkToNetworkInterconnects GET method.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Task<GetNetworkToNetworkInterconnectResult> InvokeAsync(GetNetworkToNetworkInterconnectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkToNetworkInterconnectResult>("azure-native:managednetworkfabric:getNetworkToNetworkInterconnect", args ?? new GetNetworkToNetworkInterconnectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements NetworkToNetworkInterconnects GET method.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Output<GetNetworkToNetworkInterconnectResult> Invoke(GetNetworkToNetworkInterconnectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkToNetworkInterconnectResult>("azure-native:managednetworkfabric:getNetworkToNetworkInterconnect", args ?? new GetNetworkToNetworkInterconnectInvokeArgs(), options.WithDefaults());

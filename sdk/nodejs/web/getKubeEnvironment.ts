@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get the properties of a Kubernetes Environment.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getKubeEnvironment(args: GetKubeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKubeEnvironmentResult> {
 
@@ -107,7 +107,7 @@ export interface GetKubeEnvironmentResult {
 }
 /**
  * Description for Get the properties of a Kubernetes Environment.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getKubeEnvironmentOutput(args: GetKubeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubeEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getKubeEnvironment(a, opts))

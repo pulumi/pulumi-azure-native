@@ -87,7 +87,7 @@ def get_tag_operation_link(operation_link_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagOperationLinkResult:
     """
     Gets the operation link for the tag.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str operation_link_id: Tag-operation link identifier. Must be unique in the current API Management service instance.
@@ -118,7 +118,7 @@ def get_tag_operation_link_output(operation_link_id: Optional[pulumi.Input[str]]
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagOperationLinkResult]:
     """
     Gets the operation link for the tag.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str operation_link_id: Tag-operation link identifier. Must be unique in the current API Management service instance.

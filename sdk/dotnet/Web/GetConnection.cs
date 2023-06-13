@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Get a specific connection
-        /// API Version: 2016-06-01.
+        /// Azure REST API version: 2016-06-01.
         /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("azure-native:web:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific connection
-        /// API Version: 2016-06-01.
+        /// Azure REST API version: 2016-06-01.
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("azure-native:web:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());

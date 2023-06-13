@@ -87,7 +87,7 @@ def get_input(input_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInputResult:
     """
     Gets details about the specified input.
-    API Version: 2020-03-01.
+    Azure REST API version: 2020-03-01.
 
 
     :param str input_name: The name of the input.
@@ -115,7 +115,7 @@ def get_input_output(input_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInputResult]:
     """
     Gets details about the specified input.
-    API Version: 2020-03-01.
+    Azure REST API version: 2020-03-01.
 
 
     :param str input_name: The name of the input.

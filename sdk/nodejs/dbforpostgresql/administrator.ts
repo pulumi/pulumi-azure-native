@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an Active Directory administrator.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export class Administrator extends pulumi.CustomResource {
     /**

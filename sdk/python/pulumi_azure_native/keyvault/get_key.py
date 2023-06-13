@@ -204,7 +204,7 @@ def get_key(key_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
     Gets the current version of the specified key from the specified key vault.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str key_name: The name of the key to be retrieved.
@@ -242,7 +242,7 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
     Gets the current version of the specified key from the specified key vault.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str key_name: The name of the key to be retrieved.

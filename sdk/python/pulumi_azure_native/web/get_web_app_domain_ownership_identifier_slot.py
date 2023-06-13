@@ -99,7 +99,7 @@ def get_web_app_domain_ownership_identifier_slot(domain_ownership_identifier_nam
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDomainOwnershipIdentifierSlotResult:
     """
     Description for Get domain ownership identifier for web app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str domain_ownership_identifier_name: Name of domain ownership identifier.
@@ -131,7 +131,7 @@ def get_web_app_domain_ownership_identifier_slot_output(domain_ownership_identif
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDomainOwnershipIdentifierSlotResult]:
     """
     Description for Get domain ownership identifier for web app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str domain_ownership_identifier_name: Name of domain ownership identifier.

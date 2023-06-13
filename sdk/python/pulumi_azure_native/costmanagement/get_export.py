@@ -171,7 +171,7 @@ def get_export(expand: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
     The operation to get the export for the defined scope by export name.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.
@@ -206,7 +206,7 @@ def get_export_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
     """
     The operation to get the export for the defined scope by export name.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.

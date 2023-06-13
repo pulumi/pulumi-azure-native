@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// 
-        /// API Version: 2023-01-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Task<GetMarketplaceImageSasTokenSASTokenResult> InvokeAsync(GetMarketplaceImageSasTokenSASTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMarketplaceImageSasTokenSASTokenResult>("azure-native:databoxedge:getMarketplaceImageSasTokenSASToken", args ?? new GetMarketplaceImageSasTokenSASTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2023-01-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Output<GetMarketplaceImageSasTokenSASTokenResult> Invoke(GetMarketplaceImageSasTokenSASTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMarketplaceImageSasTokenSASTokenResult>("azure-native:databoxedge:getMarketplaceImageSasTokenSASToken", args ?? new GetMarketplaceImageSasTokenSASTokenInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a namespace topic.
- * API Version: 2023-06-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getNamespaceTopic(args: GetNamespaceTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicResult> {
 
@@ -76,7 +76,7 @@ export interface GetNamespaceTopicResult {
 }
 /**
  * Get properties of a namespace topic.
- * API Version: 2023-06-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getNamespaceTopicOutput(args: GetNamespaceTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceTopicResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceTopic(a, opts))

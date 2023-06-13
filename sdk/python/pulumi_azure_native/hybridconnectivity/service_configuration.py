@@ -230,7 +230,7 @@ class ServiceConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         The service configuration details associated with the target resource.
-        API Version: 2023-03-15.
+        Azure REST API version: 2023-03-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +255,7 @@ class ServiceConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The service configuration details associated with the target resource.
-        API Version: 2023-03-15.
+        Azure REST API version: 2023-03-15.
 
         :param str resource_name: The name of the resource.
         :param ServiceConfigurationArgs args: The arguments to use to populate this resource's properties.

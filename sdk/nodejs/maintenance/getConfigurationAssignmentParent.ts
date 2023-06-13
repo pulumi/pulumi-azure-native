@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get configuration for resource.
- * API Version: 2022-11-01-preview.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getConfigurationAssignmentParent(args: GetConfigurationAssignmentParentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAssignmentParentResult> {
 
@@ -91,7 +91,7 @@ export interface GetConfigurationAssignmentParentResult {
 }
 /**
  * Get configuration for resource.
- * API Version: 2022-11-01-preview.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getConfigurationAssignmentParentOutput(args: GetConfigurationAssignmentParentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentParentResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationAssignmentParent(a, opts))

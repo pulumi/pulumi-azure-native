@@ -135,7 +135,7 @@ def get_connection_type(automation_account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionTypeResult:
     """
     Retrieve the connection type identified by connection type name.
-    API Version: 2022-08-08.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -167,7 +167,7 @@ def get_connection_type_output(automation_account_name: Optional[pulumi.Input[st
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionTypeResult]:
     """
     Retrieve the connection type identified by connection type name.
-    API Version: 2022-08-08.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.

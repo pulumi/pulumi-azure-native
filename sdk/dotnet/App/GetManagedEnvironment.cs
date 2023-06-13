@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Get the properties of a Managed Environment used to host container apps.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetManagedEnvironmentResult> InvokeAsync(GetManagedEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedEnvironmentResult>("azure-native:app:getManagedEnvironment", args ?? new GetManagedEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of a Managed Environment used to host container apps.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetManagedEnvironmentResult> Invoke(GetManagedEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentResult>("azure-native:app:getManagedEnvironment", args ?? new GetManagedEnvironmentInvokeArgs(), options.WithDefaults());

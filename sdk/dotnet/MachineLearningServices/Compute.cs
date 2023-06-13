@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Machine Learning compute object wrapped into ARM resource envelope.
-    /// API Version: 2023-04-01.
+    /// Azure REST API version: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Compute")]
     public partial class Compute : global::Pulumi.CustomResource

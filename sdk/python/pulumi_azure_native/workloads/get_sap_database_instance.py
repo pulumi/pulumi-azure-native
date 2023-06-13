@@ -219,7 +219,7 @@ def get_sap_database_instance(database_instance_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPDatabaseInstanceResult:
     """
     Gets the SAP Database Instance resource.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str database_instance_name: Database resource name string modeled as parameter for auto generation to work correctly.
@@ -258,7 +258,7 @@ def get_sap_database_instance_output(database_instance_name: Optional[pulumi.Inp
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPDatabaseInstanceResult]:
     """
     Gets the SAP Database Instance resource.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str database_instance_name: Database resource name string modeled as parameter for auto generation to work correctly.

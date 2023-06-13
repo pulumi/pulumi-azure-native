@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements Route Policy GET method.
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getRoutePolicy(args: GetRoutePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutePolicyResult> {
 
@@ -78,7 +78,7 @@ export interface GetRoutePolicyResult {
 }
 /**
  * Implements Route Policy GET method.
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getRoutePolicyOutput(args: GetRoutePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutePolicyResult> {
     return pulumi.output(args).apply((a: any) => getRoutePolicy(a, opts))

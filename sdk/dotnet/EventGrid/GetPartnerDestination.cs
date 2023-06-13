@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a partner destination.
-        /// API Version: 2023-06-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetPartnerDestinationResult> InvokeAsync(GetPartnerDestinationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerDestinationResult>("azure-native:eventgrid:getPartnerDestination", args ?? new GetPartnerDestinationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a partner destination.
-        /// API Version: 2023-06-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetPartnerDestinationResult> Invoke(GetPartnerDestinationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerDestinationResult>("azure-native:eventgrid:getPartnerDestination", args ?? new GetPartnerDestinationInvokeArgs(), options.WithDefaults());

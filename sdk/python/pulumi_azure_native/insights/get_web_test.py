@@ -266,7 +266,7 @@ def get_web_test(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebTestResult:
     """
     Get a specific Application Insights web test definition.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -306,7 +306,7 @@ def get_web_test_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebTestResult]:
     """
     Get a specific Application Insights web test definition.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

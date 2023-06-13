@@ -124,7 +124,7 @@ def get_client_group(client_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClientGroupResult:
     """
     Get properties of a client group.
-    API Version: 2023-06-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str client_group_name: Name of the client group.
@@ -155,7 +155,7 @@ def get_client_group_output(client_group_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClientGroupResult]:
     """
     Get properties of a client group.
-    API Version: 2023-06-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str client_group_name: Name of the client group.

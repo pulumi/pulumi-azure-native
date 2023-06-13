@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Get details of the specified volume group
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetVolumeGroupResult> InvokeAsync(GetVolumeGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeGroupResult>("azure-native:netapp:getVolumeGroup", args ?? new GetVolumeGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get details of the specified volume group
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetVolumeGroupResult> Invoke(GetVolumeGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupResult>("azure-native:netapp:getVolumeGroup", args ?? new GetVolumeGroupInvokeArgs(), options.WithDefaults());

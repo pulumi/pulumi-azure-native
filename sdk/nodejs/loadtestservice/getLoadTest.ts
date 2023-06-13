@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a LoadTest resource.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getLoadTest(args: GetLoadTestArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadTestResult> {
 
@@ -82,7 +82,7 @@ export interface GetLoadTestResult {
 }
 /**
  * Get a LoadTest resource.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadTestResult> {
     return pulumi.output(args).apply((a: any) => getLoadTest(a, opts))

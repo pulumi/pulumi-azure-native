@@ -170,7 +170,7 @@ def get_web_app_source_control(name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSourceControlResult:
     """
     Description for Gets the source control configuration of an app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -202,7 +202,7 @@ def get_web_app_source_control_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSourceControlResult]:
     """
     Description for Gets the source control configuration of an app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.

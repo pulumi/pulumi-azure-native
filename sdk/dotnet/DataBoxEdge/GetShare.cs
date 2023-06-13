@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Represents a share on the  Data Box Edge/Gateway device.
-        /// API Version: 2022-03-01.
+        /// Azure REST API version: 2022-03-01.
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:databoxedge:getShare", args ?? new GetShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a share on the  Data Box Edge/Gateway device.
-        /// API Version: 2022-03-01.
+        /// Azure REST API version: 2022-03-01.
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure-native:databoxedge:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());

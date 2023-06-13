@@ -99,7 +99,7 @@ def get_credential_operation(credential_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCredentialOperationResult:
     """
     Gets a credential.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str credential_name: Credential name
@@ -128,7 +128,7 @@ def get_credential_operation_output(credential_name: Optional[pulumi.Input[str]]
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCredentialOperationResult]:
     """
     Gets a credential.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str credential_name: Credential name

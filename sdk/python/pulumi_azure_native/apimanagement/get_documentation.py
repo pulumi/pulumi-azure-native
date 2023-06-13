@@ -98,7 +98,7 @@ def get_documentation(documentation_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDocumentationResult:
     """
     Gets the details of the Documentation specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str documentation_id: Documentation identifier. Must be unique in the current API Management service instance.
@@ -127,7 +127,7 @@ def get_documentation_output(documentation_id: Optional[pulumi.Input[str]] = Non
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentationResult]:
     """
     Gets the details of the Documentation specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str documentation_id: Documentation identifier. Must be unique in the current API Management service instance.

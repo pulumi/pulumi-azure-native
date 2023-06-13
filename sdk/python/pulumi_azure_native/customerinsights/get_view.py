@@ -159,7 +159,7 @@ def get_view(hub_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewResult:
     """
     Gets a view in the hub.
-    API Version: 2017-04-26.
+    Azure REST API version: 2017-04-26.
 
 
     :param str hub_name: The name of the hub.
@@ -196,7 +196,7 @@ def get_view_output(hub_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
     """
     Gets a view in the hub.
-    API Version: 2017-04-26.
+    Azure REST API version: 2017-04-26.
 
 
     :param str hub_name: The name of the hub.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns current billing features for an Application Insights component.
- * API Version: 2015-05-01.
+ * Azure REST API version: 2015-05-01.
  */
 export function getComponentCurrentBillingFeature(args: GetComponentCurrentBillingFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentCurrentBillingFeatureResult> {
 
@@ -46,7 +46,7 @@ export interface GetComponentCurrentBillingFeatureResult {
 }
 /**
  * Returns current billing features for an Application Insights component.
- * API Version: 2015-05-01.
+ * Azure REST API version: 2015-05-01.
  */
 export function getComponentCurrentBillingFeatureOutput(args: GetComponentCurrentBillingFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentCurrentBillingFeatureResult> {
     return pulumi.output(args).apply((a: any) => getComponentCurrentBillingFeature(a, opts))

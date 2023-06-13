@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a disaster recovery configuration.
-        /// API Version: 2014-04-01.
+        /// Azure REST API version: 2014-04-01.
         /// </summary>
         public static Task<GetDisasterRecoveryConfigurationResult> InvokeAsync(GetDisasterRecoveryConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigurationResult>("azure-native:sql:getDisasterRecoveryConfiguration", args ?? new GetDisasterRecoveryConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a disaster recovery configuration.
-        /// API Version: 2014-04-01.
+        /// Azure REST API version: 2014-04-01.
         /// </summary>
         public static Output<GetDisasterRecoveryConfigurationResult> Invoke(GetDisasterRecoveryConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDisasterRecoveryConfigurationResult>("azure-native:sql:getDisasterRecoveryConfiguration", args ?? new GetDisasterRecoveryConfigurationInvokeArgs(), options.WithDefaults());

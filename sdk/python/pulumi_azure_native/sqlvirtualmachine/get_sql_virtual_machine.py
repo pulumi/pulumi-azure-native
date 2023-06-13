@@ -303,7 +303,7 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlVirtualMachineResult:
     """
     Gets a SQL virtual machine.
-    API Version: 2022-02-01.
+    Azure REST API version: 2022-02-01.
 
 
     :param str expand: The child resources to include in the response.
@@ -349,7 +349,7 @@ def get_sql_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]]
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlVirtualMachineResult]:
     """
     Gets a SQL virtual machine.
-    API Version: 2022-02-01.
+    Azure REST API version: 2022-02-01.
 
 
     :param str expand: The child resources to include in the response.

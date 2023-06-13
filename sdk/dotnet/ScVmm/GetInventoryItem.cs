@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ScVmm
     {
         /// <summary>
         /// Shows an inventory item.
-        /// API Version: 2020-06-05-preview.
+        /// Azure REST API version: 2020-06-05-preview.
         /// </summary>
         public static Task<GetInventoryItemResult> InvokeAsync(GetInventoryItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInventoryItemResult>("azure-native:scvmm:getInventoryItem", args ?? new GetInventoryItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Shows an inventory item.
-        /// API Version: 2020-06-05-preview.
+        /// Azure REST API version: 2020-06-05-preview.
         /// </summary>
         public static Output<GetInventoryItemResult> Invoke(GetInventoryItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInventoryItemResult>("azure-native:scvmm:getInventoryItem", args ?? new GetInventoryItemInvokeArgs(), options.WithDefaults());

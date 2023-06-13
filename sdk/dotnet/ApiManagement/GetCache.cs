@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the Cache specified by its identifier.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:apimanagement:getCache", args ?? new GetCacheArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Cache specified by its identifier.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:apimanagement:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());

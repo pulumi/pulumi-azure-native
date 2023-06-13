@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ScVmm
 {
     /// <summary>
     /// Defines the HybridIdentityMetadata.
-    /// API Version: 2022-05-21-preview.
+    /// Azure REST API version: 2022-05-21-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:HybridIdentityMetadata")]
     public partial class HybridIdentityMetadata : global::Pulumi.CustomResource

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements L2 Isolation Domain GET method.
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getL2IsolationDomain(args: GetL2IsolationDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetL2IsolationDomainResult> {
 
@@ -90,7 +90,7 @@ export interface GetL2IsolationDomainResult {
 }
 /**
  * Implements L2 Isolation Domain GET method.
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getL2IsolationDomainOutput(args: GetL2IsolationDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2IsolationDomainResult> {
     return pulumi.output(args).apply((a: any) => getL2IsolationDomain(a, opts))

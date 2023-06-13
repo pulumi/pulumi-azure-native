@@ -412,7 +412,7 @@ def get_app_service_plan(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServicePlanResult:
     """
     Description for Get an App Service plan.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the App Service plan.
@@ -464,7 +464,7 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServicePlanResult]:
     """
     Description for Get an App Service plan.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the App Service plan.

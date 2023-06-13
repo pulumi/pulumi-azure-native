@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getBlobServiceProperties(args: GetBlobServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobServicePropertiesResult> {
 
@@ -95,7 +95,7 @@ export interface GetBlobServicePropertiesResult {
 }
 /**
  * Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getBlobServicePropertiesOutput(args: GetBlobServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobServicePropertiesResult> {
     return pulumi.output(args).apply((a: any) => getBlobServiceProperties(a, opts))

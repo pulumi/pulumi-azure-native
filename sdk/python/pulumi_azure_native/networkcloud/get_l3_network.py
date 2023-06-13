@@ -289,7 +289,7 @@ def get_l3_network(l3_network_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetL3NetworkResult:
     """
     Get properties of the provided layer 3 (L3) network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str l3_network_name: The name of the L3 network.
@@ -331,7 +331,7 @@ def get_l3_network_output(l3_network_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL3NetworkResult]:
     """
     Get properties of the provided layer 3 (L3) network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str l3_network_name: The name of the L3 network.

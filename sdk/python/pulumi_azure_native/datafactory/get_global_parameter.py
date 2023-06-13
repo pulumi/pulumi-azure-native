@@ -99,7 +99,7 @@ def get_global_parameter(factory_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalParameterResult:
     """
     Gets a Global parameter
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str factory_name: The factory name.
@@ -128,7 +128,7 @@ def get_global_parameter_output(factory_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalParameterResult]:
     """
     Gets a Global parameter
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str factory_name: The factory name.

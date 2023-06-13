@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets the Git/FTP publishing credentials of an app.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppPublishingCredentials(args: ListWebAppPublishingCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppPublishingCredentialsResult> {
 
@@ -71,7 +71,7 @@ export interface ListWebAppPublishingCredentialsResult {
 }
 /**
  * Description for Gets the Git/FTP publishing credentials of an app.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppPublishingCredentialsOutput(args: ListWebAppPublishingCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppPublishingCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listWebAppPublishingCredentials(a, opts))

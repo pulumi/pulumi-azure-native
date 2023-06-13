@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a ScalingPlanPooledSchedule definition.
- * API Version: 2022-09-09.
- * Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2022-04-01-preview
  */
 export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
     /**

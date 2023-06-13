@@ -8,8 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2020-05-01.
- * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2020-05-01
  */
 export class ResourceManagementPrivateLink extends pulumi.CustomResource {
     /**

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the full endpoint URL of a partner destination channel.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getChannelFullUrl(args: GetChannelFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelFullUrlResult> {
 
@@ -44,7 +44,7 @@ export interface GetChannelFullUrlResult {
 }
 /**
  * Get the full endpoint URL of a partner destination channel.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getChannelFullUrlOutput(args: GetChannelFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelFullUrlResult> {
     return pulumi.output(args).apply((a: any) => getChannelFullUrl(a, opts))

@@ -168,8 +168,7 @@ class KubernetesRole(pulumi.CustomResource):
             For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
             Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
             By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
-           API Version: 2022-03-01.
-           Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+           Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,8 +197,7 @@ class KubernetesRole(pulumi.CustomResource):
             For more information, refer to the document here: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8-Cloud-Management-20210323.pdf
             Or Demo: https://databoxupdatepackages.blob.core.windows.net/documentation/Microsoft-Azure-Stack-Edge-K8S-Cloud-Management-20210323.mp4
             By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
-           API Version: 2022-03-01.
-           Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+           Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param KubernetesRoleArgs args: The arguments to use to populate this resource's properties.

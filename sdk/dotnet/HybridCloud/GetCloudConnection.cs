@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridCloud
     {
         /// <summary>
         /// Gets the specified cloud connection in a specified resource group.
-        /// API Version: 2023-01-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Task<GetCloudConnectionResult> InvokeAsync(GetCloudConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudConnectionResult>("azure-native:hybridcloud:getCloudConnection", args ?? new GetCloudConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified cloud connection in a specified resource group.
-        /// API Version: 2023-01-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Output<GetCloudConnectionResult> Invoke(GetCloudConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudConnectionResult>("azure-native:hybridcloud:getCloudConnection", args ?? new GetCloudConnectionInvokeArgs(), options.WithDefaults());

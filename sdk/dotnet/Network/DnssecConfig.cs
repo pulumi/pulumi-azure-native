@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Represents the DNSSEC configuration.
-    /// API Version: 2023-07-01-preview.
+    /// Azure REST API version: 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DnssecConfig")]
     public partial class DnssecConfig : global::Pulumi.CustomResource

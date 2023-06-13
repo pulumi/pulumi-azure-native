@@ -134,7 +134,7 @@ def get_cloud_service(cloud_service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudServiceResult:
     """
     Display information about a cloud service.
-    API Version: 2022-09-04.
+    Azure REST API version: 2022-09-04.
 
 
     :param str cloud_service_name: Name of the cloud service.
@@ -163,7 +163,7 @@ def get_cloud_service_output(cloud_service_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudServiceResult]:
     """
     Display information about a cloud service.
-    API Version: 2022-09-04.
+    Azure REST API version: 2022-09-04.
 
 
     :param str cloud_service_name: Name of the cloud service.

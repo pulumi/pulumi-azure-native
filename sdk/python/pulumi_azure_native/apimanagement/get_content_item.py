@@ -87,7 +87,7 @@ def get_content_item(content_item_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentItemResult:
     """
     Returns the developer portal's content item specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str content_item_id: Content item identifier.
@@ -118,7 +118,7 @@ def get_content_item_output(content_item_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContentItemResult]:
     """
     Returns the developer portal's content item specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str content_item_id: Content item identifier.
