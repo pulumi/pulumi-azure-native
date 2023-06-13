@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a resource belonging to a resource group.
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
 
@@ -74,7 +74,7 @@ export interface GetBackupVaultResult {
 }
 /**
  * Returns a resource belonging to a resource group.
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupVaultResult> {
     return pulumi.output(args).apply((a: any) => getBackupVault(a, opts))

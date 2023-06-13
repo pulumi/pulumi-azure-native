@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets the application settings of a static site build.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listStaticSiteBuildFunctionAppSettings(args: ListStaticSiteBuildFunctionAppSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteBuildFunctionAppSettingsResult> {
 
@@ -60,7 +60,7 @@ export interface ListStaticSiteBuildFunctionAppSettingsResult {
 }
 /**
  * Description for Gets the application settings of a static site build.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listStaticSiteBuildFunctionAppSettingsOutput(args: ListStaticSiteBuildFunctionAppSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteBuildFunctionAppSettingsResult> {
     return pulumi.output(args).apply((a: any) => listStaticSiteBuildFunctionAppSettings(a, opts))

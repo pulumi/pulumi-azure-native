@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List allowed upgrade plans for application.
- * API Version: 2021-07-01.
+ * Azure REST API version: 2021-07-01.
  */
 export function listApplicationAllowedUpgradePlans(args: ListApplicationAllowedUpgradePlansArgs, opts?: pulumi.InvokeOptions): Promise<ListApplicationAllowedUpgradePlansResult> {
 
@@ -42,7 +42,7 @@ export interface ListApplicationAllowedUpgradePlansResult {
 }
 /**
  * List allowed upgrade plans for application.
- * API Version: 2021-07-01.
+ * Azure REST API version: 2021-07-01.
  */
 export function listApplicationAllowedUpgradePlansOutput(args: ListApplicationAllowedUpgradePlansOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplicationAllowedUpgradePlansResult> {
     return pulumi.output(args).apply((a: any) => listApplicationAllowedUpgradePlans(a, opts))

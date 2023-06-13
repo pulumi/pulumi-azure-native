@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SyncIdentityProvider represents a SyncIdentityProvider
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export class SyncIdentityProvider extends pulumi.CustomResource {
     /**

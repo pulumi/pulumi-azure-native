@@ -159,7 +159,7 @@ def get_commitment_plan(account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommitmentPlanResult:
     """
     Gets the specified commitmentPlans associated with the Cognitive Services account.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -193,7 +193,7 @@ def get_commitment_plan_output(account_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommitmentPlanResult]:
     """
     Gets the specified commitmentPlans associated with the Cognitive Services account.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.

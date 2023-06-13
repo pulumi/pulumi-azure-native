@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Implements Ip Prefix List GET method.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Task<GetIpPrefixListResult> InvokeAsync(GetIpPrefixListArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpPrefixListResult>("azure-native:managednetworkfabric:getIpPrefixList", args ?? new GetIpPrefixListArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements Ip Prefix List GET method.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Output<GetIpPrefixListResult> Invoke(GetIpPrefixListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpPrefixListResult>("azure-native:managednetworkfabric:getIpPrefixList", args ?? new GetIpPrefixListInvokeArgs(), options.WithDefaults());

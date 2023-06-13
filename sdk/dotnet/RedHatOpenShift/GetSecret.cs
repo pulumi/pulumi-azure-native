@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     {
         /// <summary>
         /// The operation returns properties of a Secret.
-        /// API Version: 2022-09-04.
+        /// Azure REST API version: 2022-09-04.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:redhatopenshift:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns properties of a Secret.
-        /// API Version: 2022-09-04.
+        /// Azure REST API version: 2022-09-04.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:redhatopenshift:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());

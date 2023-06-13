@@ -254,7 +254,7 @@ def get_v_center(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVCenterResult:
     """
     Implements vCenter GET method.
-    API Version: 2022-07-15-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -293,7 +293,7 @@ def get_v_center_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVCenterResult]:
     """
     Implements vCenter GET method.
-    API Version: 2022-07-15-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str resource_group_name: The Resource Group Name.

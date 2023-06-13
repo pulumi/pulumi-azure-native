@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Traffic Manager profile.
- * API Version: 2022-04-01.
+ * Azure REST API version: 2022-04-01.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
 
@@ -90,7 +90,7 @@ export interface GetProfileResult {
 }
 /**
  * Gets a Traffic Manager profile.
- * API Version: 2022-04-01.
+ * Azure REST API version: 2022-04-01.
  */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
     return pulumi.output(args).apply((a: any) => getProfile(a, opts))

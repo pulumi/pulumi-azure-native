@@ -130,7 +130,7 @@ class ManagedCertificate(pulumi.CustomResource):
                  __props__=None):
         """
         Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
-        API Version: 2023-04-01-preview.
+        Azure REST API version: 2023-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,7 +149,7 @@ class ManagedCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
-        API Version: 2023-04-01-preview.
+        Azure REST API version: 2023-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ManagedCertificateArgs args: The arguments to use to populate this resource's properties.

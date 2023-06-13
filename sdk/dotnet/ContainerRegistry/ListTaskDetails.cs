@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Returns a task with extended information that includes all secrets.
-        /// API Version: 2019-06-01-preview.
+        /// Azure REST API version: 2019-06-01-preview.
         /// </summary>
         public static Task<ListTaskDetailsResult> InvokeAsync(ListTaskDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTaskDetailsResult>("azure-native:containerregistry:listTaskDetails", args ?? new ListTaskDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a task with extended information that includes all secrets.
-        /// API Version: 2019-06-01-preview.
+        /// Azure REST API version: 2019-06-01-preview.
         /// </summary>
         public static Output<ListTaskDetailsResult> Invoke(ListTaskDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTaskDetailsResult>("azure-native:containerregistry:listTaskDetails", args ?? new ListTaskDetailsInvokeArgs(), options.WithDefaults());

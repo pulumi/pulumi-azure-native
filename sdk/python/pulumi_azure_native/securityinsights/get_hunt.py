@@ -195,7 +195,7 @@ def get_hunt(hunt_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHuntResult:
     """
     Gets a hunt, without relations and comments.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str hunt_id: The hunt id (GUID)
@@ -232,7 +232,7 @@ def get_hunt_output(hunt_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHuntResult]:
     """
     Gets a hunt, without relations and comments.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str hunt_id: The hunt id (GUID)

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets a private endpoint connection
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getStaticSitePrivateEndpointConnection(args: GetStaticSitePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSitePrivateEndpointConnectionResult> {
 
@@ -72,7 +72,7 @@ export interface GetStaticSitePrivateEndpointConnectionResult {
 }
 /**
  * Description for Gets a private endpoint connection
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getStaticSitePrivateEndpointConnectionOutput(args: GetStaticSitePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSitePrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getStaticSitePrivateEndpointConnection(a, opts))

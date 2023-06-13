@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves a single policy assignment, given its name and the scope it was created at.
- * API Version: 2022-06-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
 
@@ -106,7 +106,7 @@ export interface GetPolicyAssignmentResult {
 }
 /**
  * This operation retrieves a single policy assignment, given its name and the scope it was created at.
- * API Version: 2022-06-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getPolicyAssignment(a, opts))

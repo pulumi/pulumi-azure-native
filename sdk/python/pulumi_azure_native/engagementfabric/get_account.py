@@ -110,7 +110,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     The EngagementFabric account
-    API Version: 2018-09-01-preview.
+    Azure REST API version: 2018-09-01-preview.
 
 
     :param str account_name: Account Name
@@ -137,7 +137,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     The EngagementFabric account
-    API Version: 2018-09-01-preview.
+    Azure REST API version: 2018-09-01-preview.
 
 
     :param str account_name: Account Name

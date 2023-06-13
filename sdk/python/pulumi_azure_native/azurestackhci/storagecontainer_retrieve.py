@@ -152,7 +152,7 @@ class StoragecontainerRetrieve(pulumi.CustomResource):
                  __props__=None):
         """
         The storage container resource definition.
-        API Version: 2021-09-01-preview.
+        Azure REST API version: 2021-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,7 +170,7 @@ class StoragecontainerRetrieve(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage container resource definition.
-        API Version: 2021-09-01-preview.
+        Azure REST API version: 2021-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param StoragecontainerRetrieveArgs args: The arguments to use to populate this resource's properties.

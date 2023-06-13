@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub
 {
     /// <summary>
-    /// API Version: 2020-11-20.
-    /// Previous API Version: 2020-11-20. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2020-11-20. Prior API version in Azure Native 1.x: 2020-11-20
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:SkusNestedResourceTypeFirst")]
     public partial class SkusNestedResourceTypeFirst : global::Pulumi.CustomResource

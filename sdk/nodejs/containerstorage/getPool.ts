@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Pool
- * API Version: 2023-03-01-preview.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
 
@@ -94,7 +94,7 @@ export interface GetPoolResult {
 }
 /**
  * Get a Pool
- * API Version: 2023-03-01-preview.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
     return pulumi.output(args).apply((a: any) => getPool(a, opts))

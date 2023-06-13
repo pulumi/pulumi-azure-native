@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * return notebook access token and refresh token
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listWorkspaceNotebookAccessToken(args: ListWorkspaceNotebookAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNotebookAccessTokenResult> {
 
@@ -40,7 +40,7 @@ export interface ListWorkspaceNotebookAccessTokenResult {
 }
 /**
  * return notebook access token and refresh token
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listWorkspaceNotebookAccessTokenOutput(args: ListWorkspaceNotebookAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNotebookAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceNotebookAccessToken(a, opts))

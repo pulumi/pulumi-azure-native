@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// An Azure Monitor PrivateLinkScope definition.
-    /// API Version: 2021-07-01-preview.
-    /// Previous API Version: 2019-10-17-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:PrivateLinkScope")]
     public partial class PrivateLinkScope : global::Pulumi.CustomResource

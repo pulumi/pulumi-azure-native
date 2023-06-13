@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// The operation to get the extension.
-        /// API Version: 2023-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Task<GetVirtualMachineExtensionResult> InvokeAsync(GetVirtualMachineExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineExtensionResult>("azure-native:compute:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the extension.
-        /// API Version: 2023-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Output<GetVirtualMachineExtensionResult> Invoke(GetVirtualMachineExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineExtensionResult>("azure-native:compute:getVirtualMachineExtension", args ?? new GetVirtualMachineExtensionInvokeArgs(), options.WithDefaults());

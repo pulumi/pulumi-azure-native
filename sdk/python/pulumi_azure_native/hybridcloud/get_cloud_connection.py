@@ -182,7 +182,7 @@ def get_cloud_connection(cloud_connection_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudConnectionResult:
     """
     Gets the specified cloud connection in a specified resource group.
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str cloud_connection_name: The name of the cloud connection resource
@@ -215,7 +215,7 @@ def get_cloud_connection_output(cloud_connection_name: Optional[pulumi.Input[str
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudConnectionResult]:
     """
     Gets the specified cloud connection in a specified resource group.
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str cloud_connection_name: The name of the cloud connection resource

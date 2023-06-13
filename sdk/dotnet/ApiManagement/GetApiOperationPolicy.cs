@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get the policy configuration at the API Operation level.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetApiOperationPolicyResult> InvokeAsync(GetApiOperationPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiOperationPolicyResult>("azure-native:apimanagement:getApiOperationPolicy", args ?? new GetApiOperationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the policy configuration at the API Operation level.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetApiOperationPolicyResult> Invoke(GetApiOperationPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiOperationPolicyResult>("azure-native:apimanagement:getApiOperationPolicy", args ?? new GetApiOperationPolicyInvokeArgs(), options.WithDefaults());

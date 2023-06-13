@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get stream events telemetry of a live event.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getLiveEventStreamEvents(args: GetLiveEventStreamEventsArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventStreamEventsResult> {
 
@@ -47,7 +47,7 @@ export interface GetLiveEventStreamEventsResult {
 }
 /**
  * Get stream events telemetry of a live event.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getLiveEventStreamEventsOutput(args: GetLiveEventStreamEventsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventStreamEventsResult> {
     return pulumi.output(args).apply((a: any) => getLiveEventStreamEvents(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a credential set resource for a container registry.
- * API Version: 2023-01-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export class CredentialSet extends pulumi.CustomResource {
     /**

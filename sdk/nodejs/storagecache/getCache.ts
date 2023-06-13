@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a cache.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
 
@@ -126,7 +126,7 @@ export interface GetCacheResult {
 }
 /**
  * Returns a cache.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {
     return pulumi.output(args).apply((a: any) => getCache(a, opts))

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a data connection.
- * API Version: 2022-12-29.
+ * Azure REST API version: 2022-12-29.
  */
 export function getCosmosDbDataConnection(args: GetCosmosDbDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetCosmosDbDataConnectionResult> {
 
@@ -102,7 +102,7 @@ export interface GetCosmosDbDataConnectionResult {
 }
 /**
  * Returns a data connection.
- * API Version: 2022-12-29.
+ * Azure REST API version: 2022-12-29.
  */
 export function getCosmosDbDataConnectionOutput(args: GetCosmosDbDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCosmosDbDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getCosmosDbDataConnection(a, opts))

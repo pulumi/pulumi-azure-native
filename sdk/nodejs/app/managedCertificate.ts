@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export class ManagedCertificate extends pulumi.CustomResource {
     /**

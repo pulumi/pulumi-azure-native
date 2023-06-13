@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Static Site Database Connection resource.
-    /// API Version: 2022-09-01.
+    /// Azure REST API version: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSiteBuildDatabaseConnection")]
     public partial class StaticSiteBuildDatabaseConnection : global::Pulumi.CustomResource

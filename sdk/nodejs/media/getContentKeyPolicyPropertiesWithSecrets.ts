@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Content Key Policy including secret values
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getContentKeyPolicyPropertiesWithSecrets(args: GetContentKeyPolicyPropertiesWithSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetContentKeyPolicyPropertiesWithSecretsResult> {
 
@@ -63,7 +63,7 @@ export interface GetContentKeyPolicyPropertiesWithSecretsResult {
 }
 /**
  * Get a Content Key Policy including secret values
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getContentKeyPolicyPropertiesWithSecretsOutput(args: GetContentKeyPolicyPropertiesWithSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentKeyPolicyPropertiesWithSecretsResult> {
     return pulumi.output(args).apply((a: any) => getContentKeyPolicyPropertiesWithSecrets(a, opts))

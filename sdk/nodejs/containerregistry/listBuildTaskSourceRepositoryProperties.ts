@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the source control properties for a build task.
- * API Version: 2018-02-01-preview.
+ * Azure REST API version: 2018-02-01-preview.
  */
 export function listBuildTaskSourceRepositoryProperties(args: ListBuildTaskSourceRepositoryPropertiesArgs, opts?: pulumi.InvokeOptions): Promise<ListBuildTaskSourceRepositoryPropertiesResult> {
 
@@ -59,7 +59,7 @@ export interface ListBuildTaskSourceRepositoryPropertiesResult {
 }
 /**
  * Get the source control properties for a build task.
- * API Version: 2018-02-01-preview.
+ * Azure REST API version: 2018-02-01-preview.
  */
 export function listBuildTaskSourceRepositoryPropertiesOutput(args: ListBuildTaskSourceRepositoryPropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildTaskSourceRepositoryPropertiesResult> {
     return pulumi.output(args).apply((a: any) => listBuildTaskSourceRepositoryProperties(a, opts))

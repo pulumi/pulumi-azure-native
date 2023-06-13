@@ -222,7 +222,7 @@ def get_budget(budget_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBudgetResult:
     """
     Gets the budget for the scope by budget name.
-    API Version: 2023-04-01-preview.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str budget_name: Budget Name.
@@ -283,7 +283,7 @@ def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetResult]:
     """
     Gets the budget for the scope by budget name.
-    API Version: 2023-04-01-preview.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str budget_name: Budget Name.

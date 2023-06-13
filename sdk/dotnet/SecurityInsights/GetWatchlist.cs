@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Get a watchlist, without its watchlist items.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetWatchlistResult> InvokeAsync(GetWatchlistArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistResult>("azure-native:securityinsights:getWatchlist", args ?? new GetWatchlistArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a watchlist, without its watchlist items.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetWatchlistResult> Invoke(GetWatchlistInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatchlistResult>("azure-native:securityinsights:getWatchlist", args ?? new GetWatchlistInvokeArgs(), options.WithDefaults());

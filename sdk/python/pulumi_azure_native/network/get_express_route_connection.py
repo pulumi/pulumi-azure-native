@@ -159,7 +159,7 @@ def get_express_route_connection(connection_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteConnectionResult:
     """
     Gets the specified ExpressRouteConnection.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str connection_name: The name of the ExpressRoute connection.
@@ -193,7 +193,7 @@ def get_express_route_connection_output(connection_name: Optional[pulumi.Input[s
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteConnectionResult]:
     """
     Gets the specified ExpressRouteConnection.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str connection_name: The name of the ExpressRoute connection.

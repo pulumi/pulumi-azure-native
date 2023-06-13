@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     {
         /// <summary>
         /// Gets private endpoint connection.
-        /// API Version: 2022-11-08.
+        /// Azure REST API version: 2022-11-08.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:dbforpostgresql:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets private endpoint connection.
-        /// API Version: 2022-11-08.
+        /// Azure REST API version: 2022-11-08.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:dbforpostgresql:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

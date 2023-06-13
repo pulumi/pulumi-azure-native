@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Traffic Manager endpoint.
- * API Version: 2022-04-01.
+ * Azure REST API version: 2022-04-01.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
 
@@ -116,7 +116,7 @@ export interface GetEndpointResult {
 }
 /**
  * Gets a Traffic Manager endpoint.
- * API Version: 2022-04-01.
+ * Azure REST API version: 2022-04-01.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))

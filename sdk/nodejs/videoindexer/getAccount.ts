@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of an Azure Video Indexer account.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -90,7 +90,7 @@ export interface GetAccountResult {
 }
 /**
  * Gets the properties of an Azure Video Indexer account.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

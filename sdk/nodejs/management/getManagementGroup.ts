@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get the details of the management group.
  *
- * API Version: 2021-04-01.
+ * Azure REST API version: 2021-04-01.
  */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
 
@@ -78,7 +78,7 @@ export interface GetManagementGroupResult {
 /**
  * Get the details of the management group.
  *
- * API Version: 2021-04-01.
+ * Azure REST API version: 2021-04-01.
  */
 export function getManagementGroupOutput(args: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroup(a, opts))

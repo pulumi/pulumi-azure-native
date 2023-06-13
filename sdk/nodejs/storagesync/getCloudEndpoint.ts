@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a given CloudEndpoint.
- * API Version: 2022-06-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEndpointResult> {
 
@@ -104,7 +104,7 @@ export interface GetCloudEndpointResult {
 }
 /**
  * Get a given CloudEndpoint.
- * API Version: 2022-06-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function getCloudEndpointOutput(args: GetCloudEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEndpointResult> {
     return pulumi.output(args).apply((a: any) => getCloudEndpoint(a, opts))

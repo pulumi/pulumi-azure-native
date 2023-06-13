@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of an Asset Filter associated with the specified Asset.
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getAssetFilter(args: GetAssetFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetFilterResult> {
 
@@ -76,7 +76,7 @@ export interface GetAssetFilterResult {
 }
 /**
  * Get the details of an Asset Filter associated with the specified Asset.
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getAssetFilterOutput(args: GetAssetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetFilterResult> {
     return pulumi.output(args).apply((a: any) => getAssetFilter(a, opts))

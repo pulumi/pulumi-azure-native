@@ -196,7 +196,7 @@ def get_formula(expand: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFormulaResult:
     """
     Get formula.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=description)'
@@ -236,7 +236,7 @@ def get_formula_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFormulaResult]:
     """
     Get formula.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=description)'

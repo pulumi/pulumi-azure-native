@@ -135,7 +135,7 @@ def get_application_group(application_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGroupResult:
     """
     Gets an ApplicationGroup for a Namespace.
-    API Version: 2022-10-01-preview.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str application_group_name: The Application Group name 
@@ -167,7 +167,7 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGroupResult]:
     """
     Gets an ApplicationGroup for a Namespace.
-    API Version: 2022-10-01-preview.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str application_group_name: The Application Group name 

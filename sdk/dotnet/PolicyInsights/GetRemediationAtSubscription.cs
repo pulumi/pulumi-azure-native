@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.PolicyInsights
     {
         /// <summary>
         /// Gets an existing remediation at subscription scope.
-        /// API Version: 2021-10-01.
+        /// Azure REST API version: 2021-10-01.
         /// </summary>
         public static Task<GetRemediationAtSubscriptionResult> InvokeAsync(GetRemediationAtSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtSubscriptionResult>("azure-native:policyinsights:getRemediationAtSubscription", args ?? new GetRemediationAtSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing remediation at subscription scope.
-        /// API Version: 2021-10-01.
+        /// Azure REST API version: 2021-10-01.
         /// </summary>
         public static Output<GetRemediationAtSubscriptionResult> Invoke(GetRemediationAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemediationAtSubscriptionResult>("azure-native:policyinsights:getRemediationAtSubscription", args ?? new GetRemediationAtSubscriptionInvokeArgs(), options.WithDefaults());

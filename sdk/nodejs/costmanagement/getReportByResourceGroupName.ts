@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the report for a resource group under a subscription by report name.
- * API Version: 2018-08-01-preview.
+ * Azure REST API version: 2018-08-01-preview.
  */
 export function getReportByResourceGroupName(args: GetReportByResourceGroupNameArgs, opts?: pulumi.InvokeOptions): Promise<GetReportByResourceGroupNameResult> {
 
@@ -70,7 +70,7 @@ export interface GetReportByResourceGroupNameResult {
 }
 /**
  * Gets the report for a resource group under a subscription by report name.
- * API Version: 2018-08-01-preview.
+ * Azure REST API version: 2018-08-01-preview.
  */
 export function getReportByResourceGroupNameOutput(args: GetReportByResourceGroupNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByResourceGroupNameResult> {
     return pulumi.output(args).apply((a: any) => getReportByResourceGroupName(a, opts))

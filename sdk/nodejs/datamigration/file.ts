@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A file resource
- * API Version: 2021-06-30.
- * Previous API Version: 2018-07-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-07-15-preview
  */
 export class File extends pulumi.CustomResource {
     /**

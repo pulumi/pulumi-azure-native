@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Subscription keys.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function listWorkspaceSubscriptionSecrets(args: ListWorkspaceSubscriptionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceSubscriptionSecretsResult> {
 
@@ -53,7 +53,7 @@ export interface ListWorkspaceSubscriptionSecretsResult {
 }
 /**
  * Gets the specified Subscription keys.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function listWorkspaceSubscriptionSecretsOutput(args: ListWorkspaceSubscriptionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceSubscriptionSecretsResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceSubscriptionSecrets(a, opts))

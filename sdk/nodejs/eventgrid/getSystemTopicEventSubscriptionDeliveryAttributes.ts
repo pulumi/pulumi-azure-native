@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get all delivery attributes for an event subscription.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getSystemTopicEventSubscriptionDeliveryAttributes(args: GetSystemTopicEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionDeliveryAttributesResult> {
 
@@ -47,7 +47,7 @@ export interface GetSystemTopicEventSubscriptionDeliveryAttributesResult {
 }
 /**
  * Get all delivery attributes for an event subscription.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getSystemTopicEventSubscriptionDeliveryAttributesOutput(args: GetSystemTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicEventSubscriptionDeliveryAttributesResult> {
     return pulumi.output(args).apply((a: any) => getSystemTopicEventSubscriptionDeliveryAttributes(a, opts))

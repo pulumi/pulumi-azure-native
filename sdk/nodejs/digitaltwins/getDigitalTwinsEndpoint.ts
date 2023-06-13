@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get DigitalTwinsInstances Endpoint.
- * API Version: 2023-01-31.
+ * Azure REST API version: 2023-01-31.
  */
 export function getDigitalTwinsEndpoint(args: GetDigitalTwinsEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinsEndpointResult> {
 
@@ -63,7 +63,7 @@ export interface GetDigitalTwinsEndpointResult {
 }
 /**
  * Get DigitalTwinsInstances Endpoint.
- * API Version: 2023-01-31.
+ * Azure REST API version: 2023-01-31.
  */
 export function getDigitalTwinsEndpointOutput(args: GetDigitalTwinsEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinsEndpointResult> {
     return pulumi.output(args).apply((a: any) => getDigitalTwinsEndpoint(a, opts))

@@ -303,7 +303,7 @@ def get_product(product_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
     Returns the specified product.
-    API Version: 2022-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str product_name: Name of the product.
@@ -349,7 +349,7 @@ def get_product_output(product_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
     """
     Returns the specified product.
-    API Version: 2022-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str product_name: Name of the product.

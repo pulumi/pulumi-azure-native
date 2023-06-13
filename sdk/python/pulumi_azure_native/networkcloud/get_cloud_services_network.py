@@ -245,7 +245,7 @@ def get_cloud_services_network(cloud_services_network_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudServicesNetworkResult:
     """
     Get properties of the provided cloud services network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str cloud_services_network_name: The name of the cloud services network.
@@ -283,7 +283,7 @@ def get_cloud_services_network_output(cloud_services_network_name: Optional[pulu
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudServicesNetworkResult]:
     """
     Get properties of the provided cloud services network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str cloud_services_network_name: The name of the cloud services network.

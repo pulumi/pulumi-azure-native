@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided layer 2 (L2) network.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2022-12-12-preview.
  */
 export function getL2Network(args: GetL2NetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetL2NetworkResult> {
 
@@ -99,7 +99,7 @@ export interface GetL2NetworkResult {
 }
 /**
  * Get properties of the provided layer 2 (L2) network.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2022-12-12-preview.
  */
 export function getL2NetworkOutput(args: GetL2NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2NetworkResult> {
     return pulumi.output(args).apply((a: any) => getL2Network(a, opts))

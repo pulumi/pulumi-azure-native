@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSet in a share
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getKustoTableDataSet(args: GetKustoTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoTableDataSetResult> {
 
@@ -89,7 +89,7 @@ export interface GetKustoTableDataSetResult {
 }
 /**
  * Get a DataSet in a share
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getKustoTableDataSetOutput(args: GetKustoTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoTableDataSetResult> {
     return pulumi.output(args).apply((a: any) => getKustoTableDataSet(a, opts))

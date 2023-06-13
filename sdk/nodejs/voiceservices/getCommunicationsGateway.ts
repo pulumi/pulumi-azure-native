@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a CommunicationsGateway
- * API Version: 2023-04-03.
+ * Azure REST API version: 2023-04-03.
  */
 export function getCommunicationsGateway(args: GetCommunicationsGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationsGatewayResult> {
 
@@ -122,7 +122,7 @@ export interface GetCommunicationsGatewayResult {
 }
 /**
  * Get a CommunicationsGateway
- * API Version: 2023-04-03.
+ * Azure REST API version: 2023-04-03.
  */
 export function getCommunicationsGatewayOutput(args: GetCommunicationsGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationsGatewayResult> {
     return pulumi.output(args).apply((a: any) => getCommunicationsGateway(a, opts))

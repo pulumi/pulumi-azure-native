@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a RoutingIntent.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getRoutingIntent(args: GetRoutingIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingIntentResult> {
 
@@ -67,7 +67,7 @@ export interface GetRoutingIntentResult {
 }
 /**
  * Retrieves the details of a RoutingIntent.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getRoutingIntentOutput(args: GetRoutingIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingIntentResult> {
     return pulumi.output(args).apply((a: any) => getRoutingIntent(a, opts))

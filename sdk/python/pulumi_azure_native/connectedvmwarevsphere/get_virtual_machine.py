@@ -423,7 +423,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
     Implements virtual machine GET method.
-    API Version: 2022-07-15-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -476,7 +476,7 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Implements virtual machine GET method.
-    API Version: 2022-07-15-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str resource_group_name: The Resource Group Name.

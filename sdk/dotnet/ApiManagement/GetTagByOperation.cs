@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get tag associated with the Operation.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetTagByOperationResult> InvokeAsync(GetTagByOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagByOperationResult>("azure-native:apimanagement:getTagByOperation", args ?? new GetTagByOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get tag associated with the Operation.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetTagByOperationResult> Invoke(GetTagByOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagByOperationResult>("azure-native:apimanagement:getTagByOperation", args ?? new GetTagByOperationInvokeArgs(), options.WithDefaults());

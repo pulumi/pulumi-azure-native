@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Server communication link.
-    /// API Version: 2014-04-01.
-    /// Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2014-04-01. Prior API version in Azure Native 1.x: 2014-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerCommunicationLink")]
     public partial class ServerCommunicationLink : global::Pulumi.CustomResource

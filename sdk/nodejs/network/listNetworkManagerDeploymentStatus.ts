@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Post to List of Network Manager Deployment Status.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function listNetworkManagerDeploymentStatus(args: ListNetworkManagerDeploymentStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListNetworkManagerDeploymentStatusResult> {
 
@@ -66,7 +66,7 @@ export interface ListNetworkManagerDeploymentStatusResult {
 }
 /**
  * Post to List of Network Manager Deployment Status.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function listNetworkManagerDeploymentStatusOutput(args: ListNetworkManagerDeploymentStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerDeploymentStatusResult> {
     return pulumi.output(args).apply((a: any) => listNetworkManagerDeploymentStatus(a, opts))

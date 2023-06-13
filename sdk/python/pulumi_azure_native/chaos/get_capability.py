@@ -102,7 +102,7 @@ def get_capability(capability_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapabilityResult:
     """
     Get a Capability resource that extends a Target resource.
-    API Version: 2022-10-01-preview.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str capability_name: String that represents a Capability resource name.
@@ -140,7 +140,7 @@ def get_capability_output(capability_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapabilityResult]:
     """
     Get a Capability resource that extends a Target resource.
-    API Version: 2022-10-01-preview.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str capability_name: String that represents a Capability resource name.

@@ -246,7 +246,7 @@ def get_environment(environment_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
     Get environment
-    API Version: 2018-10-15.
+    Azure REST API version: 2018-10-15.
 
 
     :param str environment_name: The name of the environment.
@@ -296,7 +296,7 @@ def get_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Get environment
-    API Version: 2018-10-15.
+    Azure REST API version: 2018-10-15.
 
 
     :param str environment_name: The name of the environment.

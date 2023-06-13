@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// List storage account keys of a workspace.
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<ListWorkspaceStorageAccountKeysResult> InvokeAsync(ListWorkspaceStorageAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceStorageAccountKeysResult>("azure-native:machinelearningservices:listWorkspaceStorageAccountKeys", args ?? new ListWorkspaceStorageAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// List storage account keys of a workspace.
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<ListWorkspaceStorageAccountKeysResult> Invoke(ListWorkspaceStorageAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceStorageAccountKeysResult>("azure-native:machinelearningservices:listWorkspaceStorageAccountKeys", args ?? new ListWorkspaceStorageAccountKeysInvokeArgs(), options.WithDefaults());

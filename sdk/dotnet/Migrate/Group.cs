@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// A group created in a Migration project.
-    /// API Version: 2019-10-01.
-    /// Previous API Version: 2019-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2019-10-01. Prior API version in Azure Native 1.x: 2019-10-01
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:Group")]
     public partial class Group : global::Pulumi.CustomResource

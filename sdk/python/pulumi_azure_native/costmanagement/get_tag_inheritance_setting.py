@@ -111,7 +111,7 @@ def get_tag_inheritance_setting(scope: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagInheritanceSettingResult:
     """
     Get the setting from the given scope by name.
-    API Version: 2022-10-05-preview.
+    Azure REST API version: 2022-10-05-preview.
 
 
     :param str scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
@@ -138,7 +138,7 @@ def get_tag_inheritance_setting_output(scope: Optional[pulumi.Input[str]] = None
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagInheritanceSettingResult]:
     """
     Get the setting from the given scope by name.
-    API Version: 2022-10-05-preview.
+    Azure REST API version: 2022-10-05-preview.
 
 
     :param str scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.

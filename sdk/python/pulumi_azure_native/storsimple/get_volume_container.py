@@ -184,7 +184,7 @@ def get_volume_container(device_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeContainerResult:
     """
     Gets the properties of the specified volume container name.
-    API Version: 2017-06-01.
+    Azure REST API version: 2017-06-01.
 
 
     :param str device_name: The device name
@@ -223,7 +223,7 @@ def get_volume_container_output(device_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeContainerResult]:
     """
     Gets the properties of the specified volume container name.
-    API Version: 2017-06-01.
+    Azure REST API version: 2017-06-01.
 
 
     :param str device_name: The device name

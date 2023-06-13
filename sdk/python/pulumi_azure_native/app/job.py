@@ -182,7 +182,7 @@ class Job(pulumi.CustomResource):
                  __props__=None):
         """
         Container App Job
-        API Version: 2023-04-01-preview.
+        Azure REST API version: 2023-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,7 +204,7 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Container App Job
-        API Version: 2023-04-01-preview.
+        Azure REST API version: 2023-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

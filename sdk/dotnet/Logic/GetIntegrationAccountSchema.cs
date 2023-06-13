@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Logic
     {
         /// <summary>
         /// Gets an integration account schema.
-        /// API Version: 2019-05-01.
+        /// Azure REST API version: 2019-05-01.
         /// </summary>
         public static Task<GetIntegrationAccountSchemaResult> InvokeAsync(GetIntegrationAccountSchemaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountSchemaResult>("azure-native:logic:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an integration account schema.
-        /// API Version: 2019-05-01.
+        /// Azure REST API version: 2019-05-01.
         /// </summary>
         public static Output<GetIntegrationAccountSchemaResult> Invoke(GetIntegrationAccountSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountSchemaResult>("azure-native:logic:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaInvokeArgs(), options.WithDefaults());

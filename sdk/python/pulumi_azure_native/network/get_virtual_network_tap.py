@@ -182,7 +182,7 @@ def get_virtual_network_tap(resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkTapResult:
     """
     Gets information about the specified virtual network tap.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -215,7 +215,7 @@ def get_virtual_network_tap_output(resource_group_name: Optional[pulumi.Input[st
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkTapResult]:
     """
     Gets information about the specified virtual network tap.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str resource_group_name: The name of the resource group.

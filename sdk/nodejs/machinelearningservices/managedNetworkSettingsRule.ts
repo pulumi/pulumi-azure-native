@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Outbound Rule Basic Resource for the managed network of a machine learning workspace.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export class ManagedNetworkSettingsRule extends pulumi.CustomResource {
     /**

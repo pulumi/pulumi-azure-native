@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Firmware definition
- * API Version: 2023-02-08-preview.
+ * Azure REST API version: 2023-02-08-preview.
  */
 export class Firmware extends pulumi.CustomResource {
     /**

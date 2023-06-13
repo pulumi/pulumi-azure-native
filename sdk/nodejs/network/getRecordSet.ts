@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a record set.
- * API Version: 2018-05-01.
+ * Azure REST API version: 2018-05-01.
  */
 export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetResult> {
 
@@ -124,7 +124,7 @@ export interface GetRecordSetResult {
 }
 /**
  * Gets a record set.
- * API Version: 2018-05-01.
+ * Azure REST API version: 2018-05-01.
  */
 export function getRecordSetOutput(args: GetRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordSetResult> {
     return pulumi.output(args).apply((a: any) => getRecordSet(a, opts))

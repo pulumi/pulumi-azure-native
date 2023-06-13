@@ -191,7 +191,7 @@ def get_object_anchors_account(account_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObjectAnchorsAccountResult:
     """
     Retrieve an Object Anchors Account.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -225,7 +225,7 @@ def get_object_anchors_account_output(account_name: Optional[pulumi.Input[str]] 
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectAnchorsAccountResult]:
     """
     Retrieve an Object Anchors Account.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.

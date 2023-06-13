@@ -351,7 +351,7 @@ def get_content_package(package_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentPackageResult:
     """
     Gets an installed packages by its id.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str package_id: package Id
@@ -401,7 +401,7 @@ def get_content_package_output(package_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContentPackageResult]:
     """
     Gets an installed packages by its id.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str package_id: package Id

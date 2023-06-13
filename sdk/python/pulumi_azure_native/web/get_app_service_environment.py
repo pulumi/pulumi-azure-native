@@ -351,7 +351,7 @@ def get_app_service_environment(name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceEnvironmentResult:
     """
     Description for Get the properties of an App Service Environment.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the App Service Environment.
@@ -398,7 +398,7 @@ def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentResult]:
     """
     Description for Get the properties of an App Service Environment.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the App Service Environment.

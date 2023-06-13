@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Returns a database.
-        /// API Version: 2021-06-01-preview.
+        /// Azure REST API version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetReadWriteDatabaseResult> InvokeAsync(GetReadWriteDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReadWriteDatabaseResult>("azure-native:synapse:getReadWriteDatabase", args ?? new GetReadWriteDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a database.
-        /// API Version: 2021-06-01-preview.
+        /// Azure REST API version: 2021-06-01-preview.
         /// </summary>
         public static Output<GetReadWriteDatabaseResult> Invoke(GetReadWriteDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReadWriteDatabaseResult>("azure-native:synapse:getReadWriteDatabase", args ?? new GetReadWriteDatabaseInvokeArgs(), options.WithDefaults());

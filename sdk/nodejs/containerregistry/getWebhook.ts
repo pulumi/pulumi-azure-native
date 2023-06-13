@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified webhook.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
 
@@ -83,7 +83,7 @@ export interface GetWebhookResult {
 }
 /**
  * Gets the properties of the specified webhook.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
     return pulumi.output(args).apply((a: any) => getWebhook(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Hyper-V collector.
- * API Version: 2019-10-01.
+ * Azure REST API version: 2019-10-01.
  */
 export function getHyperVCollector(args: GetHyperVCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetHyperVCollectorResult> {
 
@@ -45,7 +45,7 @@ export interface GetHyperVCollectorResult {
 }
 /**
  * Get a Hyper-V collector.
- * API Version: 2019-10-01.
+ * Azure REST API version: 2019-10-01.
  */
 export function getHyperVCollectorOutput(args: GetHyperVCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHyperVCollectorResult> {
     return pulumi.output(args).apply((a: any) => getHyperVCollector(a, opts))

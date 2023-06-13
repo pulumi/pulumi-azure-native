@@ -110,7 +110,7 @@ def get_deployment_at_management_group_scope(deployment_name: Optional[str] = No
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtManagementGroupScopeResult:
     """
     Gets a deployment.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str deployment_name: The name of the deployment.
@@ -137,7 +137,7 @@ def get_deployment_at_management_group_scope_output(deployment_name: Optional[pu
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentAtManagementGroupScopeResult]:
     """
     Gets a deployment.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str deployment_name: The name of the deployment.

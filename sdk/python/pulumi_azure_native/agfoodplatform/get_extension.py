@@ -171,7 +171,7 @@ def get_extension(extension_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
     Get installed extension details by extension id.
-    API Version: 2021-09-01-preview.
+    Azure REST API version: 2021-09-01-preview.
 
 
     :param str extension_id: Id of extension resource.
@@ -206,7 +206,7 @@ def get_extension_output(extension_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Get installed extension details by extension id.
-    API Version: 2021-09-01-preview.
+    Azure REST API version: 2021-09-01-preview.
 
 
     :param str extension_id: Id of extension resource.

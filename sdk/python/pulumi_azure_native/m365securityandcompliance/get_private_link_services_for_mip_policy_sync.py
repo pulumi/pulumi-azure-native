@@ -158,7 +158,7 @@ def get_private_link_services_for_mip_policy_sync(resource_group_name: Optional[
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServicesForMIPPolicySyncResult:
     """
     Get the metadata of a privateLinkServicesForMIPPolicySync resource.
-    API Version: 2021-03-25-preview.
+    Azure REST API version: 2021-03-25-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -189,7 +189,7 @@ def get_private_link_services_for_mip_policy_sync_output(resource_group_name: Op
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServicesForMIPPolicySyncResult]:
     """
     Get the metadata of a privateLinkServicesForMIPPolicySync resource.
-    API Version: 2021-03-25-preview.
+    Azure REST API version: 2021-03-25-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

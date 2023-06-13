@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getDppResourceGuardProxy(args: GetDppResourceGuardProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetDppResourceGuardProxyResult> {
 
@@ -63,7 +63,7 @@ export interface GetDppResourceGuardProxyResult {
 }
 /**
  * ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getDppResourceGuardProxyOutput(args: GetDppResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDppResourceGuardProxyResult> {
     return pulumi.output(args).apply((a: any) => getDppResourceGuardProxy(a, opts))

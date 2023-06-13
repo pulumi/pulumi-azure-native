@@ -255,7 +255,7 @@ def get_bookmark(bookmark_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBookmarkResult:
     """
     Gets a bookmark.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str bookmark_id: Bookmark ID
@@ -297,7 +297,7 @@ def get_bookmark_output(bookmark_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBookmarkResult]:
     """
     Gets a bookmark.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str bookmark_id: Bookmark ID

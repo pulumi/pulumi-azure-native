@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The set of available keys for this server.
- * API Version: 2022-06-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function listFluidRelayServerKeys(args: ListFluidRelayServerKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListFluidRelayServerKeysResult> {
 
@@ -43,7 +43,7 @@ export interface ListFluidRelayServerKeysResult {
 }
 /**
  * The set of available keys for this server.
- * API Version: 2022-06-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function listFluidRelayServerKeysOutput(args: ListFluidRelayServerKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFluidRelayServerKeysResult> {
     return pulumi.output(args).apply((a: any) => listFluidRelayServerKeys(a, opts))

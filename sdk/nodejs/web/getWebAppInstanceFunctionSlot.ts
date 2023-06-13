@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get function information by its ID for web site, or a deployment slot.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppInstanceFunctionSlot(args: GetWebAppInstanceFunctionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppInstanceFunctionSlotResult> {
 
@@ -113,7 +113,7 @@ export interface GetWebAppInstanceFunctionSlotResult {
 }
 /**
  * Description for Get function information by its ID for web site, or a deployment slot.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppInstanceFunctionSlotOutput(args: GetWebAppInstanceFunctionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppInstanceFunctionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppInstanceFunctionSlot(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Data Lake Store account.
- * API Version: 2016-11-01.
+ * Azure REST API version: 2016-11-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -134,7 +134,7 @@ export interface GetAccountResult {
 }
 /**
  * Gets the specified Data Lake Store account.
- * API Version: 2016-11-01.
+ * Azure REST API version: 2016-11-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

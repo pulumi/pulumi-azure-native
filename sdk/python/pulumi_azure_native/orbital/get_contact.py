@@ -279,7 +279,7 @@ def get_contact(contact_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactResult:
     """
     Gets the specified contact in a specified resource group.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str contact_name: Contact name.
@@ -323,7 +323,7 @@ def get_contact_output(contact_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactResult]:
     """
     Gets the specified contact in a specified resource group.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str contact_name: Contact name.

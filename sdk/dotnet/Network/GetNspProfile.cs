@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified NSP profile.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetNspProfileResult> InvokeAsync(GetNspProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNspProfileResult>("azure-native:network:getNspProfile", args ?? new GetNspProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified NSP profile.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetNspProfileResult> Invoke(GetNspProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNspProfileResult>("azure-native:network:getNspProfile", args ?? new GetNspProfileInvokeArgs(), options.WithDefaults());

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     {
         /// <summary>
         /// Get Private endpoint connection object.
-        /// API Version: 2021-09-01-preview.
+        /// Azure REST API version: 2021-09-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:agfoodplatform:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Private endpoint connection object.
-        /// API Version: 2021-09-01-preview.
+        /// Azure REST API version: 2021-09-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:agfoodplatform:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

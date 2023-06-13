@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Managed instance's Start/Stop schedule.
- * API Version: 2022-11-01-preview.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export class StartStopManagedInstanceSchedule extends pulumi.CustomResource {
     /**

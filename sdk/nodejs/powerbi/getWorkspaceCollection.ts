@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves an existing Power BI Workspace Collection.
- * API Version: 2016-01-29.
+ * Azure REST API version: 2016-01-29.
  */
 export function getWorkspaceCollection(args: GetWorkspaceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceCollectionResult> {
 
@@ -57,7 +57,7 @@ export interface GetWorkspaceCollectionResult {
 }
 /**
  * Retrieves an existing Power BI Workspace Collection.
- * API Version: 2016-01-29.
+ * Azure REST API version: 2016-01-29.
  */
 export function getWorkspaceCollectionOutput(args: GetWorkspaceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceCollectionResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceCollection(a, opts))

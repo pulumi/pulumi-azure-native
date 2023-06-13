@@ -197,7 +197,7 @@ def get_adls_gen2_folder_data_set_mapping(account_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADLSGen2FolderDataSetMappingResult:
     """
     Get a DataSetMapping in a shareSubscription
-    API Version: 2021-08-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -237,7 +237,7 @@ def get_adls_gen2_folder_data_set_mapping_output(account_name: Optional[pulumi.I
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADLSGen2FolderDataSetMappingResult]:
     """
     Get a DataSetMapping in a shareSubscription
-    API Version: 2021-08-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.

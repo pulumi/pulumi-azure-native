@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Migrate Project REST Resource.
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function getMigrateProject(args: GetMigrateProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrateProjectResult> {
 
@@ -66,7 +66,7 @@ export interface GetMigrateProjectResult {
 }
 /**
  * Migrate Project REST Resource.
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function getMigrateProjectOutput(args: GetMigrateProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateProjectResult> {
     return pulumi.output(args).apply((a: any) => getMigrateProject(a, opts))

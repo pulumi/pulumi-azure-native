@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Implements ExternalNetworks GET method.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Task<GetExternalNetworkResult> InvokeAsync(GetExternalNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExternalNetworkResult>("azure-native:managednetworkfabric:getExternalNetwork", args ?? new GetExternalNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements ExternalNetworks GET method.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Output<GetExternalNetworkResult> Invoke(GetExternalNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExternalNetworkResult>("azure-native:managednetworkfabric:getExternalNetwork", args ?? new GetExternalNetworkInvokeArgs(), options.WithDefaults());

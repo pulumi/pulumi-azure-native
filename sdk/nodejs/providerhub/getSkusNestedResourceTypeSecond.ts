@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the sku details for the given resource type and sku name.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2020-11-20.
  */
 export function getSkusNestedResourceTypeSecond(args: GetSkusNestedResourceTypeSecondArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusNestedResourceTypeSecondResult> {
 
@@ -63,7 +63,7 @@ export interface GetSkusNestedResourceTypeSecondResult {
 }
 /**
  * Gets the sku details for the given resource type and sku name.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2020-11-20.
  */
 export function getSkusNestedResourceTypeSecondOutput(args: GetSkusNestedResourceTypeSecondOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusNestedResourceTypeSecondResult> {
     return pulumi.output(args).apply((a: any) => getSkusNestedResourceTypeSecond(a, opts))

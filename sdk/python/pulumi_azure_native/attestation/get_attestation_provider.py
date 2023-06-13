@@ -182,7 +182,7 @@ def get_attestation_provider(provider_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttestationProviderResult:
     """
     Get the status of Attestation Provider.
-    API Version: 2021-06-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str provider_name: Name of the attestation provider.
@@ -215,7 +215,7 @@ def get_attestation_provider_output(provider_name: Optional[pulumi.Input[str]] =
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttestationProviderResult]:
     """
     Get the status of Attestation Provider.
-    API Version: 2021-06-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str provider_name: Name of the attestation provider.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Details of an Update run
- * API Version: 2023-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export class UpdateRun extends pulumi.CustomResource {
     /**

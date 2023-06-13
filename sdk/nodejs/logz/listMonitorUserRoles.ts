@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response for list of user's role for Logz.io account.
- * API Version: 2022-01-01-preview.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function listMonitorUserRoles(args: ListMonitorUserRolesArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorUserRolesResult> {
 
@@ -51,7 +51,7 @@ export interface ListMonitorUserRolesResult {
 }
 /**
  * Response for list of user's role for Logz.io account.
- * API Version: 2022-01-01-preview.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function listMonitorUserRolesOutput(args: ListMonitorUserRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorUserRolesResult> {
     return pulumi.output(args).apply((a: any) => listMonitorUserRoles(a, opts))

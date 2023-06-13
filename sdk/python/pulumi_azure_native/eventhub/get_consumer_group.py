@@ -136,7 +136,7 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsumerGroupResult:
     """
     Gets a description for the specified consumer group.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str consumer_group_name: The consumer group name
@@ -171,7 +171,7 @@ def get_consumer_group_output(consumer_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsumerGroupResult]:
     """
     Gets a description for the specified consumer group.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str consumer_group_name: The consumer group name

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the workspace vNet Peering.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVNetPeering(args: GetVNetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVNetPeeringResult> {
 
@@ -95,7 +95,7 @@ export interface GetVNetPeeringResult {
 }
 /**
  * Gets the workspace vNet Peering.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVNetPeeringOutput(args: GetVNetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVNetPeeringResult> {
     return pulumi.output(args).apply((a: any) => getVNetPeering(a, opts))

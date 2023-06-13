@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified sku.
- * API Version: 2021-05-01.
+ * Azure REST API version: 2021-05-01.
  */
 export function getVendorSkus(args: GetVendorSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkusResult> {
 
@@ -86,7 +86,7 @@ export interface GetVendorSkusResult {
 }
 /**
  * Gets information about the specified sku.
- * API Version: 2021-05-01.
+ * Azure REST API version: 2021-05-01.
  */
 export function getVendorSkusOutput(args: GetVendorSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkusResult> {
     return pulumi.output(args).apply((a: any) => getVendorSkus(a, opts))

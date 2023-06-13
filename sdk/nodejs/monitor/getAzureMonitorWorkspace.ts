@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the specific Azure Monitor workspace
- * API Version: 2023-04-03.
+ * Azure REST API version: 2023-04-03.
  */
 export function getAzureMonitorWorkspace(args: GetAzureMonitorWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureMonitorWorkspaceResult> {
 
@@ -90,7 +90,7 @@ export interface GetAzureMonitorWorkspaceResult {
 }
 /**
  * Returns the specific Azure Monitor workspace
- * API Version: 2023-04-03.
+ * Azure REST API version: 2023-04-03.
  */
 export function getAzureMonitorWorkspaceOutput(args: GetAzureMonitorWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureMonitorWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getAzureMonitorWorkspace(a, opts))

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a credential set resource for a container registry.
-    /// API Version: 2023-01-01-preview.
+    /// Azure REST API version: 2023-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:CredentialSet")]
     public partial class CredentialSet : global::Pulumi.CustomResource

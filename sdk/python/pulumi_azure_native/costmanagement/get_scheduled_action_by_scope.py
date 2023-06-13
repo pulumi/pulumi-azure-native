@@ -206,7 +206,7 @@ def get_scheduled_action_by_scope(name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledActionByScopeResult:
     """
     Get the shared scheduled action from the given scope by name.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str name: Scheduled action name.
@@ -241,7 +241,7 @@ def get_scheduled_action_by_scope_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledActionByScopeResult]:
     """
     Get the shared scheduled action from the given scope by name.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str name: Scheduled action name.

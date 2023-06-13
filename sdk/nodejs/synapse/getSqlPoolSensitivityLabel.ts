@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the sensitivity label of a given column
- * API Version: 2021-06-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getSqlPoolSensitivityLabel(args: GetSqlPoolSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolSensitivityLabelResult> {
 
@@ -109,7 +109,7 @@ export interface GetSqlPoolSensitivityLabelResult {
 }
 /**
  * Gets the sensitivity label of a given column
- * API Version: 2021-06-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getSqlPoolSensitivityLabelOutput(args: GetSqlPoolSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolSensitivityLabelResult> {
     return pulumi.output(args).apply((a: any) => getSqlPoolSensitivityLabel(a, opts))

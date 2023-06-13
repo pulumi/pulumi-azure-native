@@ -51,7 +51,7 @@ def get_partner_topic_event_subscription_delivery_attributes(event_subscription_
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerTopicEventSubscriptionDeliveryAttributesResult:
     """
     Get all delivery attributes for an event subscription of a partner topic.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -76,7 +76,7 @@ def get_partner_topic_event_subscription_delivery_attributes_output(event_subscr
                                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerTopicEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription of a partner topic.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

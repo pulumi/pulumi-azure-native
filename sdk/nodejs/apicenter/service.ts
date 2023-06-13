@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The service entity.
- * API Version: 2023-07-01-preview.
+ * Azure REST API version: 2023-07-01-preview.
  */
 export class Service extends pulumi.CustomResource {
     /**

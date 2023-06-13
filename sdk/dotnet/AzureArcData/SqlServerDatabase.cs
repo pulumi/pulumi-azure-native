@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureArcData
 {
     /// <summary>
     /// Arc Sql Server database
-    /// API Version: 2023-01-15-preview.
+    /// Azure REST API version: 2023-01-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlServerDatabase")]
     public partial class SqlServerDatabase : global::Pulumi.CustomResource

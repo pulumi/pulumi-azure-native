@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Tag-product link details.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export class TagProductLink extends pulumi.CustomResource {
     /**

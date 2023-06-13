@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Logz
     {
         /// <summary>
         /// Response of a list operation.
-        /// API Version: 2022-01-01-preview.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Task<ListSubAccountMonitoredResourcesResult> InvokeAsync(ListSubAccountMonitoredResourcesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSubAccountMonitoredResourcesResult>("azure-native:logz:listSubAccountMonitoredResources", args ?? new ListSubAccountMonitoredResourcesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
-        /// API Version: 2022-01-01-preview.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Output<ListSubAccountMonitoredResourcesResult> Invoke(ListSubAccountMonitoredResourcesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSubAccountMonitoredResourcesResult>("azure-native:logz:listSubAccountMonitoredResources", args ?? new ListSubAccountMonitoredResourcesInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of a Data Pool
- * API Version: 2021-11-01-preview.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDataPoolResult> {
 
@@ -75,7 +75,7 @@ export interface GetDataPoolResult {
 }
 /**
  * Gets the properties of a Data Pool
- * API Version: 2021-11-01-preview.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getDataPoolOutput(args: GetDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataPoolResult> {
     return pulumi.output(args).apply((a: any) => getDataPool(a, opts))

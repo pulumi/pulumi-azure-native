@@ -51,7 +51,7 @@ def get_live_event_status(account_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveEventStatusResult:
     """
     Gets status telemetry of a live event.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -76,7 +76,7 @@ def get_live_event_status_output(account_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveEventStatusResult]:
     """
     Gets status telemetry of a live event.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The Media Services account name.

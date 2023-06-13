@@ -232,7 +232,7 @@ def get_schedule(expand: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
     Get schedule.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'
@@ -275,7 +275,7 @@ def get_schedule_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Get schedule.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'

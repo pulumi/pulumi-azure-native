@@ -158,7 +158,7 @@ def get_access_control_list(access_control_list_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessControlListResult:
     """
     Implements Access Control List GET method.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str access_control_list_name: Name of the Access Control List
@@ -189,7 +189,7 @@ def get_access_control_list_output(access_control_list_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessControlListResult]:
     """
     Implements Access Control List GET method.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str access_control_list_name: Name of the Access Control List

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Keys for endpoint authentication.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listOnlineEndpointKeys(args: ListOnlineEndpointKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListOnlineEndpointKeysResult> {
 
@@ -48,7 +48,7 @@ export interface ListOnlineEndpointKeysResult {
 }
 /**
  * Keys for endpoint authentication.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listOnlineEndpointKeysOutput(args: ListOnlineEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOnlineEndpointKeysResult> {
     return pulumi.output(args).apply((a: any) => listOnlineEndpointKeys(a, opts))

@@ -112,7 +112,7 @@ def get_hunt_comment(hunt_comment_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHuntCommentResult:
     """
     Gets a hunt comment
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str hunt_comment_id: The hunt comment id (GUID)
@@ -145,7 +145,7 @@ def get_hunt_comment_output(hunt_comment_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHuntCommentResult]:
     """
     Gets a hunt comment
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str hunt_comment_id: The hunt comment id (GUID)

@@ -64,7 +64,7 @@ def list_list_effective_virtual_network_by_network_group(network_group_name: Opt
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListListEffectiveVirtualNetworkByNetworkGroupResult:
     """
     Lists all effective virtual networks by specified network group.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str network_group_name: The name of the network group.
@@ -93,7 +93,7 @@ def list_list_effective_virtual_network_by_network_group_output(network_group_na
                                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListListEffectiveVirtualNetworkByNetworkGroupResult]:
     """
     Lists all effective virtual networks by specified network group.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str network_group_name: The name of the network group.

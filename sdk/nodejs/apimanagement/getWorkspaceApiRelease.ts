@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the details of an API release.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getWorkspaceApiRelease(args: GetWorkspaceApiReleaseArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceApiReleaseResult> {
 
@@ -78,7 +78,7 @@ export interface GetWorkspaceApiReleaseResult {
 }
 /**
  * Returns the details of an API release.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getWorkspaceApiReleaseOutput(args: GetWorkspaceApiReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiReleaseResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceApiRelease(a, opts))

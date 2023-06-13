@@ -338,7 +338,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainServiceResult:
     """
     The Get Domain Service operation retrieves a json representation of the Domain Service.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str domain_service_name: The name of the domain service.
@@ -384,7 +384,7 @@ def get_domain_service_output(domain_service_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainServiceResult]:
     """
     The Get Domain Service operation retrieves a json representation of the Domain Service.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str domain_service_name: The name of the domain service.

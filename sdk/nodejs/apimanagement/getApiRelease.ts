@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the details of an API release.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiRelease(args: GetApiReleaseArgs, opts?: pulumi.InvokeOptions): Promise<GetApiReleaseResult> {
 
@@ -73,7 +73,7 @@ export interface GetApiReleaseResult {
 }
 /**
  * Returns the details of an API release.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiReleaseOutput(args: GetApiReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiReleaseResult> {
     return pulumi.output(args).apply((a: any) => getApiRelease(a, opts))

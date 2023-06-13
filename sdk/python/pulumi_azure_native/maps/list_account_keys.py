@@ -85,7 +85,7 @@ def list_account_keys(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccountKeysResult:
     """
     Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
-    API Version: 2021-02-01.
+    Azure REST API version: 2021-02-01.
 
 
     :param str account_name: The name of the Maps Account.
@@ -110,7 +110,7 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
     """
     Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
-    API Version: 2021-02-01.
+    Azure REST API version: 2021-02-01.
 
 
     :param str account_name: The name of the Maps Account.

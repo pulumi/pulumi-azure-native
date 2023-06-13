@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a DNS forwarding ruleset properties.
- * API Version: 2022-07-01.
+ * Azure REST API version: 2022-07-01.
  */
 export function getDnsForwardingRuleset(args: GetDnsForwardingRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsForwardingRulesetResult> {
 
@@ -78,7 +78,7 @@ export interface GetDnsForwardingRulesetResult {
 }
 /**
  * Gets a DNS forwarding ruleset properties.
- * API Version: 2022-07-01.
+ * Azure REST API version: 2022-07-01.
  */
 export function getDnsForwardingRulesetOutput(args: GetDnsForwardingRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsForwardingRulesetResult> {
     return pulumi.output(args).apply((a: any) => getDnsForwardingRuleset(a, opts))

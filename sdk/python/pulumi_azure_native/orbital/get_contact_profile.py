@@ -194,7 +194,7 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactProfileResult:
     """
     Gets the specified contact Profile in a specified resource group.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str contact_profile_name: Contact Profile name.
@@ -228,7 +228,7 @@ def get_contact_profile_output(contact_profile_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactProfileResult]:
     """
     Gets the specified contact Profile in a specified resource group.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str contact_profile_name: Contact Profile name.

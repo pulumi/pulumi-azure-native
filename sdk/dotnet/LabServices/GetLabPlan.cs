@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Retrieves the properties of a Lab Plan.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetLabPlanResult> InvokeAsync(GetLabPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabPlanResult>("azure-native:labservices:getLabPlan", args ?? new GetLabPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of a Lab Plan.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetLabPlanResult> Invoke(GetLabPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabPlanResult>("azure-native:labservices:getLabPlan", args ?? new GetLabPlanInvokeArgs(), options.WithDefaults());

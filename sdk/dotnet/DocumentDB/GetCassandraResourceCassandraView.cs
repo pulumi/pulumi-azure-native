@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Gets the Cassandra view under an existing Azure Cosmos DB database account.
-        /// API Version: 2023-03-15-preview.
+        /// Azure REST API version: 2023-03-15-preview.
         /// </summary>
         public static Task<GetCassandraResourceCassandraViewResult> InvokeAsync(GetCassandraResourceCassandraViewArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCassandraResourceCassandraViewResult>("azure-native:documentdb:getCassandraResourceCassandraView", args ?? new GetCassandraResourceCassandraViewArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Cassandra view under an existing Azure Cosmos DB database account.
-        /// API Version: 2023-03-15-preview.
+        /// Azure REST API version: 2023-03-15-preview.
         /// </summary>
         public static Output<GetCassandraResourceCassandraViewResult> Invoke(GetCassandraResourceCassandraViewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCassandraResourceCassandraViewResult>("azure-native:documentdb:getCassandraResourceCassandraView", args ?? new GetCassandraResourceCassandraViewInvokeArgs(), options.WithDefaults());

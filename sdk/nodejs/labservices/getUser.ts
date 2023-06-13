@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties of a lab user.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
@@ -91,7 +91,7 @@ export interface GetUserResult {
 }
 /**
  * Returns the properties of a lab user.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))

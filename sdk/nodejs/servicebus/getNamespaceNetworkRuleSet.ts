@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets NetworkRuleSet for a Namespace.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceNetworkRuleSetResult> {
 
@@ -78,7 +78,7 @@ export interface GetNamespaceNetworkRuleSetResult {
 }
 /**
  * Gets NetworkRuleSet for a Namespace.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getNamespaceNetworkRuleSetOutput(args: GetNamespaceNetworkRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceNetworkRuleSetResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceNetworkRuleSet(a, opts))

@@ -332,7 +332,7 @@ def get_web_pub_sub(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubResult:
     """
     Get the resource and its properties.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -377,7 +377,7 @@ def get_web_pub_sub_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubResult]:
     """
     Get the resource and its properties.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

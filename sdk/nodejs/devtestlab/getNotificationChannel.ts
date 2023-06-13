@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get notification channel.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
 
@@ -100,7 +100,7 @@ export interface GetNotificationChannelResult {
 }
 /**
  * Get notification channel.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
     return pulumi.output(args).apply((a: any) => getNotificationChannel(a, opts))

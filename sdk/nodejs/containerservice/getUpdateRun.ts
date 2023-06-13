@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a UpdateRun
- * API Version: 2023-03-15-preview.
+ * Azure REST API version: 2023-03-15-preview.
  */
 export function getUpdateRun(args: GetUpdateRunArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateRunResult> {
 
@@ -81,7 +81,7 @@ export interface GetUpdateRunResult {
 }
 /**
  * Get a UpdateRun
- * API Version: 2023-03-15-preview.
+ * Azure REST API version: 2023-03-15-preview.
  */
 export function getUpdateRunOutput(args: GetUpdateRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateRunResult> {
     return pulumi.output(args).apply((a: any) => getUpdateRun(a, opts))

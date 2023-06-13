@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an iSCSI Target.
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getIscsiTarget(args: GetIscsiTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiTargetResult> {
 
@@ -103,7 +103,7 @@ export interface GetIscsiTargetResult {
 }
 /**
  * Get an iSCSI Target.
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getIscsiTargetOutput(args: GetIscsiTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiTargetResult> {
     return pulumi.output(args).apply((a: any) => getIscsiTarget(a, opts))

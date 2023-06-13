@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get ownership identifier for domain
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainOwnershipIdentifierResult> {
 
@@ -60,7 +60,7 @@ export interface GetDomainOwnershipIdentifierResult {
 }
 /**
  * Description for Get ownership identifier for domain
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getDomainOwnershipIdentifierOutput(args: GetDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainOwnershipIdentifierResult> {
     return pulumi.output(args).apply((a: any) => getDomainOwnershipIdentifier(a, opts))

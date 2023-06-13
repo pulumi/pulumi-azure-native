@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the default rollout details.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2020-11-20.
  */
 export function getDefaultRollout(args: GetDefaultRolloutArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultRolloutResult> {
 
@@ -54,7 +54,7 @@ export interface GetDefaultRolloutResult {
 }
 /**
  * Gets the default rollout details.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2020-11-20.
  */
 export function getDefaultRolloutOutput(args: GetDefaultRolloutOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultRolloutResult> {
     return pulumi.output(args).apply((a: any) => getDefaultRollout(a, opts))

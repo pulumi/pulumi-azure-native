@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Dapr Component.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export class ConnectedEnvironmentsDaprComponent extends pulumi.CustomResource {
     /**

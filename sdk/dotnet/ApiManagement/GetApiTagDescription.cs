@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get Tag description in scope of API
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetApiTagDescriptionResult> InvokeAsync(GetApiTagDescriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiTagDescriptionResult>("azure-native:apimanagement:getApiTagDescription", args ?? new GetApiTagDescriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Tag description in scope of API
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetApiTagDescriptionResult> Invoke(GetApiTagDescriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiTagDescriptionResult>("azure-native:apimanagement:getApiTagDescription", args ?? new GetApiTagDescriptionInvokeArgs(), options.WithDefaults());

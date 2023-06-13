@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The VirtualMachineTemplates resource definition.
- * API Version: 2020-06-05-preview.
- * Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2020-06-05-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
  */
 export class VirtualMachineTemplate extends pulumi.CustomResource {
     /**

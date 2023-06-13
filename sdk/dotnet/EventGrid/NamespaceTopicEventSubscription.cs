@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Event Subscription.
-    /// API Version: 2023-06-01-preview.
+    /// Azure REST API version: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:NamespaceTopicEventSubscription")]
     public partial class NamespaceTopicEventSubscription : global::Pulumi.CustomResource

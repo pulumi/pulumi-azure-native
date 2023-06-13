@@ -79,7 +79,7 @@ def get_provider_registration(provider_namespace: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderRegistrationResult:
     """
     Gets the provider registration details.
-    API Version: 2020-11-20.
+    Azure REST API version: 2020-11-20.
 
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -101,7 +101,7 @@ def get_provider_registration_output(provider_namespace: Optional[pulumi.Input[s
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProviderRegistrationResult]:
     """
     Gets the provider registration details.
-    API Version: 2020-11-20.
+    Azure REST API version: 2020-11-20.
 
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.

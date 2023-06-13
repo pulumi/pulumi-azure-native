@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StorageCache
     {
         /// <summary>
         /// Returns a cache.
-        /// API Version: 2023-05-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:storagecache:getCache", args ?? new GetCacheArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a cache.
-        /// API Version: 2023-05-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:storagecache:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());

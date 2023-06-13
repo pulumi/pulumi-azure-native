@@ -147,7 +147,7 @@ def get_volume_snapshot(pool_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeSnapshotResult:
     """
     Get a VolumeSnapshot
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str pool_name: Pool Object
@@ -180,7 +180,7 @@ def get_volume_snapshot_output(pool_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeSnapshotResult]:
     """
     Get a VolumeSnapshot
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str pool_name: Pool Object

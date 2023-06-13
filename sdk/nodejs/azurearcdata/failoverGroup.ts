@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A failover group resource.
- * API Version: 2023-01-15-preview.
+ * Azure REST API version: 2023-01-15-preview.
  */
 export class FailoverGroup extends pulumi.CustomResource {
     /**

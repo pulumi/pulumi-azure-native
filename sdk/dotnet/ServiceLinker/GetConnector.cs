@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceLinker
     {
         /// <summary>
         /// Returns Connector resource for a given name.
-        /// API Version: 2022-11-01-preview.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:servicelinker:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns Connector resource for a given name.
-        /// API Version: 2022-11-01-preview.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:servicelinker:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());

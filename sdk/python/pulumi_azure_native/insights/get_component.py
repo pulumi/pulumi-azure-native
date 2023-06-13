@@ -410,7 +410,7 @@ def get_component(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentResult:
     """
     Returns an Application Insights component.
-    API Version: 2020-02-02.
+    Azure REST API version: 2020-02-02.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -462,7 +462,7 @@ def get_component_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
     """
     Returns an Application Insights component.
-    API Version: 2020-02-02.
+    Azure REST API version: 2020-02-02.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

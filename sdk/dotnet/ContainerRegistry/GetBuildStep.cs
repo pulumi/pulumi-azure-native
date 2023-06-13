@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the build step for a build task.
-        /// API Version: 2018-02-01-preview.
+        /// Azure REST API version: 2018-02-01-preview.
         /// </summary>
         public static Task<GetBuildStepResult> InvokeAsync(GetBuildStepArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildStepResult>("azure-native:containerregistry:getBuildStep", args ?? new GetBuildStepArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the build step for a build task.
-        /// API Version: 2018-02-01-preview.
+        /// Azure REST API version: 2018-02-01-preview.
         /// </summary>
         public static Output<GetBuildStepResult> Invoke(GetBuildStepInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildStepResult>("azure-native:containerregistry:getBuildStep", args ?? new GetBuildStepInvokeArgs(), options.WithDefaults());

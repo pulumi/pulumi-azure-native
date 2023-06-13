@@ -87,7 +87,7 @@ def get_tag_by_product(product_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagByProductResult:
     """
     Get tag associated with the Product.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
@@ -118,7 +118,7 @@ def get_tag_by_product_output(product_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagByProductResult]:
     """
     Get tag associated with the Product.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.

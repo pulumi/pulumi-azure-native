@@ -122,7 +122,7 @@ def get_web_app_public_certificate(name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPublicCertificateResult:
     """
     Description for Get the named public certificate for an app (or deployment slot, if specified).
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -153,7 +153,7 @@ def get_web_app_public_certificate_output(name: Optional[pulumi.Input[str]] = No
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPublicCertificateResult]:
     """
     Description for Get the named public certificate for an app (or deployment slot, if specified).
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.

@@ -62,7 +62,7 @@ def get_component_current_billing_feature(resource_group_name: Optional[str] = N
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentCurrentBillingFeatureResult:
     """
     Returns current billing features for an Application Insights component.
-    API Version: 2015-05-01.
+    Azure REST API version: 2015-05-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -85,7 +85,7 @@ def get_component_current_billing_feature_output(resource_group_name: Optional[p
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentCurrentBillingFeatureResult]:
     """
     Returns current billing features for an Application Insights component.
-    API Version: 2015-05-01.
+    Azure REST API version: 2015-05-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

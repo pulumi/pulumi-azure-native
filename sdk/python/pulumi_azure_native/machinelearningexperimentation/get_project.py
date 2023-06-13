@@ -195,7 +195,7 @@ def get_project(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     Gets the properties of the specified machine learning project.
-    API Version: 2017-05-01-preview.
+    Azure REST API version: 2017-05-01-preview.
 
 
     :param str account_name: The name of the machine learning team account.
@@ -235,7 +235,7 @@ def get_project_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
     Gets the properties of the specified machine learning project.
-    API Version: 2017-05-01-preview.
+    Azure REST API version: 2017-05-01-preview.
 
 
     :param str account_name: The name of the machine learning team account.

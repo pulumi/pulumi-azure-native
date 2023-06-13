@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Retrieves the connection info for the notebook workspace
-        /// API Version: 2023-04-15.
+        /// Azure REST API version: 2023-04-15.
         /// </summary>
         public static Task<ListNotebookWorkspaceConnectionInfoResult> InvokeAsync(ListNotebookWorkspaceConnectionInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNotebookWorkspaceConnectionInfoResult>("azure-native:documentdb:listNotebookWorkspaceConnectionInfo", args ?? new ListNotebookWorkspaceConnectionInfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the connection info for the notebook workspace
-        /// API Version: 2023-04-15.
+        /// Azure REST API version: 2023-04-15.
         /// </summary>
         public static Output<ListNotebookWorkspaceConnectionInfoResult> Invoke(ListNotebookWorkspaceConnectionInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNotebookWorkspaceConnectionInfoResult>("azure-native:documentdb:listNotebookWorkspaceConnectionInfo", args ?? new ListNotebookWorkspaceConnectionInfoInvokeArgs(), options.WithDefaults());

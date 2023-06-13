@@ -85,7 +85,7 @@ def list_private_cloud_admin_credentials(private_cloud_name: Optional[str] = Non
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPrivateCloudAdminCredentialsResult:
     """
     Administrative credentials for accessing vCenter and NSX-T
-    API Version: 2022-05-01.
+    Azure REST API version: 2022-05-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -110,7 +110,7 @@ def list_private_cloud_admin_credentials_output(private_cloud_name: Optional[pul
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPrivateCloudAdminCredentialsResult]:
     """
     Administrative credentials for accessing vCenter and NSX-T
-    API Version: 2022-05-01.
+    Azure REST API version: 2022-05-01.
 
 
     :param str private_cloud_name: Name of the private cloud

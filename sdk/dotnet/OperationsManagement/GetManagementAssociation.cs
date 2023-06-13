@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.OperationsManagement
     {
         /// <summary>
         /// Retrieves the user ManagementAssociation.
-        /// API Version: 2015-11-01-preview.
+        /// Azure REST API version: 2015-11-01-preview.
         /// </summary>
         public static Task<GetManagementAssociationResult> InvokeAsync(GetManagementAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementAssociationResult>("azure-native:operationsmanagement:getManagementAssociation", args ?? new GetManagementAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the user ManagementAssociation.
-        /// API Version: 2015-11-01-preview.
+        /// Azure REST API version: 2015-11-01-preview.
         /// </summary>
         public static Output<GetManagementAssociationResult> Invoke(GetManagementAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementAssociationResult>("azure-native:operationsmanagement:getManagementAssociation", args ?? new GetManagementAssociationInvokeArgs(), options.WithDefaults());

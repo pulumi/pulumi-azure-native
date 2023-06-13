@@ -146,7 +146,7 @@ def get_wordpress_instance(php_workload_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWordpressInstanceResult:
     """
     Gets the WordPress instance resource.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2021-12-01-preview.
 
 
     :param str php_workload_name: Php workload name
@@ -176,7 +176,7 @@ def get_wordpress_instance_output(php_workload_name: Optional[pulumi.Input[str]]
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWordpressInstanceResult]:
     """
     Gets the WordPress instance resource.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2021-12-01-preview.
 
 
     :param str php_workload_name: Php workload name

@@ -99,7 +99,7 @@ def get_certificate(certificate_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Get the certificate resource.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str certificate_name: The name of the certificate resource.
@@ -128,7 +128,7 @@ def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Get the certificate resource.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str certificate_name: The name of the certificate resource.

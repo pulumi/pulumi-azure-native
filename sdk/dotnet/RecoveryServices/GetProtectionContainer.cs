@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Gets details of the specific container registered to your Recovery Services Vault.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetProtectionContainerResult> InvokeAsync(GetProtectionContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectionContainerResult>("azure-native:recoveryservices:getProtectionContainer", args ?? new GetProtectionContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets details of the specific container registered to your Recovery Services Vault.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetProtectionContainerResult> Invoke(GetProtectionContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectionContainerResult>("azure-native:recoveryservices:getProtectionContainer", args ?? new GetProtectionContainerInvokeArgs(), options.WithDefaults());

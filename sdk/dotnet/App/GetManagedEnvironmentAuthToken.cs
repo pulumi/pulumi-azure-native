@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Checks if resource name is available.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetManagedEnvironmentAuthTokenResult> InvokeAsync(GetManagedEnvironmentAuthTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedEnvironmentAuthTokenResult>("azure-native:app:getManagedEnvironmentAuthToken", args ?? new GetManagedEnvironmentAuthTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Checks if resource name is available.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetManagedEnvironmentAuthTokenResult> Invoke(GetManagedEnvironmentAuthTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentAuthTokenResult>("azure-native:app:getManagedEnvironmentAuthToken", args ?? new GetManagedEnvironmentAuthTokenInvokeArgs(), options.WithDefaults());

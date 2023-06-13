@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get batch operation status
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function getGlobalUserOperationBatchStatus(args: GetGlobalUserOperationBatchStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserOperationBatchStatusResult> {
 
@@ -42,7 +42,7 @@ export interface GetGlobalUserOperationBatchStatusResult {
 }
 /**
  * Get batch operation status
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function getGlobalUserOperationBatchStatusOutput(args: GetGlobalUserOperationBatchStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserOperationBatchStatusResult> {
     return pulumi.output(args).apply((a: any) => getGlobalUserOperationBatchStatus(a, opts))

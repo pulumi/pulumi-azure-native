@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Azure Active Directory administrator.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getServerAzureADAdministrator(args: GetServerAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAzureADAdministratorResult> {
 
@@ -72,7 +72,7 @@ export interface GetServerAzureADAdministratorResult {
 }
 /**
  * Gets a Azure Active Directory administrator.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getServerAzureADAdministratorOutput(args: GetServerAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAzureADAdministratorResult> {
     return pulumi.output(args).apply((a: any) => getServerAzureADAdministrator(a, opts))

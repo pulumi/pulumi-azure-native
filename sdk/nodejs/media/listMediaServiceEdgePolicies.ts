@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List all the media edge policies associated with the Media Services account.
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function listMediaServiceEdgePolicies(args: ListMediaServiceEdgePoliciesArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaServiceEdgePoliciesResult> {
 
@@ -41,7 +41,7 @@ export interface ListMediaServiceEdgePoliciesResult {
 }
 /**
  * List all the media edge policies associated with the Media Services account.
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function listMediaServiceEdgePoliciesOutput(args: ListMediaServiceEdgePoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMediaServiceEdgePoliciesResult> {
     return pulumi.output(args).apply((a: any) => listMediaServiceEdgePolicies(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a gallery image definition.
- * API Version: 2022-03-03.
+ * Azure REST API version: 2022-03-03.
  */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
 
@@ -123,7 +123,7 @@ export interface GetGalleryImageResult {
 }
 /**
  * Retrieves information about a gallery image definition.
- * API Version: 2022-03-03.
+ * Azure REST API version: 2022-03-03.
  */
 export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageResult> {
     return pulumi.output(args).apply((a: any) => getGalleryImage(a, opts))

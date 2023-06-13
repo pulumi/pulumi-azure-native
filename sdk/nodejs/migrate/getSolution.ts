@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Solution REST Resource.
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionResult> {
 
@@ -63,7 +63,7 @@ export interface GetSolutionResult {
 }
 /**
  * Solution REST Resource.
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
     return pulumi.output(args).apply((a: any) => getSolution(a, opts))

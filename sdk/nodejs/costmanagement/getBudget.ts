@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the budget for the scope by budget name.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
 
@@ -154,7 +154,7 @@ export interface GetBudgetResult {
 }
 /**
  * Gets the budget for the scope by budget name.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
     return pulumi.output(args).apply((a: any) => getBudget(a, opts))

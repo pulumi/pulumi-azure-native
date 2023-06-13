@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets the connection strings of an app.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<ListWebAppConnectionStringsResult> InvokeAsync(ListWebAppConnectionStringsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppConnectionStringsResult>("azure-native:web:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets the connection strings of an app.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<ListWebAppConnectionStringsResult> Invoke(ListWebAppConnectionStringsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppConnectionStringsResult>("azure-native:web:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsInvokeArgs(), options.WithDefaults());

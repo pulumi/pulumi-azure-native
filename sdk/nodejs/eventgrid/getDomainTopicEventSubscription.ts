@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a nested event subscription for a domain topic.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getDomainTopicEventSubscription(args: GetDomainTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicEventSubscriptionResult> {
 
@@ -112,7 +112,7 @@ export interface GetDomainTopicEventSubscriptionResult {
 }
 /**
  * Get properties of a nested event subscription for a domain topic.
- * API Version: 2022-06-15.
+ * Azure REST API version: 2022-06-15.
  */
 export function getDomainTopicEventSubscriptionOutput(args: GetDomainTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getDomainTopicEventSubscription(a, opts))

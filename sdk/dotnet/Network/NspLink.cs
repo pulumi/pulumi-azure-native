@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The network security perimeter link resource
-    /// API Version: 2021-02-01-preview.
+    /// Azure REST API version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NspLink")]
     public partial class NspLink : global::Pulumi.CustomResource

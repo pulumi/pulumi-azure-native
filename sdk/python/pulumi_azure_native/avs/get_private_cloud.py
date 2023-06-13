@@ -350,7 +350,7 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateCloudResult:
     """
     A private cloud resource
-    API Version: 2022-05-01.
+    Azure REST API version: 2022-05-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -397,7 +397,7 @@ def get_private_cloud_output(private_cloud_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateCloudResult]:
     """
     A private cloud resource
-    API Version: 2022-05-01.
+    Azure REST API version: 2022-05-01.
 
 
     :param str private_cloud_name: Name of the private cloud

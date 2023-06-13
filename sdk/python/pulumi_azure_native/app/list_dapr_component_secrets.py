@@ -51,7 +51,7 @@ def list_dapr_component_secrets(component_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDaprComponentSecretsResult:
     """
     Dapr component Secrets Collection for ListSecrets Action.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -76,7 +76,7 @@ def list_dapr_component_secrets_output(component_name: Optional[pulumi.Input[str
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDaprComponentSecretsResult]:
     """
     Dapr component Secrets Collection for ListSecrets Action.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str component_name: Name of the Dapr Component.

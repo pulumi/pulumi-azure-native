@@ -171,7 +171,7 @@ def get_web_app_premier_add_on_slot(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPremierAddOnSlotResult:
     """
     Description for Gets a named add-on of an app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -209,7 +209,7 @@ def get_web_app_premier_add_on_slot_output(name: Optional[pulumi.Input[str]] = N
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPremierAddOnSlotResult]:
     """
     Description for Gets a named add-on of an app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.

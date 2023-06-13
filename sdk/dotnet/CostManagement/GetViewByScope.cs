@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// Gets the view for the defined scope by view name.
-        /// API Version: 2023-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Task<GetViewByScopeResult> InvokeAsync(GetViewByScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetViewByScopeResult>("azure-native:costmanagement:getViewByScope", args ?? new GetViewByScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the view for the defined scope by view name.
-        /// API Version: 2023-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Output<GetViewByScopeResult> Invoke(GetViewByScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetViewByScopeResult>("azure-native:costmanagement:getViewByScope", args ?? new GetViewByScopeInvokeArgs(), options.WithDefaults());

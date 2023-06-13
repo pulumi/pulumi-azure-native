@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a database.
- * API Version: 2022-01-01.
+ * Azure REST API version: 2022-01-01.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
 
@@ -67,7 +67,7 @@ export interface GetDatabaseResult {
 }
 /**
  * Gets information about a database.
- * API Version: 2022-01-01.
+ * Azure REST API version: 2022-01-01.
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabase(a, opts))

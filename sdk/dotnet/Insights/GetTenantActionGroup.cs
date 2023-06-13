@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get a tenant action group.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetTenantActionGroupResult> InvokeAsync(GetTenantActionGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTenantActionGroupResult>("azure-native:insights:getTenantActionGroup", args ?? new GetTenantActionGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a tenant action group.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetTenantActionGroupResult> Invoke(GetTenantActionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantActionGroupResult>("azure-native:insights:getTenantActionGroup", args ?? new GetTenantActionGroupInvokeArgs(), options.WithDefaults());

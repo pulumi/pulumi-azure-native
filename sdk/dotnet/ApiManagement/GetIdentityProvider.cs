@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the configuration details of the identity Provider configured in specified service instance.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetIdentityProviderResult> InvokeAsync(GetIdentityProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityProviderResult>("azure-native:apimanagement:getIdentityProvider", args ?? new GetIdentityProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the configuration details of the identity Provider configured in specified service instance.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetIdentityProviderResult> Invoke(GetIdentityProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityProviderResult>("azure-native:apimanagement:getIdentityProvider", args ?? new GetIdentityProviderInvokeArgs(), options.WithDefaults());

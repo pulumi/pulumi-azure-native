@@ -194,7 +194,7 @@ def get_spatial_anchors_account(account_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpatialAnchorsAccountResult:
     """
     Retrieve a Spatial Anchors Account.
-    API Version: 2021-01-01.
+    Azure REST API version: 2021-01-01.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -228,7 +228,7 @@ def get_spatial_anchors_account_output(account_name: Optional[pulumi.Input[str]]
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpatialAnchorsAccountResult]:
     """
     Retrieve a Spatial Anchors Account.
-    API Version: 2021-01-01.
+    Azure REST API version: 2021-01-01.
 
 
     :param str account_name: Name of an Mixed Reality Account.

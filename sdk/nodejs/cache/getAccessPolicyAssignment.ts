@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the list of assignments for an access policy of a redis cache
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getAccessPolicyAssignment(args: GetAccessPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyAssignmentResult> {
 
@@ -68,7 +68,7 @@ export interface GetAccessPolicyAssignmentResult {
 }
 /**
  * Gets the list of assignments for an access policy of a redis cache
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getAccessPolicyAssignmentOutput(args: GetAccessPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getAccessPolicyAssignment(a, opts))

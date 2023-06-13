@@ -99,7 +99,7 @@ def get_registry_environment_container(environment_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryEnvironmentContainerResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str environment_name: Container name. This is case-sensitive.
@@ -128,7 +128,7 @@ def get_registry_environment_container_output(environment_name: Optional[pulumi.
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryEnvironmentContainerResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str environment_name: Container name. This is case-sensitive.

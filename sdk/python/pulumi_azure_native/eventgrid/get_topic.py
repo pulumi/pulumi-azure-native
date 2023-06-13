@@ -240,7 +240,7 @@ def get_topic(resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
     Get properties of a topic.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
@@ -278,7 +278,7 @@ def get_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
     Get properties of a topic.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.

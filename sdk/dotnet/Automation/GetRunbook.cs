@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Retrieve the runbook identified by runbook name.
-        /// API Version: 2022-08-08.
+        /// Azure REST API version: 2022-08-08.
         /// </summary>
         public static Task<GetRunbookResult> InvokeAsync(GetRunbookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRunbookResult>("azure-native:automation:getRunbook", args ?? new GetRunbookArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the runbook identified by runbook name.
-        /// API Version: 2022-08-08.
+        /// Azure REST API version: 2022-08-08.
         /// </summary>
         public static Output<GetRunbookResult> Invoke(GetRunbookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRunbookResult>("azure-native:automation:getRunbook", args ?? new GetRunbookInvokeArgs(), options.WithDefaults());

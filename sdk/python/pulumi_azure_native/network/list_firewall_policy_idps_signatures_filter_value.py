@@ -50,7 +50,7 @@ def list_firewall_policy_idps_signatures_filter_value(filter_name: Optional[str]
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFirewallPolicyIdpsSignaturesFilterValueResult:
     """
     Retrieves the current filter values for the signatures overrides
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str filter_name: Describes the name of the column which values will be returned
@@ -75,7 +75,7 @@ def list_firewall_policy_idps_signatures_filter_value_output(filter_name: Option
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFirewallPolicyIdpsSignaturesFilterValueResult]:
     """
     Retrieves the current filter values for the signatures overrides
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str filter_name: Describes the name of the column which values will be returned

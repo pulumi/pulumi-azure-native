@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a markup rule by its rule name.
- * API Version: 2022-10-05-preview.
+ * Azure REST API version: 2022-10-05-preview.
  */
 export function getMarkupRule(args: GetMarkupRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMarkupRuleResult> {
 
@@ -79,7 +79,7 @@ export interface GetMarkupRuleResult {
 }
 /**
  * Get a markup rule by its rule name.
- * API Version: 2022-10-05-preview.
+ * Azure REST API version: 2022-10-05-preview.
  */
 export function getMarkupRuleOutput(args: GetMarkupRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarkupRuleResult> {
     return pulumi.output(args).apply((a: any) => getMarkupRule(a, opts))

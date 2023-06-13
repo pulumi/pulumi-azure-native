@@ -97,7 +97,7 @@ def list_web_app_application_settings(name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppApplicationSettingsResult:
     """
     Description for Gets the application settings of an app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -123,7 +123,7 @@ def list_web_app_application_settings_output(name: Optional[pulumi.Input[str]] =
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppApplicationSettingsResult]:
     """
     Description for Gets the application settings of an app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.

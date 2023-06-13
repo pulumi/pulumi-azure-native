@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Continuous Export configuration for this export id.
- * API Version: 2015-05-01.
+ * Azure REST API version: 2015-05-01.
  */
 export function getExportConfiguration(args: GetExportConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetExportConfigurationResult> {
 
@@ -116,7 +116,7 @@ export interface GetExportConfigurationResult {
 }
 /**
  * Get the Continuous Export configuration for this export id.
- * API Version: 2015-05-01.
+ * Azure REST API version: 2015-05-01.
  */
 export function getExportConfigurationOutput(args: GetExportConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getExportConfiguration(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the named value specified by its identifier.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetWorkspaceNamedValueResult> InvokeAsync(GetWorkspaceNamedValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceNamedValueResult>("azure-native:apimanagement:getWorkspaceNamedValue", args ?? new GetWorkspaceNamedValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the named value specified by its identifier.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetWorkspaceNamedValueResult> Invoke(GetWorkspaceNamedValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceNamedValueResult>("azure-native:apimanagement:getWorkspaceNamedValue", args ?? new GetWorkspaceNamedValueInvokeArgs(), options.WithDefaults());

@@ -66,7 +66,7 @@ def list_catalog_device_insights(catalog_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCatalogDeviceInsightsResult:
     """
     Lists device insights for catalog.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog
@@ -101,7 +101,7 @@ def list_catalog_device_insights_output(catalog_name: Optional[pulumi.Input[str]
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCatalogDeviceInsightsResult]:
     """
     Lists device insights for catalog.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog

@@ -254,7 +254,7 @@ def get_aml_filesystem(aml_filesystem_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmlFilesystemResult:
     """
     Returns an AML file system.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
@@ -293,7 +293,7 @@ def get_aml_filesystem_output(aml_filesystem_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAmlFilesystemResult]:
     """
     Returns an AML file system.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Peering
     {
         /// <summary>
         /// Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetRegisteredAsnResult> InvokeAsync(GetRegisteredAsnArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredAsnResult>("azure-native:peering:getRegisteredAsn", args ?? new GetRegisteredAsnArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetRegisteredAsnResult> Invoke(GetRegisteredAsnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredAsnResult>("azure-native:peering:getRegisteredAsn", args ?? new GetRegisteredAsnInvokeArgs(), options.WithDefaults());

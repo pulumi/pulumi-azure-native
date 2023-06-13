@@ -170,7 +170,7 @@ def get_management_group_diagnostic_setting(management_group_id: Optional[str] =
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupDiagnosticSettingResult:
     """
     Gets the active management group diagnostic settings for the specified resource.
-    API Version: 2021-05-01-preview.
+    Azure REST API version: 2021-05-01-preview.
 
 
     :param str management_group_id: The management group id.
@@ -202,7 +202,7 @@ def get_management_group_diagnostic_setting_output(management_group_id: Optional
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupDiagnosticSettingResult]:
     """
     Gets the active management group diagnostic settings for the specified resource.
-    API Version: 2021-05-01-preview.
+    Azure REST API version: 2021-05-01-preview.
 
 
     :param str management_group_id: The management group id.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists policy resources that reference the policy fragment.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function listPolicyFragmentReferences(args: ListPolicyFragmentReferencesArgs, opts?: pulumi.InvokeOptions): Promise<ListPolicyFragmentReferencesResult> {
 
@@ -65,7 +65,7 @@ export interface ListPolicyFragmentReferencesResult {
 }
 /**
  * Lists policy resources that reference the policy fragment.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function listPolicyFragmentReferencesOutput(args: ListPolicyFragmentReferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPolicyFragmentReferencesResult> {
     return pulumi.output(args).apply((a: any) => listPolicyFragmentReferences(a, opts))

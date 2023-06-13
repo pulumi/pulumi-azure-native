@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets the backup configuration of an app.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<ListWebAppBackupConfigurationSlotResult> InvokeAsync(ListWebAppBackupConfigurationSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupConfigurationSlotResult>("azure-native:web:listWebAppBackupConfigurationSlot", args ?? new ListWebAppBackupConfigurationSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets the backup configuration of an app.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<ListWebAppBackupConfigurationSlotResult> Invoke(ListWebAppBackupConfigurationSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppBackupConfigurationSlotResult>("azure-native:web:listWebAppBackupConfigurationSlot", args ?? new ListWebAppBackupConfigurationSlotInvokeArgs(), options.WithDefaults());

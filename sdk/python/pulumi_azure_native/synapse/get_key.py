@@ -98,7 +98,7 @@ def get_key(key_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
     Gets a workspace key
-    API Version: 2021-06-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str key_name: The name of the workspace key
@@ -127,7 +127,7 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
     Gets a workspace key
-    API Version: 2021-06-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str key_name: The name of the workspace key

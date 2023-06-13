@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Authorization access policy contract.
-    /// API Version: 2022-08-01.
+    /// Azure REST API version: 2022-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:AuthorizationAccessPolicy")]
     public partial class AuthorizationAccessPolicy : global::Pulumi.CustomResource

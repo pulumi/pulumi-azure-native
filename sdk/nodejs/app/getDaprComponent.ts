@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Dapr Component.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getDaprComponent(args: GetDaprComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetDaprComponentResult> {
 
@@ -91,7 +91,7 @@ export interface GetDaprComponentResult {
 }
 /**
  * Dapr Component.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getDaprComponentOutput(args: GetDaprComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaprComponentResult> {
     return pulumi.output(args).apply((a: any) => getDaprComponent(a, opts))

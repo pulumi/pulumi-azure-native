@@ -110,7 +110,7 @@ def get_step(resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStepResult:
     """
     The resource representation of a rollout step.
-    API Version: 2019-11-01-preview.
+    Azure REST API version: 2019-11-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -137,7 +137,7 @@ def get_step_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStepResult]:
     """
     The resource representation of a rollout step.
-    API Version: 2019-11-01-preview.
+    Azure REST API version: 2019-11-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

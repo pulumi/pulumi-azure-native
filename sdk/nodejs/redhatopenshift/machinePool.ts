@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * MachinePool represents a MachinePool
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export class MachinePool extends pulumi.CustomResource {
     /**

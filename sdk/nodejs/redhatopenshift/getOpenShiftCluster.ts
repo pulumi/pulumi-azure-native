@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation returns properties of a OpenShift cluster.
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export function getOpenShiftCluster(args: GetOpenShiftClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftClusterResult> {
 
@@ -98,7 +98,7 @@ export interface GetOpenShiftClusterResult {
 }
 /**
  * The operation returns properties of a OpenShift cluster.
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export function getOpenShiftClusterOutput(args: GetOpenShiftClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftClusterResult> {
     return pulumi.output(args).apply((a: any) => getOpenShiftCluster(a, opts))

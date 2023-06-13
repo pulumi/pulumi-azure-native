@@ -171,7 +171,7 @@ def get_database_principal_assignment(cluster_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasePrincipalAssignmentResult:
     """
     Gets a Kusto cluster database principalAssignment.
-    API Version: 2022-12-29.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -209,7 +209,7 @@ def get_database_principal_assignment_output(cluster_name: Optional[pulumi.Input
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasePrincipalAssignmentResult]:
     """
     Gets a Kusto cluster database principalAssignment.
-    API Version: 2022-12-29.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.

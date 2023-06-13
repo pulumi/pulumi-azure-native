@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a managed private endpoint.
-    /// API Version: 2022-12-29.
-    /// Previous API Version: 2021-08-27. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-08-27
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ManagedPrivateEndpoint")]
     public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource

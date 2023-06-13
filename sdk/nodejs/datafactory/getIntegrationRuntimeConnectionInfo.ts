@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the on-premises integration runtime connection information for encrypting the on-premises data source credentials.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getIntegrationRuntimeConnectionInfo(args: GetIntegrationRuntimeConnectionInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeConnectionInfoResult> {
 
@@ -64,7 +64,7 @@ export interface GetIntegrationRuntimeConnectionInfoResult {
 }
 /**
  * Gets the on-premises integration runtime connection information for encrypting the on-premises data source credentials.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getIntegrationRuntimeConnectionInfoOutput(args: GetIntegrationRuntimeConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeConnectionInfoResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationRuntimeConnectionInfo(a, opts))

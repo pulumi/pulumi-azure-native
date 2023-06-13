@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the tenant configuration.
- * API Version: 2020-09-01-preview.
+ * Azure REST API version: 2020-09-01-preview.
  */
 export function getTenantConfiguration(args: GetTenantConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantConfigurationResult> {
 
@@ -46,7 +46,7 @@ export interface GetTenantConfigurationResult {
 }
 /**
  * Gets the tenant configuration.
- * API Version: 2020-09-01-preview.
+ * Azure REST API version: 2020-09-01-preview.
  */
 export function getTenantConfigurationOutput(args: GetTenantConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getTenantConfiguration(a, opts))

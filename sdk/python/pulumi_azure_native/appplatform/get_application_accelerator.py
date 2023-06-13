@@ -111,7 +111,7 @@ def get_application_accelerator(application_accelerator_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationAcceleratorResult:
     """
     Get the application accelerator.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str application_accelerator_name: The name of the application accelerator.
@@ -141,7 +141,7 @@ def get_application_accelerator_output(application_accelerator_name: Optional[pu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationAcceleratorResult]:
     """
     Get the application accelerator.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str application_accelerator_name: The name of the application accelerator.

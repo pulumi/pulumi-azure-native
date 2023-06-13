@@ -219,7 +219,7 @@ def list_channel_with_keys(channel_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListChannelWithKeysResult:
     """
     Lists a Channel registration for a Bot Service including secrets
-    API Version: 2022-09-15.
+    Azure REST API version: 2022-09-15.
 
 
     :param str channel_name: The name of the Channel resource.
@@ -258,7 +258,7 @@ def list_channel_with_keys_output(channel_name: Optional[pulumi.Input[str]] = No
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListChannelWithKeysResult]:
     """
     Lists a Channel registration for a Bot Service including secrets
-    API Version: 2022-09-15.
+    Azure REST API version: 2022-09-15.
 
 
     :param str channel_name: The name of the Channel resource.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Elastic
     {
         /// <summary>
         /// List of elastic traffic filters in the account
-        /// API Version: 2023-06-01.
+        /// Azure REST API version: 2023-06-01.
         /// </summary>
         public static Task<ListlistAssociatedTrafficFilterResult> InvokeAsync(ListlistAssociatedTrafficFilterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListlistAssociatedTrafficFilterResult>("azure-native:elastic:listlistAssociatedTrafficFilter", args ?? new ListlistAssociatedTrafficFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of elastic traffic filters in the account
-        /// API Version: 2023-06-01.
+        /// Azure REST API version: 2023-06-01.
         /// </summary>
         public static Output<ListlistAssociatedTrafficFilterResult> Invoke(ListlistAssociatedTrafficFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListlistAssociatedTrafficFilterResult>("azure-native:elastic:listlistAssociatedTrafficFilter", args ?? new ListlistAssociatedTrafficFilterInvokeArgs(), options.WithDefaults());

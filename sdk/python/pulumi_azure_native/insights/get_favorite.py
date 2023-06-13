@@ -170,7 +170,7 @@ def get_favorite(favorite_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFavoriteResult:
     """
     Get a single favorite by its FavoriteId, defined within an Application Insights component.
-    API Version: 2015-05-01.
+    Azure REST API version: 2015-05-01.
 
 
     :param str favorite_id: The Id of a specific favorite defined in the Application Insights component
@@ -205,7 +205,7 @@ def get_favorite_output(favorite_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFavoriteResult]:
     """
     Get a single favorite by its FavoriteId, defined within an Application Insights component.
-    API Version: 2015-05-01.
+    Azure REST API version: 2015-05-01.
 
 
     :param str favorite_id: The Id of a specific favorite defined in the Application Insights component

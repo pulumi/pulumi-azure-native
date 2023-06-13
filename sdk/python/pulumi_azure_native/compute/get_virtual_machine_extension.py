@@ -244,7 +244,7 @@ def get_virtual_machine_extension(expand: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineExtensionResult:
     """
     The operation to get the extension.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -288,7 +288,7 @@ def get_virtual_machine_extension_output(expand: Optional[pulumi.Input[Optional[
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineExtensionResult]:
     """
     The operation to get the extension.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.

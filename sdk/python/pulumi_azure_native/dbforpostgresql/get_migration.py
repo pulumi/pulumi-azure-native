@@ -340,7 +340,7 @@ def get_migration(migration_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrationResult:
     """
     Gets details of a migration.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str migration_name: The name of the migration.
@@ -392,7 +392,7 @@ def get_migration_output(migration_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrationResult]:
     """
     Gets details of a migration.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str migration_name: The name of the migration.

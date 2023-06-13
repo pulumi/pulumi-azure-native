@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     {
         /// <summary>
         /// The operation returns properties of a SyncSet.
-        /// API Version: 2022-09-04.
+        /// Azure REST API version: 2022-09-04.
         /// </summary>
         public static Task<GetSyncSetResult> InvokeAsync(GetSyncSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncSetResult>("azure-native:redhatopenshift:getSyncSet", args ?? new GetSyncSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns properties of a SyncSet.
-        /// API Version: 2022-09-04.
+        /// Azure REST API version: 2022-09-04.
         /// </summary>
         public static Output<GetSyncSetResult> Invoke(GetSyncSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncSetResult>("azure-native:redhatopenshift:getSyncSet", args ?? new GetSyncSetInvokeArgs(), options.WithDefaults());

@@ -111,7 +111,7 @@ def get_guest_configuration_hcrpassignment(guest_configuration_assignment_name: 
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestConfigurationHCRPAssignmentResult:
     """
     Get information about a guest configuration assignment
-    API Version: 2022-01-25.
+    Azure REST API version: 2022-01-25.
 
 
     :param str guest_configuration_assignment_name: The guest configuration assignment name.
@@ -141,7 +141,7 @@ def get_guest_configuration_hcrpassignment_output(guest_configuration_assignment
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestConfigurationHCRPAssignmentResult]:
     """
     Get information about a guest configuration assignment
-    API Version: 2022-01-25.
+    Azure REST API version: 2022-01-25.
 
 
     :param str guest_configuration_assignment_name: The guest configuration assignment name.

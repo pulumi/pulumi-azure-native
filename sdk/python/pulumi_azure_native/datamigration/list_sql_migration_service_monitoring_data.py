@@ -62,7 +62,7 @@ def list_sql_migration_service_monitoring_data(resource_group_name: Optional[str
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSqlMigrationServiceMonitoringDataResult:
     """
     Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
-    API Version: 2022-03-30-preview.
+    Azure REST API version: 2022-03-30-preview.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -85,7 +85,7 @@ def list_sql_migration_service_monitoring_data_output(resource_group_name: Optio
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSqlMigrationServiceMonitoringDataResult]:
     """
     Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
-    API Version: 2022-03-30-preview.
+    Azure REST API version: 2022-03-30-preview.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

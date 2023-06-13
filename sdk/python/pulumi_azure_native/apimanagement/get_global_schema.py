@@ -110,7 +110,7 @@ def get_global_schema(resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalSchemaResult:
     """
     Gets the details of the Schema specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -140,7 +140,7 @@ def get_global_schema_output(resource_group_name: Optional[pulumi.Input[str]] = 
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalSchemaResult]:
     """
     Gets the details of the Schema specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get virtual machine.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
 
@@ -208,7 +208,7 @@ export interface GetVirtualMachineResult {
 }
 /**
  * Get virtual machine.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))

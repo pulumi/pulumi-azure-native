@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the CommunicationService and its properties.
- * API Version: 2023-03-31.
+ * Azure REST API version: 2023-03-31.
  */
 export function getCommunicationService(args: GetCommunicationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationServiceResult> {
 
@@ -90,7 +90,7 @@ export interface GetCommunicationServiceResult {
 }
 /**
  * Get the CommunicationService and its properties.
- * API Version: 2023-03-31.
+ * Azure REST API version: 2023-03-31.
  */
 export function getCommunicationServiceOutput(args: GetCommunicationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationServiceResult> {
     return pulumi.output(args).apply((a: any) => getCommunicationService(a, opts))

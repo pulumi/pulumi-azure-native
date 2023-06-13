@@ -93,7 +93,7 @@ class Trigger(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a trigger that can invoke an image template build.
-        API Version: 2022-07-01.
+        Azure REST API version: 2022-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +110,7 @@ class Trigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a trigger that can invoke an image template build.
-        API Version: 2022-07-01.
+        Azure REST API version: 2022-07-01.
 
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.

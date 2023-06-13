@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
-        /// API Version: 2019-09-01.
+        /// Azure REST API version: 2019-09-01.
         /// </summary>
         public static Task<GetQueryResult> InvokeAsync(GetQueryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueryResult>("azure-native:operationalinsights:getQuery", args ?? new GetQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
-        /// API Version: 2019-09-01.
+        /// Azure REST API version: 2019-09-01.
         /// </summary>
         public static Output<GetQueryResult> Invoke(GetQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueryResult>("azure-native:operationalinsights:getQuery", args ?? new GetQueryInvokeArgs(), options.WithDefaults());

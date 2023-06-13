@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get build service agent pool.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<GetBuildServiceAgentPoolResult> InvokeAsync(GetBuildServiceAgentPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceAgentPoolResult>("azure-native:appplatform:getBuildServiceAgentPool", args ?? new GetBuildServiceAgentPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get build service agent pool.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<GetBuildServiceAgentPoolResult> Invoke(GetBuildServiceAgentPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildServiceAgentPoolResult>("azure-native:appplatform:getBuildServiceAgentPool", args ?? new GetBuildServiceAgentPoolInvokeArgs(), options.WithDefaults());

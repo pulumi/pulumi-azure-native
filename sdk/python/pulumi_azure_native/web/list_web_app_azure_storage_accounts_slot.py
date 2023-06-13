@@ -99,7 +99,7 @@ def list_web_app_azure_storage_accounts_slot(name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppAzureStorageAccountsSlotResult:
     """
     Description for Gets the Azure storage account configurations of an app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -128,7 +128,7 @@ def list_web_app_azure_storage_accounts_slot_output(name: Optional[pulumi.Input[
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppAzureStorageAccountsSlotResult]:
     """
     Description for Gets the Azure storage account configurations of an app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.

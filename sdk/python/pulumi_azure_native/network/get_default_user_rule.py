@@ -222,7 +222,7 @@ def get_default_user_rule(configuration_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultUserRuleResult:
     """
     Gets a user rule.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -267,7 +267,7 @@ def get_default_user_rule_output(configuration_name: Optional[pulumi.Input[str]]
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultUserRuleResult]:
     """
     Gets a user rule.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns account details for the given account name.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -90,7 +90,7 @@ export interface GetAccountResult {
 }
 /**
  * Returns account details for the given account name.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the HybridIdentityMetadata.
- * API Version: 2022-05-21-preview.
+ * Azure REST API version: 2022-05-21-preview.
  */
 export class HybridIdentityMetadata extends pulumi.CustomResource {
     /**

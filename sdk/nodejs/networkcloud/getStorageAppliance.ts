@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided storage appliance.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2022-12-12-preview.
  */
 export function getStorageAppliance(args: GetStorageApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageApplianceResult> {
 
@@ -119,7 +119,7 @@ export interface GetStorageApplianceResult {
 }
 /**
  * Get properties of the provided storage appliance.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2022-12-12-preview.
  */
 export function getStorageApplianceOutput(args: GetStorageApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageApplianceResult> {
     return pulumi.output(args).apply((a: any) => getStorageAppliance(a, opts))

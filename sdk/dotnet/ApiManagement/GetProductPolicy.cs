@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get the policy configuration at the Product level.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetProductPolicyResult> InvokeAsync(GetProductPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductPolicyResult>("azure-native:apimanagement:getProductPolicy", args ?? new GetProductPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the policy configuration at the Product level.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetProductPolicyResult> Invoke(GetProductPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductPolicyResult>("azure-native:apimanagement:getProductPolicy", args ?? new GetProductPolicyInvokeArgs(), options.WithDefaults());

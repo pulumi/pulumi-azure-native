@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// The Permission binding resource.
-    /// API Version: 2023-06-01-preview.
+    /// Azure REST API version: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PermissionBinding")]
     public partial class PermissionBinding : global::Pulumi.CustomResource

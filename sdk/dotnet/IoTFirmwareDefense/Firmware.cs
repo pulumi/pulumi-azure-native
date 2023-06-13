@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
 {
     /// <summary>
     /// Firmware definition
-    /// API Version: 2023-02-08-preview.
+    /// Azure REST API version: 2023-02-08-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotfirmwaredefense:Firmware")]
     public partial class Firmware : global::Pulumi.CustomResource

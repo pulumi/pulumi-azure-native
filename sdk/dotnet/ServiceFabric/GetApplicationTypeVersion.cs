@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
-        /// API Version: 2023-03-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetApplicationTypeVersionResult> InvokeAsync(GetApplicationTypeVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeVersionResult>("azure-native:servicefabric:getApplicationTypeVersion", args ?? new GetApplicationTypeVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
-        /// API Version: 2023-03-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetApplicationTypeVersionResult> Invoke(GetApplicationTypeVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationTypeVersionResult>("azure-native:servicefabric:getApplicationTypeVersion", args ?? new GetApplicationTypeVersionInvokeArgs(), options.WithDefaults());

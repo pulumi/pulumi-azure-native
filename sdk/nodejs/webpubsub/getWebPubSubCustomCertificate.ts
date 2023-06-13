@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a custom certificate.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getWebPubSubCustomCertificate(args: GetWebPubSubCustomCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubCustomCertificateResult> {
 
@@ -75,7 +75,7 @@ export interface GetWebPubSubCustomCertificateResult {
 }
 /**
  * Get a custom certificate.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getWebPubSubCustomCertificateOutput(args: GetWebPubSubCustomCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubCustomCertificateResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSubCustomCertificate(a, opts))

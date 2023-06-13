@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Governance assignment over a given scope
-    /// API Version: 2022-01-01-preview.
+    /// Azure REST API version: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:GovernanceAssignment")]
     public partial class GovernanceAssignment : global::Pulumi.CustomResource

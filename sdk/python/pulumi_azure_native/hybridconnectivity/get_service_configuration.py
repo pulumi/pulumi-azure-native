@@ -207,7 +207,7 @@ def get_service_configuration(endpoint_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceConfigurationResult:
     """
     Gets the details about the service to the resource.
-    API Version: 2023-03-15.
+    Azure REST API version: 2023-03-15.
 
 
     :param str endpoint_name: The endpoint name.
@@ -245,7 +245,7 @@ def get_service_configuration_output(endpoint_name: Optional[pulumi.Input[str]] 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceConfigurationResult]:
     """
     Gets the details about the service to the resource.
-    API Version: 2023-03-15.
+    Azure REST API version: 2023-03-15.
 
 
     :param str endpoint_name: The endpoint name.

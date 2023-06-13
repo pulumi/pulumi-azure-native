@@ -50,7 +50,7 @@ def list_named_value(named_value_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNamedValueResult:
     """
     Gets the secret of the named value specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str named_value_id: Identifier of the NamedValue.
@@ -75,7 +75,7 @@ def list_named_value_output(named_value_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNamedValueResult]:
     """
     Gets the secret of the named value specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str named_value_id: Identifier of the NamedValue.

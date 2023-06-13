@@ -206,7 +206,7 @@ def get_nsp_link(link_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNspLinkResult:
     """
     Gets the specified NSP link resource.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str link_name: The name of the NSP link.
@@ -244,7 +244,7 @@ def get_nsp_link_output(link_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNspLinkResult]:
     """
     Gets the specified NSP link resource.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str link_name: The name of the NSP link.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Virtual Appliance Site.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getVirtualApplianceSite(args: GetVirtualApplianceSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualApplianceSiteResult> {
 
@@ -71,7 +71,7 @@ export interface GetVirtualApplianceSiteResult {
 }
 /**
  * Gets the specified Virtual Appliance Site.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getVirtualApplianceSiteOutput(args: GetVirtualApplianceSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualApplianceSiteResult> {
     return pulumi.output(args).apply((a: any) => getVirtualApplianceSite(a, opts))

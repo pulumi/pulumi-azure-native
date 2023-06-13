@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the resource and its properties.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getWebPubSub(args: GetWebPubSubArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubResult> {
 
@@ -140,7 +140,7 @@ export interface GetWebPubSubResult {
 }
 /**
  * Get the resource and its properties.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getWebPubSubOutput(args: GetWebPubSubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSub(a, opts))

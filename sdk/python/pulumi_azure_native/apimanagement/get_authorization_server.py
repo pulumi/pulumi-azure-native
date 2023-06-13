@@ -291,7 +291,7 @@ def get_authorization_server(authsid: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationServerResult:
     """
     Gets the details of the authorization server specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str authsid: Identifier of the authorization server.
@@ -336,7 +336,7 @@ def get_authorization_server_output(authsid: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationServerResult]:
     """
     Gets the details of the authorization server specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str authsid: Identifier of the authorization server.

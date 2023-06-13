@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a favorite process for a Test Base Package.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getFavoriteProcess(args: GetFavoriteProcessArgs, opts?: pulumi.InvokeOptions): Promise<GetFavoriteProcessResult> {
 
@@ -68,7 +68,7 @@ export interface GetFavoriteProcessResult {
 }
 /**
  * Gets a favorite process for a Test Base Package.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getFavoriteProcessOutput(args: GetFavoriteProcessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteProcessResult> {
     return pulumi.output(args).apply((a: any) => getFavoriteProcess(a, opts))

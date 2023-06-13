@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the callback url for a trigger of a workflow version.
- * API Version: 2016-06-01.
+ * Azure REST API version: 2016-06-01.
  */
 export function listWorkflowVersionCallbackUrl(args: ListWorkflowVersionCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowVersionCallbackUrlResult> {
 
@@ -82,7 +82,7 @@ export interface ListWorkflowVersionCallbackUrlResult {
 }
 /**
  * Get the callback url for a trigger of a workflow version.
- * API Version: 2016-06-01.
+ * Azure REST API version: 2016-06-01.
  */
 export function listWorkflowVersionCallbackUrlOutput(args: ListWorkflowVersionCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowVersionCallbackUrlResult> {
     return pulumi.output(args).apply((a: any) => listWorkflowVersionCallbackUrl(a, opts))

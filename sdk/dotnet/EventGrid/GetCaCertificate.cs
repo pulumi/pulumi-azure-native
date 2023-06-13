@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a CA certificate.
-        /// API Version: 2023-06-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetCaCertificateResult> InvokeAsync(GetCaCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCaCertificateResult>("azure-native:eventgrid:getCaCertificate", args ?? new GetCaCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a CA certificate.
-        /// API Version: 2023-06-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetCaCertificateResult> Invoke(GetCaCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCaCertificateResult>("azure-native:eventgrid:getCaCertificate", args ?? new GetCaCertificateInvokeArgs(), options.WithDefaults());

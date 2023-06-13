@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves the policy set definition in the given management group with the given name.
- * API Version: 2021-06-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getPolicySetDefinitionAtManagementGroup(args: GetPolicySetDefinitionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionAtManagementGroupResult> {
 
@@ -82,7 +82,7 @@ export interface GetPolicySetDefinitionAtManagementGroupResult {
 }
 /**
  * This operation retrieves the policy set definition in the given management group with the given name.
- * API Version: 2021-06-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getPolicySetDefinitionAtManagementGroupOutput(args: GetPolicySetDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionAtManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getPolicySetDefinitionAtManagementGroup(a, opts))

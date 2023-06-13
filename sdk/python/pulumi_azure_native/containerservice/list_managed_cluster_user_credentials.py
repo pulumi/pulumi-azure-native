@@ -52,7 +52,7 @@ def list_managed_cluster_user_credentials(format: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterUserCredentialsResult:
     """
     The list credential result response.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str format: Only apply to AAD clusters, specifies the format of returned kubeconfig. Format 'azure' will return azure auth-provider kubeconfig; format 'exec' will return exec format kubeconfig, which requires kubelogin binary in the path.
@@ -80,7 +80,7 @@ def list_managed_cluster_user_credentials_output(format: Optional[pulumi.Input[O
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagedClusterUserCredentialsResult]:
     """
     The list credential result response.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str format: Only apply to AAD clusters, specifies the format of returned kubeconfig. Format 'azure' will return azure auth-provider kubeconfig; format 'exec' will return exec format kubeconfig, which requires kubelogin binary in the path.

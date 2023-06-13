@@ -44,8 +44,7 @@ class IngestionSetting(pulumi.CustomResource):
                  __props__=None):
         """
         Configures how to correlate scan data and logs with resources associated with the subscription.
-        API Version: 2021-01-15-preview.
-        Previous API Version: 2021-01-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2021-01-15-preview. Prior API version in Azure Native 1.x: 2021-01-15-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -59,8 +58,7 @@ class IngestionSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures how to correlate scan data and logs with resources associated with the subscription.
-        API Version: 2021-01-15-preview.
-        Previous API Version: 2021-01-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2021-01-15-preview. Prior API version in Azure Native 1.x: 2021-01-15-preview
 
         :param str resource_name: The name of the resource.
         :param IngestionSettingArgs args: The arguments to use to populate this resource's properties.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Policy Contract details.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export class GraphQLApiResolverPolicy extends pulumi.CustomResource {
     /**

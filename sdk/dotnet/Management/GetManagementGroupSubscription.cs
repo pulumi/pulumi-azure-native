@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Retrieves details about given subscription which is associated with the management group.
         /// 
-        /// API Version: 2021-04-01.
+        /// Azure REST API version: 2021-04-01.
         /// </summary>
         public static Task<GetManagementGroupSubscriptionResult> InvokeAsync(GetManagementGroupSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupSubscriptionResult>("azure-native:management:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Retrieves details about given subscription which is associated with the management group.
         /// 
-        /// API Version: 2021-04-01.
+        /// Azure REST API version: 2021-04-01.
         /// </summary>
         public static Output<GetManagementGroupSubscriptionResult> Invoke(GetManagementGroupSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupSubscriptionResult>("azure-native:management:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionInvokeArgs(), options.WithDefaults());

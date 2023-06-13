@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a single custom entity store assignment by name for the provided subscription and resource group.
- * API Version: 2021-07-01-preview.
+ * Azure REST API version: 2021-07-01-preview.
  */
 export function getCustomEntityStoreAssignment(args: GetCustomEntityStoreAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomEntityStoreAssignmentResult> {
 
@@ -62,7 +62,7 @@ export interface GetCustomEntityStoreAssignmentResult {
 }
 /**
  * Gets a single custom entity store assignment by name for the provided subscription and resource group.
- * API Version: 2021-07-01-preview.
+ * Azure REST API version: 2021-07-01-preview.
  */
 export function getCustomEntityStoreAssignmentOutput(args: GetCustomEntityStoreAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomEntityStoreAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getCustomEntityStoreAssignment(a, opts))

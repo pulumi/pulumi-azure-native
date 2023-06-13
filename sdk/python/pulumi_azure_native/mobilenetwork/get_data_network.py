@@ -135,7 +135,7 @@ def get_data_network(data_network_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataNetworkResult:
     """
     Gets information about the specified data network.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str data_network_name: The name of the data network.
@@ -167,7 +167,7 @@ def get_data_network_output(data_network_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataNetworkResult]:
     """
     Gets information about the specified data network.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str data_network_name: The name of the data network.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The network interface resource definition.
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export class NetworkinterfaceRetrieve extends pulumi.CustomResource {
     /**

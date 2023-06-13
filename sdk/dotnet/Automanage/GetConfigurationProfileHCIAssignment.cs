@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Automanage
     {
         /// <summary>
         /// Get information about a configuration profile assignment
-        /// API Version: 2022-05-04.
+        /// Azure REST API version: 2022-05-04.
         /// </summary>
         public static Task<GetConfigurationProfileHCIAssignmentResult> InvokeAsync(GetConfigurationProfileHCIAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileHCIAssignmentResult>("azure-native:automanage:getConfigurationProfileHCIAssignment", args ?? new GetConfigurationProfileHCIAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a configuration profile assignment
-        /// API Version: 2022-05-04.
+        /// Azure REST API version: 2022-05-04.
         /// </summary>
         public static Output<GetConfigurationProfileHCIAssignmentResult> Invoke(GetConfigurationProfileHCIAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileHCIAssignmentResult>("azure-native:automanage:getConfigurationProfileHCIAssignment", args ?? new GetConfigurationProfileHCIAssignmentInvokeArgs(), options.WithDefaults());

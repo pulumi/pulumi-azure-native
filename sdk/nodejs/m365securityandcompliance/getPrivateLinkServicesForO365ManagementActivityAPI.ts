@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
- * API Version: 2021-03-25-preview.
+ * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateLinkServicesForO365ManagementActivityAPI(args: GetPrivateLinkServicesForO365ManagementActivityAPIArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForO365ManagementActivityAPIResult> {
 
@@ -78,7 +78,7 @@ export interface GetPrivateLinkServicesForO365ManagementActivityAPIResult {
 }
 /**
  * Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
- * API Version: 2021-03-25-preview.
+ * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateLinkServicesForO365ManagementActivityAPIOutput(args: GetPrivateLinkServicesForO365ManagementActivityAPIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForO365ManagementActivityAPIResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForO365ManagementActivityAPI(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets the alert rule.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetScheduledAlertRuleResult> InvokeAsync(GetScheduledAlertRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledAlertRuleResult>("azure-native:securityinsights:getScheduledAlertRule", args ?? new GetScheduledAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the alert rule.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetScheduledAlertRuleResult> Invoke(GetScheduledAlertRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledAlertRuleResult>("azure-native:securityinsights:getScheduledAlertRule", args ?? new GetScheduledAlertRuleInvokeArgs(), options.WithDefaults());

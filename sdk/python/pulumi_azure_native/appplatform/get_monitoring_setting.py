@@ -98,7 +98,7 @@ def get_monitoring_setting(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitoringSettingResult:
     """
     Get the Monitoring Setting and its properties.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -124,7 +124,7 @@ def get_monitoring_setting_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringSettingResult]:
     """
     Get the Monitoring Setting and its properties.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

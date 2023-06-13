@@ -158,7 +158,7 @@ def get_private_link_services_for_scc_powershell(resource_group_name: Optional[s
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServicesForSCCPowershellResult:
     """
     Get the metadata of a privateLinkServicesForSCCPowershell resource.
-    API Version: 2021-03-08.
+    Azure REST API version: 2021-03-08.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -189,7 +189,7 @@ def get_private_link_services_for_scc_powershell_output(resource_group_name: Opt
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServicesForSCCPowershellResult]:
     """
     Get the metadata of a privateLinkServicesForSCCPowershell resource.
-    API Version: 2021-03-08.
+    Azure REST API version: 2021-03-08.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

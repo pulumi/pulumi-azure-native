@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Dto object representing feature
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getFeaturesetVersionFeature(args: GetFeaturesetVersionFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetFeaturesetVersionFeatureResult> {
 
@@ -66,7 +66,7 @@ export interface GetFeaturesetVersionFeatureResult {
 }
 /**
  * Dto object representing feature
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getFeaturesetVersionFeatureOutput(args: GetFeaturesetVersionFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeaturesetVersionFeatureResult> {
     return pulumi.output(args).apply((a: any) => getFeaturesetVersionFeature(a, opts))

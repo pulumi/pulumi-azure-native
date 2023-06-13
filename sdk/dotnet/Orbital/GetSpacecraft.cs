@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Orbital
     {
         /// <summary>
         /// Gets the specified spacecraft in a specified resource group.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetSpacecraftResult> InvokeAsync(GetSpacecraftArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpacecraftResult>("azure-native:orbital:getSpacecraft", args ?? new GetSpacecraftArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified spacecraft in a specified resource group.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetSpacecraftResult> Invoke(GetSpacecraftInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpacecraftResult>("azure-native:orbital:getSpacecraft", args ?? new GetSpacecraftInvokeArgs(), options.WithDefaults());

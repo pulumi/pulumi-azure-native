@@ -50,7 +50,7 @@ def get_domain_event_subscription_full_url(domain_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainEventSubscriptionFullUrlResult:
     """
     Get the full endpoint URL for an event subscription for domain.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str domain_name: Name of the domain topic.
@@ -75,7 +75,7 @@ def get_domain_event_subscription_full_url_output(domain_name: Optional[pulumi.I
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainEventSubscriptionFullUrlResult]:
     """
     Get the full endpoint URL for an event subscription for domain.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str domain_name: Name of the domain topic.

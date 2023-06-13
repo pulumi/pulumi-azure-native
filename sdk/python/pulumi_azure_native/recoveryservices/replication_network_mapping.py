@@ -126,8 +126,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
                  __props__=None):
         """
         Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
-        API Version: 2023-04-01.
-        Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,8 +145,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
-        API Version: 2023-04-01.
-        Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
 
         :param str resource_name: The name of the resource.
         :param ReplicationNetworkMappingArgs args: The arguments to use to populate this resource's properties.

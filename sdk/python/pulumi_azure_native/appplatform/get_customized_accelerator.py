@@ -112,7 +112,7 @@ def get_customized_accelerator(application_accelerator_name: Optional[str] = Non
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomizedAcceleratorResult:
     """
     Get the customized accelerator.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str application_accelerator_name: The name of the application accelerator.
@@ -145,7 +145,7 @@ def get_customized_accelerator_output(application_accelerator_name: Optional[pul
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomizedAcceleratorResult]:
     """
     Get the customized accelerator.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str application_accelerator_name: The name of the application accelerator.

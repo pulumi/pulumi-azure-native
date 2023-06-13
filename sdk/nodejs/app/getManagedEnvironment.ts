@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the properties of a Managed Environment used to host container apps.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getManagedEnvironment(args: GetManagedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentResult> {
 
@@ -120,7 +120,7 @@ export interface GetManagedEnvironmentResult {
 }
 /**
  * Get the properties of a Managed Environment used to host container apps.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getManagedEnvironmentOutput(args: GetManagedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getManagedEnvironment(a, opts))

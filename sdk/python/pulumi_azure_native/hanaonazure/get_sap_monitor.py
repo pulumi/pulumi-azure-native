@@ -193,7 +193,7 @@ def get_sap_monitor(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSapMonitorResult:
     """
     Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
-    API Version: 2020-02-07-preview.
+    Azure REST API version: 2020-02-07-preview.
 
 
     :param str resource_group_name: Name of the resource group.
@@ -227,7 +227,7 @@ def get_sap_monitor_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSapMonitorResult]:
     """
     Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
-    API Version: 2020-02-07-preview.
+    Azure REST API version: 2020-02-07-preview.
 
 
     :param str resource_group_name: Name of the resource group.

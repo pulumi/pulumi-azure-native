@@ -183,7 +183,7 @@ def get_backend(backend_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackendResult:
     """
     Gets the details of the backend specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -219,7 +219,7 @@ def get_backend_output(backend_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackendResult]:
     """
     Gets the details of the backend specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.

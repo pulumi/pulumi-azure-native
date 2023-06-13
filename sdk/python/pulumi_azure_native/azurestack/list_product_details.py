@@ -171,7 +171,7 @@ def list_product_details(product_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductDetailsResult:
     """
     Returns the extended properties of a product.
-    API Version: 2022-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str product_name: Name of the product.
@@ -206,7 +206,7 @@ def list_product_details_output(product_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProductDetailsResult]:
     """
     Returns the extended properties of a product.
-    API Version: 2022-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str product_name: Name of the product.

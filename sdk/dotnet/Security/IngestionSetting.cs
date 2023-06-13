@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Configures how to correlate scan data and logs with resources associated with the subscription.
-    /// API Version: 2021-01-15-preview.
-    /// Previous API Version: 2021-01-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2021-01-15-preview. Prior API version in Azure Native 1.x: 2021-01-15-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:security:IngestionSetting")]
     public partial class IngestionSetting : global::Pulumi.CustomResource

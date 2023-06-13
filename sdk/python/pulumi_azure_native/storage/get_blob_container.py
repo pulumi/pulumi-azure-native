@@ -315,7 +315,7 @@ def get_blob_container(account_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobContainerResult:
     """
     Gets properties of a specified container.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -362,7 +362,7 @@ def get_blob_container_output(account_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobContainerResult]:
     """
     Gets properties of a specified container.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

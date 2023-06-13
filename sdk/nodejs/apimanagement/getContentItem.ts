@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the developer portal's content item specified by its identifier.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOptions): Promise<GetContentItemResult> {
 
@@ -61,7 +61,7 @@ export interface GetContentItemResult {
 }
 /**
  * Returns the developer portal's content item specified by its identifier.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getContentItemOutput(args: GetContentItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentItemResult> {
     return pulumi.output(args).apply((a: any) => getContentItem(a, opts))

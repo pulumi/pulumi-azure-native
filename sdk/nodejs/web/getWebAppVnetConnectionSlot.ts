@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets a virtual network the app (or deployment slot) is connected to by name.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppVnetConnectionSlot(args: GetWebAppVnetConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionSlotResult> {
 
@@ -93,7 +93,7 @@ export interface GetWebAppVnetConnectionSlotResult {
 }
 /**
  * Description for Gets a virtual network the app (or deployment slot) is connected to by name.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppVnetConnectionSlotOutput(args: GetWebAppVnetConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppVnetConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppVnetConnectionSlot(a, opts))

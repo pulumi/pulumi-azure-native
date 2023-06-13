@@ -146,7 +146,7 @@ def get_dev_center(dev_center_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevCenterResult:
     """
     Gets a devcenter.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -176,7 +176,7 @@ def get_dev_center_output(dev_center_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevCenterResult]:
     """
     Gets a devcenter.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str dev_center_name: The name of the devcenter.

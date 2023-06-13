@@ -121,7 +121,7 @@ def get_security_contact(security_contact_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityContactResult:
     """
     Get Default Security contact configurations for the subscription
-    API Version: 2020-01-01-preview.
+    Azure REST API version: 2020-01-01-preview.
 
 
     :param str security_contact_name: Name of the security contact object
@@ -146,7 +146,7 @@ def get_security_contact_output(security_contact_name: Optional[pulumi.Input[str
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityContactResult]:
     """
     Get Default Security contact configurations for the subscription
-    API Version: 2020-01-01-preview.
+    Azure REST API version: 2020-01-01-preview.
 
 
     :param str security_contact_name: Name of the security contact object

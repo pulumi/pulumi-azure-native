@@ -6,8 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
- * API Version: 2021-11-01.
- * Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-05-01-preview
  */
 export class ServerTrustCertificate extends pulumi.CustomResource {
     /**

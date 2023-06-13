@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a disk.
- * API Version: 2022-07-02.
+ * Azure REST API version: 2022-07-02.
  */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
 
@@ -202,7 +202,7 @@ export interface GetDiskResult {
 }
 /**
  * Gets information about a disk.
- * API Version: 2022-07-02.
+ * Azure REST API version: 2022-07-02.
  */
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
     return pulumi.output(args).apply((a: any) => getDisk(a, opts))

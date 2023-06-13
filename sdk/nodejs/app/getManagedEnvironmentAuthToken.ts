@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Checks if resource name is available.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getManagedEnvironmentAuthToken(args: GetManagedEnvironmentAuthTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentAuthTokenResult> {
 
@@ -70,7 +70,7 @@ export interface GetManagedEnvironmentAuthTokenResult {
 }
 /**
  * Checks if resource name is available.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getManagedEnvironmentAuthTokenOutput(args: GetManagedEnvironmentAuthTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentAuthTokenResult> {
     return pulumi.output(args).apply((a: any) => getManagedEnvironmentAuthToken(a, opts))

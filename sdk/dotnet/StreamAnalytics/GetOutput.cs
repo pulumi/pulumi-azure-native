@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StreamAnalytics
     {
         /// <summary>
         /// Gets details about the specified output.
-        /// API Version: 2020-03-01.
+        /// Azure REST API version: 2020-03-01.
         /// </summary>
         public static Task<GetOutputResult> InvokeAsync(GetOutputArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutputResult>("azure-native:streamanalytics:getOutput", args ?? new GetOutputArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets details about the specified output.
-        /// API Version: 2020-03-01.
+        /// Azure REST API version: 2020-03-01.
         /// </summary>
         public static Output<GetOutputResult> Invoke(GetOutputInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutputResult>("azure-native:streamanalytics:getOutput", args ?? new GetOutputInvokeArgs(), options.WithDefaults());

@@ -170,7 +170,7 @@ def get_network_manager(network_manager_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkManagerResult:
     """
     Gets the specified Network Manager.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -202,7 +202,7 @@ def get_network_manager_output(network_manager_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkManagerResult]:
     """
     Gets the specified Network Manager.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str network_manager_name: The name of the network manager.

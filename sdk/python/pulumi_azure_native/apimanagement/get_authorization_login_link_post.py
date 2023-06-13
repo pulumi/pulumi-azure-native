@@ -52,7 +52,7 @@ def get_authorization_login_link_post(authorization_id: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationLoginLinkPostResult:
     """
     Gets authorization login links.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str authorization_id: Identifier of the authorization.
@@ -83,7 +83,7 @@ def get_authorization_login_link_post_output(authorization_id: Optional[pulumi.I
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationLoginLinkPostResult]:
     """
     Gets authorization login links.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str authorization_id: Identifier of the authorization.

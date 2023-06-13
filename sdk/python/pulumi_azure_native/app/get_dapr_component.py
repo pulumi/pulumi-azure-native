@@ -183,7 +183,7 @@ def get_dapr_component(component_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDaprComponentResult:
     """
     Dapr Component.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -219,7 +219,7 @@ def get_dapr_component_output(component_name: Optional[pulumi.Input[str]] = None
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDaprComponentResult]:
     """
     Dapr Component.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str component_name: Name of the Dapr Component.

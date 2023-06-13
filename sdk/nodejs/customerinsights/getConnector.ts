@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a connector in the hub.
- * API Version: 2017-04-26.
+ * Azure REST API version: 2017-04-26.
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
 
@@ -96,7 +96,7 @@ export interface GetConnectorResult {
 }
 /**
  * Gets a connector in the hub.
- * API Version: 2017-04-26.
+ * Azure REST API version: 2017-04-26.
  */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
     return pulumi.output(args).apply((a: any) => getConnector(a, opts))

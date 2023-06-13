@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the policy configuration at the API Operation level.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getWorkspaceApiOperationPolicy(args: GetWorkspaceApiOperationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceApiOperationPolicyResult> {
 
@@ -80,7 +80,7 @@ export interface GetWorkspaceApiOperationPolicyResult {
 }
 /**
  * Get the policy configuration at the API Operation level.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getWorkspaceApiOperationPolicyOutput(args: GetWorkspaceApiOperationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiOperationPolicyResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceApiOperationPolicy(a, opts))

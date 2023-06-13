@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A global reach connection resource
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-05-01.
  */
 export function getGlobalReachConnection(args: GetGlobalReachConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalReachConnectionResult> {
 
@@ -76,7 +76,7 @@ export interface GetGlobalReachConnectionResult {
 }
 /**
  * A global reach connection resource
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-05-01.
  */
 export function getGlobalReachConnectionOutput(args: GetGlobalReachConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalReachConnectionResult> {
     return pulumi.output(args).apply((a: any) => getGlobalReachConnection(a, opts))

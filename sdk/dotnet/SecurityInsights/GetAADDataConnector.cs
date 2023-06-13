@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a data connector.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetAADDataConnectorResult> InvokeAsync(GetAADDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAADDataConnectorResult>("azure-native:securityinsights:getAADDataConnector", args ?? new GetAADDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a data connector.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetAADDataConnectorResult> Invoke(GetAADDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAADDataConnectorResult>("azure-native:securityinsights:getAADDataConnector", args ?? new GetAADDataConnectorInvokeArgs(), options.WithDefaults());

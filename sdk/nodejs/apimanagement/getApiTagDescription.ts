@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get Tag description in scope of API
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiTagDescription(args: GetApiTagDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiTagDescriptionResult> {
 
@@ -77,7 +77,7 @@ export interface GetApiTagDescriptionResult {
 }
 /**
  * Get Tag description in scope of API
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiTagDescriptionOutput(args: GetApiTagDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiTagDescriptionResult> {
     return pulumi.output(args).apply((a: any) => getApiTagDescription(a, opts))

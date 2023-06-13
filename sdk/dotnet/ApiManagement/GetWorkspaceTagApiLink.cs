@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the API link for the tag.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetWorkspaceTagApiLinkResult> InvokeAsync(GetWorkspaceTagApiLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceTagApiLinkResult>("azure-native:apimanagement:getWorkspaceTagApiLink", args ?? new GetWorkspaceTagApiLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the API link for the tag.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetWorkspaceTagApiLinkResult> Invoke(GetWorkspaceTagApiLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceTagApiLinkResult>("azure-native:apimanagement:getWorkspaceTagApiLink", args ?? new GetWorkspaceTagApiLinkInvokeArgs(), options.WithDefaults());

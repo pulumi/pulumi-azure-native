@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the SAP Database Instance resource.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getSAPDatabaseInstance(args: GetSAPDatabaseInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPDatabaseInstanceResult> {
 
@@ -103,7 +103,7 @@ export interface GetSAPDatabaseInstanceResult {
 }
 /**
  * Gets the SAP Database Instance resource.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getSAPDatabaseInstanceOutput(args: GetSAPDatabaseInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPDatabaseInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSAPDatabaseInstance(a, opts))

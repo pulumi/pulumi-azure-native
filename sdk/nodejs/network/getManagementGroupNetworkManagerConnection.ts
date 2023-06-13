@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specified connection created by this management group.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getManagementGroupNetworkManagerConnection(args: GetManagementGroupNetworkManagerConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupNetworkManagerConnectionResult> {
 
@@ -66,7 +66,7 @@ export interface GetManagementGroupNetworkManagerConnectionResult {
 }
 /**
  * Get a specified connection created by this management group.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getManagementGroupNetworkManagerConnectionOutput(args: GetManagementGroupNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupNetworkManagerConnectionResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroupNetworkManagerConnection(a, opts))

@@ -122,7 +122,7 @@ def get_nsp_profile(network_security_perimeter_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNspProfileResult:
     """
     Gets the specified NSP profile.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str network_security_perimeter_name: The name of the network security perimeter.
@@ -153,7 +153,7 @@ def get_nsp_profile_output(network_security_perimeter_name: Optional[pulumi.Inpu
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNspProfileResult]:
     """
     Gets the specified NSP profile.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str network_security_perimeter_name: The name of the network security perimeter.

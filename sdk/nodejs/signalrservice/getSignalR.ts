@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the resource and its properties.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRResult> {
 
@@ -165,7 +165,7 @@ export interface GetSignalRResult {
 }
 /**
  * Get the resource and its properties.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getSignalROutput(args: GetSignalROutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRResult> {
     return pulumi.output(args).apply((a: any) => getSignalR(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Gets information about a snapshot.
-        /// API Version: 2022-07-02.
+        /// Azure REST API version: 2022-07-02.
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:compute:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a snapshot.
-        /// API Version: 2022-07-02.
+        /// Azure REST API version: 2022-07-02.
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:compute:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Get the running status of the Network Device.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Task<GetNetworkDeviceStatusResult> InvokeAsync(GetNetworkDeviceStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDeviceStatusResult>("azure-native:managednetworkfabric:getNetworkDeviceStatus", args ?? new GetNetworkDeviceStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the running status of the Network Device.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Output<GetNetworkDeviceStatusResult> Invoke(GetNetworkDeviceStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkDeviceStatusResult>("azure-native:managednetworkfabric:getNetworkDeviceStatus", args ?? new GetNetworkDeviceStatusInvokeArgs(), options.WithDefaults());

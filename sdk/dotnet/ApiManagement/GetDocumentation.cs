@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the Documentation specified by its identifier.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetDocumentationResult> InvokeAsync(GetDocumentationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDocumentationResult>("azure-native:apimanagement:getDocumentation", args ?? new GetDocumentationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Documentation specified by its identifier.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetDocumentationResult> Invoke(GetDocumentationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationResult>("azure-native:apimanagement:getDocumentation", args ?? new GetDocumentationInvokeArgs(), options.WithDefaults());

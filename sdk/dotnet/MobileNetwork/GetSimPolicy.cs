@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Gets information about the specified SIM policy.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetSimPolicyResult> InvokeAsync(GetSimPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSimPolicyResult>("azure-native:mobilenetwork:getSimPolicy", args ?? new GetSimPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified SIM policy.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetSimPolicyResult> Invoke(GetSimPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSimPolicyResult>("azure-native:mobilenetwork:getSimPolicy", args ?? new GetSimPolicyInvokeArgs(), options.WithDefaults());

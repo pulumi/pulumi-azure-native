@@ -147,7 +147,7 @@ def get_hub_route_table(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHubRouteTableResult:
     """
     Retrieves the details of a RouteTable.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHub.
@@ -180,7 +180,7 @@ def get_hub_route_table_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHubRouteTableResult]:
     """
     Retrieves the details of a RouteTable.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHub.

@@ -542,7 +542,7 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterResult:
     """
     Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -605,7 +605,7 @@ def get_managed_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterResult]:
     """
     Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.

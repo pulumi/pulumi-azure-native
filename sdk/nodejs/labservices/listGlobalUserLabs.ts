@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List labs for the user.
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function listGlobalUserLabs(args: ListGlobalUserLabsArgs, opts?: pulumi.InvokeOptions): Promise<ListGlobalUserLabsResult> {
 
@@ -37,7 +37,7 @@ export interface ListGlobalUserLabsResult {
 }
 /**
  * List labs for the user.
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function listGlobalUserLabsOutput(args: ListGlobalUserLabsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalUserLabsResult> {
     return pulumi.output(args).apply((a: any) => listGlobalUserLabs(a, opts))

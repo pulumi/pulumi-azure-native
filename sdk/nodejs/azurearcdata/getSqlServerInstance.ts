@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves a SQL Server Instance resource
- * API Version: 2023-01-15-preview.
+ * Azure REST API version: 2023-01-15-preview.
  */
 export function getSqlServerInstance(args: GetSqlServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerInstanceResult> {
 
@@ -66,7 +66,7 @@ export interface GetSqlServerInstanceResult {
 }
 /**
  * Retrieves a SQL Server Instance resource
- * API Version: 2023-01-15-preview.
+ * Azure REST API version: 2023-01-15-preview.
  */
 export function getSqlServerInstanceOutput(args: GetSqlServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSqlServerInstance(a, opts))

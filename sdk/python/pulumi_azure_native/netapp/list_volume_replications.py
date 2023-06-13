@@ -52,7 +52,7 @@ def list_volume_replications(account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVolumeReplicationsResult:
     """
     List all replications for a specified volume
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -80,7 +80,7 @@ def list_volume_replications_output(account_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVolumeReplicationsResult]:
     """
     List all replications for a specified volume
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the NetApp account

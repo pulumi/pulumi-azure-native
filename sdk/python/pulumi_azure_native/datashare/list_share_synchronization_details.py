@@ -75,7 +75,7 @@ def list_share_synchronization_details(account_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListShareSynchronizationDetailsResult:
     """
     List synchronization details
-    API Version: 2021-08-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -137,7 +137,7 @@ def list_share_synchronization_details_output(account_name: Optional[pulumi.Inpu
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSynchronizationDetailsResult]:
     """
     List synchronization details
-    API Version: 2021-08-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.

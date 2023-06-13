@@ -159,7 +159,7 @@ def get_order_item_by_name(expand: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderItemByNameResult:
     """
     Gets an order item.
-    API Version: 2021-12-01.
+    Azure REST API version: 2021-12-01.
 
 
     :param str expand: $expand is supported on device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Device Details for order item provides details on the devices of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.
@@ -193,7 +193,7 @@ def get_order_item_by_name_output(expand: Optional[pulumi.Input[Optional[str]]] 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderItemByNameResult]:
     """
     Gets an order item.
-    API Version: 2021-12-01.
+    Azure REST API version: 2021-12-01.
 
 
     :param str expand: $expand is supported on device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Device Details for order item provides details on the devices of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.

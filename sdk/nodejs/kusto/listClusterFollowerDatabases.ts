@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a list of databases that are owned by this cluster and were followed by another cluster.
- * API Version: 2022-12-29.
+ * Azure REST API version: 2022-12-29.
  */
 export function listClusterFollowerDatabases(args: ListClusterFollowerDatabasesArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterFollowerDatabasesResult> {
 
@@ -42,7 +42,7 @@ export interface ListClusterFollowerDatabasesResult {
 }
 /**
  * Returns a list of databases that are owned by this cluster and were followed by another cluster.
- * API Version: 2022-12-29.
+ * Azure REST API version: 2022-12-29.
  */
 export function listClusterFollowerDatabasesOutput(args: ListClusterFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterFollowerDatabasesResult> {
     return pulumi.output(args).apply((a: any) => listClusterFollowerDatabases(a, opts))

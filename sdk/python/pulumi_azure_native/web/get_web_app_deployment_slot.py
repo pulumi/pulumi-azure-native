@@ -195,7 +195,7 @@ def get_web_app_deployment_slot(id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDeploymentSlotResult:
     """
     Description for Get a deployment by its ID for an app, or a deployment slot.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str id: Deployment ID.
@@ -235,7 +235,7 @@ def get_web_app_deployment_slot_output(id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDeploymentSlotResult]:
     """
     Description for Get a deployment by its ID for an app, or a deployment slot.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str id: Deployment ID.

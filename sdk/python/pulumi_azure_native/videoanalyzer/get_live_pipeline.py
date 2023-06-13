@@ -147,7 +147,7 @@ def get_live_pipeline(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLivePipelineResult:
     """
     Retrieves a specific live pipeline by name. If a live pipeline with that name has been previously created, the call will return the JSON representation of that instance.
-    API Version: 2021-11-01-preview.
+    Azure REST API version: 2021-11-01-preview.
 
 
     :param str account_name: The Azure Video Analyzer account name.
@@ -180,7 +180,7 @@ def get_live_pipeline_output(account_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLivePipelineResult]:
     """
     Retrieves a specific live pipeline by name. If a live pipeline with that name has been previously created, the call will return the JSON representation of that instance.
-    API Version: 2021-11-01-preview.
+    Azure REST API version: 2021-11-01-preview.
 
 
     :param str account_name: The Azure Video Analyzer account name.

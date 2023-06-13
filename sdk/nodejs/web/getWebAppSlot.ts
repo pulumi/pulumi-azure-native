@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets the details of a web, mobile, or API app.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppSlot(args: GetWebAppSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotResult> {
 
@@ -263,7 +263,7 @@ export interface GetWebAppSlotResult {
 }
 /**
  * Description for Gets the details of a web, mobile, or API app.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppSlotOutput(args: GetWebAppSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSlot(a, opts))

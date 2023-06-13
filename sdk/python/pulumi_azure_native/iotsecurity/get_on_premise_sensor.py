@@ -85,7 +85,7 @@ def get_on_premise_sensor(on_premise_sensor_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOnPremiseSensorResult:
     """
     Get on-premise IoT sensor
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str on_premise_sensor_name: Name of the on-premise IoT sensor
@@ -107,7 +107,7 @@ def get_on_premise_sensor_output(on_premise_sensor_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOnPremiseSensorResult]:
     """
     Get on-premise IoT sensor
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str on_premise_sensor_name: Name of the on-premise IoT sensor

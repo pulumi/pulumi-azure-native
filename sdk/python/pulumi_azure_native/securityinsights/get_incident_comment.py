@@ -148,7 +148,7 @@ def get_incident_comment(incident_comment_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentCommentResult:
     """
     Gets a comment for a given incident.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str incident_comment_id: Incident comment ID
@@ -184,7 +184,7 @@ def get_incident_comment_output(incident_comment_id: Optional[pulumi.Input[str]]
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentCommentResult]:
     """
     Gets a comment for a given incident.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str incident_comment_id: Incident comment ID

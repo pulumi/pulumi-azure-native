@@ -159,7 +159,7 @@ def get_workspace_product(product_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceProductResult:
     """
     Gets the details of the product specified by its identifier.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
@@ -196,7 +196,7 @@ def get_workspace_product_output(product_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceProductResult]:
     """
     Gets the details of the product specified by its identifier.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.

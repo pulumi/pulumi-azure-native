@@ -146,7 +146,7 @@ def get_instance_pool(instance_pool_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancePoolResult:
     """
     Gets an instance pool.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str instance_pool_name: The name of the instance pool to be retrieved.
@@ -176,7 +176,7 @@ def get_instance_pool_output(instance_pool_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancePoolResult]:
     """
     Gets an instance pool.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str instance_pool_name: The name of the instance pool to be retrieved.

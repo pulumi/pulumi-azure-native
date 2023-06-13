@@ -135,7 +135,7 @@ def get_hybrid_identity_metadata(metadata_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridIdentityMetadataResult:
     """
     Implements HybridIdentityMetadata GET method.
-    API Version: 2022-05-21-preview.
+    Azure REST API version: 2022-05-21-preview.
 
 
     :param str metadata_name: Name of the HybridIdentityMetadata.
@@ -167,7 +167,7 @@ def get_hybrid_identity_metadata_output(metadata_name: Optional[pulumi.Input[str
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridIdentityMetadataResult]:
     """
     Implements HybridIdentityMetadata GET method.
-    API Version: 2022-05-21-preview.
+    Azure REST API version: 2022-05-21-preview.
 
 
     :param str metadata_name: Name of the HybridIdentityMetadata.

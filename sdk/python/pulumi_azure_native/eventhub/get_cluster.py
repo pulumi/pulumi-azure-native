@@ -170,7 +170,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Gets the resource description of the specified Event Hubs Cluster.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str cluster_name: The name of the Event Hubs Cluster.
@@ -202,7 +202,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Gets the resource description of the specified Event Hubs Cluster.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str cluster_name: The name of the Event Hubs Cluster.

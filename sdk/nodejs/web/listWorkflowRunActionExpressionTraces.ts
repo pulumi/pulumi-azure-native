@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists a workflow run expression trace.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWorkflowRunActionExpressionTraces(args: ListWorkflowRunActionExpressionTracesArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowRunActionExpressionTracesResult> {
 
@@ -59,7 +59,7 @@ export interface ListWorkflowRunActionExpressionTracesResult {
 }
 /**
  * Lists a workflow run expression trace.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWorkflowRunActionExpressionTracesOutput(args: ListWorkflowRunActionExpressionTracesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowRunActionExpressionTracesResult> {
     return pulumi.output(args).apply((a: any) => listWorkflowRunActionExpressionTraces(a, opts))

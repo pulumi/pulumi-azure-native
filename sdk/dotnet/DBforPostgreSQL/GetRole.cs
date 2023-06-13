@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     {
         /// <summary>
         /// Gets information about a cluster role.
-        /// API Version: 2022-11-08.
+        /// Azure REST API version: 2022-11-08.
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("azure-native:dbforpostgresql:getRole", args ?? new GetRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a cluster role.
-        /// API Version: 2022-11-08.
+        /// Azure REST API version: 2022-11-08.
         /// </summary>
         public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleResult>("azure-native:dbforpostgresql:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());

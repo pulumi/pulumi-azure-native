@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Outbound Rule Basic Resource for the managed network of a machine learning workspace.
-    /// API Version: 2023-04-01-preview.
+    /// Azure REST API version: 2023-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ManagedNetworkSettingsRule")]
     public partial class ManagedNetworkSettingsRule : global::Pulumi.CustomResource

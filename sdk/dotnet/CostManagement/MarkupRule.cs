@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// Markup rule
-    /// API Version: 2022-10-05-preview.
+    /// Azure REST API version: 2022-10-05-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:MarkupRule")]
     public partial class MarkupRule : global::Pulumi.CustomResource

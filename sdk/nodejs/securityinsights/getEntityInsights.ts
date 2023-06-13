@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Execute Insights for an entity.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getEntityInsights(args: GetEntityInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityInsightsResult> {
 
@@ -71,7 +71,7 @@ export interface GetEntityInsightsResult {
 }
 /**
  * Execute Insights for an entity.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getEntityInsightsOutput(args: GetEntityInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityInsightsResult> {
     return pulumi.output(args).apply((a: any) => getEntityInsights(a, opts))

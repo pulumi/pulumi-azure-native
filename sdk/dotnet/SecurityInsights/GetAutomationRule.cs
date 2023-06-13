@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets the automation rule.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetAutomationRuleResult> InvokeAsync(GetAutomationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomationRuleResult>("azure-native:securityinsights:getAutomationRule", args ?? new GetAutomationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the automation rule.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetAutomationRuleResult> Invoke(GetAutomationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("azure-native:securityinsights:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithDefaults());

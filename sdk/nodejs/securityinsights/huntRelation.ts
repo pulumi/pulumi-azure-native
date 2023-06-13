@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Hunt Relation in Azure Security Insights.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export class HuntRelation extends pulumi.CustomResource {
     /**

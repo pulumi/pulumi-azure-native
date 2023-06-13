@@ -99,7 +99,7 @@ def list_wcf_relay_keys(authorization_rule_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWCFRelayKeysResult:
     """
     Primary and secondary connection strings to the WCF relay.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -131,7 +131,7 @@ def list_wcf_relay_keys_output(authorization_rule_name: Optional[pulumi.Input[st
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWCFRelayKeysResult]:
     """
     Primary and secondary connection strings to the WCF relay.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str authorization_rule_name: The authorization rule name.

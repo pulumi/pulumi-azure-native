@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// An environment for Kubernetes cluster specialized for web workloads by Azure App Service
-    /// API Version: 2022-10-01.
+    /// Azure REST API version: 2022-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ConnectedEnvironment")]
     public partial class ConnectedEnvironment : global::Pulumi.CustomResource

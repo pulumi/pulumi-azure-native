@@ -111,7 +111,7 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceConfigurationResult:
     """
     See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str config_name: The name of the maintenance configuration.
@@ -141,7 +141,7 @@ def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[str]
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
     """
     See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str config_name: The name of the maintenance configuration.

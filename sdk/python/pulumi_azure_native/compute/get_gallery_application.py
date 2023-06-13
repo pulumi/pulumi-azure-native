@@ -183,7 +183,7 @@ def get_gallery_application(gallery_application_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryApplicationResult:
     """
     Retrieves information about a gallery Application Definition.
-    API Version: 2022-03-03.
+    Azure REST API version: 2022-03-03.
 
 
     :param str gallery_application_name: The name of the gallery Application Definition to be retrieved.
@@ -219,7 +219,7 @@ def get_gallery_application_output(gallery_application_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryApplicationResult]:
     """
     Retrieves information about a gallery Application Definition.
-    API Version: 2022-03-03.
+    Azure REST API version: 2022-03-03.
 
 
     :param str gallery_application_name: The name of the gallery Application Definition to be retrieved.

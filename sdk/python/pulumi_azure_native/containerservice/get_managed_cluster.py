@@ -578,7 +578,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterResult:
     """
     Managed cluster.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -644,7 +644,7 @@ def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterResult]:
     """
     Managed cluster.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

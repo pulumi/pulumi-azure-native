@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified address.
- * API Version: 2021-12-01.
+ * Azure REST API version: 2021-12-01.
  */
 export function getAddressByName(args: GetAddressByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAddressByNameResult> {
 
@@ -74,7 +74,7 @@ export interface GetAddressByNameResult {
 }
 /**
  * Gets information about the specified address.
- * API Version: 2021-12-01.
+ * Azure REST API version: 2021-12-01.
  */
 export function getAddressByNameOutput(args: GetAddressByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddressByNameResult> {
     return pulumi.output(args).apply((a: any) => getAddressByName(a, opts))

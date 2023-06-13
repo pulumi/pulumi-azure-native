@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an outbound rule from the managed network of a machine learning workspace.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function getManagedNetworkSettingsRule(args: GetManagedNetworkSettingsRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedNetworkSettingsRuleResult> {
 
@@ -63,7 +63,7 @@ export interface GetManagedNetworkSettingsRuleResult {
 }
 /**
  * Gets an outbound rule from the managed network of a machine learning workspace.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function getManagedNetworkSettingsRuleOutput(args: GetManagedNetworkSettingsRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkSettingsRuleResult> {
     return pulumi.output(args).apply((a: any) => getManagedNetworkSettingsRule(a, opts))

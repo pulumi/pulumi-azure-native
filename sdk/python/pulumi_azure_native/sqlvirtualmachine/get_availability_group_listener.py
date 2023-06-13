@@ -172,7 +172,7 @@ def get_availability_group_listener(availability_group_listener_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilityGroupListenerResult:
     """
     Gets an availability group listener.
-    API Version: 2022-02-01.
+    Azure REST API version: 2022-02-01.
 
 
     :param str availability_group_listener_name: Name of the availability group listener.
@@ -210,7 +210,7 @@ def get_availability_group_listener_output(availability_group_listener_name: Opt
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilityGroupListenerResult]:
     """
     Gets an availability group listener.
-    API Version: 2022-02-01.
+    Azure REST API version: 2022-02-01.
 
 
     :param str availability_group_listener_name: Name of the availability group listener.

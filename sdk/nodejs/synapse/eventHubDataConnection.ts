@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an event hub data connection.
- * API Version: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export class EventHubDataConnection extends pulumi.CustomResource {
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Arc Sql Server database
- * API Version: 2023-01-15-preview.
+ * Azure REST API version: 2023-01-15-preview.
  */
 export class SqlServerDatabase extends pulumi.CustomResource {
     /**

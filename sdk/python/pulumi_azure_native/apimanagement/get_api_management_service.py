@@ -518,7 +518,7 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceResult:
     """
     Gets an API Management service resource description.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -579,7 +579,7 @@ def get_api_management_service_output(resource_group_name: Optional[pulumi.Input
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceResult]:
     """
     Gets an API Management service resource description.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

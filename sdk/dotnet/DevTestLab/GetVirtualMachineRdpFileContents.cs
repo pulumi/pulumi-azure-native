@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevTestLab
     {
         /// <summary>
         /// Gets a string that represents the contents of the RDP file for the virtual machine
-        /// API Version: 2018-09-15.
+        /// Azure REST API version: 2018-09-15.
         /// </summary>
         public static Task<GetVirtualMachineRdpFileContentsResult> InvokeAsync(GetVirtualMachineRdpFileContentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRdpFileContentsResult>("azure-native:devtestlab:getVirtualMachineRdpFileContents", args ?? new GetVirtualMachineRdpFileContentsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a string that represents the contents of the RDP file for the virtual machine
-        /// API Version: 2018-09-15.
+        /// Azure REST API version: 2018-09-15.
         /// </summary>
         public static Output<GetVirtualMachineRdpFileContentsResult> Invoke(GetVirtualMachineRdpFileContentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineRdpFileContentsResult>("azure-native:devtestlab:getVirtualMachineRdpFileContents", args ?? new GetVirtualMachineRdpFileContentsInvokeArgs(), options.WithDefaults());

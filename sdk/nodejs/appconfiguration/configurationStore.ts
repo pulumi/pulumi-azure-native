@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
- * API Version: 2023-03-01.
- * Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01
  */
 export class ConfigurationStore extends pulumi.CustomResource {
     /**

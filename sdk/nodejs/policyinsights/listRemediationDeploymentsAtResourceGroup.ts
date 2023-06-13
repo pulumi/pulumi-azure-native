@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets all deployments for a remediation at resource group scope.
- * API Version: 2021-10-01.
+ * Azure REST API version: 2021-10-01.
  */
 export function listRemediationDeploymentsAtResourceGroup(args: ListRemediationDeploymentsAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtResourceGroupResult> {
 
@@ -51,7 +51,7 @@ export interface ListRemediationDeploymentsAtResourceGroupResult {
 }
 /**
  * Gets all deployments for a remediation at resource group scope.
- * API Version: 2021-10-01.
+ * Azure REST API version: 2021-10-01.
  */
 export function listRemediationDeploymentsAtResourceGroupOutput(args: ListRemediationDeploymentsAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemediationDeploymentsAtResourceGroupResult> {
     return pulumi.output(args).apply((a: any) => listRemediationDeploymentsAtResourceGroup(a, opts))

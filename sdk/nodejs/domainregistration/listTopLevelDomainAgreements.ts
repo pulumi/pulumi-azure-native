@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets all legal agreements that user needs to accept before purchasing a domain.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listTopLevelDomainAgreements(args: ListTopLevelDomainAgreementsArgs, opts?: pulumi.InvokeOptions): Promise<ListTopLevelDomainAgreementsResult> {
 
@@ -51,7 +51,7 @@ export interface ListTopLevelDomainAgreementsResult {
 }
 /**
  * Description for Gets all legal agreements that user needs to accept before purchasing a domain.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listTopLevelDomainAgreementsOutput(args: ListTopLevelDomainAgreementsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopLevelDomainAgreementsResult> {
     return pulumi.output(args).apply((a: any) => listTopLevelDomainAgreements(a, opts))

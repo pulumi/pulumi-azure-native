@@ -269,7 +269,7 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScalingPlanResult:
     """
     Get a scaling plan.
-    API Version: 2022-09-09.
+    Azure REST API version: 2022-09-09.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -310,7 +310,7 @@ def get_scaling_plan_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScalingPlanResult]:
     """
     Get a scaling plan.
-    API Version: 2022-09-09.
+    Azure REST API version: 2022-09-09.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

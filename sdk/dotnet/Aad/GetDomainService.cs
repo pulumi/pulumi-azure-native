@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Aad
     {
         /// <summary>
         /// The Get Domain Service operation retrieves a json representation of the Domain Service.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<GetDomainServiceResult> InvokeAsync(GetDomainServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Get Domain Service operation retrieves a json representation of the Domain Service.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<GetDomainServiceResult> Invoke(GetDomainServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceInvokeArgs(), options.WithDefaults());

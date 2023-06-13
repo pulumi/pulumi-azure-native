@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This returns the list of interfaces in the WSDL
- * API Version: 2016-06-01.
+ * Azure REST API version: 2016-06-01.
  */
 export function listCustomApiWsdlInterfaces(args: ListCustomApiWsdlInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<ListCustomApiWsdlInterfacesResult> {
 
@@ -62,7 +62,7 @@ export interface ListCustomApiWsdlInterfacesResult {
 }
 /**
  * This returns the list of interfaces in the WSDL
- * API Version: 2016-06-01.
+ * Azure REST API version: 2016-06-01.
  */
 export function listCustomApiWsdlInterfacesOutput(args: ListCustomApiWsdlInterfacesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCustomApiWsdlInterfacesResult> {
     return pulumi.output(args).apply((a: any) => listCustomApiWsdlInterfaces(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetLinkedServerResult> InvokeAsync(GetLinkedServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-native:cache:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetLinkedServerResult> Invoke(GetLinkedServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedServerResult>("azure-native:cache:getLinkedServer", args ?? new GetLinkedServerInvokeArgs(), options.WithDefaults());

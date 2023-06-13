@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Get metadata information on an assessment type in a specific subscription
-        /// API Version: 2021-06-01.
+        /// Azure REST API version: 2021-06-01.
         /// </summary>
         public static Task<GetAssessmentMetadataInSubscriptionResult> InvokeAsync(GetAssessmentMetadataInSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentMetadataInSubscriptionResult>("azure-native:security:getAssessmentMetadataInSubscription", args ?? new GetAssessmentMetadataInSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get metadata information on an assessment type in a specific subscription
-        /// API Version: 2021-06-01.
+        /// Azure REST API version: 2021-06-01.
         /// </summary>
         public static Output<GetAssessmentMetadataInSubscriptionResult> Invoke(GetAssessmentMetadataInSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentMetadataInSubscriptionResult>("azure-native:security:getAssessmentMetadataInSubscription", args ?? new GetAssessmentMetadataInSubscriptionInvokeArgs(), options.WithDefaults());

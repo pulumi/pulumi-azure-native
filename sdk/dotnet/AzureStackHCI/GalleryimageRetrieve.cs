@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// The gallery image resource definition.
-    /// API Version: 2021-09-01-preview.
+    /// Azure REST API version: 2021-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:GalleryimageRetrieve")]
     public partial class GalleryimageRetrieve : global::Pulumi.CustomResource

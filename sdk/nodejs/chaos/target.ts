@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Model that represents a Target resource.
- * API Version: 2022-10-01-preview.
- * Previous API Version: 2021-09-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview
  */
 export class Target extends pulumi.CustomResource {
     /**

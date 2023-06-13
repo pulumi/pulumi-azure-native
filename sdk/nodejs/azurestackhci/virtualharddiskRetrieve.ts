@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The virtual hard disk resource definition.
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export class VirtualharddiskRetrieve extends pulumi.CustomResource {
     /**

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific application for the requested scope by applicationId
- * API Version: 2022-07-01-preview.
+ * Azure REST API version: 2022-07-01-preview.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -54,7 +54,7 @@ export interface GetApplicationResult {
 }
 /**
  * Get a specific application for the requested scope by applicationId
- * API Version: 2022-07-01-preview.
+ * Azure REST API version: 2022-07-01-preview.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

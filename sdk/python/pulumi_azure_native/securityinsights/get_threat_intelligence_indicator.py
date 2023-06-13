@@ -111,7 +111,7 @@ def get_threat_intelligence_indicator(name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThreatIntelligenceIndicatorResult:
     """
     View a threat intelligence indicator by name.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str name: Threat intelligence indicator name field.
@@ -141,7 +141,7 @@ def get_threat_intelligence_indicator_output(name: Optional[pulumi.Input[str]] =
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThreatIntelligenceIndicatorResult]:
     """
     View a threat intelligence indicator by name.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str name: Threat intelligence indicator name field.

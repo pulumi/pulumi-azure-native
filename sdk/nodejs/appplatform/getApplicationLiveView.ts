@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Application Live  and its properties.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getApplicationLiveView(args: GetApplicationLiveViewArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationLiveViewResult> {
 
@@ -63,7 +63,7 @@ export interface GetApplicationLiveViewResult {
 }
 /**
  * Get the Application Live  and its properties.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getApplicationLiveViewOutput(args: GetApplicationLiveViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationLiveViewResult> {
     return pulumi.output(args).apply((a: any) => getApplicationLiveView(a, opts))

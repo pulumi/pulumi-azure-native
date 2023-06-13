@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the integration account's Key Vault keys.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function listIntegrationAccountKeyVaultKeys(args: ListIntegrationAccountKeyVaultKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountKeyVaultKeysResult> {
 
@@ -56,7 +56,7 @@ export interface ListIntegrationAccountKeyVaultKeysResult {
 }
 /**
  * Gets the integration account's Key Vault keys.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function listIntegrationAccountKeyVaultKeysOutput(args: ListIntegrationAccountKeyVaultKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountKeyVaultKeysResult> {
     return pulumi.output(args).apply((a: any) => listIntegrationAccountKeyVaultKeys(a, opts))

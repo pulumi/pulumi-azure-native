@@ -317,7 +317,7 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFluxConfigurationResult:
     """
     Gets details of the Flux Configuration.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.
@@ -370,7 +370,7 @@ def get_flux_configuration_output(cluster_name: Optional[pulumi.Input[str]] = No
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFluxConfigurationResult]:
     """
     Gets details of the Flux Configuration.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str cluster_name: The name of the kubernetes cluster.

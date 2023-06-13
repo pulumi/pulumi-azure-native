@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataFactory
     {
         /// <summary>
         /// Get GitHub Access Token.
-        /// API Version: 2018-06-01.
+        /// Azure REST API version: 2018-06-01.
         /// </summary>
         public static Task<GetFactoryGitHubAccessTokenResult> InvokeAsync(GetFactoryGitHubAccessTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFactoryGitHubAccessTokenResult>("azure-native:datafactory:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get GitHub Access Token.
-        /// API Version: 2018-06-01.
+        /// Azure REST API version: 2018-06-01.
         /// </summary>
         public static Output<GetFactoryGitHubAccessTokenResult> Invoke(GetFactoryGitHubAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFactoryGitHubAccessTokenResult>("azure-native:datafactory:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenInvokeArgs(), options.WithDefaults());

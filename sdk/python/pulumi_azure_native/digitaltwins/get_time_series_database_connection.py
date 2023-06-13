@@ -99,7 +99,7 @@ def get_time_series_database_connection(resource_group_name: Optional[str] = Non
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTimeSeriesDatabaseConnectionResult:
     """
     Get the description of an existing time series database connection.
-    API Version: 2023-01-31.
+    Azure REST API version: 2023-01-31.
 
 
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
@@ -128,7 +128,7 @@ def get_time_series_database_connection_output(resource_group_name: Optional[pul
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTimeSeriesDatabaseConnectionResult]:
     """
     Get the description of an existing time series database connection.
-    API Version: 2023-01-31.
+    Azure REST API version: 2023-01-31.
 
 
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.

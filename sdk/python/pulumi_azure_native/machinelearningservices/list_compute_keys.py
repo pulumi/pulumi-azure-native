@@ -50,7 +50,7 @@ def list_compute_keys(compute_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListComputeKeysResult:
     """
     Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.
@@ -75,7 +75,7 @@ def list_compute_keys_output(compute_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListComputeKeysResult]:
     """
     Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.

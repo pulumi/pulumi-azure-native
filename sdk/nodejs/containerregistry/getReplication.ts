@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified replication.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationResult> {
 
@@ -83,7 +83,7 @@ export interface GetReplicationResult {
 }
 /**
  * Gets the properties of the specified replication.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getReplicationOutput(args: GetReplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationResult> {
     return pulumi.output(args).apply((a: any) => getReplication(a, opts))

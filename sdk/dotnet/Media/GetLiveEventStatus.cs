@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Gets status telemetry of a live event.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetLiveEventStatusResult> InvokeAsync(GetLiveEventStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLiveEventStatusResult>("azure-native:media:getLiveEventStatus", args ?? new GetLiveEventStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets status telemetry of a live event.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetLiveEventStatusResult> Invoke(GetLiveEventStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLiveEventStatusResult>("azure-native:media:getLiveEventStatus", args ?? new GetLiveEventStatusInvokeArgs(), options.WithDefaults());

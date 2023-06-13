@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerBI
 {
     /// <summary>
-    /// API Version: 2016-01-29.
-    /// Previous API Version: 2016-01-29. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2016-01-29. Prior API version in Azure Native 1.x: 2016-01-29
     /// </summary>
     [AzureNativeResourceType("azure-native:powerbi:WorkspaceCollection")]
     public partial class WorkspaceCollection : global::Pulumi.CustomResource

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An UpdateRun is a multi-stage process to perform update operations across members of a Fleet.
- * API Version: 2023-03-15-preview.
+ * Azure REST API version: 2023-03-15-preview.
  */
 export class UpdateRun extends pulumi.CustomResource {
     /**

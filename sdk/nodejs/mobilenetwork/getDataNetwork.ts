@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified data network.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getDataNetwork(args: GetDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetDataNetworkResult> {
 
@@ -75,7 +75,7 @@ export interface GetDataNetworkResult {
 }
 /**
  * Gets information about the specified data network.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getDataNetworkOutput(args: GetDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataNetworkResult> {
     return pulumi.output(args).apply((a: any) => getDataNetwork(a, opts))

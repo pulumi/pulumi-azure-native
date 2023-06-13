@@ -182,7 +182,7 @@ def get_tenant_action_group(management_group_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTenantActionGroupResult:
     """
     Get a tenant action group.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str management_group_id: The management group id.
@@ -215,7 +215,7 @@ def get_tenant_action_group_output(management_group_id: Optional[pulumi.Input[st
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTenantActionGroupResult]:
     """
     Get a tenant action group.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str management_group_id: The management group id.

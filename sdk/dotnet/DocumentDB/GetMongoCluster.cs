@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Gets information about a mongo cluster.
-        /// API Version: 2023-03-15-preview.
+        /// Azure REST API version: 2023-03-15-preview.
         /// </summary>
         public static Task<GetMongoClusterResult> InvokeAsync(GetMongoClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMongoClusterResult>("azure-native:documentdb:getMongoCluster", args ?? new GetMongoClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a mongo cluster.
-        /// API Version: 2023-03-15-preview.
+        /// Azure REST API version: 2023-03-15-preview.
         /// </summary>
         public static Output<GetMongoClusterResult> Invoke(GetMongoClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMongoClusterResult>("azure-native:documentdb:getMongoCluster", args ?? new GetMongoClusterInvokeArgs(), options.WithDefaults());

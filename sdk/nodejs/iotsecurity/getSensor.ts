@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get IoT sensor
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-02-01-preview.
  */
 export function getSensor(args: GetSensorArgs, opts?: pulumi.InvokeOptions): Promise<GetSensorResult> {
 
@@ -94,7 +94,7 @@ export interface GetSensorResult {
 }
 /**
  * Get IoT sensor
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-02-01-preview.
  */
 export function getSensorOutput(args: GetSensorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensorResult> {
     return pulumi.output(args).apply((a: any) => getSensor(a, opts))

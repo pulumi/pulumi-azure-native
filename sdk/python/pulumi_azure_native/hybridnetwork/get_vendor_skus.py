@@ -182,7 +182,7 @@ def get_vendor_skus(sku_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVendorSkusResult:
     """
     Gets information about the specified sku.
-    API Version: 2021-05-01.
+    Azure REST API version: 2021-05-01.
 
 
     :param str sku_name: The name of the sku.
@@ -215,7 +215,7 @@ def get_vendor_skus_output(sku_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorSkusResult]:
     """
     Gets information about the specified sku.
-    API Version: 2021-05-01.
+    Azure REST API version: 2021-05-01.
 
 
     :param str sku_name: The name of the sku.

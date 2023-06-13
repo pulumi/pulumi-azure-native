@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified application gateway.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayResult> {
 
@@ -210,7 +210,7 @@ export interface GetApplicationGatewayResult {
 }
 /**
  * Gets the specified application gateway.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
     return pulumi.output(args).apply((a: any) => getApplicationGateway(a, opts))

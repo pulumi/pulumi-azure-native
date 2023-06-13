@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the application accelerator.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getApplicationAccelerator(args: GetApplicationAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationAcceleratorResult> {
 
@@ -67,7 +67,7 @@ export interface GetApplicationAcceleratorResult {
 }
 /**
  * Get the application accelerator.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getApplicationAcceleratorOutput(args: GetApplicationAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationAcceleratorResult> {
     return pulumi.output(args).apply((a: any) => getApplicationAccelerator(a, opts))

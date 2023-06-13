@@ -60,7 +60,7 @@ def list_account_sas(account_name: Optional[str] = None,
     Prerequisites:
     1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account.
     2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
-       API Version: 2021-12-01-preview.
+       Azure REST API version: 2021-12-01-preview.
 
 
     :param str account_name: The name of the Maps Account.
@@ -104,7 +104,7 @@ def list_account_sas_output(account_name: Optional[pulumi.Input[str]] = None,
     Prerequisites:
     1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account.
     2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
-       API Version: 2021-12-01-preview.
+       Azure REST API version: 2021-12-01-preview.
 
 
     :param str account_name: The name of the Maps Account.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Gets an Azure API Management API if it has been onboarded to Defender for APIs. If an Azure API Management API is onboarded to Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
-        /// API Version: 2022-11-20-preview.
+        /// Azure REST API version: 2022-11-20-preview.
         /// </summary>
         public static Task<GetAPICollectionResult> InvokeAsync(GetAPICollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAPICollectionResult>("azure-native:security:getAPICollection", args ?? new GetAPICollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Azure API Management API if it has been onboarded to Defender for APIs. If an Azure API Management API is onboarded to Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
-        /// API Version: 2022-11-20-preview.
+        /// Azure REST API version: 2022-11-20-preview.
         /// </summary>
         public static Output<GetAPICollectionResult> Invoke(GetAPICollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAPICollectionResult>("azure-native:security:getAPICollection", args ?? new GetAPICollectionInvokeArgs(), options.WithDefaults());

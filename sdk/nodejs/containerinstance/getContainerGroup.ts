@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerGroupResult> {
 
@@ -137,7 +137,7 @@ export interface GetContainerGroupResult {
 }
 /**
  * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getContainerGroupOutput(args: GetContainerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerGroupResult> {
     return pulumi.output(args).apply((a: any) => getContainerGroup(a, opts))

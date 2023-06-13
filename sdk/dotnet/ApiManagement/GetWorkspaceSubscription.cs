@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the specified Subscription entity.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetWorkspaceSubscriptionResult> InvokeAsync(GetWorkspaceSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSubscriptionResult>("azure-native:apimanagement:getWorkspaceSubscription", args ?? new GetWorkspaceSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Subscription entity.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetWorkspaceSubscriptionResult> Invoke(GetWorkspaceSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceSubscriptionResult>("azure-native:apimanagement:getWorkspaceSubscription", args ?? new GetWorkspaceSubscriptionInvokeArgs(), options.WithDefaults());

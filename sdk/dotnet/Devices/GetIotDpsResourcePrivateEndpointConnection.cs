@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Devices
     {
         /// <summary>
         /// Get private endpoint connection properties
-        /// API Version: 2022-12-12.
+        /// Azure REST API version: 2022-12-12.
         /// </summary>
         public static Task<GetIotDpsResourcePrivateEndpointConnectionResult> InvokeAsync(GetIotDpsResourcePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourcePrivateEndpointConnectionResult>("azure-native:devices:getIotDpsResourcePrivateEndpointConnection", args ?? new GetIotDpsResourcePrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get private endpoint connection properties
-        /// API Version: 2022-12-12.
+        /// Azure REST API version: 2022-12-12.
         /// </summary>
         public static Output<GetIotDpsResourcePrivateEndpointConnectionResult> Invoke(GetIotDpsResourcePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotDpsResourcePrivateEndpointConnectionResult>("azure-native:devices:getIotDpsResourcePrivateEndpointConnection", args ?? new GetIotDpsResourcePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

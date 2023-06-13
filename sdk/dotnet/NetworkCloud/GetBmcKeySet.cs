@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get baseboard management controller key set of the provided cluster.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2022-12-12-preview.
         /// </summary>
         public static Task<GetBmcKeySetResult> InvokeAsync(GetBmcKeySetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBmcKeySetResult>("azure-native:networkcloud:getBmcKeySet", args ?? new GetBmcKeySetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get baseboard management controller key set of the provided cluster.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2022-12-12-preview.
         /// </summary>
         public static Output<GetBmcKeySetResult> Invoke(GetBmcKeySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBmcKeySetResult>("azure-native:networkcloud:getBmcKeySet", args ?? new GetBmcKeySetInvokeArgs(), options.WithDefaults());

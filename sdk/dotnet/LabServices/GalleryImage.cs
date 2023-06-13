@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.LabServices
 {
     /// <summary>
     /// Represents an image from the Azure Marketplace
-    /// API Version: 2018-10-15.
-    /// Previous API Version: 2018-10-15. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2018-10-15. Prior API version in Azure Native 1.x: 2018-10-15
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:GalleryImage")]
     public partial class GalleryImage : global::Pulumi.CustomResource

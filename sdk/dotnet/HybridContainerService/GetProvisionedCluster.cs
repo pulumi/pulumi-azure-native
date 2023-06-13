@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridContainerService
     {
         /// <summary>
         /// Gets the Hybrid AKS provisioned cluster
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetProvisionedClusterResult> InvokeAsync(GetProvisionedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProvisionedClusterResult>("azure-native:hybridcontainerservice:getProvisionedCluster", args ?? new GetProvisionedClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Hybrid AKS provisioned cluster
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetProvisionedClusterResult> Invoke(GetProvisionedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProvisionedClusterResult>("azure-native:hybridcontainerservice:getProvisionedCluster", args ?? new GetProvisionedClusterInvokeArgs(), options.WithDefaults());

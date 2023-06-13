@@ -148,7 +148,7 @@ def get_incident_relation(incident_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentRelationResult:
     """
     Gets a relation for a given incident.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str incident_id: Incident ID
@@ -184,7 +184,7 @@ def get_incident_relation_output(incident_id: Optional[pulumi.Input[str]] = None
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentRelationResult]:
     """
     Gets a relation for a given incident.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str incident_id: Incident ID

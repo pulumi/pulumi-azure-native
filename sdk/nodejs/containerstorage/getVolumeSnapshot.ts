@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a VolumeSnapshot
- * API Version: 2023-03-01-preview.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getVolumeSnapshot(args: GetVolumeSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeSnapshotResult> {
 
@@ -79,7 +79,7 @@ export interface GetVolumeSnapshotResult {
 }
 /**
  * Get a VolumeSnapshot
- * API Version: 2023-03-01-preview.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getVolumeSnapshotOutput(args: GetVolumeSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getVolumeSnapshot(a, opts))

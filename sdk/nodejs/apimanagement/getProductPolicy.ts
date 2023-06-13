@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the policy configuration at the Product level.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getProductPolicy(args: GetProductPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProductPolicyResult> {
 
@@ -70,7 +70,7 @@ export interface GetProductPolicyResult {
 }
 /**
  * Get the policy configuration at the Product level.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getProductPolicyOutput(args: GetProductPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductPolicyResult> {
     return pulumi.output(args).apply((a: any) => getProductPolicy(a, opts))

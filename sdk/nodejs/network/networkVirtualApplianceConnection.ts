@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * NetworkVirtualApplianceConnection resource.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export class NetworkVirtualApplianceConnection extends pulumi.CustomResource {
     /**

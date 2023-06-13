@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the file upload URL of a Test Base Account.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getTestBaseAccountFileUploadUrl(args: GetTestBaseAccountFileUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetTestBaseAccountFileUploadUrlResult> {
 
@@ -48,7 +48,7 @@ export interface GetTestBaseAccountFileUploadUrlResult {
 }
 /**
  * Gets the file upload URL of a Test Base Account.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getTestBaseAccountFileUploadUrlOutput(args: GetTestBaseAccountFileUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestBaseAccountFileUploadUrlResult> {
     return pulumi.output(args).apply((a: any) => getTestBaseAccountFileUploadUrl(a, opts))

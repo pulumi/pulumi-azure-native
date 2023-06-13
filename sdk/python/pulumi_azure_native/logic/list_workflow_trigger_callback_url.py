@@ -111,7 +111,7 @@ def list_workflow_trigger_callback_url(resource_group_name: Optional[str] = None
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowTriggerCallbackUrlResult:
     """
     Get the callback URL for a workflow trigger.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str resource_group_name: The resource group name.
@@ -141,7 +141,7 @@ def list_workflow_trigger_callback_url_output(resource_group_name: Optional[pulu
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowTriggerCallbackUrlResult]:
     """
     Get the callback URL for a workflow trigger.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str resource_group_name: The resource group name.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Retrieve the python 2 package identified by package name.
-        /// API Version: 2022-08-08.
+        /// Azure REST API version: 2022-08-08.
         /// </summary>
         public static Task<GetPython2PackageResult> InvokeAsync(GetPython2PackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPython2PackageResult>("azure-native:automation:getPython2Package", args ?? new GetPython2PackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the python 2 package identified by package name.
-        /// API Version: 2022-08-08.
+        /// Azure REST API version: 2022-08-08.
         /// </summary>
         public static Output<GetPython2PackageResult> Invoke(GetPython2PackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPython2PackageResult>("azure-native:automation:getPython2Package", args ?? new GetPython2PackageInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the python 3 package identified by package name.
- * API Version: 2022-08-08.
+ * Azure REST API version: 2022-08-08.
  */
 export function getPython3Package(args: GetPython3PackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPython3PackageResult> {
 
@@ -111,7 +111,7 @@ export interface GetPython3PackageResult {
 }
 /**
  * Retrieve the python 3 package identified by package name.
- * API Version: 2022-08-08.
+ * Azure REST API version: 2022-08-08.
  */
 export function getPython3PackageOutput(args: GetPython3PackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPython3PackageResult> {
     return pulumi.output(args).apply((a: any) => getPython3Package(a, opts))

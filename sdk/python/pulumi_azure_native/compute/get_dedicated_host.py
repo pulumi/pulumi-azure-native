@@ -220,7 +220,7 @@ def get_dedicated_host(expand: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostResult:
     """
     Retrieves information about a dedicated host.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
@@ -262,7 +262,7 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = No
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostResult]:
     """
     Retrieves information about a dedicated host.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.

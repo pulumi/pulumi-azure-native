@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * DC Access code in the case of Self Managed Shipping.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function listOrderDCAccessCode(args: ListOrderDCAccessCodeArgs, opts?: pulumi.InvokeOptions): Promise<ListOrderDCAccessCodeResult> {
 
@@ -39,7 +39,7 @@ export interface ListOrderDCAccessCodeResult {
 }
 /**
  * DC Access code in the case of Self Managed Shipping.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function listOrderDCAccessCodeOutput(args: ListOrderDCAccessCodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOrderDCAccessCodeResult> {
     return pulumi.output(args).apply((a: any) => listOrderDCAccessCode(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets a Swift Virtual Network connection.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetWebAppSwiftVirtualNetworkConnectionSlotResult> InvokeAsync(GetWebAppSwiftVirtualNetworkConnectionSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionSlotResult>("azure-native:web:getWebAppSwiftVirtualNetworkConnectionSlot", args ?? new GetWebAppSwiftVirtualNetworkConnectionSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets a Swift Virtual Network connection.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetWebAppSwiftVirtualNetworkConnectionSlotResult> Invoke(GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSwiftVirtualNetworkConnectionSlotResult>("azure-native:web:getWebAppSwiftVirtualNetworkConnectionSlot", args ?? new GetWebAppSwiftVirtualNetworkConnectionSlotInvokeArgs(), options.WithDefaults());

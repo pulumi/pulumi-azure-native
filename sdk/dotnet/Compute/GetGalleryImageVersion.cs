@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about a gallery image version.
-        /// API Version: 2022-03-03.
+        /// Azure REST API version: 2022-03-03.
         /// </summary>
         public static Task<GetGalleryImageVersionResult> InvokeAsync(GetGalleryImageVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageVersionResult>("azure-native:compute:getGalleryImageVersion", args ?? new GetGalleryImageVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a gallery image version.
-        /// API Version: 2022-03-03.
+        /// Azure REST API version: 2022-03-03.
         /// </summary>
         public static Output<GetGalleryImageVersionResult> Invoke(GetGalleryImageVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageVersionResult>("azure-native:compute:getGalleryImageVersion", args ?? new GetGalleryImageVersionInvokeArgs(), options.WithDefaults());

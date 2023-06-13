@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     {
         /// <summary>
         /// Retrieves an existing access policy resource with the given name.
-        /// API Version: 2021-11-01-preview.
+        /// Azure REST API version: 2021-11-01-preview.
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-native:videoanalyzer:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves an existing access policy resource with the given name.
-        /// API Version: 2021-11-01-preview.
+        /// Azure REST API version: 2021-11-01-preview.
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:videoanalyzer:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());

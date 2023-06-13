@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Solutions
     {
         /// <summary>
         /// Gets the managed application definition.
-        /// API Version: 2021-07-01.
+        /// Azure REST API version: 2021-07-01.
         /// </summary>
         public static Task<GetApplicationDefinitionResult> InvokeAsync(GetApplicationDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the managed application definition.
-        /// API Version: 2021-07-01.
+        /// Azure REST API version: 2021-07-01.
         /// </summary>
         public static Output<GetApplicationDefinitionResult> Invoke(GetApplicationDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionInvokeArgs(), options.WithDefaults());

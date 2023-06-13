@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing origin within an origin group.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getAFDOrigin(args: GetAFDOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginResult> {
 
@@ -113,7 +113,7 @@ export interface GetAFDOriginResult {
 }
 /**
  * Gets an existing origin within an origin group.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getAFDOriginOutput(args: GetAFDOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDOriginResult> {
     return pulumi.output(args).apply((a: any) => getAFDOrigin(a, opts))

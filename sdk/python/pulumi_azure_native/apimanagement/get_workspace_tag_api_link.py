@@ -88,7 +88,7 @@ def get_workspace_tag_api_link(api_link_id: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceTagApiLinkResult:
     """
     Gets the API link for the tag.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str api_link_id: Tag-API link identifier. Must be unique in the current API Management service instance.
@@ -122,7 +122,7 @@ def get_workspace_tag_api_link_output(api_link_id: Optional[pulumi.Input[str]] =
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceTagApiLinkResult]:
     """
     Gets the API link for the tag.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str api_link_id: Tag-API link identifier. Must be unique in the current API Management service instance.

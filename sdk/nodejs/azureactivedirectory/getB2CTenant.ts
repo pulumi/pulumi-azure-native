@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Azure AD B2C tenant resource.
- * API Version: 2021-04-01.
+ * Azure REST API version: 2021-04-01.
  */
 export function getB2CTenant(args: GetB2CTenantArgs, opts?: pulumi.InvokeOptions): Promise<GetB2CTenantResult> {
 
@@ -71,7 +71,7 @@ export interface GetB2CTenantResult {
 }
 /**
  * Get the Azure AD B2C tenant resource.
- * API Version: 2021-04-01.
+ * Azure REST API version: 2021-04-01.
  */
 export function getB2CTenantOutput(args: GetB2CTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetB2CTenantResult> {
     return pulumi.output(args).apply((a: any) => getB2CTenant(a, opts))

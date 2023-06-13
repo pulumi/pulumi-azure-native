@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Deployment stack object.
- * API Version: 2022-08-01-preview.
+ * Azure REST API version: 2022-08-01-preview.
  */
 export class DeploymentStackAtSubscription extends pulumi.CustomResource {
     /**

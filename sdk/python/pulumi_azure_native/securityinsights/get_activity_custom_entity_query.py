@@ -244,7 +244,7 @@ def get_activity_custom_entity_query(entity_query_id: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityCustomEntityQueryResult:
     """
     Gets an entity query.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str entity_query_id: entity query ID
@@ -285,7 +285,7 @@ def get_activity_custom_entity_query_output(entity_query_id: Optional[pulumi.Inp
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityCustomEntityQueryResult]:
     """
     Gets an entity query.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str entity_query_id: entity query ID

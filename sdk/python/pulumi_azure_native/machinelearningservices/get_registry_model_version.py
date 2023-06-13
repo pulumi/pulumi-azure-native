@@ -100,7 +100,7 @@ def get_registry_model_version(model_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryModelVersionResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str model_name: Container name. This is case-sensitive.
@@ -132,7 +132,7 @@ def get_registry_model_version_output(model_name: Optional[pulumi.Input[str]] = 
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryModelVersionResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str model_name: Container name. This is case-sensitive.

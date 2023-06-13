@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve a Spatial Anchors Account.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2021-01-01.
  */
 export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSpatialAnchorsAccountResult> {
 
@@ -90,7 +90,7 @@ export interface GetSpatialAnchorsAccountResult {
 }
 /**
  * Retrieve a Spatial Anchors Account.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2021-01-01.
  */
 export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
     return pulumi.output(args).apply((a: any) => getSpatialAnchorsAccount(a, opts))

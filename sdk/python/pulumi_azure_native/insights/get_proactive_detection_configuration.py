@@ -111,7 +111,7 @@ def get_proactive_detection_configuration(configuration_id: Optional[str] = None
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProactiveDetectionConfigurationResult:
     """
     Get the ProactiveDetection configuration for this configuration id.
-    API Version: 2015-05-01.
+    Azure REST API version: 2015-05-01.
 
 
     :param str configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.
@@ -141,7 +141,7 @@ def get_proactive_detection_configuration_output(configuration_id: Optional[pulu
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProactiveDetectionConfigurationResult]:
     """
     Get the ProactiveDetection configuration for this configuration id.
-    API Version: 2015-05-01.
+    Azure REST API version: 2015-05-01.
 
 
     :param str configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.

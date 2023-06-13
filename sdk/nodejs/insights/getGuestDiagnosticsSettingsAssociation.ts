@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets guest diagnostics association settings.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2018-06-01-preview.
  */
 export function getGuestDiagnosticsSettingsAssociation(args: GetGuestDiagnosticsSettingsAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestDiagnosticsSettingsAssociationResult> {
 
@@ -59,7 +59,7 @@ export interface GetGuestDiagnosticsSettingsAssociationResult {
 }
 /**
  * Gets guest diagnostics association settings.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2018-06-01-preview.
  */
 export function getGuestDiagnosticsSettingsAssociationOutput(args: GetGuestDiagnosticsSettingsAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestDiagnosticsSettingsAssociationResult> {
     return pulumi.output(args).apply((a: any) => getGuestDiagnosticsSettingsAssociation(a, opts))

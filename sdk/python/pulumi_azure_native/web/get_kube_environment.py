@@ -243,7 +243,7 @@ def get_kube_environment(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubeEnvironmentResult:
     """
     Description for Get the properties of a Kubernetes Environment.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the Kubernetes Environment.
@@ -281,7 +281,7 @@ def get_kube_environment_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubeEnvironmentResult]:
     """
     Description for Get the properties of a Kubernetes Environment.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the Kubernetes Environment.

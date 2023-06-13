@@ -127,8 +127,7 @@ class SecretValue(pulumi.CustomResource):
                  __props__=None):
         """
         This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
-        API Version: 2018-09-01-preview.
-        Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,8 +146,7 @@ class SecretValue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
-        API Version: 2018-09-01-preview.
-        Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview
 
         :param str resource_name: The name of the resource.
         :param SecretValueArgs args: The arguments to use to populate this resource's properties.

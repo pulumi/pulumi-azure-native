@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the subscription-level key used for Real User Metrics collection.
- * API Version: 2022-04-01.
+ * Azure REST API version: 2022-04-01.
  */
 export function getTrafficManagerUserMetricsKey(args?: GetTrafficManagerUserMetricsKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerUserMetricsKeyResult> {
     args = args || {};

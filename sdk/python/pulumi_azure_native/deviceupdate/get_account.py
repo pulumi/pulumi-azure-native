@@ -194,7 +194,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Returns account details for the given account name.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str account_name: Account name.
@@ -228,7 +228,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Returns account details for the given account name.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str account_name: Account name.

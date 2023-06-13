@@ -50,7 +50,7 @@ def get_partner_topic_event_subscription_full_url(event_subscription_name: Optio
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerTopicEventSubscriptionFullUrlResult:
     """
     Get the full endpoint URL for an event subscription of a partner topic.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -75,7 +75,7 @@ def get_partner_topic_event_subscription_full_url_output(event_subscription_name
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerTopicEventSubscriptionFullUrlResult]:
     """
     Get the full endpoint URL for an event subscription of a partner topic.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The variable.
- * API Version: 2022-08-01-preview.
+ * Azure REST API version: 2022-08-01-preview.
  */
 export class VariableAtManagementGroup extends pulumi.CustomResource {
     /**

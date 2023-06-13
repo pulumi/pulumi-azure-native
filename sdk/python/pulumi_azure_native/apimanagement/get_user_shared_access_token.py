@@ -53,7 +53,7 @@ def get_user_shared_access_token(expiry: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSharedAccessTokenResult:
     """
     Gets the Shared Access Authorization Token for the User.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str expiry: The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
@@ -84,7 +84,7 @@ def get_user_shared_access_token_output(expiry: Optional[pulumi.Input[str]] = No
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSharedAccessTokenResult]:
     """
     Gets the Shared Access Authorization Token for the User.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str expiry: The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.

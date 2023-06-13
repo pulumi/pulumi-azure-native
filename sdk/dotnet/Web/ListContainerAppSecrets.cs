@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Container App Secrets Collection ARM resource.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<ListContainerAppSecretsResult> InvokeAsync(ListContainerAppSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListContainerAppSecretsResult>("azure-native:web:listContainerAppSecrets", args ?? new ListContainerAppSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container App Secrets Collection ARM resource.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<ListContainerAppSecretsResult> Invoke(ListContainerAppSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListContainerAppSecretsResult>("azure-native:web:listContainerAppSecrets", args ?? new ListContainerAppSecretsInvokeArgs(), options.WithDefaults());

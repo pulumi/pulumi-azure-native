@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a hunt comment
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetHuntCommentResult> InvokeAsync(GetHuntCommentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHuntCommentResult>("azure-native:securityinsights:getHuntComment", args ?? new GetHuntCommentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a hunt comment
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetHuntCommentResult> Invoke(GetHuntCommentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHuntCommentResult>("azure-native:securityinsights:getHuntComment", args ?? new GetHuntCommentInvokeArgs(), options.WithDefaults());

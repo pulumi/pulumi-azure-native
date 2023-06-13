@@ -67,7 +67,7 @@ def get_entity_insights(add_default_extended_time_range: Optional[bool] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityInsightsResult:
     """
     Execute Insights for an entity.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param bool add_default_extended_time_range: Indicates if query time range should be extended with default time range of the query. Default value is false
@@ -105,7 +105,7 @@ def get_entity_insights_output(add_default_extended_time_range: Optional[pulumi.
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityInsightsResult]:
     """
     Execute Insights for an entity.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param bool add_default_extended_time_range: Indicates if query time range should be extended with default time range of the query. Default value is false

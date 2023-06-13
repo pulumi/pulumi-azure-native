@@ -146,7 +146,7 @@ def list_web_app_publishing_credentials_slot(name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppPublishingCredentialsSlotResult:
     """
     Description for Gets the Git/FTP publishing credentials of an app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -179,7 +179,7 @@ def list_web_app_publishing_credentials_slot_output(name: Optional[pulumi.Input[
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppPublishingCredentialsSlotResult]:
     """
     Description for Gets the Git/FTP publishing credentials of an app.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.

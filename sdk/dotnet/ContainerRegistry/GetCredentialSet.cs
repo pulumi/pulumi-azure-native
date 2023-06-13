@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the specified credential set resource.
-        /// API Version: 2023-01-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Task<GetCredentialSetResult> InvokeAsync(GetCredentialSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCredentialSetResult>("azure-native:containerregistry:getCredentialSet", args ?? new GetCredentialSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified credential set resource.
-        /// API Version: 2023-01-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Output<GetCredentialSetResult> Invoke(GetCredentialSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialSetResult>("azure-native:containerregistry:getCredentialSet", args ?? new GetCredentialSetInvokeArgs(), options.WithDefaults());

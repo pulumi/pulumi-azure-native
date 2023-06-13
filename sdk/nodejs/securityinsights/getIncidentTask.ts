@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an incident task.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getIncidentTask(args: GetIncidentTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentTaskResult> {
 
@@ -90,7 +90,7 @@ export interface GetIncidentTaskResult {
 }
 /**
  * Gets an incident task.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getIncidentTaskOutput(args: GetIncidentTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentTaskResult> {
     return pulumi.output(args).apply((a: any) => getIncidentTask(a, opts))

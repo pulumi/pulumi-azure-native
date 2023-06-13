@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridCompute
     {
         /// <summary>
         /// Retrieves information about the model view or the instance view of a hybrid machine.
-        /// API Version: 2022-12-27.
+        /// Azure REST API version: 2022-12-27.
         /// </summary>
         public static Task<GetMachineResult> InvokeAsync(GetMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about the model view or the instance view of a hybrid machine.
-        /// API Version: 2022-12-27.
+        /// Azure REST API version: 2022-12-27.
         /// </summary>
         public static Output<GetMachineResult> Invoke(GetMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineInvokeArgs(), options.WithDefaults());

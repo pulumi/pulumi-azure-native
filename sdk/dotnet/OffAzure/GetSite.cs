@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Site REST Resource.
-        /// API Version: 2020-07-07.
+        /// Azure REST API version: 2020-07-07.
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:offazure:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Site REST Resource.
-        /// API Version: 2020-07-07.
+        /// Azure REST API version: 2020-07-07.
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:offazure:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());

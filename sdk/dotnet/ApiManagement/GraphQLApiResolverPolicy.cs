@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Policy Contract details.
-    /// API Version: 2022-08-01.
+    /// Azure REST API version: 2022-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:GraphQLApiResolverPolicy")]
     public partial class GraphQLApiResolverPolicy : global::Pulumi.CustomResource

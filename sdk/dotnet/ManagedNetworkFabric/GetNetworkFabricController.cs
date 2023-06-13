@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Shows the provisioning status of Network Fabric Controller.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Task<GetNetworkFabricControllerResult> InvokeAsync(GetNetworkFabricControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFabricControllerResult>("azure-native:managednetworkfabric:getNetworkFabricController", args ?? new GetNetworkFabricControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Shows the provisioning status of Network Fabric Controller.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Output<GetNetworkFabricControllerResult> Invoke(GetNetworkFabricControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFabricControllerResult>("azure-native:managednetworkfabric:getNetworkFabricController", args ?? new GetNetworkFabricControllerInvokeArgs(), options.WithDefaults());

@@ -62,7 +62,7 @@ def list_web_app_function_secrets(function_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionSecretsResult:
     """
     Description for Get function secrets for a function in a web site, or a deployment slot.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str function_name: Function name.
@@ -88,7 +88,7 @@ def list_web_app_function_secrets_output(function_name: Optional[pulumi.Input[st
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppFunctionSecretsResult]:
     """
     Description for Get function secrets for a function in a web site, or a deployment slot.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str function_name: Function name.

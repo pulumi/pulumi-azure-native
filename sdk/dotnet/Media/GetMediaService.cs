@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Get the details of a Media Services account
-        /// API Version: 2023-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<GetMediaServiceResult> InvokeAsync(GetMediaServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-native:media:getMediaService", args ?? new GetMediaServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the details of a Media Services account
-        /// API Version: 2023-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<GetMediaServiceResult> Invoke(GetMediaServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMediaServiceResult>("azure-native:media:getMediaService", args ?? new GetMediaServiceInvokeArgs(), options.WithDefaults());

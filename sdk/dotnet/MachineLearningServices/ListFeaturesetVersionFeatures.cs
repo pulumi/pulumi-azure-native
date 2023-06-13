@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// A paginated list of Feature entities.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Task<ListFeaturesetVersionFeaturesResult> InvokeAsync(ListFeaturesetVersionFeaturesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListFeaturesetVersionFeaturesResult>("azure-native:machinelearningservices:listFeaturesetVersionFeatures", args ?? new ListFeaturesetVersionFeaturesArgs(), options.WithDefaults());
 
         /// <summary>
         /// A paginated list of Feature entities.
-        /// API Version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-02-01-preview.
         /// </summary>
         public static Output<ListFeaturesetVersionFeaturesResult> Invoke(ListFeaturesetVersionFeaturesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFeaturesetVersionFeaturesResult>("azure-native:machinelearningservices:listFeaturesetVersionFeatures", args ?? new ListFeaturesetVersionFeaturesInvokeArgs(), options.WithDefaults());

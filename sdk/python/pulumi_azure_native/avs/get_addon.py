@@ -87,7 +87,7 @@ def get_addon(addon_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddonResult:
     """
     An addon resource
-    API Version: 2022-05-01.
+    Azure REST API version: 2022-05-01.
 
 
     :param str addon_name: Name of the addon for the private cloud
@@ -115,7 +115,7 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddonResult]:
     """
     An addon resource
-    API Version: 2022-05-01.
+    Azure REST API version: 2022-05-01.
 
 
     :param str addon_name: Name of the addon for the private cloud

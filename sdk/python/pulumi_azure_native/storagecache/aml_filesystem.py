@@ -230,7 +230,7 @@ class AmlFilesystem(pulumi.CustomResource):
                  __props__=None):
         """
         An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        API Version: 2023-05-01.
+        Azure REST API version: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +255,7 @@ class AmlFilesystem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        API Version: 2023-05-01.
+        Azure REST API version: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param AmlFilesystemArgs args: The arguments to use to populate this resource's properties.

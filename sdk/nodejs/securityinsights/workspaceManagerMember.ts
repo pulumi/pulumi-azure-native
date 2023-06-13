@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The workspace manager member
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export class WorkspaceManagerMember extends pulumi.CustomResource {
     /**

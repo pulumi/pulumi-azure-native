@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityDevOps
     {
         /// <summary>
         /// Represents an ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetGitHubConnectorResult> InvokeAsync(GetGitHubConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGitHubConnectorResult>("azure-native:securitydevops:getGitHubConnector", args ?? new GetGitHubConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetGitHubConnectorResult> Invoke(GetGitHubConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGitHubConnectorResult>("azure-native:securitydevops:getGitHubConnector", args ?? new GetGitHubConnectorInvokeArgs(), options.WithDefaults());

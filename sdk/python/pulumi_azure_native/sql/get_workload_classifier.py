@@ -148,7 +148,7 @@ def get_workload_classifier(database_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadClassifierResult:
     """
     Gets a workload classifier
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str database_name: The name of the database.
@@ -187,7 +187,7 @@ def get_workload_classifier_output(database_name: Optional[pulumi.Input[str]] = 
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadClassifierResult]:
     """
     Gets a workload classifier
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str database_name: The name of the database.

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an VirtualNetworkRule for a Namespace by rule name.
- * API Version: 2018-01-01-preview.
+ * Azure REST API version: 2018-01-01-preview.
  */
 export function getNamespaceVirtualNetworkRule(args: GetNamespaceVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceVirtualNetworkRuleResult> {
 
@@ -56,7 +56,7 @@ export interface GetNamespaceVirtualNetworkRuleResult {
 }
 /**
  * Gets an VirtualNetworkRule for a Namespace by rule name.
- * API Version: 2018-01-01-preview.
+ * Azure REST API version: 2018-01-01-preview.
  */
 export function getNamespaceVirtualNetworkRuleOutput(args: GetNamespaceVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceVirtualNetworkRuleResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceVirtualNetworkRule(a, opts))

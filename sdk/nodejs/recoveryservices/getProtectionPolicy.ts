@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
  * operation. Status of the operation can be fetched using GetPolicyOperationResult API.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionPolicyResult> {
 
@@ -73,7 +73,7 @@ export interface GetProtectionPolicyResult {
 /**
  * Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
  * operation. Status of the operation can be fetched using GetPolicyOperationResult API.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getProtectionPolicyOutput(args: GetProtectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionPolicyResult> {
     return pulumi.output(args).apply((a: any) => getProtectionPolicy(a, opts))

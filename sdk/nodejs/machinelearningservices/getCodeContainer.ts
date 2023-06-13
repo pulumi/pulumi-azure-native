@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getCodeContainer(args: GetCodeContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeContainerResult> {
 
@@ -63,7 +63,7 @@ export interface GetCodeContainerResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getCodeContainerOutput(args: GetCodeContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeContainerResult> {
     return pulumi.output(args).apply((a: any) => getCodeContainer(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetConnectedEnvironmentsCertificateResult> InvokeAsync(GetConnectedEnvironmentsCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedEnvironmentsCertificateResult>("azure-native:app:getConnectedEnvironmentsCertificate", args ?? new GetConnectedEnvironmentsCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetConnectedEnvironmentsCertificateResult> Invoke(GetConnectedEnvironmentsCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsCertificateResult>("azure-native:app:getConnectedEnvironmentsCertificate", args ?? new GetConnectedEnvironmentsCertificateInvokeArgs(), options.WithDefaults());

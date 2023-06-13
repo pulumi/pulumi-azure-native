@@ -387,7 +387,7 @@ def get_streaming_job(expand: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingJobResult:
     """
     Gets details about the specified streaming job.
-    API Version: 2020-03-01.
+    Azure REST API version: 2020-03-01.
 
 
     :param str expand: The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
@@ -440,7 +440,7 @@ def get_streaming_job_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingJobResult]:
     """
     Gets details about the specified streaming job.
-    API Version: 2020-03-01.
+    Azure REST API version: 2020-03-01.
 
 
     :param str expand: The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.

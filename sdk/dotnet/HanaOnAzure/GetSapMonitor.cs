@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HanaOnAzure
     {
         /// <summary>
         /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
-        /// API Version: 2020-02-07-preview.
+        /// Azure REST API version: 2020-02-07-preview.
         /// </summary>
         public static Task<GetSapMonitorResult> InvokeAsync(GetSapMonitorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSapMonitorResult>("azure-native:hanaonazure:getSapMonitor", args ?? new GetSapMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
-        /// API Version: 2020-02-07-preview.
+        /// Azure REST API version: 2020-02-07-preview.
         /// </summary>
         public static Output<GetSapMonitorResult> Invoke(GetSapMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapMonitorResult>("azure-native:hanaonazure:getSapMonitor", args ?? new GetSapMonitorInvokeArgs(), options.WithDefaults());

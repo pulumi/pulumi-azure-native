@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get details of a hostname configuration
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getGatewayHostnameConfiguration(args: GetGatewayHostnameConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayHostnameConfigurationResult> {
 
@@ -81,7 +81,7 @@ export interface GetGatewayHostnameConfigurationResult {
 }
 /**
  * Get details of a hostname configuration
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getGatewayHostnameConfigurationOutput(args: GetGatewayHostnameConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayHostnameConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getGatewayHostnameConfiguration(a, opts))

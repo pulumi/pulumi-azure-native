@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the QnA Maker endpoint keys
- * API Version: 2022-09-15.
+ * Azure REST API version: 2022-09-15.
  */
 export function listQnAMakerEndpointKey(args?: ListQnAMakerEndpointKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListQnAMakerEndpointKeyResult> {
     args = args || {};
@@ -52,7 +52,7 @@ export interface ListQnAMakerEndpointKeyResult {
 }
 /**
  * Lists the QnA Maker endpoint keys
- * API Version: 2022-09-15.
+ * Azure REST API version: 2022-09-15.
  */
 export function listQnAMakerEndpointKeyOutput(args?: ListQnAMakerEndpointKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQnAMakerEndpointKeyResult> {
     return pulumi.output(args).apply((a: any) => listQnAMakerEndpointKey(a, opts))

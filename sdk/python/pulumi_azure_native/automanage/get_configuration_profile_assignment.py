@@ -111,7 +111,7 @@ def get_configuration_profile_assignment(configuration_profile_assignment_name: 
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfileAssignmentResult:
     """
     Get information about a configuration profile assignment
-    API Version: 2022-05-04.
+    Azure REST API version: 2022-05-04.
 
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.
@@ -141,7 +141,7 @@ def get_configuration_profile_assignment_output(configuration_profile_assignment
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileAssignmentResult]:
     """
     Get information about a configuration profile assignment
-    API Version: 2022-05-04.
+    Azure REST API version: 2022-05-04.
 
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.

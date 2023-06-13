@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Logz
     {
         /// <summary>
         /// 
-        /// API Version: 2022-01-01-preview.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:logz:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2022-01-01-preview.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:logz:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());

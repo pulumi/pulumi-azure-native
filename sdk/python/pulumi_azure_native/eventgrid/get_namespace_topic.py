@@ -136,7 +136,7 @@ def get_namespace_topic(namespace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceTopicResult:
     """
     Get properties of a namespace topic.
-    API Version: 2023-06-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str namespace_name: Name of the namespace.
@@ -168,7 +168,7 @@ def get_namespace_topic_output(namespace_name: Optional[pulumi.Input[str]] = Non
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceTopicResult]:
     """
     Get properties of a namespace topic.
-    API Version: 2023-06-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str namespace_name: Name of the namespace.

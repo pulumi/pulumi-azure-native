@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// This operation retrieves a single variable value; given its name, subscription it was created at and the variable it's created for.
-        /// API Version: 2022-08-01-preview.
+        /// Azure REST API version: 2022-08-01-preview.
         /// </summary>
         public static Task<GetVariableValueResult> InvokeAsync(GetVariableValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariableValueResult>("azure-native:authorization:getVariableValue", args ?? new GetVariableValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// This operation retrieves a single variable value; given its name, subscription it was created at and the variable it's created for.
-        /// API Version: 2022-08-01-preview.
+        /// Azure REST API version: 2022-08-01-preview.
         /// </summary>
         public static Output<GetVariableValueResult> Invoke(GetVariableValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableValueResult>("azure-native:authorization:getVariableValue", args ?? new GetVariableValueInvokeArgs(), options.WithDefaults());

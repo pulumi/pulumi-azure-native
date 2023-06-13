@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:workloads:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
-        /// API Version: 2023-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:workloads:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());

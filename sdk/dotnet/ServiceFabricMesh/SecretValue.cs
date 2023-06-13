@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 {
     /// <summary>
     /// This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
-    /// API Version: 2018-09-01-preview.
-    /// Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh:SecretValue")]
     public partial class SecretValue : global::Pulumi.CustomResource

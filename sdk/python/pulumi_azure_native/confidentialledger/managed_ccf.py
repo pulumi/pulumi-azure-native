@@ -114,7 +114,7 @@ class ManagedCCF(pulumi.CustomResource):
                  __props__=None):
         """
         Managed CCF. Contains the properties of Managed CCF Resource.
-        API Version: 2023-01-26-preview.
+        Azure REST API version: 2023-01-26-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,7 +132,7 @@ class ManagedCCF(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Managed CCF. Contains the properties of Managed CCF Resource.
-        API Version: 2023-01-26-preview.
+        Azure REST API version: 2023-01-26-preview.
 
         :param str resource_name: The name of the resource.
         :param ManagedCCFArgs args: The arguments to use to populate this resource's properties.

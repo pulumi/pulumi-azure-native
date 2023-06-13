@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an authorization rule for a NotificationHub by name.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubAuthorizationRuleResult> {
 
@@ -108,7 +108,7 @@ export interface GetNotificationHubAuthorizationRuleResult {
 }
 /**
  * Gets an authorization rule for a NotificationHub by name.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2017-04-01.
  */
 export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNotificationHubAuthorizationRule(a, opts))

@@ -6,8 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the Windows IoT Device Service.
- * API Version: 2019-06-01.
- * Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2019-06-01. Prior API version in Azure Native 1.x: 2019-06-01
  */
 export class Service extends pulumi.CustomResource {
     /**

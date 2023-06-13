@@ -220,7 +220,7 @@ def get_iot_hub_data_connection(cluster_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubDataConnectionResult:
     """
     Returns a data connection.
-    API Version: 2022-12-29.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -262,7 +262,7 @@ def get_iot_hub_data_connection_output(cluster_name: Optional[pulumi.Input[str]]
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotHubDataConnectionResult]:
     """
     Returns a data connection.
-    API Version: 2022-12-29.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.

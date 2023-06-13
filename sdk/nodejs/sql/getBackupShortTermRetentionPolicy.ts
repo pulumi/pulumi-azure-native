@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a database's short term retention policy.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getBackupShortTermRetentionPolicy(args: GetBackupShortTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupShortTermRetentionPolicyResult> {
 
@@ -65,7 +65,7 @@ export interface GetBackupShortTermRetentionPolicyResult {
 }
 /**
  * Gets a database's short term retention policy.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getBackupShortTermRetentionPolicyOutput(args: GetBackupShortTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupShortTermRetentionPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBackupShortTermRetentionPolicy(a, opts))

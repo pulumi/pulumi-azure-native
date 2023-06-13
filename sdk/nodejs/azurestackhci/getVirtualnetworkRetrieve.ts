@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The virtual network resource definition.
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getVirtualnetworkRetrieve(args: GetVirtualnetworkRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualnetworkRetrieveResult> {
 
@@ -80,7 +80,7 @@ export interface GetVirtualnetworkRetrieveResult {
 }
 /**
  * The virtual network resource definition.
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getVirtualnetworkRetrieveOutput(args: GetVirtualnetworkRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualnetworkRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getVirtualnetworkRetrieve(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a single workbook by its resourceName.
- * API Version: 2022-04-01.
+ * Azure REST API version: 2022-04-01.
  */
 export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookResult> {
 
@@ -119,7 +119,7 @@ export interface GetWorkbookResult {
 }
 /**
  * Get a single workbook by its resourceName.
- * API Version: 2022-04-01.
+ * Azure REST API version: 2022-04-01.
  */
 export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookResult> {
     return pulumi.output(args).apply((a: any) => getWorkbook(a, opts))

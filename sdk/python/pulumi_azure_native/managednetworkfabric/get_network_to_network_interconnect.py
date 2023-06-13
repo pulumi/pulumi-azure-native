@@ -159,7 +159,7 @@ def get_network_to_network_interconnect(network_fabric_name: Optional[str] = Non
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkToNetworkInterconnectResult:
     """
     Implements NetworkToNetworkInterconnects GET method.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str network_fabric_name: Name of the NetworkFabric.
@@ -193,7 +193,7 @@ def get_network_to_network_interconnect_output(network_fabric_name: Optional[pul
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkToNetworkInterconnectResult]:
     """
     Implements NetworkToNetworkInterconnects GET method.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str network_fabric_name: Name of the NetworkFabric.

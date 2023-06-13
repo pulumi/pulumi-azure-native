@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of a DNS resolver.
- * API Version: 2022-07-01.
+ * Azure REST API version: 2022-07-01.
  */
 export function getDnsResolver(args: GetDnsResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResolverResult> {
 
@@ -82,7 +82,7 @@ export interface GetDnsResolverResult {
 }
 /**
  * Gets properties of a DNS resolver.
- * API Version: 2022-07-01.
+ * Azure REST API version: 2022-07-01.
  */
 export function getDnsResolverOutput(args: GetDnsResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResolverResult> {
     return pulumi.output(args).apply((a: any) => getDnsResolver(a, opts))

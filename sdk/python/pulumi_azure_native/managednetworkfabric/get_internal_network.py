@@ -267,7 +267,7 @@ def get_internal_network(internal_network_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInternalNetworkResult:
     """
     Gets a InternalNetworks.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str internal_network_name: Name of the InternalNetwork
@@ -310,7 +310,7 @@ def get_internal_network_output(internal_network_name: Optional[pulumi.Input[str
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInternalNetworkResult]:
     """
     Gets a InternalNetworks.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str internal_network_name: Name of the InternalNetwork

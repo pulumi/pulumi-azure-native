@@ -65,7 +65,7 @@ def list_connection_keys(connection_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionKeysResult:
     """
     Lists connection keys.
-    API Version: 2015-08-01-preview.
+    Azure REST API version: 2015-08-01-preview.
 
 
     :param str connection_name: The connection name.
@@ -109,7 +109,7 @@ def list_connection_keys_output(connection_name: Optional[pulumi.Input[str]] = N
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectionKeysResult]:
     """
     Lists connection keys.
-    API Version: 2015-08-01-preview.
+    Azure REST API version: 2015-08-01-preview.
 
 
     :param str connection_name: The connection name.

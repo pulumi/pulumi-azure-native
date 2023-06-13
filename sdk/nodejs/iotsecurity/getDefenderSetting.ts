@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get IoT Defender Settings
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-02-01-preview.
  */
 export function getDefenderSetting(args?: GetDefenderSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDefenderSettingResult> {
     args = args || {};

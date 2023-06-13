@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataMigration
     {
         /// <summary>
         /// Retrieve the Database Migration Service
-        /// API Version: 2022-03-30-preview.
+        /// Azure REST API version: 2022-03-30-preview.
         /// </summary>
         public static Task<GetSqlMigrationServiceResult> InvokeAsync(GetSqlMigrationServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlMigrationServiceResult>("azure-native:datamigration:getSqlMigrationService", args ?? new GetSqlMigrationServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the Database Migration Service
-        /// API Version: 2022-03-30-preview.
+        /// Azure REST API version: 2022-03-30-preview.
         /// </summary>
         public static Output<GetSqlMigrationServiceResult> Invoke(GetSqlMigrationServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlMigrationServiceResult>("azure-native:datamigration:getSqlMigrationService", args ?? new GetSqlMigrationServiceInvokeArgs(), options.WithDefaults());

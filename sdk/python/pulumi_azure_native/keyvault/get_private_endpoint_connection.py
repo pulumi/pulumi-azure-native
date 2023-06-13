@@ -147,7 +147,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the key vault.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str private_endpoint_connection_name: Name of the private endpoint connection associated with the key vault.
@@ -180,7 +180,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the key vault.
-    API Version: 2023-02-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str private_endpoint_connection_name: Name of the private endpoint connection associated with the key vault.

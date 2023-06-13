@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// The marketplace gallery image resource definition.
-    /// API Version: 2021-09-01-preview.
+    /// Azure REST API version: 2021-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:Marketplacegalleryimage")]
     public partial class Marketplacegalleryimage : global::Pulumi.CustomResource

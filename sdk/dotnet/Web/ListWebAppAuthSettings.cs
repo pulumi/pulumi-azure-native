@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets the Authentication/Authorization settings of an app.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<ListWebAppAuthSettingsResult> InvokeAsync(ListWebAppAuthSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsResult>("azure-native:web:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets the Authentication/Authorization settings of an app.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<ListWebAppAuthSettingsResult> Invoke(ListWebAppAuthSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppAuthSettingsResult>("azure-native:web:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsInvokeArgs(), options.WithDefaults());

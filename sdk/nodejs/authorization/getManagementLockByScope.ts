@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a management lock by scope.
- * API Version: 2020-05-01.
+ * Azure REST API version: 2020-05-01.
  */
 export function getManagementLockByScope(args: GetManagementLockByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockByScopeResult> {
 
@@ -66,7 +66,7 @@ export interface GetManagementLockByScopeResult {
 }
 /**
  * Get a management lock by scope.
- * API Version: 2020-05-01.
+ * Azure REST API version: 2020-05-01.
  */
 export function getManagementLockByScopeOutput(args: GetManagementLockByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockByScopeResult> {
     return pulumi.output(args).apply((a: any) => getManagementLockByScope(a, opts))

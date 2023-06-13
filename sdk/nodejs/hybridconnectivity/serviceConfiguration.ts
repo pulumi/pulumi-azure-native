@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The service configuration details associated with the target resource.
- * API Version: 2023-03-15.
+ * Azure REST API version: 2023-03-15.
  */
 export class ServiceConfiguration extends pulumi.CustomResource {
     /**

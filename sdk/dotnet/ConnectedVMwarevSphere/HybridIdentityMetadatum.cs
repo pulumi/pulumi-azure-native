@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
     /// <summary>
     /// Defines the HybridIdentityMetadata.
-    /// API Version: 2022-07-15-preview.
-    /// Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:HybridIdentityMetadatum")]
     public partial class HybridIdentityMetadatum : global::Pulumi.CustomResource

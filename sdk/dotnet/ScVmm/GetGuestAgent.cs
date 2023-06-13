@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ScVmm
     {
         /// <summary>
         /// Implements GuestAgent GET method.
-        /// API Version: 2022-05-21-preview.
+        /// Azure REST API version: 2022-05-21-preview.
         /// </summary>
         public static Task<GetGuestAgentResult> InvokeAsync(GetGuestAgentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestAgentResult>("azure-native:scvmm:getGuestAgent", args ?? new GetGuestAgentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements GuestAgent GET method.
-        /// API Version: 2022-05-21-preview.
+        /// Azure REST API version: 2022-05-21-preview.
         /// </summary>
         public static Output<GetGuestAgentResult> Invoke(GetGuestAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestAgentResult>("azure-native:scvmm:getGuestAgent", args ?? new GetGuestAgentInvokeArgs(), options.WithDefaults());

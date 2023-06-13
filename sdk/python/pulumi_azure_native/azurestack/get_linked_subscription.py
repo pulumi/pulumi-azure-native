@@ -218,7 +218,7 @@ def get_linked_subscription(linked_subscription_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkedSubscriptionResult:
     """
     Returns the properties of a Linked Subscription resource.
-    API Version: 2020-06-01-preview.
+    Azure REST API version: 2020-06-01-preview.
 
 
     :param str linked_subscription_name: Name of the Linked Subscription resource.
@@ -254,7 +254,7 @@ def get_linked_subscription_output(linked_subscription_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedSubscriptionResult]:
     """
     Returns the properties of a Linked Subscription resource.
-    API Version: 2020-06-01-preview.
+    Azure REST API version: 2020-06-01-preview.
 
 
     :param str linked_subscription_name: Name of the Linked Subscription resource.

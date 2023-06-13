@@ -158,7 +158,7 @@ def get_data_collection_rule_association(association_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataCollectionRuleAssociationResult:
     """
     Definition of generic ARM proxy resource.
-    API Version: 2022-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str association_name: The name of the association. The name is case insensitive.
@@ -189,7 +189,7 @@ def get_data_collection_rule_association_output(association_name: Optional[pulum
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionRuleAssociationResult]:
     """
     Definition of generic ARM proxy resource.
-    API Version: 2022-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str association_name: The name of the association. The name is case insensitive.

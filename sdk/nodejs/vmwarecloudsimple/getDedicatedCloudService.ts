@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns Dedicate Cloud Service
- * API Version: 2019-04-01.
+ * Azure REST API version: 2019-04-01.
  */
 export function getDedicatedCloudService(args: GetDedicatedCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedCloudServiceResult> {
 
@@ -71,7 +71,7 @@ export interface GetDedicatedCloudServiceResult {
 }
 /**
  * Returns Dedicate Cloud Service
- * API Version: 2019-04-01.
+ * Azure REST API version: 2019-04-01.
  */
 export function getDedicatedCloudServiceOutput(args: GetDedicatedCloudServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedCloudServiceResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedCloudService(a, opts))

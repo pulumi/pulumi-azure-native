@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a KPack build.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getBuildServiceBuild(args: GetBuildServiceBuildArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceBuildResult> {
 
@@ -68,7 +68,7 @@ export interface GetBuildServiceBuildResult {
 }
 /**
  * Get a KPack build.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getBuildServiceBuildOutput(args: GetBuildServiceBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceBuildResult> {
     return pulumi.output(args).apply((a: any) => getBuildServiceBuild(a, opts))

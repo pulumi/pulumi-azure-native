@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Get the specified service endpoint policy definitions from service endpoint policy.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetServiceEndpointPolicyDefinitionResult> InvokeAsync(GetServiceEndpointPolicyDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointPolicyDefinitionResult>("azure-native:network:getServiceEndpointPolicyDefinition", args ?? new GetServiceEndpointPolicyDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the specified service endpoint policy definitions from service endpoint policy.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetServiceEndpointPolicyDefinitionResult> Invoke(GetServiceEndpointPolicyDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceEndpointPolicyDefinitionResult>("azure-native:network:getServiceEndpointPolicyDefinition", args ?? new GetServiceEndpointPolicyDefinitionInvokeArgs(), options.WithDefaults());

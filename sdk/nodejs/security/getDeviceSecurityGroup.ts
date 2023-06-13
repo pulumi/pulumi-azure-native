@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Use this method to get the device security group for the specified IoT Hub resource.
- * API Version: 2019-08-01.
+ * Azure REST API version: 2019-08-01.
  */
 export function getDeviceSecurityGroup(args: GetDeviceSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceSecurityGroupResult> {
 
@@ -66,7 +66,7 @@ export interface GetDeviceSecurityGroupResult {
 }
 /**
  * Use this method to get the device security group for the specified IoT Hub resource.
- * API Version: 2019-08-01.
+ * Azure REST API version: 2019-08-01.
  */
 export function getDeviceSecurityGroupOutput(args: GetDeviceSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceSecurityGroupResult> {
     return pulumi.output(args).apply((a: any) => getDeviceSecurityGroup(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of registered recovery services provider.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getReplicationRecoveryServicesProvider(args: GetReplicationRecoveryServicesProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryServicesProviderResult> {
 
@@ -68,7 +68,7 @@ export interface GetReplicationRecoveryServicesProviderResult {
 }
 /**
  * Gets the details of registered recovery services provider.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getReplicationRecoveryServicesProviderOutput(args: GetReplicationRecoveryServicesProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryServicesProviderResult> {
     return pulumi.output(args).apply((a: any) => getReplicationRecoveryServicesProvider(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Static Site Database Connection resource.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export class StaticSiteDatabaseConnection extends pulumi.CustomResource {
     /**

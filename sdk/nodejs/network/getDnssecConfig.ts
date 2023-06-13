@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the DNSSEC configuration.
- * API Version: 2023-07-01-preview.
+ * Azure REST API version: 2023-07-01-preview.
  */
 export function getDnssecConfig(args: GetDnssecConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDnssecConfigResult> {
 
@@ -66,7 +66,7 @@ export interface GetDnssecConfigResult {
 }
 /**
  * Gets the DNSSEC configuration.
- * API Version: 2023-07-01-preview.
+ * Azure REST API version: 2023-07-01-preview.
  */
 export function getDnssecConfigOutput(args: GetDnssecConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnssecConfigResult> {
     return pulumi.output(args).apply((a: any) => getDnssecConfig(a, opts))

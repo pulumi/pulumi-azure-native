@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified network slice.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getSlice(args: GetSliceArgs, opts?: pulumi.InvokeOptions): Promise<GetSliceResult> {
 
@@ -79,7 +79,7 @@ export interface GetSliceResult {
 }
 /**
  * Gets information about the specified network slice.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getSliceOutput(args: GetSliceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSliceResult> {
     return pulumi.output(args).apply((a: any) => getSlice(a, opts))

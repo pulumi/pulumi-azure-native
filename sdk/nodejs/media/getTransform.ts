@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Transform.
- * API Version: 2022-07-01.
+ * Azure REST API version: 2022-07-01.
  */
 export function getTransform(args: GetTransformArgs, opts?: pulumi.InvokeOptions): Promise<GetTransformResult> {
 
@@ -75,7 +75,7 @@ export interface GetTransformResult {
 }
 /**
  * Gets a Transform.
- * API Version: 2022-07-01.
+ * Azure REST API version: 2022-07-01.
  */
 export function getTransformOutput(args: GetTransformOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransformResult> {
     return pulumi.output(args).apply((a: any) => getTransform(a, opts))

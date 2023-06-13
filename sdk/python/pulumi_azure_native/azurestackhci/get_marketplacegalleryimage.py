@@ -230,7 +230,7 @@ def get_marketplacegalleryimage(marketplacegalleryimages_name: Optional[str] = N
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMarketplacegalleryimageResult:
     """
     Gets marketplacegalleryimages by resource name
-    API Version: 2021-09-01-preview.
+    Azure REST API version: 2021-09-01-preview.
 
 
     :param str marketplacegalleryimages_name: Name of the marketplace gallery image
@@ -267,7 +267,7 @@ def get_marketplacegalleryimage_output(marketplacegalleryimages_name: Optional[p
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMarketplacegalleryimageResult]:
     """
     Gets marketplacegalleryimages by resource name
-    API Version: 2021-09-01-preview.
+    Azure REST API version: 2021-09-01-preview.
 
 
     :param str marketplacegalleryimages_name: Name of the marketplace gallery image

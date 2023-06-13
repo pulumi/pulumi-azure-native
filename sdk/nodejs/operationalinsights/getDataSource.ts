@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a datasource instance.
- * API Version: 2020-08-01.
+ * Azure REST API version: 2020-08-01.
  */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
 
@@ -68,7 +68,7 @@ export interface GetDataSourceResult {
 }
 /**
  * Gets a datasource instance.
- * API Version: 2020-08-01.
+ * Azure REST API version: 2020-08-01.
  */
 export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
     return pulumi.output(args).apply((a: any) => getDataSource(a, opts))

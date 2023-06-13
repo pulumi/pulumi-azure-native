@@ -148,7 +148,7 @@ def get_iot_connector_fhir_destination(fhir_destination_name: Optional[str] = No
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotConnectorFhirDestinationResult:
     """
     Gets the properties of the specified Iot Connector FHIR destination.
-    API Version: 2023-02-28.
+    Azure REST API version: 2023-02-28.
 
 
     :param str fhir_destination_name: The name of IoT Connector FHIR destination resource.
@@ -184,7 +184,7 @@ def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pu
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotConnectorFhirDestinationResult]:
     """
     Gets the properties of the specified Iot Connector FHIR destination.
-    API Version: 2023-02-28.
+    Azure REST API version: 2023-02-28.
 
 
     :param str fhir_destination_name: The name of IoT Connector FHIR destination resource.

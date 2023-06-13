@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
 
@@ -80,7 +80,7 @@ export interface GetContainerResult {
 }
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
     return pulumi.output(args).apply((a: any) => getContainer(a, opts))

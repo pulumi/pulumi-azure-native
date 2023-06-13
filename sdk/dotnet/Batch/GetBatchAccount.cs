@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Batch
     {
         /// <summary>
         /// Gets information about the specified Batch account.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetBatchAccountResult> InvokeAsync(GetBatchAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-native:batch:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified Batch account.
-        /// API Version: 2022-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetBatchAccountResult> Invoke(GetBatchAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBatchAccountResult>("azure-native:batch:getBatchAccount", args ?? new GetBatchAccountInvokeArgs(), options.WithDefaults());

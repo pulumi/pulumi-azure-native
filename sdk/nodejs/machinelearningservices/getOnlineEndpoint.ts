@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getOnlineEndpoint(args: GetOnlineEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineEndpointResult> {
 
@@ -78,7 +78,7 @@ export interface GetOnlineEndpointResult {
     readonly type: string;
 }
 /**
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getOnlineEndpointOutput(args: GetOnlineEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineEndpointResult> {
     return pulumi.output(args).apply((a: any) => getOnlineEndpoint(a, opts))

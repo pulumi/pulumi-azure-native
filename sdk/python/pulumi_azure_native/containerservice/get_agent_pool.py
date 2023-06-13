@@ -555,7 +555,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentPoolResult:
     """
     Agent Pool.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str agent_pool_name: The name of the agent pool.
@@ -622,7 +622,7 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentPoolResult]:
     """
     Agent Pool.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str agent_pool_name: The name of the agent pool.

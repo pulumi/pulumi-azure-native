@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the resource description of the specified Event Hubs Cluster.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -82,7 +82,7 @@ export interface GetClusterResult {
 }
 /**
  * Gets the resource description of the specified Event Hubs Cluster.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified DDoS custom policy.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getDdosCustomPolicy(args: GetDdosCustomPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosCustomPolicyResult> {
 
@@ -67,7 +67,7 @@ export interface GetDdosCustomPolicyResult {
 }
 /**
  * Gets information about the specified DDoS custom policy.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getDdosCustomPolicyOutput(args: GetDdosCustomPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosCustomPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDdosCustomPolicy(a, opts))

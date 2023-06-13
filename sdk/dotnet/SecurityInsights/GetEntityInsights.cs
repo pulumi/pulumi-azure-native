@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Execute Insights for an entity.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetEntityInsightsResult> InvokeAsync(GetEntityInsightsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntityInsightsResult>("azure-native:securityinsights:getEntityInsights", args ?? new GetEntityInsightsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Execute Insights for an entity.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetEntityInsightsResult> Invoke(GetEntityInsightsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityInsightsResult>("azure-native:securityinsights:getEntityInsights", args ?? new GetEntityInsightsInvokeArgs(), options.WithDefaults());

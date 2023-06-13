@@ -266,7 +266,7 @@ def get_workflow(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkflowResult:
     """
     Gets a workflow.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str resource_group_name: The resource group name.
@@ -306,7 +306,7 @@ def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowResult]:
     """
     Gets a workflow.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str resource_group_name: The resource group name.

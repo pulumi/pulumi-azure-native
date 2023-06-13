@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the config server and its properties.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getConfigServer(args: GetConfigServerArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigServerResult> {
 
@@ -58,7 +58,7 @@ export interface GetConfigServerResult {
 }
 /**
  * Get the config server and its properties.
- * API Version: 2022-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getConfigServerOutput(args: GetConfigServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServerResult> {
     return pulumi.output(args).apply((a: any) => getConfigServer(a, opts))

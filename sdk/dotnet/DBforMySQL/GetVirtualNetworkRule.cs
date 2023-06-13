@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Gets a virtual network rule.
-        /// API Version: 2017-12-01-preview.
+        /// Azure REST API version: 2017-12-01-preview.
         /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:dbformysql:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a virtual network rule.
-        /// API Version: 2017-12-01-preview.
+        /// Azure REST API version: 2017-12-01-preview.
         /// </summary>
         public static Output<GetVirtualNetworkRuleResult> Invoke(GetVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:dbformysql:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithDefaults());

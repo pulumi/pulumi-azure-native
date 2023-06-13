@@ -199,8 +199,7 @@ class AutomationAccount(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the automation account type.
-        API Version: 2022-08-08.
-        Previous API Version: 2021-06-22. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -223,8 +222,7 @@ class AutomationAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the automation account type.
-        API Version: 2022-08-08.
-        Previous API Version: 2021-06-22. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22
 
         :param str resource_name: The name of the resource.
         :param AutomationAccountArgs args: The arguments to use to populate this resource's properties.

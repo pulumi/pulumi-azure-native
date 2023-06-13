@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a private endpoint connection.
- * API Version: 2022-10-14-preview.
+ * Azure REST API version: 2022-10-14-preview.
  */
 export function getPrivateEndpointConnectionByHostPool(args: GetPrivateEndpointConnectionByHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionByHostPoolResult> {
 
@@ -71,7 +71,7 @@ export interface GetPrivateEndpointConnectionByHostPoolResult {
 }
 /**
  * Get a private endpoint connection.
- * API Version: 2022-10-14-preview.
+ * Azure REST API version: 2022-10-14-preview.
  */
 export function getPrivateEndpointConnectionByHostPoolOutput(args: GetPrivateEndpointConnectionByHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionByHostPoolResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionByHostPool(a, opts))

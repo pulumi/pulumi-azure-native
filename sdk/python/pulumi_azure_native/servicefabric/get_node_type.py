@@ -627,7 +627,7 @@ def get_node_type(cluster_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNodeTypeResult:
     """
     Get a Service Fabric node type of a given managed cluster.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -700,7 +700,7 @@ def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodeTypeResult]:
     """
     Get a Service Fabric node type of a given managed cluster.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.

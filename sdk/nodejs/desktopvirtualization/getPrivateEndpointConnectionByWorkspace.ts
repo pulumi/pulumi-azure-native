@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a private endpoint connection.
- * API Version: 2022-10-14-preview.
+ * Azure REST API version: 2022-10-14-preview.
  */
 export function getPrivateEndpointConnectionByWorkspace(args: GetPrivateEndpointConnectionByWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionByWorkspaceResult> {
 
@@ -71,7 +71,7 @@ export interface GetPrivateEndpointConnectionByWorkspaceResult {
 }
 /**
  * Get a private endpoint connection.
- * API Version: 2022-10-14-preview.
+ * Azure REST API version: 2022-10-14-preview.
  */
 export function getPrivateEndpointConnectionByWorkspaceOutput(args: GetPrivateEndpointConnectionByWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionByWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionByWorkspace(a, opts))

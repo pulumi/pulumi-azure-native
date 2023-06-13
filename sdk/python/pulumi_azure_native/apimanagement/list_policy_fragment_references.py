@@ -77,7 +77,7 @@ def list_policy_fragment_references(id: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPolicyFragmentReferencesResult:
     """
     Lists policy resources that reference the policy fragment.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str id: A resource identifier.
@@ -110,7 +110,7 @@ def list_policy_fragment_references_output(id: Optional[pulumi.Input[str]] = Non
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPolicyFragmentReferencesResult]:
     """
     Lists policy resources that reference the policy fragment.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str id: A resource identifier.

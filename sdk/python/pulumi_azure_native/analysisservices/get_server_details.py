@@ -230,7 +230,7 @@ def get_server_details(resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerDetailsResult:
     """
     Gets details about the specified Analysis Services server.
-    API Version: 2017-08-01.
+    Azure REST API version: 2017-08-01.
 
 
     :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
@@ -267,7 +267,7 @@ def get_server_details_output(resource_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerDetailsResult]:
     """
     Gets details about the specified Analysis Services server.
-    API Version: 2017-08-01.
+    Azure REST API version: 2017-08-01.
 
 
     :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.

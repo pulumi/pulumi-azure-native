@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get a single workbook by its resourceName.
-        /// API Version: 2022-04-01.
+        /// Azure REST API version: 2022-04-01.
         /// </summary>
         public static Task<GetWorkbookResult> InvokeAsync(GetWorkbookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkbookResult>("azure-native:insights:getWorkbook", args ?? new GetWorkbookArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single workbook by its resourceName.
-        /// API Version: 2022-04-01.
+        /// Azure REST API version: 2022-04-01.
         /// </summary>
         public static Output<GetWorkbookResult> Invoke(GetWorkbookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkbookResult>("azure-native:insights:getWorkbook", args ?? new GetWorkbookInvokeArgs(), options.WithDefaults());

@@ -110,7 +110,7 @@ def get_security_connector_application(application_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityConnectorApplicationResult:
     """
     Get a specific application for the requested scope by applicationId
-    API Version: 2022-07-01-preview.
+    Azure REST API version: 2022-07-01-preview.
 
 
     :param str application_id: The security Application key - unique key for the standard application
@@ -140,7 +140,7 @@ def get_security_connector_application_output(application_id: Optional[pulumi.In
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityConnectorApplicationResult]:
     """
     Get a specific application for the requested scope by applicationId
-    API Version: 2022-07-01-preview.
+    Azure REST API version: 2022-07-01-preview.
 
 
     :param str application_id: The security Application key - unique key for the standard application

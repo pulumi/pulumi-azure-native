@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of an event channel.
- * API Version: 2021-10-15-preview.
+ * Azure REST API version: 2021-10-15-preview.
  */
 export function getEventChannel(args: GetEventChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetEventChannelResult> {
 
@@ -89,7 +89,7 @@ export interface GetEventChannelResult {
 }
 /**
  * Get properties of an event channel.
- * API Version: 2021-10-15-preview.
+ * Azure REST API version: 2021-10-15-preview.
  */
 export function getEventChannelOutput(args: GetEventChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventChannelResult> {
     return pulumi.output(args).apply((a: any) => getEventChannel(a, opts))

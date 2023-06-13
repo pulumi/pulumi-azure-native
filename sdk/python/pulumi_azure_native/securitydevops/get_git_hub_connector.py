@@ -122,7 +122,7 @@ def get_git_hub_connector(git_hub_connector_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGitHubConnectorResult:
     """
     Represents an ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str git_hub_connector_name: Name of the GitHub Connector.
@@ -150,7 +150,7 @@ def get_git_hub_connector_output(git_hub_connector_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGitHubConnectorResult]:
     """
     Represents an ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str git_hub_connector_name: Name of the GitHub Connector.

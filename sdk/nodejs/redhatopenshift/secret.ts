@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Secret represents a secret.
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export class Secret extends pulumi.CustomResource {
     /**

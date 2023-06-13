@@ -83,7 +83,7 @@ def get_billing_hub_service_usage(end_time_stamp: Optional[str] = None,
                                   test_base_account_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingHubServiceUsageResult:
     """
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource.
@@ -116,7 +116,7 @@ def get_billing_hub_service_usage_output(end_time_stamp: Optional[pulumi.Input[s
                                          test_base_account_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingHubServiceUsageResult]:
     """
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource.

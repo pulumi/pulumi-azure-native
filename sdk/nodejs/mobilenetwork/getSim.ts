@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified SIM.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getSim(args: GetSimArgs, opts?: pulumi.InvokeOptions): Promise<GetSimResult> {
 
@@ -99,7 +99,7 @@ export interface GetSimResult {
 }
 /**
  * Gets information about the specified SIM.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getSimOutput(args: GetSimOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimResult> {
     return pulumi.output(args).apply((a: any) => getSim(a, opts))

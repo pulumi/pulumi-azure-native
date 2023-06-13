@@ -218,7 +218,7 @@ def get_watcher(automation_account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatcherResult:
     """
     Retrieve the watcher identified by watcher name.
-    API Version: 2020-01-13-preview.
+    Azure REST API version: 2020-01-13-preview.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -257,7 +257,7 @@ def get_watcher_output(automation_account_name: Optional[pulumi.Input[str]] = No
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWatcherResult]:
     """
     Retrieve the watcher identified by watcher name.
-    API Version: 2020-01-13-preview.
+    Azure REST API version: 2020-01-13-preview.
 
 
     :param str automation_account_name: The name of the automation account.

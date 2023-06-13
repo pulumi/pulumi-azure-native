@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves a single policy exemption, given its name and the scope it was created at.
- * API Version: 2022-07-01-preview.
+ * Azure REST API version: 2022-07-01-preview.
  */
 export function getPolicyExemption(args: GetPolicyExemptionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyExemptionResult> {
 
@@ -90,7 +90,7 @@ export interface GetPolicyExemptionResult {
 }
 /**
  * This operation retrieves a single policy exemption, given its name and the scope it was created at.
- * API Version: 2022-07-01-preview.
+ * Azure REST API version: 2022-07-01-preview.
  */
 export function getPolicyExemptionOutput(args: GetPolicyExemptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyExemptionResult> {
     return pulumi.output(args).apply((a: any) => getPolicyExemption(a, opts))

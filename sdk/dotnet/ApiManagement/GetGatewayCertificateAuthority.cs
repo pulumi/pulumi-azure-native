@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get assigned Gateway Certificate Authority details.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetGatewayCertificateAuthorityResult> InvokeAsync(GetGatewayCertificateAuthorityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayCertificateAuthorityResult>("azure-native:apimanagement:getGatewayCertificateAuthority", args ?? new GetGatewayCertificateAuthorityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get assigned Gateway Certificate Authority details.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetGatewayCertificateAuthorityResult> Invoke(GetGatewayCertificateAuthorityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayCertificateAuthorityResult>("azure-native:apimanagement:getGatewayCertificateAuthority", args ?? new GetGatewayCertificateAuthorityInvokeArgs(), options.WithDefaults());

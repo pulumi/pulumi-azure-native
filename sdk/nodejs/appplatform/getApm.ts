@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the APM by name.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getApm(args: GetApmArgs, opts?: pulumi.InvokeOptions): Promise<GetApmResult> {
 
@@ -63,7 +63,7 @@ export interface GetApmResult {
 }
 /**
  * Get the APM by name.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getApmOutput(args: GetApmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApmResult> {
     return pulumi.output(args).apply((a: any) => getApm(a, opts))

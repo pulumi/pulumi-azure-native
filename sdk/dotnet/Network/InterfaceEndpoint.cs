@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Interface endpoint resource.
-    /// API Version: 2019-02-01.
+    /// Azure REST API version: 2019-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:InterfaceEndpoint")]
     public partial class InterfaceEndpoint : global::Pulumi.CustomResource

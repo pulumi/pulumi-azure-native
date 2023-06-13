@@ -350,7 +350,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledQueryRuleResult:
     """
     Retrieve an scheduled query rule definition.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -397,7 +397,7 @@ def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryRuleResult]:
     """
     Retrieve an scheduled query rule definition.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

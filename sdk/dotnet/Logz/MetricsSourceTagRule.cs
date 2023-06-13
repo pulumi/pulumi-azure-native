@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.Logz
 {
     /// <summary>
     /// Capture metrics of Azure resources based on ARM tags.
-    /// API Version: 2022-01-01-preview.
-    /// Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:logz:MetricsSourceTagRule")]
     public partial class MetricsSourceTagRule : global::Pulumi.CustomResource

@@ -112,7 +112,7 @@ def get_hybrid_connection_authorization_rule(authorization_rule_name: Optional[s
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridConnectionAuthorizationRuleResult:
     """
     Hybrid connection authorization rule for a hybrid connection by name.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -145,7 +145,7 @@ def get_hybrid_connection_authorization_rule_output(authorization_rule_name: Opt
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridConnectionAuthorizationRuleResult]:
     """
     Hybrid connection authorization rule for a hybrid connection by name.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str authorization_rule_name: The authorization rule name.

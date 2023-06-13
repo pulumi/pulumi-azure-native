@@ -170,7 +170,7 @@ def get_load_test(load_test_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadTestResult:
     """
     Get a LoadTest resource.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str load_test_name: Load Test name.
@@ -202,7 +202,7 @@ def get_load_test_output(load_test_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadTestResult]:
     """
     Get a LoadTest resource.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str load_test_name: Load Test name.

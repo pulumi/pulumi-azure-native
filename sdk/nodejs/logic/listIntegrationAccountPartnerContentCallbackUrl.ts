@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the content callback url.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function listIntegrationAccountPartnerContentCallbackUrl(args: ListIntegrationAccountPartnerContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountPartnerContentCallbackUrlResult> {
 
@@ -77,7 +77,7 @@ export interface ListIntegrationAccountPartnerContentCallbackUrlResult {
 }
 /**
  * Get the content callback url.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function listIntegrationAccountPartnerContentCallbackUrlOutput(args: ListIntegrationAccountPartnerContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountPartnerContentCallbackUrlResult> {
     return pulumi.output(args).apply((a: any) => listIntegrationAccountPartnerContentCallbackUrl(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified deployments associated with the Cognitive Services account.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
 
@@ -71,7 +71,7 @@ export interface GetDeploymentResult {
 }
 /**
  * Gets the specified deployments associated with the Cognitive Services account.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getDeployment(a, opts))

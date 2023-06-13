@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// The metric setting details for the role
-        /// API Version: 2022-03-01.
+        /// Azure REST API version: 2022-03-01.
         /// </summary>
         public static Task<GetMonitoringConfigResult> InvokeAsync(GetMonitoringConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringConfigResult>("azure-native:databoxedge:getMonitoringConfig", args ?? new GetMonitoringConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// The metric setting details for the role
-        /// API Version: 2022-03-01.
+        /// Azure REST API version: 2022-03-01.
         /// </summary>
         public static Output<GetMonitoringConfigResult> Invoke(GetMonitoringConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringConfigResult>("azure-native:databoxedge:getMonitoringConfig", args ?? new GetMonitoringConfigInvokeArgs(), options.WithDefaults());

@@ -55,7 +55,7 @@ def get_marketplace_image_sas_token_sas_token(device_name: Optional[str] = None,
                                               version_name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMarketplaceImageSasTokenSASTokenResult:
     """
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str resource_group_name: The resource group name.
@@ -84,7 +84,7 @@ def get_marketplace_image_sas_token_sas_token_output(device_name: Optional[pulum
                                                      version_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMarketplaceImageSasTokenSASTokenResult]:
     """
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str resource_group_name: The resource group name.

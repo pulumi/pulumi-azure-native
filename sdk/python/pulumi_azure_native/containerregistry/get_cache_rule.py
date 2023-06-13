@@ -148,7 +148,7 @@ def get_cache_rule(cache_rule_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheRuleResult:
     """
     Gets the properties of the specified cache rule resource.
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str cache_rule_name: The name of the cache rule.
@@ -181,7 +181,7 @@ def get_cache_rule_output(cache_rule_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheRuleResult]:
     """
     Gets the properties of the specified cache rule resource.
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str cache_rule_name: The name of the cache rule.

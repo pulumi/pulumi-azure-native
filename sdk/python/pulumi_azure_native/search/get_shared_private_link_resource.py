@@ -87,7 +87,7 @@ def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedPrivateLinkResourceResult:
     """
     Gets the details of the shared private link resource managed by the search service in the given resource group.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -115,7 +115,7 @@ def get_shared_private_link_resource_output(resource_group_name: Optional[pulumi
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedPrivateLinkResourceResult]:
     """
     Gets the details of the shared private link resource managed by the search service in the given resource group.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.

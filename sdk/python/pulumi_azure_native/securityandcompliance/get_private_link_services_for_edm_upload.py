@@ -158,7 +158,7 @@ def get_private_link_services_for_edm_upload(resource_group_name: Optional[str] 
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServicesForEDMUploadResult:
     """
     Get the metadata of a privateLinkServicesForEDMUpload resource.
-    API Version: 2021-03-08.
+    Azure REST API version: 2021-03-08.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -189,7 +189,7 @@ def get_private_link_services_for_edm_upload_output(resource_group_name: Optiona
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServicesForEDMUploadResult]:
     """
     Get the metadata of a privateLinkServicesForEDMUpload resource.
-    API Version: 2021-03-08.
+    Azure REST API version: 2021-03-08.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

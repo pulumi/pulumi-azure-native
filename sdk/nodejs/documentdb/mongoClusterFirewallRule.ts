@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a mongo cluster firewall rule.
- * API Version: 2023-03-15-preview.
+ * Azure REST API version: 2023-03-15-preview.
  */
 export class MongoClusterFirewallRule extends pulumi.CustomResource {
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve a Prometheus rule group definition.
- * API Version: 2023-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getPrometheusRuleGroup(args: GetPrometheusRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPrometheusRuleGroupResult> {
 
@@ -86,7 +86,7 @@ export interface GetPrometheusRuleGroupResult {
 }
 /**
  * Retrieve a Prometheus rule group definition.
- * API Version: 2023-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getPrometheusRuleGroupOutput(args: GetPrometheusRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrometheusRuleGroupResult> {
     return pulumi.output(args).apply((a: any) => getPrometheusRuleGroup(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get a run command.
- * API Version: 2023-04-25-preview.
+ * Azure REST API version: 2023-04-25-preview.
  */
 export function getMachineRunCommand(args: GetMachineRunCommandArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineRunCommandResult> {
 
@@ -119,7 +119,7 @@ export interface GetMachineRunCommandResult {
 }
 /**
  * The operation to get a run command.
- * API Version: 2023-04-25-preview.
+ * Azure REST API version: 2023-04-25-preview.
  */
 export function getMachineRunCommandOutput(args: GetMachineRunCommandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineRunCommandResult> {
     return pulumi.output(args).apply((a: any) => getMachineRunCommand(a, opts))

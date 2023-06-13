@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
-        /// API Version: 2023-03-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetEnterprisePrivateEndpointConnectionResult> InvokeAsync(GetEnterprisePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnterprisePrivateEndpointConnectionResult>("azure-native:cache:getEnterprisePrivateEndpointConnection", args ?? new GetEnterprisePrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
-        /// API Version: 2023-03-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetEnterprisePrivateEndpointConnectionResult> Invoke(GetEnterprisePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterprisePrivateEndpointConnectionResult>("azure-native:cache:getEnterprisePrivateEndpointConnection", args ?? new GetEnterprisePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

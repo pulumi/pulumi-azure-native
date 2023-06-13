@@ -48,7 +48,7 @@ def get_diagnostic_service_token_read_write(resource_uri: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiagnosticServiceTokenReadWriteResult:
     """
     Gets an read-write access token for application insights diagnostic service data.
-    API Version: 2021-03-03-preview.
+    Azure REST API version: 2021-03-03-preview.
 
 
     :param str resource_uri: The identifier of the resource.
@@ -67,7 +67,7 @@ def get_diagnostic_service_token_read_write_output(resource_uri: Optional[pulumi
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticServiceTokenReadWriteResult]:
     """
     Gets an read-write access token for application insights diagnostic service data.
-    API Version: 2021-03-03-preview.
+    Azure REST API version: 2021-03-03-preview.
 
 
     :param str resource_uri: The identifier of the resource.

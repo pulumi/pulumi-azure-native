@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for This is to allow calling via powershell and ARM template.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppSyncFunctionTriggers(args: ListWebAppSyncFunctionTriggersArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSyncFunctionTriggersResult> {
 
@@ -43,7 +43,7 @@ export interface ListWebAppSyncFunctionTriggersResult {
 }
 /**
  * Description for This is to allow calling via powershell and ARM template.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppSyncFunctionTriggersOutput(args: ListWebAppSyncFunctionTriggersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSyncFunctionTriggersResult> {
     return pulumi.output(args).apply((a: any) => listWebAppSyncFunctionTriggers(a, opts))

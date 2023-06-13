@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified Iot Connector FHIR destination.
- * API Version: 2023-02-28.
+ * Azure REST API version: 2023-02-28.
  */
 export function getIotConnectorFhirDestination(args: GetIotConnectorFhirDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorFhirDestinationResult> {
 
@@ -84,7 +84,7 @@ export interface GetIotConnectorFhirDestinationResult {
 }
 /**
  * Gets the properties of the specified Iot Connector FHIR destination.
- * API Version: 2023-02-28.
+ * Azure REST API version: 2023-02-28.
  */
 export function getIotConnectorFhirDestinationOutput(args: GetIotConnectorFhirDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotConnectorFhirDestinationResult> {
     return pulumi.output(args).apply((a: any) => getIotConnectorFhirDestination(a, opts))

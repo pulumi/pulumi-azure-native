@@ -100,7 +100,7 @@ def get_product_policy(format: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductPolicyResult:
     """
     Get the policy configuration at the Product level.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str format: Policy Export Format.
@@ -135,7 +135,7 @@ def get_product_policy_output(format: Optional[pulumi.Input[Optional[str]]] = No
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductPolicyResult]:
     """
     Get the policy configuration at the Product level.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str format: Policy Export Format.

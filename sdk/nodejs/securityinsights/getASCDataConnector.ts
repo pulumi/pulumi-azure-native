@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a data connector.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getASCDataConnector(args: GetASCDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetASCDataConnectorResult> {
 
@@ -76,7 +76,7 @@ export interface GetASCDataConnectorResult {
 }
 /**
  * Gets a data connector.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getASCDataConnectorOutput(args: GetASCDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetASCDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getASCDataConnector(a, opts))

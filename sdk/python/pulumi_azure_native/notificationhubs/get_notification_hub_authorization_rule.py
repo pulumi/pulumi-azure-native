@@ -220,7 +220,7 @@ def get_notification_hub_authorization_rule(authorization_rule_name: Optional[st
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationHubAuthorizationRuleResult:
     """
     Gets an authorization rule for a NotificationHub by name.
-    API Version: 2017-04-01.
+    Azure REST API version: 2017-04-01.
 
 
     :param str authorization_rule_name: authorization rule name.
@@ -262,7 +262,7 @@ def get_notification_hub_authorization_rule_output(authorization_rule_name: Opti
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationHubAuthorizationRuleResult]:
     """
     Gets an authorization rule for a NotificationHub by name.
-    API Version: 2017-04-01.
+    Azure REST API version: 2017-04-01.
 
 
     :param str authorization_rule_name: authorization rule name.

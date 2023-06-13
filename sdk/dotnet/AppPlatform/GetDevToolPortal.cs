@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get the Application Live  and its properties.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetDevToolPortalResult> InvokeAsync(GetDevToolPortalArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevToolPortalResult>("azure-native:appplatform:getDevToolPortal", args ?? new GetDevToolPortalArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Application Live  and its properties.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetDevToolPortalResult> Invoke(GetDevToolPortalInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevToolPortalResult>("azure-native:appplatform:getDevToolPortal", args ?? new GetDevToolPortalInvokeArgs(), options.WithDefaults());

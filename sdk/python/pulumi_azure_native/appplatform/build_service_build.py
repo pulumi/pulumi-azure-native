@@ -111,7 +111,7 @@ class BuildServiceBuild(pulumi.CustomResource):
                  __props__=None):
         """
         Build resource payload
-        API Version: 2023-05-01-preview.
+        Azure REST API version: 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class BuildServiceBuild(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Build resource payload
-        API Version: 2023-05-01-preview.
+        Azure REST API version: 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param BuildServiceBuildArgs args: The arguments to use to populate this resource's properties.

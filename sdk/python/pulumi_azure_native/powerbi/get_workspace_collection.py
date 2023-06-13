@@ -113,7 +113,7 @@ def get_workspace_collection(resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceCollectionResult:
     """
     Retrieves an existing Power BI Workspace Collection.
-    API Version: 2016-01-29.
+    Azure REST API version: 2016-01-29.
 
 
     :param str resource_group_name: Azure resource group
@@ -141,7 +141,7 @@ def get_workspace_collection_output(resource_group_name: Optional[pulumi.Input[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceCollectionResult]:
     """
     Retrieves an existing Power BI Workspace Collection.
-    API Version: 2016-01-29.
+    Azure REST API version: 2016-01-29.
 
 
     :param str resource_group_name: Azure resource group

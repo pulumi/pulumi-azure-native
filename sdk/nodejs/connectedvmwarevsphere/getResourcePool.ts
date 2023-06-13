@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements resourcePool GET method.
- * API Version: 2022-07-15-preview.
+ * Azure REST API version: 2022-07-15-preview.
  */
 export function getResourcePool(args: GetResourcePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePoolResult> {
 
@@ -140,7 +140,7 @@ export interface GetResourcePoolResult {
 }
 /**
  * Implements resourcePool GET method.
- * API Version: 2022-07-15-preview.
+ * Azure REST API version: 2022-07-15-preview.
  */
 export function getResourcePoolOutput(args: GetResourcePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePoolResult> {
     return pulumi.output(args).apply((a: any) => getResourcePool(a, opts))

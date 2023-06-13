@@ -111,7 +111,7 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceAuthorizationRuleResult:
     """
     Authorization rule for a namespace by name.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -141,7 +141,7 @@ def get_namespace_authorization_rule_output(authorization_rule_name: Optional[pu
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceAuthorizationRuleResult]:
     """
     Authorization rule for a namespace by name.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str authorization_rule_name: The authorization rule name.

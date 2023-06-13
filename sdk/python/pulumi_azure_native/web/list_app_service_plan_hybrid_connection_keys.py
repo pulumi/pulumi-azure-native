@@ -111,7 +111,7 @@ def list_app_service_plan_hybrid_connection_keys(name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAppServicePlanHybridConnectionKeysResult:
     """
     Description for Get the send key name and value of a Hybrid Connection.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the App Service plan.
@@ -144,7 +144,7 @@ def list_app_service_plan_hybrid_connection_keys_output(name: Optional[pulumi.In
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAppServicePlanHybridConnectionKeysResult]:
     """
     Description for Get the send key name and value of a Hybrid Connection.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the App Service plan.

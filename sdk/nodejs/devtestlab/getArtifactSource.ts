@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get artifact source.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactSourceResult> {
 
@@ -109,7 +109,7 @@ export interface GetArtifactSourceResult {
 }
 /**
  * Get artifact source.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function getArtifactSourceOutput(args: GetArtifactSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactSourceResult> {
     return pulumi.output(args).apply((a: any) => getArtifactSource(a, opts))

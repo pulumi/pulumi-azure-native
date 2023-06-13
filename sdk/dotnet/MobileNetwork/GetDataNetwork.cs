@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Gets information about the specified data network.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetDataNetworkResult> InvokeAsync(GetDataNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataNetworkResult>("azure-native:mobilenetwork:getDataNetwork", args ?? new GetDataNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified data network.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetDataNetworkResult> Invoke(GetDataNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataNetworkResult>("azure-native:mobilenetwork:getDataNetwork", args ?? new GetDataNetworkInvokeArgs(), options.WithDefaults());

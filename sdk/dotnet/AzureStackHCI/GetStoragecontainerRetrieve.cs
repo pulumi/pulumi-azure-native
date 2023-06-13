@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Gets storagecontainers by resource name
-        /// API Version: 2021-09-01-preview.
+        /// Azure REST API version: 2021-09-01-preview.
         /// </summary>
         public static Task<GetStoragecontainerRetrieveResult> InvokeAsync(GetStoragecontainerRetrieveArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStoragecontainerRetrieveResult>("azure-native:azurestackhci:getStoragecontainerRetrieve", args ?? new GetStoragecontainerRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets storagecontainers by resource name
-        /// API Version: 2021-09-01-preview.
+        /// Azure REST API version: 2021-09-01-preview.
         /// </summary>
         public static Output<GetStoragecontainerRetrieveResult> Invoke(GetStoragecontainerRetrieveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStoragecontainerRetrieveResult>("azure-native:azurestackhci:getStoragecontainerRetrieve", args ?? new GetStoragecontainerRetrieveInvokeArgs(), options.WithDefaults());

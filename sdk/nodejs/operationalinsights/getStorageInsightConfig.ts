@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a storage insight instance.
- * API Version: 2020-08-01.
+ * Azure REST API version: 2020-08-01.
  */
 export function getStorageInsightConfig(args: GetStorageInsightConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageInsightConfigResult> {
 
@@ -79,7 +79,7 @@ export interface GetStorageInsightConfigResult {
 }
 /**
  * Gets a storage insight instance.
- * API Version: 2020-08-01.
+ * Azure REST API version: 2020-08-01.
  */
 export function getStorageInsightConfigOutput(args: GetStorageInsightConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageInsightConfigResult> {
     return pulumi.output(args).apply((a: any) => getStorageInsightConfig(a, opts))

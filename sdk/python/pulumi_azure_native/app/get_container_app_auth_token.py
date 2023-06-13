@@ -134,7 +134,7 @@ def get_container_app_auth_token(container_app_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerAppAuthTokenResult:
     """
     Container App Auth Token.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str container_app_name: Name of the Container App.
@@ -163,7 +163,7 @@ def get_container_app_auth_token_output(container_app_name: Optional[pulumi.Inpu
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppAuthTokenResult]:
     """
     Container App Auth Token.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str container_app_name: Name of the Container App.

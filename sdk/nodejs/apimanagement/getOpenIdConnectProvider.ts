@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets specific OpenID Connect Provider without secrets.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getOpenIdConnectProvider(args: GetOpenIdConnectProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenIdConnectProviderResult> {
 
@@ -80,7 +80,7 @@ export interface GetOpenIdConnectProviderResult {
 }
 /**
  * Gets specific OpenID Connect Provider without secrets.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getOpenIdConnectProviderOutput(args: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenIdConnectProviderResult> {
     return pulumi.output(args).apply((a: any) => getOpenIdConnectProvider(a, opts))

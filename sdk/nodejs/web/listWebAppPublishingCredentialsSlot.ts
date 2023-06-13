@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets the Git/FTP publishing credentials of an app.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppPublishingCredentialsSlot(args: ListWebAppPublishingCredentialsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppPublishingCredentialsSlotResult> {
 
@@ -76,7 +76,7 @@ export interface ListWebAppPublishingCredentialsSlotResult {
 }
 /**
  * Description for Gets the Git/FTP publishing credentials of an app.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppPublishingCredentialsSlotOutput(args: ListWebAppPublishingCredentialsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppPublishingCredentialsSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppPublishingCredentialsSlot(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an API Management service resource description.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiManagementService(args: GetApiManagementServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceResult> {
 
@@ -198,7 +198,7 @@ export interface GetApiManagementServiceResult {
 }
 /**
  * Gets an API Management service resource description.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiManagementServiceOutput(args: GetApiManagementServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceResult> {
     return pulumi.output(args).apply((a: any) => getApiManagementService(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An environment for Kubernetes cluster specialized for web workloads by Azure App Service
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export class ConnectedEnvironment extends pulumi.CustomResource {
     /**

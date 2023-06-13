@@ -100,7 +100,7 @@ def get_authorization_access_policy(authorization_access_policy_id: Optional[str
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationAccessPolicyResult:
     """
     Gets the details of the authorization access policy specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str authorization_access_policy_id: Identifier of the authorization access policy.
@@ -135,7 +135,7 @@ def get_authorization_access_policy_output(authorization_access_policy_id: Optio
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationAccessPolicyResult]:
     """
     Gets the details of the authorization access policy specified by its identifier.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str authorization_access_policy_id: Identifier of the authorization access policy.

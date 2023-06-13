@@ -233,7 +233,7 @@ def get_virtual_machine_schedule(expand: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScheduleResult:
     """
     Get schedule.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'
@@ -279,7 +279,7 @@ def get_virtual_machine_schedule_output(expand: Optional[pulumi.Input[Optional[s
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScheduleResult]:
     """
     Get schedule.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'

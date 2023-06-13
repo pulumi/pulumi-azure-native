@@ -182,7 +182,7 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalNetworkGatewayResult:
     """
     Gets the specified local network gateway in a resource group.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str local_network_gateway_name: The name of the local network gateway.
@@ -215,7 +215,7 @@ def get_local_network_gateway_output(local_network_gateway_name: Optional[pulumi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalNetworkGatewayResult]:
     """
     Gets the specified local network gateway in a resource group.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str local_network_gateway_name: The name of the local network gateway.

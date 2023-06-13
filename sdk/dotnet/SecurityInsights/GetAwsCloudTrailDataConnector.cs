@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a data connector.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetAwsCloudTrailDataConnectorResult> InvokeAsync(GetAwsCloudTrailDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAwsCloudTrailDataConnectorResult>("azure-native:securityinsights:getAwsCloudTrailDataConnector", args ?? new GetAwsCloudTrailDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a data connector.
-        /// API Version: 2023-02-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetAwsCloudTrailDataConnectorResult> Invoke(GetAwsCloudTrailDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAwsCloudTrailDataConnectorResult>("azure-native:securityinsights:getAwsCloudTrailDataConnector", args ?? new GetAwsCloudTrailDataConnectorInvokeArgs(), options.WithDefaults());

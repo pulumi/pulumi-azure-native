@@ -50,7 +50,7 @@ def get_required_aml_fs_subnets_size(sku: Optional[pulumi.InputType['SkuName']] 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRequiredAmlFSSubnetsSizeResult:
     """
     Get the number of available IP addresses needed for the AML file system information provided.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param pulumi.InputType['SkuName'] sku: SKU for the resource.
@@ -72,7 +72,7 @@ def get_required_aml_fs_subnets_size_output(sku: Optional[pulumi.Input[Optional[
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRequiredAmlFSSubnetsSizeResult]:
     """
     Get the number of available IP addresses needed for the AML file system information provided.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param pulumi.InputType['SkuName'] sku: SKU for the resource.

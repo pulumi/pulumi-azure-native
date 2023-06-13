@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Kusto cluster database principalAssignment.
- * API Version: 2022-12-29.
+ * Azure REST API version: 2022-12-29.
  */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
 
@@ -89,7 +89,7 @@ export interface GetDatabasePrincipalAssignmentResult {
 }
 /**
  * Gets a Kusto cluster database principalAssignment.
- * API Version: 2022-12-29.
+ * Azure REST API version: 2022-12-29.
  */
 export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getDatabasePrincipalAssignment(a, opts))

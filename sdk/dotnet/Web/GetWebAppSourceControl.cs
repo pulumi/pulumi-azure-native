@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets the source control configuration of an app.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetWebAppSourceControlResult> InvokeAsync(GetWebAppSourceControlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSourceControlResult>("azure-native:web:getWebAppSourceControl", args ?? new GetWebAppSourceControlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets the source control configuration of an app.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetWebAppSourceControlResult> Invoke(GetWebAppSourceControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSourceControlResult>("azure-native:web:getWebAppSourceControl", args ?? new GetWebAppSourceControlInvokeArgs(), options.WithDefaults());

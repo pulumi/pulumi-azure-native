@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets a policy fragment.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetPolicyFragmentResult> InvokeAsync(GetPolicyFragmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyFragmentResult>("azure-native:apimanagement:getPolicyFragment", args ?? new GetPolicyFragmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a policy fragment.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetPolicyFragmentResult> Invoke(GetPolicyFragmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyFragmentResult>("azure-native:apimanagement:getPolicyFragment", args ?? new GetPolicyFragmentInvokeArgs(), options.WithDefaults());

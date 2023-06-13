@@ -288,7 +288,7 @@ def get_domain(domain_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
     Description for Get a domain.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str domain_name: Name of the domain.
@@ -330,7 +330,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
     Description for Get a domain.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str domain_name: Name of the domain.

@@ -111,7 +111,7 @@ def get_hybrid_runbook_worker_group(automation_account_name: Optional[str] = Non
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridRunbookWorkerGroupResult:
     """
     Retrieve a hybrid runbook worker group.
-    API Version: 2022-08-08.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -141,7 +141,7 @@ def get_hybrid_runbook_worker_group_output(automation_account_name: Optional[pul
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridRunbookWorkerGroupResult]:
     """
     Retrieve a hybrid runbook worker group.
-    API Version: 2022-08-08.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.

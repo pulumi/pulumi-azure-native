@@ -267,8 +267,7 @@ class Cache(pulumi.CustomResource):
                  __props__=None):
         """
         A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        API Version: 2023-05-01.
-        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -295,8 +294,7 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        API Version: 2023-05-01.
-        Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param CacheArgs args: The arguments to use to populate this resource's properties.

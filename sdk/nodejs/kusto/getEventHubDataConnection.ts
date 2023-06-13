@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a data connection.
- * API Version: 2022-12-29.
+ * Azure REST API version: 2022-12-29.
  */
 export function getEventHubDataConnection(args: GetEventHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubDataConnectionResult> {
 
@@ -114,7 +114,7 @@ export interface GetEventHubDataConnectionResult {
 }
 /**
  * Returns a data connection.
- * API Version: 2022-12-29.
+ * Azure REST API version: 2022-12-29.
  */
 export function getEventHubDataConnectionOutput(args: GetEventHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEventHubDataConnection(a, opts))

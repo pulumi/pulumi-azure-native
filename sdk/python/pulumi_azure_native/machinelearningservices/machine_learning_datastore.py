@@ -608,8 +608,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
                  __props__=None):
         """
         Machine Learning datastore object wrapped into ARM resource envelope.
-        API Version: 2020-05-01-preview.
-        Previous API Version: 2020-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2020-05-01-preview. Prior API version in Azure Native 1.x: 2020-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -656,8 +655,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Machine Learning datastore object wrapped into ARM resource envelope.
-        API Version: 2020-05-01-preview.
-        Previous API Version: 2020-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2020-05-01-preview. Prior API version in Azure Native 1.x: 2020-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param MachineLearningDatastoreArgs args: The arguments to use to populate this resource's properties.

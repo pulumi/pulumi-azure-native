@@ -122,7 +122,7 @@ def get_metrics_source(metrics_source_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetricsSourceResult:
     """
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str metrics_source_name: Metrics Account resource name
@@ -153,7 +153,7 @@ def get_metrics_source_output(metrics_source_name: Optional[pulumi.Input[str]] =
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricsSourceResult]:
     """
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str metrics_source_name: Metrics Account resource name

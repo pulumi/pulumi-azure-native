@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Arc PrivateLinkScope definition.
- * API Version: 2022-04-02-preview.
- * Previous API Version: 2022-04-02-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2022-04-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview
  */
 export class PrivateLinkScope extends pulumi.CustomResource {
     /**

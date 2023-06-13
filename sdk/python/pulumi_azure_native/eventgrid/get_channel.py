@@ -160,7 +160,7 @@ def get_channel(channel_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
     Get properties of a channel.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str channel_name: Name of the channel.
@@ -194,7 +194,7 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
     Get properties of a channel.
-    API Version: 2022-06-15.
+    Azure REST API version: 2022-06-15.
 
 
     :param str channel_name: Name of the channel.

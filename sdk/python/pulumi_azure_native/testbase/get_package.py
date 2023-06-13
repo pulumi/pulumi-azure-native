@@ -267,7 +267,7 @@ def get_package(package_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPackageResult:
     """
     Gets a Test Base Package.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str package_name: The resource name of the Test Base Package.
@@ -310,7 +310,7 @@ def get_package_output(package_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageResult]:
     """
     Gets a Test Base Package.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str package_name: The resource name of the Test Base Package.

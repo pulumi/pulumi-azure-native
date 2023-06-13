@@ -147,7 +147,7 @@ def get_governance_assignment(assessment_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGovernanceAssignmentResult:
     """
     Get a specific governanceAssignment for the requested scope by AssignmentKey
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str assessment_name: The Assessment Key - A unique key for the assessment type
@@ -180,7 +180,7 @@ def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[str]
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGovernanceAssignmentResult]:
     """
     Get a specific governanceAssignment for the requested scope by AssignmentKey
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str assessment_name: The Assessment Key - A unique key for the assessment type

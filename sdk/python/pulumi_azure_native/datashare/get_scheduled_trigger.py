@@ -185,7 +185,7 @@ def get_scheduled_trigger(account_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledTriggerResult:
     """
     Get a Trigger in a shareSubscription
-    API Version: 2021-08-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -224,7 +224,7 @@ def get_scheduled_trigger_output(account_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledTriggerResult]:
     """
     Get a Trigger in a shareSubscription
-    API Version: 2021-08-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.

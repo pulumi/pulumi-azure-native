@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Markup rule
- * API Version: 2022-10-05-preview.
+ * Azure REST API version: 2022-10-05-preview.
  */
 export class MarkupRule extends pulumi.CustomResource {
     /**

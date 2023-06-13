@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a single firewall rule in a specified redis cache.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
 
@@ -60,7 +60,7 @@ export interface GetFirewallRuleResult {
 }
 /**
  * Gets a single firewall rule in a specified redis cache.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))

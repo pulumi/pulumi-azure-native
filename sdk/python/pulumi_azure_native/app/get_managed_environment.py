@@ -280,7 +280,7 @@ def get_managed_environment(environment_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedEnvironmentResult:
     """
     Get the properties of a Managed Environment used to host container apps.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str environment_name: Name of the Environment.
@@ -321,7 +321,7 @@ def get_managed_environment_output(environment_name: Optional[pulumi.Input[str]]
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentResult]:
     """
     Get the properties of a Managed Environment used to host container apps.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str environment_name: Name of the Environment.

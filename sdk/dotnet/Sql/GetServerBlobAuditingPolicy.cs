@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a server's blob auditing policy.
-        /// API Version: 2021-11-01.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetServerBlobAuditingPolicyResult> InvokeAsync(GetServerBlobAuditingPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerBlobAuditingPolicyResult>("azure-native:sql:getServerBlobAuditingPolicy", args ?? new GetServerBlobAuditingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a server's blob auditing policy.
-        /// API Version: 2021-11-01.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetServerBlobAuditingPolicyResult> Invoke(GetServerBlobAuditingPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerBlobAuditingPolicyResult>("azure-native:sql:getServerBlobAuditingPolicy", args ?? new GetServerBlobAuditingPolicyInvokeArgs(), options.WithDefaults());

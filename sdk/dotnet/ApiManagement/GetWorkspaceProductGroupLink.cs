@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the group link for the product.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetWorkspaceProductGroupLinkResult> InvokeAsync(GetWorkspaceProductGroupLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceProductGroupLinkResult>("azure-native:apimanagement:getWorkspaceProductGroupLink", args ?? new GetWorkspaceProductGroupLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the group link for the product.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetWorkspaceProductGroupLinkResult> Invoke(GetWorkspaceProductGroupLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceProductGroupLinkResult>("azure-native:apimanagement:getWorkspaceProductGroupLink", args ?? new GetWorkspaceProductGroupLinkInvokeArgs(), options.WithDefaults());

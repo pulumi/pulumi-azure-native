@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Migrate project.
-    /// API Version: 2020-05-01.
+    /// Azure REST API version: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:MigrateProjectsControllerMigrateProject")]
     public partial class MigrateProjectsControllerMigrateProject : global::Pulumi.CustomResource

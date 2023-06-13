@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Logz
     {
         /// <summary>
         /// Response of a list VM Host Update Operation.
-        /// API Version: 2022-01-01-preview.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Task<ListMonitorVMHostsResult> InvokeAsync(ListMonitorVMHostsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitorVMHostsResult>("azure-native:logz:listMonitorVMHosts", args ?? new ListMonitorVMHostsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list VM Host Update Operation.
-        /// API Version: 2022-01-01-preview.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Output<ListMonitorVMHostsResult> Invoke(ListMonitorVMHostsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorVMHostsResult>("azure-native:logz:listMonitorVMHosts", args ?? new ListMonitorVMHostsInvokeArgs(), options.WithDefaults());

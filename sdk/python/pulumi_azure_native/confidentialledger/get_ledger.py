@@ -122,7 +122,7 @@ def get_ledger(ledger_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLedgerResult:
     """
     Retrieves the properties of a Confidential Ledger.
-    API Version: 2022-05-13.
+    Azure REST API version: 2022-05-13.
 
 
     :param str ledger_name: Name of the Confidential Ledger
@@ -150,7 +150,7 @@ def get_ledger_output(ledger_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLedgerResult]:
     """
     Retrieves the properties of a Confidential Ledger.
-    API Version: 2022-05-13.
+    Azure REST API version: 2022-05-13.
 
 
     :param str ledger_name: Name of the Confidential Ledger

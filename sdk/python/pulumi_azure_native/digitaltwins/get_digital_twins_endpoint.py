@@ -99,7 +99,7 @@ def get_digital_twins_endpoint(endpoint_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDigitalTwinsEndpointResult:
     """
     Get DigitalTwinsInstances Endpoint.
-    API Version: 2023-01-31.
+    Azure REST API version: 2023-01-31.
 
 
     :param str endpoint_name: Name of Endpoint Resource.
@@ -128,7 +128,7 @@ def get_digital_twins_endpoint_output(endpoint_name: Optional[pulumi.Input[str]]
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDigitalTwinsEndpointResult]:
     """
     Get DigitalTwinsInstances Endpoint.
-    API Version: 2023-01-31.
+    Azure REST API version: 2023-01-31.
 
 
     :param str endpoint_name: Name of Endpoint Resource.

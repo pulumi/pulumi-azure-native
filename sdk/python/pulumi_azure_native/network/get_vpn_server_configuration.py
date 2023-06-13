@@ -278,7 +278,7 @@ def get_vpn_server_configuration(resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnServerConfigurationResult:
     """
     Retrieves the details of a VpnServerConfiguration.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.
@@ -319,7 +319,7 @@ def get_vpn_server_configuration_output(resource_group_name: Optional[pulumi.Inp
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnServerConfigurationResult]:
     """
     Retrieves the details of a VpnServerConfiguration.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.

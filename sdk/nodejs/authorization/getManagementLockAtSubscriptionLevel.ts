@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a management lock at the subscription level.
- * API Version: 2020-05-01.
+ * Azure REST API version: 2020-05-01.
  */
 export function getManagementLockAtSubscriptionLevel(args: GetManagementLockAtSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtSubscriptionLevelResult> {
 
@@ -61,7 +61,7 @@ export interface GetManagementLockAtSubscriptionLevelResult {
 }
 /**
  * Gets a management lock at the subscription level.
- * API Version: 2020-05-01.
+ * Azure REST API version: 2020-05-01.
  */
 export function getManagementLockAtSubscriptionLevelOutput(args: GetManagementLockAtSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtSubscriptionLevelResult> {
     return pulumi.output(args).apply((a: any) => getManagementLockAtSubscriptionLevel(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing origin group within an endpoint.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginGroupResult> {
 
@@ -88,7 +88,7 @@ export interface GetOriginGroupResult {
 }
 /**
  * Gets an existing origin group within an endpoint.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getOriginGroupOutput(args: GetOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginGroupResult> {
     return pulumi.output(args).apply((a: any) => getOriginGroup(a, opts))

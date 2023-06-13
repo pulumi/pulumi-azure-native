@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a batch configuration for an integration account.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationAccountBatchConfiguration(args: GetIntegrationAccountBatchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountBatchConfigurationResult> {
 
@@ -67,7 +67,7 @@ export interface GetIntegrationAccountBatchConfigurationResult {
 }
 /**
  * Get a batch configuration for an integration account.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationAccountBatchConfigurationOutput(args: GetIntegrationAccountBatchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountBatchConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountBatchConfiguration(a, opts))

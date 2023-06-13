@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Confluent
     {
         /// <summary>
         /// Organization resource.
-        /// API Version: 2021-12-01.
+        /// Azure REST API version: 2021-12-01.
         /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(GetOrganizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-native:confluent:getOrganization", args ?? new GetOrganizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Organization resource.
-        /// API Version: 2021-12-01.
+        /// Azure REST API version: 2021-12-01.
         /// </summary>
         public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("azure-native:confluent:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());

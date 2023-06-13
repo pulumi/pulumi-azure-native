@@ -65,7 +65,7 @@ def list_active_connectivity_configurations(network_manager_name: Optional[str] 
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListActiveConnectivityConfigurationsResult:
     """
     Lists active connectivity configurations in a network manager.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -97,7 +97,7 @@ def list_active_connectivity_configurations_output(network_manager_name: Optiona
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListActiveConnectivityConfigurationsResult]:
     """
     Lists active connectivity configurations in a network manager.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str network_manager_name: The name of the network manager.

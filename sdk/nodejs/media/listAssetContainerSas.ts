@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function listAssetContainerSas(args: ListAssetContainerSasArgs, opts?: pulumi.InvokeOptions): Promise<ListAssetContainerSasResult> {
 
@@ -57,7 +57,7 @@ export interface ListAssetContainerSasResult {
 }
 /**
  * Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function listAssetContainerSasOutput(args: ListAssetContainerSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAssetContainerSasResult> {
     return pulumi.output(args).apply((a: any) => listAssetContainerSas(a, opts))

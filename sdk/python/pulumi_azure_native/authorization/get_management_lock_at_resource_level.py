@@ -126,7 +126,7 @@ def get_management_lock_at_resource_level(lock_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockAtResourceLevelResult:
     """
     Get the management lock of a resource or any level below resource.
-    API Version: 2020-05-01.
+    Azure REST API version: 2020-05-01.
 
 
     :param str lock_name: The name of lock.
@@ -166,7 +166,7 @@ def get_management_lock_at_resource_level_output(lock_name: Optional[pulumi.Inpu
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockAtResourceLevelResult]:
     """
     Get the management lock of a resource or any level below resource.
-    API Version: 2020-05-01.
+    Azure REST API version: 2020-05-01.
 
 
     :param str lock_name: The name of lock.

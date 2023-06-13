@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Log Analytics workspace table.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
 
@@ -107,7 +107,7 @@ export interface GetTableResult {
 }
 /**
  * Gets a Log Analytics workspace table.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
     return pulumi.output(args).apply((a: any) => getTable(a, opts))

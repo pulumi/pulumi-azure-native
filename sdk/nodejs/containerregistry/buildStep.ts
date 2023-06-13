@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Build step resource properties
- * API Version: 2018-02-01-preview.
+ * Azure REST API version: 2018-02-01-preview.
  */
 export class BuildStep extends pulumi.CustomResource {
     /**

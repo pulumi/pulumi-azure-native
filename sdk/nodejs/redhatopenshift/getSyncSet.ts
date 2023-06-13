@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation returns properties of a SyncSet.
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export function getSyncSet(args: GetSyncSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncSetResult> {
 
@@ -63,7 +63,7 @@ export interface GetSyncSetResult {
 }
 /**
  * The operation returns properties of a SyncSet.
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export function getSyncSetOutput(args: GetSyncSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncSetResult> {
     return pulumi.output(args).apply((a: any) => getSyncSet(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MixedReality
     {
         /// <summary>
         /// List Both of the 2 Keys of an object anchors Account
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Task<ListObjectAnchorsAccountKeysResult> InvokeAsync(ListObjectAnchorsAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListObjectAnchorsAccountKeysResult>("azure-native:mixedreality:listObjectAnchorsAccountKeys", args ?? new ListObjectAnchorsAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// List Both of the 2 Keys of an object anchors Account
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2021-03-01-preview.
         /// </summary>
         public static Output<ListObjectAnchorsAccountKeysResult> Invoke(ListObjectAnchorsAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListObjectAnchorsAccountKeysResult>("azure-native:mixedreality:listObjectAnchorsAccountKeys", args ?? new ListObjectAnchorsAccountKeysInvokeArgs(), options.WithDefaults());

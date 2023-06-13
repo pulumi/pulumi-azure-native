@@ -68,7 +68,7 @@ def get_entities_get_timeline(end_time: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntitiesGetTimelineResult:
     """
     Timeline for an entity.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str end_time: The end timeline date, so the results returned are before this date.
@@ -106,7 +106,7 @@ def get_entities_get_timeline_output(end_time: Optional[pulumi.Input[str]] = Non
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntitiesGetTimelineResult]:
     """
     Timeline for an entity.
-    API Version: 2023-05-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str end_time: The end timeline date, so the results returned are before this date.

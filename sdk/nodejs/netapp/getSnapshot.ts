@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get details of the specified snapshot
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
 
@@ -85,7 +85,7 @@ export interface GetSnapshotResult {
 }
 /**
  * Get details of the specified snapshot
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))

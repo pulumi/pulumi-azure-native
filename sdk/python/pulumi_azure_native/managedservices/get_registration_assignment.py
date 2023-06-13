@@ -99,7 +99,7 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationAssignmentResult:
     """
     Gets the details of the specified registration assignment.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param bool expand_registration_definition: The flag indicating whether to return the registration definition details along with the registration assignment details.
@@ -128,7 +128,7 @@ def get_registration_assignment_output(expand_registration_definition: Optional[
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationAssignmentResult]:
     """
     Gets the details of the specified registration assignment.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param bool expand_registration_definition: The flag indicating whether to return the registration definition details along with the registration assignment details.

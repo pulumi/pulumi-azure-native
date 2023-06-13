@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a given incident.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentResult> {
 
@@ -139,7 +139,7 @@ export interface GetIncidentResult {
 }
 /**
  * Gets a given incident.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getIncidentOutput(args: GetIncidentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentResult> {
     return pulumi.output(args).apply((a: any) => getIncident(a, opts))

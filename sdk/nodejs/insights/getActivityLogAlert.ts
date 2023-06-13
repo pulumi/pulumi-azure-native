@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an Activity Log Alert rule.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2020-10-01.
  */
 export function getActivityLogAlert(args: GetActivityLogAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityLogAlertResult> {
 
@@ -78,7 +78,7 @@ export interface GetActivityLogAlertResult {
 }
 /**
  * Get an Activity Log Alert rule.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2020-10-01.
  */
 export function getActivityLogAlertOutput(args: GetActivityLogAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityLogAlertResult> {
     return pulumi.output(args).apply((a: any) => getActivityLogAlert(a, opts))

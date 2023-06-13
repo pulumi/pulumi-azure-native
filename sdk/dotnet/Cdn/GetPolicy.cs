@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Retrieve protection policy with specified name within a resource group.
-        /// API Version: 2023-05-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:cdn:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve protection policy with specified name within a resource group.
-        /// API Version: 2023-05-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:cdn:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());

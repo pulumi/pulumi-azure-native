@@ -413,7 +413,7 @@ def get_managed_instance(expand: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceResult:
     """
     Gets a managed instance.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str expand: The child resources to include in the response.
@@ -468,7 +468,7 @@ def get_managed_instance_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceResult]:
     """
     Gets a managed instance.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str expand: The child resources to include in the response.

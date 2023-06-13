@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get Network Rack resource details.
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getNetworkRack(args: GetNetworkRackArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkRackResult> {
 
@@ -82,7 +82,7 @@ export interface GetNetworkRackResult {
 }
 /**
  * Get Network Rack resource details.
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getNetworkRackOutput(args: GetNetworkRackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkRackResult> {
     return pulumi.output(args).apply((a: any) => getNetworkRack(a, opts))

@@ -133,7 +133,7 @@ class NamespaceTopic(pulumi.CustomResource):
                  __props__=None):
         """
         Namespace topic details.
-        API Version: 2023-06-01-preview.
+        Azure REST API version: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,7 +153,7 @@ class NamespaceTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Namespace topic details.
-        API Version: 2023-06-01-preview.
+        Azure REST API version: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NamespaceTopicArgs args: The arguments to use to populate this resource's properties.

@@ -160,7 +160,7 @@ class WorkspaceGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Contract details.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2022-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +181,7 @@ class WorkspaceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contract details.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2022-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceGroupArgs args: The arguments to use to populate this resource's properties.

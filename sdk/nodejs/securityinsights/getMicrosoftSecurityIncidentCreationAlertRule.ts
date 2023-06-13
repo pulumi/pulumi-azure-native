@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the alert rule.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getMicrosoftSecurityIncidentCreationAlertRule(args: GetMicrosoftSecurityIncidentCreationAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMicrosoftSecurityIncidentCreationAlertRuleResult> {
 
@@ -104,7 +104,7 @@ export interface GetMicrosoftSecurityIncidentCreationAlertRuleResult {
 }
 /**
  * Gets the alert rule.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getMicrosoftSecurityIncidentCreationAlertRuleOutput(args: GetMicrosoftSecurityIncidentCreationAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getMicrosoftSecurityIncidentCreationAlertRule(a, opts))

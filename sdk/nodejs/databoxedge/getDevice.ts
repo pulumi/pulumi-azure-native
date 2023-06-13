@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the Data Box Edge/Data Box Gateway device.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
 
@@ -146,7 +146,7 @@ export interface GetDeviceResult {
 }
 /**
  * Gets the properties of the Data Box Edge/Data Box Gateway device.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
     return pulumi.output(args).apply((a: any) => getDevice(a, opts))

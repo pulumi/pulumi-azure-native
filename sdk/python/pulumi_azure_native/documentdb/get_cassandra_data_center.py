@@ -87,7 +87,7 @@ def get_cassandra_data_center(cluster_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCassandraDataCenterResult:
     """
     Get the properties of a managed Cassandra data center.
-    API Version: 2023-04-15.
+    Azure REST API version: 2023-04-15.
 
 
     :param str cluster_name: Managed Cassandra cluster name.
@@ -115,7 +115,7 @@ def get_cassandra_data_center_output(cluster_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraDataCenterResult]:
     """
     Get the properties of a managed Cassandra data center.
-    API Version: 2023-04-15.
+    Azure REST API version: 2023-04-15.
 
 
     :param str cluster_name: Managed Cassandra cluster name.

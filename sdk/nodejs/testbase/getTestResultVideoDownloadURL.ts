@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the download URL of the test execution screen recording.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getTestResultVideoDownloadURL(args: GetTestResultVideoDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultVideoDownloadURLResult> {
 
@@ -53,7 +53,7 @@ export interface GetTestResultVideoDownloadURLResult {
 }
 /**
  * Gets the download URL of the test execution screen recording.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getTestResultVideoDownloadURLOutput(args: GetTestResultVideoDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultVideoDownloadURLResult> {
     return pulumi.output(args).apply((a: any) => getTestResultVideoDownloadURL(a, opts))

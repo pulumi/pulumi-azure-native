@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// The workspace manager member
-    /// API Version: 2023-05-01-preview.
+    /// Azure REST API version: 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:WorkspaceManagerMember")]
     public partial class WorkspaceManagerMember : global::Pulumi.CustomResource

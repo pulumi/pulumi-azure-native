@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements Ip Community List GET method.
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getIpCommunityList(args: GetIpCommunityListArgs, opts?: pulumi.InvokeOptions): Promise<GetIpCommunityListResult> {
 
@@ -102,7 +102,7 @@ export interface GetIpCommunityListResult {
 }
 /**
  * Implements Ip Community List GET method.
- * API Version: 2023-02-01-preview.
+ * Azure REST API version: 2023-02-01-preview.
  */
 export function getIpCommunityListOutput(args: GetIpCommunityListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpCommunityListResult> {
     return pulumi.output(args).apply((a: any) => getIpCommunityList(a, opts))

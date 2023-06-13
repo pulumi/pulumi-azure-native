@@ -208,7 +208,7 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudEndpointResult:
     """
     Get a given CloudEndpoint.
-    API Version: 2022-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str cloud_endpoint_name: Name of Cloud Endpoint object.
@@ -249,7 +249,7 @@ def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudEndpointResult]:
     """
     Get a given CloudEndpoint.
-    API Version: 2022-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str cloud_endpoint_name: Name of Cloud Endpoint object.

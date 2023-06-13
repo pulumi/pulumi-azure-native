@@ -136,7 +136,7 @@ def get_workspace_named_value(named_value_id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceNamedValueResult:
     """
     Gets the details of the named value specified by its identifier.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str named_value_id: Identifier of the NamedValue.
@@ -171,7 +171,7 @@ def get_workspace_named_value_output(named_value_id: Optional[pulumi.Input[str]]
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceNamedValueResult]:
     """
     Gets the details of the named value specified by its identifier.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str named_value_id: Identifier of the NamedValue.

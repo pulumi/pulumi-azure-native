@@ -173,7 +173,7 @@ def get_client(client_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClientResult:
     """
     Get properties of a client.
-    API Version: 2023-06-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str client_name: Name of the client.
@@ -208,7 +208,7 @@ def get_client_output(client_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClientResult]:
     """
     Get properties of a client.
-    API Version: 2023-06-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str client_name: Name of the client.

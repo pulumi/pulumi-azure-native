@@ -50,7 +50,7 @@ def get_global_user_operation_batch_status(urls: Optional[Sequence[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalUserOperationBatchStatusResult:
     """
     Get batch operation status
-    API Version: 2018-10-15.
+    Azure REST API version: 2018-10-15.
 
 
     :param Sequence[str] urls: The operation url of long running operation
@@ -72,7 +72,7 @@ def get_global_user_operation_batch_status_output(urls: Optional[pulumi.Input[Se
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalUserOperationBatchStatusResult]:
     """
     Get batch operation status
-    API Version: 2018-10-15.
+    Azure REST API version: 2018-10-15.
 
 
     :param Sequence[str] urls: The operation url of long running operation

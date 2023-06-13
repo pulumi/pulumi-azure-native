@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Gets information about a mongo cluster firewall rule.
-        /// API Version: 2023-03-15-preview.
+        /// Azure REST API version: 2023-03-15-preview.
         /// </summary>
         public static Task<GetMongoClusterFirewallRuleResult> InvokeAsync(GetMongoClusterFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMongoClusterFirewallRuleResult>("azure-native:documentdb:getMongoClusterFirewallRule", args ?? new GetMongoClusterFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a mongo cluster firewall rule.
-        /// API Version: 2023-03-15-preview.
+        /// Azure REST API version: 2023-03-15-preview.
         /// </summary>
         public static Output<GetMongoClusterFirewallRuleResult> Invoke(GetMongoClusterFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMongoClusterFirewallRuleResult>("azure-native:documentdb:getMongoClusterFirewallRule", args ?? new GetMongoClusterFirewallRuleInvokeArgs(), options.WithDefaults());

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists secret keys.
- * API Version: 2015-02-01-preview.
+ * Azure REST API version: 2015-02-01-preview.
  */
 export function listWorkflowAccessKeySecretKeys(args: ListWorkflowAccessKeySecretKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowAccessKeySecretKeysResult> {
 
@@ -45,7 +45,7 @@ export interface ListWorkflowAccessKeySecretKeysResult {
 }
 /**
  * Lists secret keys.
- * API Version: 2015-02-01-preview.
+ * Azure REST API version: 2015-02-01-preview.
  */
 export function listWorkflowAccessKeySecretKeysOutput(args: ListWorkflowAccessKeySecretKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowAccessKeySecretKeysResult> {
     return pulumi.output(args).apply((a: any) => listWorkflowAccessKeySecretKeys(a, opts))

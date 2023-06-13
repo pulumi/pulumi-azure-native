@@ -165,7 +165,7 @@ class ConnectedEnvironment(pulumi.CustomResource):
                  __props__=None):
         """
         An environment for Kubernetes cluster specialized for web workloads by Azure App Service
-        API Version: 2022-10-01.
+        Azure REST API version: 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,7 +186,7 @@ class ConnectedEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An environment for Kubernetes cluster specialized for web workloads by Azure App Service
-        API Version: 2022-10-01.
+        Azure REST API version: 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param ConnectedEnvironmentArgs args: The arguments to use to populate this resource's properties.

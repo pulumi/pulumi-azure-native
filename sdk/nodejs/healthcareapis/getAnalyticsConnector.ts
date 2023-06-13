@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified Analytics Connector.
- * API Version: 2022-10-01-preview.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getAnalyticsConnector(args: GetAnalyticsConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsConnectorResult> {
 
@@ -91,7 +91,7 @@ export interface GetAnalyticsConnectorResult {
 }
 /**
  * Gets the properties of the specified Analytics Connector.
- * API Version: 2022-10-01-preview.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getAnalyticsConnectorOutput(args: GetAnalyticsConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyticsConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAnalyticsConnector(a, opts))

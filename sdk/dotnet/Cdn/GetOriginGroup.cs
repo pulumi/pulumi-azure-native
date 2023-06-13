@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Gets an existing origin group within an endpoint.
-        /// API Version: 2023-05-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Task<GetOriginGroupResult> InvokeAsync(GetOriginGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginGroupResult>("azure-native:cdn:getOriginGroup", args ?? new GetOriginGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing origin group within an endpoint.
-        /// API Version: 2023-05-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Output<GetOriginGroupResult> Invoke(GetOriginGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginGroupResult>("azure-native:cdn:getOriginGroup", args ?? new GetOriginGroupInvokeArgs(), options.WithDefaults());

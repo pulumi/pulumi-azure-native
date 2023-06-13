@@ -99,7 +99,7 @@ def get_replication_recovery_plan(recovery_plan_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationRecoveryPlanResult:
     """
     Gets the details of the recovery plan.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str recovery_plan_name: Name of the recovery plan.
@@ -128,7 +128,7 @@ def get_replication_recovery_plan_output(recovery_plan_name: Optional[pulumi.Inp
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationRecoveryPlanResult]:
     """
     Gets the details of the recovery plan.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str recovery_plan_name: Name of the recovery plan.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a setting.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetUebaResult> InvokeAsync(GetUebaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUebaResult>("azure-native:securityinsights:getUeba", args ?? new GetUebaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a setting.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetUebaResult> Invoke(GetUebaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUebaResult>("azure-native:securityinsights:getUeba", args ?? new GetUebaInvokeArgs(), options.WithDefaults());

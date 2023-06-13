@@ -230,7 +230,7 @@ def get_subscription(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
     Gets the specified Subscription entity.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -270,7 +270,7 @@ def get_subscription_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Gets the specified Subscription entity.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

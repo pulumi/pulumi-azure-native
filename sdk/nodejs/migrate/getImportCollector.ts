@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Import collector.
- * API Version: 2019-10-01.
+ * Azure REST API version: 2019-10-01.
  */
 export function getImportCollector(args: GetImportCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetImportCollectorResult> {
 
@@ -45,7 +45,7 @@ export interface GetImportCollectorResult {
 }
 /**
  * Get a Import collector.
- * API Version: 2019-10-01.
+ * Azure REST API version: 2019-10-01.
  */
 export function getImportCollectorOutput(args: GetImportCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportCollectorResult> {
     return pulumi.output(args).apply((a: any) => getImportCollector(a, opts))

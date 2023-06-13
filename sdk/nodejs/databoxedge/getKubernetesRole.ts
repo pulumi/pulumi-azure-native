@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific role by name.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getKubernetesRole(args: GetKubernetesRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesRoleResult> {
 
@@ -95,7 +95,7 @@ export interface GetKubernetesRoleResult {
 }
 /**
  * Gets a specific role by name.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getKubernetesRoleOutput(args: GetKubernetesRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesRoleResult> {
     return pulumi.output(args).apply((a: any) => getKubernetesRole(a, opts))

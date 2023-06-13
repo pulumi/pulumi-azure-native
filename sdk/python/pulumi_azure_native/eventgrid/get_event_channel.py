@@ -173,7 +173,7 @@ def get_event_channel(event_channel_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventChannelResult:
     """
     Get properties of an event channel.
-    API Version: 2021-10-15-preview.
+    Azure REST API version: 2021-10-15-preview.
 
 
     :param str event_channel_name: Name of the event channel.
@@ -208,7 +208,7 @@ def get_event_channel_output(event_channel_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventChannelResult]:
     """
     Get properties of an event channel.
-    API Version: 2021-10-15-preview.
+    Azure REST API version: 2021-10-15-preview.
 
 
     :param str event_channel_name: Name of the event channel.

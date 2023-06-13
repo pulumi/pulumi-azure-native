@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a jobs credential.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getJobCredential(args: GetJobCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCredentialResult> {
 
@@ -61,7 +61,7 @@ export interface GetJobCredentialResult {
 }
 /**
  * Gets a jobs credential.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getJobCredentialOutput(args: GetJobCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCredentialResult> {
     return pulumi.output(args).apply((a: any) => getJobCredential(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Retrieve the python 3 package identified by package name.
-        /// API Version: 2022-08-08.
+        /// Azure REST API version: 2022-08-08.
         /// </summary>
         public static Task<GetPython3PackageResult> InvokeAsync(GetPython3PackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPython3PackageResult>("azure-native:automation:getPython3Package", args ?? new GetPython3PackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the python 3 package identified by package name.
-        /// API Version: 2022-08-08.
+        /// Azure REST API version: 2022-08-08.
         /// </summary>
         public static Output<GetPython3PackageResult> Invoke(GetPython3PackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPython3PackageResult>("azure-native:automation:getPython3Package", args ?? new GetPython3PackageInvokeArgs(), options.WithDefaults());

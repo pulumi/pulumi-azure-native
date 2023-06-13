@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Get a specific governanceAssignment for the requested scope by AssignmentKey
-        /// API Version: 2022-01-01-preview.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetGovernanceAssignmentResult> InvokeAsync(GetGovernanceAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGovernanceAssignmentResult>("azure-native:security:getGovernanceAssignment", args ?? new GetGovernanceAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific governanceAssignment for the requested scope by AssignmentKey
-        /// API Version: 2022-01-01-preview.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetGovernanceAssignmentResult> Invoke(GetGovernanceAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGovernanceAssignmentResult>("azure-native:security:getGovernanceAssignment", args ?? new GetGovernanceAssignmentInvokeArgs(), options.WithDefaults());

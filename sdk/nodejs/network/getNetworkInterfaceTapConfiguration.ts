@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the specified tap configuration on a network interface.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getNetworkInterfaceTapConfiguration(args: GetNetworkInterfaceTapConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceTapConfigurationResult> {
 
@@ -67,7 +67,7 @@ export interface GetNetworkInterfaceTapConfigurationResult {
 }
 /**
  * Get the specified tap configuration on a network interface.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getNetworkInterfaceTapConfigurationOutput(args: GetNetworkInterfaceTapConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceTapConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getNetworkInterfaceTapConfiguration(a, opts))

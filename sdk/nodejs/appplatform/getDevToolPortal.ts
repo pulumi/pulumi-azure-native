@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Application Live  and its properties.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getDevToolPortal(args: GetDevToolPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetDevToolPortalResult> {
 
@@ -63,7 +63,7 @@ export interface GetDevToolPortalResult {
 }
 /**
  * Get the Application Live  and its properties.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getDevToolPortalOutput(args: GetDevToolPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevToolPortalResult> {
     return pulumi.output(args).apply((a: any) => getDevToolPortal(a, opts))

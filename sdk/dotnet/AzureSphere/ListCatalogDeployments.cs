@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureSphere
     {
         /// <summary>
         /// Lists deployments for catalog.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<ListCatalogDeploymentsResult> InvokeAsync(ListCatalogDeploymentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListCatalogDeploymentsResult>("azure-native:azuresphere:listCatalogDeployments", args ?? new ListCatalogDeploymentsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists deployments for catalog.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<ListCatalogDeploymentsResult> Invoke(ListCatalogDeploymentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeploymentsResult>("azure-native:azuresphere:listCatalogDeployments", args ?? new ListCatalogDeploymentsInvokeArgs(), options.WithDefaults());

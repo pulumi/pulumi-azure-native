@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A custom domain
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export class WebPubSubCustomDomain extends pulumi.CustomResource {
     /**

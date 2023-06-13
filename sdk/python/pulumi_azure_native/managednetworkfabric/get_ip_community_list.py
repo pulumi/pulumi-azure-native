@@ -230,7 +230,7 @@ def get_ip_community_list(ip_community_list_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpCommunityListResult:
     """
     Implements Ip Community List GET method.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str ip_community_list_name: Name of the Ip Community List
@@ -267,7 +267,7 @@ def get_ip_community_list_output(ip_community_list_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpCommunityListResult]:
     """
     Implements Ip Community List GET method.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str ip_community_list_name: Name of the Ip Community List

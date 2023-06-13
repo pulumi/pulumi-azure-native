@@ -147,7 +147,7 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayHostnameConfigurationResult:
     """
     Get details of a hostname configuration
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -183,7 +183,7 @@ def get_gateway_hostname_configuration_output(gateway_id: Optional[pulumi.Input[
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayHostnameConfigurationResult]:
     """
     Get details of a hostname configuration
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'

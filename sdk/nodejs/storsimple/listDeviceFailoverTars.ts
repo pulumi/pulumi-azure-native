@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function listDeviceFailoverTars(args: ListDeviceFailoverTarsArgs, opts?: pulumi.InvokeOptions): Promise<ListDeviceFailoverTarsResult> {
 
@@ -52,7 +52,7 @@ export interface ListDeviceFailoverTarsResult {
 }
 /**
  * Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function listDeviceFailoverTarsOutput(args: ListDeviceFailoverTarsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeviceFailoverTarsResult> {
     return pulumi.output(args).apply((a: any) => listDeviceFailoverTars(a, opts))

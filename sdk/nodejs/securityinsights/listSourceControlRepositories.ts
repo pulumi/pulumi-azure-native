@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a list of repositories metadata.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function listSourceControlRepositories(args: ListSourceControlRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<ListSourceControlRepositoriesResult> {
 
@@ -46,7 +46,7 @@ export interface ListSourceControlRepositoriesResult {
 }
 /**
  * Gets a list of repositories metadata.
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function listSourceControlRepositoriesOutput(args: ListSourceControlRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSourceControlRepositoriesResult> {
     return pulumi.output(args).apply((a: any) => listSourceControlRepositories(a, opts))

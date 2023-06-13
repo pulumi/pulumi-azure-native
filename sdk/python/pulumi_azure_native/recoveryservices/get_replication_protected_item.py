@@ -101,7 +101,7 @@ def get_replication_protected_item(fabric_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationProtectedItemResult:
     """
     Gets the details of an ASR replication protected item.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str fabric_name: Fabric unique name.
@@ -136,7 +136,7 @@ def get_replication_protected_item_output(fabric_name: Optional[pulumi.Input[str
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationProtectedItemResult]:
     """
     Gets the details of an ASR replication protected item.
-    API Version: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str fabric_name: Fabric unique name.

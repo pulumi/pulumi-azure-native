@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DataSet in a share
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getBlobDataSet(args: GetBlobDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobDataSetResult> {
 
@@ -93,7 +93,7 @@ export interface GetBlobDataSetResult {
 }
 /**
  * Get a DataSet in a share
- * API Version: 2021-08-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getBlobDataSetOutput(args: GetBlobDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobDataSetResult> {
     return pulumi.output(args).apply((a: any) => getBlobDataSet(a, opts))

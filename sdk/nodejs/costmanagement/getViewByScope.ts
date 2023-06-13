@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the view for the defined scope by view name.
- * API Version: 2023-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getViewByScope(args: GetViewByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetViewByScopeResult> {
 
@@ -114,7 +114,7 @@ export interface GetViewByScopeResult {
 }
 /**
  * Gets the view for the defined scope by view name.
- * API Version: 2023-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getViewByScopeOutput(args: GetViewByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewByScopeResult> {
     return pulumi.output(args).apply((a: any) => getViewByScope(a, opts))

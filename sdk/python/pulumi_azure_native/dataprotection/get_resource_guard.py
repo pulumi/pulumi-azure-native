@@ -130,7 +130,7 @@ def get_resource_guard(resource_group_name: Optional[str] = None,
                        resource_guards_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceGuardResult:
     """
-    API Version: 2023-01-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -158,7 +158,7 @@ def get_resource_guard_output(resource_group_name: Optional[pulumi.Input[str]] =
                               resource_guards_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGuardResult]:
     """
-    API Version: 2023-01-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

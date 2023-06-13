@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the action of alert rule.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getAction(args: GetActionArgs, opts?: pulumi.InvokeOptions): Promise<GetActionResult> {
 
@@ -76,7 +76,7 @@ export interface GetActionResult {
 }
 /**
  * Gets the action of alert rule.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getActionOutput(args: GetActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionResult> {
     return pulumi.output(args).apply((a: any) => getAction(a, opts))

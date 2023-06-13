@@ -122,7 +122,7 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockByScopeResult:
     """
     Get a management lock by scope.
-    API Version: 2020-05-01.
+    Azure REST API version: 2020-05-01.
 
 
     :param str lock_name: The name of lock.
@@ -150,7 +150,7 @@ def get_management_lock_by_scope_output(lock_name: Optional[pulumi.Input[str]] =
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockByScopeResult]:
     """
     Get a management lock by scope.
-    API Version: 2020-05-01.
+    Azure REST API version: 2020-05-01.
 
 
     :param str lock_name: The name of lock.

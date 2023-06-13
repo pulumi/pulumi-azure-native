@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get the custom domain ownership identifier for an API Management service.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetApiManagementServiceDomainOwnershipIdentifierResult> InvokeAsync(GetApiManagementServiceDomainOwnershipIdentifierArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceDomainOwnershipIdentifierResult>("azure-native:apimanagement:getApiManagementServiceDomainOwnershipIdentifier", args ?? new GetApiManagementServiceDomainOwnershipIdentifierArgs(), options.WithDefaults());

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get the private endpoint with the specified name.
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2020-05-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult>("azure-native:migrate:getPrivateEndpointConnectionControllerPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the private endpoint with the specified name.
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2020-05-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult>("azure-native:migrate:getPrivateEndpointConnectionControllerPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionControllerPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

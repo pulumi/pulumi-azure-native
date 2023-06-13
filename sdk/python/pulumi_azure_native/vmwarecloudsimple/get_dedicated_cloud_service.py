@@ -145,7 +145,7 @@ def get_dedicated_cloud_service(dedicated_cloud_service_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedCloudServiceResult:
     """
     Returns Dedicate Cloud Service
-    API Version: 2019-04-01.
+    Azure REST API version: 2019-04-01.
 
 
     :param str dedicated_cloud_service_name: dedicated cloud Service name
@@ -175,7 +175,7 @@ def get_dedicated_cloud_service_output(dedicated_cloud_service_name: Optional[pu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedCloudServiceResult]:
     """
     Returns Dedicate Cloud Service
-    API Version: 2019-04-01.
+    Azure REST API version: 2019-04-01.
 
 
     :param str dedicated_cloud_service_name: dedicated cloud Service name

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists active security admin rules in a network manager.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function listActiveSecurityAdminRules(args: ListActiveSecurityAdminRulesArgs, opts?: pulumi.InvokeOptions): Promise<ListActiveSecurityAdminRulesResult> {
 
@@ -61,7 +61,7 @@ export interface ListActiveSecurityAdminRulesResult {
 }
 /**
  * Lists active security admin rules in a network manager.
- * API Version: 2022-11-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function listActiveSecurityAdminRulesOutput(args: ListActiveSecurityAdminRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveSecurityAdminRulesResult> {
     return pulumi.output(args).apply((a: any) => listActiveSecurityAdminRules(a, opts))

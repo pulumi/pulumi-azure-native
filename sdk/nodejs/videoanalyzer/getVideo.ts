@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves an existing video resource with the given name.
- * API Version: 2021-11-01-preview.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getVideo(args: GetVideoArgs, opts?: pulumi.InvokeOptions): Promise<GetVideoResult> {
 
@@ -83,7 +83,7 @@ export interface GetVideoResult {
 }
 /**
  * Retrieves an existing video resource with the given name.
- * API Version: 2021-11-01-preview.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getVideoOutput(args: GetVideoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoResult> {
     return pulumi.output(args).apply((a: any) => getVideo(a, opts))

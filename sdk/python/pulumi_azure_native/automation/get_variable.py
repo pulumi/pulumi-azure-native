@@ -134,7 +134,7 @@ def get_variable(automation_account_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVariableResult:
     """
     Retrieve the variable identified by variable name.
-    API Version: 2022-08-08.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -166,7 +166,7 @@ def get_variable_output(automation_account_name: Optional[pulumi.Input[str]] = N
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableResult]:
     """
     Retrieve the variable identified by variable name.
-    API Version: 2022-08-08.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.

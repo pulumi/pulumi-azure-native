@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details about the specified dnc DelegatedSubnet Link.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2021-03-15.
  */
 export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedSubnetServiceDetailsResult> {
 
@@ -74,7 +74,7 @@ export interface GetDelegatedSubnetServiceDetailsResult {
 }
 /**
  * Gets details about the specified dnc DelegatedSubnet Link.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2021-03-15.
  */
 export function getDelegatedSubnetServiceDetailsOutput(args: GetDelegatedSubnetServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedSubnetServiceDetailsResult> {
     return pulumi.output(args).apply((a: any) => getDelegatedSubnetServiceDetails(a, opts))

@@ -327,7 +327,7 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBigDataPoolResult:
     """
     Get a Big Data pool.
-    API Version: 2021-06-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str big_data_pool_name: Big Data pool name
@@ -375,7 +375,7 @@ def get_big_data_pool_output(big_data_pool_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBigDataPoolResult]:
     """
     Get a Big Data pool.
-    API Version: 2021-06-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str big_data_pool_name: Big Data pool name

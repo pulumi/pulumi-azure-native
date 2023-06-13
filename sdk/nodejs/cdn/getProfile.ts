@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
 
@@ -94,7 +94,7 @@ export interface GetProfileResult {
 }
 /**
  * Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
     return pulumi.output(args).apply((a: any) => getProfile(a, opts))

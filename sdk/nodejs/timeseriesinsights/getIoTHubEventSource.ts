@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the event source with the specified name in the specified environment.
- * API Version: 2020-05-15.
+ * Azure REST API version: 2020-05-15.
  */
 export function getIoTHubEventSource(args: GetIoTHubEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTHubEventSourceResult> {
 
@@ -104,7 +104,7 @@ export interface GetIoTHubEventSourceResult {
 }
 /**
  * Gets the event source with the specified name in the specified environment.
- * API Version: 2020-05-15.
+ * Azure REST API version: 2020-05-15.
  */
 export function getIoTHubEventSourceOutput(args: GetIoTHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTHubEventSourceResult> {
     return pulumi.output(args).apply((a: any) => getIoTHubEventSource(a, opts))

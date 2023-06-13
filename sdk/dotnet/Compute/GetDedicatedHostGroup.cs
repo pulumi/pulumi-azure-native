@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about a dedicated host group.
-        /// API Version: 2023-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Task<GetDedicatedHostGroupResult> InvokeAsync(GetDedicatedHostGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure-native:compute:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a dedicated host group.
-        /// API Version: 2023-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Output<GetDedicatedHostGroupResult> Invoke(GetDedicatedHostGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostGroupResult>("azure-native:compute:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupInvokeArgs(), options.WithDefaults());

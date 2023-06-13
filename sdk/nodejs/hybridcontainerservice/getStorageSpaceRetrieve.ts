@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Hybrid AKS storage space object
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getStorageSpaceRetrieve(args: GetStorageSpaceRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSpaceRetrieveResult> {
 
@@ -67,7 +67,7 @@ export interface GetStorageSpaceRetrieveResult {
 }
 /**
  * Gets the Hybrid AKS storage space object
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getStorageSpaceRetrieveOutput(args: GetStorageSpaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSpaceRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getStorageSpaceRetrieve(a, opts))

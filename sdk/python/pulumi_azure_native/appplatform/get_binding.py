@@ -100,7 +100,7 @@ def get_binding(app_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBindingResult:
     """
     Get a Binding and its properties.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str app_name: The name of the App resource.
@@ -132,7 +132,7 @@ def get_binding_output(app_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBindingResult]:
     """
     Get a Binding and its properties.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str app_name: The name of the App resource.

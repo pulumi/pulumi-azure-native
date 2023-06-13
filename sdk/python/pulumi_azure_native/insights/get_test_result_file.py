@@ -66,7 +66,7 @@ def get_test_result_file(continuation_token: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestResultFileResult:
     """
     Returns a file test result for the matching test
-    API Version: 2020-02-10-preview.
+    Azure REST API version: 2020-02-10-preview.
 
 
     :param str continuation_token: The continuation token.
@@ -104,7 +104,7 @@ def get_test_result_file_output(continuation_token: Optional[pulumi.Input[Option
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestResultFileResult]:
     """
     Returns a file test result for the matching test
-    API Version: 2020-02-10-preview.
+    Azure REST API version: 2020-02-10-preview.
 
 
     :param str continuation_token: The continuation token.

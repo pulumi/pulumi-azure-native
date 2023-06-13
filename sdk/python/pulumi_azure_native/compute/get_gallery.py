@@ -172,7 +172,7 @@ def get_gallery(expand: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryResult:
     """
     Retrieves information about a Shared Image Gallery.
-    API Version: 2022-03-03.
+    Azure REST API version: 2022-03-03.
 
 
     :param str expand: The expand query option to apply on the operation.
@@ -210,7 +210,7 @@ def get_gallery_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryResult]:
     """
     Retrieves information about a Shared Image Gallery.
-    API Version: 2022-03-03.
+    Azure REST API version: 2022-03-03.
 
 
     :param str expand: The expand query option to apply on the operation.

@@ -99,7 +99,7 @@ def get_integration_runtime(integration_runtime_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeResult:
     """
     Get an integration runtime
-    API Version: 2021-06-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str integration_runtime_name: Integration runtime name
@@ -128,7 +128,7 @@ def get_integration_runtime_output(integration_runtime_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeResult]:
     """
     Get an integration runtime
-    API Version: 2021-06-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str integration_runtime_name: Integration runtime name

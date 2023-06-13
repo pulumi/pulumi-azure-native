@@ -219,7 +219,7 @@ def get_dicom_service(dicom_service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDicomServiceResult:
     """
     Gets the properties of the specified DICOM Service.
-    API Version: 2023-02-28.
+    Azure REST API version: 2023-02-28.
 
 
     :param str dicom_service_name: The name of DICOM Service resource.
@@ -258,7 +258,7 @@ def get_dicom_service_output(dicom_service_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDicomServiceResult]:
     """
     Gets the properties of the specified DICOM Service.
-    API Version: 2023-02-28.
+    Azure REST API version: 2023-02-28.
 
 
     :param str dicom_service_name: The name of DICOM Service resource.

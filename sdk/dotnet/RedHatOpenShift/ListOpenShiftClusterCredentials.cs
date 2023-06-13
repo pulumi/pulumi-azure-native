@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     {
         /// <summary>
         /// The operation returns the credentials.
-        /// API Version: 2022-09-04.
+        /// Azure REST API version: 2022-09-04.
         /// </summary>
         public static Task<ListOpenShiftClusterCredentialsResult> InvokeAsync(ListOpenShiftClusterCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns the credentials.
-        /// API Version: 2022-09-04.
+        /// Azure REST API version: 2022-09-04.
         /// </summary>
         public static Output<ListOpenShiftClusterCredentialsResult> Invoke(ListOpenShiftClusterCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsInvokeArgs(), options.WithDefaults());

@@ -199,8 +199,7 @@ class ADCCatalog(pulumi.CustomResource):
                  __props__=None):
         """
         Azure Data Catalog.
-        API Version: 2016-03-30.
-        Previous API Version: 2016-03-30. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2016-03-30. Prior API version in Azure Native 1.x: 2016-03-30
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -223,8 +222,7 @@ class ADCCatalog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Data Catalog.
-        API Version: 2016-03-30.
-        Previous API Version: 2016-03-30. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2016-03-30. Prior API version in Azure Native 1.x: 2016-03-30
 
         :param str resource_name: The name of the resource.
         :param ADCCatalogArgs args: The arguments to use to populate this resource's properties.

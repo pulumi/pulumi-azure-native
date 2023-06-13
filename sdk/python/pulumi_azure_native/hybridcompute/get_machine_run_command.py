@@ -267,7 +267,7 @@ def get_machine_run_command(machine_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineRunCommandResult:
     """
     The operation to get a run command.
-    API Version: 2023-04-25-preview.
+    Azure REST API version: 2023-04-25-preview.
 
 
     :param str machine_name: The name of the hybrid machine.
@@ -310,7 +310,7 @@ def get_machine_run_command_output(machine_name: Optional[pulumi.Input[str]] = N
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineRunCommandResult]:
     """
     The operation to get a run command.
-    API Version: 2023-04-25-preview.
+    Azure REST API version: 2023-04-25-preview.
 
 
     :param str machine_name: The name of the hybrid machine.

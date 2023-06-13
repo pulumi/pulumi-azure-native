@@ -182,7 +182,7 @@ def get_peering_service(peering_service_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringServiceResult:
     """
     Gets an existing peering service with the specified name under the given subscription and resource group.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str peering_service_name: The name of the peering.
@@ -215,7 +215,7 @@ def get_peering_service_output(peering_service_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeeringServiceResult]:
     """
     Gets an existing peering service with the specified name under the given subscription and resource group.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str peering_service_name: The name of the peering.

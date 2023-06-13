@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SignalRService
     {
         /// <summary>
         /// Get the replica and its properties.
-        /// API Version: 2023-03-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetSignalRReplicaResult> InvokeAsync(GetSignalRReplicaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSignalRReplicaResult>("azure-native:signalrservice:getSignalRReplica", args ?? new GetSignalRReplicaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the replica and its properties.
-        /// API Version: 2023-03-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetSignalRReplicaResult> Invoke(GetSignalRReplicaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalRReplicaResult>("azure-native:signalrservice:getSignalRReplica", args ?? new GetSignalRReplicaInvokeArgs(), options.WithDefaults());

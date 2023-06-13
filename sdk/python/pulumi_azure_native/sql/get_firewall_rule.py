@@ -98,7 +98,7 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
     Gets a firewall rule.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str firewall_rule_name: The name of the firewall rule.
@@ -127,7 +127,7 @@ def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     Gets a firewall rule.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str firewall_rule_name: The name of the firewall rule.

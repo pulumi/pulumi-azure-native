@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List all replications for a specified volume
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listVolumeReplications(args: ListVolumeReplicationsArgs, opts?: pulumi.InvokeOptions): Promise<ListVolumeReplicationsResult> {
 
@@ -52,7 +52,7 @@ export interface ListVolumeReplicationsResult {
 }
 /**
  * List all replications for a specified volume
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listVolumeReplicationsOutput(args: ListVolumeReplicationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumeReplicationsResult> {
     return pulumi.output(args).apply((a: any) => listVolumeReplications(a, opts))

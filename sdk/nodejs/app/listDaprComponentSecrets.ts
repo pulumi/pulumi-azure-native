@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Dapr component Secrets Collection for ListSecrets Action.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function listDaprComponentSecrets(args: ListDaprComponentSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDaprComponentSecretsResult> {
 
@@ -47,7 +47,7 @@ export interface ListDaprComponentSecretsResult {
 }
 /**
  * Dapr component Secrets Collection for ListSecrets Action.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function listDaprComponentSecretsOutput(args: ListDaprComponentSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDaprComponentSecretsResult> {
     return pulumi.output(args).apply((a: any) => listDaprComponentSecrets(a, opts))

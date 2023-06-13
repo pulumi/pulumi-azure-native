@@ -124,7 +124,7 @@ def get_service(application_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str application_name: The name of the application resource.
@@ -158,7 +158,7 @@ def get_service_output(application_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str application_name: The name of the application resource.

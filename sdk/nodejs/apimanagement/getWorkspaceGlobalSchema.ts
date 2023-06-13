@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the Schema specified by its identifier.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getWorkspaceGlobalSchema(args: GetWorkspaceGlobalSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceGlobalSchemaResult> {
 
@@ -69,7 +69,7 @@ export interface GetWorkspaceGlobalSchemaResult {
 }
 /**
  * Gets the details of the Schema specified by its identifier.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getWorkspaceGlobalSchemaOutput(args: GetWorkspaceGlobalSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceGlobalSchemaResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceGlobalSchema(a, opts))

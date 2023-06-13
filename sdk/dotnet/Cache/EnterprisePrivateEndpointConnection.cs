@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// API Version: 2023-03-01-preview.
+    /// Azure REST API version: 2023-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:EnterprisePrivateEndpointConnection")]
     public partial class EnterprisePrivateEndpointConnection : global::Pulumi.CustomResource

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// Describes a Run Command
-    /// API Version: 2023-04-25-preview.
+    /// Azure REST API version: 2023-04-25-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:MachineRunCommand")]
     public partial class MachineRunCommand : global::Pulumi.CustomResource

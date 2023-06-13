@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container Apps Job Secrets Collection ARM resource.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function listJobSecrets(args: ListJobSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListJobSecretsResult> {
 
@@ -42,7 +42,7 @@ export interface ListJobSecretsResult {
 }
 /**
  * Container Apps Job Secrets Collection ARM resource.
- * API Version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function listJobSecretsOutput(args: ListJobSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListJobSecretsResult> {
     return pulumi.output(args).apply((a: any) => listJobSecrets(a, opts))

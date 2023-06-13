@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing remediation at subscription scope.
- * API Version: 2021-10-01.
+ * Azure REST API version: 2021-10-01.
  */
 export function getRemediationAtSubscription(args: GetRemediationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtSubscriptionResult> {
 
@@ -101,7 +101,7 @@ export interface GetRemediationAtSubscriptionResult {
 }
 /**
  * Gets an existing remediation at subscription scope.
- * API Version: 2021-10-01.
+ * Azure REST API version: 2021-10-01.
  */
 export function getRemediationAtSubscriptionOutput(args: GetRemediationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getRemediationAtSubscription(a, opts))

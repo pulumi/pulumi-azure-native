@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details about the specified input.
- * API Version: 2020-03-01.
+ * Azure REST API version: 2020-03-01.
  */
 export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
 
@@ -59,7 +59,7 @@ export interface GetInputResult {
 }
 /**
  * Gets details about the specified input.
- * API Version: 2020-03-01.
+ * Azure REST API version: 2020-03-01.
  */
 export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
     return pulumi.output(args).apply((a: any) => getInput(a, opts))

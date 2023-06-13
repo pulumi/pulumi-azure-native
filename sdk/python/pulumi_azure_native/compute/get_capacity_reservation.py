@@ -208,7 +208,7 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationResult:
     """
     The operation that retrieves information about the capacity reservation.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.
@@ -249,7 +249,7 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
     The operation that retrieves information about the capacity reservation.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.

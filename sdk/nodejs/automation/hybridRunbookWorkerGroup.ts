@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of hybrid runbook worker group.
- * API Version: 2022-08-08.
- * Previous API Version: 2021-06-22. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22
  */
 export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
     /**

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing a database principal assignment.
-    /// API Version: 2021-06-01-preview.
+    /// Azure REST API version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:KustoPoolDatabasePrincipalAssignment")]
     public partial class KustoPoolDatabasePrincipalAssignment : global::Pulumi.CustomResource

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Returns a database.
-        /// API Version: 2022-12-29.
+        /// Azure REST API version: 2022-12-29.
         /// </summary>
         public static Task<GetReadWriteDatabaseResult> InvokeAsync(GetReadWriteDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReadWriteDatabaseResult>("azure-native:kusto:getReadWriteDatabase", args ?? new GetReadWriteDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a database.
-        /// API Version: 2022-12-29.
+        /// Azure REST API version: 2022-12-29.
         /// </summary>
         public static Output<GetReadWriteDatabaseResult> Invoke(GetReadWriteDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReadWriteDatabaseResult>("azure-native:kusto:getReadWriteDatabase", args ?? new GetReadWriteDatabaseInvokeArgs(), options.WithDefaults());

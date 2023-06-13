@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response of a list operation.
- * API Version: 2022-06-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function listMonitorApiKeys(args: ListMonitorApiKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorApiKeysResult> {
 
@@ -46,7 +46,7 @@ export interface ListMonitorApiKeysResult {
 }
 /**
  * Response of a list operation.
- * API Version: 2022-06-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function listMonitorApiKeysOutput(args: ListMonitorApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorApiKeysResult> {
     return pulumi.output(args).apply((a: any) => listMonitorApiKeys(a, opts))

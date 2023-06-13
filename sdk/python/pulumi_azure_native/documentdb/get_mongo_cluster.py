@@ -194,7 +194,7 @@ def get_mongo_cluster(mongo_cluster_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMongoClusterResult:
     """
     Gets information about a mongo cluster.
-    API Version: 2023-03-15-preview.
+    Azure REST API version: 2023-03-15-preview.
 
 
     :param str mongo_cluster_name: The name of the mongo cluster.
@@ -228,7 +228,7 @@ def get_mongo_cluster_output(mongo_cluster_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMongoClusterResult]:
     """
     Gets information about a mongo cluster.
-    API Version: 2023-03-15-preview.
+    Azure REST API version: 2023-03-15-preview.
 
 
     :param str mongo_cluster_name: The name of the mongo cluster.

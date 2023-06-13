@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
     /// Database Migration Resource for SQL Database.
-    /// API Version: 2022-03-30-preview.
-    /// Previous API Version: 2022-03-30-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2022-03-30-preview. Prior API version in Azure Native 1.x: 2022-03-30-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:DatabaseMigrationsSqlDb")]
     public partial class DatabaseMigrationsSqlDb : global::Pulumi.CustomResource

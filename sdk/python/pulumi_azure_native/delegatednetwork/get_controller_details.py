@@ -157,7 +157,7 @@ def get_controller_details(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControllerDetailsResult:
     """
     Gets details about the specified dnc controller.
-    API Version: 2021-03-15.
+    Azure REST API version: 2021-03-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -188,7 +188,7 @@ def get_controller_details_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControllerDetailsResult]:
     """
     Gets details about the specified dnc controller.
-    API Version: 2021-03-15.
+    Azure REST API version: 2021-03-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

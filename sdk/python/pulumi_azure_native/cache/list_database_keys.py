@@ -62,7 +62,7 @@ def list_database_keys(cluster_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabaseKeysResult:
     """
     Retrieves the access keys for the RedisEnterprise database.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
@@ -88,7 +88,7 @@ def list_database_keys_output(cluster_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabaseKeysResult]:
     """
     Retrieves the access keys for the RedisEnterprise database.
-    API Version: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.

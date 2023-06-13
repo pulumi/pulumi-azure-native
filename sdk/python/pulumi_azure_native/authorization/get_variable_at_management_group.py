@@ -98,7 +98,7 @@ def get_variable_at_management_group(management_group_id: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVariableAtManagementGroupResult:
     """
     This operation retrieves a single variable, given its name and the  management group it was created at.
-    API Version: 2022-08-01-preview.
+    Azure REST API version: 2022-08-01-preview.
 
 
     :param str management_group_id: The ID of the management group.
@@ -124,7 +124,7 @@ def get_variable_at_management_group_output(management_group_id: Optional[pulumi
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableAtManagementGroupResult]:
     """
     This operation retrieves a single variable, given its name and the  management group it was created at.
-    API Version: 2022-08-01-preview.
+    Azure REST API version: 2022-08-01-preview.
 
 
     :param str management_group_id: The ID of the management group.

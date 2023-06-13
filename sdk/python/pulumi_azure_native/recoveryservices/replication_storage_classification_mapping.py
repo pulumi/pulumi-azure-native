@@ -127,8 +127,7 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
                  __props__=None):
         """
         Storage mapping object.
-        API Version: 2023-04-01.
-        Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,8 +146,7 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Storage mapping object.
-        API Version: 2023-04-01.
-        Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
 
         :param str resource_name: The name of the resource.
         :param ReplicationStorageClassificationMappingArgs args: The arguments to use to populate this resource's properties.

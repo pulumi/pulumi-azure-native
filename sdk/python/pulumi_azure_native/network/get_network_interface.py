@@ -387,7 +387,7 @@ def get_network_interface(expand: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
     """
     Gets information about the specified network interface.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.
@@ -440,7 +440,7 @@ def get_network_interface_output(expand: Optional[pulumi.Input[Optional[str]]] =
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
     Gets information about the specified network interface.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str expand: Expands referenced resources.

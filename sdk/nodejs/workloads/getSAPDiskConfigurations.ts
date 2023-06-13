@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the SAP Disk Configuration Layout prod/non-prod SAP System.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getSAPDiskConfigurations(args: GetSAPDiskConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPDiskConfigurationsResult> {
 
@@ -67,7 +67,7 @@ export interface GetSAPDiskConfigurationsResult {
 }
 /**
  * Get the SAP Disk Configuration Layout prod/non-prod SAP System.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getSAPDiskConfigurationsOutput(args: GetSAPDiskConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPDiskConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => getSAPDiskConfigurations(a, opts))

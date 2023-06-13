@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataFactory
     {
         /// <summary>
         /// Gets a Global parameter
-        /// API Version: 2018-06-01.
+        /// Azure REST API version: 2018-06-01.
         /// </summary>
         public static Task<GetGlobalParameterResult> InvokeAsync(GetGlobalParameterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalParameterResult>("azure-native:datafactory:getGlobalParameter", args ?? new GetGlobalParameterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Global parameter
-        /// API Version: 2018-06-01.
+        /// Azure REST API version: 2018-06-01.
         /// </summary>
         public static Output<GetGlobalParameterResult> Invoke(GetGlobalParameterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalParameterResult>("azure-native:datafactory:getGlobalParameter", args ?? new GetGlobalParameterInvokeArgs(), options.WithDefaults());

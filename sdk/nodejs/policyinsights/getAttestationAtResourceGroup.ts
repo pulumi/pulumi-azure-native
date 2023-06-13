@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing attestation at resource group scope.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getAttestationAtResourceGroup(args: GetAttestationAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtResourceGroupResult> {
 
@@ -98,7 +98,7 @@ export interface GetAttestationAtResourceGroupResult {
 }
 /**
  * Gets an existing attestation at resource group scope.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getAttestationAtResourceGroupOutput(args: GetAttestationAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtResourceGroupResult> {
     return pulumi.output(args).apply((a: any) => getAttestationAtResourceGroup(a, opts))

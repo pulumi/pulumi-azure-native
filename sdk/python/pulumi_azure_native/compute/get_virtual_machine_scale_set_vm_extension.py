@@ -233,7 +233,7 @@ def get_virtual_machine_scale_set_vm_extension(expand: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMExtensionResult:
     """
     The operation to get the VMSS VM extension.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -279,7 +279,7 @@ def get_virtual_machine_scale_set_vm_extension_output(expand: Optional[pulumi.In
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMExtensionResult]:
     """
     The operation to get the VMSS VM extension.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.

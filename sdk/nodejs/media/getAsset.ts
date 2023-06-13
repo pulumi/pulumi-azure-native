@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of an Asset in the Media Services account
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
 
@@ -95,7 +95,7 @@ export interface GetAssetResult {
 }
 /**
  * Get the details of an Asset in the Media Services account
- * API Version: 2023-01-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
     return pulumi.output(args).apply((a: any) => getAsset(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get Sentinel onboarding state
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getSentinelOnboardingState(args: GetSentinelOnboardingStateArgs, opts?: pulumi.InvokeOptions): Promise<GetSentinelOnboardingStateResult> {
 
@@ -67,7 +67,7 @@ export interface GetSentinelOnboardingStateResult {
 }
 /**
  * Get Sentinel onboarding state
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getSentinelOnboardingStateOutput(args: GetSentinelOnboardingStateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSentinelOnboardingStateResult> {
     return pulumi.output(args).apply((a: any) => getSentinelOnboardingState(a, opts))

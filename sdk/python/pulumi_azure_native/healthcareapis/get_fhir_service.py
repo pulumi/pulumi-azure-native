@@ -291,7 +291,7 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFhirServiceResult:
     """
     Gets the properties of the specified FHIR Service.
-    API Version: 2023-02-28.
+    Azure REST API version: 2023-02-28.
 
 
     :param str fhir_service_name: The name of FHIR Service resource.
@@ -336,7 +336,7 @@ def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFhirServiceResult]:
     """
     Gets the properties of the specified FHIR Service.
-    API Version: 2023-02-28.
+    Azure REST API version: 2023-02-28.
 
 
     :param str fhir_service_name: The name of FHIR Service resource.

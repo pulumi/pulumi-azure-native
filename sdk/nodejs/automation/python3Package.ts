@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the module type.
- * API Version: 2022-08-08.
+ * Azure REST API version: 2022-08-08.
  */
 export class Python3Package extends pulumi.CustomResource {
     /**

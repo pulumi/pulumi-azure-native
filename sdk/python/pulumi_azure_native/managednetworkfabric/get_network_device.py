@@ -206,7 +206,7 @@ def get_network_device(network_device_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkDeviceResult:
     """
     Get the Network Device resource details.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str network_device_name: Name of the Network Device
@@ -241,7 +241,7 @@ def get_network_device_output(network_device_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkDeviceResult]:
     """
     Get the Network Device resource details.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str network_device_name: Name of the Network Device

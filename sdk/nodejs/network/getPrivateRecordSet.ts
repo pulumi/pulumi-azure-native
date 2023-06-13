@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a record set.
- * API Version: 2020-06-01.
+ * Azure REST API version: 2020-06-01.
  */
 export function getPrivateRecordSet(args: GetPrivateRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateRecordSetResult> {
 
@@ -112,7 +112,7 @@ export interface GetPrivateRecordSetResult {
 }
 /**
  * Gets a record set.
- * API Version: 2020-06-01.
+ * Azure REST API version: 2020-06-01.
  */
 export function getPrivateRecordSetOutput(args: GetPrivateRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateRecordSetResult> {
     return pulumi.output(args).apply((a: any) => getPrivateRecordSet(a, opts))

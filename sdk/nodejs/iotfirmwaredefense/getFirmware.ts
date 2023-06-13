@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get firmware.
- * API Version: 2023-02-08-preview.
+ * Azure REST API version: 2023-02-08-preview.
  */
 export function getFirmware(args: GetFirmwareArgs, opts?: pulumi.InvokeOptions): Promise<GetFirmwareResult> {
 
@@ -95,7 +95,7 @@ export interface GetFirmwareResult {
 }
 /**
  * Get firmware.
- * API Version: 2023-02-08-preview.
+ * Azure REST API version: 2023-02-08-preview.
  */
 export function getFirmwareOutput(args: GetFirmwareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirmwareResult> {
     return pulumi.output(args).apply((a: any) => getFirmware(a, opts))

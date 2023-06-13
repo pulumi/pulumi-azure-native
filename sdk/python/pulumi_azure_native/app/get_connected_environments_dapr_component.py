@@ -183,7 +183,7 @@ def get_connected_environments_dapr_component(component_name: Optional[str] = No
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedEnvironmentsDaprComponentResult:
     """
     Dapr Component.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -219,7 +219,7 @@ def get_connected_environments_dapr_component_output(component_name: Optional[pu
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedEnvironmentsDaprComponentResult]:
     """
     Dapr Component.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str component_name: Name of the Dapr Component.

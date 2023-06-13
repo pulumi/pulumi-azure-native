@@ -170,7 +170,7 @@ def get_disaster_recovery_configuration(disaster_recovery_configuration_name: Op
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDisasterRecoveryConfigurationResult:
     """
     Gets a disaster recovery configuration.
-    API Version: 2014-04-01.
+    Azure REST API version: 2014-04-01.
 
 
     :param str disaster_recovery_configuration_name: The name of the disaster recovery configuration.
@@ -205,7 +205,7 @@ def get_disaster_recovery_configuration_output(disaster_recovery_configuration_n
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDisasterRecoveryConfigurationResult]:
     """
     Gets a disaster recovery configuration.
-    API Version: 2014-04-01.
+    Azure REST API version: 2014-04-01.
 
 
     :param str disaster_recovery_configuration_name: The name of the disaster recovery configuration.

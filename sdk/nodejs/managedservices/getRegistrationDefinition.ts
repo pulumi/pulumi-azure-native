@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the registration definition details.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getRegistrationDefinition(args: GetRegistrationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationDefinitionResult> {
 
@@ -62,7 +62,7 @@ export interface GetRegistrationDefinitionResult {
 }
 /**
  * Gets the registration definition details.
- * API Version: 2022-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getRegistrationDefinitionOutput(args: GetRegistrationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getRegistrationDefinition(a, opts))

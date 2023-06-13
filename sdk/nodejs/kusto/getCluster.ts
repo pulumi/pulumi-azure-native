@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Kusto cluster.
- * API Version: 2022-12-29.
+ * Azure REST API version: 2022-12-29.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -170,7 +170,7 @@ export interface GetClusterResult {
 }
 /**
  * Gets a Kusto cluster.
- * API Version: 2022-12-29.
+ * Azure REST API version: 2022-12-29.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

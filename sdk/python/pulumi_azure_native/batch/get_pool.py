@@ -398,7 +398,7 @@ def get_pool(account_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Gets information about the specified pool.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -454,7 +454,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
     Gets information about the specified pool.
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str account_name: The name of the Batch account.

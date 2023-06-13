@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing origin group within a profile.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getAFDOriginGroup(args: GetAFDOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginGroupResult> {
 
@@ -84,7 +84,7 @@ export interface GetAFDOriginGroupResult {
 }
 /**
  * Gets an existing origin group within a profile.
- * API Version: 2023-05-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getAFDOriginGroupOutput(args: GetAFDOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDOriginGroupResult> {
     return pulumi.output(args).apply((a: any) => getAFDOriginGroup(a, opts))

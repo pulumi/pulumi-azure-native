@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Markdown documentation details.
-    /// API Version: 2022-08-01.
+    /// Azure REST API version: 2022-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Documentation")]
     public partial class Documentation : global::Pulumi.CustomResource

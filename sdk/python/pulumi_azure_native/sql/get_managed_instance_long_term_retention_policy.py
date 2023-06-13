@@ -123,7 +123,7 @@ def get_managed_instance_long_term_retention_policy(database_name: Optional[str]
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceLongTermRetentionPolicyResult:
     """
     Gets a managed database's long term retention policy.
-    API Version: 2022-11-01-preview.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str database_name: The name of the database.
@@ -157,7 +157,7 @@ def get_managed_instance_long_term_retention_policy_output(database_name: Option
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceLongTermRetentionPolicyResult]:
     """
     Gets a managed database's long term retention policy.
-    API Version: 2022-11-01-preview.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str database_name: The name of the database.

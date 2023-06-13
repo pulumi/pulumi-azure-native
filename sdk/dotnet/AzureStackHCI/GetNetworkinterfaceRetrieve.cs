@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Gets network interfaces by resource name
-        /// API Version: 2021-09-01-preview.
+        /// Azure REST API version: 2021-09-01-preview.
         /// </summary>
         public static Task<GetNetworkinterfaceRetrieveResult> InvokeAsync(GetNetworkinterfaceRetrieveArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkinterfaceRetrieveResult>("azure-native:azurestackhci:getNetworkinterfaceRetrieve", args ?? new GetNetworkinterfaceRetrieveArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets network interfaces by resource name
-        /// API Version: 2021-09-01-preview.
+        /// Azure REST API version: 2021-09-01-preview.
         /// </summary>
         public static Output<GetNetworkinterfaceRetrieveResult> Invoke(GetNetworkinterfaceRetrieveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkinterfaceRetrieveResult>("azure-native:azurestackhci:getNetworkinterfaceRetrieve", args ?? new GetNetworkinterfaceRetrieveInvokeArgs(), options.WithDefaults());

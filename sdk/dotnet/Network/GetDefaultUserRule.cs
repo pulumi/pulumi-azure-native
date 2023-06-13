@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a user rule.
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetDefaultUserRuleResult> InvokeAsync(GetDefaultUserRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultUserRuleResult>("azure-native:network:getDefaultUserRule", args ?? new GetDefaultUserRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a user rule.
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetDefaultUserRuleResult> Invoke(GetDefaultUserRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultUserRuleResult>("azure-native:network:getDefaultUserRule", args ?? new GetDefaultUserRuleInvokeArgs(), options.WithDefaults());

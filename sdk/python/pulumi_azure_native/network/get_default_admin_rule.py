@@ -246,7 +246,7 @@ def get_default_admin_rule(configuration_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultAdminRuleResult:
     """
     Gets a network manager security configuration admin rule.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -293,7 +293,7 @@ def get_default_admin_rule_output(configuration_name: Optional[pulumi.Input[str]
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultAdminRuleResult]:
     """
     Gets a network manager security configuration admin rule.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.

@@ -161,7 +161,7 @@ def get_kusto_database_data_set_mapping(account_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKustoDatabaseDataSetMappingResult:
     """
     Get a DataSetMapping in a shareSubscription
-    API Version: 2021-08-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -198,7 +198,7 @@ def get_kusto_database_data_set_mapping_output(account_name: Optional[pulumi.Inp
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKustoDatabaseDataSetMappingResult]:
     """
     Get a DataSetMapping in a shareSubscription
-    API Version: 2021-08-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.

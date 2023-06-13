@@ -302,7 +302,7 @@ def get_network_fabric(network_fabric_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkFabricResult:
     """
     Get Network Fabric resource details.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str network_fabric_name: Name of the Network Fabric
@@ -345,7 +345,7 @@ def get_network_fabric_output(network_fabric_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkFabricResult]:
     """
     Get Network Fabric resource details.
-    API Version: 2023-02-01-preview.
+    Azure REST API version: 2023-02-01-preview.
 
 
     :param str network_fabric_name: Name of the Network Fabric

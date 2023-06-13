@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the customLocation with a specified resource group and name.
- * API Version: 2021-08-15.
+ * Azure REST API version: 2021-08-15.
  */
 export function getCustomLocation(args: GetCustomLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomLocationResult> {
 
@@ -94,7 +94,7 @@ export interface GetCustomLocationResult {
 }
 /**
  * Gets the details of the customLocation with a specified resource group and name.
- * API Version: 2021-08-15.
+ * Azure REST API version: 2021-08-15.
  */
 export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomLocationResult> {
     return pulumi.output(args).apply((a: any) => getCustomLocation(a, opts))

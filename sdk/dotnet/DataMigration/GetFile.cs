@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataMigration
     {
         /// <summary>
         /// The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
-        /// API Version: 2021-06-30.
+        /// Azure REST API version: 2021-06-30.
         /// </summary>
         public static Task<GetFileResult> InvokeAsync(GetFileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileResult>("azure-native:datamigration:getFile", args ?? new GetFileArgs(), options.WithDefaults());
 
         /// <summary>
         /// The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
-        /// API Version: 2021-06-30.
+        /// Azure REST API version: 2021-06-30.
         /// </summary>
         public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileResult>("azure-native:datamigration:getFile", args ?? new GetFileInvokeArgs(), options.WithDefaults());

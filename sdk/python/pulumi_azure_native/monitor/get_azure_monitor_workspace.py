@@ -194,7 +194,7 @@ def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureMonitorWorkspaceResult:
     """
     Returns the specific Azure Monitor workspace
-    API Version: 2023-04-03.
+    Azure REST API version: 2023-04-03.
 
 
     :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
@@ -228,7 +228,7 @@ def get_azure_monitor_workspace_output(azure_monitor_workspace_name: Optional[pu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureMonitorWorkspaceResult]:
     """
     Returns the specific Azure Monitor workspace
-    API Version: 2023-04-03.
+    Azure REST API version: 2023-04-03.
 
 
     :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive

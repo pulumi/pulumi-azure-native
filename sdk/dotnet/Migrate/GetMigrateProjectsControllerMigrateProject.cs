@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2020-05-01.
         /// </summary>
         public static Task<GetMigrateProjectsControllerMigrateProjectResult> InvokeAsync(GetMigrateProjectsControllerMigrateProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMigrateProjectsControllerMigrateProjectResult>("azure-native:migrate:getMigrateProjectsControllerMigrateProject", args ?? new GetMigrateProjectsControllerMigrateProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2020-05-01.
         /// </summary>
         public static Output<GetMigrateProjectsControllerMigrateProjectResult> Invoke(GetMigrateProjectsControllerMigrateProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrateProjectsControllerMigrateProjectResult>("azure-native:migrate:getMigrateProjectsControllerMigrateProject", args ?? new GetMigrateProjectsControllerMigrateProjectInvokeArgs(), options.WithDefaults());

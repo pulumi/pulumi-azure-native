@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StreamAnalytics
     {
         /// <summary>
         /// Gets information about the specified Private Endpoint.
-        /// API Version: 2020-03-01.
+        /// Azure REST API version: 2020-03-01.
         /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-native:streamanalytics:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified Private Endpoint.
-        /// API Version: 2020-03-01.
+        /// Azure REST API version: 2020-03-01.
         /// </summary>
         public static Output<GetPrivateEndpointResult> Invoke(GetPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointResult>("azure-native:streamanalytics:getPrivateEndpoint", args ?? new GetPrivateEndpointInvokeArgs(), options.WithDefaults());

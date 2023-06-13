@@ -146,7 +146,7 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserAssignedIdentityResult:
     """
     Gets the identity.
-    API Version: 2023-01-31.
+    Azure REST API version: 2023-01-31.
 
 
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.
@@ -176,7 +176,7 @@ def get_user_assigned_identity_output(resource_group_name: Optional[pulumi.Input
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserAssignedIdentityResult]:
     """
     Gets the identity.
-    API Version: 2023-01-31.
+    Azure REST API version: 2023-01-31.
 
 
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.

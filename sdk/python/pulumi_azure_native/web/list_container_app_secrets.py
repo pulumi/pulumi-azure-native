@@ -49,7 +49,7 @@ def list_container_app_secrets(name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListContainerAppSecretsResult:
     """
     Container App Secrets Collection ARM resource.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the Container App.
@@ -68,7 +68,7 @@ def list_container_app_secrets_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListContainerAppSecretsResult]:
     """
     Container App Secrets Collection ARM resource.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the Container App.

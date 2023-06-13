@@ -182,7 +182,7 @@ def get_autoscale_setting(autoscale_setting_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutoscaleSettingResult:
     """
     Gets an autoscale setting
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str autoscale_setting_name: The autoscale setting name.
@@ -215,7 +215,7 @@ def get_autoscale_setting_output(autoscale_setting_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoscaleSettingResult]:
     """
     Gets an autoscale setting
-    API Version: 2022-10-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str autoscale_setting_name: The autoscale setting name.

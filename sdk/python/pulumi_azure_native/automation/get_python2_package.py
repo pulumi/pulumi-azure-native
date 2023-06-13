@@ -243,7 +243,7 @@ def get_python2_package(automation_account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPython2PackageResult:
     """
     Retrieve the python 2 package identified by package name.
-    API Version: 2022-08-08.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -284,7 +284,7 @@ def get_python2_package_output(automation_account_name: Optional[pulumi.Input[st
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPython2PackageResult]:
     """
     Retrieve the python 2 package identified by package name.
-    API Version: 2022-08-08.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.

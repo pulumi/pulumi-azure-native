@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureStack
     {
         /// <summary>
         /// Returns the specified product.
-        /// API Version: 2022-06-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Task<GetCustomerSubscriptionResult> InvokeAsync(GetCustomerSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-native:azurestack:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the specified product.
-        /// API Version: 2022-06-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Output<GetCustomerSubscriptionResult> Invoke(GetCustomerSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomerSubscriptionResult>("azure-native:azurestack:getCustomerSubscription", args ?? new GetCustomerSubscriptionInvokeArgs(), options.WithDefaults());

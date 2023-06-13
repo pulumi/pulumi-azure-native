@@ -170,7 +170,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Returns a Cognitive Services account specified by the parameters.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -202,7 +202,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Returns a Cognitive Services account specified by the parameters.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.

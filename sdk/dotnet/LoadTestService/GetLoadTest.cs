@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.LoadTestService
     {
         /// <summary>
         /// Get a LoadTest resource.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<GetLoadTestResult> InvokeAsync(GetLoadTestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a LoadTest resource.
-        /// API Version: 2022-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<GetLoadTestResult> Invoke(GetLoadTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestInvokeArgs(), options.WithDefaults());

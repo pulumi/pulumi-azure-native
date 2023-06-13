@@ -163,7 +163,7 @@ class AzureADAdministrator(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Administrator.
-        API Version: 2022-01-01.
+        Azure REST API version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,7 +184,7 @@ class AzureADAdministrator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Administrator.
-        API Version: 2022-01-01.
+        Azure REST API version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param AzureADAdministratorArgs args: The arguments to use to populate this resource's properties.

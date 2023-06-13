@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Instance of an Azure ML web service resource.
- * API Version: 2017-01-01.
- * Previous API Version: 2017-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+ * Azure REST API version: 2017-01-01. Prior API version in Azure Native 1.x: 2017-01-01
  */
 export class WebService extends pulumi.CustomResource {
     /**

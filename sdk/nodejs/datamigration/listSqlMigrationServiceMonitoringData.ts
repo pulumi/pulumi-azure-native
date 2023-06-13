@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
- * API Version: 2022-03-30-preview.
+ * Azure REST API version: 2022-03-30-preview.
  */
 export function listSqlMigrationServiceMonitoringData(args: ListSqlMigrationServiceMonitoringDataArgs, opts?: pulumi.InvokeOptions): Promise<ListSqlMigrationServiceMonitoringDataResult> {
 
@@ -46,7 +46,7 @@ export interface ListSqlMigrationServiceMonitoringDataResult {
 }
 /**
  * Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
- * API Version: 2022-03-30-preview.
+ * Azure REST API version: 2022-03-30-preview.
  */
 export function listSqlMigrationServiceMonitoringDataOutput(args: ListSqlMigrationServiceMonitoringDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSqlMigrationServiceMonitoringDataResult> {
     return pulumi.output(args).apply((a: any) => listSqlMigrationServiceMonitoringData(a, opts))

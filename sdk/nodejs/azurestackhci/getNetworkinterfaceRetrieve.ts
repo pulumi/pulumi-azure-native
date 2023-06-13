@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets network interfaces by resource name
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getNetworkinterfaceRetrieve(args: GetNetworkinterfaceRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkinterfaceRetrieveResult> {
 
@@ -84,7 +84,7 @@ export interface GetNetworkinterfaceRetrieveResult {
 }
 /**
  * Gets network interfaces by resource name
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getNetworkinterfaceRetrieveOutput(args: GetNetworkinterfaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkinterfaceRetrieveResult> {
     return pulumi.output(args).apply((a: any) => getNetworkinterfaceRetrieve(a, opts))

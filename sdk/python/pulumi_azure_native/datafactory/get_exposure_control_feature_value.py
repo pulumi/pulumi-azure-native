@@ -62,7 +62,7 @@ def get_exposure_control_feature_value(feature_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExposureControlFeatureValueResult:
     """
     Get exposure control feature for specific location.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str feature_name: The feature name.
@@ -88,7 +88,7 @@ def get_exposure_control_feature_value_output(feature_name: Optional[pulumi.Inpu
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExposureControlFeatureValueResult]:
     """
     Get exposure control feature for specific location.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str feature_name: The feature name.

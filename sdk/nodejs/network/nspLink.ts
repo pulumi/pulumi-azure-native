@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The network security perimeter link resource
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-02-01-preview.
  */
 export class NspLink extends pulumi.CustomResource {
     /**

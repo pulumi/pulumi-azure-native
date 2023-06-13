@@ -267,7 +267,7 @@ def get_workbook(can_fetch_content: Optional[bool] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkbookResult:
     """
     Get a single workbook by its resourceName.
-    API Version: 2022-04-01.
+    Azure REST API version: 2022-04-01.
 
 
     :param bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
@@ -310,7 +310,7 @@ def get_workbook_output(can_fetch_content: Optional[pulumi.Input[Optional[bool]]
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookResult]:
     """
     Get a single workbook by its resourceName.
-    API Version: 2022-04-01.
+    Azure REST API version: 2022-04-01.
 
 
     :param bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.

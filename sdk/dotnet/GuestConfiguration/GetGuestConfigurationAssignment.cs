@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.GuestConfiguration
     {
         /// <summary>
         /// Get information about a guest configuration assignment
-        /// API Version: 2022-01-25.
+        /// Azure REST API version: 2022-01-25.
         /// </summary>
         public static Task<GetGuestConfigurationAssignmentResult> InvokeAsync(GetGuestConfigurationAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a guest configuration assignment
-        /// API Version: 2022-01-25.
+        /// Azure REST API version: 2022-01-25.
         /// </summary>
         public static Output<GetGuestConfigurationAssignmentResult> Invoke(GetGuestConfigurationAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentInvokeArgs(), options.WithDefaults());

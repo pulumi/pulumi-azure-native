@@ -266,7 +266,7 @@ def get_packet_core_control_plane(packet_core_control_plane_name: Optional[str] 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCoreControlPlaneResult:
     """
     Gets information about the specified packet core control plane.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.
@@ -306,7 +306,7 @@ def get_packet_core_control_plane_output(packet_core_control_plane_name: Optiona
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPacketCoreControlPlaneResult]:
     """
     Gets information about the specified packet core control plane.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.

@@ -121,7 +121,7 @@ def get_server_administrator(resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerAdministratorResult:
     """
     Gets information about a AAD server administrator.
-    API Version: 2017-12-01-preview.
+    Azure REST API version: 2017-12-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -149,7 +149,7 @@ def get_server_administrator_output(resource_group_name: Optional[pulumi.Input[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerAdministratorResult]:
     """
     Gets information about a AAD server administrator.
-    API Version: 2017-12-01-preview.
+    Azure REST API version: 2017-12-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

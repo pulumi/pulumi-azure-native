@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for This is to allow calling via powershell and ARM template.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<ListWebAppSyncFunctionTriggersResult> InvokeAsync(ListWebAppSyncFunctionTriggersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSyncFunctionTriggersResult>("azure-native:web:listWebAppSyncFunctionTriggers", args ?? new ListWebAppSyncFunctionTriggersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for This is to allow calling via powershell and ARM template.
-        /// API Version: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<ListWebAppSyncFunctionTriggersResult> Invoke(ListWebAppSyncFunctionTriggersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppSyncFunctionTriggersResult>("azure-native:web:listWebAppSyncFunctionTriggers", args ?? new ListWebAppSyncFunctionTriggersInvokeArgs(), options.WithDefaults());

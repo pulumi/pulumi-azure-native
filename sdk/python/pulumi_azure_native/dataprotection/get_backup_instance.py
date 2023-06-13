@@ -111,7 +111,7 @@ def get_backup_instance(backup_instance_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupInstanceResult:
     """
     Gets a backup instance with name in a backup vault
-    API Version: 2023-01-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str backup_instance_name: The name of the backup instance.
@@ -141,7 +141,7 @@ def get_backup_instance_output(backup_instance_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupInstanceResult]:
     """
     Gets a backup instance with name in a backup vault
-    API Version: 2023-01-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str backup_instance_name: The name of the backup instance.

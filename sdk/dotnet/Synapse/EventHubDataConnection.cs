@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing an event hub data connection.
-    /// API Version: 2021-06-01-preview.
+    /// Azure REST API version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:EventHubDataConnection")]
     public partial class EventHubDataConnection : global::Pulumi.CustomResource

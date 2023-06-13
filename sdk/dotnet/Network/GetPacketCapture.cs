@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a packet capture session by name.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetPacketCaptureResult> InvokeAsync(GetPacketCaptureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-native:network:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a packet capture session by name.
-        /// API Version: 2022-11-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:network:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());

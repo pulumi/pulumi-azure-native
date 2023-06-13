@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a ElasticSan.
- * API Version: 2021-11-20-preview.
+ * Azure REST API version: 2021-11-20-preview.
  */
 export function getElasticSan(args: GetElasticSanArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticSanResult> {
 
@@ -102,7 +102,7 @@ export interface GetElasticSanResult {
 }
 /**
  * Get a ElasticSan.
- * API Version: 2021-11-20-preview.
+ * Azure REST API version: 2021-11-20-preview.
  */
 export function getElasticSanOutput(args: GetElasticSanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticSanResult> {
     return pulumi.output(args).apply((a: any) => getElasticSan(a, opts))

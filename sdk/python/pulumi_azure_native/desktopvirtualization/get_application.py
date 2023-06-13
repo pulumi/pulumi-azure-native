@@ -255,7 +255,7 @@ def get_application(application_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Get an application.
-    API Version: 2022-09-09.
+    Azure REST API version: 2022-09-09.
 
 
     :param str application_group_name: The name of the application group
@@ -297,7 +297,7 @@ def get_application_output(application_group_name: Optional[pulumi.Input[str]] =
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Get an application.
-    API Version: 2022-09-09.
+    Azure REST API version: 2022-09-09.
 
 
     :param str application_group_name: The name of the application group

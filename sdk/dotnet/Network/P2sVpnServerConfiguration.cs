@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// P2SVpnServerConfiguration Resource.
-    /// API Version: 2019-07-01.
-    /// Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2019-07-01. Prior API version in Azure Native 1.x: 2019-07-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:P2sVpnServerConfiguration")]
     public partial class P2sVpnServerConfiguration : global::Pulumi.CustomResource

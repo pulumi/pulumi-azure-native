@@ -505,7 +505,7 @@ def get_database(database_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Gets a database.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str database_name: The name of the database.
@@ -567,7 +567,7 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Gets a database.
-    API Version: 2021-11-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str database_name: The name of the database.

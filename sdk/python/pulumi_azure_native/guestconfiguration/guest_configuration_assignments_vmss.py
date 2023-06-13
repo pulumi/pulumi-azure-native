@@ -113,7 +113,7 @@ class GuestConfigurationAssignmentsVMSS(pulumi.CustomResource):
                  __props__=None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
-        API Version: 2022-01-25.
+        Azure REST API version: 2022-01-25.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +131,7 @@ class GuestConfigurationAssignmentsVMSS(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
-        API Version: 2022-01-25.
+        Azure REST API version: 2022-01-25.
 
         :param str resource_name: The name of the resource.
         :param GuestConfigurationAssignmentsVMSSArgs args: The arguments to use to populate this resource's properties.

@@ -182,7 +182,7 @@ def get_organization(organization_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationResult:
     """
     Organization resource.
-    API Version: 2021-12-01.
+    Azure REST API version: 2021-12-01.
 
 
     :param str organization_name: Organization resource name
@@ -215,7 +215,7 @@ def get_organization_output(organization_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Organization resource.
-    API Version: 2021-12-01.
+    Azure REST API version: 2021-12-01.
 
 
     :param str organization_name: Organization resource name

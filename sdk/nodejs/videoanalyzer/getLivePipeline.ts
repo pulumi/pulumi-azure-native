@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves a specific live pipeline by name. If a live pipeline with that name has been previously created, the call will return the JSON representation of that instance.
- * API Version: 2021-11-01-preview.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getLivePipeline(args: GetLivePipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetLivePipelineResult> {
 
@@ -79,7 +79,7 @@ export interface GetLivePipelineResult {
 }
 /**
  * Retrieves a specific live pipeline by name. If a live pipeline with that name has been previously created, the call will return the JSON representation of that instance.
- * API Version: 2021-11-01-preview.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getLivePipelineOutput(args: GetLivePipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLivePipelineResult> {
     return pulumi.output(args).apply((a: any) => getLivePipeline(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the federated identity credential.
- * API Version: 2023-01-31.
+ * Azure REST API version: 2023-01-31.
  */
 export function getFederatedIdentityCredential(args: GetFederatedIdentityCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedIdentityCredentialResult> {
 
@@ -71,7 +71,7 @@ export interface GetFederatedIdentityCredentialResult {
 }
 /**
  * Gets the federated identity credential.
- * API Version: 2023-01-31.
+ * Azure REST API version: 2023-01-31.
  */
 export function getFederatedIdentityCredentialOutput(args: GetFederatedIdentityCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedIdentityCredentialResult> {
     return pulumi.output(args).apply((a: any) => getFederatedIdentityCredential(a, opts))

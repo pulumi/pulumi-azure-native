@@ -149,7 +149,7 @@ def get_permission_binding(namespace_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionBindingResult:
     """
     Get properties of a permission binding.
-    API Version: 2023-06-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str namespace_name: Name of the namespace.
@@ -182,7 +182,7 @@ def get_permission_binding_output(namespace_name: Optional[pulumi.Input[str]] = 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionBindingResult]:
     """
     Get properties of a permission binding.
-    API Version: 2023-06-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str namespace_name: Name of the namespace.

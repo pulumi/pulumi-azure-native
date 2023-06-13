@@ -242,7 +242,7 @@ def get_configuration_store(config_store_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationStoreResult:
     """
     Gets the properties of the specified configuration store.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -280,7 +280,7 @@ def get_configuration_store_output(config_store_name: Optional[pulumi.Input[str]
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationStoreResult]:
     """
     Gets the properties of the specified configuration store.
-    API Version: 2023-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str config_store_name: The name of the configuration store.

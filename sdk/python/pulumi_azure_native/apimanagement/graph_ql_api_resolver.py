@@ -143,7 +143,7 @@ class GraphQLApiResolver(pulumi.CustomResource):
                  __props__=None):
         """
         GraphQL API Resolver details.
-        API Version: 2022-08-01.
+        Azure REST API version: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +163,7 @@ class GraphQLApiResolver(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         GraphQL API Resolver details.
-        API Version: 2022-08-01.
+        Azure REST API version: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param GraphQLApiResolverArgs args: The arguments to use to populate this resource's properties.

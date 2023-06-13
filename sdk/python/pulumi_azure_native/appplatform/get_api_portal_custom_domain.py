@@ -100,7 +100,7 @@ def get_api_portal_custom_domain(api_portal_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiPortalCustomDomainResult:
     """
     Get the API portal custom domain.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str api_portal_name: The name of API portal.
@@ -132,7 +132,7 @@ def get_api_portal_custom_domain_output(api_portal_name: Optional[pulumi.Input[s
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiPortalCustomDomainResult]:
     """
     Get the API portal custom domain.
-    API Version: 2022-12-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str api_portal_name: The name of API portal.

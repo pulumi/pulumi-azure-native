@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a server trust group.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getServerTrustGroup(args: GetServerTrustGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTrustGroupResult> {
 
@@ -63,7 +63,7 @@ export interface GetServerTrustGroupResult {
 }
 /**
  * Gets a server trust group.
- * API Version: 2021-11-01.
+ * Azure REST API version: 2021-11-01.
  */
 export function getServerTrustGroupOutput(args: GetServerTrustGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTrustGroupResult> {
     return pulumi.output(args).apply((a: any) => getServerTrustGroup(a, opts))

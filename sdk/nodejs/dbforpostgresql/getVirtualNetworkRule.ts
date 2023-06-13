@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a virtual network rule.
- * API Version: 2017-12-01-preview.
+ * Azure REST API version: 2017-12-01-preview.
  */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
 
@@ -64,7 +64,7 @@ export interface GetVirtualNetworkRuleResult {
 }
 /**
  * Gets a virtual network rule.
- * API Version: 2017-12-01-preview.
+ * Azure REST API version: 2017-12-01-preview.
  */
 export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkRule(a, opts))

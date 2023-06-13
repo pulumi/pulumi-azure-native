@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Analytics Connector definition.
- * API Version: 2022-10-01-preview.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export class AnalyticsConnector extends pulumi.CustomResource {
     /**

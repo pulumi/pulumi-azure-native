@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a data flow.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getDataFlow(args: GetDataFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetDataFlowResult> {
 
@@ -63,7 +63,7 @@ export interface GetDataFlowResult {
 }
 /**
  * Gets a data flow.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataFlowResult> {
     return pulumi.output(args).apply((a: any) => getDataFlow(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an integration account certificate.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationAccountCertificate(args: GetIntegrationAccountCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountCertificateResult> {
 
@@ -83,7 +83,7 @@ export interface GetIntegrationAccountCertificateResult {
 }
 /**
  * Gets an integration account certificate.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationAccountCertificateOutput(args: GetIntegrationAccountCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountCertificateResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountCertificate(a, opts))

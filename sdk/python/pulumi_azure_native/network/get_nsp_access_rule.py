@@ -196,7 +196,7 @@ def get_nsp_access_rule(access_rule_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNspAccessRuleResult:
     """
     Gets the specified NSP access rule by name.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str access_rule_name: The name of the NSP access rule.
@@ -236,7 +236,7 @@ def get_nsp_access_rule_output(access_rule_name: Optional[pulumi.Input[str]] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNspAccessRuleResult]:
     """
     Gets the specified NSP access rule by name.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str access_rule_name: The name of the NSP access rule.

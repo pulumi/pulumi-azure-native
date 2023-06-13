@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific addon by name.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getArcAddon(args: GetArcAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetArcAddonResult> {
 
@@ -101,7 +101,7 @@ export interface GetArcAddonResult {
 }
 /**
  * Gets a specific addon by name.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getArcAddonOutput(args: GetArcAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcAddonResult> {
     return pulumi.output(args).apply((a: any) => getArcAddon(a, opts))

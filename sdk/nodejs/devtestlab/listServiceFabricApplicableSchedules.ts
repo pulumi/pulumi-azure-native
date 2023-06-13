@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the applicable start/stop schedules, if any.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function listServiceFabricApplicableSchedules(args: ListServiceFabricApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceFabricApplicableSchedulesResult> {
 
@@ -76,7 +76,7 @@ export interface ListServiceFabricApplicableSchedulesResult {
 }
 /**
  * Lists the applicable start/stop schedules, if any.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function listServiceFabricApplicableSchedulesOutput(args: ListServiceFabricApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceFabricApplicableSchedulesResult> {
     return pulumi.output(args).apply((a: any) => listServiceFabricApplicableSchedules(a, opts))

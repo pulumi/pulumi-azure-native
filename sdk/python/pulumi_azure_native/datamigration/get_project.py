@@ -195,7 +195,7 @@ def get_project(group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
-    API Version: 2021-06-30.
+    Azure REST API version: 2021-06-30.
 
 
     :param str group_name: Name of the resource group
@@ -232,7 +232,7 @@ def get_project_output(group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
     The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
-    API Version: 2021-06-30.
+    Azure REST API version: 2021-06-30.
 
 
     :param str group_name: Name of the resource group

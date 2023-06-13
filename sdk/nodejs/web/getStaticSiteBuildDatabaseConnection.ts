@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Static Site Database Connection resource.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getStaticSiteBuildDatabaseConnection(args: GetStaticSiteBuildDatabaseConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteBuildDatabaseConnectionResult> {
 
@@ -84,7 +84,7 @@ export interface GetStaticSiteBuildDatabaseConnectionResult {
 }
 /**
  * Static Site Database Connection resource.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getStaticSiteBuildDatabaseConnectionOutput(args: GetStaticSiteBuildDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteBuildDatabaseConnectionResult> {
     return pulumi.output(args).apply((a: any) => getStaticSiteBuildDatabaseConnection(a, opts))

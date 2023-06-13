@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
- * API Version: 2023-04-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getSqlResourceSqlStoredProcedure(args: GetSqlResourceSqlStoredProcedureArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlStoredProcedureResult> {
 
@@ -74,7 +74,7 @@ export interface GetSqlResourceSqlStoredProcedureResult {
 }
 /**
  * Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
- * API Version: 2023-04-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getSqlResourceSqlStoredProcedureOutput(args: GetSqlResourceSqlStoredProcedureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlStoredProcedureResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlStoredProcedure(a, opts))

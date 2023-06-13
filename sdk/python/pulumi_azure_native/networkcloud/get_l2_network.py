@@ -227,7 +227,7 @@ def get_l2_network(l2_network_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetL2NetworkResult:
     """
     Get properties of the provided layer 2 (L2) network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str l2_network_name: The name of the L2 network.
@@ -264,7 +264,7 @@ def get_l2_network_output(l2_network_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL2NetworkResult]:
     """
     Get properties of the provided layer 2 (L2) network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str l2_network_name: The name of the L2 network.

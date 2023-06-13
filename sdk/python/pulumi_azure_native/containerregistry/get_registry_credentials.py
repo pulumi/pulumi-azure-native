@@ -61,7 +61,7 @@ def get_registry_credentials(registry_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryCredentialsResult:
     """
     Gets the administrator login credentials for the specified container registry.
-    API Version: 2016-06-27-preview.
+    Azure REST API version: 2016-06-27-preview.
 
 
     :param str registry_name: The name of the container registry.
@@ -84,7 +84,7 @@ def get_registry_credentials_output(registry_name: Optional[pulumi.Input[str]] =
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryCredentialsResult]:
     """
     Gets the administrator login credentials for the specified container registry.
-    API Version: 2016-06-27-preview.
+    Azure REST API version: 2016-06-27-preview.
 
 
     :param str registry_name: The name of the container registry.

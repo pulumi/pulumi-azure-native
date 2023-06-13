@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * List storage account keys of a workspace.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listWorkspaceStorageAccountKeys(args: ListWorkspaceStorageAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceStorageAccountKeysResult> {
 
@@ -33,7 +33,7 @@ export interface ListWorkspaceStorageAccountKeysResult {
 }
 /**
  * List storage account keys of a workspace.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listWorkspaceStorageAccountKeysOutput(args: ListWorkspaceStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceStorageAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceStorageAccountKeys(a, opts))

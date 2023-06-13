@@ -95,7 +95,7 @@ class ManagedNetworkSettingsRule(pulumi.CustomResource):
                  __props__=None):
         """
         Outbound Rule Basic Resource for the managed network of a machine learning workspace.
-        API Version: 2023-04-01-preview.
+        Azure REST API version: 2023-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +112,7 @@ class ManagedNetworkSettingsRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Outbound Rule Basic Resource for the managed network of a machine learning workspace.
-        API Version: 2023-04-01-preview.
+        Azure REST API version: 2023-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ManagedNetworkSettingsRuleArgs args: The arguments to use to populate this resource's properties.

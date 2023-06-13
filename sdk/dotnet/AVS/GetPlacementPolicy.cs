@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// A vSphere Distributed Resource Scheduler (DRS) placement policy
-        /// API Version: 2022-05-01.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Task<GetPlacementPolicyResult> InvokeAsync(GetPlacementPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementPolicyResult>("azure-native:avs:getPlacementPolicy", args ?? new GetPlacementPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A vSphere Distributed Resource Scheduler (DRS) placement policy
-        /// API Version: 2022-05-01.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Output<GetPlacementPolicyResult> Invoke(GetPlacementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementPolicyResult>("azure-native:avs:getPlacementPolicy", args ?? new GetPlacementPolicyInvokeArgs(), options.WithDefaults());

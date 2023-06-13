@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.
- * API Version: 2016-01-29.
+ * Azure REST API version: 2016-01-29.
  */
 export function listWorkspaceCollectionAccessKeys(args: ListWorkspaceCollectionAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceCollectionAccessKeysResult> {
 
@@ -40,7 +40,7 @@ export interface ListWorkspaceCollectionAccessKeysResult {
 }
 /**
  * Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.
- * API Version: 2016-01-29.
+ * Azure REST API version: 2016-01-29.
  */
 export function listWorkspaceCollectionAccessKeysOutput(args: ListWorkspaceCollectionAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceCollectionAccessKeysResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceCollectionAccessKeys(a, opts))

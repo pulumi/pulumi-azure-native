@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a bookmark.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getBookmark(args: GetBookmarkArgs, opts?: pulumi.InvokeOptions): Promise<GetBookmarkResult> {
 
@@ -115,7 +115,7 @@ export interface GetBookmarkResult {
 }
 /**
  * Gets a bookmark.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getBookmarkOutput(args: GetBookmarkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkResult> {
     return pulumi.output(args).apply((a: any) => getBookmark(a, opts))

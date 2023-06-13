@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 {
     /// <summary>
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
-    /// API Version: 2020-05-15.
-    /// Previous API Version: 2020-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights:Gen2Environment")]
     public partial class Gen2Environment : global::Pulumi.CustomResource

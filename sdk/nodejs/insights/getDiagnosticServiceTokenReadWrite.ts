@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an read-write access token for application insights diagnostic service data.
- * API Version: 2021-03-03-preview.
+ * Azure REST API version: 2021-03-03-preview.
  */
 export function getDiagnosticServiceTokenReadWrite(args: GetDiagnosticServiceTokenReadWriteArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticServiceTokenReadWriteResult> {
 
@@ -34,7 +34,7 @@ export interface GetDiagnosticServiceTokenReadWriteResult {
 }
 /**
  * Gets an read-write access token for application insights diagnostic service data.
- * API Version: 2021-03-03-preview.
+ * Azure REST API version: 2021-03-03-preview.
  */
 export function getDiagnosticServiceTokenReadWriteOutput(args: GetDiagnosticServiceTokenReadWriteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticServiceTokenReadWriteResult> {
     return pulumi.output(args).apply((a: any) => getDiagnosticServiceTokenReadWrite(a, opts))

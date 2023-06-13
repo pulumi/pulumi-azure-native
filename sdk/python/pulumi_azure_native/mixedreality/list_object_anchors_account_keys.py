@@ -61,7 +61,7 @@ def list_object_anchors_account_keys(account_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListObjectAnchorsAccountKeysResult:
     """
     List Both of the 2 Keys of an object anchors Account
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -84,7 +84,7 @@ def list_object_anchors_account_keys_output(account_name: Optional[pulumi.Input[
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListObjectAnchorsAccountKeysResult]:
     """
     List Both of the 2 Keys of an object anchors Account
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getCodeVersion(args: GetCodeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeVersionResult> {
 
@@ -68,7 +68,7 @@ export interface GetCodeVersionResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2023-04-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getCodeVersionOutput(args: GetCodeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeVersionResult> {
     return pulumi.output(args).apply((a: any) => getCodeVersion(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns an Application Insights component.
- * API Version: 2020-02-02.
+ * Azure REST API version: 2020-02-02.
  */
 export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
 
@@ -162,7 +162,7 @@ export interface GetComponentResult {
 }
 /**
  * Returns an Application Insights component.
- * API Version: 2020-02-02.
+ * Azure REST API version: 2020-02-02.
  */
 export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
     return pulumi.output(args).apply((a: any) => getComponent(a, opts))

@@ -185,7 +185,7 @@ def get_resource(parent_resource_path: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
     Gets a resource.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str parent_resource_path: The parent resource identity.
@@ -227,7 +227,7 @@ def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
     """
     Gets a resource.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str parent_resource_path: The parent resource identity.

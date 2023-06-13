@@ -131,7 +131,7 @@ def get_site(resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteResult:
     """
     Site REST Resource.
-    API Version: 2020-07-07.
+    Azure REST API version: 2020-07-07.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -160,7 +160,7 @@ def get_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
     """
     Site REST Resource.
-    API Version: 2020-07-07.
+    Azure REST API version: 2020-07-07.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -48,7 +48,7 @@ def list_ingestion_setting_tokens(ingestion_setting_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIngestionSettingTokensResult:
     """
     Returns the token that is used for correlating ingested telemetry with the resources in the subscription.
-    API Version: 2021-01-15-preview.
+    Azure REST API version: 2021-01-15-preview.
 
 
     :param str ingestion_setting_name: Name of the ingestion setting
@@ -67,7 +67,7 @@ def list_ingestion_setting_tokens_output(ingestion_setting_name: Optional[pulumi
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIngestionSettingTokensResult]:
     """
     Returns the token that is used for correlating ingested telemetry with the resources in the subscription.
-    API Version: 2021-01-15-preview.
+    Azure REST API version: 2021-01-15-preview.
 
 
     :param str ingestion_setting_name: Name of the ingestion setting

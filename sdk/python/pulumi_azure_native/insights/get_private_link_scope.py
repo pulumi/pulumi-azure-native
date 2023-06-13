@@ -146,7 +146,7 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkScopeResult:
     """
     Returns a Azure Monitor PrivateLinkScope.
-    API Version: 2021-07-01-preview.
+    Azure REST API version: 2021-07-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -176,7 +176,7 @@ def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkScopeResult]:
     """
     Returns a Azure Monitor PrivateLinkScope.
-    API Version: 2021-07-01-preview.
+    Azure REST API version: 2021-07-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

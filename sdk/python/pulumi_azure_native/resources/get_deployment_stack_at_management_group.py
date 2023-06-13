@@ -302,7 +302,7 @@ def get_deployment_stack_at_management_group(deployment_stack_name: Optional[str
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentStackAtManagementGroupResult:
     """
     Gets a Deployment Stack with a given name.
-    API Version: 2022-08-01-preview.
+    Azure REST API version: 2022-08-01-preview.
 
 
     :param str deployment_stack_name: Name of the deployment stack.
@@ -345,7 +345,7 @@ def get_deployment_stack_at_management_group_output(deployment_stack_name: Optio
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentStackAtManagementGroupResult]:
     """
     Gets a Deployment Stack with a given name.
-    API Version: 2022-08-01-preview.
+    Azure REST API version: 2022-08-01-preview.
 
 
     :param str deployment_stack_name: Name of the deployment stack.

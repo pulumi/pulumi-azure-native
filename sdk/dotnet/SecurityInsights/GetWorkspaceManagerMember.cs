@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a workspace manager member
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetWorkspaceManagerMemberResult> InvokeAsync(GetWorkspaceManagerMemberArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceManagerMemberResult>("azure-native:securityinsights:getWorkspaceManagerMember", args ?? new GetWorkspaceManagerMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a workspace manager member
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetWorkspaceManagerMemberResult> Invoke(GetWorkspaceManagerMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceManagerMemberResult>("azure-native:securityinsights:getWorkspaceManagerMember", args ?? new GetWorkspaceManagerMemberInvokeArgs(), options.WithDefaults());

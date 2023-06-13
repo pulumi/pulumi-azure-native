@@ -159,7 +159,7 @@ def get_integration_account_certificate(certificate_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountCertificateResult:
     """
     Gets an integration account certificate.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str certificate_name: The integration account certificate name.
@@ -193,7 +193,7 @@ def get_integration_account_certificate_output(certificate_name: Optional[pulumi
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountCertificateResult]:
     """
     Gets an integration account certificate.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str certificate_name: The integration account certificate name.

@@ -204,7 +204,7 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDCustomDomainResult:
     """
     Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.
@@ -242,7 +242,7 @@ def get_afd_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]]
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDCustomDomainResult]:
     """
     Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
-    API Version: 2023-05-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.

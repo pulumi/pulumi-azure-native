@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AlertsManagement
 {
     /// <summary>
     /// Alert processing rule object containing target scopes, conditions and scheduling logic.
-    /// API Version: 2021-08-08.
+    /// Azure REST API version: 2021-08-08.
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement:AlertProcessingRuleByName")]
     public partial class AlertProcessingRuleByName : global::Pulumi.CustomResource

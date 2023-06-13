@@ -63,7 +63,7 @@ def list_static_site_users(authprovider: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteUsersResult:
     """
     Description for Gets the list of users of a static site.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str authprovider: The auth provider for the users.
@@ -89,7 +89,7 @@ def list_static_site_users_output(authprovider: Optional[pulumi.Input[str]] = No
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteUsersResult]:
     """
     Description for Gets the list of users of a static site.
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str authprovider: The auth provider for the users.

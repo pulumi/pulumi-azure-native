@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get tag associated with the API.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getTagByApi(args: GetTagByApiArgs, opts?: pulumi.InvokeOptions): Promise<GetTagByApiResult> {
 
@@ -61,7 +61,7 @@ export interface GetTagByApiResult {
 }
 /**
  * Get tag associated with the API.
- * API Version: 2022-08-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getTagByApiOutput(args: GetTagByApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByApiResult> {
     return pulumi.output(args).apply((a: any) => getTagByApi(a, opts))

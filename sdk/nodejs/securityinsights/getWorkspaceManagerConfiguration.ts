@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a workspace manager configuration
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getWorkspaceManagerConfiguration(args: GetWorkspaceManagerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceManagerConfigurationResult> {
 
@@ -67,7 +67,7 @@ export interface GetWorkspaceManagerConfigurationResult {
 }
 /**
  * Gets a workspace manager configuration
- * API Version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getWorkspaceManagerConfigurationOutput(args: GetWorkspaceManagerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceManagerConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceManagerConfiguration(a, opts))

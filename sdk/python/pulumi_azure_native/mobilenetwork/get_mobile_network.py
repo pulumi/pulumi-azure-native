@@ -146,7 +146,7 @@ def get_mobile_network(mobile_network_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMobileNetworkResult:
     """
     Gets information about the specified mobile network.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -176,7 +176,7 @@ def get_mobile_network_output(mobile_network_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMobileNetworkResult]:
     """
     Gets information about the specified mobile network.
-    API Version: 2022-11-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str mobile_network_name: The name of the mobile network.

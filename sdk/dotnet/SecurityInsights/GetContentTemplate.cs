@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a template byt its identifier.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetContentTemplateResult> InvokeAsync(GetContentTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContentTemplateResult>("azure-native:securityinsights:getContentTemplate", args ?? new GetContentTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a template byt its identifier.
-        /// API Version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetContentTemplateResult> Invoke(GetContentTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentTemplateResult>("azure-native:securityinsights:getContentTemplate", args ?? new GetContentTemplateInvokeArgs(), options.WithDefaults());

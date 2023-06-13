@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Lists the secrets for an existing static site.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listStaticSiteSecrets(args: ListStaticSiteSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteSecretsResult> {
 
@@ -55,7 +55,7 @@ export interface ListStaticSiteSecretsResult {
 }
 /**
  * Description for Lists the secrets for an existing static site.
- * API Version: 2022-09-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function listStaticSiteSecretsOutput(args: ListStaticSiteSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteSecretsResult> {
     return pulumi.output(args).apply((a: any) => listStaticSiteSecrets(a, opts))

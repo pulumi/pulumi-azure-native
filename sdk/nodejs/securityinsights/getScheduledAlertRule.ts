@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the alert rule.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getScheduledAlertRule(args: GetScheduledAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledAlertRuleResult> {
 
@@ -152,7 +152,7 @@ export interface GetScheduledAlertRuleResult {
 }
 /**
  * Gets the alert rule.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getScheduledAlertRuleOutput(args: GetScheduledAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getScheduledAlertRule(a, opts))

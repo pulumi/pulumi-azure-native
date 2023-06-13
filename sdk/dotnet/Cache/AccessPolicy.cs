@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// Response to get/put access policy.
-    /// API Version: 2023-05-01-preview.
+    /// Azure REST API version: 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:AccessPolicy")]
     public partial class AccessPolicy : global::Pulumi.CustomResource

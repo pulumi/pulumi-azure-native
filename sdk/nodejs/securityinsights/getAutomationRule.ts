@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the automation rule.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getAutomationRule(args: GetAutomationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationRuleResult> {
 
@@ -92,7 +92,7 @@ export interface GetAutomationRuleResult {
 }
 /**
  * Gets the automation rule.
- * API Version: 2023-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getAutomationRuleOutput(args: GetAutomationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationRuleResult> {
     return pulumi.output(args).apply((a: any) => getAutomationRule(a, opts))

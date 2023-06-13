@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a task with extended information that includes all secrets.
- * API Version: 2019-06-01-preview.
+ * Azure REST API version: 2019-06-01-preview.
  */
 export function listTaskDetails(args: ListTaskDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListTaskDetailsResult> {
 
@@ -120,7 +120,7 @@ export interface ListTaskDetailsResult {
 }
 /**
  * Returns a task with extended information that includes all secrets.
- * API Version: 2019-06-01-preview.
+ * Azure REST API version: 2019-06-01-preview.
  */
 export function listTaskDetailsOutput(args: ListTaskDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTaskDetailsResult> {
     return pulumi.output(args).apply((a: any) => listTaskDetails(a, opts))

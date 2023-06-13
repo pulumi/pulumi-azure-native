@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation returns properties of a SyncIdentityProvider.
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export function getSyncIdentityProvider(args: GetSyncIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncIdentityProviderResult> {
 
@@ -60,7 +60,7 @@ export interface GetSyncIdentityProviderResult {
 }
 /**
  * The operation returns properties of a SyncIdentityProvider.
- * API Version: 2022-09-04.
+ * Azure REST API version: 2022-09-04.
  */
 export function getSyncIdentityProviderOutput(args: GetSyncIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncIdentityProviderResult> {
     return pulumi.output(args).apply((a: any) => getSyncIdentityProvider(a, opts))

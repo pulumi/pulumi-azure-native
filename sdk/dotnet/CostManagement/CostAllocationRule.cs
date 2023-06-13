@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// The cost allocation rule model definition
-    /// API Version: 2020-03-01-preview.
-    /// Previous API Version: 2020-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2020-03-01-preview. Prior API version in Azure Native 1.x: 2020-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:CostAllocationRule")]
     public partial class CostAllocationRule : global::Pulumi.CustomResource

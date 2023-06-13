@@ -231,7 +231,7 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedRegistryResult:
     """
     Gets the properties of the connected registry.
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str connected_registry_name: The name of the connected registry.
@@ -271,7 +271,7 @@ def get_connected_registry_output(connected_registry_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedRegistryResult]:
     """
     Gets the properties of the connected registry.
-    API Version: 2023-01-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str connected_registry_name: The name of the connected registry.

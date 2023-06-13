@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Tag Inheritance Setting definition.
- * API Version: 2022-10-05-preview.
+ * Azure REST API version: 2022-10-05-preview.
  */
 export class TagInheritanceSetting extends pulumi.CustomResource {
     /**

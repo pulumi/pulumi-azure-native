@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the available Service Providers for creating Connection Settings
- * API Version: 2022-09-15.
+ * Azure REST API version: 2022-09-15.
  */
 export function listBotConnectionServiceProviders(args?: ListBotConnectionServiceProvidersArgs, opts?: pulumi.InvokeOptions): Promise<ListBotConnectionServiceProvidersResult> {
     args = args || {};

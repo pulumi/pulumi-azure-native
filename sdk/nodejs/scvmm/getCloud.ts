@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements Cloud GET method.
- * API Version: 2020-06-05-preview.
+ * Azure REST API version: 2020-06-05-preview.
  */
 export function getCloud(args: GetCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudResult> {
 
@@ -94,7 +94,7 @@ export interface GetCloudResult {
 }
 /**
  * Implements Cloud GET method.
- * API Version: 2020-06-05-preview.
+ * Azure REST API version: 2020-06-05-preview.
  */
 export function getCloudOutput(args: GetCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudResult> {
     return pulumi.output(args).apply((a: any) => getCloud(a, opts))

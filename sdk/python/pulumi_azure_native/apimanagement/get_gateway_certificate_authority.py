@@ -87,7 +87,7 @@ def get_gateway_certificate_authority(certificate_id: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayCertificateAuthorityResult:
     """
     Get assigned Gateway Certificate Authority details.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -118,7 +118,7 @@ def get_gateway_certificate_authority_output(certificate_id: Optional[pulumi.Inp
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayCertificateAuthorityResult]:
     """
     Get assigned Gateway Certificate Authority details.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.

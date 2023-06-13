@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Dashboard
     {
         /// <summary>
         /// The grafana resource type.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetGrafanaResult> InvokeAsync(GetGrafanaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGrafanaResult>("azure-native:dashboard:getGrafana", args ?? new GetGrafanaArgs(), options.WithDefaults());
 
         /// <summary>
         /// The grafana resource type.
-        /// API Version: 2022-08-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetGrafanaResult> Invoke(GetGrafanaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGrafanaResult>("azure-native:dashboard:getGrafana", args ?? new GetGrafanaInvokeArgs(), options.WithDefaults());

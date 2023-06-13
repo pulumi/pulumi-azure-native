@@ -122,7 +122,7 @@ def get_static_site_user_provided_function_app_for_static_site(function_app_name
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteUserProvidedFunctionAppForStaticSiteResult:
     """
     Description for Gets the details of the user provided function app registered with a static site
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str function_app_name: Name of the function app registered with the static site.
@@ -153,7 +153,7 @@ def get_static_site_user_provided_function_app_for_static_site_output(function_a
                                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteUserProvidedFunctionAppForStaticSiteResult]:
     """
     Description for Gets the details of the user provided function app registered with a static site
-    API Version: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str function_app_name: Name of the function app registered with the static site.

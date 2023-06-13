@@ -11,8 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// OpenShift Managed cluster.
-    /// API Version: 2019-10-27-preview.
-    /// Previous API Version: 2019-04-30. See https://github.com/pulumi/pulumi-azure-native/discussions/1834 for information on migrating from v1 to v2 of the provider.
+    /// Azure REST API version: 2019-10-27-preview. Prior API version in Azure Native 1.x: 2019-04-30
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:OpenShiftManagedCluster")]
     public partial class OpenShiftManagedCluster : global::Pulumi.CustomResource

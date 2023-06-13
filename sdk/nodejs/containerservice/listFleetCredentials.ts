@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the user credentials of a Fleet.
- * API Version: 2023-03-15-preview.
+ * Azure REST API version: 2023-03-15-preview.
  */
 export function listFleetCredentials(args: ListFleetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListFleetCredentialsResult> {
 
@@ -42,7 +42,7 @@ export interface ListFleetCredentialsResult {
 }
 /**
  * Lists the user credentials of a Fleet.
- * API Version: 2023-03-15-preview.
+ * Azure REST API version: 2023-03-15-preview.
  */
 export function listFleetCredentialsOutput(args: ListFleetCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFleetCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listFleetCredentials(a, opts))

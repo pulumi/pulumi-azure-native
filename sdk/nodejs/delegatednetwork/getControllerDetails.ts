@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details about the specified dnc controller.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2021-03-15.
  */
 export function getControllerDetails(args: GetControllerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerDetailsResult> {
 
@@ -75,7 +75,7 @@ export interface GetControllerDetailsResult {
 }
 /**
  * Gets details about the specified dnc controller.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2021-03-15.
  */
 export function getControllerDetailsOutput(args: GetControllerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControllerDetailsResult> {
     return pulumi.output(args).apply((a: any) => getControllerDetails(a, opts))

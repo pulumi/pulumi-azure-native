@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
 {
     /// <summary>
     /// Firmware analysis workspace.
-    /// API Version: 2023-02-08-preview.
+    /// Azure REST API version: 2023-02-08-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotfirmwaredefense:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

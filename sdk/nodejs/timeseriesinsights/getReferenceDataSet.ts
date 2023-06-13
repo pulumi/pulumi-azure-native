@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the reference data set with the specified name in the specified environment.
- * API Version: 2020-05-15.
+ * Azure REST API version: 2020-05-15.
  */
 export function getReferenceDataSet(args: GetReferenceDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetReferenceDataSetResult> {
 
@@ -79,7 +79,7 @@ export interface GetReferenceDataSetResult {
 }
 /**
  * Gets the reference data set with the specified name in the specified environment.
- * API Version: 2020-05-15.
+ * Azure REST API version: 2020-05-15.
  */
 export function getReferenceDataSetOutput(args: GetReferenceDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReferenceDataSetResult> {
     return pulumi.output(args).apply((a: any) => getReferenceDataSet(a, opts))

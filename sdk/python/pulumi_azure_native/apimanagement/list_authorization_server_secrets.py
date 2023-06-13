@@ -74,7 +74,7 @@ def list_authorization_server_secrets(authsid: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAuthorizationServerSecretsResult:
     """
     Gets the client secret details of the authorization server.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str authsid: Identifier of the authorization server.
@@ -101,7 +101,7 @@ def list_authorization_server_secrets_output(authsid: Optional[pulumi.Input[str]
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAuthorizationServerSecretsResult]:
     """
     Gets the client secret details of the authorization server.
-    API Version: 2022-08-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str authsid: Identifier of the authorization server.
