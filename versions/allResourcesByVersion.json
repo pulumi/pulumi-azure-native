@@ -15172,20 +15172,20 @@
       "listListUpgradableVersionPost"
     ],
     "2021-01-01-preview": [
-      "Application",
-      "ApplicationType",
-      "ApplicationTypeVersion",
       "ManagedCluster",
-      "NodeType",
-      "Service"
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType"
     ],
     "2021-05-01": [
-      "Application",
-      "ApplicationType",
-      "ApplicationTypeVersion",
       "ManagedCluster",
-      "NodeType",
-      "Service"
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType"
     ],
     "2021-06-01": [
       "Application",
@@ -15196,89 +15196,89 @@
       "listClusterUpgradableVersions"
     ],
     "2021-07-01-preview": [
-      "Application",
-      "ApplicationType",
-      "ApplicationTypeVersion",
       "ManagedCluster",
-      "NodeType",
-      "Service"
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType"
     ],
     "2021-09-01-privatepreview": [
-      "Application",
-      "ApplicationType",
-      "ApplicationTypeVersion",
       "ManagedCluster",
-      "NodeType",
-      "Service"
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType"
     ],
     "2021-11-01-preview": [
-      "Application",
-      "ApplicationType",
-      "ApplicationTypeVersion",
       "ManagedCluster",
-      "NodeType",
-      "Service"
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType"
     ],
     "2022-01-01": [
-      "Application",
-      "ApplicationType",
-      "ApplicationTypeVersion",
       "ManagedCluster",
-      "NodeType",
-      "Service"
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType"
     ],
     "2022-02-01-preview": [
-      "Application",
-      "ApplicationType",
-      "ApplicationTypeVersion",
       "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
       "NodeType",
-      "Service",
       "getmanagedAzResiliencyStatus"
     ],
     "2022-06-01-preview": [
-      "Application",
-      "ApplicationType",
-      "ApplicationTypeVersion",
       "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
       "NodeType",
-      "Service",
       "getmanagedAzResiliencyStatus"
     ],
     "2022-08-01-preview": [
-      "Application",
-      "ApplicationType",
-      "ApplicationTypeVersion",
       "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
       "NodeType",
-      "Service",
       "getmanagedAzResiliencyStatus"
     ],
     "2022-10-01-preview": [
-      "Application",
-      "ApplicationType",
-      "ApplicationTypeVersion",
       "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
       "NodeType",
-      "Service",
       "getmanagedAzResiliencyStatus"
     ],
     "2023-02-01-preview": [
-      "Application",
-      "ApplicationType",
-      "ApplicationTypeVersion",
       "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
       "NodeType",
-      "Service",
       "getmanagedAzResiliencyStatus"
     ],
     "2023-03-01-preview": [
-      "Application",
-      "ApplicationType",
-      "ApplicationTypeVersion",
       "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
       "NodeType",
-      "Service",
       "getmanagedAzResiliencyStatus"
     ]
   },
