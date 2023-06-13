@@ -45,6 +45,11 @@ export type DatabaseSqlVulnerabilityAssessmentRuleBaseline = import("./databaseS
 export const DatabaseSqlVulnerabilityAssessmentRuleBaseline: typeof import("./databaseSqlVulnerabilityAssessmentRuleBaseline").DatabaseSqlVulnerabilityAssessmentRuleBaseline = null as any;
 utilities.lazyLoad(exports, ["DatabaseSqlVulnerabilityAssessmentRuleBaseline"], () => require("./databaseSqlVulnerabilityAssessmentRuleBaseline"));
 
+export { DatabaseThreatDetectionPolicyArgs } from "./databaseThreatDetectionPolicy";
+export type DatabaseThreatDetectionPolicy = import("./databaseThreatDetectionPolicy").DatabaseThreatDetectionPolicy;
+export const DatabaseThreatDetectionPolicy: typeof import("./databaseThreatDetectionPolicy").DatabaseThreatDetectionPolicy = null as any;
+utilities.lazyLoad(exports, ["DatabaseThreatDetectionPolicy"], () => require("./databaseThreatDetectionPolicy"));
+
 export { DatabaseVulnerabilityAssessmentArgs } from "./databaseVulnerabilityAssessment";
 export type DatabaseVulnerabilityAssessment = import("./databaseVulnerabilityAssessment").DatabaseVulnerabilityAssessment;
 export const DatabaseVulnerabilityAssessment: typeof import("./databaseVulnerabilityAssessment").DatabaseVulnerabilityAssessment = null as any;
@@ -54,6 +59,11 @@ export { DatabaseVulnerabilityAssessmentRuleBaselineArgs } from "./databaseVulne
 export type DatabaseVulnerabilityAssessmentRuleBaseline = import("./databaseVulnerabilityAssessmentRuleBaseline").DatabaseVulnerabilityAssessmentRuleBaseline;
 export const DatabaseVulnerabilityAssessmentRuleBaseline: typeof import("./databaseVulnerabilityAssessmentRuleBaseline").DatabaseVulnerabilityAssessmentRuleBaseline = null as any;
 utilities.lazyLoad(exports, ["DatabaseVulnerabilityAssessmentRuleBaseline"], () => require("./databaseVulnerabilityAssessmentRuleBaseline"));
+
+export { DisasterRecoveryConfigurationArgs } from "./disasterRecoveryConfiguration";
+export type DisasterRecoveryConfiguration = import("./disasterRecoveryConfiguration").DisasterRecoveryConfiguration;
+export const DisasterRecoveryConfiguration: typeof import("./disasterRecoveryConfiguration").DisasterRecoveryConfiguration = null as any;
+utilities.lazyLoad(exports, ["DisasterRecoveryConfiguration"], () => require("./disasterRecoveryConfiguration"));
 
 export { DistributedAvailabilityGroupArgs } from "./distributedAvailabilityGroup";
 export type DistributedAvailabilityGroup = import("./distributedAvailabilityGroup").DistributedAvailabilityGroup;
@@ -135,6 +145,11 @@ export const getDatabaseSqlVulnerabilityAssessmentRuleBaseline: typeof import(".
 export const getDatabaseSqlVulnerabilityAssessmentRuleBaselineOutput: typeof import("./getDatabaseSqlVulnerabilityAssessmentRuleBaseline").getDatabaseSqlVulnerabilityAssessmentRuleBaselineOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabaseSqlVulnerabilityAssessmentRuleBaseline","getDatabaseSqlVulnerabilityAssessmentRuleBaselineOutput"], () => require("./getDatabaseSqlVulnerabilityAssessmentRuleBaseline"));
 
+export { GetDatabaseThreatDetectionPolicyArgs, GetDatabaseThreatDetectionPolicyResult, GetDatabaseThreatDetectionPolicyOutputArgs } from "./getDatabaseThreatDetectionPolicy";
+export const getDatabaseThreatDetectionPolicy: typeof import("./getDatabaseThreatDetectionPolicy").getDatabaseThreatDetectionPolicy = null as any;
+export const getDatabaseThreatDetectionPolicyOutput: typeof import("./getDatabaseThreatDetectionPolicy").getDatabaseThreatDetectionPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseThreatDetectionPolicy","getDatabaseThreatDetectionPolicyOutput"], () => require("./getDatabaseThreatDetectionPolicy"));
+
 export { GetDatabaseVulnerabilityAssessmentArgs, GetDatabaseVulnerabilityAssessmentResult, GetDatabaseVulnerabilityAssessmentOutputArgs } from "./getDatabaseVulnerabilityAssessment";
 export const getDatabaseVulnerabilityAssessment: typeof import("./getDatabaseVulnerabilityAssessment").getDatabaseVulnerabilityAssessment = null as any;
 export const getDatabaseVulnerabilityAssessmentOutput: typeof import("./getDatabaseVulnerabilityAssessment").getDatabaseVulnerabilityAssessmentOutput = null as any;
@@ -144,6 +159,11 @@ export { GetDatabaseVulnerabilityAssessmentRuleBaselineArgs, GetDatabaseVulnerab
 export const getDatabaseVulnerabilityAssessmentRuleBaseline: typeof import("./getDatabaseVulnerabilityAssessmentRuleBaseline").getDatabaseVulnerabilityAssessmentRuleBaseline = null as any;
 export const getDatabaseVulnerabilityAssessmentRuleBaselineOutput: typeof import("./getDatabaseVulnerabilityAssessmentRuleBaseline").getDatabaseVulnerabilityAssessmentRuleBaselineOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabaseVulnerabilityAssessmentRuleBaseline","getDatabaseVulnerabilityAssessmentRuleBaselineOutput"], () => require("./getDatabaseVulnerabilityAssessmentRuleBaseline"));
+
+export { GetDisasterRecoveryConfigurationArgs, GetDisasterRecoveryConfigurationResult, GetDisasterRecoveryConfigurationOutputArgs } from "./getDisasterRecoveryConfiguration";
+export const getDisasterRecoveryConfiguration: typeof import("./getDisasterRecoveryConfiguration").getDisasterRecoveryConfiguration = null as any;
+export const getDisasterRecoveryConfigurationOutput: typeof import("./getDisasterRecoveryConfiguration").getDisasterRecoveryConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getDisasterRecoveryConfiguration","getDisasterRecoveryConfigurationOutput"], () => require("./getDisasterRecoveryConfiguration"));
 
 export { GetDistributedAvailabilityGroupArgs, GetDistributedAvailabilityGroupResult, GetDistributedAvailabilityGroupOutputArgs } from "./getDistributedAvailabilityGroup";
 export const getDistributedAvailabilityGroup: typeof import("./getDistributedAvailabilityGroup").getDistributedAvailabilityGroup = null as any;
@@ -329,6 +349,11 @@ export { GetServerBlobAuditingPolicyArgs, GetServerBlobAuditingPolicyResult, Get
 export const getServerBlobAuditingPolicy: typeof import("./getServerBlobAuditingPolicy").getServerBlobAuditingPolicy = null as any;
 export const getServerBlobAuditingPolicyOutput: typeof import("./getServerBlobAuditingPolicy").getServerBlobAuditingPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getServerBlobAuditingPolicy","getServerBlobAuditingPolicyOutput"], () => require("./getServerBlobAuditingPolicy"));
+
+export { GetServerCommunicationLinkArgs, GetServerCommunicationLinkResult, GetServerCommunicationLinkOutputArgs } from "./getServerCommunicationLink";
+export const getServerCommunicationLink: typeof import("./getServerCommunicationLink").getServerCommunicationLink = null as any;
+export const getServerCommunicationLinkOutput: typeof import("./getServerCommunicationLink").getServerCommunicationLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getServerCommunicationLink","getServerCommunicationLinkOutput"], () => require("./getServerCommunicationLink"));
 
 export { GetServerDnsAliasArgs, GetServerDnsAliasResult, GetServerDnsAliasOutputArgs } from "./getServerDnsAlias";
 export const getServerDnsAlias: typeof import("./getServerDnsAlias").getServerDnsAlias = null as any;
@@ -555,6 +580,11 @@ export type ServerBlobAuditingPolicy = import("./serverBlobAuditingPolicy").Serv
 export const ServerBlobAuditingPolicy: typeof import("./serverBlobAuditingPolicy").ServerBlobAuditingPolicy = null as any;
 utilities.lazyLoad(exports, ["ServerBlobAuditingPolicy"], () => require("./serverBlobAuditingPolicy"));
 
+export { ServerCommunicationLinkArgs } from "./serverCommunicationLink";
+export type ServerCommunicationLink = import("./serverCommunicationLink").ServerCommunicationLink;
+export const ServerCommunicationLink: typeof import("./serverCommunicationLink").ServerCommunicationLink = null as any;
+utilities.lazyLoad(exports, ["ServerCommunicationLink"], () => require("./serverCommunicationLink"));
+
 export { ServerDnsAliasArgs } from "./serverDnsAlias";
 export type ServerDnsAlias = import("./serverDnsAlias").ServerDnsAlias;
 export const ServerDnsAlias: typeof import("./serverDnsAlias").ServerDnsAlias = null as any;
@@ -692,10 +722,14 @@ const _module = {
                 return new DatabaseSecurityAlertPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:DatabaseSqlVulnerabilityAssessmentRuleBaseline":
                 return new DatabaseSqlVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
+            case "azure-native:sql:DatabaseThreatDetectionPolicy":
+                return new DatabaseThreatDetectionPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:DatabaseVulnerabilityAssessment":
                 return new DatabaseVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure-native:sql:DatabaseVulnerabilityAssessmentRuleBaseline":
                 return new DatabaseVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
+            case "azure-native:sql:DisasterRecoveryConfiguration":
+                return new DisasterRecoveryConfiguration(name, <any>undefined, { urn })
             case "azure-native:sql:DistributedAvailabilityGroup":
                 return new DistributedAvailabilityGroup(name, <any>undefined, { urn })
             case "azure-native:sql:ElasticPool":
@@ -770,6 +804,8 @@ const _module = {
                 return new ServerAzureADOnlyAuthentication(name, <any>undefined, { urn })
             case "azure-native:sql:ServerBlobAuditingPolicy":
                 return new ServerBlobAuditingPolicy(name, <any>undefined, { urn })
+            case "azure-native:sql:ServerCommunicationLink":
+                return new ServerCommunicationLink(name, <any>undefined, { urn })
             case "azure-native:sql:ServerDnsAlias":
                 return new ServerDnsAlias(name, <any>undefined, { urn })
             case "azure-native:sql:ServerKey":

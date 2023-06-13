@@ -38,6 +38,9 @@ __all__ = [
     'ReplicationMode',
     'SampleName',
     'SecondaryType',
+    'SecurityAlertPolicyEmailAccountAdmins',
+    'SecurityAlertPolicyState',
+    'SecurityAlertPolicyUseServerDefault',
     'SecurityAlertsPolicyState',
     'SensitivityLabelRank',
     'ServerKeyType',
@@ -357,6 +360,31 @@ class SecondaryType(str, Enum):
     """
     GEO = "Geo"
     NAMED = "Named"
+
+
+class SecurityAlertPolicyEmailAccountAdmins(str, Enum):
+    """
+    Specifies that the alert is sent to the account administrators.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class SecurityAlertPolicyState(str, Enum):
+    """
+    Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+    """
+    NEW = "New"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class SecurityAlertPolicyUseServerDefault(str, Enum):
+    """
+    Specifies whether to use the default server policy.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SecurityAlertsPolicyState(str, Enum):

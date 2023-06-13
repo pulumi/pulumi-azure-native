@@ -1052,7 +1052,10 @@ Sql:
     additions:
         BackupLongTermRetentionPolicy: 2017-03-01-preview
         DatabaseSqlVulnerabilityAssessmentRuleBaseline: 2022-11-01-preview
+        DatabaseThreatDetectionPolicy: "2014-04-01"
+        DisasterRecoveryConfiguration: "2014-04-01"
         ManagedInstanceLongTermRetentionPolicy: 2022-11-01-preview
+        ServerCommunicationLink: "2014-04-01"
         SqlVulnerabilityAssessmentRuleBaseline: 2022-11-01-preview
         SqlVulnerabilityAssessmentsSetting: 2022-11-01-preview
         StartStopManagedInstanceSchedule: 2022-11-01-preview

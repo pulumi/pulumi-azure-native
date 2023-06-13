@@ -97,6 +97,8 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerCommunicationLink" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerCommunicationLink.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -365,7 +365,9 @@ MachineLearningServices:
     MachineLearningService: "2021-04-01"
     listMachineLearningComputeKeys: "2021-04-01"
     listMachineLearningComputeNodes: "2021-04-01"
+    # Renamed to listWorkspaceNotebookKeys
     listNotebookKeys: "2021-04-01"
+    # Renamed to listWorkspaceStorageAccountKeys
     listStorageAccountKeys: "2021-04-01"
   notes: |
     MachineLearningCompute renamed to Compute.
@@ -519,12 +521,11 @@ SignalRService:
 SoftwarePlan:
 Solutions:
 Sql:
-  exclusions:
-    DatabaseThreatDetectionPolicy: "2014-04-01"
-    DisasterRecoveryConfiguration: "2014-04-01"
-    ServerCommunicationLink: "2014-04-01"
   preview: exclude
-  notes: Regular stable versions containing all resources
+  notes: |
+    Regular stable versions containing all resources
+    Latest release of DatabaseThreatDetectionPolicy, DisasterRecoveryConfiguration and ServerCommunicationLink
+    is still 2014-04-01
 SqlVirtualMachine:
 StorSimple:
 Storage:
