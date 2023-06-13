@@ -17,4 +17,5 @@ runs:
         shell: bash
         run: |
           echo "${{ steps.git-status.STATUS }}"
+          git diff | head -20
           exit 1
