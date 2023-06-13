@@ -14,8 +14,10 @@ from .database_advisor import *
 from .database_blob_auditing_policy import *
 from .database_security_alert_policy import *
 from .database_sql_vulnerability_assessment_rule_baseline import *
+from .database_threat_detection_policy import *
 from .database_vulnerability_assessment import *
 from .database_vulnerability_assessment_rule_baseline import *
+from .disaster_recovery_configuration import *
 from .distributed_availability_group import *
 from .elastic_pool import *
 from .encryption_protector import *
@@ -32,8 +34,10 @@ from .get_database_advisor import *
 from .get_database_blob_auditing_policy import *
 from .get_database_security_alert_policy import *
 from .get_database_sql_vulnerability_assessment_rule_baseline import *
+from .get_database_threat_detection_policy import *
 from .get_database_vulnerability_assessment import *
 from .get_database_vulnerability_assessment_rule_baseline import *
+from .get_disaster_recovery_configuration import *
 from .get_distributed_availability_group import *
 from .get_elastic_pool import *
 from .get_encryption_protector import *
@@ -71,6 +75,7 @@ from .get_server_advisor import *
 from .get_server_azure_ad_administrator import *
 from .get_server_azure_ad_only_authentication import *
 from .get_server_blob_auditing_policy import *
+from .get_server_communication_link import *
 from .get_server_dns_alias import *
 from .get_server_key import *
 from .get_server_security_alert_policy import *
@@ -116,6 +121,7 @@ from .server_advisor import *
 from .server_azure_ad_administrator import *
 from .server_azure_ad_only_authentication import *
 from .server_blob_auditing_policy import *
+from .server_communication_link import *
 from .server_dns_alias import *
 from .server_key import *
 from .server_security_alert_policy import *
