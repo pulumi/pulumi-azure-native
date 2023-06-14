@@ -508,8 +508,13 @@ ServiceBus:
 ServiceFabric:
   expectTracking: preview
   exclusions:
+    Application: "2021-06-01"
+    ApplicationType: "2021-06-01"
+    ApplicationTypeVersion: "2021-06-01"
     Cluster: "2021-06-01"
     listClusterUpgradableVersions: "2021-06-01"
+    listListUpgradableVersionPost: "2020-12-01-preview"
+    Service: "2021-06-01"
   notes: |
     Cluster and ManagedCluster are distinct resources, but adding Cluster at 2021-06-01
     causes unmergable types for ServiceTypeHealthPolicy.

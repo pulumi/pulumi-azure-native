@@ -2003,14 +2003,13 @@
     "listTopicKeys": "2021-11-01"
   },
   "ServiceFabric": {
-    "Application": "2023-03-01-preview",
-    "ApplicationType": "2023-03-01-preview",
-    "ApplicationTypeVersion": "2023-03-01-preview",
     "ManagedCluster": "2023-03-01-preview",
+    "ManagedClusterApplication": "2023-03-01-preview",
+    "ManagedClusterApplicationType": "2023-03-01-preview",
+    "ManagedClusterApplicationTypeVersion": "2023-03-01-preview",
+    "ManagedClusterService": "2023-03-01-preview",
     "NodeType": "2023-03-01-preview",
-    "Service": "2023-03-01-preview",
-    "getmanagedAzResiliencyStatus": "2023-03-01-preview",
-    "listListUpgradableVersionPost": "2020-12-01-preview"
+    "getmanagedAzResiliencyStatus": "2023-03-01-preview"
   },
   "ServiceFabricMesh": {
     "Application": "2018-09-01-preview",

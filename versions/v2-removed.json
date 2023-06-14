@@ -573,7 +573,8 @@
     "2019-03-01",
     "2019-03-01-preview",
     "2019-06-01-preview",
-    "2019-11-01-preview"
+    "2019-11-01-preview",
+    "2021-09-01-privatepreview"
   ],
   "ServiceFabricMesh": [
     "2018-07-01-preview"
