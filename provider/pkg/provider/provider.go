@@ -829,8 +829,8 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 					}
 				}
 
-				if ok && defaultVal != nil && reflect.DeepEqual(newInputValue.V, defaultVal) {
-					log.Printf("Skipping diff for %s, property with default value %v is added", k, newInputValue)
+				if defaultVal != nil && reflect.DeepEqual(newInputValue.V, defaultVal) {
+					logging.V(9).Infof("Skipping diff for %s, property with default value %v is added", k, newInputValue)
 					continue
 				}
 			}
