@@ -633,7 +633,7 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 
 		failures = append(failures, k.validateType(ctx, &typ, value)...)
 	case []interface{}:
-		if prop.Type != "array" {
+		if prop.Type != "array" && !prop.IsStringSet {
 			return append(failures, &rpc.CheckFailure{
 				Reason: fmt.Sprintf("'%s' should be of type '%s' but got an array", ctx, prop.Type),
 			})

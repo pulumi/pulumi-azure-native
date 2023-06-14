@@ -530,10 +530,8 @@ func TestPreviewOutputs(t *testing.T) {
 		"more":  resource.MakeComputed(resource.NewStringProperty("")),
 		"tags":  resource.MakeComputed(resource.NewStringProperty("")),
 		"union": resource.MakeComputed(resource.NewStringProperty("")),
-		"untypedArray": resource.NewArrayProperty([]resource.PropertyValue{
-			resource.NewObjectProperty(resource.PropertyMap{"key1": resource.NewStringProperty("value1")}),
-			resource.NewObjectProperty(resource.PropertyMap{"key1": resource.NewStringProperty("value2")}),
-		}),
+		// If we have no type information for an array or dictionary, we can't do anything with it.
+		"untypedArray": resource.MakeComputed(resource.NewStringProperty("")),
 		"untypedDict": resource.NewObjectProperty(resource.PropertyMap{
 			"key1": resource.NewStringProperty("value1"),
 			"key2": resource.NewStringProperty("value2"),
@@ -542,7 +540,7 @@ func TestPreviewOutputs(t *testing.T) {
 	assert.Equal(t, expected, outputs)
 }
 
-func TestPreviewOutputsStringSet(t *testing.T) {
+func TestPreviewOutputsMismatch(t *testing.T) {
 	inputs := map[string]interface{}{
 		"name": "MyResource",
 		"userAssignedIdentities": []interface{}{
@@ -559,7 +557,6 @@ func TestPreviewOutputsStringSet(t *testing.T) {
 			AdditionalProperties: &AzureAPIProperty{
 				Type: "string",
 			},
-			IsStringSet: true,
 		},
 	}
 	outputs := c.PreviewOutputs(inputMap, metadata)

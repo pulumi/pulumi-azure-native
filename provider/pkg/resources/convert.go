@@ -266,10 +266,10 @@ func (k *SdkShapeConverter) SDKOutputsToSDKInputs(parameters []AzureAPIParameter
 
 // IsDefaultResponse returns true if the shape of the HTTP response matches the expected shape.
 // The following comparison rules apply:
-// - response is converted to the SDK shape of inputs (so, the structure is flattened and read-only props are removed)
-// - A boolean 'false' in the response is equivalent to a no-value in the expected map
-// - Any non-empty map or slice leads to the 'false' result (may need to revise if any API endpoints have default
-//   non-empty collections, but none are found yet)
+//   - response is converted to the SDK shape of inputs (so, the structure is flattened and read-only props are removed)
+//   - A boolean 'false' in the response is equivalent to a no-value in the expected map
+//   - Any non-empty map or slice leads to the 'false' result (may need to revise if any API endpoints have default
+//     non-empty collections, but none are found yet)
 func (k *SdkShapeConverter) IsDefaultResponse(putParameters []AzureAPIParameter, response map[string]interface{},
 	defaultBody map[string]interface{}) bool {
 	for _, param := range putParameters {
@@ -325,21 +325,52 @@ func (k *SdkShapeConverter) PreviewOutputs(inputs resource.PropertyMap,
 		}
 		key := resource.PropertyKey(name)
 		if inputValue, ok := inputs[key]; ok {
-			result[key] = k.previewOutputValue(inputValue, &p)
+			result[key] = k.previewOutputValue(&inputValue, &p)
 		} else {
-			result[key] = resource.MakeComputed(resource.NewStringProperty(""))
+			result[key] = k.previewOutputValue(&inputValue, nil)
 		}
 	}
 	return result
 }
 
-func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue,
+func (k *SdkShapeConverter) previewOutputValue(inputValue *resource.PropertyValue,
 	prop *AzureAPIProperty) resource.PropertyValue {
+	if prop == nil {
+		return resource.MakeComputed(resource.NewStringProperty(""))
+	}
+	if prop.Const != nil {
+		return resource.NewStringProperty(prop.Const.(string))
+	}
+	if inputValue == nil {
+		return resource.MakeComputed(k.makeComputedValue(prop))
+	}
+	switch prop.Type {
+	case "boolean":
+		if inputValue.IsBool() {
+			return *inputValue
+		}
+	case "integer", "number":
+		if inputValue.IsNumber() {
+			return *inputValue
+		}
+	case "string", "":
+		if inputValue.IsString() {
+			return *inputValue
+		}
+	}
 	switch {
-	case prop.Items != nil && inputValue.IsArray():
+	case prop.Type == "boolean" && inputValue.IsBool():
+		return *inputValue
+	case prop.Type == "integer" && inputValue.IsNumber():
+		return *inputValue
+	case prop.Type == "number" && inputValue.IsNumber():
+		return *inputValue
+	case prop.Type == "string" && inputValue.IsString():
+		return *inputValue
+	case (prop.Type == "array" || prop.Items != nil) && inputValue.IsArray():
 		var items []resource.PropertyValue
 		for _, item := range inputValue.ArrayValue() {
-			items = append(items, k.previewOutputValue(item, prop.Items))
+			items = append(items, k.previewOutputValue(&item, prop.Items))
 		}
 		return resource.NewArrayProperty(items)
 	case strings.HasPrefix(prop.Ref, "#/types/") && inputValue.IsObject():
@@ -347,11 +378,50 @@ func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue
 		typ, _, _ := k.GetType(typeName)
 		v := k.PreviewOutputs(inputValue.ObjectValue(), typ.Properties)
 		return resource.NewObjectProperty(v)
-	case prop.IsStringSet && inputValue.IsArray() && prop.Type == "object":
-		return resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{}))
+	case prop.AdditionalProperties != nil && inputValue.IsObject():
+		inputObject := inputValue.ObjectValue()
+		result := resource.PropertyMap{}
+		for name, value := range inputObject {
+			p := value
+			result[name] = k.previewOutputValue(&p, prop.AdditionalProperties)
+		}
+		return resource.NewObjectProperty(result)
+	case prop.Ref == TypeAny:
+		return *inputValue
+	case inputValue.IsString() || inputValue.IsNumber() || inputValue.IsBool():
+		// No explicit type but no Items, Ref or AdditionalProperties either so assume string
+		return *inputValue
 	default:
-		return inputValue
+		return resource.MakeComputed(k.makeComputedValue(prop))
 	}
+}
+
+func (k *SdkShapeConverter) makeComputedValue(prop *AzureAPIProperty) resource.PropertyValue {
+	if prop == nil {
+		return resource.NewStringProperty("")
+	}
+	if prop.Const != nil {
+		return resource.NewStringProperty(prop.Const.(string))
+	}
+	switch {
+	case prop.Type == "boolean":
+		return resource.NewBoolProperty(false)
+	case prop.Type == "integer" || prop.Type == "number":
+		return resource.NewNumberProperty(0)
+	case prop.Type == "array" || prop.Items != nil:
+		if prop != nil && prop.Items != nil {
+			return resource.NewArrayProperty([]resource.PropertyValue{})
+		}
+	case prop.Type == "object" || prop.AdditionalProperties != nil:
+		return resource.NewObjectProperty(resource.PropertyMap{})
+	case prop.Type == "object" || strings.HasPrefix(prop.Ref, "#/types/"):
+		// TODO: Expand internal type
+		return resource.NewObjectProperty(resource.NewPropertyMap(nil))
+	case prop.Ref != "":
+		return resource.NewObjectProperty(resource.NewPropertyMap(nil))
+	}
+	// Default to string
+	return resource.NewStringProperty("")
 }
 
 // ParseResourceID extracts templated values from the given resource ID based on the names of those templated
