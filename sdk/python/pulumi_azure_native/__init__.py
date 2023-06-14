@@ -11311,12 +11311,12 @@ _utilities.register(
   "mod": "servicefabric",
   "fqn": "pulumi_azure_native.servicefabric",
   "classes": {
-   "azure-native:servicefabric:Application": "Application",
-   "azure-native:servicefabric:ApplicationType": "ApplicationType",
-   "azure-native:servicefabric:ApplicationTypeVersion": "ApplicationTypeVersion",
    "azure-native:servicefabric:ManagedCluster": "ManagedCluster",
-   "azure-native:servicefabric:NodeType": "NodeType",
-   "azure-native:servicefabric:Service": "Service"
+   "azure-native:servicefabric:ManagedClusterApplication": "ManagedClusterApplication",
+   "azure-native:servicefabric:ManagedClusterApplicationType": "ManagedClusterApplicationType",
+   "azure-native:servicefabric:ManagedClusterApplicationTypeVersion": "ManagedClusterApplicationTypeVersion",
+   "azure-native:servicefabric:ManagedClusterService": "ManagedClusterService",
+   "azure-native:servicefabric:NodeType": "NodeType"
   }
  },
  {
@@ -11324,8 +11324,7 @@ _utilities.register(
   "mod": "servicefabric/v20200101preview",
   "fqn": "pulumi_azure_native.servicefabric.v20200101preview",
   "classes": {
-   "azure-native:servicefabric/v20200101preview:ManagedCluster": "ManagedCluster",
-   "azure-native:servicefabric/v20200101preview:NodeType": "NodeType"
+   "azure-native:servicefabric/v20200101preview:ManagedCluster": "ManagedCluster"
   }
  },
  {
@@ -11362,18 +11361,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "servicefabric/v20210901privatepreview",
-  "fqn": "pulumi_azure_native.servicefabric.v20210901privatepreview",
-  "classes": {
-   "azure-native:servicefabric/v20210901privatepreview:NodeType": "NodeType"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "servicefabric/v20220101",
   "fqn": "pulumi_azure_native.servicefabric.v20220101",
   "classes": {
-   "azure-native:servicefabric/v20220101:ManagedCluster": "ManagedCluster"
+   "azure-native:servicefabric/v20220101:ManagedCluster": "ManagedCluster",
+   "azure-native:servicefabric/v20220101:ManagedClusterApplication": "ManagedClusterApplication",
+   "azure-native:servicefabric/v20220101:ManagedClusterApplicationType": "ManagedClusterApplicationType",
+   "azure-native:servicefabric/v20220101:ManagedClusterApplicationTypeVersion": "ManagedClusterApplicationTypeVersion",
+   "azure-native:servicefabric/v20220101:ManagedClusterService": "ManagedClusterService",
+   "azure-native:servicefabric/v20220101:NodeType": "NodeType"
   }
  },
  {
@@ -11389,12 +11385,12 @@ _utilities.register(
   "mod": "servicefabric/v20230201preview",
   "fqn": "pulumi_azure_native.servicefabric.v20230201preview",
   "classes": {
-   "azure-native:servicefabric/v20230201preview:Application": "Application",
-   "azure-native:servicefabric/v20230201preview:ApplicationType": "ApplicationType",
-   "azure-native:servicefabric/v20230201preview:ApplicationTypeVersion": "ApplicationTypeVersion",
    "azure-native:servicefabric/v20230201preview:ManagedCluster": "ManagedCluster",
-   "azure-native:servicefabric/v20230201preview:NodeType": "NodeType",
-   "azure-native:servicefabric/v20230201preview:Service": "Service"
+   "azure-native:servicefabric/v20230201preview:ManagedClusterApplication": "ManagedClusterApplication",
+   "azure-native:servicefabric/v20230201preview:ManagedClusterApplicationType": "ManagedClusterApplicationType",
+   "azure-native:servicefabric/v20230201preview:ManagedClusterApplicationTypeVersion": "ManagedClusterApplicationTypeVersion",
+   "azure-native:servicefabric/v20230201preview:ManagedClusterService": "ManagedClusterService",
+   "azure-native:servicefabric/v20230201preview:NodeType": "NodeType"
   }
  },
  {
@@ -11402,12 +11398,12 @@ _utilities.register(
   "mod": "servicefabric/v20230301preview",
   "fqn": "pulumi_azure_native.servicefabric.v20230301preview",
   "classes": {
-   "azure-native:servicefabric/v20230301preview:Application": "Application",
-   "azure-native:servicefabric/v20230301preview:ApplicationType": "ApplicationType",
-   "azure-native:servicefabric/v20230301preview:ApplicationTypeVersion": "ApplicationTypeVersion",
    "azure-native:servicefabric/v20230301preview:ManagedCluster": "ManagedCluster",
-   "azure-native:servicefabric/v20230301preview:NodeType": "NodeType",
-   "azure-native:servicefabric/v20230301preview:Service": "Service"
+   "azure-native:servicefabric/v20230301preview:ManagedClusterApplication": "ManagedClusterApplication",
+   "azure-native:servicefabric/v20230301preview:ManagedClusterApplicationType": "ManagedClusterApplicationType",
+   "azure-native:servicefabric/v20230301preview:ManagedClusterApplicationTypeVersion": "ManagedClusterApplicationTypeVersion",
+   "azure-native:servicefabric/v20230301preview:ManagedClusterService": "ManagedClusterService",
+   "azure-native:servicefabric/v20230301preview:NodeType": "NodeType"
   }
  },
  {
