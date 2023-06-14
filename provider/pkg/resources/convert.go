@@ -347,6 +347,8 @@ func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue
 		typ, _, _ := k.GetType(typeName)
 		v := k.PreviewOutputs(inputValue.ObjectValue(), typ.Properties)
 		return resource.NewObjectProperty(v)
+	case prop.IsStringSet && inputValue.IsArray() && prop.Type == "object":
+		return resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{}))
 	default:
 		return inputValue
 	}

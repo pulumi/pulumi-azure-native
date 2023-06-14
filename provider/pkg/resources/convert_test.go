@@ -542,21 +542,50 @@ func TestPreviewOutputs(t *testing.T) {
 	assert.Equal(t, expected, outputs)
 }
 
+func TestPreviewOutputsStringSet(t *testing.T) {
+	inputs := map[string]interface{}{
+		"name": "MyResource",
+		"userAssignedIdentities": []interface{}{
+			"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name",
+		},
+	}
+	inputMap := resource.NewPropertyMapFromMap(inputs)
+	metadata := map[string]AzureAPIProperty{
+		"name": {
+			Type: "string",
+		},
+		"userAssignedIdentities": {
+			Type: "object",
+			AdditionalProperties: &AzureAPIProperty{
+				Type: "string",
+			},
+			IsStringSet: true,
+		},
+	}
+	outputs := c.PreviewOutputs(inputMap, metadata)
+	expected := resource.PropertyMap{
+		"name": resource.NewStringProperty("MyResource"),
+		// Whole object just marked as computed
+		"userAssignedIdentities": resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{})),
+	}
+	assert.Equal(t, expected, outputs)
+}
+
 func TestIsDefaultResponseTrue(t *testing.T) {
 	response := map[string]interface{}{
-		"p1": true,
-		"name": "foo",
+		"p1":             true,
+		"name":           "foo",
 		"irrelevantBool": false,
-		"untypedDict": map[string]interface{} {
-			"flag": true,
+		"untypedDict": map[string]interface{}{
+			"flag":   true,
 			"string": "bar",
 		},
 	}
 	defaultBody := map[string]interface{}{
-		"p1": true,
+		"p1":   true,
 		"name": "foo",
-		"untypedDict": map[string]interface{} {
-			"flag": true,
+		"untypedDict": map[string]interface{}{
+			"flag":   true,
 			"string": "bar",
 		},
 	}
@@ -579,14 +608,14 @@ func TestIsDefaultResponseFalse(t *testing.T) {
 	assert.False(t, actual2)
 
 	response3 := map[string]interface{}{
-		"untypedDict": map[string]interface{} {
-			"flag": true,
+		"untypedDict": map[string]interface{}{
+			"flag":   true,
 			"string": "buzz",
 		},
 	}
 	defaultBody = map[string]interface{}{
-		"untypedDict": map[string]interface{} {
-			"flag": true,
+		"untypedDict": map[string]interface{}{
+			"flag":   true,
 			"string": "bar",
 		},
 	}
