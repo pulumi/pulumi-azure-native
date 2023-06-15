@@ -1,4 +1,4 @@
-# Copyright 2021, Pulumi Corporation.  All rights reserved.
+# Copyright 2023, Pulumi Corporation.  All rights reserved.
 
 import pulumi
 from pulumi_azure_native import storage
