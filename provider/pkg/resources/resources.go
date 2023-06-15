@@ -102,6 +102,17 @@ type AzureAPIResource struct {
 	AutoLocationDisabled bool `json:"autoLocationDisabled,omitempty"`
 }
 
+func (res *AzureAPIResource) LookupProperty(key string) (AzureAPIProperty, bool) {
+	for _, param := range res.PutParameters {
+		if param.Location == "body" {
+			if prop, ok := param.Body.Properties[key]; ok {
+				return prop, true
+			}
+		}
+	}
+	return AzureAPIProperty{}, false
+}
+
 // AzureAPIExample provides a pointer to examples relevant to a resource from the Azure REST API spec.
 type AzureAPIExample struct {
 	Description string `json:"description"`

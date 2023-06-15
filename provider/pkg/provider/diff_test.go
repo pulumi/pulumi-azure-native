@@ -477,3 +477,57 @@ func TestLocationDiffingIsInsensitiveToSpacesAndCasing(t *testing.T) {
 		}
 	}
 }
+
+func TestChangesAndReplacements_AddedPropertyCausesDiff(t *testing.T) {
+	changes, replacements := calculateChangesAndReplacementsForOneAddedProperty(t, "newvalue", nil)
+	assert.Len(t, changes, 1)
+	assert.Len(t, replacements, 0)
+}
+
+func TestChangesAndReplacements_AddedPropertyWithDefaultCausesNoDiff(t *testing.T) {
+	changes, replacements := calculateChangesAndReplacementsForOneAddedProperty(t, "defaultvalue", "defaultvalue")
+	assert.Len(t, changes, 0)
+	assert.Len(t, replacements, 0)
+}
+
+func TestChangesAndReplacements_AddedPropertyWithDefaultButDifferentValueCausesDiff(t *testing.T) {
+	changes, replacements := calculateChangesAndReplacementsForOneAddedProperty(t, "newvalue", "defaultvalue")
+	assert.Len(t, changes, 1)
+	assert.Len(t, replacements, 0)
+}
+
+func calculateChangesAndReplacementsForOneAddedProperty(t *testing.T, value string, defaultValue interface{}) ([]string, []string) {
+	propertyName := "p1"
+
+	var detailedDiff map[string]*rpc.PropertyDiff = map[string]*rpc.PropertyDiff{
+		propertyName: &rpc.PropertyDiff{
+			Kind: rpc.PropertyDiff_ADD,
+		},
+	}
+
+	oldInputs := resource.PropertyMap{}
+	oldState := resource.PropertyMap{}
+
+	newInputs := resource.PropertyMap{
+		resource.PropertyKey(propertyName): {V: value},
+	}
+
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						propertyName: {
+							Type:    "string",
+							Default: defaultValue,
+						},
+					},
+				},
+			},
+		},
+	}
+
+	return calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
+}

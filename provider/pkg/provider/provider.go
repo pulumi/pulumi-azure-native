@@ -12,7 +12,6 @@ import (
 	"math"
 	"net/http"
 	"os"
-	"reflect"
 	"regexp"
 	"strings"
 	"time"
@@ -788,59 +787,9 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 
 	// Calculate the detailed diff object containing information about replacements.
 	detailedDiff := calculateDetailedDiff(&res, &k.resourceMap.Types, diff)
-	for _, diff := range detailedDiff {
-		diff.InputDiff = true
-	}
 
 	// Based on the detailed diff above, calculate the list of changes and replacements.
-	var changes, replaces []string
-	for k, v := range detailedDiff {
-		switch v.Kind {
-		case rpc.PropertyDiff_ADD_REPLACE:
-			// Special case: previously, the property input had no value but is now set to X.
-			// If the output contains this property and it's X, that's not a replacement.
-			// Workaround for https://github.com/pulumi/pulumi-azure-nextgen/issues/238
-			// TODO: remove this block before GA.
-			key := resource.PropertyKey(k)
-			_, hasOldInput := oldInputs[key]
-			newInputValue, hasNewInput := newResInputs[key]
-			outputValue, hasOutput := oldState[key]
-			if !hasOldInput && hasNewInput && hasOutput && reflect.DeepEqual(newInputValue, outputValue) {
-				v.Kind = rpc.PropertyDiff_ADD
-			} else {
-				replaces = append(replaces, k)
-			}
-		case rpc.PropertyDiff_ADD:
-			key := resource.PropertyKey(k)
-			_, hasOldInput := oldInputs[key]
-			newInputValue, hasNewInput := newResInputs[key]
-			if !hasOldInput && hasNewInput {
-				// If this is a new property that is merely being initialized with its default
-				// value, we don't need to show a noisy diff.
-
-				// Find the default value, if any.
-				var defaultVal interface{}
-				for _, param := range res.PutParameters {
-					if param.Location == "body" {
-						if prop, ok := param.Body.Properties[k]; ok {
-							defaultVal = prop.Default
-							break
-						}
-					}
-				}
-
-				if defaultVal != nil && reflect.DeepEqual(newInputValue.V, defaultVal) {
-					logging.V(9).Infof("Skipping diff for %s, property with default value %v is added", k, newInputValue)
-					continue
-				}
-			}
-		case rpc.PropertyDiff_DELETE_REPLACE, rpc.PropertyDiff_UPDATE_REPLACE:
-			replaces = append(replaces, k)
-		}
-
-		parts := strings.Split(k, ".")
-		changes = append(changes, parts[0])
-	}
+	changes, replaces := calculateChangesAndReplacements(detailedDiff, oldInputs, newResInputs, oldState, res)
 
 	// TODO: implement create-before-delete for children of randomly auto-named resources.
 	deleteBeforeReplace := len(replaces) > 0
