@@ -248,7 +248,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	isStringSet := typeSpec.Type == "object" && typeSpec.AdditionalProperties == nil && typeSpec.Ref == ""
 	forceNew := !isOutput && m.forceNew(resolvedProperty, name, isType)
 
-	propertySpec := pschema.PropertySpec{
+	schemaProperty := pschema.PropertySpec{
 		Description:          description,
 		Default:              defaultValue,
 		TypeSpec:             *typeSpec,
@@ -256,16 +256,16 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	}
 
 	if isStringSet {
-		propertySpec.Type = "array"
-		propertySpec.AdditionalProperties = nil
-		propertySpec.Items = &pschema.TypeSpec{
+		schemaProperty.Type = "array"
+		schemaProperty.AdditionalProperties = nil
+		schemaProperty.Items = &pschema.TypeSpec{
 			Type: "string",
 		}
 	}
 
-	apiProperty := resources.AzureAPIProperty{
+	metadataProperty := resources.AzureAPIProperty{
 		OneOf:                m.getOneOfValues(typeSpec),
-		Ref:                  propertySpec.Ref,
+		Ref:                  schemaProperty.Ref,
 		Items:                m.itemTypeToProperty(typeSpec.Items),
 		AdditionalProperties: m.itemTypeToProperty(typeSpec.AdditionalProperties),
 		ForceNew:             forceNew,
@@ -274,19 +274,20 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 
 	// Input types only get extra information attached
 	if !isOutput {
-		if m.isEnum(&propertySpec.TypeSpec) {
-			apiProperty = resources.AzureAPIProperty{Type: "string", ForceNew: forceNew}
+		if m.isEnum(&schemaProperty.TypeSpec) {
+			metadataProperty = resources.AzureAPIProperty{Type: "string", ForceNew: forceNew}
 		} else {
-			apiProperty.Type = typeSpec.Type
-			apiProperty.Minimum = resolvedProperty.Minimum
-			apiProperty.Maximum = resolvedProperty.Maximum
-			apiProperty.MinLength = resolvedProperty.MinLength
-			apiProperty.MaxLength = resolvedProperty.MaxLength
-			apiProperty.Pattern = resolvedProperty.Pattern
+			// Set additional properties when it's an input
+			metadataProperty.Type = typeSpec.Type
+			metadataProperty.Minimum = resolvedProperty.Minimum
+			metadataProperty.Maximum = resolvedProperty.Maximum
+			metadataProperty.MinLength = resolvedProperty.MinLength
+			metadataProperty.MaxLength = resolvedProperty.MaxLength
+			metadataProperty.Pattern = resolvedProperty.Pattern
 		}
 	}
 
-	return &propertySpec, &apiProperty, nil
+	return &schemaProperty, &metadataProperty, nil
 }
 
 func newPropertyBag() *propertyBag {
