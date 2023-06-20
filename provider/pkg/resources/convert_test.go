@@ -621,7 +621,7 @@ func TestPreviewOutputs(t *testing.T) {
 				metadata: metadata,
 			})
 			expected := resource.PropertyMap{
-				"threshold": resource.MakeComputed(resource.NewNumberProperty(0)),
+				"threshold": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})
@@ -633,7 +633,7 @@ func TestPreviewOutputs(t *testing.T) {
 				metadata: metadata,
 			})
 			expected := resource.PropertyMap{
-				"threshold": resource.MakeComputed(resource.NewNumberProperty(0)),
+				"threshold": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})
@@ -662,7 +662,7 @@ func TestPreviewOutputs(t *testing.T) {
 				metadata: metadata,
 			})
 			expected := resource.PropertyMap{
-				"enabled": resource.MakeComputed(resource.NewBoolProperty(false)),
+				"enabled": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})
@@ -674,7 +674,7 @@ func TestPreviewOutputs(t *testing.T) {
 				metadata: metadata,
 			})
 			expected := resource.PropertyMap{
-				"enabled": resource.MakeComputed(resource.NewBoolProperty(false)),
+				"enabled": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})
@@ -784,7 +784,7 @@ func TestPreviewOutputs(t *testing.T) {
 				metadata: metadata,
 			})
 			expected := resource.PropertyMap{
-				"array": resource.MakeComputed(resource.NewArrayProperty([]resource.PropertyValue{})),
+				"array": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})
@@ -796,7 +796,7 @@ func TestPreviewOutputs(t *testing.T) {
 				metadata: metadata,
 			})
 			expected := resource.PropertyMap{
-				"array": resource.MakeComputed(resource.NewArrayProperty([]resource.PropertyValue{})),
+				"array": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})
@@ -851,7 +851,7 @@ func TestPreviewOutputs(t *testing.T) {
 				metadata: metadata,
 			})
 			expected := resource.PropertyMap{
-				"object": resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{})),
+				"object": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})
@@ -863,7 +863,7 @@ func TestPreviewOutputs(t *testing.T) {
 				metadata: metadata,
 			})
 			expected := resource.PropertyMap{
-				"object": resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{})),
+				"object": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})
@@ -925,7 +925,7 @@ func TestPreviewOutputs(t *testing.T) {
 				types:    types,
 			})
 			expected := resource.PropertyMap{
-				"complex": resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{})),
+				"complex": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})
@@ -938,7 +938,7 @@ func TestPreviewOutputs(t *testing.T) {
 				types:    types,
 			})
 			expected := resource.PropertyMap{
-				"complex": resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{})),
+				"complex": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})
@@ -981,7 +981,7 @@ func TestPreviewOutputs(t *testing.T) {
 			})
 			expected := resource.PropertyMap{
 				// Whole object just marked as computed
-				"userAssignedIdentities": resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{})),
+				"userAssignedIdentities": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})
@@ -991,7 +991,7 @@ func TestPreviewOutputs(t *testing.T) {
 			})
 			expected := resource.PropertyMap{
 				// Whole object just marked as computed
-				"userAssignedIdentities": resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{})),
+				"userAssignedIdentities": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})
@@ -1006,7 +1006,7 @@ func TestPreviewOutputs(t *testing.T) {
 			})
 			expected := resource.PropertyMap{
 				// Whole object just marked as computed
-				"userAssignedIdentities": resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{})),
+				"userAssignedIdentities": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})
@@ -1022,7 +1022,7 @@ func TestPreviewOutputs(t *testing.T) {
 			})
 			expected := resource.PropertyMap{
 				// Whole object just marked as computed
-				"userAssignedIdentities": resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{})),
+				"userAssignedIdentities": resource.MakeComputed(resource.NewStringProperty("")),
 			}
 			assert.Equal(t, expected, actual)
 		})

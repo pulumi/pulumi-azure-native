@@ -402,6 +402,7 @@ func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue
 		// 		return resource.NewObjectProperty(v)
 		// 	}
 		// }
+
 		// Fallback to legacy behaviour - assuming the input is same as output
 		return inputValue
 
@@ -419,30 +420,11 @@ func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue
 }
 
 func (k *SdkShapeConverter) makeComputedValue(prop *AzureAPIProperty) resource.PropertyValue {
-	if prop == nil {
-		return resource.NewStringProperty("")
-	}
-	if prop.Const != nil {
+	if prop != nil && prop.Const != nil {
 		return resource.NewStringProperty(prop.Const.(string))
 	}
-	switch {
-	case prop.Type == "boolean":
-		return resource.NewBoolProperty(false)
-	case prop.Type == "integer" || prop.Type == "number":
-		return resource.NewNumberProperty(0)
-	case prop.Type == "array" || prop.Items != nil:
-		if prop != nil && prop.Items != nil {
-			return resource.NewArrayProperty([]resource.PropertyValue{})
-		}
-	case prop.Type == "object" || prop.AdditionalProperties != nil:
-		return resource.NewObjectProperty(resource.PropertyMap{})
-	case prop.Type == "object" || strings.HasPrefix(prop.Ref, "#/types/"):
-		// TODO: Expand internal type
-		return resource.NewObjectProperty(resource.NewPropertyMap(nil))
-	case prop.Ref != "":
-		return resource.NewObjectProperty(resource.NewPropertyMap(nil))
-	}
-	// Default to string
+	// To mark something as computed, we always use a string property with an
+	// empty string, regardless of the type.
 	return resource.NewStringProperty("")
 }
 
