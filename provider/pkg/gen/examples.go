@@ -185,6 +185,8 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 			}
 		}
 
+		// Reset in case an example overwrote this path.
+		importRenderData.SampleResID = resource.Path
 		err = renderImportToSchema(pkgSpec, pulumiToken, &importRenderData)
 		if err != nil {
 			return err
