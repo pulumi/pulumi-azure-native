@@ -327,7 +327,8 @@ func (k *SdkShapeConverter) PreviewOutputs(inputs resource.PropertyMap,
 		if inputValue, ok := inputs[key]; ok {
 			result[key] = k.previewOutputValue(inputValue, &p)
 		} else {
-			result[key] = resource.MakeComputed(k.makeComputedValue(&p))
+			placeholderValue := resource.MakeComputed(resource.NewStringProperty(""))
+			result[key] = k.previewOutputValue(placeholderValue, &p)
 		}
 	}
 	return result
@@ -339,7 +340,9 @@ func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue
 		return resource.MakeComputed(resource.NewStringProperty(""))
 	}
 	if prop.Const != nil {
-		return resource.NewStringProperty(prop.Const.(string))
+		if asString, ok := prop.Const.(string); ok {
+			return resource.NewStringProperty(asString)
+		}
 	}
 	switch prop.Type {
 	case "boolean":
@@ -350,7 +353,7 @@ func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue
 		if inputValue.IsNumber() {
 			return inputValue
 		}
-	case "string", "":
+	case "string":
 		if inputValue.IsString() {
 			return inputValue
 		}
@@ -370,11 +373,13 @@ func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue
 			items = append(items, k.previewOutputValue(item, prop.Items))
 		}
 		return resource.NewArrayProperty(items)
+
 	case strings.HasPrefix(prop.Ref, "#/types/") && inputValue.IsObject():
 		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
 		typ, _, _ := k.GetType(typeName)
 		v := k.PreviewOutputs(inputValue.ObjectValue(), typ.Properties)
 		return resource.NewObjectProperty(v)
+
 	case prop.AdditionalProperties != nil && inputValue.IsObject():
 		inputObject := inputValue.ObjectValue()
 		result := resource.PropertyMap{}
@@ -383,14 +388,34 @@ func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue
 			result[name] = k.previewOutputValue(p, prop.AdditionalProperties)
 		}
 		return resource.NewObjectProperty(result)
+
+	case prop.OneOf != nil && inputValue.IsObject():
+		// TODO: It would be nice to do something smart here and pick the right oneOf branch based on the input.
+		// The challenge is differentiating between a mis-match and valid unknowns in the input.
+		// inputObject := inputValue.ObjectValue()
+		// for _, oneOf := range prop.OneOf {
+		// 	typeName := strings.TrimPrefix(oneOf, "#/types/")
+		// 	typ, _, _ := k.GetType(typeName)
+		// 	v := k.PreviewOutputs(inputObject, typ.Properties)
+		// 	v.Mappable()
+		// 	if !v.ContainsUnknowns() {
+		// 		return resource.NewObjectProperty(v)
+		// 	}
+		// }
+		// Fallback to legacy behaviour - assuming the input is same as output
+		return inputValue
+
 	case prop.Ref == TypeAny:
 		return inputValue
-	case inputValue.IsString() || inputValue.IsNumber() || inputValue.IsBool():
-		// No explicit type but no Items, Ref or AdditionalProperties either so assume string
-		return inputValue
-	default:
-		return resource.MakeComputed(k.makeComputedValue(prop))
+
+	case prop.Type == "" && prop.Items == nil && prop.AdditionalProperties == nil && prop.OneOf == nil && prop.Ref == "":
+		// Untyped property
+		if inputValue.IsString() || inputValue.IsNumber() || inputValue.IsBool() {
+			// Assume simple types with no type information remain unchanged
+			return inputValue
+		}
 	}
+	return resource.MakeComputed(k.makeComputedValue(prop))
 }
 
 func (k *SdkShapeConverter) makeComputedValue(prop *AzureAPIProperty) resource.PropertyValue {
