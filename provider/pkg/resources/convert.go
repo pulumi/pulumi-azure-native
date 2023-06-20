@@ -325,15 +325,15 @@ func (k *SdkShapeConverter) PreviewOutputs(inputs resource.PropertyMap,
 		}
 		key := resource.PropertyKey(name)
 		if inputValue, ok := inputs[key]; ok {
-			result[key] = k.previewOutputValue(&inputValue, &p)
+			result[key] = k.previewOutputValue(inputValue, &p)
 		} else {
-			result[key] = k.previewOutputValue(&inputValue, nil)
+			result[key] = resource.MakeComputed(k.makeComputedValue(&p))
 		}
 	}
 	return result
 }
 
-func (k *SdkShapeConverter) previewOutputValue(inputValue *resource.PropertyValue,
+func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue,
 	prop *AzureAPIProperty) resource.PropertyValue {
 	if prop == nil {
 		return resource.MakeComputed(resource.NewStringProperty(""))
@@ -341,36 +341,33 @@ func (k *SdkShapeConverter) previewOutputValue(inputValue *resource.PropertyValu
 	if prop.Const != nil {
 		return resource.NewStringProperty(prop.Const.(string))
 	}
-	if inputValue == nil {
-		return resource.MakeComputed(k.makeComputedValue(prop))
-	}
 	switch prop.Type {
 	case "boolean":
 		if inputValue.IsBool() {
-			return *inputValue
+			return inputValue
 		}
 	case "integer", "number":
 		if inputValue.IsNumber() {
-			return *inputValue
+			return inputValue
 		}
 	case "string", "":
 		if inputValue.IsString() {
-			return *inputValue
+			return inputValue
 		}
 	}
 	switch {
 	case prop.Type == "boolean" && inputValue.IsBool():
-		return *inputValue
+		return inputValue
 	case prop.Type == "integer" && inputValue.IsNumber():
-		return *inputValue
+		return inputValue
 	case prop.Type == "number" && inputValue.IsNumber():
-		return *inputValue
+		return inputValue
 	case prop.Type == "string" && inputValue.IsString():
-		return *inputValue
+		return inputValue
 	case (prop.Type == "array" || prop.Items != nil) && inputValue.IsArray():
 		var items []resource.PropertyValue
 		for _, item := range inputValue.ArrayValue() {
-			items = append(items, k.previewOutputValue(&item, prop.Items))
+			items = append(items, k.previewOutputValue(item, prop.Items))
 		}
 		return resource.NewArrayProperty(items)
 	case strings.HasPrefix(prop.Ref, "#/types/") && inputValue.IsObject():
@@ -383,14 +380,14 @@ func (k *SdkShapeConverter) previewOutputValue(inputValue *resource.PropertyValu
 		result := resource.PropertyMap{}
 		for name, value := range inputObject {
 			p := value
-			result[name] = k.previewOutputValue(&p, prop.AdditionalProperties)
+			result[name] = k.previewOutputValue(p, prop.AdditionalProperties)
 		}
 		return resource.NewObjectProperty(result)
 	case prop.Ref == TypeAny:
-		return *inputValue
+		return inputValue
 	case inputValue.IsString() || inputValue.IsNumber() || inputValue.IsBool():
 		// No explicit type but no Items, Ref or AdditionalProperties either so assume string
-		return *inputValue
+		return inputValue
 	default:
 		return resource.MakeComputed(k.makeComputedValue(prop))
 	}
