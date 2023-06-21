@@ -55,7 +55,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		return nil, err
 	}
 
-	providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.V2Lock, versionSources.v1Lock, nil, versionSources.V2Removed)
+	providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.V2Lock, versionSources.v1Lock, nil, versionMetadata.V2Removed)
 
 	pathChanges := findPathChanges(providers, versionMetadata.V2Lock, versionSources.v1Lock, versionSources.v2Config)
 	printPathChanges(pathChanges)
@@ -73,7 +73,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 
 	// Some resources are added manually during generation which won't therefore be
 	// matched during the first removal, and we want to exclude these too.
-	dropFromSchema(pkgSpec, versionSources.v2ResourcesToRemove)
+	dropFromSchema(pkgSpec, versionSources.v2ResourcesToRemove, versionMetadata.V2RemovedInvokes)
 
 	if len(args.ExampleLanguages) > 0 {
 		// Ensure the spec is stamped with a version - Go gen needs it.
@@ -176,13 +176,20 @@ func printPathChanges(changes []pathChange) {
 }
 
 // Caution: pkgSpec is modified in place
-func dropFromSchema(pkgSpec *schema.PackageSpec, toRemove ResourceRemovals) {
-	removed := 0
-	for token := range toRemove {
+func dropFromSchema(pkgSpec *schema.PackageSpec, resourcesToRemove, invokesToRemove ResourceRemovals) {
+	removedResources := 0
+	for token := range resourcesToRemove {
 		if _, ok := pkgSpec.Resources[token]; ok {
 			delete(pkgSpec.Resources, token)
-			removed++
+			removedResources++
 		}
 	}
-	log.Printf("Removed %d out of %d resources from schema\n", removed, len(toRemove))
+	removedInvokes := 0
+	for token := range invokesToRemove {
+		if _, ok := pkgSpec.Functions[token]; ok {
+			delete(pkgSpec.Functions, token)
+			removedResources++
+		}
+	}
+	log.Printf("Removed %d out of %d resources and %d out of %d invokes from schema\n", removedResources, len(resourcesToRemove), removedInvokes, len(invokesToRemove))
 }

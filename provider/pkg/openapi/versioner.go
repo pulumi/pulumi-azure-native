@@ -7,6 +7,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"regexp"
 	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
@@ -76,6 +77,22 @@ func calculatePathVersions(versionMap ProviderVersions) map[string]codegen.Strin
 
 func ApiToSdkVersion(apiVersion ApiVersion) SdkVersion {
 	return "v" + strings.ReplaceAll(apiVersion, "-", "")
+}
+
+func SdkToApiVersion(sdkVersion string) (string, error) {
+	matcher := regexp.MustCompile(`^v(\d{4})(\d{2})(\d{2})(\w*)$`)
+	matches := matcher.FindStringSubmatch(sdkVersion)
+	if len(matches) < 5 {
+		return "", fmt.Errorf("invalid SDK version %q", sdkVersion)
+	}
+	year := matches[1]
+	month := matches[2]
+	day := matches[3]
+	suffix := matches[4]
+	if suffix != "" {
+		suffix = "-" + suffix
+	}
+	return fmt.Sprintf("%s-%s-%s%s", year, month, day, suffix), nil
 }
 
 // RemovableResources represents removable resources mapped to the resource that can replace them since the two are

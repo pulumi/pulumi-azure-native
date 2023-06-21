@@ -48,7 +48,22 @@ type VersionResources struct {
 	Invokes   map[InvokeName]*ResourceSpec
 }
 
-type ProviderVersionList = map[ProviderName][]ApiVersion
+type ProviderVersionList map[ProviderName][]ApiVersion
+
+func (a ProviderVersionList) Merge(b ProviderVersionList) ProviderVersionList {
+	merged := ProviderVersionList{}
+	for k, va := range a {
+		merged[k] = va
+	}
+	for k, vb := range b {
+		if va, ok := merged[k]; ok {
+			merged[k] = append(va, vb...)
+		} else {
+			merged[k] = vb
+		}
+	}
+	return merged
+}
 
 // DefaultVersionLock is an amalgamation of multiple API versions
 type DefaultVersionLock = map[ProviderName]map[DefinitionName]ApiVersion

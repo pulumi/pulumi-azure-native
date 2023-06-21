@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 	"path"
 	"path/filepath"
@@ -24,6 +25,7 @@ type VersionMetadata struct {
 	V2Spec                        Spec
 	V2Lock                        openapi.DefaultVersionLock
 	V2RemovedInvokes              ResourceRemovals
+	V2Removed                     openapi.ProviderVersionList
 }
 
 func GenerateVersionMetadata(rootDir string, providers openapi.AzureProviders) (VersionMetadata, error) {
@@ -60,7 +62,8 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 	// provider->resource->[]version
 	allResourceVersionsByResource := FormatResourceVersions(allResourcesByVersion)
 
-	removedInvokes := ResourceRemovals(findRemovedInvokesFromResources(providers, openapi.RemovableResources(versionSources.v2ResourcesToRemove)))
+	removedInvokes, removedProviderVersions := findRemovedInvokesFromResources(providers, openapi.RemovableResources(versionSources.v2ResourcesToRemove))
+	v2Removed := versionSources.V2Removed.Merge(removedProviderVersions)
 
 	return VersionMetadata{
 		AllResourcesByVersion:         allResourcesByVersion,
@@ -69,7 +72,8 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 		Pending:                       FindNewerVersions(allResourcesByVersion, v2Lock),
 		V2Spec:                        v2Spec,
 		V2Lock:                        v2Lock,
-		V2RemovedInvokes:              removedInvokes,
+		V2RemovedInvokes:              ResourceRemovals(removedInvokes),
+		V2Removed:                     v2Removed,
 	}, nil
 }
 
@@ -82,6 +86,7 @@ func (v VersionMetadata) WriteTo(outputDir string) error {
 		"v2-spec.yaml":                       v.V2Spec,
 		"v2-lock.json":                       v.V2Lock,
 		"v2-removed-invokes.yaml":            v.V2RemovedInvokes,
+		"v2-removed.json":                    v.V2Removed,
 	})
 }
 
@@ -201,16 +206,27 @@ func ReadRequiredExplicitResources(path string) ([]string, error) {
 	return lines, nil
 }
 
-func findRemovedInvokesFromResources(providers openapi.AzureProviders, removedResources openapi.RemovableResources) openapi.RemovableResources {
+func findRemovedInvokesFromResources(providers openapi.AzureProviders, removedResources openapi.RemovableResources) (openapi.RemovableResources, openapi.ProviderVersionList) {
 	removableInvokes := openapi.RemovableResources{}
+	removableProviderVersions := openapi.ProviderVersionList{}
 	for provider, versions := range providers {
+		removableVersions := []string{}
 		for version, resources := range versions {
 			removedResourcePaths := []string{}
 			for resourceName, resource := range resources.Resources {
 				if removedResources.CanBeRemoved(provider, resourceName, version) {
 					removedResourcePaths = append(removedResourcePaths, paths.NormalizePath(resource.Path))
+				}
+			}
+			// If we're removed all resources, remove the whole provider version.
+			if len(removedResourcePaths) == len(resources.Resources) {
+				apiVersion, err := openapi.SdkToApiVersion(version)
+				if err != nil {
+					log.Printf("Could not convert SDK version %s to API version: %v", version, err)
 					continue
 				}
+				removableVersions = append(removableVersions, apiVersion)
+				continue
 			}
 			for invokeName, invoke := range resources.Invokes {
 				fullyQualifiedName := openapi.ToFullyQualifiedName(provider, invokeName, version)
@@ -234,6 +250,9 @@ func findRemovedInvokesFromResources(providers openapi.AzureProviders, removedRe
 				}
 			}
 		}
+		if len(removableVersions) > 0 {
+			removableProviderVersions[provider] = removableVersions
+		}
 	}
-	return removableInvokes
+	return removableInvokes, removableProviderVersions
 }

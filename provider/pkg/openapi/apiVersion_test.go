@@ -25,6 +25,29 @@ func TestApiVersionToDate(t *testing.T) {
 	})
 }
 
+func TestSdkToApiVersion(t *testing.T) {
+	t.Run("simple", func(t *testing.T) {
+		sdkVersion := "v20200102"
+		apiVersion, err := SdkToApiVersion(sdkVersion)
+		assert.NoError(t, err)
+		assert.Equal(t, "2020-01-02", apiVersion)
+	})
+
+	t.Run("preview", func(t *testing.T) {
+		sdkVersion := "v20201101preview"
+		apiVersion, err := SdkToApiVersion(sdkVersion)
+		assert.NoError(t, err)
+		assert.Equal(t, "2020-11-01-preview", apiVersion)
+	})
+
+	t.Run("private preview", func(t *testing.T) {
+		sdkVersion := "v20201101privatepreview"
+		apiVersion, err := SdkToApiVersion(sdkVersion)
+		assert.NoError(t, err)
+		assert.Equal(t, "2020-11-01-privatepreview", apiVersion)
+	})
+}
+
 func TestSortApiVersions(t *testing.T) {
 	t.Run("already ordered", func(t *testing.T) {
 		versions := []ApiVersion{"2020-01-01", "2021-02-02"}
