@@ -20,6 +20,15 @@ func TestAccSimplePython(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccLoadBalancer(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "py-loadbalancer"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccUserAssignedIdentityPython(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{

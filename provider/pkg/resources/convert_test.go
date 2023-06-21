@@ -22,6 +22,9 @@ var resourceMap = &AzureAPIMetadata{
 					SdkName:    "v4",
 					Containers: []string{"props"},
 				},
+				"v5": {
+					Ref: "#/types/azure-native:testing:SubResource",
+				},
 			},
 		},
 		"azure-native:testing:StructureResponse": {
@@ -80,6 +83,13 @@ var resourceMap = &AzureAPIMetadata{
 				},
 				"b": {
 					Containers: []string{"bb"},
+				},
+			},
+		},
+		"azure-native:testing:SubResource": {
+			Properties: map[string]AzureAPIProperty{
+				"id": {
+					Type: "string",
 				},
 			},
 		},
@@ -271,7 +281,7 @@ func TestResponseToSdkOutputs(t *testing.T) {
 
 func TestSdkPropertiesToRequestBody(t *testing.T) {
 	bodyProperties := resourceMap.Resources["r1"].PutParameters[0].Body.Properties
-	data := c.SdkPropertiesToRequestBody(bodyProperties, sampleSdkProps)
+	data := c.SdkPropertiesToRequestBody(bodyProperties, sampleSdkProps, "/sub/123/rg/my/virtualNetwork/abc")
 	assert.Equal(t, sampleAPIPackage, data)
 }
 
@@ -291,7 +301,7 @@ func TestSdkPropertiesToRequestBodyEmptyCollections(t *testing.T) {
 		},
 	}
 	bodyProperties := resourceMap.Resources["r1"].PutParameters[0].Body.Properties
-	actualBody := c.SdkPropertiesToRequestBody(bodyProperties, emptyCollectionData)
+	actualBody := c.SdkPropertiesToRequestBody(bodyProperties, emptyCollectionData, "")
 	assert.Equal(t, expectedBody, actualBody)
 }
 
@@ -311,7 +321,27 @@ func TestSdkPropertiesToRequestBodyNilCollections(t *testing.T) {
 		},
 	}
 	bodyProperties := resourceMap.Resources["r1"].PutParameters[0].Body.Properties
-	actualBody := c.SdkPropertiesToRequestBody(bodyProperties, nilCollectionData)
+	actualBody := c.SdkPropertiesToRequestBody(bodyProperties, nilCollectionData, "")
+	assert.Equal(t, expectedBody, actualBody)
+}
+
+func TestSdkPropertiesToRequestBodySubResource(t *testing.T) {
+	var sdkData = map[string]interface{}{
+		"structure": map[string]interface{}{
+			"v5": map[string]interface{}{
+				"id": "$self/relative/id/123",
+			},
+		},
+	}
+	var expectedBody = map[string]interface{}{
+		"structure": map[string]interface{}{
+			"v5": map[string]interface{}{
+				"id": "/sub/456/rg/my/network/abc/relative/id/123",
+			},
+		},
+	}
+	bodyProperties := resourceMap.Resources["r1"].PutParameters[0].Body.Properties
+	actualBody := c.SdkPropertiesToRequestBody(bodyProperties, sdkData, "/sub/456/rg/my/network/abc")
 	assert.Equal(t, expectedBody, actualBody)
 }
 

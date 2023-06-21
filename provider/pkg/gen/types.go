@@ -88,6 +88,17 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 				return nil, nil
 			}
 
+			// Describe special syntax for relative self-references of sub-resources.
+			if strings.HasSuffix(tok, ":SubResource") {
+				if prop, ok := props.specs["id"]; ok {
+					prop.Description = `Sub-resource ID. Both absolute resource ID and a relative resource ID are accepted.
+An absolute ID starts with /subscriptions/ and contains the entire ID of the parent resource and the ID of the sub-resource in the end.
+A relative ID replaces the ID of the parent resource with a token '$self', followed by the sub-resource ID itself.
+Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
+					props.specs["id"] = prop
+				}
+			}
+
 			// https://github.com/Azure/azure-rest-api-specs/issues/21431
 			// incompatible type "azure-native:network:SubResource" for resource "DnsForwardingRuleset" ("azure-native:network:DnsForwardingRuleset"): required properties do not match: only required in A: id
 			if tok == "azure-native:network/v20220701:SubResource" || tok == "azure-native:network:SubResource" {

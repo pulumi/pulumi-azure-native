@@ -24,6 +24,8 @@ GOEXE ?= $(shell go env GOEXE)
 LOCAL_PROVIDER_FILENAME := $(PROVIDER)$(GOEXE)
 LOCAL_ARM2PULUMI_FILENAME := arm2pulumi$(GOEXE)
 export GOWORK := off
+# Only use explicitly installed plugins - this is to avoid using any ambient plugins from the PATH
+export PULUMI_IGNORE_AMBIENT_PLUGINS = true
 
 ifeq ($(CI)$(PROVIDER_VERSION),true)
 $(error PROVIDER_VERSION must be set in CI environments)
