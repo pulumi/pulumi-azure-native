@@ -11,6 +11,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/providerlist"
 	"gopkg.in/yaml.v3"
 )
@@ -22,6 +23,7 @@ type VersionMetadata struct {
 	Pending                       openapi.ProviderVersionList
 	V2Spec                        Spec
 	V2Lock                        openapi.DefaultVersionLock
+	V2RemovedInvokes              ResourceRemovals
 }
 
 func GenerateVersionMetadata(rootDir string, providers openapi.AzureProviders) (VersionMetadata, error) {
@@ -58,6 +60,8 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 	// provider->resource->[]version
 	allResourceVersionsByResource := FormatResourceVersions(allResourcesByVersion)
 
+	removedInvokes := ResourceRemovals(findRemovedInvokesFromResources(providers, openapi.RemovableResources(versionSources.v2ResourcesToRemove)))
+
 	return VersionMetadata{
 		AllResourcesByVersion:         allResourcesByVersion,
 		AllResourceVersionsByResource: allResourceVersionsByResource,
@@ -65,6 +69,7 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 		Pending:                       FindNewerVersions(allResourcesByVersion, v2Lock),
 		V2Spec:                        v2Spec,
 		V2Lock:                        v2Lock,
+		V2RemovedInvokes:              removedInvokes,
 	}, nil
 }
 
@@ -76,6 +81,7 @@ func (v VersionMetadata) WriteTo(outputDir string) error {
 		"pending.json":                       v.Pending,
 		"v2-spec.yaml":                       v.V2Spec,
 		"v2-lock.json":                       v.V2Lock,
+		"v2-removed-invokes.yaml":            v.V2RemovedInvokes,
 	})
 }
 
@@ -193,4 +199,41 @@ func ReadRequiredExplicitResources(path string) ([]string, error) {
 	// Split on new line
 	lines := strings.Split(string(bytes), "\r")
 	return lines, nil
+}
+
+func findRemovedInvokesFromResources(providers openapi.AzureProviders, removedResources openapi.RemovableResources) openapi.RemovableResources {
+	removableInvokes := openapi.RemovableResources{}
+	for provider, versions := range providers {
+		for version, resources := range versions {
+			removedResourcePaths := []string{}
+			for resourceName, resource := range resources.Resources {
+				if removedResources.CanBeRemoved(provider, resourceName, version) {
+					removedResourcePaths = append(removedResourcePaths, paths.NormalizePath(resource.Path))
+					continue
+				}
+			}
+			for invokeName, invoke := range resources.Invokes {
+				fullyQualifiedName := openapi.ToFullyQualifiedName(provider, invokeName, version)
+				// Check if the "resource" removal is actually an invoke.
+				if removedResources.CanBeRemoved(provider, invokeName, version) {
+					removableInvokes[fullyQualifiedName] = ""
+					continue
+				}
+				invokePath := paths.NormalizePath(invoke.Path)
+				// Try to match on the path - if the invoke sits below a.
+				found := false
+				for _, resourcePath := range removedResourcePaths {
+					if strings.HasPrefix(invokePath, resourcePath) {
+						found = true
+						break
+					}
+				}
+				if found {
+					removableInvokes[fullyQualifiedName] = ""
+					continue
+				}
+			}
+		}
+	}
+	return removableInvokes
 }
