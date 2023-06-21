@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"path"
 	"path/filepath"
@@ -88,7 +87,6 @@ type VersionSources struct {
 	v2Spec                    Spec
 	v2Config                  Curations
 	v2ConfigPath              string
-	v1Squeeze                 ResourceRemovals
 	v2ResourcesToRemove       ResourceRemovals
 }
 
@@ -125,16 +123,6 @@ func ReadVersionSources(rootDir string) (VersionSources, error) {
 		return VersionSources{}, err
 	}
 
-	v1SqueezePath := path.Join(rootDir, "versions", "v1-squeeze.json")
-	// TODO tkappler We read all version files for all schema versions, so for v1 there's no
-	// squeeze file and v1 is required to generate the v2 squeeze file.
-	v1Squeeze, err := ReadResourceRemovals(v1SqueezePath)
-	if err != nil {
-		log.Printf("Could not read v1-squeeze: %v, proceeding without", err)
-	} else {
-		log.Printf("Read %d squeeze entries from %s", len(v1Squeeze), v1SqueezePath)
-	}
-
 	v2ResourcesToRemovePath := path.Join(rootDir, "versions", "v2-removed-resources.yaml")
 	v2ResourcesToRemove, err := ReadResourceRemovals(v2ResourcesToRemovePath)
 	if err != nil {
@@ -149,7 +137,6 @@ func ReadVersionSources(rootDir string) (VersionSources, error) {
 		v2Spec:                    v2Spec,
 		v2Config:                  v2Config,
 		v2ConfigPath:              v2ConfigPath,
-		v1Squeeze:                 v1Squeeze,
 		v2ResourcesToRemove:       v2ResourcesToRemove,
 	}, nil
 }
