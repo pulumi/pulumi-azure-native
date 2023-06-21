@@ -26,7 +26,6 @@ type BuildSchemaArgs struct {
 	RootDir                 string
 	ExcludeExplicitVersions bool
 	ExampleLanguages        []string
-	Version2                bool
 	Version                 string
 }
 
@@ -56,12 +55,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		return nil, err
 	}
 
-	var removed openapi.ProviderVersionList
-	if args.Version2 {
-		removed, err = openapi.ReadProviderVersionList(path.Join(args.RootDir, "versions", "v2-removed.json"))
-	} else {
-		removed, err = openapi.ReadProviderVersionList(path.Join(args.RootDir, "versions", "v1-removed.json"))
-	}
+	removed, err := openapi.ReadProviderVersionList(path.Join(args.RootDir, "versions", "v2-removed.json"))
 	if err != nil {
 		return nil, err
 	}
