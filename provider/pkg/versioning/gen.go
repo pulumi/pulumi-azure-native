@@ -40,7 +40,7 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 	// provider->version->[]resource
 	allResourcesByVersion := FindAllResources(providers)
 
-	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(allResourcesByVersion, versionSources.v1Deprecations)
+	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(allResourcesByVersion, versionSources.V2Removed)
 
 	v2Spec := versionSources.v2Spec
 
@@ -83,7 +83,7 @@ type VersionSources struct {
 	activePathVersions        providerlist.ProviderPathVersions
 	requiredExplicitResources []string
 	v1Lock                    openapi.DefaultVersionLock
-	v1Deprecations            openapi.ProviderVersionList
+	V2Removed                 openapi.ProviderVersionList
 	v2Spec                    Spec
 	v2Config                  Curations
 	v2ConfigPath              string
@@ -107,7 +107,7 @@ func ReadVersionSources(rootDir string) (VersionSources, error) {
 		return VersionSources{}, err
 	}
 
-	v1Deprecations, err := ReadDeprecations(path.Join(rootDir, "versions", "v1-deprecated.json"))
+	v2Removed, err := ReadDeprecations(path.Join(rootDir, "versions", "v2-removed.json"))
 	if err != nil {
 		return VersionSources{}, err
 	}
@@ -133,7 +133,7 @@ func ReadVersionSources(rootDir string) (VersionSources, error) {
 		activePathVersions:        activePathVersions,
 		requiredExplicitResources: knownExplicitResources,
 		v1Lock:                    v1Lock,
-		v1Deprecations:            v1Deprecations,
+		V2Removed:                 v2Removed,
 		v2Spec:                    v2Spec,
 		v2Config:                  v2Config,
 		v2ConfigPath:              v2ConfigPath,

@@ -55,12 +55,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		return nil, err
 	}
 
-	removed, err := openapi.ReadProviderVersionList(path.Join(args.RootDir, "versions", "v2-removed.json"))
-	if err != nil {
-		return nil, err
-	}
-
-	providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.V2Lock, versionSources.v1Lock, nil, removed)
+	providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.V2Lock, versionSources.v1Lock, nil, versionSources.V2Removed)
 
 	pathChanges := findPathChanges(providers, versionMetadata.V2Lock, versionSources.v1Lock, versionSources.v2Config)
 	printPathChanges(pathChanges)
