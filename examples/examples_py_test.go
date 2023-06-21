@@ -1,4 +1,5 @@
 // Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
+//go:build python || all
 // +build python all
 
 package examples
@@ -14,6 +15,15 @@ func TestAccSimplePython(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "py-simple"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccUserAssignedIdentityPython(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "py-user-assigned-identity"),
 		})
 
 	integration.ProgramTest(t, &test)

@@ -246,50 +246,48 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	// If there's no object value type, then it's just a set of strings which we'll represent as a string
 	// array in the SDK, but leave the metadata to indicate we need to convert it.
 	isStringSet := typeSpec.Type == "object" && typeSpec.AdditionalProperties == nil && typeSpec.Ref == ""
+	forceNew := !isOutput && m.forceNew(resolvedProperty, name, isType)
+
+	schemaProperty := pschema.PropertySpec{
+		Description:          description,
+		Default:              defaultValue,
+		TypeSpec:             *typeSpec,
+		WillReplaceOnChanges: forceNew,
+	}
+
 	if isStringSet {
-		typeSpec.Type = "array"
-		typeSpec.AdditionalProperties = nil
-		typeSpec.Items = &pschema.TypeSpec{
+		schemaProperty.Type = "array"
+		schemaProperty.AdditionalProperties = nil
+		schemaProperty.Items = &pschema.TypeSpec{
 			Type: "string",
 		}
 	}
 
-	propertySpec := pschema.PropertySpec{
-		Description: description,
-		Default:     defaultValue,
-		TypeSpec:    *typeSpec,
-	}
-
-	apiProperty := resources.AzureAPIProperty{
-		OneOf:                m.getOneOfValues(&propertySpec),
-		Ref:                  propertySpec.Ref,
-		Items:                m.itemTypeToProperty(propertySpec.Items),
-		AdditionalProperties: m.itemTypeToProperty(propertySpec.AdditionalProperties),
+	metadataProperty := resources.AzureAPIProperty{
+		OneOf:                m.getOneOfValues(typeSpec),
+		Ref:                  schemaProperty.Ref,
+		Items:                m.itemTypeToProperty(typeSpec.Items),
+		AdditionalProperties: m.itemTypeToProperty(typeSpec.AdditionalProperties),
+		ForceNew:             forceNew,
 		IsStringSet:          isStringSet,
 	}
 
 	// Input types only get extra information attached
 	if !isOutput {
-		if m.isEnum(&propertySpec.TypeSpec) {
-			apiProperty = resources.AzureAPIProperty{Type: "string"}
+		if m.isEnum(&schemaProperty.TypeSpec) {
+			metadataProperty = resources.AzureAPIProperty{Type: "string", ForceNew: forceNew}
 		} else {
 			// Set additional properties when it's an input
-			apiProperty.Type = propertySpec.Type
-			apiProperty.Minimum = resolvedProperty.Minimum
-			apiProperty.Maximum = resolvedProperty.Maximum
-			apiProperty.MinLength = resolvedProperty.MinLength
-			apiProperty.MaxLength = resolvedProperty.MaxLength
-			apiProperty.Pattern = resolvedProperty.Pattern
-		}
-
-		// Apply manual metadata about Force New properties.
-		if m.forceNew(resolvedProperty, name, isType) {
-			apiProperty.ForceNew = true
-			propertySpec.WillReplaceOnChanges = true
+			metadataProperty.Type = typeSpec.Type
+			metadataProperty.Minimum = resolvedProperty.Minimum
+			metadataProperty.Maximum = resolvedProperty.Maximum
+			metadataProperty.MinLength = resolvedProperty.MinLength
+			metadataProperty.MaxLength = resolvedProperty.MaxLength
+			metadataProperty.Pattern = resolvedProperty.Pattern
 		}
 	}
 
-	return &propertySpec, &apiProperty, nil
+	return &schemaProperty, &metadataProperty, nil
 }
 
 func newPropertyBag() *propertyBag {
@@ -392,7 +390,7 @@ func (m *moduleGenerator) isEnum(typ *schema.TypeSpec) bool {
 	return len(refTyp.Enum) > 0
 }
 
-func (m *moduleGenerator) getOneOfValues(property *pschema.PropertySpec) (values []string) {
+func (m *moduleGenerator) getOneOfValues(property *pschema.TypeSpec) (values []string) {
 	for _, value := range property.OneOf {
 		values = append(values, value.Ref)
 	}
