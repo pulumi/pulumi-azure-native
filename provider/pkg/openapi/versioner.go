@@ -93,7 +93,7 @@ func ToFullyQualifiedName(azureProvider, resource, version string) string {
 	return fmt.Sprintf(fqnFmt, strings.ToLower(azureProvider), version, resource)
 }
 
-func (s RemovableResources) canBeRemoved(azureProvider, resource, version string) bool {
+func (s RemovableResources) CanBeRemoved(azureProvider, resource, version string) bool {
 	fqn := ToFullyQualifiedName(azureProvider, resource, version)
 	_, ok := s[fqn]
 	return ok
@@ -103,7 +103,6 @@ func RemoveResources(providers AzureProviders, removable RemovableResources) Azu
 	result := AzureProviders{}
 	removedResourceCount := 0
 	removedInvokeCount := 0
-	// Rough heuristic to find relevant resource from an invoke - remove the first part up to the first capital letter.
 	for provider, versions := range providers {
 		newVersions := ProviderVersions{}
 		for version, resources := range versions {
@@ -113,7 +112,7 @@ func RemoveResources(providers AzureProviders, removable RemovableResources) Azu
 			}
 			removedResourcePaths := []string{}
 			for resourceName, resource := range resources.Resources {
-				if removable.canBeRemoved(provider, resourceName, version) {
+				if removable.CanBeRemoved(provider, resourceName, version) {
 					removedResourceCount++
 					removedResourcePaths = append(removedResourcePaths, paths.NormalizePath(resource.Path))
 					continue
@@ -121,7 +120,7 @@ func RemoveResources(providers AzureProviders, removable RemovableResources) Azu
 				filteredResources.Resources[resourceName] = resource
 			}
 			for invokeName, invoke := range resources.Invokes {
-				if removable.canBeRemoved(provider, invokeName, version) {
+				if removable.CanBeRemoved(provider, invokeName, version) {
 					removedInvokeCount++
 					continue
 				}
