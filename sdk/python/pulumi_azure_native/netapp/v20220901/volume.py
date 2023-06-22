@@ -1034,7 +1034,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["t2_network"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["volume_group_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20211001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220501:Volume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20211001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220501:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
             'azure-native:netapp/v20220901:Volume',

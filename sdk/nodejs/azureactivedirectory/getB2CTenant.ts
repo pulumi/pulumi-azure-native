@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Azure AD B2C tenant resource.
- * Azure REST API version: 2021-04-01.
+ * Azure REST API version: 2023-01-18-preview.
  */
 export function getB2CTenant(args: GetB2CTenantArgs, opts?: pulumi.InvokeOptions): Promise<GetB2CTenantResult> {
 
@@ -41,6 +41,10 @@ export interface GetB2CTenantResult {
      */
     readonly id: string;
     /**
+     * Enable GoLocal add-on to store data at rest in the specific Geo. Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see local data residency options.
+     */
+    readonly isGoLocalTenant?: boolean;
+    /**
      * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
      */
     readonly location: string;
@@ -71,7 +75,7 @@ export interface GetB2CTenantResult {
 }
 /**
  * Get the Azure AD B2C tenant resource.
- * Azure REST API version: 2021-04-01.
+ * Azure REST API version: 2023-01-18-preview.
  */
 export function getB2CTenantOutput(args: GetB2CTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetB2CTenantResult> {
     return pulumi.output(args).apply((a: any) => getB2CTenant(a, opts))

@@ -60,9 +60,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicebus:TopicAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:TopicAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:TopicAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:TopicAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:TopicAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:TopicAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:TopicAuthorizationRule"},
                 },

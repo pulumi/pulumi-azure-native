@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Sku sub resource.
- * Azure REST API version: 2021-05-01. Prior API version in Azure Native 1.x: 2020-01-01-preview
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
  */
 export class VendorSkus extends pulumi.CustomResource {
     /**
@@ -124,7 +124,7 @@ export class VendorSkus extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20200101preview:VendorSkus" }, { type: "azure-native:hybridnetwork/v20210501:VendorSkus" }, { type: "azure-native:hybridnetwork/v20220101preview:VendorSkus" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20200101preview:VendorSkus" }, { type: "azure-native:hybridnetwork/v20220101preview:VendorSkus" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VendorSkus.__pulumiType, name, resourceInputs, opts);
     }

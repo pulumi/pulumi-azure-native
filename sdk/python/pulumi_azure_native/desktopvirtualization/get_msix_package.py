@@ -219,7 +219,7 @@ def get_msix_package(host_pool_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMSIXPackageResult:
     """
     Get a msixpackage.
-    Azure REST API version: 2022-09-09.
+    Azure REST API version: 2022-10-14-preview.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -258,7 +258,7 @@ def get_msix_package_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMSIXPackageResult]:
     """
     Get a msixpackage.
-    Azure REST API version: 2022-09-09.
+    Azure REST API version: 2022-10-14-preview.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

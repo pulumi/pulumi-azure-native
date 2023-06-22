@@ -65,7 +65,6 @@ namespace Pulumi.AzureNative.AppPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:DevToolPortal"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:DevToolPortal"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:DevToolPortal"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:DevToolPortal"},

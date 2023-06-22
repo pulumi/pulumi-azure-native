@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an application.
- * Azure REST API version: 2022-09-09.
+ * Azure REST API version: 2022-10-14-preview.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -115,7 +115,7 @@ export interface GetApplicationResult {
 }
 /**
  * Get an application.
- * Azure REST API version: 2022-09-09.
+ * Azure REST API version: 2022-10-14-preview.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

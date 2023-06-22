@@ -174,13 +174,6 @@ namespace Pulumi.AzureNative.DataBox
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databox/v20201101:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20210301:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20210501:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20210801preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20211201:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20220201:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20220901:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:databox/v20221001:Job"},
                     new global::Pulumi.Alias { Type = "azure-native:databox/v20221201:Job"},
                 },
             };

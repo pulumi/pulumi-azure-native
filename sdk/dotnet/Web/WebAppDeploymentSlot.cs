@@ -114,17 +114,13 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDeploymentSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDeploymentSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDeploymentSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDeploymentSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppDeploymentSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDeploymentSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppDeploymentSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppDeploymentSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppDeploymentSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppDeploymentSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppDeploymentSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppDeploymentSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppDeploymentSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppDeploymentSlot"},
                 },

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An elastic pool.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+ * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class ElasticPool extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ElasticPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === ElasticPool.__pulumiType;
     }
 
+    /**
+     * Specifies the availability zone the pool's primary replica is pinned to.
+     */
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * The creation date of the elastic pool (ISO8601 format).
      */
@@ -78,6 +82,10 @@ export class ElasticPool extends pulumi.CustomResource {
      * The per database settings for the elastic pool.
      */
     public readonly perDatabaseSettings!: pulumi.Output<outputs.sql.ElasticPoolPerDatabaseSettingsResponse | undefined>;
+    /**
+     * Type of enclave requested on the elastic pool.
+     */
+    public readonly preferredEnclaveType!: pulumi.Output<string | undefined>;
     /**
      * The elastic pool SKU.
      * 
@@ -122,6 +130,7 @@ export class ElasticPool extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
             resourceInputs["highAvailabilityReplicaCount"] = args ? args.highAvailabilityReplicaCount : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
@@ -130,6 +139,7 @@ export class ElasticPool extends pulumi.CustomResource {
             resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
             resourceInputs["minCapacity"] = args ? args.minCapacity : undefined;
             resourceInputs["perDatabaseSettings"] = args ? args.perDatabaseSettings : undefined;
+            resourceInputs["preferredEnclaveType"] = args ? args.preferredEnclaveType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -141,6 +151,7 @@ export class ElasticPool extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["highAvailabilityReplicaCount"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -151,6 +162,7 @@ export class ElasticPool extends pulumi.CustomResource {
             resourceInputs["minCapacity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["perDatabaseSettings"] = undefined /*out*/;
+            resourceInputs["preferredEnclaveType"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -158,7 +170,7 @@ export class ElasticPool extends pulumi.CustomResource {
             resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:ElasticPool" }, { type: "azure-native:sql/v20171001preview:ElasticPool" }, { type: "azure-native:sql/v20200202preview:ElasticPool" }, { type: "azure-native:sql/v20200801preview:ElasticPool" }, { type: "azure-native:sql/v20201101preview:ElasticPool" }, { type: "azure-native:sql/v20210201preview:ElasticPool" }, { type: "azure-native:sql/v20210501preview:ElasticPool" }, { type: "azure-native:sql/v20210801preview:ElasticPool" }, { type: "azure-native:sql/v20211101:ElasticPool" }, { type: "azure-native:sql/v20211101preview:ElasticPool" }, { type: "azure-native:sql/v20220201preview:ElasticPool" }, { type: "azure-native:sql/v20220501preview:ElasticPool" }, { type: "azure-native:sql/v20220801preview:ElasticPool" }, { type: "azure-native:sql/v20221101preview:ElasticPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:ElasticPool" }, { type: "azure-native:sql/v20200202preview:ElasticPool" }, { type: "azure-native:sql/v20200801preview:ElasticPool" }, { type: "azure-native:sql/v20201101preview:ElasticPool" }, { type: "azure-native:sql/v20210201preview:ElasticPool" }, { type: "azure-native:sql/v20210501preview:ElasticPool" }, { type: "azure-native:sql/v20210801preview:ElasticPool" }, { type: "azure-native:sql/v20211101preview:ElasticPool" }, { type: "azure-native:sql/v20220801preview:ElasticPool" }, { type: "azure-native:sql/v20221101preview:ElasticPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticPool.__pulumiType, name, resourceInputs, opts);
     }
@@ -168,6 +180,10 @@ export class ElasticPool extends pulumi.CustomResource {
  * The set of arguments for constructing a ElasticPool resource.
  */
 export interface ElasticPoolArgs {
+    /**
+     * Specifies the availability zone the pool's primary replica is pinned to.
+     */
+    availabilityZone?: pulumi.Input<string | enums.sql.AvailabilityZoneType>;
     /**
      * The name of the elastic pool.
      */
@@ -200,6 +216,10 @@ export interface ElasticPoolArgs {
      * The per database settings for the elastic pool.
      */
     perDatabaseSettings?: pulumi.Input<inputs.sql.ElasticPoolPerDatabaseSettingsArgs>;
+    /**
+     * Type of enclave requested on the elastic pool.
+     */
+    preferredEnclaveType?: pulumi.Input<string | enums.sql.AlwaysEncryptedEnclaveType>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

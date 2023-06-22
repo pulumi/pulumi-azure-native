@@ -101,8 +101,6 @@ namespace Pulumi.AzureNative.Storage.V20210801
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storage:LocalUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:LocalUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:LocalUser"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:LocalUser"},
                 },
             };

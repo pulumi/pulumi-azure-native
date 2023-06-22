@@ -128,7 +128,7 @@ class Creator(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure resource which represents Maps Creator product and provides ability to manage private location data.
-        Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-02-01-preview
+        Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 1.x: 2020-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +147,7 @@ class Creator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure resource which represents Maps Creator product and provides ability to manage private location data.
-        Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-02-01-preview
+        Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 1.x: 2020-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param CreatorArgs args: The arguments to use to populate this resource's properties.
@@ -192,8 +192,9 @@ class Creator(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maps/v20200201preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20210201:Creator"), pulumi.Alias(type_="azure-native:maps/v20210701preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20211201preview:Creator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maps/v20200201preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20211201preview:Creator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Creator, __self__).__init__(
             'azure-native:maps:Creator',
@@ -220,6 +221,7 @@ class Creator(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Creator(resource_name, opts=opts, __props__=__props__)
@@ -247,6 +249,14 @@ class Creator(pulumi.CustomResource):
         The Creator resource properties.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

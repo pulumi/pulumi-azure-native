@@ -102,17 +102,13 @@ namespace Pulumi.AzureNative.Web.V20220901
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSourceControl"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSourceControl"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSourceControl"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSourceControl"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSourceControl"},
                 },
             };

@@ -102,17 +102,13 @@ namespace Pulumi.AzureNative.Web.V20220901
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSourceControlSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSourceControlSlot"},
                 },
             };

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// The build service agent pool resource
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2022-01-01-preview
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:BuildServiceAgentPool")]
     public partial class BuildServiceAgentPool : global::Pulumi.CustomResource
@@ -66,12 +66,6 @@ namespace Pulumi.AzureNative.AppPlatform
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:BuildServiceAgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:BuildServiceAgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:BuildServiceAgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:BuildServiceAgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:BuildServiceAgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:BuildServiceAgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:BuildServiceAgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:BuildServiceAgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:BuildServiceAgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:BuildServiceAgentPool"},

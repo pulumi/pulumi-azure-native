@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure resource which represents access to a suite of Maps REST APIs.
- * Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2018-05-01
+ * Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 1.x: 2018-05-01
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Account extends pulumi.CustomResource {
         return obj['__pulumiType'] === Account.__pulumiType;
     }
 
+    /**
+     * Sets the identity property for maps account.
+     */
+    public readonly identity!: pulumi.Output<outputs.maps.ManagedServiceIdentityResponse | undefined>;
     /**
      * Get or Set Kind property.
      */
@@ -89,6 +93,7 @@ export class Account extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.maps.mapsAccountPropertiesArgsProvideDefaults) : undefined) : undefined;
@@ -99,6 +104,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -109,7 +115,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maps/v20180501:Account" }, { type: "azure-native:maps/v20200201preview:Account" }, { type: "azure-native:maps/v20210201:Account" }, { type: "azure-native:maps/v20210701preview:Account" }, { type: "azure-native:maps/v20211201preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maps/v20180501:Account" }, { type: "azure-native:maps/v20200201preview:Account" }, { type: "azure-native:maps/v20211201preview:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }
@@ -123,6 +129,10 @@ export interface AccountArgs {
      * The name of the Maps Account.
      */
     accountName?: pulumi.Input<string>;
+    /**
+     * Sets the identity property for maps account.
+     */
+    identity?: pulumi.Input<inputs.maps.ManagedServiceIdentityArgs>;
     /**
      * Get or Set Kind property.
      */

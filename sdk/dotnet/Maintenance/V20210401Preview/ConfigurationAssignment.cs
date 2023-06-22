@@ -77,8 +77,6 @@ namespace Pulumi.AzureNative.Maintenance.V20210401Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:maintenance:ConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:ConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20220701preview:ConfigurationAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20221101preview:ConfigurationAssignment"},
                 },
             };

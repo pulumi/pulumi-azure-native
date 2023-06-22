@@ -108,10 +108,7 @@ namespace Pulumi.AzureNative.Sql.V20221101Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:EncryptionProtector"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:EncryptionProtector"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:EncryptionProtector"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:EncryptionProtector"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:EncryptionProtector"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:EncryptionProtector"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:EncryptionProtector"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:EncryptionProtector"},
                 },
             };

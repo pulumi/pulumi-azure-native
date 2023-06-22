@@ -69,6 +69,18 @@ export const HostPoolType = {
  */
 export type HostPoolType = (typeof HostPoolType)[keyof typeof HostPoolType];
 
+export const HostpoolPublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    EnabledForSessionHostsOnly: "EnabledForSessionHostsOnly",
+    EnabledForClientsOnly: "EnabledForClientsOnly",
+} as const;
+
+/**
+ * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+ */
+export type HostpoolPublicNetworkAccess = (typeof HostpoolPublicNetworkAccess)[keyof typeof HostpoolPublicNetworkAccess];
+
 export const LoadBalancerType = {
     BreadthFirst: "BreadthFirst",
     DepthFirst: "DepthFirst",
@@ -111,6 +123,16 @@ export const PrivateEndpointServiceConnectionStatus = {
  * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const RegistrationTokenOperation = {
     Delete: "Delete",

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The description of the provisioning service.
-    /// Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01
+    /// Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:IotDpsResource")]
     public partial class IotDpsResource : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed identities for a provisioning service.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -104,8 +110,6 @@ namespace Pulumi.AzureNative.Devices
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:IotDpsResource"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200901preview:IotDpsResource"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20211015:IotDpsResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20220205:IotDpsResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20221212:IotDpsResource"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20230301preview:IotDpsResource"},
                 },
             };
@@ -130,6 +134,12 @@ namespace Pulumi.AzureNative.Devices
 
     public sealed class IotDpsResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The managed identities for a provisioning service.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
         /// <summary>
         /// The resource location.
         /// </summary>

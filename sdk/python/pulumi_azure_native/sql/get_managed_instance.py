@@ -22,7 +22,7 @@ class GetManagedInstanceResult:
     """
     An Azure SQL managed instance.
     """
-    def __init__(__self__, administrator_login=None, administrators=None, collation=None, current_backup_storage_redundancy=None, dns_zone=None, fully_qualified_domain_name=None, id=None, identity=None, instance_pool_id=None, key_id=None, license_type=None, location=None, maintenance_configuration_id=None, minimal_tls_version=None, name=None, primary_user_assigned_identity_id=None, private_endpoint_connections=None, provisioning_state=None, proxy_override=None, public_data_endpoint_enabled=None, requested_backup_storage_redundancy=None, service_principal=None, sku=None, state=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None, zone_redundant=None):
+    def __init__(__self__, administrator_login=None, administrators=None, collation=None, current_backup_storage_redundancy=None, dns_zone=None, fully_qualified_domain_name=None, id=None, identity=None, instance_pool_id=None, key_id=None, license_type=None, location=None, maintenance_configuration_id=None, minimal_tls_version=None, name=None, primary_user_assigned_identity_id=None, private_endpoint_connections=None, provisioning_state=None, proxy_override=None, public_data_endpoint_enabled=None, requested_backup_storage_redundancy=None, service_principal=None, sku=None, state=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None, virtual_cluster_id=None, zone_redundant=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -113,6 +113,9 @@ class GetManagedInstanceResult:
         if v_cores and not isinstance(v_cores, int):
             raise TypeError("Expected argument 'v_cores' to be a int")
         pulumi.set(__self__, "v_cores", v_cores)
+        if virtual_cluster_id and not isinstance(virtual_cluster_id, str):
+            raise TypeError("Expected argument 'virtual_cluster_id' to be a str")
+        pulumi.set(__self__, "virtual_cluster_id", virtual_cluster_id)
         if zone_redundant and not isinstance(zone_redundant, bool):
             raise TypeError("Expected argument 'zone_redundant' to be a bool")
         pulumi.set(__self__, "zone_redundant", zone_redundant)
@@ -129,7 +132,7 @@ class GetManagedInstanceResult:
     @pulumi.getter
     def administrators(self) -> Optional['outputs.ManagedInstanceExternalAdministratorResponse']:
         """
-        The Azure Active Directory administrator of the server.
+        The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         """
         return pulumi.get(self, "administrators")
 
@@ -256,6 +259,9 @@ class GetManagedInstanceResult:
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
+        """
+        Provisioning state of managed instance.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property
@@ -360,6 +366,14 @@ class GetManagedInstanceResult:
         return pulumi.get(self, "v_cores")
 
     @property
+    @pulumi.getter(name="virtualClusterId")
+    def virtual_cluster_id(self) -> str:
+        """
+        Virtual cluster resource id for the Managed Instance.
+        """
+        return pulumi.get(self, "virtual_cluster_id")
+
+    @property
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[bool]:
         """
@@ -404,6 +418,7 @@ class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
             timezone_id=self.timezone_id,
             type=self.type,
             v_cores=self.v_cores,
+            virtual_cluster_id=self.virtual_cluster_id,
             zone_redundant=self.zone_redundant)
 
 
@@ -413,7 +428,7 @@ def get_managed_instance(expand: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceResult:
     """
     Gets a managed instance.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str expand: The child resources to include in the response.
@@ -458,6 +473,7 @@ def get_managed_instance(expand: Optional[str] = None,
         timezone_id=__ret__.timezone_id,
         type=__ret__.type,
         v_cores=__ret__.v_cores,
+        virtual_cluster_id=__ret__.virtual_cluster_id,
         zone_redundant=__ret__.zone_redundant)
 
 
@@ -468,7 +484,7 @@ def get_managed_instance_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceResult]:
     """
     Gets a managed instance.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str expand: The child resources to include in the response.

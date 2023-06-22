@@ -102,8 +102,6 @@ namespace Pulumi.AzureNative.Peering.V20210101
                 {
                     new global::Pulumi.Alias { Type = "azure-native:peering:Peering"},
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20210601:Peering"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:Peering"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:Peering"},
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20221001:Peering"},
                 },
             };

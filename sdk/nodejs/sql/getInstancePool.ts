@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an instance pool.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getInstancePool(args: GetInstancePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancePoolResult> {
 
@@ -74,7 +74,7 @@ export interface GetInstancePoolResult {
 }
 /**
  * Gets an instance pool.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getInstancePoolOutput(args: GetInstancePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancePoolResult> {
     return pulumi.output(args).apply((a: any) => getInstancePool(a, opts))

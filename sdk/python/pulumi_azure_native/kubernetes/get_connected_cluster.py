@@ -22,19 +22,25 @@ class GetConnectedClusterResult:
     """
     Represents a connected cluster.
     """
-    def __init__(__self__, agent_public_key_certificate=None, agent_version=None, connectivity_status=None, distribution=None, id=None, identity=None, infrastructure=None, kubernetes_version=None, last_connectivity_time=None, location=None, managed_identity_certificate_expiration_time=None, name=None, offering=None, provisioning_state=None, system_data=None, tags=None, total_core_count=None, total_node_count=None, type=None):
+    def __init__(__self__, agent_public_key_certificate=None, agent_version=None, azure_hybrid_benefit=None, connectivity_status=None, distribution=None, distribution_version=None, id=None, identity=None, infrastructure=None, kubernetes_version=None, last_connectivity_time=None, location=None, managed_identity_certificate_expiration_time=None, miscellaneous_properties=None, name=None, offering=None, private_link_scope_resource_id=None, private_link_state=None, provisioning_state=None, system_data=None, tags=None, total_core_count=None, total_node_count=None, type=None):
         if agent_public_key_certificate and not isinstance(agent_public_key_certificate, str):
             raise TypeError("Expected argument 'agent_public_key_certificate' to be a str")
         pulumi.set(__self__, "agent_public_key_certificate", agent_public_key_certificate)
         if agent_version and not isinstance(agent_version, str):
             raise TypeError("Expected argument 'agent_version' to be a str")
         pulumi.set(__self__, "agent_version", agent_version)
+        if azure_hybrid_benefit and not isinstance(azure_hybrid_benefit, str):
+            raise TypeError("Expected argument 'azure_hybrid_benefit' to be a str")
+        pulumi.set(__self__, "azure_hybrid_benefit", azure_hybrid_benefit)
         if connectivity_status and not isinstance(connectivity_status, str):
             raise TypeError("Expected argument 'connectivity_status' to be a str")
         pulumi.set(__self__, "connectivity_status", connectivity_status)
         if distribution and not isinstance(distribution, str):
             raise TypeError("Expected argument 'distribution' to be a str")
         pulumi.set(__self__, "distribution", distribution)
+        if distribution_version and not isinstance(distribution_version, str):
+            raise TypeError("Expected argument 'distribution_version' to be a str")
+        pulumi.set(__self__, "distribution_version", distribution_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -56,12 +62,21 @@ class GetConnectedClusterResult:
         if managed_identity_certificate_expiration_time and not isinstance(managed_identity_certificate_expiration_time, str):
             raise TypeError("Expected argument 'managed_identity_certificate_expiration_time' to be a str")
         pulumi.set(__self__, "managed_identity_certificate_expiration_time", managed_identity_certificate_expiration_time)
+        if miscellaneous_properties and not isinstance(miscellaneous_properties, dict):
+            raise TypeError("Expected argument 'miscellaneous_properties' to be a dict")
+        pulumi.set(__self__, "miscellaneous_properties", miscellaneous_properties)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if offering and not isinstance(offering, str):
             raise TypeError("Expected argument 'offering' to be a str")
         pulumi.set(__self__, "offering", offering)
+        if private_link_scope_resource_id and not isinstance(private_link_scope_resource_id, str):
+            raise TypeError("Expected argument 'private_link_scope_resource_id' to be a str")
+        pulumi.set(__self__, "private_link_scope_resource_id", private_link_scope_resource_id)
+        if private_link_state and not isinstance(private_link_state, str):
+            raise TypeError("Expected argument 'private_link_state' to be a str")
+        pulumi.set(__self__, "private_link_state", private_link_state)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -98,6 +113,14 @@ class GetConnectedClusterResult:
         return pulumi.get(self, "agent_version")
 
     @property
+    @pulumi.getter(name="azureHybridBenefit")
+    def azure_hybrid_benefit(self) -> Optional[str]:
+        """
+        Indicates whether Azure Hybrid Benefit is opted in
+        """
+        return pulumi.get(self, "azure_hybrid_benefit")
+
+    @property
     @pulumi.getter(name="connectivityStatus")
     def connectivity_status(self) -> str:
         """
@@ -112,6 +135,14 @@ class GetConnectedClusterResult:
         The Kubernetes distribution running on this connected cluster.
         """
         return pulumi.get(self, "distribution")
+
+    @property
+    @pulumi.getter(name="distributionVersion")
+    def distribution_version(self) -> Optional[str]:
+        """
+        The Kubernetes distribution version on this connected cluster.
+        """
+        return pulumi.get(self, "distribution_version")
 
     @property
     @pulumi.getter
@@ -170,6 +201,14 @@ class GetConnectedClusterResult:
         return pulumi.get(self, "managed_identity_certificate_expiration_time")
 
     @property
+    @pulumi.getter(name="miscellaneousProperties")
+    def miscellaneous_properties(self) -> Mapping[str, str]:
+        """
+        More properties related to the Connected Cluster
+        """
+        return pulumi.get(self, "miscellaneous_properties")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -184,6 +223,22 @@ class GetConnectedClusterResult:
         Connected cluster offering
         """
         return pulumi.get(self, "offering")
+
+    @property
+    @pulumi.getter(name="privateLinkScopeResourceId")
+    def private_link_scope_resource_id(self) -> Optional[str]:
+        """
+        The resource id of the private link scope this connected cluster is assigned to, if any.
+        """
+        return pulumi.get(self, "private_link_scope_resource_id")
+
+    @property
+    @pulumi.getter(name="privateLinkState")
+    def private_link_state(self) -> Optional[str]:
+        """
+        Property which describes the state of private link on a connected cluster resource.
+        """
+        return pulumi.get(self, "private_link_state")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -242,8 +297,10 @@ class AwaitableGetConnectedClusterResult(GetConnectedClusterResult):
         return GetConnectedClusterResult(
             agent_public_key_certificate=self.agent_public_key_certificate,
             agent_version=self.agent_version,
+            azure_hybrid_benefit=self.azure_hybrid_benefit,
             connectivity_status=self.connectivity_status,
             distribution=self.distribution,
+            distribution_version=self.distribution_version,
             id=self.id,
             identity=self.identity,
             infrastructure=self.infrastructure,
@@ -251,8 +308,11 @@ class AwaitableGetConnectedClusterResult(GetConnectedClusterResult):
             last_connectivity_time=self.last_connectivity_time,
             location=self.location,
             managed_identity_certificate_expiration_time=self.managed_identity_certificate_expiration_time,
+            miscellaneous_properties=self.miscellaneous_properties,
             name=self.name,
             offering=self.offering,
+            private_link_scope_resource_id=self.private_link_scope_resource_id,
+            private_link_state=self.private_link_state,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             tags=self.tags,
@@ -266,7 +326,7 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedClusterResult:
     """
     Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
-    Azure REST API version: 2021-10-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.
@@ -281,8 +341,10 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
     return AwaitableGetConnectedClusterResult(
         agent_public_key_certificate=__ret__.agent_public_key_certificate,
         agent_version=__ret__.agent_version,
+        azure_hybrid_benefit=__ret__.azure_hybrid_benefit,
         connectivity_status=__ret__.connectivity_status,
         distribution=__ret__.distribution,
+        distribution_version=__ret__.distribution_version,
         id=__ret__.id,
         identity=__ret__.identity,
         infrastructure=__ret__.infrastructure,
@@ -290,8 +352,11 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
         last_connectivity_time=__ret__.last_connectivity_time,
         location=__ret__.location,
         managed_identity_certificate_expiration_time=__ret__.managed_identity_certificate_expiration_time,
+        miscellaneous_properties=__ret__.miscellaneous_properties,
         name=__ret__.name,
         offering=__ret__.offering,
+        private_link_scope_resource_id=__ret__.private_link_scope_resource_id,
+        private_link_state=__ret__.private_link_state,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
@@ -306,7 +371,7 @@ def get_connected_cluster_output(cluster_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedClusterResult]:
     """
     Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
-    Azure REST API version: 2021-10-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.

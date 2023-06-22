@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an elastic pool.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
 
@@ -40,6 +40,10 @@ export interface GetElasticPoolArgs {
  * An elastic pool.
  */
 export interface GetElasticPoolResult {
+    /**
+     * Specifies the availability zone the pool's primary replica is pinned to.
+     */
+    readonly availabilityZone?: string;
     /**
      * The creation date of the elastic pool (ISO8601 format).
      */
@@ -85,6 +89,10 @@ export interface GetElasticPoolResult {
      */
     readonly perDatabaseSettings?: outputs.sql.ElasticPoolPerDatabaseSettingsResponse;
     /**
+     * Type of enclave requested on the elastic pool.
+     */
+    readonly preferredEnclaveType?: string;
+    /**
      * The elastic pool SKU.
      * 
      * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
@@ -113,7 +121,7 @@ export interface GetElasticPoolResult {
 }
 /**
  * Gets an elastic pool.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticPoolResult> {
     return pulumi.output(args).apply((a: any) => getElasticPool(a, opts))

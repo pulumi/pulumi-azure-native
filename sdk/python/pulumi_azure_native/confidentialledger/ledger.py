@@ -24,11 +24,11 @@ class LedgerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Ledger resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] ledger_name: Name of the Confidential Ledger
-        :param pulumi.Input[str] location: The Azure location where the Confidential Ledger is running.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['LedgerPropertiesArgs'] properties: Properties of Confidential Ledger Resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Additional tags for Confidential Ledger
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if ledger_name is not None:
@@ -44,7 +44,7 @@ class LedgerArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -68,7 +68,7 @@ class LedgerArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure location where the Confidential Ledger is running.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -92,7 +92,7 @@ class LedgerArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Additional tags for Confidential Ledger
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -114,15 +114,15 @@ class Ledger(pulumi.CustomResource):
                  __props__=None):
         """
         Confidential Ledger. Contains the properties of Confidential Ledger Resource.
-        Azure REST API version: 2022-05-13. Prior API version in Azure Native 1.x: 2020-12-01-preview
+        Azure REST API version: 2023-01-26-preview. Prior API version in Azure Native 1.x: 2020-12-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ledger_name: Name of the Confidential Ledger
-        :param pulumi.Input[str] location: The Azure location where the Confidential Ledger is running.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['LedgerPropertiesArgs']] properties: Properties of Confidential Ledger Resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Additional tags for Confidential Ledger
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -132,7 +132,7 @@ class Ledger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Confidential Ledger. Contains the properties of Confidential Ledger Resource.
-        Azure REST API version: 2022-05-13. Prior API version in Azure Native 1.x: 2020-12-01-preview
+        Azure REST API version: 2023-01-26-preview. Prior API version in Azure Native 1.x: 2020-12-01-preview
 
         :param str resource_name: The name of the resource.
         :param LedgerArgs args: The arguments to use to populate this resource's properties.
@@ -173,7 +173,7 @@ class Ledger(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confidentialledger/v20201201preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20210513preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20220513:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20220908preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20230126preview:Ledger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confidentialledger/v20201201preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20230126preview:Ledger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Ledger, __self__).__init__(
             'azure-native:confidentialledger:Ledger',
@@ -207,9 +207,9 @@ class Ledger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
-        The Azure location where the Confidential Ledger is running.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -217,7 +217,7 @@ class Ledger(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -233,7 +233,7 @@ class Ledger(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -241,7 +241,7 @@ class Ledger(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Additional tags for Confidential Ledger
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -249,7 +249,7 @@ class Ledger(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

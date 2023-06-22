@@ -109,7 +109,7 @@ class TransparentDataEncryption(pulumi.CustomResource):
                  __props__=None):
         """
         A logical database transparent data encryption state.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2014-04-01
+        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2014-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +127,7 @@ class TransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A logical database transparent data encryption state.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2014-04-01
+        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2014-04-01
 
         :param str resource_name: The name of the resource.
         :param TransparentDataEncryptionArgs args: The arguments to use to populate this resource's properties.
@@ -173,7 +173,7 @@ class TransparentDataEncryption(pulumi.CustomResource):
             __props__.__dict__["tde_name"] = tde_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20200202preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20200801preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20201101preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20210201preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20210501preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20210801preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20211101:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20211101preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20220201preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20220501preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20220801preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20221101preview:TransparentDataEncryption")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20200202preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20200801preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20201101preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20210201preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20210501preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20210801preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20211101preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20220801preview:TransparentDataEncryption"), pulumi.Alias(type_="azure-native:sql/v20221101preview:TransparentDataEncryption")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TransparentDataEncryption, __self__).__init__(
             'azure-native:sql:TransparentDataEncryption',

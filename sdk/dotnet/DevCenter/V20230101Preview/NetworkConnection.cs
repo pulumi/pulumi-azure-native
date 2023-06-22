@@ -125,9 +125,7 @@ namespace Pulumi.AzureNative.DevCenter.V20230101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devcenter:NetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:NetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:NetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:NetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:NetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:NetworkConnection"},
                 },

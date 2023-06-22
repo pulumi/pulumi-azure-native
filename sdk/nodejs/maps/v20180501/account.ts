@@ -96,7 +96,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maps:Account" }, { type: "azure-native:maps/v20200201preview:Account" }, { type: "azure-native:maps/v20210201:Account" }, { type: "azure-native:maps/v20210701preview:Account" }, { type: "azure-native:maps/v20211201preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maps:Account" }, { type: "azure-native:maps/v20200201preview:Account" }, { type: "azure-native:maps/v20211201preview:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }

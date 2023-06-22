@@ -128,7 +128,6 @@ namespace Pulumi.AzureNative.Web.V20210101
                     new global::Pulumi.Alias { Type = "azure-native:web:KubeEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:KubeEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:KubeEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:KubeEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:KubeEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:KubeEnvironment"},
                 },

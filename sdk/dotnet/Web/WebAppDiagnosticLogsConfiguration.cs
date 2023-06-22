@@ -84,17 +84,13 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDiagnosticLogsConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDiagnosticLogsConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDiagnosticLogsConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppDiagnosticLogsConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDiagnosticLogsConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppDiagnosticLogsConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppDiagnosticLogsConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppDiagnosticLogsConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppDiagnosticLogsConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppDiagnosticLogsConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppDiagnosticLogsConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration"},
                 },

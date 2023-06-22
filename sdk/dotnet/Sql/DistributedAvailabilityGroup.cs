@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Distributed availability group between box and Sql Managed Instance.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-05-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DistributedAvailabilityGroup")]
     public partial class DistributedAvailabilityGroup : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("distributedAvailabilityGroupId")]
         public Output<string> DistributedAvailabilityGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// Role of managed instance
+        /// </summary>
+        [Output("instanceRole")]
+        public Output<string> InstanceRole { get; private set; } = null!;
 
         /// <summary>
         /// The last hardened lsn
@@ -115,10 +121,7 @@ namespace Pulumi.AzureNative.Sql
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DistributedAvailabilityGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DistributedAvailabilityGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:DistributedAvailabilityGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:DistributedAvailabilityGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:DistributedAvailabilityGroup"},
                 },

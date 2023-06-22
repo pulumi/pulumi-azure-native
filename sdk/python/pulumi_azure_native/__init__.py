@@ -335,8 +335,6 @@ if typing.TYPE_CHECKING:
     resourceconnector = __resourceconnector
     import pulumi_azure_native.resourcegraph as __resourcegraph
     resourcegraph = __resourcegraph
-    import pulumi_azure_native.resourcehealth as __resourcehealth
-    resourcehealth = __resourcehealth
     import pulumi_azure_native.resources as __resources
     resources = __resources
     import pulumi_azure_native.saas as __saas
@@ -587,7 +585,6 @@ else:
     relay = _utilities.lazy_import('pulumi_azure_native.relay')
     resourceconnector = _utilities.lazy_import('pulumi_azure_native.resourceconnector')
     resourcegraph = _utilities.lazy_import('pulumi_azure_native.resourcegraph')
-    resourcehealth = _utilities.lazy_import('pulumi_azure_native.resourcehealth')
     resources = _utilities.lazy_import('pulumi_azure_native.resources')
     saas = _utilities.lazy_import('pulumi_azure_native.saas')
     scheduler = _utilities.lazy_import('pulumi_azure_native.scheduler')
@@ -799,7 +796,6 @@ _utilities.register(
   "fqn": "pulumi_azure_native.alertsmanagement",
   "classes": {
    "azure-native:alertsmanagement:ActionRuleByName": "ActionRuleByName",
-   "azure-native:alertsmanagement:AlertProcessingRuleByName": "AlertProcessingRuleByName",
    "azure-native:alertsmanagement:PrometheusRuleGroup": "PrometheusRuleGroup",
    "azure-native:alertsmanagement:SmartDetectorAlertRule": "SmartDetectorAlertRule"
   }
@@ -5121,13 +5117,9 @@ _utilities.register(
   "mod": "devices",
   "fqn": "pulumi_azure_native.devices",
   "classes": {
-   "azure-native:devices:Certificate": "Certificate",
    "azure-native:devices:DpsCertificate": "DpsCertificate",
    "azure-native:devices:IotDpsResource": "IotDpsResource",
-   "azure-native:devices:IotDpsResourcePrivateEndpointConnection": "IotDpsResourcePrivateEndpointConnection",
-   "azure-native:devices:IotHubResource": "IotHubResource",
-   "azure-native:devices:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
-   "azure-native:devices:PrivateEndpointConnection": "PrivateEndpointConnection"
+   "azure-native:devices:IotDpsResourcePrivateEndpointConnection": "IotDpsResourcePrivateEndpointConnection"
   }
  },
  {

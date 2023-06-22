@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Vendor resource.
-    /// Azure REST API version: 2021-05-01. Prior API version in Azure Native 1.x: 2020-01-01-preview
+    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:Vendor")]
     public partial class Vendor : global::Pulumi.CustomResource
@@ -72,7 +72,6 @@ namespace Pulumi.AzureNative.HybridNetwork
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:Vendor"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:Vendor"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:Vendor"},
                 },
             };

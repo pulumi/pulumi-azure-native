@@ -85,7 +85,7 @@ export class TagRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logz:TagRule" }, { type: "azure-native:logz/v20201001preview:TagRule" }, { type: "azure-native:logz/v20220101preview:TagRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logz:TagRule" }, { type: "azure-native:logz/v20220101preview:TagRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TagRule.__pulumiType, name, resourceInputs, opts);
     }

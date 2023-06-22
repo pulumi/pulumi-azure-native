@@ -98,8 +98,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cdn:AFDCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:AFDCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:AFDCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:AFDCustomDomain"},
                 },

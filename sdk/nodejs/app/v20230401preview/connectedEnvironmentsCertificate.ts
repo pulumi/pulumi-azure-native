@@ -97,7 +97,7 @@ export class ConnectedEnvironmentsCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20220601preview:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20221001:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironmentsCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20221001:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironmentsCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectedEnvironmentsCertificate.__pulumiType, name, resourceInputs, opts);
     }

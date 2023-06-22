@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An Azure SQL managed instance administrator.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedInstanceAdministrator")]
     public partial class ManagedInstanceAdministrator : global::Pulumi.CustomResource
@@ -84,10 +84,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedInstanceAdministrator"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstanceAdministrator"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedInstanceAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ManagedInstanceAdministrator"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedInstanceAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedInstanceAdministrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ManagedInstanceAdministrator"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ManagedInstanceAdministrator"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ManagedInstanceAdministrator"},
                 },

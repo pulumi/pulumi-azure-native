@@ -265,7 +265,7 @@ class MSIXPackage(pulumi.CustomResource):
                  __props__=None):
         """
         Schema for MSIX Package properties.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -292,7 +292,7 @@ class MSIXPackage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for MSIX Package properties.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param MSIXPackageArgs args: The arguments to use to populate this resource's properties.
@@ -353,7 +353,7 @@ class MSIXPackage(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:MSIXPackage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:MSIXPackage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MSIXPackage, __self__).__init__(
             'azure-native:desktopvirtualization:MSIXPackage',

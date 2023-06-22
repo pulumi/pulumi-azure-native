@@ -88,7 +88,7 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache:FirewallRule" }, { type: "azure-native:cache/v20200601:FirewallRule" }, { type: "azure-native:cache/v20201201:FirewallRule" }, { type: "azure-native:cache/v20210601:FirewallRule" }, { type: "azure-native:cache/v20220501:FirewallRule" }, { type: "azure-native:cache/v20230401:FirewallRule" }, { type: "azure-native:cache/v20230501preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:FirewallRule" }, { type: "azure-native:cache/v20200601:FirewallRule" }, { type: "azure-native:cache/v20230401:FirewallRule" }, { type: "azure-native:cache/v20230501preview:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);
     }

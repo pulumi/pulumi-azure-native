@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'DatabaseIdentityResponse',
+    'DatabaseKeyResponse',
     'DatabaseUserIdentityResponse',
     'DatabaseVulnerabilityAssessmentRuleBaselineItemResponse',
     'ElasticPoolPerDatabaseSettingsResponse',
@@ -120,6 +121,78 @@ class DatabaseIdentityResponse(dict):
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class DatabaseKeyResponse(dict):
+    """
+    Database level key used for encryption at rest.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationDate":
+            suggest = "creation_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_date: str,
+                 subregion: str,
+                 thumbprint: str,
+                 type: str):
+        """
+        Database level key used for encryption at rest.
+        :param str creation_date: The database key creation date.
+        :param str subregion: Subregion of the server key.
+        :param str thumbprint: Thumbprint of the database key.
+        :param str type: The database key type. Only supported value is 'AzureKeyVault'.
+        """
+        pulumi.set(__self__, "creation_date", creation_date)
+        pulumi.set(__self__, "subregion", subregion)
+        pulumi.set(__self__, "thumbprint", thumbprint)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> str:
+        """
+        The database key creation date.
+        """
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def subregion(self) -> str:
+        """
+        Subregion of the server key.
+        """
+        return pulumi.get(self, "subregion")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        """
+        Thumbprint of the database key.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The database key type. Only supported value is 'AzureKeyVault'.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -477,13 +550,13 @@ class JobScheduleResponse(dict):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if end_time is None:
-            end_time = '9999-12-31T11:59:59+00:00'
+            end_time = '9999-12-31T03:59:59-08:00'
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
         if start_time is None:
-            start_time = '0001-01-01T00:00:00+00:00'
+            start_time = '0001-01-01T16:00:00-08:00'
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
         if type is None:

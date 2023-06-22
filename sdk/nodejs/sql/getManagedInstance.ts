@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a managed instance.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getManagedInstance(args: GetManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceResult> {
 
@@ -45,7 +45,7 @@ export interface GetManagedInstanceResult {
      */
     readonly administratorLogin?: string;
     /**
-     * The Azure Active Directory administrator of the server.
+     * The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
      */
     readonly administrators?: outputs.sql.ManagedInstanceExternalAdministratorResponse;
     /**
@@ -108,6 +108,9 @@ export interface GetManagedInstanceResult {
      * List of private endpoint connections on a managed instance.
      */
     readonly privateEndpointConnections: outputs.sql.ManagedInstancePecPropertyResponse[];
+    /**
+     * Provisioning state of managed instance.
+     */
     readonly provisioningState: string;
     /**
      * Connection type used for connecting to the instance.
@@ -163,13 +166,17 @@ export interface GetManagedInstanceResult {
      */
     readonly vCores?: number;
     /**
+     * Virtual cluster resource id for the Managed Instance.
+     */
+    readonly virtualClusterId: string;
+    /**
      * Whether or not the multi-az is enabled.
      */
     readonly zoneRedundant?: boolean;
 }
 /**
  * Gets a managed instance.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceResult> {
     return pulumi.output(args).apply((a: any) => getManagedInstance(a, opts))

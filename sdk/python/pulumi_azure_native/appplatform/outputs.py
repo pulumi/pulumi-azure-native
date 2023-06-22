@@ -64,6 +64,7 @@ __all__ = [
     'CustomContainerUserSourceInfoResponse',
     'CustomDomainPropertiesResponse',
     'CustomPersistentDiskResourceResponse',
+    'CustomScaleRuleResponse',
     'CustomizedAcceleratorPropertiesResponse',
     'DeploymentInstanceResponse',
     'DeploymentResourcePropertiesResponse',
@@ -84,11 +85,14 @@ __all__ = [
     'GatewayOperatorPropertiesResponse',
     'GatewayOperatorResourceRequestsResponse',
     'GatewayPropertiesResponse',
+    'GatewayPropertiesResponseClientAuth',
+    'GatewayPropertiesResponseEnvironmentVariables',
     'GatewayResourceRequestsResponse',
     'GatewayRouteConfigOpenApiPropertiesResponse',
     'GatewayRouteConfigPropertiesResponse',
     'GitPatternRepositoryResponse',
     'HTTPGetActionResponse',
+    'HttpScaleRuleResponse',
     'ImageRegistryCredentialResponse',
     'IngressConfigResponse',
     'IngressSettingsResponse',
@@ -97,14 +101,20 @@ __all__ = [
     'KeyVaultCertificatePropertiesResponse',
     'LoadedCertificateResponse',
     'ManagedIdentityPropertiesResponse',
+    'MarketplaceResourceResponse',
     'MonitoringSettingPropertiesResponse',
     'NetCoreZipUploadedUserSourceInfoResponse',
     'NetworkProfileResponse',
     'NetworkProfileResponseOutboundIPs',
     'PersistentDiskResponse',
     'ProbeResponse',
+    'QueueScaleRuleResponse',
     'RequiredTrafficResponse',
     'ResourceRequestsResponse',
+    'ScaleResponse',
+    'ScaleRuleAuthResponse',
+    'ScaleRuleResponse',
+    'SecretResponse',
     'ServiceRegistryInstanceResponse',
     'ServiceRegistryPropertiesResponse',
     'ServiceRegistryResourceRequestsResponse',
@@ -116,6 +126,7 @@ __all__ = [
     'StorageAccountResponse',
     'SystemDataResponse',
     'TCPSocketActionResponse',
+    'TcpScaleRuleResponse',
     'TemporaryDiskResponse',
     'TriggeredBuildResultResponse',
     'UploadedUserSourceInfoResponse',
@@ -746,6 +757,8 @@ class AppResourcePropertiesResponse(dict):
             suggest = "temporary_disk"
         elif key == "vnetAddons":
             suggest = "vnet_addons"
+        elif key == "workloadProfileName":
+            suggest = "workload_profile_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AppResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -770,8 +783,10 @@ class AppResourcePropertiesResponse(dict):
                  loaded_certificates: Optional[Sequence['outputs.LoadedCertificateResponse']] = None,
                  persistent_disk: Optional['outputs.PersistentDiskResponse'] = None,
                  public: Optional[bool] = None,
+                 secrets: Optional[Sequence['outputs.SecretResponse']] = None,
                  temporary_disk: Optional['outputs.TemporaryDiskResponse'] = None,
-                 vnet_addons: Optional['outputs.AppVNetAddonsResponse'] = None):
+                 vnet_addons: Optional['outputs.AppVNetAddonsResponse'] = None,
+                 workload_profile_name: Optional[str] = None):
         """
         App resource properties payload
         :param str fqdn: Fully qualified dns Name.
@@ -785,8 +800,10 @@ class AppResourcePropertiesResponse(dict):
         :param Sequence['LoadedCertificateResponse'] loaded_certificates: Collection of loaded certificates
         :param 'PersistentDiskResponse' persistent_disk: Persistent disk settings
         :param bool public: Indicates whether the App exposes public endpoint
+        :param Sequence['SecretResponse'] secrets: Collection of auth secrets
         :param 'TemporaryDiskResponse' temporary_disk: Temporary disk settings
         :param 'AppVNetAddonsResponse' vnet_addons: Additional App settings in vnet injection instance
+        :param str workload_profile_name: The workload profile used for this app. Supported for Consumption + Dedicated plan.
         """
         pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -811,10 +828,14 @@ class AppResourcePropertiesResponse(dict):
             pulumi.set(__self__, "persistent_disk", persistent_disk)
         if public is not None:
             pulumi.set(__self__, "public", public)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
         if temporary_disk is not None:
             pulumi.set(__self__, "temporary_disk", temporary_disk)
         if vnet_addons is not None:
             pulumi.set(__self__, "vnet_addons", vnet_addons)
+        if workload_profile_name is not None:
+            pulumi.set(__self__, "workload_profile_name", workload_profile_name)
 
     @property
     @pulumi.getter
@@ -905,6 +926,14 @@ class AppResourcePropertiesResponse(dict):
         return pulumi.get(self, "public")
 
     @property
+    @pulumi.getter
+    def secrets(self) -> Optional[Sequence['outputs.SecretResponse']]:
+        """
+        Collection of auth secrets
+        """
+        return pulumi.get(self, "secrets")
+
+    @property
     @pulumi.getter(name="temporaryDisk")
     def temporary_disk(self) -> Optional['outputs.TemporaryDiskResponse']:
         """
@@ -919,6 +948,14 @@ class AppResourcePropertiesResponse(dict):
         Additional App settings in vnet injection instance
         """
         return pulumi.get(self, "vnet_addons")
+
+    @property
+    @pulumi.getter(name="workloadProfileName")
+    def workload_profile_name(self) -> Optional[str]:
+        """
+        The workload profile used for this app. Supported for Consumption + Dedicated plan.
+        """
+        return pulumi.get(self, "workload_profile_name")
 
 
 @pulumi.output_type
@@ -1393,12 +1430,14 @@ class AzureFileVolumeResponse(dict):
         suggest = None
         if key == "mountPath":
             suggest = "mount_path"
-        elif key == "shareName":
-            suggest = "share_name"
+        elif key == "enableSubPath":
+            suggest = "enable_sub_path"
         elif key == "mountOptions":
             suggest = "mount_options"
         elif key == "readOnly":
             suggest = "read_only"
+        elif key == "shareName":
+            suggest = "share_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureFileVolumeResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1413,26 +1452,33 @@ class AzureFileVolumeResponse(dict):
 
     def __init__(__self__, *,
                  mount_path: str,
-                 share_name: str,
                  type: str,
+                 enable_sub_path: Optional[bool] = None,
                  mount_options: Optional[Sequence[str]] = None,
-                 read_only: Optional[bool] = None):
+                 read_only: Optional[bool] = None,
+                 share_name: Optional[str] = None):
         """
         The properties of the Azure File volume. Azure File shares are mounted as volumes.
         :param str mount_path: The mount path of the persistent disk.
-        :param str share_name: The share name of the Azure File share.
         :param str type: The type of the underlying resource to mount as a persistent disk.
                Expected value is 'AzureFileVolume'.
+        :param bool enable_sub_path: If set to true, it will create and mount a dedicated directory for every individual app instance.
         :param Sequence[str] mount_options: These are the mount options for a persistent disk.
         :param bool read_only: Indicates whether the persistent disk is a readOnly one.
+        :param str share_name: The share name of the Azure File share.
         """
         pulumi.set(__self__, "mount_path", mount_path)
-        pulumi.set(__self__, "share_name", share_name)
         pulumi.set(__self__, "type", 'AzureFileVolume')
+        if enable_sub_path is None:
+            enable_sub_path = False
+        if enable_sub_path is not None:
+            pulumi.set(__self__, "enable_sub_path", enable_sub_path)
         if mount_options is not None:
             pulumi.set(__self__, "mount_options", mount_options)
         if read_only is not None:
             pulumi.set(__self__, "read_only", read_only)
+        if share_name is not None:
+            pulumi.set(__self__, "share_name", share_name)
 
     @property
     @pulumi.getter(name="mountPath")
@@ -1443,14 +1489,6 @@ class AzureFileVolumeResponse(dict):
         return pulumi.get(self, "mount_path")
 
     @property
-    @pulumi.getter(name="shareName")
-    def share_name(self) -> str:
-        """
-        The share name of the Azure File share.
-        """
-        return pulumi.get(self, "share_name")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -1458,6 +1496,14 @@ class AzureFileVolumeResponse(dict):
         Expected value is 'AzureFileVolume'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="enableSubPath")
+    def enable_sub_path(self) -> Optional[bool]:
+        """
+        If set to true, it will create and mount a dedicated directory for every individual app instance.
+        """
+        return pulumi.get(self, "enable_sub_path")
 
     @property
     @pulumi.getter(name="mountOptions")
@@ -1474,6 +1520,14 @@ class AzureFileVolumeResponse(dict):
         Indicates whether the persistent disk is a readOnly one.
         """
         return pulumi.get(self, "read_only")
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> Optional[str]:
+        """
+        The share name of the Azure File share.
+        """
+        return pulumi.get(self, "share_name")
 
 
 @pulumi.output_type
@@ -2233,6 +2287,12 @@ class ClusterResourcePropertiesResponse(dict):
             suggest = "provisioning_state"
         elif key == "serviceId":
             suggest = "service_id"
+        elif key == "infraResourceGroup":
+            suggest = "infra_resource_group"
+        elif key == "managedEnvironmentId":
+            suggest = "managed_environment_id"
+        elif key == "marketplaceResource":
+            suggest = "marketplace_resource"
         elif key == "networkProfile":
             suggest = "network_profile"
         elif key == "vnetAddons":
@@ -2257,6 +2317,9 @@ class ClusterResourcePropertiesResponse(dict):
                  provisioning_state: str,
                  service_id: str,
                  version: int,
+                 infra_resource_group: Optional[str] = None,
+                 managed_environment_id: Optional[str] = None,
+                 marketplace_resource: Optional['outputs.MarketplaceResourceResponse'] = None,
                  network_profile: Optional['outputs.NetworkProfileResponse'] = None,
                  vnet_addons: Optional['outputs.ServiceVNetAddonsResponse'] = None,
                  zone_redundant: Optional[bool] = None):
@@ -2267,6 +2330,9 @@ class ClusterResourcePropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of the Service
         :param str service_id: ServiceInstanceEntity GUID which uniquely identifies a created resource
         :param int version: Version of the Service
+        :param str infra_resource_group: The name of the resource group that contains the infrastructure resources
+        :param str managed_environment_id: The resource Id of the Managed Environment that the Spring Apps instance builds on
+        :param 'MarketplaceResourceResponse' marketplace_resource: Purchasing 3rd party product of the Service resource.
         :param 'NetworkProfileResponse' network_profile: Network profile of the Service
         :param 'ServiceVNetAddonsResponse' vnet_addons: Additional Service settings in vnet injection instance
         """
@@ -2275,6 +2341,12 @@ class ClusterResourcePropertiesResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "service_id", service_id)
         pulumi.set(__self__, "version", version)
+        if infra_resource_group is not None:
+            pulumi.set(__self__, "infra_resource_group", infra_resource_group)
+        if managed_environment_id is not None:
+            pulumi.set(__self__, "managed_environment_id", managed_environment_id)
+        if marketplace_resource is not None:
+            pulumi.set(__self__, "marketplace_resource", marketplace_resource)
         if network_profile is not None:
             pulumi.set(__self__, "network_profile", network_profile)
         if vnet_addons is not None:
@@ -2323,6 +2395,30 @@ class ClusterResourcePropertiesResponse(dict):
         Version of the Service
         """
         return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="infraResourceGroup")
+    def infra_resource_group(self) -> Optional[str]:
+        """
+        The name of the resource group that contains the infrastructure resources
+        """
+        return pulumi.get(self, "infra_resource_group")
+
+    @property
+    @pulumi.getter(name="managedEnvironmentId")
+    def managed_environment_id(self) -> Optional[str]:
+        """
+        The resource Id of the Managed Environment that the Spring Apps instance builds on
+        """
+        return pulumi.get(self, "managed_environment_id")
+
+    @property
+    @pulumi.getter(name="marketplaceResource")
+    def marketplace_resource(self) -> Optional['outputs.MarketplaceResourceResponse']:
+        """
+        Purchasing 3rd party product of the Service resource.
+        """
+        return pulumi.get(self, "marketplace_resource")
 
     @property
     @pulumi.getter(name="networkProfile")
@@ -2513,6 +2609,8 @@ class ConfigServerPropertiesResponse(dict):
             suggest = "provisioning_state"
         elif key == "configServer":
             suggest = "config_server"
+        elif key == "enabledState":
+            suggest = "enabled_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConfigServerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2528,16 +2626,20 @@ class ConfigServerPropertiesResponse(dict):
     def __init__(__self__, *,
                  provisioning_state: str,
                  config_server: Optional['outputs.ConfigServerSettingsResponse'] = None,
+                 enabled_state: Optional[str] = None,
                  error: Optional['outputs.ErrorResponse'] = None):
         """
         Config server git properties payload
         :param str provisioning_state: State of the config server.
         :param 'ConfigServerSettingsResponse' config_server: Settings of config server.
+        :param str enabled_state: Enabled state of the config server. This is only used in Consumption tier.
         :param 'ErrorResponse' error: Error when apply config server settings.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if config_server is not None:
             pulumi.set(__self__, "config_server", config_server)
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
         if error is not None:
             pulumi.set(__self__, "error", error)
 
@@ -2556,6 +2658,14 @@ class ConfigServerPropertiesResponse(dict):
         Settings of config server.
         """
         return pulumi.get(self, "config_server")
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        Enabled state of the config server. This is only used in Consumption tier.
+        """
+        return pulumi.get(self, "enabled_state")
 
     @property
     @pulumi.getter
@@ -2637,7 +2747,11 @@ class ConfigurationServiceGitRepositoryResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "hostKey":
+        if key == "caCertResourceId":
+            suggest = "ca_cert_resource_id"
+        elif key == "gitImplementation":
+            suggest = "git_implementation"
+        elif key == "hostKey":
             suggest = "host_key"
         elif key == "hostKeyAlgorithm":
             suggest = "host_key_algorithm"
@@ -2664,6 +2778,8 @@ class ConfigurationServiceGitRepositoryResponse(dict):
                  name: str,
                  patterns: Sequence[str],
                  uri: str,
+                 ca_cert_resource_id: Optional[str] = None,
+                 git_implementation: Optional[str] = None,
                  host_key: Optional[str] = None,
                  host_key_algorithm: Optional[str] = None,
                  password: Optional[str] = None,
@@ -2677,6 +2793,8 @@ class ConfigurationServiceGitRepositoryResponse(dict):
         :param str name: Name of the repository
         :param Sequence[str] patterns: Collection of patterns of the repository
         :param str uri: URI of the repository
+        :param str ca_cert_resource_id: Resource Id of CA certificate for https URL of Git repository.
+        :param str git_implementation: Git libraries used to support various repository providers
         :param str host_key: Public sshKey of git repository.
         :param str host_key_algorithm: SshKey algorithm of git repository.
         :param str password: Password of git repository basic auth.
@@ -2689,6 +2807,10 @@ class ConfigurationServiceGitRepositoryResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "patterns", patterns)
         pulumi.set(__self__, "uri", uri)
+        if ca_cert_resource_id is not None:
+            pulumi.set(__self__, "ca_cert_resource_id", ca_cert_resource_id)
+        if git_implementation is not None:
+            pulumi.set(__self__, "git_implementation", git_implementation)
         if host_key is not None:
             pulumi.set(__self__, "host_key", host_key)
         if host_key_algorithm is not None:
@@ -2735,6 +2857,22 @@ class ConfigurationServiceGitRepositoryResponse(dict):
         URI of the repository
         """
         return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="caCertResourceId")
+    def ca_cert_resource_id(self) -> Optional[str]:
+        """
+        Resource Id of CA certificate for https URL of Git repository.
+        """
+        return pulumi.get(self, "ca_cert_resource_id")
+
+    @property
+    @pulumi.getter(name="gitImplementation")
+    def git_implementation(self) -> Optional[str]:
+        """
+        Git libraries used to support various repository providers
+        """
+        return pulumi.get(self, "git_implementation")
 
     @property
     @pulumi.getter(name="hostKey")
@@ -2854,17 +2992,23 @@ class ConfigurationServicePropertiesResponse(dict):
                  instances: Sequence['outputs.ConfigurationServiceInstanceResponse'],
                  provisioning_state: str,
                  resource_requests: 'outputs.ConfigurationServiceResourceRequestsResponse',
+                 generation: Optional[str] = None,
                  settings: Optional['outputs.ConfigurationServiceSettingsResponse'] = None):
         """
         Application Configuration Service properties payload
         :param Sequence['ConfigurationServiceInstanceResponse'] instances: Collection of instances belong to Application Configuration Service.
         :param str provisioning_state: State of the Application Configuration Service.
         :param 'ConfigurationServiceResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
+        :param str generation: The generation of the Application Configuration Service.
         :param 'ConfigurationServiceSettingsResponse' settings: The settings of Application Configuration Service.
         """
         pulumi.set(__self__, "instances", instances)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "resource_requests", resource_requests)
+        if generation is None:
+            generation = 'Gen1'
+        if generation is not None:
+            pulumi.set(__self__, "generation", generation)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
 
@@ -2891,6 +3035,14 @@ class ConfigurationServicePropertiesResponse(dict):
         The requested resource quantity for required CPU and Memory.
         """
         return pulumi.get(self, "resource_requests")
+
+    @property
+    @pulumi.getter
+    def generation(self) -> Optional[str]:
+        """
+        The generation of the Application Configuration Service.
+        """
+        return pulumi.get(self, "generation")
 
     @property
     @pulumi.getter
@@ -3578,6 +3730,55 @@ class CustomPersistentDiskResourceResponse(dict):
 
 
 @pulumi.output_type
+class CustomScaleRuleResponse(dict):
+    """
+    Azure Spring Apps App Instance Custom scaling rule.
+    """
+    def __init__(__self__, *,
+                 auth: Optional[Sequence['outputs.ScaleRuleAuthResponse']] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 type: Optional[str] = None):
+        """
+        Azure Spring Apps App Instance Custom scaling rule.
+        :param Sequence['ScaleRuleAuthResponse'] auth: Authentication secrets for the custom scale rule.
+        :param Mapping[str, str] metadata: Metadata properties to describe custom scale rule.
+        :param str type: Type of the custom scale rule
+               eg: azure-servicebus, redis etc.
+        """
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[Sequence['outputs.ScaleRuleAuthResponse']]:
+        """
+        Authentication secrets for the custom scale rule.
+        """
+        return pulumi.get(self, "auth")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata properties to describe custom scale rule.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the custom scale rule
+        eg: azure-servicebus, redis etc.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class CustomizedAcceleratorPropertiesResponse(dict):
     """
     Customized accelerator properties payload
@@ -3896,26 +4097,32 @@ class DeploymentSettingsResponse(dict):
 
     def __init__(__self__, *,
                  addon_configs: Optional[Mapping[str, Any]] = None,
+                 apms: Optional[Sequence['outputs.ApmReferenceResponse']] = None,
                  container_probe_settings: Optional['outputs.ContainerProbeSettingsResponse'] = None,
                  environment_variables: Optional[Mapping[str, str]] = None,
                  liveness_probe: Optional['outputs.ProbeResponse'] = None,
                  readiness_probe: Optional['outputs.ProbeResponse'] = None,
                  resource_requests: Optional['outputs.ResourceRequestsResponse'] = None,
+                 scale: Optional['outputs.ScaleResponse'] = None,
                  startup_probe: Optional['outputs.ProbeResponse'] = None,
                  termination_grace_period_seconds: Optional[int] = None):
         """
         Deployment settings payload
         :param Mapping[str, Any] addon_configs: Collection of addons
+        :param Sequence['ApmReferenceResponse'] apms: Collection of ApmReferences
         :param 'ContainerProbeSettingsResponse' container_probe_settings: Container liveness and readiness probe settings
         :param Mapping[str, str] environment_variables: Collection of environment variables
         :param 'ProbeResponse' liveness_probe: Periodic probe of App Instance liveness. App Instance will be restarted if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
         :param 'ProbeResponse' readiness_probe: Periodic probe of App Instance service readiness. App Instance will be removed from service endpoints if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
         :param 'ResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+        :param 'ScaleResponse' scale: Scaling properties for the Azure Spring Apps App Instance.
         :param 'ProbeResponse' startup_probe: StartupProbe indicates that the App Instance has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a App Instance's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
         :param int termination_grace_period_seconds: Optional duration in seconds the App Instance needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the App Instance are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 90 seconds.
         """
         if addon_configs is not None:
             pulumi.set(__self__, "addon_configs", addon_configs)
+        if apms is not None:
+            pulumi.set(__self__, "apms", apms)
         if container_probe_settings is not None:
             pulumi.set(__self__, "container_probe_settings", container_probe_settings)
         if environment_variables is not None:
@@ -3926,6 +4133,8 @@ class DeploymentSettingsResponse(dict):
             pulumi.set(__self__, "readiness_probe", readiness_probe)
         if resource_requests is not None:
             pulumi.set(__self__, "resource_requests", resource_requests)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
         if startup_probe is not None:
             pulumi.set(__self__, "startup_probe", startup_probe)
         if termination_grace_period_seconds is None:
@@ -3940,6 +4149,14 @@ class DeploymentSettingsResponse(dict):
         Collection of addons
         """
         return pulumi.get(self, "addon_configs")
+
+    @property
+    @pulumi.getter
+    def apms(self) -> Optional[Sequence['outputs.ApmReferenceResponse']]:
+        """
+        Collection of ApmReferences
+        """
+        return pulumi.get(self, "apms")
 
     @property
     @pulumi.getter(name="containerProbeSettings")
@@ -3980,6 +4197,14 @@ class DeploymentSettingsResponse(dict):
         The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
         """
         return pulumi.get(self, "resource_requests")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional['outputs.ScaleResponse']:
+        """
+        Scaling properties for the Azure Spring Apps App Instance.
+        """
+        return pulumi.get(self, "scale")
 
     @property
     @pulumi.getter(name="startupProbe")
@@ -4687,6 +4912,8 @@ class GatewayCorsPropertiesResponse(dict):
             suggest = "allowed_headers"
         elif key == "allowedMethods":
             suggest = "allowed_methods"
+        elif key == "allowedOriginPatterns":
+            suggest = "allowed_origin_patterns"
         elif key == "allowedOrigins":
             suggest = "allowed_origins"
         elif key == "exposedHeaders":
@@ -4709,6 +4936,7 @@ class GatewayCorsPropertiesResponse(dict):
                  allow_credentials: Optional[bool] = None,
                  allowed_headers: Optional[Sequence[str]] = None,
                  allowed_methods: Optional[Sequence[str]] = None,
+                 allowed_origin_patterns: Optional[Sequence[str]] = None,
                  allowed_origins: Optional[Sequence[str]] = None,
                  exposed_headers: Optional[Sequence[str]] = None,
                  max_age: Optional[int] = None):
@@ -4717,6 +4945,7 @@ class GatewayCorsPropertiesResponse(dict):
         :param bool allow_credentials: Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
         :param Sequence[str] allowed_headers: Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
         :param Sequence[str] allowed_methods: Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+        :param Sequence[str] allowed_origin_patterns: Allowed origin patterns to make cross-site requests.
         :param Sequence[str] allowed_origins: Allowed origins to make cross-site requests. The special value `*` allows all domains.
         :param Sequence[str] exposed_headers: HTTP response headers to expose for cross-site requests.
         :param int max_age: How long, in seconds, the response from a pre-flight request can be cached by clients.
@@ -4727,6 +4956,8 @@ class GatewayCorsPropertiesResponse(dict):
             pulumi.set(__self__, "allowed_headers", allowed_headers)
         if allowed_methods is not None:
             pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if allowed_origin_patterns is not None:
+            pulumi.set(__self__, "allowed_origin_patterns", allowed_origin_patterns)
         if allowed_origins is not None:
             pulumi.set(__self__, "allowed_origins", allowed_origins)
         if exposed_headers is not None:
@@ -4757,6 +4988,14 @@ class GatewayCorsPropertiesResponse(dict):
         Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
         """
         return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOriginPatterns")
+    def allowed_origin_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Allowed origin patterns to make cross-site requests.
+        """
+        return pulumi.get(self, "allowed_origin_patterns")
 
     @property
     @pulumi.getter(name="allowedOrigins")
@@ -4962,10 +5201,18 @@ class GatewayPropertiesResponse(dict):
             suggest = "operator_properties"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "addonConfigs":
+            suggest = "addon_configs"
         elif key == "apiMetadataProperties":
             suggest = "api_metadata_properties"
+        elif key == "apmTypes":
+            suggest = "apm_types"
+        elif key == "clientAuth":
+            suggest = "client_auth"
         elif key == "corsProperties":
             suggest = "cors_properties"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
         elif key == "httpsOnly":
             suggest = "https_only"
         elif key == "resourceRequests":
@@ -4989,8 +5236,12 @@ class GatewayPropertiesResponse(dict):
                  operator_properties: 'outputs.GatewayOperatorPropertiesResponse',
                  provisioning_state: str,
                  url: str,
+                 addon_configs: Optional[Mapping[str, Any]] = None,
                  api_metadata_properties: Optional['outputs.GatewayApiMetadataPropertiesResponse'] = None,
+                 apm_types: Optional[Sequence[str]] = None,
+                 client_auth: Optional['outputs.GatewayPropertiesResponseClientAuth'] = None,
                  cors_properties: Optional['outputs.GatewayCorsPropertiesResponse'] = None,
+                 environment_variables: Optional['outputs.GatewayPropertiesResponseEnvironmentVariables'] = None,
                  https_only: Optional[bool] = None,
                  public: Optional[bool] = None,
                  resource_requests: Optional['outputs.GatewayResourceRequestsResponse'] = None,
@@ -5001,8 +5252,12 @@ class GatewayPropertiesResponse(dict):
         :param 'GatewayOperatorPropertiesResponse' operator_properties: Properties of the Spring Cloud Gateway Operator.
         :param str provisioning_state: State of the Spring Cloud Gateway.
         :param str url: URL of the Spring Cloud Gateway, exposed when 'public' is true.
+        :param Mapping[str, Any] addon_configs: Collection of addons for Spring Cloud Gateway
         :param 'GatewayApiMetadataPropertiesResponse' api_metadata_properties: API metadata property for Spring Cloud Gateway
+        :param Sequence[str] apm_types: Collection of APM type used in Spring Cloud Gateway
+        :param 'GatewayPropertiesResponseClientAuth' client_auth: Client-Certification Authentication.
         :param 'GatewayCorsPropertiesResponse' cors_properties: Cross-Origin Resource Sharing property
+        :param 'GatewayPropertiesResponseEnvironmentVariables' environment_variables: Environment variables of Spring Cloud Gateway
         :param bool https_only: Indicate if only https is allowed.
         :param bool public: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param 'GatewayResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
@@ -5012,10 +5267,18 @@ class GatewayPropertiesResponse(dict):
         pulumi.set(__self__, "operator_properties", operator_properties)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "url", url)
+        if addon_configs is not None:
+            pulumi.set(__self__, "addon_configs", addon_configs)
         if api_metadata_properties is not None:
             pulumi.set(__self__, "api_metadata_properties", api_metadata_properties)
+        if apm_types is not None:
+            pulumi.set(__self__, "apm_types", apm_types)
+        if client_auth is not None:
+            pulumi.set(__self__, "client_auth", client_auth)
         if cors_properties is not None:
             pulumi.set(__self__, "cors_properties", cors_properties)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
         if https_only is None:
             https_only = False
         if https_only is not None:
@@ -5062,6 +5325,14 @@ class GatewayPropertiesResponse(dict):
         return pulumi.get(self, "url")
 
     @property
+    @pulumi.getter(name="addonConfigs")
+    def addon_configs(self) -> Optional[Mapping[str, Any]]:
+        """
+        Collection of addons for Spring Cloud Gateway
+        """
+        return pulumi.get(self, "addon_configs")
+
+    @property
     @pulumi.getter(name="apiMetadataProperties")
     def api_metadata_properties(self) -> Optional['outputs.GatewayApiMetadataPropertiesResponse']:
         """
@@ -5070,12 +5341,36 @@ class GatewayPropertiesResponse(dict):
         return pulumi.get(self, "api_metadata_properties")
 
     @property
+    @pulumi.getter(name="apmTypes")
+    def apm_types(self) -> Optional[Sequence[str]]:
+        """
+        Collection of APM type used in Spring Cloud Gateway
+        """
+        return pulumi.get(self, "apm_types")
+
+    @property
+    @pulumi.getter(name="clientAuth")
+    def client_auth(self) -> Optional['outputs.GatewayPropertiesResponseClientAuth']:
+        """
+        Client-Certification Authentication.
+        """
+        return pulumi.get(self, "client_auth")
+
+    @property
     @pulumi.getter(name="corsProperties")
     def cors_properties(self) -> Optional['outputs.GatewayCorsPropertiesResponse']:
         """
         Cross-Origin Resource Sharing property
         """
         return pulumi.get(self, "cors_properties")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional['outputs.GatewayPropertiesResponseEnvironmentVariables']:
+        """
+        Environment variables of Spring Cloud Gateway
+        """
+        return pulumi.get(self, "environment_variables")
 
     @property
     @pulumi.getter(name="httpsOnly")
@@ -5108,6 +5403,95 @@ class GatewayPropertiesResponse(dict):
         Single sign-on related configuration
         """
         return pulumi.get(self, "sso_properties")
+
+
+@pulumi.output_type
+class GatewayPropertiesResponseClientAuth(dict):
+    """
+    Client-Certification Authentication.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateVerification":
+            suggest = "certificate_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayPropertiesResponseClientAuth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayPropertiesResponseClientAuth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayPropertiesResponseClientAuth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_verification: Optional[str] = None,
+                 certificates: Optional[Sequence[str]] = None):
+        """
+        Client-Certification Authentication.
+        :param str certificate_verification: Whether to enable certificate verification or not
+        :param Sequence[str] certificates: Collection of certificate resource Ids in Azure Spring Apps.
+        """
+        if certificate_verification is None:
+            certificate_verification = 'Disabled'
+        if certificate_verification is not None:
+            pulumi.set(__self__, "certificate_verification", certificate_verification)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+
+    @property
+    @pulumi.getter(name="certificateVerification")
+    def certificate_verification(self) -> Optional[str]:
+        """
+        Whether to enable certificate verification or not
+        """
+        return pulumi.get(self, "certificate_verification")
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[Sequence[str]]:
+        """
+        Collection of certificate resource Ids in Azure Spring Apps.
+        """
+        return pulumi.get(self, "certificates")
+
+
+@pulumi.output_type
+class GatewayPropertiesResponseEnvironmentVariables(dict):
+    """
+    Environment variables of Spring Cloud Gateway
+    """
+    def __init__(__self__, *,
+                 properties: Optional[Mapping[str, str]] = None,
+                 secrets: Optional[Mapping[str, str]] = None):
+        """
+        Environment variables of Spring Cloud Gateway
+        :param Mapping[str, str] properties: Non-sensitive properties
+        :param Mapping[str, str] secrets: Sensitive properties
+        """
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Non-sensitive properties
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[Mapping[str, str]]:
+        """
+        Sensitive properties
+        """
+        return pulumi.get(self, "secrets")
 
 
 @pulumi.output_type
@@ -5186,6 +5570,8 @@ class GatewayRouteConfigPropertiesResponse(dict):
             suggest = "app_resource_id"
         elif key == "openApi":
             suggest = "open_api"
+        elif key == "ssoEnabled":
+            suggest = "sso_enabled"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GatewayRouteConfigPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -5201,28 +5587,40 @@ class GatewayRouteConfigPropertiesResponse(dict):
     def __init__(__self__, *,
                  provisioning_state: str,
                  app_resource_id: Optional[str] = None,
+                 filters: Optional[Sequence[str]] = None,
                  open_api: Optional['outputs.GatewayRouteConfigOpenApiPropertiesResponse'] = None,
+                 predicates: Optional[Sequence[str]] = None,
                  protocol: Optional[str] = None,
-                 routes: Optional[Sequence['outputs.GatewayApiRouteResponse']] = None):
+                 routes: Optional[Sequence['outputs.GatewayApiRouteResponse']] = None,
+                 sso_enabled: Optional[bool] = None):
         """
         API route config of the Spring Cloud Gateway
         :param str provisioning_state: State of the Spring Cloud Gateway route config.
         :param str app_resource_id: The resource Id of the Azure Spring Apps app, required unless route defines `uri`.
+        :param Sequence[str] filters: To modify the request before sending it to the target endpoint, or the received response in app level.
         :param 'GatewayRouteConfigOpenApiPropertiesResponse' open_api: OpenAPI properties of Spring Cloud Gateway route config.
+        :param Sequence[str] predicates: A number of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
         :param str protocol: Protocol of routed Azure Spring Apps applications.
         :param Sequence['GatewayApiRouteResponse'] routes: Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.
+        :param bool sso_enabled: Enable Single Sign-On in app level.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if app_resource_id is not None:
             pulumi.set(__self__, "app_resource_id", app_resource_id)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
         if open_api is not None:
             pulumi.set(__self__, "open_api", open_api)
+        if predicates is not None:
+            pulumi.set(__self__, "predicates", predicates)
         if protocol is None:
             protocol = 'HTTP'
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
+        if sso_enabled is not None:
+            pulumi.set(__self__, "sso_enabled", sso_enabled)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -5241,12 +5639,28 @@ class GatewayRouteConfigPropertiesResponse(dict):
         return pulumi.get(self, "app_resource_id")
 
     @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence[str]]:
+        """
+        To modify the request before sending it to the target endpoint, or the received response in app level.
+        """
+        return pulumi.get(self, "filters")
+
+    @property
     @pulumi.getter(name="openApi")
     def open_api(self) -> Optional['outputs.GatewayRouteConfigOpenApiPropertiesResponse']:
         """
         OpenAPI properties of Spring Cloud Gateway route config.
         """
         return pulumi.get(self, "open_api")
+
+    @property
+    @pulumi.getter
+    def predicates(self) -> Optional[Sequence[str]]:
+        """
+        A number of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+        """
+        return pulumi.get(self, "predicates")
 
     @property
     @pulumi.getter
@@ -5263,6 +5677,14 @@ class GatewayRouteConfigPropertiesResponse(dict):
         Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.
         """
         return pulumi.get(self, "routes")
+
+    @property
+    @pulumi.getter(name="ssoEnabled")
+    def sso_enabled(self) -> Optional[bool]:
+        """
+        Enable Single Sign-On in app level.
+        """
+        return pulumi.get(self, "sso_enabled")
 
 
 @pulumi.output_type
@@ -5485,6 +5907,41 @@ class HTTPGetActionResponse(dict):
          - `"HTTPS"` means that the scheme used will be https://
         """
         return pulumi.get(self, "scheme")
+
+
+@pulumi.output_type
+class HttpScaleRuleResponse(dict):
+    """
+    Azure Spring Apps App Instance Http scaling rule.
+    """
+    def __init__(__self__, *,
+                 auth: Optional[Sequence['outputs.ScaleRuleAuthResponse']] = None,
+                 metadata: Optional[Mapping[str, str]] = None):
+        """
+        Azure Spring Apps App Instance Http scaling rule.
+        :param Sequence['ScaleRuleAuthResponse'] auth: Authentication secrets for the custom scale rule.
+        :param Mapping[str, str] metadata: Metadata properties to describe http scale rule.
+        """
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[Sequence['outputs.ScaleRuleAuthResponse']]:
+        """
+        Authentication secrets for the custom scale rule.
+        """
+        return pulumi.get(self, "auth")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata properties to describe http scale rule.
+        """
+        return pulumi.get(self, "metadata")
 
 
 @pulumi.output_type
@@ -6119,6 +6576,53 @@ class ManagedIdentityPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class MarketplaceResourceResponse(dict):
+    """
+    Purchasing 3rd Party product for one Azure Spring Apps instance
+    """
+    def __init__(__self__, *,
+                 plan: Optional[str] = None,
+                 product: Optional[str] = None,
+                 publisher: Optional[str] = None):
+        """
+        Purchasing 3rd Party product for one Azure Spring Apps instance
+        :param str plan: The plan id of the 3rd Party Artifact that is being procured.
+        :param str product: The 3rd Party artifact that is being procured.
+        :param str publisher: The publisher id of the 3rd Party Artifact that is being bought.
+        """
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if product is not None:
+            pulumi.set(__self__, "product", product)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional[str]:
+        """
+        The plan id of the 3rd Party Artifact that is being procured.
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def product(self) -> Optional[str]:
+        """
+        The 3rd Party artifact that is being procured.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[str]:
+        """
+        The publisher id of the 3rd Party Artifact that is being bought.
+        """
+        return pulumi.get(self, "publisher")
+
+
+@pulumi.output_type
 class MonitoringSettingPropertiesResponse(dict):
     """
     Monitoring Setting properties payload
@@ -6700,6 +7204,72 @@ class ProbeResponse(dict):
 
 
 @pulumi.output_type
+class QueueScaleRuleResponse(dict):
+    """
+    Azure Spring Apps App Instance Azure Queue based scaling rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueLength":
+            suggest = "queue_length"
+        elif key == "queueName":
+            suggest = "queue_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueueScaleRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueueScaleRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueueScaleRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth: Optional[Sequence['outputs.ScaleRuleAuthResponse']] = None,
+                 queue_length: Optional[int] = None,
+                 queue_name: Optional[str] = None):
+        """
+        Azure Spring Apps App Instance Azure Queue based scaling rule.
+        :param Sequence['ScaleRuleAuthResponse'] auth: Authentication secrets for the queue scale rule.
+        :param int queue_length: Queue length.
+        :param str queue_name: Queue name.
+        """
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if queue_length is not None:
+            pulumi.set(__self__, "queue_length", queue_length)
+        if queue_name is not None:
+            pulumi.set(__self__, "queue_name", queue_name)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[Sequence['outputs.ScaleRuleAuthResponse']]:
+        """
+        Authentication secrets for the queue scale rule.
+        """
+        return pulumi.get(self, "auth")
+
+    @property
+    @pulumi.getter(name="queueLength")
+    def queue_length(self) -> Optional[int]:
+        """
+        Queue length.
+        """
+        return pulumi.get(self, "queue_length")
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[str]:
+        """
+        Queue name.
+        """
+        return pulumi.get(self, "queue_name")
+
+
+@pulumi.output_type
 class RequiredTrafficResponse(dict):
     """
     Required inbound or outbound traffic for Azure Spring Apps resource.
@@ -6798,6 +7368,239 @@ class ResourceRequestsResponse(dict):
         Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
         """
         return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
+class ScaleResponse(dict):
+    """
+    Azure Spring Apps scaling configurations.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxReplicas":
+            suggest = "max_replicas"
+        elif key == "minReplicas":
+            suggest = "min_replicas"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_replicas: Optional[int] = None,
+                 min_replicas: Optional[int] = None,
+                 rules: Optional[Sequence['outputs.ScaleRuleResponse']] = None):
+        """
+        Azure Spring Apps scaling configurations.
+        :param int max_replicas: Optional. Maximum number of container replicas. Defaults to 10 if not set.
+        :param int min_replicas: Optional. Minimum number of container replicas.
+        :param Sequence['ScaleRuleResponse'] rules: Scaling rules.
+        """
+        if max_replicas is None:
+            max_replicas = 10
+        if max_replicas is not None:
+            pulumi.set(__self__, "max_replicas", max_replicas)
+        if min_replicas is not None:
+            pulumi.set(__self__, "min_replicas", min_replicas)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="maxReplicas")
+    def max_replicas(self) -> Optional[int]:
+        """
+        Optional. Maximum number of container replicas. Defaults to 10 if not set.
+        """
+        return pulumi.get(self, "max_replicas")
+
+    @property
+    @pulumi.getter(name="minReplicas")
+    def min_replicas(self) -> Optional[int]:
+        """
+        Optional. Minimum number of container replicas.
+        """
+        return pulumi.get(self, "min_replicas")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.ScaleRuleResponse']]:
+        """
+        Scaling rules.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class ScaleRuleAuthResponse(dict):
+    """
+    Auth Secrets for Azure Spring Apps App Instance Scale Rule
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretRef":
+            suggest = "secret_ref"
+        elif key == "triggerParameter":
+            suggest = "trigger_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleRuleAuthResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleRuleAuthResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleRuleAuthResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_ref: Optional[str] = None,
+                 trigger_parameter: Optional[str] = None):
+        """
+        Auth Secrets for Azure Spring Apps App Instance Scale Rule
+        :param str secret_ref: Name of the Azure Spring Apps App Instance secret from which to pull the auth params.
+        :param str trigger_parameter: Trigger Parameter that uses the secret
+        """
+        if secret_ref is not None:
+            pulumi.set(__self__, "secret_ref", secret_ref)
+        if trigger_parameter is not None:
+            pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> Optional[str]:
+        """
+        Name of the Azure Spring Apps App Instance secret from which to pull the auth params.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @property
+    @pulumi.getter(name="triggerParameter")
+    def trigger_parameter(self) -> Optional[str]:
+        """
+        Trigger Parameter that uses the secret
+        """
+        return pulumi.get(self, "trigger_parameter")
+
+
+@pulumi.output_type
+class ScaleRuleResponse(dict):
+    """
+    Azure Spring Apps App Instance scaling rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureQueue":
+            suggest = "azure_queue"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_queue: Optional['outputs.QueueScaleRuleResponse'] = None,
+                 custom: Optional['outputs.CustomScaleRuleResponse'] = None,
+                 http: Optional['outputs.HttpScaleRuleResponse'] = None,
+                 name: Optional[str] = None,
+                 tcp: Optional['outputs.TcpScaleRuleResponse'] = None):
+        """
+        Azure Spring Apps App Instance scaling rule.
+        :param 'QueueScaleRuleResponse' azure_queue: Azure Queue based scaling.
+        :param 'CustomScaleRuleResponse' custom: Custom scale rule.
+        :param 'HttpScaleRuleResponse' http: HTTP requests based scaling.
+        :param str name: Scale Rule Name
+        :param 'TcpScaleRuleResponse' tcp: Tcp requests based scaling.
+        """
+        if azure_queue is not None:
+            pulumi.set(__self__, "azure_queue", azure_queue)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tcp is not None:
+            pulumi.set(__self__, "tcp", tcp)
+
+    @property
+    @pulumi.getter(name="azureQueue")
+    def azure_queue(self) -> Optional['outputs.QueueScaleRuleResponse']:
+        """
+        Azure Queue based scaling.
+        """
+        return pulumi.get(self, "azure_queue")
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional['outputs.CustomScaleRuleResponse']:
+        """
+        Custom scale rule.
+        """
+        return pulumi.get(self, "custom")
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional['outputs.HttpScaleRuleResponse']:
+        """
+        HTTP requests based scaling.
+        """
+        return pulumi.get(self, "http")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Scale Rule Name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tcp(self) -> Optional['outputs.TcpScaleRuleResponse']:
+        """
+        Tcp requests based scaling.
+        """
+        return pulumi.get(self, "tcp")
+
+
+@pulumi.output_type
+class SecretResponse(dict):
+    """
+    Secret definition.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        Secret definition.
+        :param str name: Secret Name.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Secret Name.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -6965,7 +7768,9 @@ class ServiceVNetAddonsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "logStreamPublicEndpoint":
+        if key == "dataPlanePublicEndpoint":
+            suggest = "data_plane_public_endpoint"
+        elif key == "logStreamPublicEndpoint":
             suggest = "log_stream_public_endpoint"
 
         if suggest:
@@ -6980,15 +7785,29 @@ class ServiceVNetAddonsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 data_plane_public_endpoint: Optional[bool] = None,
                  log_stream_public_endpoint: Optional[bool] = None):
         """
         Additional Service settings in vnet injection instance
+        :param bool data_plane_public_endpoint: Indicates whether the data plane components(log stream, app connect, remote debugging) in vnet injection instance could be accessed from internet.
         :param bool log_stream_public_endpoint: Indicates whether the log stream in vnet injection instance could be accessed from internet.
         """
+        if data_plane_public_endpoint is None:
+            data_plane_public_endpoint = False
+        if data_plane_public_endpoint is not None:
+            pulumi.set(__self__, "data_plane_public_endpoint", data_plane_public_endpoint)
         if log_stream_public_endpoint is None:
             log_stream_public_endpoint = False
         if log_stream_public_endpoint is not None:
             pulumi.set(__self__, "log_stream_public_endpoint", log_stream_public_endpoint)
+
+    @property
+    @pulumi.getter(name="dataPlanePublicEndpoint")
+    def data_plane_public_endpoint(self) -> Optional[bool]:
+        """
+        Indicates whether the data plane components(log stream, app connect, remote debugging) in vnet injection instance could be accessed from internet.
+        """
+        return pulumi.get(self, "data_plane_public_endpoint")
 
     @property
     @pulumi.getter(name="logStreamPublicEndpoint")
@@ -7446,6 +8265,41 @@ class TCPSocketActionResponse(dict):
         Expected value is 'TCPSocketAction'.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class TcpScaleRuleResponse(dict):
+    """
+    Azure Spring Apps App Instance Tcp scaling rule.
+    """
+    def __init__(__self__, *,
+                 auth: Optional[Sequence['outputs.ScaleRuleAuthResponse']] = None,
+                 metadata: Optional[Mapping[str, str]] = None):
+        """
+        Azure Spring Apps App Instance Tcp scaling rule.
+        :param Sequence['ScaleRuleAuthResponse'] auth: Authentication secrets for the tcp scale rule.
+        :param Mapping[str, str] metadata: Metadata properties to describe tcp scale rule.
+        """
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[Sequence['outputs.ScaleRuleAuthResponse']]:
+        """
+        Authentication secrets for the tcp scale rule.
+        """
+        return pulumi.get(self, "auth")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata properties to describe tcp scale rule.
+        """
+        return pulumi.get(self, "metadata")
 
 
 @pulumi.output_type

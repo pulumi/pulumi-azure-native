@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.ConfidentialLedger
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20220908preview:ManagedCCF"},
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20230126preview:ManagedCCF"},
                 },
             };

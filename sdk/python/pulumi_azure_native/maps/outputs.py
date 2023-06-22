@@ -8,15 +8,100 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CorsRuleResponse',
+    'CorsRulesResponse',
     'CreatorPropertiesResponse',
+    'LinkedResourceResponse',
+    'ManagedServiceIdentityResponse',
+    'ManagedServiceIdentityResponseUserAssignedIdentities',
     'MapsAccountPropertiesResponse',
     'PrivateAtlasPropertiesResponse',
     'SkuResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class CorsRuleResponse(dict):
+    """
+    Specifies a CORS rule for the Map Account.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedOrigins":
+            suggest = "allowed_origins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CorsRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CorsRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CorsRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_origins: Sequence[str]):
+        """
+        Specifies a CORS rule for the Map Account.
+        :param Sequence[str] allowed_origins: Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[str]:
+        """
+        Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+        """
+        return pulumi.get(self, "allowed_origins")
+
+
+@pulumi.output_type
+class CorsRulesResponse(dict):
+    """
+    Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "corsRules":
+            suggest = "cors_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CorsRulesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CorsRulesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CorsRulesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cors_rules: Optional[Sequence['outputs.CorsRuleResponse']] = None):
+        """
+        Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+        :param Sequence['CorsRuleResponse'] cors_rules: The list of CORS rules. You can include up to five CorsRule elements in the request. 
+        """
+        if cors_rules is not None:
+            pulumi.set(__self__, "cors_rules", cors_rules)
+
+    @property
+    @pulumi.getter(name="corsRules")
+    def cors_rules(self) -> Optional[Sequence['outputs.CorsRuleResponse']]:
+        """
+        The list of CORS rules. You can include up to five CorsRule elements in the request. 
+        """
+        return pulumi.get(self, "cors_rules")
+
 
 @pulumi.output_type
 class CreatorPropertiesResponse(dict):
@@ -71,6 +156,182 @@ class CreatorPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class LinkedResourceResponse(dict):
+    """
+    Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "uniqueName":
+            suggest = "unique_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 unique_name: str):
+        """
+        Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
+        :param str id: ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
+        :param str unique_name: A provided name which uniquely identifies the linked resource.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "unique_name", unique_name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/accounts/{storageName}'.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="uniqueName")
+    def unique_name(self) -> str:
+        """
+        A provided name which uniquely identifies the linked resource.
+        """
+        return pulumi.get(self, "unique_name")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponseUserAssignedIdentities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class MapsAccountPropertiesResponse(dict):
     """
     Additional Map account properties
@@ -84,6 +345,8 @@ class MapsAccountPropertiesResponse(dict):
             suggest = "unique_id"
         elif key == "disableLocalAuth":
             suggest = "disable_local_auth"
+        elif key == "linkedResources":
+            suggest = "linked_resources"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MapsAccountPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -99,25 +362,33 @@ class MapsAccountPropertiesResponse(dict):
     def __init__(__self__, *,
                  provisioning_state: str,
                  unique_id: str,
-                 disable_local_auth: Optional[bool] = None):
+                 cors: Optional['outputs.CorsRulesResponse'] = None,
+                 disable_local_auth: Optional[bool] = None,
+                 linked_resources: Optional[Sequence['outputs.LinkedResourceResponse']] = None):
         """
         Additional Map account properties
-        :param str provisioning_state: the state of the provisioning.
+        :param str provisioning_state: The provisioning state of the Map account resource.
         :param str unique_id: A unique identifier for the maps account
+        :param 'CorsRulesResponse' cors: Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
         :param bool disable_local_auth: Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
+        :param Sequence['LinkedResourceResponse'] linked_resources: Sets the resources to be used for Managed Identities based operations for the Map account resource.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "unique_id", unique_id)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
         if disable_local_auth is None:
             disable_local_auth = False
         if disable_local_auth is not None:
             pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if linked_resources is not None:
+            pulumi.set(__self__, "linked_resources", linked_resources)
 
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        the state of the provisioning.
+        The provisioning state of the Map account resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -130,12 +401,28 @@ class MapsAccountPropertiesResponse(dict):
         return pulumi.get(self, "unique_id")
 
     @property
+    @pulumi.getter
+    def cors(self) -> Optional['outputs.CorsRulesResponse']:
+        """
+        Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+        """
+        return pulumi.get(self, "cors")
+
+    @property
     @pulumi.getter(name="disableLocalAuth")
     def disable_local_auth(self) -> Optional[bool]:
         """
         Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
         """
         return pulumi.get(self, "disable_local_auth")
+
+    @property
+    @pulumi.getter(name="linkedResources")
+    def linked_resources(self) -> Optional[Sequence['outputs.LinkedResourceResponse']]:
+        """
+        Sets the resources to be used for Managed Identities based operations for the Map account resource.
+        """
+        return pulumi.get(self, "linked_resources")
 
 
 @pulumi.output_type

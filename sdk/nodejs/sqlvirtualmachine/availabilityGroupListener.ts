@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL Server availability group listener.
- * Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-03-01-preview
  */
 export class AvailabilityGroupListener extends pulumi.CustomResource {
     /**
@@ -122,7 +122,7 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AvailabilityGroupListener.__pulumiType, name, resourceInputs, opts);
     }

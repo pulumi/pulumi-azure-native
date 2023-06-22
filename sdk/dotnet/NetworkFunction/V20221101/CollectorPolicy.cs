@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.NetworkFunction.V20221101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:networkfunction:CollectorPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:networkfunction/v20210901preview:CollectorPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:networkfunction/v20220501:CollectorPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:networkfunction/v20220801:CollectorPolicy"},
                 },

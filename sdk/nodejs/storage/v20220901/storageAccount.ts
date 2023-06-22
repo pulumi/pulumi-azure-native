@@ -339,7 +339,7 @@ export class StorageAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage:StorageAccount" }, { type: "azure-native:storage/v20210101:StorageAccount" }, { type: "azure-native:storage/v20210201:StorageAccount" }, { type: "azure-native:storage/v20210401:StorageAccount" }, { type: "azure-native:storage/v20210601:StorageAccount" }, { type: "azure-native:storage/v20210801:StorageAccount" }, { type: "azure-native:storage/v20210901:StorageAccount" }, { type: "azure-native:storage/v20220501:StorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:StorageAccount" }, { type: "azure-native:storage/v20210201:StorageAccount" }, { type: "azure-native:storage/v20210801:StorageAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAccount.__pulumiType, name, resourceInputs, opts);
     }

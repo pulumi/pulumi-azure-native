@@ -113,12 +113,7 @@ namespace Pulumi.AzureNative.Storage.V20210201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storage:BlobServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:BlobServiceProperties"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:BlobServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:BlobServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:BlobServiceProperties"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:BlobServiceProperties"},
                 },
             };

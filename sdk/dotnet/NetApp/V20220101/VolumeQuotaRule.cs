@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.NetApp.V20220101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:netapp:VolumeQuotaRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:VolumeQuotaRule"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:VolumeQuotaRule"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:VolumeQuotaRule"},
                 },

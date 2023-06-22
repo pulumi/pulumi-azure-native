@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Distributed availability group between box and Sql Managed Instance.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-05-01-preview
+ * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview
  */
 export class DistributedAvailabilityGroup extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
      * The distributed availability group id
      */
     public /*out*/ readonly distributedAvailabilityGroupId!: pulumi.Output<string>;
+    /**
+     * Role of managed instance
+     */
+    public /*out*/ readonly instanceRole!: pulumi.Output<string>;
     /**
      * The last hardened lsn
      */
@@ -113,6 +117,7 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
             resourceInputs["sourceEndpoint"] = args ? args.sourceEndpoint : undefined;
             resourceInputs["targetDatabase"] = args ? args.targetDatabase : undefined;
             resourceInputs["distributedAvailabilityGroupId"] = undefined /*out*/;
+            resourceInputs["instanceRole"] = undefined /*out*/;
             resourceInputs["lastHardenedLsn"] = undefined /*out*/;
             resourceInputs["linkState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -121,6 +126,7 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["distributedAvailabilityGroupId"] = undefined /*out*/;
+            resourceInputs["instanceRole"] = undefined /*out*/;
             resourceInputs["lastHardenedLsn"] = undefined /*out*/;
             resourceInputs["linkState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -134,7 +140,7 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20210501preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20210801preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20211101:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20211101preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20220201preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20220501preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20220801preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20221101preview:DistributedAvailabilityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20210501preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20210801preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20211101preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20220801preview:DistributedAvailabilityGroup" }, { type: "azure-native:sql/v20221101preview:DistributedAvailabilityGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DistributedAvailabilityGroup.__pulumiType, name, resourceInputs, opts);
     }

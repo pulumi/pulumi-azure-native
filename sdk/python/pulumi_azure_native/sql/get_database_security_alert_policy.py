@@ -184,7 +184,7 @@ def get_database_security_alert_policy(database_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseSecurityAlertPolicyResult:
     """
     Gets a database's security alert policy.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str database_name: The name of the  database for which the security alert policy is defined.
@@ -223,7 +223,7 @@ def get_database_security_alert_policy_output(database_name: Optional[pulumi.Inp
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseSecurityAlertPolicyResult]:
     """
     Gets a database's security alert policy.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str database_name: The name of the  database for which the security alert policy is defined.

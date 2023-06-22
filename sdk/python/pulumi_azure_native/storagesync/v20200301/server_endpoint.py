@@ -375,7 +375,7 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__.__dict__["recall_status"] = None
             __props__.__dict__["sync_status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagesync:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20200901:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20220601:ServerEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagesync:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20220601:ServerEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerEndpoint, __self__).__init__(
             'azure-native:storagesync/v20200301:ServerEndpoint',

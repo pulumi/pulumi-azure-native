@@ -152,8 +152,6 @@ namespace Pulumi.AzureNative.CostManagement.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20190401preview:View"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20191101:View"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20200601:View"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20211001:View"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20220801preview:View"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001:View"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001preview:View"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221005preview:View"},

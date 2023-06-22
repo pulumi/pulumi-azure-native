@@ -89,16 +89,12 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql:InstanceFailoverGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20171001preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:InstanceFailoverGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:InstanceFailoverGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:InstanceFailoverGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:InstanceFailoverGroup"},
                 },

@@ -73,10 +73,6 @@ namespace Pulumi.AzureNative.AppConfiguration.V20230301
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200601:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -119,7 +119,6 @@ namespace Pulumi.AzureNative.Insights.V20150501
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:insights:Workbook"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180617preview:Workbook"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20201020:Workbook"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210308:Workbook"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210801:Workbook"},

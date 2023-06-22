@@ -66,11 +66,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20230301Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform:ApiPortalCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:ApiPortalCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:ApiPortalCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:ApiPortalCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:ApiPortalCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:ApiPortalCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:ApiPortalCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:ApiPortalCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:ApiPortalCustomDomain"},
                 },

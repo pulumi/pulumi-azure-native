@@ -101,11 +101,9 @@ namespace Pulumi.AzureNative.Network.V20221101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:NatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:NatRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20201101:NatRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201:NatRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210301:NatRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:NatRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:NatRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:NatRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:NatRule"},

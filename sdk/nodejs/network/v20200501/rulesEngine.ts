@@ -85,7 +85,7 @@ export class RulesEngine extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:RulesEngine" }, { type: "azure-native:network/v20200101:RulesEngine" }, { type: "azure-native:network/v20200401:RulesEngine" }, { type: "azure-native:network/v20210601:RulesEngine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:RulesEngine" }, { type: "azure-native:network/v20200401:RulesEngine" }, { type: "azure-native:network/v20210601:RulesEngine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RulesEngine.__pulumiType, name, resourceInputs, opts);
     }

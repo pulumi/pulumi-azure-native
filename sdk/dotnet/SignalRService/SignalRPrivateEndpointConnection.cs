@@ -84,13 +84,8 @@ namespace Pulumi.AzureNative.SignalRService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210401preview:SignalRPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210601preview:SignalRPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220801preview:SignalRPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection"},
                 },

@@ -274,7 +274,7 @@ class PrometheusRuleGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup"), pulumi.Alias(type_="azure-native:alertsmanagement/v20230301:PrometheusRuleGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:alertsmanagement/v20230301:PrometheusRuleGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrometheusRuleGroup, __self__).__init__(
             'azure-native:alertsmanagement:PrometheusRuleGroup',

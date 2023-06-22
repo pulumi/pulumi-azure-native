@@ -81,17 +81,13 @@ namespace Pulumi.AzureNative.Web.V20220901
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppRelayServiceConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppRelayServiceConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppRelayServiceConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppRelayServiceConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppRelayServiceConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppRelayServiceConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppRelayServiceConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppRelayServiceConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppRelayServiceConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppRelayServiceConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppRelayServiceConnectionSlot"},
                 },
             };

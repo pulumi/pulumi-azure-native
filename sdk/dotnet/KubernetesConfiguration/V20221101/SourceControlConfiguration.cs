@@ -138,12 +138,9 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20221101
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:SourceControlConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20200701preview:SourceControlConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:SourceControlConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220101preview:SourceControlConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220301:SourceControlConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:SourceControlConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20230501:SourceControlConfiguration"},
                 },

@@ -83,16 +83,12 @@ namespace Pulumi.AzureNative.Web.V20220901
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:AppServicePlanRouteForVnet"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlanRouteForVnet"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:AppServicePlanRouteForVnet"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlanRouteForVnet"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:AppServicePlanRouteForVnet"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:AppServicePlanRouteForVnet"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:AppServicePlanRouteForVnet"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:AppServicePlanRouteForVnet"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:AppServicePlanRouteForVnet"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:AppServicePlanRouteForVnet"},
                 },
             };

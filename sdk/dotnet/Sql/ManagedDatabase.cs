@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A managed database resource.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedDatabase")]
     public partial class ManagedDatabase : global::Pulumi.CustomResource
@@ -51,6 +51,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("failoverGroupId")]
         public Output<string> FailoverGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+        /// </summary>
+        [Output("isLedgerOn")]
+        public Output<bool?> IsLedgerOn { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -116,10 +122,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ManagedDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedDatabase"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ManagedDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ManagedDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ManagedDatabase"},
                 },
@@ -170,10 +173,34 @@ namespace Pulumi.AzureNative.Sql
         public InputUnion<string, Pulumi.AzureNative.Sql.ManagedDatabaseCreateMode>? CreateMode { get; set; }
 
         /// <summary>
+        /// The restorable cross-subscription dropped database resource id to restore when creating this database.
+        /// </summary>
+        [Input("crossSubscriptionRestorableDroppedDatabaseId")]
+        public Input<string>? CrossSubscriptionRestorableDroppedDatabaseId { get; set; }
+
+        /// <summary>
+        /// The resource identifier of the cross-subscription source database associated with create operation of this database.
+        /// </summary>
+        [Input("crossSubscriptionSourceDatabaseId")]
+        public Input<string>? CrossSubscriptionSourceDatabaseId { get; set; }
+
+        /// <summary>
+        /// Target managed instance id used in cross-subscription restore.
+        /// </summary>
+        [Input("crossSubscriptionTargetManagedInstanceId")]
+        public Input<string>? CrossSubscriptionTargetManagedInstanceId { get; set; }
+
+        /// <summary>
         /// The name of the database.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
+
+        /// <summary>
+        /// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+        /// </summary>
+        [Input("isLedgerOn")]
+        public Input<bool>? IsLedgerOn { get; set; }
 
         /// <summary>
         /// Last backup file name for restore of this managed database.
@@ -230,7 +257,13 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? SourceDatabaseId { get; set; }
 
         /// <summary>
-        /// Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the storage container sas token.
+        /// Conditional. If createMode is RestoreExternalBackup, this value is used. Specifies the identity used for storage container authentication. Can be 'SharedAccessSignature' or 'ManagedIdentity'; if not specified 'SharedAccessSignature' is assumed.
+        /// </summary>
+        [Input("storageContainerIdentity")]
+        public Input<string>? StorageContainerIdentity { get; set; }
+
+        /// <summary>
+        /// Conditional. If createMode is RestoreExternalBackup and storageContainerIdentity is not ManagedIdentity, this value is required. Specifies the storage container sas token.
         /// </summary>
         [Input("storageContainerSasToken")]
         public Input<string>? StorageContainerSasToken { get; set; }

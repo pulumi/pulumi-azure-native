@@ -115,7 +115,7 @@ export class RestorePoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:RestorePoint" }, { type: "azure-native:compute/v20210301:RestorePoint" }, { type: "azure-native:compute/v20210401:RestorePoint" }, { type: "azure-native:compute/v20210701:RestorePoint" }, { type: "azure-native:compute/v20211101:RestorePoint" }, { type: "azure-native:compute/v20220301:RestorePoint" }, { type: "azure-native:compute/v20220801:RestorePoint" }, { type: "azure-native:compute/v20221101:RestorePoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:RestorePoint" }, { type: "azure-native:compute/v20210301:RestorePoint" }, { type: "azure-native:compute/v20210401:RestorePoint" }, { type: "azure-native:compute/v20211101:RestorePoint" }, { type: "azure-native:compute/v20221101:RestorePoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RestorePoint.__pulumiType, name, resourceInputs, opts);
     }

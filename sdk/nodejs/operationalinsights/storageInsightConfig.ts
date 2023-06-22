@@ -113,7 +113,7 @@ export class StorageInsightConfig extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20200301preview:StorageInsightConfig" }, { type: "azure-native:operationalinsights/v20200801:StorageInsightConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20200801:StorageInsightConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageInsightConfig.__pulumiType, name, resourceInputs, opts);
     }

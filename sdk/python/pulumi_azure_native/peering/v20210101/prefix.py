@@ -174,7 +174,7 @@ class Prefix(pulumi.CustomResource):
             __props__.__dict__["prefix_validation_state"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering:Prefix"), pulumi.Alias(type_="azure-native:peering/v20210601:Prefix"), pulumi.Alias(type_="azure-native:peering/v20220101:Prefix"), pulumi.Alias(type_="azure-native:peering/v20220601:Prefix"), pulumi.Alias(type_="azure-native:peering/v20221001:Prefix")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering:Prefix"), pulumi.Alias(type_="azure-native:peering/v20210601:Prefix"), pulumi.Alias(type_="azure-native:peering/v20221001:Prefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Prefix, __self__).__init__(
             'azure-native:peering/v20210101:Prefix',

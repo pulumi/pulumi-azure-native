@@ -105,10 +105,6 @@ namespace Pulumi.AzureNative.AppConfiguration.V20200701Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration:KeyValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:KeyValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:KeyValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:KeyValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:KeyValue"},
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230301:KeyValue"},
                 },
             };

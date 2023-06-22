@@ -168,7 +168,6 @@ namespace Pulumi.AzureNative.Batch.V20221001
                 {
                     new global::Pulumi.Alias { Type = "azure-native:batch:BatchAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20210101:BatchAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:batch/v20210601:BatchAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220101:BatchAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220601:BatchAccount"},
                 },

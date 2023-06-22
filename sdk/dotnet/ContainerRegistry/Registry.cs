@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a container registry.
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2019-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Registry")]
     public partial class Registry : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Output("adminUserEnabled")]
         public Output<bool?> AdminUserEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables registry-wide pull from unauthenticated clients.
+        /// </summary>
+        [Output("anonymousPullEnabled")]
+        public Output<bool?> AnonymousPullEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The creation date of the container registry in ISO8601 format.
@@ -169,17 +175,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20160627preview:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20170301:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210901:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20221201:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:Registry"},
                 },
             };
@@ -209,6 +206,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Input("adminUserEnabled")]
         public Input<bool>? AdminUserEnabled { get; set; }
+
+        /// <summary>
+        /// Enables registry-wide pull from unauthenticated clients.
+        /// </summary>
+        [Input("anonymousPullEnabled")]
+        public Input<bool>? AnonymousPullEnabled { get; set; }
 
         /// <summary>
         /// Enable a single data endpoint per region for serving data.
@@ -297,6 +300,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public RegistryArgs()
         {
             AdminUserEnabled = false;
+            AnonymousPullEnabled = false;
             NetworkRuleBypassOptions = "AzureServices";
             PublicNetworkAccess = "Enabled";
             ZoneRedundancy = "Disabled";

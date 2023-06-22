@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a HostPool definition.
- * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
+ * Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class HostPool extends pulumi.CustomResource {
     /**
@@ -109,6 +109,14 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly preferredAppGroupType!: pulumi.Output<string>;
     /**
+     * List of private endpoint connection associated with the specified resource
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.desktopvirtualization.PrivateEndpointConnectionResponse[]>;
+    /**
+     * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * The registration info of HostPool.
      */
     public readonly registrationInfo!: pulumi.Output<outputs.desktopvirtualization.RegistrationInfoResponse | undefined>;
@@ -196,6 +204,7 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["registrationInfo"] = args ? args.registrationInfo : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ring"] = args ? args.ring : undefined;
@@ -213,6 +222,7 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -235,6 +245,8 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["personalDesktopAssignmentType"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
             resourceInputs["preferredAppGroupType"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["registrationInfo"] = undefined /*out*/;
             resourceInputs["ring"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
@@ -250,7 +262,7 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["vmTemplate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210114preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210201preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210309preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210401preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210712:HostPool" }, { type: "azure-native:desktopvirtualization/v20210903preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20220210preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20220401preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20220909:HostPool" }, { type: "azure-native:desktopvirtualization/v20221014preview:HostPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210201preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210401preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20220210preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20220401preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20221014preview:HostPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HostPool.__pulumiType, name, resourceInputs, opts);
     }
@@ -314,6 +326,10 @@ export interface HostPoolArgs {
      * The type of preferred application group type, default to Desktop Application Group
      */
     preferredAppGroupType: pulumi.Input<string | enums.desktopvirtualization.PreferredAppGroupType>;
+    /**
+     * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.desktopvirtualization.HostpoolPublicNetworkAccess>;
     /**
      * The registration info of HostPool.
      */

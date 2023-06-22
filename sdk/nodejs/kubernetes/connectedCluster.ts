@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a connected cluster.
- * Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2021-03-01
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class ConnectedCluster extends pulumi.CustomResource {
     /**
@@ -47,6 +47,10 @@ export class ConnectedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly agentVersion!: pulumi.Output<string>;
     /**
+     * Indicates whether Azure Hybrid Benefit is opted in
+     */
+    public readonly azureHybridBenefit!: pulumi.Output<string | undefined>;
+    /**
      * Represents the connectivity status of the connected cluster.
      */
     public /*out*/ readonly connectivityStatus!: pulumi.Output<string>;
@@ -54,6 +58,10 @@ export class ConnectedCluster extends pulumi.CustomResource {
      * The Kubernetes distribution running on this connected cluster.
      */
     public readonly distribution!: pulumi.Output<string | undefined>;
+    /**
+     * The Kubernetes distribution version on this connected cluster.
+     */
+    public readonly distributionVersion!: pulumi.Output<string | undefined>;
     /**
      * The identity of the connected cluster.
      */
@@ -79,6 +87,10 @@ export class ConnectedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly managedIdentityCertificateExpirationTime!: pulumi.Output<string>;
     /**
+     * More properties related to the Connected Cluster
+     */
+    public /*out*/ readonly miscellaneousProperties!: pulumi.Output<{[key: string]: string}>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -86,6 +98,14 @@ export class ConnectedCluster extends pulumi.CustomResource {
      * Connected cluster offering
      */
     public /*out*/ readonly offering!: pulumi.Output<string>;
+    /**
+     * The resource id of the private link scope this connected cluster is assigned to, if any.
+     */
+    public readonly privateLinkScopeResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * Property which describes the state of private link on a connected cluster resource.
+     */
+    public readonly privateLinkState!: pulumi.Output<string | undefined>;
     /**
      * Provisioning state of the connected cluster resource.
      */
@@ -132,11 +152,15 @@ export class ConnectedCluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["agentPublicKeyCertificate"] = args ? args.agentPublicKeyCertificate : undefined;
+            resourceInputs["azureHybridBenefit"] = (args ? args.azureHybridBenefit : undefined) ?? "NotApplicable";
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["distribution"] = args ? args.distribution : undefined;
+            resourceInputs["distributionVersion"] = args ? args.distributionVersion : undefined;
             resourceInputs["identity"] = args ? (args.identity ? pulumi.output(args.identity).apply(inputs.kubernetes.connectedClusterIdentityArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["infrastructure"] = args ? args.infrastructure : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["privateLinkScopeResourceId"] = args ? args.privateLinkScopeResourceId : undefined;
+            resourceInputs["privateLinkState"] = (args ? args.privateLinkState : undefined) ?? "Disabled";
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -145,6 +169,7 @@ export class ConnectedCluster extends pulumi.CustomResource {
             resourceInputs["kubernetesVersion"] = undefined /*out*/;
             resourceInputs["lastConnectivityTime"] = undefined /*out*/;
             resourceInputs["managedIdentityCertificateExpirationTime"] = undefined /*out*/;
+            resourceInputs["miscellaneousProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["offering"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -154,16 +179,21 @@ export class ConnectedCluster extends pulumi.CustomResource {
         } else {
             resourceInputs["agentPublicKeyCertificate"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["azureHybridBenefit"] = undefined /*out*/;
             resourceInputs["connectivityStatus"] = undefined /*out*/;
             resourceInputs["distribution"] = undefined /*out*/;
+            resourceInputs["distributionVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["infrastructure"] = undefined /*out*/;
             resourceInputs["kubernetesVersion"] = undefined /*out*/;
             resourceInputs["lastConnectivityTime"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedIdentityCertificateExpirationTime"] = undefined /*out*/;
+            resourceInputs["miscellaneousProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["offering"] = undefined /*out*/;
+            resourceInputs["privateLinkScopeResourceId"] = undefined /*out*/;
+            resourceInputs["privateLinkState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -172,7 +202,7 @@ export class ConnectedCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kubernetes/v20210301:ConnectedCluster" }, { type: "azure-native:kubernetes/v20210401preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20211001:ConnectedCluster" }, { type: "azure-native:kubernetes/v20220501preview:ConnectedCluster" }, { type: "azure-native:kubernetes/v20221001preview:ConnectedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetes/v20210301:ConnectedCluster" }, { type: "azure-native:kubernetes/v20221001preview:ConnectedCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectedCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -187,6 +217,10 @@ export interface ConnectedClusterArgs {
      */
     agentPublicKeyCertificate: pulumi.Input<string>;
     /**
+     * Indicates whether Azure Hybrid Benefit is opted in
+     */
+    azureHybridBenefit?: pulumi.Input<string | enums.kubernetes.AzureHybridBenefit>;
+    /**
      * The name of the Kubernetes cluster on which get is called.
      */
     clusterName?: pulumi.Input<string>;
@@ -194,6 +228,10 @@ export interface ConnectedClusterArgs {
      * The Kubernetes distribution running on this connected cluster.
      */
     distribution?: pulumi.Input<string>;
+    /**
+     * The Kubernetes distribution version on this connected cluster.
+     */
+    distributionVersion?: pulumi.Input<string>;
     /**
      * The identity of the connected cluster.
      */
@@ -206,6 +244,14 @@ export interface ConnectedClusterArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The resource id of the private link scope this connected cluster is assigned to, if any.
+     */
+    privateLinkScopeResourceId?: pulumi.Input<string>;
+    /**
+     * Property which describes the state of private link on a connected cluster resource.
+     */
+    privateLinkState?: pulumi.Input<string | enums.kubernetes.PrivateLinkState>;
     /**
      * Provisioning state of the connected cluster resource.
      */

@@ -127,7 +127,7 @@ export class ConnectedEnvironmentsDaprComponent extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20220601preview:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectedEnvironmentsDaprComponent.__pulumiType, name, resourceInputs, opts);
     }

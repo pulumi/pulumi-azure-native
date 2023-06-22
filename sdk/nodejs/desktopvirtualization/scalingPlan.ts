@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a scaling plan definition.
- * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
+ * Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class ScalingPlan extends pulumi.CustomResource {
     /**
@@ -166,7 +166,7 @@ export class ScalingPlan extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210114preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210201preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210309preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210401preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210712:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210903preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20220210preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20220401preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20220909:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20221014preview:ScalingPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210201preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210401preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20220210preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20220401preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20221014preview:ScalingPlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScalingPlan.__pulumiType, name, resourceInputs, opts);
     }

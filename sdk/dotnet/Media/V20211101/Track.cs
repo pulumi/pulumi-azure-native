@@ -65,7 +65,6 @@ namespace Pulumi.AzureNative.Media.V20211101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:media:Track"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:Track"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20230101:Track"},
                 },
             };

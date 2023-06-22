@@ -118,7 +118,7 @@ export class DataExport extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:DataExport" }, { type: "azure-native:operationalinsights/v20190801preview:DataExport" }, { type: "azure-native:operationalinsights/v20200301preview:DataExport" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:DataExport" }, { type: "azure-native:operationalinsights/v20190801preview:DataExport" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataExport.__pulumiType, name, resourceInputs, opts);
     }

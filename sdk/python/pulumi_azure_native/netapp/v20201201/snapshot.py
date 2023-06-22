@@ -193,7 +193,7 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["snapshot_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210201:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210401:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210601:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210801:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20211001:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220101:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220301:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220501:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220901:Snapshot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210401:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20211001:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220101:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220501:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220901:Snapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Snapshot, __self__).__init__(
             'azure-native:netapp/v20201201:Snapshot',

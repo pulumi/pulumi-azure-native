@@ -138,17 +138,13 @@ namespace Pulumi.AzureNative.Web.V20220901
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppInstanceFunctionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppInstanceFunctionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppInstanceFunctionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppInstanceFunctionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppInstanceFunctionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppInstanceFunctionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppInstanceFunctionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppInstanceFunctionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppInstanceFunctionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppInstanceFunctionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppInstanceFunctionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppInstanceFunctionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppInstanceFunctionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppInstanceFunctionSlot"},
                 },
             };

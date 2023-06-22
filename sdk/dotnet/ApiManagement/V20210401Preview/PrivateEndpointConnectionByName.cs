@@ -71,9 +71,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:PrivateEndpointConnectionByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName"},
                 },

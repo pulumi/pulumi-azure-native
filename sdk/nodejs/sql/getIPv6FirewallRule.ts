@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an IPv6 firewall rule.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getIPv6FirewallRule(args: GetIPv6FirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetIPv6FirewallRuleResult> {
 
@@ -38,7 +38,7 @@ export interface GetIPv6FirewallRuleArgs {
  */
 export interface GetIPv6FirewallRuleResult {
     /**
-     * The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
+     * The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpv6Address.
      */
     readonly endIPv6Address?: string;
     /**
@@ -60,7 +60,7 @@ export interface GetIPv6FirewallRuleResult {
 }
 /**
  * Gets an IPv6 firewall rule.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getIPv6FirewallRuleOutput(args: GetIPv6FirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPv6FirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getIPv6FirewallRule(a, opts))

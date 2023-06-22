@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class ConfigurationServiceGitRepositoryResponse
     {
         /// <summary>
+        /// Resource Id of CA certificate for https URL of Git repository.
+        /// </summary>
+        public readonly string? CaCertResourceId;
+        /// <summary>
+        /// Git libraries used to support various repository providers
+        /// </summary>
+        public readonly string? GitImplementation;
+        /// <summary>
         /// Public sshKey of git repository.
         /// </summary>
         public readonly string? HostKey;
@@ -63,6 +71,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
         [OutputConstructor]
         private ConfigurationServiceGitRepositoryResponse(
+            string? caCertResourceId,
+
+            string? gitImplementation,
+
             string? hostKey,
 
             string? hostKeyAlgorithm,
@@ -85,6 +97,8 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             string? username)
         {
+            CaCertResourceId = caCertResourceId;
+            GitImplementation = gitImplementation;
             HostKey = hostKey;
             HostKeyAlgorithm = hostKeyAlgorithm;
             Label = label;

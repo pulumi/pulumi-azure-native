@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of topic resource.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class Topic extends pulumi.CustomResource {
     /**
@@ -188,7 +188,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:Topic" }, { type: "azure-native:servicebus/v20180101preview:Topic" }, { type: "azure-native:servicebus/v20210101preview:Topic" }, { type: "azure-native:servicebus/v20210601preview:Topic" }, { type: "azure-native:servicebus/v20211101:Topic" }, { type: "azure-native:servicebus/v20220101preview:Topic" }, { type: "azure-native:servicebus/v20221001preview:Topic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:Topic" }, { type: "azure-native:servicebus/v20180101preview:Topic" }, { type: "azure-native:servicebus/v20220101preview:Topic" }, { type: "azure-native:servicebus/v20221001preview:Topic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Topic.__pulumiType, name, resourceInputs, opts);
     }

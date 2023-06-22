@@ -65,7 +65,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20230501Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform:ApplicationLiveView"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:ApplicationLiveView"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:ApplicationLiveView"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:ApplicationLiveView"},
                 },

@@ -130,16 +130,6 @@ export const getDataCollectionRuleAssociation: typeof import("./getDataCollectio
 export const getDataCollectionRuleAssociationOutput: typeof import("./getDataCollectionRuleAssociation").getDataCollectionRuleAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getDataCollectionRuleAssociation","getDataCollectionRuleAssociationOutput"], () => require("./getDataCollectionRuleAssociation"));
 
-export { GetDiagnosticServiceTokenReadOnlyArgs, GetDiagnosticServiceTokenReadOnlyResult, GetDiagnosticServiceTokenReadOnlyOutputArgs } from "./getDiagnosticServiceTokenReadOnly";
-export const getDiagnosticServiceTokenReadOnly: typeof import("./getDiagnosticServiceTokenReadOnly").getDiagnosticServiceTokenReadOnly = null as any;
-export const getDiagnosticServiceTokenReadOnlyOutput: typeof import("./getDiagnosticServiceTokenReadOnly").getDiagnosticServiceTokenReadOnlyOutput = null as any;
-utilities.lazyLoad(exports, ["getDiagnosticServiceTokenReadOnly","getDiagnosticServiceTokenReadOnlyOutput"], () => require("./getDiagnosticServiceTokenReadOnly"));
-
-export { GetDiagnosticServiceTokenReadWriteArgs, GetDiagnosticServiceTokenReadWriteResult, GetDiagnosticServiceTokenReadWriteOutputArgs } from "./getDiagnosticServiceTokenReadWrite";
-export const getDiagnosticServiceTokenReadWrite: typeof import("./getDiagnosticServiceTokenReadWrite").getDiagnosticServiceTokenReadWrite = null as any;
-export const getDiagnosticServiceTokenReadWriteOutput: typeof import("./getDiagnosticServiceTokenReadWrite").getDiagnosticServiceTokenReadWriteOutput = null as any;
-utilities.lazyLoad(exports, ["getDiagnosticServiceTokenReadWrite","getDiagnosticServiceTokenReadWriteOutput"], () => require("./getDiagnosticServiceTokenReadWrite"));
-
 export { GetDiagnosticSettingArgs, GetDiagnosticSettingResult, GetDiagnosticSettingOutputArgs } from "./getDiagnosticSetting";
 export const getDiagnosticSetting: typeof import("./getDiagnosticSetting").getDiagnosticSetting = null as any;
 export const getDiagnosticSettingOutput: typeof import("./getDiagnosticSetting").getDiagnosticSettingOutput = null as any;
@@ -164,11 +154,6 @@ export { GetGuestDiagnosticsSettingsAssociationArgs, GetGuestDiagnosticsSettings
 export const getGuestDiagnosticsSettingsAssociation: typeof import("./getGuestDiagnosticsSettingsAssociation").getGuestDiagnosticsSettingsAssociation = null as any;
 export const getGuestDiagnosticsSettingsAssociationOutput: typeof import("./getGuestDiagnosticsSettingsAssociation").getGuestDiagnosticsSettingsAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getGuestDiagnosticsSettingsAssociation","getGuestDiagnosticsSettingsAssociationOutput"], () => require("./getGuestDiagnosticsSettingsAssociation"));
-
-export { GetLiveTokenArgs, GetLiveTokenResult, GetLiveTokenOutputArgs } from "./getLiveToken";
-export const getLiveToken: typeof import("./getLiveToken").getLiveToken = null as any;
-export const getLiveTokenOutput: typeof import("./getLiveToken").getLiveTokenOutput = null as any;
-utilities.lazyLoad(exports, ["getLiveToken","getLiveTokenOutput"], () => require("./getLiveToken"));
 
 export { GetLogProfileArgs, GetLogProfileResult, GetLogProfileOutputArgs } from "./getLogProfile";
 export const getLogProfile: typeof import("./getLogProfile").getLogProfile = null as any;
@@ -225,11 +210,6 @@ export const getTenantActionGroup: typeof import("./getTenantActionGroup").getTe
 export const getTenantActionGroupOutput: typeof import("./getTenantActionGroup").getTenantActionGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getTenantActionGroup","getTenantActionGroupOutput"], () => require("./getTenantActionGroup"));
 
-export { GetTestResultFileArgs, GetTestResultFileResult, GetTestResultFileOutputArgs } from "./getTestResultFile";
-export const getTestResultFile: typeof import("./getTestResultFile").getTestResultFile = null as any;
-export const getTestResultFileOutput: typeof import("./getTestResultFile").getTestResultFileOutput = null as any;
-utilities.lazyLoad(exports, ["getTestResultFile","getTestResultFileOutput"], () => require("./getTestResultFile"));
-
 export { GetWebTestArgs, GetWebTestResult, GetWebTestOutputArgs } from "./getWebTest";
 export const getWebTest: typeof import("./getWebTest").getWebTest = null as any;
 export const getWebTestOutput: typeof import("./getWebTest").getWebTestOutput = null as any;
@@ -254,10 +234,6 @@ export { GuestDiagnosticsSettingsAssociationArgs } from "./guestDiagnosticsSetti
 export type GuestDiagnosticsSettingsAssociation = import("./guestDiagnosticsSettingsAssociation").GuestDiagnosticsSettingsAssociation;
 export const GuestDiagnosticsSettingsAssociation: typeof import("./guestDiagnosticsSettingsAssociation").GuestDiagnosticsSettingsAssociation = null as any;
 utilities.lazyLoad(exports, ["GuestDiagnosticsSettingsAssociation"], () => require("./guestDiagnosticsSettingsAssociation"));
-
-export { ListEASubscriptionListMigrationDatePostArgs, ListEASubscriptionListMigrationDatePostResult } from "./listEASubscriptionListMigrationDatePost";
-export const listEASubscriptionListMigrationDatePost: typeof import("./listEASubscriptionListMigrationDatePost").listEASubscriptionListMigrationDatePost = null as any;
-utilities.lazyLoad(exports, ["listEASubscriptionListMigrationDatePost"], () => require("./listEASubscriptionListMigrationDatePost"));
 
 export { LogProfileArgs } from "./logProfile";
 export type LogProfile = import("./logProfile").LogProfile;

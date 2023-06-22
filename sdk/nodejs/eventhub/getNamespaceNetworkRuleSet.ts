@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets NetworkRuleSet for a Namespace.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceNetworkRuleSetResult> {
 
@@ -56,7 +56,7 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly name: string;
     /**
-     * This determines if traffic is allowed over public network. By default it is enabled.
+     * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
      */
     readonly publicNetworkAccess?: string;
     /**
@@ -78,7 +78,7 @@ export interface GetNamespaceNetworkRuleSetResult {
 }
 /**
  * Gets NetworkRuleSet for a Namespace.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getNamespaceNetworkRuleSetOutput(args: GetNamespaceNetworkRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceNetworkRuleSetResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceNetworkRuleSet(a, opts))

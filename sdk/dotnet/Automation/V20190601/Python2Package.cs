@@ -137,7 +137,6 @@ namespace Pulumi.AzureNative.Automation.V20190601
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:automation:Python2Package"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20180630:Python2Package"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Python2Package"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:Python2Package"},
                 },

@@ -59,8 +59,6 @@ namespace Pulumi.AzureNative.Migrate.V20210101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate:MoveResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001preview:MoveResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20210801:MoveResource"},
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20220801:MoveResource"},
                 },
             };

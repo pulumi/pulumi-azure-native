@@ -439,7 +439,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["vm_id"] = None
             __props__.__dict__["zones"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachineScaleSetVM")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachineScaleSetVM")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSetVM, __self__).__init__(
             'azure-native:compute/v20210301:VirtualMachineScaleSetVM',

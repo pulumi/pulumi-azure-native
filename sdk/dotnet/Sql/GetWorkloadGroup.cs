@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a workload group
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetWorkloadGroupResult> InvokeAsync(GetWorkloadGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadGroupResult>("azure-native:sql:getWorkloadGroup", args ?? new GetWorkloadGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a workload group
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetWorkloadGroupResult> Invoke(GetWorkloadGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadGroupResult>("azure-native:sql:getWorkloadGroup", args ?? new GetWorkloadGroupInvokeArgs(), options.WithDefaults());

@@ -104,10 +104,7 @@ namespace Pulumi.AzureNative.Compute.V20221101
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:AvailabilitySet"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:AvailabilitySet"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:AvailabilitySet"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:AvailabilitySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220801:AvailabilitySet"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230301:AvailabilitySet"},
                 },
             };

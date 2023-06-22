@@ -192,8 +192,6 @@ namespace Pulumi.AzureNative.Solutions.V20210701
                 {
                     new global::Pulumi.Alias { Type = "azure-native:solutions:Application"},
                     new global::Pulumi.Alias { Type = "azure-native:solutions/v20190701:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

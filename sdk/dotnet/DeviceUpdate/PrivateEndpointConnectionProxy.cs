@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
 {
     /// <summary>
     /// Private endpoint connection proxy details.
-    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
+    /// Azure REST API version: 2022-12-01-preview. Prior API version in Azure Native 1.x: 2020-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate:PrivateEndpointConnectionProxy")]
     public partial class PrivateEndpointConnectionProxy : global::Pulumi.CustomResource
@@ -84,8 +84,6 @@ namespace Pulumi.AzureNative.DeviceUpdate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy"},
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy"},
                 },
             };

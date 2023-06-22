@@ -80,11 +80,6 @@ export const listFleetCredentials: typeof import("./listFleetCredentials").listF
 export const listFleetCredentialsOutput: typeof import("./listFleetCredentials").listFleetCredentialsOutput = null as any;
 utilities.lazyLoad(exports, ["listFleetCredentials","listFleetCredentialsOutput"], () => require("./listFleetCredentials"));
 
-export { ListManagedClusterAccessProfileArgs, ListManagedClusterAccessProfileResult, ListManagedClusterAccessProfileOutputArgs } from "./listManagedClusterAccessProfile";
-export const listManagedClusterAccessProfile: typeof import("./listManagedClusterAccessProfile").listManagedClusterAccessProfile = null as any;
-export const listManagedClusterAccessProfileOutput: typeof import("./listManagedClusterAccessProfile").listManagedClusterAccessProfileOutput = null as any;
-utilities.lazyLoad(exports, ["listManagedClusterAccessProfile","listManagedClusterAccessProfileOutput"], () => require("./listManagedClusterAccessProfile"));
-
 export { ListManagedClusterAdminCredentialsArgs, ListManagedClusterAdminCredentialsResult, ListManagedClusterAdminCredentialsOutputArgs } from "./listManagedClusterAdminCredentials";
 export const listManagedClusterAdminCredentials: typeof import("./listManagedClusterAdminCredentials").listManagedClusterAdminCredentials = null as any;
 export const listManagedClusterAdminCredentialsOutput: typeof import("./listManagedClusterAdminCredentials").listManagedClusterAdminCredentialsOutput = null as any;

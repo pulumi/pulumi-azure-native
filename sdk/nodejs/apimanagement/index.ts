@@ -594,11 +594,6 @@ export const listAuthorizationServerSecrets: typeof import("./listAuthorizationS
 export const listAuthorizationServerSecretsOutput: typeof import("./listAuthorizationServerSecrets").listAuthorizationServerSecretsOutput = null as any;
 utilities.lazyLoad(exports, ["listAuthorizationServerSecrets","listAuthorizationServerSecretsOutput"], () => require("./listAuthorizationServerSecrets"));
 
-export { ListDelegationSettingSecretsArgs, ListDelegationSettingSecretsResult, ListDelegationSettingSecretsOutputArgs } from "./listDelegationSettingSecrets";
-export const listDelegationSettingSecrets: typeof import("./listDelegationSettingSecrets").listDelegationSettingSecrets = null as any;
-export const listDelegationSettingSecretsOutput: typeof import("./listDelegationSettingSecrets").listDelegationSettingSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["listDelegationSettingSecrets","listDelegationSettingSecretsOutput"], () => require("./listDelegationSettingSecrets"));
-
 export { ListGatewayKeysArgs, ListGatewayKeysResult, ListGatewayKeysOutputArgs } from "./listGatewayKeys";
 export const listGatewayKeys: typeof import("./listGatewayKeys").listGatewayKeys = null as any;
 export const listGatewayKeysOutput: typeof import("./listGatewayKeys").listGatewayKeysOutput = null as any;

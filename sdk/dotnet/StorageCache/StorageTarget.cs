@@ -120,11 +120,6 @@ namespace Pulumi.AzureNative.StorageCache
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20210301:StorageTarget"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20210501:StorageTarget"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20210901:StorageTarget"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20220101:StorageTarget"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20220501:StorageTarget"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230101:StorageTarget"},
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230301preview:StorageTarget"},
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230501:StorageTarget"},
                 },

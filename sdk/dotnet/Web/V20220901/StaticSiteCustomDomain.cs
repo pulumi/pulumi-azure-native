@@ -90,7 +90,6 @@ namespace Pulumi.AzureNative.Web.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSiteCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSiteCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSiteCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSiteCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteCustomDomain"},
                 },
             };

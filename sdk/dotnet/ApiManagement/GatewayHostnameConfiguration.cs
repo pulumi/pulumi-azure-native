@@ -89,15 +89,10 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:GatewayHostnameConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayHostnameConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GatewayHostnameConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:GatewayHostnameConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:GatewayHostnameConfiguration"},
                 },

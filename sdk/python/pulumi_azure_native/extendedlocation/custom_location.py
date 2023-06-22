@@ -233,7 +233,7 @@ class CustomLocation(pulumi.CustomResource):
                  __props__=None):
         """
         Custom Locations definition.
-        Azure REST API version: 2021-08-15. Prior API version in Azure Native 1.x: 2021-03-15-preview
+        Azure REST API version: 2021-08-31-preview. Prior API version in Azure Native 1.x: 2021-03-15-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,7 +258,7 @@ class CustomLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Custom Locations definition.
-        Azure REST API version: 2021-08-15. Prior API version in Azure Native 1.x: 2021-03-15-preview
+        Azure REST API version: 2021-08-31-preview. Prior API version in Azure Native 1.x: 2021-03-15-preview
 
         :param str resource_name: The name of the resource.
         :param CustomLocationArgs args: The arguments to use to populate this resource's properties.
@@ -313,7 +313,7 @@ class CustomLocation(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:extendedlocation/v20210315preview:CustomLocation"), pulumi.Alias(type_="azure-native:extendedlocation/v20210815:CustomLocation"), pulumi.Alias(type_="azure-native:extendedlocation/v20210831preview:CustomLocation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:extendedlocation/v20210315preview:CustomLocation"), pulumi.Alias(type_="azure-native:extendedlocation/v20210831preview:CustomLocation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomLocation, __self__).__init__(
             'azure-native:extendedlocation:CustomLocation',

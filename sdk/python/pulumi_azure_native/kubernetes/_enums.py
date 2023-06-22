@@ -6,6 +6,8 @@ from enum import Enum
 
 __all__ = [
     'AuthenticationMethod',
+    'AzureHybridBenefit',
+    'PrivateLinkState',
     'ProvisioningState',
     'ResourceIdentityType',
 ]
@@ -17,6 +19,23 @@ class AuthenticationMethod(str, Enum):
     """
     TOKEN = "Token"
     AAD = "AAD"
+
+
+class AzureHybridBenefit(str, Enum):
+    """
+    Indicates whether Azure Hybrid Benefit is opted in
+    """
+    TRUE = "True"
+    FALSE = "False"
+    NOT_APPLICABLE = "NotApplicable"
+
+
+class PrivateLinkState(str, Enum):
+    """
+    Property which describes the state of private link on a connected cluster resource.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ProvisioningState(str, Enum):

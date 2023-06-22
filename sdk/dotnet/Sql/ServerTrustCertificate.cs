@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-05-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerTrustCertificate")]
     public partial class ServerTrustCertificate : global::Pulumi.CustomResource
@@ -73,10 +73,7 @@ namespace Pulumi.AzureNative.Sql
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerTrustCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerTrustCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerTrustCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerTrustCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerTrustCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ServerTrustCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ServerTrustCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ServerTrustCertificate"},
                 },

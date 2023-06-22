@@ -71,7 +71,6 @@ namespace Pulumi.AzureNative.Network.V20220901
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:RoutingIntent"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:RoutingIntent"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:RoutingIntent"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:RoutingIntent"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:RoutingIntent"},

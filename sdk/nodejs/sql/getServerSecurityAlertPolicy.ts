@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a server's security alert policy.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getServerSecurityAlertPolicy(args: GetServerSecurityAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerSecurityAlertPolicyResult> {
 
@@ -91,7 +91,7 @@ export interface GetServerSecurityAlertPolicyResult {
 }
 /**
  * Get a server's security alert policy.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getServerSecurityAlertPolicyOutput(args: GetServerSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerSecurityAlertPolicyResult> {
     return pulumi.output(args).apply((a: any) => getServerSecurityAlertPolicy(a, opts))

@@ -22,7 +22,7 @@ class GetSqlVirtualMachineResult:
     """
     A SQL virtual machine.
     """
-    def __init__(__self__, assessment_settings=None, auto_backup_settings=None, auto_patching_settings=None, id=None, identity=None, key_vault_credential_settings=None, location=None, name=None, provisioning_state=None, server_configurations_management_settings=None, sql_image_offer=None, sql_image_sku=None, sql_management=None, sql_server_license_type=None, sql_virtual_machine_group_resource_id=None, storage_configuration_settings=None, system_data=None, tags=None, type=None, virtual_machine_resource_id=None, wsfc_domain_credentials=None, wsfc_static_ip=None):
+    def __init__(__self__, assessment_settings=None, auto_backup_settings=None, auto_patching_settings=None, enable_automatic_upgrade=None, id=None, identity=None, key_vault_credential_settings=None, least_privilege_mode=None, location=None, name=None, provisioning_state=None, server_configurations_management_settings=None, sql_image_offer=None, sql_image_sku=None, sql_management=None, sql_server_license_type=None, sql_virtual_machine_group_resource_id=None, storage_configuration_settings=None, system_data=None, tags=None, troubleshooting_status=None, type=None, virtual_machine_resource_id=None, wsfc_domain_credentials=None, wsfc_static_ip=None):
         if assessment_settings and not isinstance(assessment_settings, dict):
             raise TypeError("Expected argument 'assessment_settings' to be a dict")
         pulumi.set(__self__, "assessment_settings", assessment_settings)
@@ -32,6 +32,9 @@ class GetSqlVirtualMachineResult:
         if auto_patching_settings and not isinstance(auto_patching_settings, dict):
             raise TypeError("Expected argument 'auto_patching_settings' to be a dict")
         pulumi.set(__self__, "auto_patching_settings", auto_patching_settings)
+        if enable_automatic_upgrade and not isinstance(enable_automatic_upgrade, bool):
+            raise TypeError("Expected argument 'enable_automatic_upgrade' to be a bool")
+        pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,6 +44,9 @@ class GetSqlVirtualMachineResult:
         if key_vault_credential_settings and not isinstance(key_vault_credential_settings, dict):
             raise TypeError("Expected argument 'key_vault_credential_settings' to be a dict")
         pulumi.set(__self__, "key_vault_credential_settings", key_vault_credential_settings)
+        if least_privilege_mode and not isinstance(least_privilege_mode, str):
+            raise TypeError("Expected argument 'least_privilege_mode' to be a str")
+        pulumi.set(__self__, "least_privilege_mode", least_privilege_mode)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -77,6 +83,9 @@ class GetSqlVirtualMachineResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if troubleshooting_status and not isinstance(troubleshooting_status, dict):
+            raise TypeError("Expected argument 'troubleshooting_status' to be a dict")
+        pulumi.set(__self__, "troubleshooting_status", troubleshooting_status)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -94,7 +103,7 @@ class GetSqlVirtualMachineResult:
     @pulumi.getter(name="assessmentSettings")
     def assessment_settings(self) -> Optional['outputs.AssessmentSettingsResponse']:
         """
-        Assessment Settings.
+        SQL best practices Assessment Settings.
         """
         return pulumi.get(self, "assessment_settings")
 
@@ -113,6 +122,14 @@ class GetSqlVirtualMachineResult:
         Auto patching settings for applying critical security updates to SQL virtual machine.
         """
         return pulumi.get(self, "auto_patching_settings")
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[bool]:
+        """
+        Enable automatic upgrade of Sql IaaS extension Agent.
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
 
     @property
     @pulumi.getter
@@ -137,6 +154,14 @@ class GetSqlVirtualMachineResult:
         Key vault credential settings.
         """
         return pulumi.get(self, "key_vault_credential_settings")
+
+    @property
+    @pulumi.getter(name="leastPrivilegeMode")
+    def least_privilege_mode(self) -> Optional[str]:
+        """
+        SQL IaaS Agent least privilege mode.
+        """
+        return pulumi.get(self, "least_privilege_mode")
 
     @property
     @pulumi.getter
@@ -190,7 +215,7 @@ class GetSqlVirtualMachineResult:
     @pulumi.getter(name="sqlManagement")
     def sql_management(self) -> Optional[str]:
         """
-        SQL Server Management type.
+        SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
         """
         return pulumi.get(self, "sql_management")
 
@@ -235,6 +260,14 @@ class GetSqlVirtualMachineResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="troubleshootingStatus")
+    def troubleshooting_status(self) -> 'outputs.TroubleshootingStatusResponse':
+        """
+        Troubleshooting status
+        """
+        return pulumi.get(self, "troubleshooting_status")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -276,9 +309,11 @@ class AwaitableGetSqlVirtualMachineResult(GetSqlVirtualMachineResult):
             assessment_settings=self.assessment_settings,
             auto_backup_settings=self.auto_backup_settings,
             auto_patching_settings=self.auto_patching_settings,
+            enable_automatic_upgrade=self.enable_automatic_upgrade,
             id=self.id,
             identity=self.identity,
             key_vault_credential_settings=self.key_vault_credential_settings,
+            least_privilege_mode=self.least_privilege_mode,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -291,6 +326,7 @@ class AwaitableGetSqlVirtualMachineResult(GetSqlVirtualMachineResult):
             storage_configuration_settings=self.storage_configuration_settings,
             system_data=self.system_data,
             tags=self.tags,
+            troubleshooting_status=self.troubleshooting_status,
             type=self.type,
             virtual_machine_resource_id=self.virtual_machine_resource_id,
             wsfc_domain_credentials=self.wsfc_domain_credentials,
@@ -303,7 +339,7 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlVirtualMachineResult:
     """
     Gets a SQL virtual machine.
-    Azure REST API version: 2022-02-01.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str expand: The child resources to include in the response.
@@ -321,9 +357,11 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
         assessment_settings=__ret__.assessment_settings,
         auto_backup_settings=__ret__.auto_backup_settings,
         auto_patching_settings=__ret__.auto_patching_settings,
+        enable_automatic_upgrade=__ret__.enable_automatic_upgrade,
         id=__ret__.id,
         identity=__ret__.identity,
         key_vault_credential_settings=__ret__.key_vault_credential_settings,
+        least_privilege_mode=__ret__.least_privilege_mode,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
@@ -336,6 +374,7 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
         storage_configuration_settings=__ret__.storage_configuration_settings,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
+        troubleshooting_status=__ret__.troubleshooting_status,
         type=__ret__.type,
         virtual_machine_resource_id=__ret__.virtual_machine_resource_id,
         wsfc_domain_credentials=__ret__.wsfc_domain_credentials,
@@ -349,7 +388,7 @@ def get_sql_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]]
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlVirtualMachineResult]:
     """
     Gets a SQL virtual machine.
-    Azure REST API version: 2022-02-01.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str expand: The child resources to include in the response.

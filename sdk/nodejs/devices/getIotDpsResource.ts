@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the metadata of the provisioning service without SAS keys.
- * Azure REST API version: 2022-12-12.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourceResult> {
 
@@ -43,6 +43,10 @@ export interface GetIotDpsResourceResult {
      * The resource identifier.
      */
     readonly id: string;
+    /**
+     * The managed identities for a provisioning service.
+     */
+    readonly identity?: outputs.devices.ManagedServiceIdentityResponse;
     /**
      * The resource location.
      */
@@ -82,7 +86,7 @@ export interface GetIotDpsResourceResult {
 }
 /**
  * Get the metadata of the provisioning service without SAS keys.
- * Azure REST API version: 2022-12-12.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getIotDpsResourceOutput(args: GetIotDpsResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourceResult> {
     return pulumi.output(args).apply((a: any) => getIotDpsResource(a, opts))

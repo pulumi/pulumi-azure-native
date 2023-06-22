@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Maps
     {
         /// <summary>
         /// Get a Maps Creator resource.
-        /// Azure REST API version: 2021-02-01.
+        /// Azure REST API version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetCreatorResult> InvokeAsync(GetCreatorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCreatorResult>("azure-native:maps:getCreator", args ?? new GetCreatorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Maps Creator resource.
-        /// Azure REST API version: 2021-02-01.
+        /// Azure REST API version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetCreatorResult> Invoke(GetCreatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCreatorResult>("azure-native:maps:getCreator", args ?? new GetCreatorInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.Maps
         /// </summary>
         public readonly Outputs.CreatorPropertiesResponse Properties;
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.Maps
 
             Outputs.CreatorPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.Maps
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

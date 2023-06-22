@@ -251,7 +251,7 @@ class PeeringService(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering:PeeringService"), pulumi.Alias(type_="azure-native:peering/v20210101:PeeringService"), pulumi.Alias(type_="azure-native:peering/v20210601:PeeringService"), pulumi.Alias(type_="azure-native:peering/v20220101:PeeringService"), pulumi.Alias(type_="azure-native:peering/v20220601:PeeringService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:peering:PeeringService"), pulumi.Alias(type_="azure-native:peering/v20210101:PeeringService"), pulumi.Alias(type_="azure-native:peering/v20210601:PeeringService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PeeringService, __self__).__init__(
             'azure-native:peering/v20221001:PeeringService',

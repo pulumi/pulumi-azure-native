@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class DisasterRecoveryConfig extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20170401:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20180101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20210101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20210601preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20211101:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20220101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20221001preview:DisasterRecoveryConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20170401:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20180101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20220101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20221001preview:DisasterRecoveryConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DisasterRecoveryConfig.__pulumiType, name, resourceInputs, opts);
     }

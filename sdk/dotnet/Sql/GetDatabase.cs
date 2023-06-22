@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a database.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:sql:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a database.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:sql:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
@@ -34,6 +34,18 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("databaseName", required: true)]
         public string DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The child resources to include in the response.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
+        /// An OData filter expression that filters elements in the collection.
+        /// </summary>
+        [Input("filter")]
+        public string? Filter { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -62,6 +74,18 @@ namespace Pulumi.AzureNative.Sql
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
+        /// The child resources to include in the response.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
+        /// <summary>
+        /// An OData filter expression that filters elements in the collection.
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -87,6 +111,10 @@ namespace Pulumi.AzureNative.Sql
         /// Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
         /// </summary>
         public readonly int? AutoPauseDelay;
+        /// <summary>
+        /// Specifies the availability zone the database is pinned to.
+        /// </summary>
+        public readonly string? AvailabilityZone;
         /// <summary>
         /// Collation of the metadata catalog.
         /// </summary>
@@ -128,6 +156,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string? ElasticPoolId;
         /// <summary>
+        /// The azure key vault URI of the database if it's configured with per Database Customer Managed Keys.
+        /// </summary>
+        public readonly string? EncryptionProtector;
+        /// <summary>
         /// Failover Group resource identifier that this database belongs to.
         /// </summary>
         public readonly string FailoverGroupId;
@@ -156,6 +188,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly bool? IsLedgerOn;
         /// <summary>
+        /// The resource ids of the user assigned identities to use
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.DatabaseKeyResponse>? Keys;
+        /// <summary>
         /// Kind of database. This is metadata used for the Azure portal experience.
         /// </summary>
         public readonly string Kind;
@@ -175,6 +211,16 @@ namespace Pulumi.AzureNative.Sql
         /// Resource that manages the database.
         /// </summary>
         public readonly string ManagedBy;
+        /// <summary>
+        /// Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
+        /// 
+        /// This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier.
+        /// 
+        /// When manualCutover is specified, the scaling operation will wait for user input to trigger cutover to Hyperscale database.
+        /// 
+        /// To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
+        /// </summary>
+        public readonly bool? ManualCutover;
         /// <summary>
         /// The max log size for this database.
         /// </summary>
@@ -196,6 +242,20 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string PausedDate;
         /// <summary>
+        /// To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
+        /// 
+        /// This property parameter is only applicable for scaling operations that are initiated along with 'manualCutover' parameter.
+        /// 
+        /// This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier is already in progress.
+        /// 
+        /// When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
+        /// </summary>
+        public readonly bool? PerformCutover;
+        /// <summary>
+        /// Type of enclave requested on the database i.e. Default or VBS enclaves.
+        /// </summary>
+        public readonly string? PreferredEnclaveType;
+        /// <summary>
         /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         public readonly string? ReadScale;
@@ -212,7 +272,7 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string ResumedDate;
         /// <summary>
-        /// The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+        /// The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
         /// </summary>
         public readonly string? SecondaryType;
         /// <summary>
@@ -250,6 +310,8 @@ namespace Pulumi.AzureNative.Sql
         private GetDatabaseResult(
             int? autoPauseDelay,
 
+            string? availabilityZone,
+
             string? catalogCollation,
 
             string? collation,
@@ -270,6 +332,8 @@ namespace Pulumi.AzureNative.Sql
 
             string? elasticPoolId,
 
+            string? encryptionProtector,
+
             string failoverGroupId,
 
             string? federatedClientId,
@@ -284,6 +348,8 @@ namespace Pulumi.AzureNative.Sql
 
             bool? isLedgerOn,
 
+            ImmutableDictionary<string, Outputs.DatabaseKeyResponse>? keys,
+
             string kind,
 
             string? licenseType,
@@ -294,6 +360,8 @@ namespace Pulumi.AzureNative.Sql
 
             string managedBy,
 
+            bool? manualCutover,
+
             double maxLogSizeBytes,
 
             double? maxSizeBytes,
@@ -303,6 +371,10 @@ namespace Pulumi.AzureNative.Sql
             string name,
 
             string pausedDate,
+
+            bool? performCutover,
+
+            string? preferredEnclaveType,
 
             string? readScale,
 
@@ -325,6 +397,7 @@ namespace Pulumi.AzureNative.Sql
             bool? zoneRedundant)
         {
             AutoPauseDelay = autoPauseDelay;
+            AvailabilityZone = availabilityZone;
             CatalogCollation = catalogCollation;
             Collation = collation;
             CreationDate = creationDate;
@@ -335,6 +408,7 @@ namespace Pulumi.AzureNative.Sql
             DefaultSecondaryLocation = defaultSecondaryLocation;
             EarliestRestoreDate = earliestRestoreDate;
             ElasticPoolId = elasticPoolId;
+            EncryptionProtector = encryptionProtector;
             FailoverGroupId = failoverGroupId;
             FederatedClientId = federatedClientId;
             HighAvailabilityReplicaCount = highAvailabilityReplicaCount;
@@ -342,16 +416,20 @@ namespace Pulumi.AzureNative.Sql
             Identity = identity;
             IsInfraEncryptionEnabled = isInfraEncryptionEnabled;
             IsLedgerOn = isLedgerOn;
+            Keys = keys;
             Kind = kind;
             LicenseType = licenseType;
             Location = location;
             MaintenanceConfigurationId = maintenanceConfigurationId;
             ManagedBy = managedBy;
+            ManualCutover = manualCutover;
             MaxLogSizeBytes = maxLogSizeBytes;
             MaxSizeBytes = maxSizeBytes;
             MinCapacity = minCapacity;
             Name = name;
             PausedDate = pausedDate;
+            PerformCutover = performCutover;
+            PreferredEnclaveType = preferredEnclaveType;
             ReadScale = readScale;
             RequestedBackupStorageRedundancy = requestedBackupStorageRedundancy;
             RequestedServiceObjectiveName = requestedServiceObjectiveName;

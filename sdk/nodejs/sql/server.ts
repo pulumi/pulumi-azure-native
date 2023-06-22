@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL Database server.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+ * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -43,9 +43,13 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * The Azure Active Directory administrator of the server.
+     * The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
      */
     public readonly administrators!: pulumi.Output<outputs.sql.ServerExternalAdministratorResponse | undefined>;
+    /**
+     * Status of external governance.
+     */
+    public /*out*/ readonly externalGovernanceStatus!: pulumi.Output<string>;
     /**
      * The Client id used for cross tenant CMK scenario
      */
@@ -71,7 +75,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+     * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
      */
     public readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
     /**
@@ -87,7 +91,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.sql.ServerPrivateEndpointConnectionResponse[]>;
     /**
-     * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
@@ -144,6 +148,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["externalGovernanceStatus"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -154,6 +159,7 @@ export class Server extends pulumi.CustomResource {
         } else {
             resourceInputs["administratorLogin"] = undefined /*out*/;
             resourceInputs["administrators"] = undefined /*out*/;
+            resourceInputs["externalGovernanceStatus"] = undefined /*out*/;
             resourceInputs["federatedClientId"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
@@ -173,7 +179,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["workspaceFeature"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:Server" }, { type: "azure-native:sql/v20150501preview:Server" }, { type: "azure-native:sql/v20190601preview:Server" }, { type: "azure-native:sql/v20200202preview:Server" }, { type: "azure-native:sql/v20200801preview:Server" }, { type: "azure-native:sql/v20201101preview:Server" }, { type: "azure-native:sql/v20210201preview:Server" }, { type: "azure-native:sql/v20210501preview:Server" }, { type: "azure-native:sql/v20210801preview:Server" }, { type: "azure-native:sql/v20211101:Server" }, { type: "azure-native:sql/v20211101preview:Server" }, { type: "azure-native:sql/v20220201preview:Server" }, { type: "azure-native:sql/v20220501preview:Server" }, { type: "azure-native:sql/v20220801preview:Server" }, { type: "azure-native:sql/v20221101preview:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:Server" }, { type: "azure-native:sql/v20150501preview:Server" }, { type: "azure-native:sql/v20190601preview:Server" }, { type: "azure-native:sql/v20200202preview:Server" }, { type: "azure-native:sql/v20200801preview:Server" }, { type: "azure-native:sql/v20201101preview:Server" }, { type: "azure-native:sql/v20210201preview:Server" }, { type: "azure-native:sql/v20210501preview:Server" }, { type: "azure-native:sql/v20210801preview:Server" }, { type: "azure-native:sql/v20211101preview:Server" }, { type: "azure-native:sql/v20220801preview:Server" }, { type: "azure-native:sql/v20221101preview:Server" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Server.__pulumiType, name, resourceInputs, opts);
     }
@@ -192,7 +198,7 @@ export interface ServerArgs {
      */
     administratorLoginPassword?: pulumi.Input<string>;
     /**
-     * The Azure Active Directory administrator of the server.
+     * The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
      */
     administrators?: pulumi.Input<inputs.sql.ServerExternalAdministratorArgs>;
     /**
@@ -212,7 +218,7 @@ export interface ServerArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+     * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
      */
     minimalTlsVersion?: pulumi.Input<string>;
     /**
@@ -220,9 +226,9 @@ export interface ServerArgs {
      */
     primaryUserAssignedIdentityId?: pulumi.Input<string>;
     /**
-     * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.sql.ServerNetworkAccessFlag>;
+    publicNetworkAccess?: pulumi.Input<string | enums.sql.ServerPublicNetworkAccessFlag>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets an elastic pool.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetElasticPoolResult> InvokeAsync(GetElasticPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure-native:sql:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an elastic pool.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetElasticPoolResult> Invoke(GetElasticPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure-native:sql:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithDefaults());
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetElasticPoolResult
     {
         /// <summary>
+        /// Specifies the availability zone the pool's primary replica is pinned to.
+        /// </summary>
+        public readonly string? AvailabilityZone;
+        /// <summary>
         /// The creation date of the elastic pool (ISO8601 format).
         /// </summary>
         public readonly string CreationDate;
@@ -128,6 +132,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly Outputs.ElasticPoolPerDatabaseSettingsResponse? PerDatabaseSettings;
         /// <summary>
+        /// Type of enclave requested on the elastic pool.
+        /// </summary>
+        public readonly string? PreferredEnclaveType;
+        /// <summary>
         /// The elastic pool SKU.
         /// 
         /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
@@ -156,6 +164,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetElasticPoolResult(
+            string? availabilityZone,
+
             string creationDate,
 
             int? highAvailabilityReplicaCount,
@@ -178,6 +188,8 @@ namespace Pulumi.AzureNative.Sql
 
             Outputs.ElasticPoolPerDatabaseSettingsResponse? perDatabaseSettings,
 
+            string? preferredEnclaveType,
+
             Outputs.SkuResponse? sku,
 
             string state,
@@ -188,6 +200,7 @@ namespace Pulumi.AzureNative.Sql
 
             bool? zoneRedundant)
         {
+            AvailabilityZone = availabilityZone;
             CreationDate = creationDate;
             HighAvailabilityReplicaCount = highAvailabilityReplicaCount;
             Id = id;
@@ -199,6 +212,7 @@ namespace Pulumi.AzureNative.Sql
             MinCapacity = minCapacity;
             Name = name;
             PerDatabaseSettings = perDatabaseSettings;
+            PreferredEnclaveType = preferredEnclaveType;
             Sku = sku;
             State = state;
             Tags = tags;

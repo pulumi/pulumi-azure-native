@@ -66,12 +66,6 @@ namespace Pulumi.AzureNative.DomainRegistration.V20220901
                 {
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration:DomainOwnershipIdentifier"},
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20201001:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20201201:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210101:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210115:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210201:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210301:DomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20220301:DomainOwnershipIdentifier"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

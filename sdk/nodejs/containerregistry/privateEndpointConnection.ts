@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a private endpoint connection for a container registry.
- * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -98,7 +98,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20191201preview:PrivateEndpointConnection" }, { type: "azure-native:containerregistry/v20201101preview:PrivateEndpointConnection" }, { type: "azure-native:containerregistry/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:containerregistry/v20210801preview:PrivateEndpointConnection" }, { type: "azure-native:containerregistry/v20210901:PrivateEndpointConnection" }, { type: "azure-native:containerregistry/v20211201preview:PrivateEndpointConnection" }, { type: "azure-native:containerregistry/v20220201preview:PrivateEndpointConnection" }, { type: "azure-native:containerregistry/v20221201:PrivateEndpointConnection" }, { type: "azure-native:containerregistry/v20230101preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20201101preview:PrivateEndpointConnection" }, { type: "azure-native:containerregistry/v20230101preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

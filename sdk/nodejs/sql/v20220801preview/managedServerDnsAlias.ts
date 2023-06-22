@@ -83,7 +83,7 @@ export class ManagedServerDnsAlias extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20211101:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20211101preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220201preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220501preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20221101preview:ManagedServerDnsAlias" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20211101preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20221101preview:ManagedServerDnsAlias" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedServerDnsAlias.__pulumiType, name, resourceInputs, opts);
     }

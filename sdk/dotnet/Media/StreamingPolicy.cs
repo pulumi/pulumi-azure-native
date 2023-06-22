@@ -97,11 +97,8 @@ namespace Pulumi.AzureNative.Media
                 {
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:StreamingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20230101:StreamingPolicy"},
                 },
             };

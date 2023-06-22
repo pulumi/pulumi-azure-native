@@ -126,7 +126,6 @@ namespace Pulumi.AzureNative.LabServices.V20220801
                 {
                     new global::Pulumi.Alias { Type = "azure-native:labservices:LabPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:LabPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:LabPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

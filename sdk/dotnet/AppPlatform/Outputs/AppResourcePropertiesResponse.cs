@@ -57,6 +57,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly bool? Public;
         /// <summary>
+        /// Collection of auth secrets
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SecretResponse> Secrets;
+        /// <summary>
         /// Temporary disk settings
         /// </summary>
         public readonly Outputs.TemporaryDiskResponse? TemporaryDisk;
@@ -68,6 +72,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// Additional App settings in vnet injection instance
         /// </summary>
         public readonly Outputs.AppVNetAddonsResponse? VnetAddons;
+        /// <summary>
+        /// The workload profile used for this app. Supported for Consumption + Dedicated plan.
+        /// </summary>
+        public readonly string? WorkloadProfileName;
 
         [OutputConstructor]
         private AppResourcePropertiesResponse(
@@ -91,11 +99,15 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             bool? @public,
 
+            ImmutableArray<Outputs.SecretResponse> secrets,
+
             Outputs.TemporaryDiskResponse? temporaryDisk,
 
             string url,
 
-            Outputs.AppVNetAddonsResponse? vnetAddons)
+            Outputs.AppVNetAddonsResponse? vnetAddons,
+
+            string? workloadProfileName)
         {
             AddonConfigs = addonConfigs;
             CustomPersistentDisks = customPersistentDisks;
@@ -107,9 +119,11 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
             PersistentDisk = persistentDisk;
             ProvisioningState = provisioningState;
             Public = @public;
+            Secrets = secrets;
             TemporaryDisk = temporaryDisk;
             Url = url;
             VnetAddons = vnetAddons;
+            WorkloadProfileName = workloadProfileName;
         }
     }
 }

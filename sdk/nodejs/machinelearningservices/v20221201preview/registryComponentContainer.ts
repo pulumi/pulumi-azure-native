@@ -88,7 +88,7 @@ export class RegistryComponentContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:RegistryComponentContainer" }, { type: "azure-native:machinelearningservices/v20221001preview:RegistryComponentContainer" }, { type: "azure-native:machinelearningservices/v20230201preview:RegistryComponentContainer" }, { type: "azure-native:machinelearningservices/v20230401:RegistryComponentContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:RegistryComponentContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:RegistryComponentContainer" }, { type: "azure-native:machinelearningservices/v20230201preview:RegistryComponentContainer" }, { type: "azure-native:machinelearningservices/v20230401:RegistryComponentContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:RegistryComponentContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistryComponentContainer.__pulumiType, name, resourceInputs, opts);
     }

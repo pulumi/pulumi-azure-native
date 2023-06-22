@@ -66,11 +66,6 @@ namespace Pulumi.AzureNative.Elastic.V20220901Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:elastic:TagRule"},
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20200701:TagRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20200701preview:TagRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20210901preview:TagRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20211001preview:TagRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20220505preview:TagRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20220701preview:TagRule"},
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20230201preview:TagRule"},
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20230501preview:TagRule"},
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20230601:TagRule"},

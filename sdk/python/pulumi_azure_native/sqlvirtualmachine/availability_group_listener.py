@@ -181,7 +181,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
                  __props__=None):
         """
         A SQL Server availability group listener.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,7 +203,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL Server availability group listener.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param AvailabilityGroupListenerArgs args: The arguments to use to populate this resource's properties.
@@ -255,7 +255,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20211101preview:AvailabilityGroupListener"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AvailabilityGroupListener, __self__).__init__(
             'azure-native:sqlvirtualmachine:AvailabilityGroupListener',

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a Workspace definition.
-    /// Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
+    /// Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -82,6 +82,18 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         [Output("plan")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
 
+        /// <summary>
+        /// List of private endpoint connection associated with the specified resource
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
         [Output("sku")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
 
@@ -128,15 +140,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:Workspace"},
                 },
             };
@@ -208,6 +215,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         [Input("plan")]
         public Input<Inputs.ResourceModelWithAllowedPropertySetPlanArgs>? Plan { get; set; }
+
+        /// <summary>
+        /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceLinker
 {
     /// <summary>
     /// Linker of source and target resource
-    /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:servicelinker:Linker")]
     public partial class Linker : global::Pulumi.CustomResource
@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.ServiceLinker
         public Output<string?> ClientType { get; private set; } = null!;
 
         /// <summary>
+        /// The connection information consumed by applications, including secrets, connection strings.
+        /// </summary>
+        [Output("configurationInfo")]
+        public Output<Outputs.ConfigurationInfoResponse?> ConfigurationInfo { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -39,6 +45,12 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The network solution.
+        /// </summary>
+        [Output("publicNetworkSolution")]
+        public Output<Outputs.PublicNetworkSolutionResponse?> PublicNetworkSolution { get; private set; } = null!;
 
         /// <summary>
         /// connection scope in source service.
@@ -53,7 +65,7 @@ namespace Pulumi.AzureNative.ServiceLinker
         public Output<Outputs.SecretStoreResponse?> SecretStore { get; private set; } = null!;
 
         /// <summary>
-        /// The system data.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -102,8 +114,6 @@ namespace Pulumi.AzureNative.ServiceLinker
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20211101preview:Linker"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20220101preview:Linker"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20220501:Linker"},
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20221101preview:Linker"},
                 },
             };
@@ -141,10 +151,22 @@ namespace Pulumi.AzureNative.ServiceLinker
         public InputUnion<string, Pulumi.AzureNative.ServiceLinker.ClientType>? ClientType { get; set; }
 
         /// <summary>
+        /// The connection information consumed by applications, including secrets, connection strings.
+        /// </summary>
+        [Input("configurationInfo")]
+        public Input<Inputs.ConfigurationInfoArgs>? ConfigurationInfo { get; set; }
+
+        /// <summary>
         /// The name Linker resource.
         /// </summary>
         [Input("linkerName")]
         public Input<string>? LinkerName { get; set; }
+
+        /// <summary>
+        /// The network solution.
+        /// </summary>
+        [Input("publicNetworkSolution")]
+        public Input<Inputs.PublicNetworkSolutionArgs>? PublicNetworkSolution { get; set; }
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource to be connected.

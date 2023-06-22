@@ -97,7 +97,7 @@ export class ConfigurationProfilesVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automanage:ConfigurationProfilesVersion" }, { type: "azure-native:automanage/v20210430preview:ConfigurationProfilesVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automanage:ConfigurationProfilesVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationProfilesVersion.__pulumiType, name, resourceInputs, opts);
     }

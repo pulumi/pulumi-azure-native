@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An Azure SQL instance pool.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:InstancePool")]
     public partial class InstancePool : global::Pulumi.CustomResource
@@ -96,10 +96,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:InstancePool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:InstancePool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:InstancePool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:InstancePool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:InstancePool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:InstancePool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:InstancePool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:InstancePool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:InstancePool"},
                 },

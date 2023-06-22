@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Description of queue Resource.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:Queue")]
     public partial class Queue : global::Pulumi.CustomResource
@@ -199,9 +199,6 @@ namespace Pulumi.AzureNative.ServiceBus
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Queue"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Queue"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Queue"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Queue"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Queue"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Queue"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:Queue"},
                 },

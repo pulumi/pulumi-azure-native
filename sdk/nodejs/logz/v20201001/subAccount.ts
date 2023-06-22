@@ -91,7 +91,7 @@ export class SubAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logz:SubAccount" }, { type: "azure-native:logz/v20201001preview:SubAccount" }, { type: "azure-native:logz/v20220101preview:SubAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logz:SubAccount" }, { type: "azure-native:logz/v20220101preview:SubAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SubAccount.__pulumiType, name, resourceInputs, opts);
     }

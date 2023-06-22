@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A failover group.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+ * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class FailoverGroup extends pulumi.CustomResource {
     /**
@@ -128,7 +128,7 @@ export class FailoverGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:FailoverGroup" }, { type: "azure-native:sql/v20200202preview:FailoverGroup" }, { type: "azure-native:sql/v20200801preview:FailoverGroup" }, { type: "azure-native:sql/v20201101preview:FailoverGroup" }, { type: "azure-native:sql/v20210201preview:FailoverGroup" }, { type: "azure-native:sql/v20210501preview:FailoverGroup" }, { type: "azure-native:sql/v20210801preview:FailoverGroup" }, { type: "azure-native:sql/v20211101:FailoverGroup" }, { type: "azure-native:sql/v20211101preview:FailoverGroup" }, { type: "azure-native:sql/v20220201preview:FailoverGroup" }, { type: "azure-native:sql/v20220501preview:FailoverGroup" }, { type: "azure-native:sql/v20220801preview:FailoverGroup" }, { type: "azure-native:sql/v20221101preview:FailoverGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:FailoverGroup" }, { type: "azure-native:sql/v20200202preview:FailoverGroup" }, { type: "azure-native:sql/v20200801preview:FailoverGroup" }, { type: "azure-native:sql/v20201101preview:FailoverGroup" }, { type: "azure-native:sql/v20210201preview:FailoverGroup" }, { type: "azure-native:sql/v20210501preview:FailoverGroup" }, { type: "azure-native:sql/v20210801preview:FailoverGroup" }, { type: "azure-native:sql/v20211101preview:FailoverGroup" }, { type: "azure-native:sql/v20220801preview:FailoverGroup" }, { type: "azure-native:sql/v20221101preview:FailoverGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FailoverGroup.__pulumiType, name, resourceInputs, opts);
     }

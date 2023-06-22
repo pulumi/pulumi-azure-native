@@ -72,7 +72,6 @@ namespace Pulumi.AzureNative.Management.V20210401
                 {
                     new global::Pulumi.Alias { Type = "azure-native:management:HierarchySetting"},
                     new global::Pulumi.Alias { Type = "azure-native:management/v20200501:HierarchySetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:management/v20201001:HierarchySetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

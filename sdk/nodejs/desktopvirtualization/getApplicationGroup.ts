@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an application group.
- * Azure REST API version: 2022-09-09.
+ * Azure REST API version: 2022-10-14-preview.
  */
 export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGroupResult> {
 
@@ -105,7 +105,7 @@ export interface GetApplicationGroupResult {
 }
 /**
  * Get an application group.
- * Azure REST API version: 2022-09-09.
+ * Azure REST API version: 2022-10-14-preview.
  */
 export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGroupResult> {
     return pulumi.output(args).apply((a: any) => getApplicationGroup(a, opts))

@@ -77,15 +77,9 @@ namespace Pulumi.AzureNative.Resources.V20190501
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:resources:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190510:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190701:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190801:ResourceGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20191001:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200601:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200801:ResourceGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:ResourceGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20210101:ResourceGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:ResourceGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20220901:ResourceGroup"},
                 },
             };

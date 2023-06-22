@@ -22,10 +22,13 @@ class GetRegistryResult:
     """
     An object that represents a container registry.
     """
-    def __init__(__self__, admin_user_enabled=None, creation_date=None, data_endpoint_enabled=None, data_endpoint_host_names=None, encryption=None, id=None, identity=None, location=None, login_server=None, name=None, network_rule_bypass_options=None, network_rule_set=None, policies=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status=None, system_data=None, tags=None, type=None, zone_redundancy=None):
+    def __init__(__self__, admin_user_enabled=None, anonymous_pull_enabled=None, creation_date=None, data_endpoint_enabled=None, data_endpoint_host_names=None, encryption=None, id=None, identity=None, location=None, login_server=None, name=None, network_rule_bypass_options=None, network_rule_set=None, policies=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status=None, system_data=None, tags=None, type=None, zone_redundancy=None):
         if admin_user_enabled and not isinstance(admin_user_enabled, bool):
             raise TypeError("Expected argument 'admin_user_enabled' to be a bool")
         pulumi.set(__self__, "admin_user_enabled", admin_user_enabled)
+        if anonymous_pull_enabled and not isinstance(anonymous_pull_enabled, bool):
+            raise TypeError("Expected argument 'anonymous_pull_enabled' to be a bool")
+        pulumi.set(__self__, "anonymous_pull_enabled", anonymous_pull_enabled)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -97,6 +100,14 @@ class GetRegistryResult:
         The value that indicates whether the admin user is enabled.
         """
         return pulumi.get(self, "admin_user_enabled")
+
+    @property
+    @pulumi.getter(name="anonymousPullEnabled")
+    def anonymous_pull_enabled(self) -> Optional[bool]:
+        """
+        Enables registry-wide pull from unauthenticated clients.
+        """
+        return pulumi.get(self, "anonymous_pull_enabled")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -274,6 +285,7 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             yield self
         return GetRegistryResult(
             admin_user_enabled=self.admin_user_enabled,
+            anonymous_pull_enabled=self.anonymous_pull_enabled,
             creation_date=self.creation_date,
             data_endpoint_enabled=self.data_endpoint_enabled,
             data_endpoint_host_names=self.data_endpoint_host_names,
@@ -302,7 +314,7 @@ def get_registry(registry_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryResult:
     """
     Gets the properties of the specified container registry.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str registry_name: The name of the container registry.
@@ -316,6 +328,7 @@ def get_registry(registry_name: Optional[str] = None,
 
     return AwaitableGetRegistryResult(
         admin_user_enabled=__ret__.admin_user_enabled,
+        anonymous_pull_enabled=__ret__.anonymous_pull_enabled,
         creation_date=__ret__.creation_date,
         data_endpoint_enabled=__ret__.data_endpoint_enabled,
         data_endpoint_host_names=__ret__.data_endpoint_host_names,
@@ -345,7 +358,7 @@ def get_registry_output(registry_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryResult]:
     """
     Gets the properties of the specified container registry.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str registry_name: The name of the container registry.

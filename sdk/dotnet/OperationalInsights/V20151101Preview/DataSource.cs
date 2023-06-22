@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights:DataSource"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:DataSource"},
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:DataSource"},
                 },
             };

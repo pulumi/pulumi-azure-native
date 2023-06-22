@@ -117,8 +117,6 @@ namespace Pulumi.AzureNative.Databricks.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:databricks:vNetPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20180401:VNetPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20180401:vNetPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:VNetPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:vNetPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:VNetPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:vNetPeering"},
                 },

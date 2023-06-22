@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Maps
 {
     /// <summary>
     /// An Azure resource which represents access to a suite of Maps REST APIs.
-    /// Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2018-05-01
+    /// Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 1.x: 2018-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:maps:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Sets the identity property for maps account.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
         /// <summary>
         /// Get or Set Kind property.
         /// </summary>
@@ -91,8 +97,6 @@ namespace Pulumi.AzureNative.Maps
                 {
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20180501:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210201:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210701preview:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20211201preview:Account"},
                 },
             };
@@ -122,6 +126,12 @@ namespace Pulumi.AzureNative.Maps
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
+
+        /// <summary>
+        /// Sets the identity property for maps account.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Get or Set Kind property.

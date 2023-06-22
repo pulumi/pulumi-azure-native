@@ -320,7 +320,7 @@ class BatchAccount(pulumi.CustomResource):
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20210101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20210601:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20220101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20220601:BatchAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20210101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20220101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20220601:BatchAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BatchAccount, __self__).__init__(
             'azure-native:batch/v20221001:BatchAccount',

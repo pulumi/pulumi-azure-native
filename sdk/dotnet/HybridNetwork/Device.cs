@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Device resource.
-    /// Azure REST API version: 2021-05-01. Prior API version in Azure Native 1.x: 2020-01-01-preview
+    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:Device")]
     public partial class Device : global::Pulumi.CustomResource
@@ -96,7 +96,6 @@ namespace Pulumi.AzureNative.HybridNetwork
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:Device"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:Device"},
                 },
             };

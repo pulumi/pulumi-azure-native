@@ -235,7 +235,7 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
             __props__.__dict__["source_replica_id"] = None
             __props__.__dict__["target_replica_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20210501preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20210801preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20211101:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20211101preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20220201preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20220501preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20221101preview:DistributedAvailabilityGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20210501preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20210801preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20211101preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20221101preview:DistributedAvailabilityGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DistributedAvailabilityGroup, __self__).__init__(
             'azure-native:sql/v20220801preview:DistributedAvailabilityGroup',

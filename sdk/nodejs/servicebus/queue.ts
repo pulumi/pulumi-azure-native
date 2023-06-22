@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of queue Resource.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class Queue extends pulumi.CustomResource {
     /**
@@ -218,7 +218,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:Queue" }, { type: "azure-native:servicebus/v20180101preview:Queue" }, { type: "azure-native:servicebus/v20210101preview:Queue" }, { type: "azure-native:servicebus/v20210601preview:Queue" }, { type: "azure-native:servicebus/v20211101:Queue" }, { type: "azure-native:servicebus/v20220101preview:Queue" }, { type: "azure-native:servicebus/v20221001preview:Queue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:Queue" }, { type: "azure-native:servicebus/v20180101preview:Queue" }, { type: "azure-native:servicebus/v20220101preview:Queue" }, { type: "azure-native:servicebus/v20221001preview:Queue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Queue.__pulumiType, name, resourceInputs, opts);
     }

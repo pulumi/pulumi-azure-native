@@ -99,7 +99,7 @@ def get_server_trust_group(location_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerTrustGroupResult:
     """
     Gets a server trust group.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str location_name: The name of the region where the resource is located.
@@ -128,7 +128,7 @@ def get_server_trust_group_output(location_name: Optional[pulumi.Input[str]] = N
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerTrustGroupResult]:
     """
     Gets a server trust group.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str location_name: The name of the region where the resource is located.

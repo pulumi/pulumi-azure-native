@@ -113,7 +113,6 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210315Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:extendedlocation:CustomLocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:extendedlocation/v20210815:CustomLocation"},
                     new global::Pulumi.Alias { Type = "azure-native:extendedlocation/v20210831preview:CustomLocation"},
                 },
             };

@@ -82,7 +82,7 @@ export class SyncGroup extends pulumi.CustomResource {
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagesync:SyncGroup" }, { type: "azure-native:storagesync/v20200901:SyncGroup" }, { type: "azure-native:storagesync/v20220601:SyncGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagesync:SyncGroup" }, { type: "azure-native:storagesync/v20220601:SyncGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncGroup.__pulumiType, name, resourceInputs, opts);
     }

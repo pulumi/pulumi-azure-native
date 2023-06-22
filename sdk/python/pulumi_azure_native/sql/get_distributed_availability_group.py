@@ -21,13 +21,16 @@ class GetDistributedAvailabilityGroupResult:
     """
     Distributed availability group between box and Sql Managed Instance.
     """
-    def __init__(__self__, distributed_availability_group_id=None, id=None, last_hardened_lsn=None, link_state=None, name=None, primary_availability_group_name=None, replication_mode=None, secondary_availability_group_name=None, source_endpoint=None, source_replica_id=None, target_database=None, target_replica_id=None, type=None):
+    def __init__(__self__, distributed_availability_group_id=None, id=None, instance_role=None, last_hardened_lsn=None, link_state=None, name=None, primary_availability_group_name=None, replication_mode=None, secondary_availability_group_name=None, source_endpoint=None, source_replica_id=None, target_database=None, target_replica_id=None, type=None):
         if distributed_availability_group_id and not isinstance(distributed_availability_group_id, str):
             raise TypeError("Expected argument 'distributed_availability_group_id' to be a str")
         pulumi.set(__self__, "distributed_availability_group_id", distributed_availability_group_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if instance_role and not isinstance(instance_role, str):
+            raise TypeError("Expected argument 'instance_role' to be a str")
+        pulumi.set(__self__, "instance_role", instance_role)
         if last_hardened_lsn and not isinstance(last_hardened_lsn, str):
             raise TypeError("Expected argument 'last_hardened_lsn' to be a str")
         pulumi.set(__self__, "last_hardened_lsn", last_hardened_lsn)
@@ -77,6 +80,14 @@ class GetDistributedAvailabilityGroupResult:
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="instanceRole")
+    def instance_role(self) -> str:
+        """
+        Role of managed instance
+        """
+        return pulumi.get(self, "instance_role")
 
     @property
     @pulumi.getter(name="lastHardenedLsn")
@@ -175,6 +186,7 @@ class AwaitableGetDistributedAvailabilityGroupResult(GetDistributedAvailabilityG
         return GetDistributedAvailabilityGroupResult(
             distributed_availability_group_id=self.distributed_availability_group_id,
             id=self.id,
+            instance_role=self.instance_role,
             last_hardened_lsn=self.last_hardened_lsn,
             link_state=self.link_state,
             name=self.name,
@@ -194,7 +206,7 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributedAvailabilityGroupResult:
     """
     Gets a distributed availability group info.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str distributed_availability_group_name: The distributed availability group name.
@@ -211,6 +223,7 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
     return AwaitableGetDistributedAvailabilityGroupResult(
         distributed_availability_group_id=__ret__.distributed_availability_group_id,
         id=__ret__.id,
+        instance_role=__ret__.instance_role,
         last_hardened_lsn=__ret__.last_hardened_lsn,
         link_state=__ret__.link_state,
         name=__ret__.name,
@@ -231,7 +244,7 @@ def get_distributed_availability_group_output(distributed_availability_group_nam
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributedAvailabilityGroupResult]:
     """
     Gets a distributed availability group info.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str distributed_availability_group_name: The distributed availability group name.

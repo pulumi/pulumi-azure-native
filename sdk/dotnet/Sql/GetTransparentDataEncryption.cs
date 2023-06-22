@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a logical database's transparent data encryption.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetTransparentDataEncryptionResult> InvokeAsync(GetTransparentDataEncryptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransparentDataEncryptionResult>("azure-native:sql:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a logical database's transparent data encryption.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetTransparentDataEncryptionResult> Invoke(GetTransparentDataEncryptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransparentDataEncryptionResult>("azure-native:sql:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionInvokeArgs(), options.WithDefaults());

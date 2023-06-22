@@ -351,7 +351,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
             __props__.__dict__["vm_name"] = vm_name
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachineExtension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachineExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineExtension, __self__).__init__(
             'azure-native:compute/v20210301:VirtualMachineExtension',

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the sensitivity label of a given column
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getManagedDatabaseSensitivityLabel(args: GetManagedDatabaseSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseSensitivityLabelResult> {
 
@@ -109,7 +109,7 @@ export interface GetManagedDatabaseSensitivityLabelResult {
 }
 /**
  * Gets the sensitivity label of a given column
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getManagedDatabaseSensitivityLabelOutput(args: GetManagedDatabaseSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseSensitivityLabelResult> {
     return pulumi.output(args).apply((a: any) => getManagedDatabaseSensitivityLabel(a, opts))

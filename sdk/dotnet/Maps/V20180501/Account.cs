@@ -78,8 +78,6 @@ namespace Pulumi.AzureNative.Maps.V20180501
                 {
                     new global::Pulumi.Alias { Type = "azure-native:maps:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210201:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210701preview:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20211201preview:Account"},
                 },
             };

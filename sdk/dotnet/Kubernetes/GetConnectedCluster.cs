@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kubernetes
     {
         /// <summary>
         /// Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
-        /// Azure REST API version: 2021-10-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Task<GetConnectedClusterResult> InvokeAsync(GetConnectedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedClusterResult>("azure-native:kubernetes:getConnectedCluster", args ?? new GetConnectedClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
-        /// Azure REST API version: 2021-10-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Output<GetConnectedClusterResult> Invoke(GetConnectedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedClusterResult>("azure-native:kubernetes:getConnectedCluster", args ?? new GetConnectedClusterInvokeArgs(), options.WithDefaults());
@@ -80,6 +80,10 @@ namespace Pulumi.AzureNative.Kubernetes
         /// </summary>
         public readonly string AgentVersion;
         /// <summary>
+        /// Indicates whether Azure Hybrid Benefit is opted in
+        /// </summary>
+        public readonly string? AzureHybridBenefit;
+        /// <summary>
         /// Represents the connectivity status of the connected cluster.
         /// </summary>
         public readonly string ConnectivityStatus;
@@ -87,6 +91,10 @@ namespace Pulumi.AzureNative.Kubernetes
         /// The Kubernetes distribution running on this connected cluster.
         /// </summary>
         public readonly string? Distribution;
+        /// <summary>
+        /// The Kubernetes distribution version on this connected cluster.
+        /// </summary>
+        public readonly string? DistributionVersion;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -116,6 +124,10 @@ namespace Pulumi.AzureNative.Kubernetes
         /// </summary>
         public readonly string ManagedIdentityCertificateExpirationTime;
         /// <summary>
+        /// More properties related to the Connected Cluster
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> MiscellaneousProperties;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -123,6 +135,14 @@ namespace Pulumi.AzureNative.Kubernetes
         /// Connected cluster offering
         /// </summary>
         public readonly string Offering;
+        /// <summary>
+        /// The resource id of the private link scope this connected cluster is assigned to, if any.
+        /// </summary>
+        public readonly string? PrivateLinkScopeResourceId;
+        /// <summary>
+        /// Property which describes the state of private link on a connected cluster resource.
+        /// </summary>
+        public readonly string? PrivateLinkState;
         /// <summary>
         /// Provisioning state of the connected cluster resource.
         /// </summary>
@@ -154,9 +174,13 @@ namespace Pulumi.AzureNative.Kubernetes
 
             string agentVersion,
 
+            string? azureHybridBenefit,
+
             string connectivityStatus,
 
             string? distribution,
+
+            string? distributionVersion,
 
             string id,
 
@@ -172,9 +196,15 @@ namespace Pulumi.AzureNative.Kubernetes
 
             string managedIdentityCertificateExpirationTime,
 
+            ImmutableDictionary<string, string> miscellaneousProperties,
+
             string name,
 
             string offering,
+
+            string? privateLinkScopeResourceId,
+
+            string? privateLinkState,
 
             string? provisioningState,
 
@@ -190,8 +220,10 @@ namespace Pulumi.AzureNative.Kubernetes
         {
             AgentPublicKeyCertificate = agentPublicKeyCertificate;
             AgentVersion = agentVersion;
+            AzureHybridBenefit = azureHybridBenefit;
             ConnectivityStatus = connectivityStatus;
             Distribution = distribution;
+            DistributionVersion = distributionVersion;
             Id = id;
             Identity = identity;
             Infrastructure = infrastructure;
@@ -199,8 +231,11 @@ namespace Pulumi.AzureNative.Kubernetes
             LastConnectivityTime = lastConnectivityTime;
             Location = location;
             ManagedIdentityCertificateExpirationTime = managedIdentityCertificateExpirationTime;
+            MiscellaneousProperties = miscellaneousProperties;
             Name = name;
             Offering = offering;
+            PrivateLinkScopeResourceId = privateLinkScopeResourceId;
+            PrivateLinkState = privateLinkState;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;

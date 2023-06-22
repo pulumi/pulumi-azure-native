@@ -78,7 +78,6 @@ namespace Pulumi.AzureNative.Management.V20210401
                 {
                     new global::Pulumi.Alias { Type = "azure-native:management:ManagementGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:management/v20200501:ManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:management/v20201001:ManagementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

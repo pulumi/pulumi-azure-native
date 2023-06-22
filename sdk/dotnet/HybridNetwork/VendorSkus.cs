@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Sku sub resource.
-    /// Azure REST API version: 2021-05-01. Prior API version in Azure Native 1.x: 2020-01-01-preview
+    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:VendorSkus")]
     public partial class VendorSkus : global::Pulumi.CustomResource
@@ -108,7 +108,6 @@ namespace Pulumi.AzureNative.HybridNetwork
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:VendorSkus"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:VendorSkus"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:VendorSkus"},
                 },
             };

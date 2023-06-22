@@ -101,8 +101,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate:Instance"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:Instance"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:Instance"},
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221201preview:Instance"},
                 },
             };

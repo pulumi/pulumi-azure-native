@@ -108,9 +108,6 @@ namespace Pulumi.AzureNative.Consumption
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:consumption/v20191001:Budget"},
-                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20191101:Budget"},
-                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20210501:Budget"},
-                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20211001:Budget"},
                     new global::Pulumi.Alias { Type = "azure-native:consumption/v20220901:Budget"},
                     new global::Pulumi.Alias { Type = "azure-native:consumption/v20230301:Budget"},
                 },

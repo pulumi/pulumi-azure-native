@@ -89,12 +89,7 @@ namespace Pulumi.AzureNative.Storage.V20210201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storage:EncryptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:EncryptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:EncryptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:EncryptionScope"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:EncryptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:EncryptionScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:EncryptionScope"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:EncryptionScope"},
                 },
             };

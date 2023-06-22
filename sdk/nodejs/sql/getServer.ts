@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a server.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
 
@@ -45,9 +45,13 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * The Azure Active Directory administrator of the server.
+     * The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
      */
     readonly administrators?: outputs.sql.ServerExternalAdministratorResponse;
+    /**
+     * Status of external governance.
+     */
+    readonly externalGovernanceStatus: string;
     /**
      * The Client id used for cross tenant CMK scenario
      */
@@ -77,7 +81,7 @@ export interface GetServerResult {
      */
     readonly location: string;
     /**
-     * Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+     * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
      */
     readonly minimalTlsVersion?: string;
     /**
@@ -93,7 +97,7 @@ export interface GetServerResult {
      */
     readonly privateEndpointConnections: outputs.sql.ServerPrivateEndpointConnectionResponse[];
     /**
-     * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
      */
     readonly publicNetworkAccess?: string;
     /**
@@ -123,7 +127,7 @@ export interface GetServerResult {
 }
 /**
  * Gets a server.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))

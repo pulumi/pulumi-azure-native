@@ -72,9 +72,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:GlobalSchema"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GlobalSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GlobalSchema"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GlobalSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:GlobalSchema"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:GlobalSchema"},
                 },
             };

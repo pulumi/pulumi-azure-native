@@ -155,7 +155,7 @@ class AttachedNetworkByDevCenter(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20230401:AttachedNetworkByDevCenter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20230401:AttachedNetworkByDevCenter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttachedNetworkByDevCenter, __self__).__init__(
             'azure-native:devcenter/v20230101preview:AttachedNetworkByDevCenter',

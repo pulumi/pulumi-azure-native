@@ -86,7 +86,7 @@ def list_iot_dps_resource_keys_for_key_name(key_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIotDpsResourceKeysForKeyNameResult:
     """
     List primary and secondary keys for a specific key name
-    Azure REST API version: 2022-12-12.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str key_name: Logical key name to get key-values for.
@@ -114,7 +114,7 @@ def list_iot_dps_resource_keys_for_key_name_output(key_name: Optional[pulumi.Inp
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotDpsResourceKeysForKeyNameResult]:
     """
     List primary and secondary keys for a specific key name
-    Azure REST API version: 2022-12-12.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str key_name: Logical key name to get key-values for.

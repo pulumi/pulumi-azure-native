@@ -364,6 +364,37 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     }
 
     /// <summary>
+    /// SQL IaaS Agent least privilege mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct LeastPrivilegeMode : IEquatable<LeastPrivilegeMode>
+    {
+        private readonly string _value;
+
+        private LeastPrivilegeMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LeastPrivilegeMode Enabled { get; } = new LeastPrivilegeMode("Enabled");
+        public static LeastPrivilegeMode NotSet { get; } = new LeastPrivilegeMode("NotSet");
+
+        public static bool operator ==(LeastPrivilegeMode left, LeastPrivilegeMode right) => left.Equals(right);
+        public static bool operator !=(LeastPrivilegeMode left, LeastPrivilegeMode right) => !left.Equals(right);
+
+        public static explicit operator string(LeastPrivilegeMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LeastPrivilegeMode other && Equals(other);
+        public bool Equals(LeastPrivilegeMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Replica readable secondary mode in availability group.
     /// </summary>
     [EnumType]
@@ -461,7 +492,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     }
 
     /// <summary>
-    /// SQL Server Management type.
+    /// SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
     /// </summary>
     [EnumType]
     public readonly struct SqlManagementMode : IEquatable<SqlManagementMode>

@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AccessRights',
     'ApplicationGroupPolicyType',
+    'CleanupPolicyRetentionDescription',
     'ClusterSkuName',
     'DefaultAction',
     'EncodingCaptureDescription',
@@ -18,11 +19,13 @@ __all__ = [
     'MetricId',
     'NetworkRuleIPAction',
     'PrivateLinkConnectionStatus',
+    'PublicNetworkAccess',
     'PublicNetworkAccessFlag',
     'SchemaCompatibility',
     'SchemaType',
     'SkuName',
     'SkuTier',
+    'TlsVersion',
 ]
 
 
@@ -37,6 +40,14 @@ class ApplicationGroupPolicyType(str, Enum):
     Application Group Policy types
     """
     THROTTLING_POLICY = "ThrottlingPolicy"
+
+
+class CleanupPolicyRetentionDescription(str, Enum):
+    """
+    Enumerates the possible values for cleanup policy
+    """
+    DELETE = "Delete"
+    COMPACT = "Compact"
 
 
 class ClusterSkuName(str, Enum):
@@ -141,12 +152,22 @@ class PrivateLinkConnectionStatus(str, Enum):
     DISCONNECTED = "Disconnected"
 
 
-class PublicNetworkAccessFlag(str, Enum):
+class PublicNetworkAccess(str, Enum):
     """
     This determines if traffic is allowed over public network. By default it is enabled.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
+
+
+class PublicNetworkAccessFlag(str, Enum):
+    """
+    This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
 class SchemaCompatibility(str, Enum):
@@ -176,3 +197,12 @@ class SkuTier(str, Enum):
     BASIC = "Basic"
     STANDARD = "Standard"
     PREMIUM = "Premium"
+
+
+class TlsVersion(str, Enum):
+    """
+    The minimum TLS version for the cluster to support, e.g. '1.2'
+    """
+    TLS_VERSION_1_0 = "1.0"
+    TLS_VERSION_1_1 = "1.1"
+    TLS_VERSION_1_2 = "1.2"

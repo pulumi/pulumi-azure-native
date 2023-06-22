@@ -73,10 +73,7 @@ namespace Pulumi.AzureNative.Sql.V20221101Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:FirewallRule"},
                 },
             };

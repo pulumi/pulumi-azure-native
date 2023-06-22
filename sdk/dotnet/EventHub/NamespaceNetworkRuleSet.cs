@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Description of topic resource.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:NamespaceNetworkRuleSet")]
     public partial class NamespaceNetworkRuleSet : global::Pulumi.CustomResource
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
@@ -97,9 +97,6 @@ namespace Pulumi.AzureNative.EventHub
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:NamespaceNetworkRuleSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:NamespaceNetworkRuleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:NamespaceNetworkRuleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet"},
                 },
@@ -150,7 +147,7 @@ namespace Pulumi.AzureNative.EventHub
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
         /// </summary>
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.EventHub.PublicNetworkAccessFlag>? PublicNetworkAccess { get; set; }

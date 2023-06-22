@@ -162,11 +162,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20221101
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20200701preview:Extension"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210501preview:Extension"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210901:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220101preview:Extension"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220301:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220402preview:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20230501:Extension"},

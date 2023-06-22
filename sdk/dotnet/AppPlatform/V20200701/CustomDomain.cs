@@ -59,16 +59,9 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:CustomDomain"},

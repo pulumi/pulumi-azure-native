@@ -101,12 +101,8 @@ namespace Pulumi.AzureNative.Authorization.V20210601
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:authorization:PolicySetDefinitionAtManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20180301:PolicySetDefinitionAtManagementGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20180501:PolicySetDefinitionAtManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20190101:PolicySetDefinitionAtManagementGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20190601:PolicySetDefinitionAtManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20190901:PolicySetDefinitionAtManagementGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20200301:PolicySetDefinitionAtManagementGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20200901:PolicySetDefinitionAtManagementGroup"},
                 },

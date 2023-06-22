@@ -21,7 +21,6 @@ from .get_snapshot import *
 from .get_trusted_access_role_binding import *
 from .get_update_run import *
 from .list_fleet_credentials import *
-from .list_managed_cluster_access_profile import *
 from .list_managed_cluster_admin_credentials import *
 from .list_managed_cluster_monitoring_user_credentials import *
 from .list_managed_cluster_user_credentials import *

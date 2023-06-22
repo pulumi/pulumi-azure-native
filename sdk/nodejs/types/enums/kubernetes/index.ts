@@ -20,6 +20,27 @@ export const AuthenticationMethod = {
  */
 export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
 
+export const AzureHybridBenefit = {
+    True: "True",
+    False: "False",
+    NotApplicable: "NotApplicable",
+} as const;
+
+/**
+ * Indicates whether Azure Hybrid Benefit is opted in
+ */
+export type AzureHybridBenefit = (typeof AzureHybridBenefit)[keyof typeof AzureHybridBenefit];
+
+export const PrivateLinkState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Property which describes the state of private link on a connected cluster resource.
+ */
+export type PrivateLinkState = (typeof PrivateLinkState)[keyof typeof PrivateLinkState];
+
 export const ProvisioningState = {
     Succeeded: "Succeeded",
     Failed: "Failed",

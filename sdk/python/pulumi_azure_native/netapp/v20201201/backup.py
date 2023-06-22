@@ -216,7 +216,7 @@ class Backup(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["size"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20211001:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220301:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220901:Backup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Backup"), pulumi.Alias(type_="azure-native:netapp/v20211001:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220901:Backup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backup, __self__).__init__(
             'azure-native:netapp/v20201201:Backup',

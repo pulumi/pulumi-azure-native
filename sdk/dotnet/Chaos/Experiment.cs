@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Chaos
 {
     /// <summary>
     /// Model that represents a Experiment resource.
-    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview
+    /// Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos:Experiment")]
     public partial class Experiment : global::Pulumi.CustomResource
@@ -84,8 +84,6 @@ namespace Pulumi.AzureNative.Chaos
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20210915preview:Experiment"},
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20220701preview:Experiment"},
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20221001preview:Experiment"},
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20230401preview:Experiment"},
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20230415preview:Experiment"},
                 },

@@ -57,7 +57,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
                 {
                     new global::Pulumi.Alias { Type = "azure-native:providerhub:NotificationRegistration"},
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:NotificationRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:NotificationRegistration"},
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:NotificationRegistration"},
                 },
             };

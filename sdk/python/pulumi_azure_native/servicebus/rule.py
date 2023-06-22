@@ -179,7 +179,7 @@ class Rule(pulumi.CustomResource):
                  __props__=None):
         """
         Description of Rule Resource.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +201,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of Rule Resource.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.
@@ -257,7 +257,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:Rule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:Rule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Rule, __self__).__init__(
             'azure-native:servicebus:Rule',

@@ -147,7 +147,7 @@ class TagRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logz:TagRule"), pulumi.Alias(type_="azure-native:logz/v20201001preview:TagRule"), pulumi.Alias(type_="azure-native:logz/v20220101preview:TagRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logz:TagRule"), pulumi.Alias(type_="azure-native:logz/v20220101preview:TagRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TagRule, __self__).__init__(
             'azure-native:logz/v20201001:TagRule',

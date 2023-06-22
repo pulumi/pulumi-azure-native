@@ -78,7 +78,6 @@ namespace Pulumi.AzureNative.App.V20220301
                 {
                     new global::Pulumi.Alias { Type = "azure-native:app:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221001:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:Certificate"},

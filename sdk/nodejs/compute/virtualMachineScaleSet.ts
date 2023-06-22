@@ -226,7 +226,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20201201:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210701:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20211101:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20220301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20220801:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20221101:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20230301:VirtualMachineScaleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20201201:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20211101:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20221101:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20230301:VirtualMachineScaleSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts);
     }

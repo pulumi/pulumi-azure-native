@@ -84,14 +84,10 @@ namespace Pulumi.AzureNative.NetApp
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20201201:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210201:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Snapshot"},
                 },

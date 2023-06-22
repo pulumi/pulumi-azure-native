@@ -83,14 +83,7 @@ namespace Pulumi.AzureNative.KeyVault
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:ManagedHsm"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:ManagedHsm"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:ManagedHsm"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211001:ManagedHsm"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:ManagedHsm"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220201preview:ManagedHsm"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220701:ManagedHsm"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20221101:ManagedHsm"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230201:ManagedHsm"},
                 },
             };

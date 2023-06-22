@@ -404,7 +404,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["registration_status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:domainregistration:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20201201:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210101:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210115:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210201:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210301:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20220301:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20220901:Domain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:domainregistration:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20220901:Domain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Domain, __self__).__init__(
             'azure-native:domainregistration/v20201001:Domain',

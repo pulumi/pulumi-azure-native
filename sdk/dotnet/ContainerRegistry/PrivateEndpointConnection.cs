@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a private endpoint connection for a container registry.
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -77,14 +77,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210901:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20221201:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:PrivateEndpointConnection"},
                 },
             };

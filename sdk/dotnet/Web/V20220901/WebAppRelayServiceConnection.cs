@@ -81,17 +81,13 @@ namespace Pulumi.AzureNative.Web.V20220901
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppRelayServiceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppRelayServiceConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppRelayServiceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppRelayServiceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppRelayServiceConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppRelayServiceConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppRelayServiceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppRelayServiceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppRelayServiceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppRelayServiceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppRelayServiceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppRelayServiceConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppRelayServiceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppRelayServiceConnection"},
                 },
             };

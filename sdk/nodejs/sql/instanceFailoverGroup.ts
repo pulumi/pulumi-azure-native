@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An instance failover group.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+ * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class InstanceFailoverGroup extends pulumi.CustomResource {
     /**
@@ -67,6 +67,10 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly replicationState!: pulumi.Output<string>;
     /**
+     * Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
+     */
+    public readonly secondaryType!: pulumi.Output<string | undefined>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -104,6 +108,7 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
             resourceInputs["readOnlyEndpoint"] = args ? args.readOnlyEndpoint : undefined;
             resourceInputs["readWriteEndpoint"] = args ? args.readWriteEndpoint : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["secondaryType"] = args ? args.secondaryType : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["replicationRole"] = undefined /*out*/;
             resourceInputs["replicationState"] = undefined /*out*/;
@@ -116,10 +121,11 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
             resourceInputs["readWriteEndpoint"] = undefined /*out*/;
             resourceInputs["replicationRole"] = undefined /*out*/;
             resourceInputs["replicationState"] = undefined /*out*/;
+            resourceInputs["secondaryType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20171001preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200202preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200801preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20201101preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210201preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210501preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210801preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20211101:InstanceFailoverGroup" }, { type: "azure-native:sql/v20211101preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20220201preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20220501preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20220801preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20221101preview:InstanceFailoverGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20200202preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200801preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20201101preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210201preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210501preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210801preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20211101preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20220801preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20221101preview:InstanceFailoverGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InstanceFailoverGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -157,4 +163,8 @@ export interface InstanceFailoverGroupArgs {
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
+     */
+    secondaryType?: pulumi.Input<string | enums.sql.SecondaryInstanceType>;
 }

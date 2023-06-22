@@ -8,6 +8,40 @@ using Pulumi;
 namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
+    /// Type of application performance monitoring
+    /// </summary>
+    [EnumType]
+    public readonly struct ApmType : IEquatable<ApmType>
+    {
+        private readonly string _value;
+
+        private ApmType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApmType ApplicationInsights { get; } = new ApmType("ApplicationInsights");
+        public static ApmType AppDynamics { get; } = new ApmType("AppDynamics");
+        public static ApmType Dynatrace { get; } = new ApmType("Dynatrace");
+        public static ApmType NewRelic { get; } = new ApmType("NewRelic");
+        public static ApmType ElasticAPM { get; } = new ApmType("ElasticAPM");
+
+        public static bool operator ==(ApmType left, ApmType right) => left.Equals(right);
+        public static bool operator !=(ApmType left, ApmType right) => !left.Equals(right);
+
+        public static explicit operator string(ApmType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApmType other && Equals(other);
+        public bool Equals(ApmType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// How ingress should communicate with this app backend service.
     /// </summary>
     [EnumType]
@@ -57,6 +91,7 @@ namespace Pulumi.AzureNative.AppPlatform
         public static BindingType Dynatrace { get; } = new BindingType("Dynatrace");
         public static BindingType NewRelic { get; } = new BindingType("NewRelic");
         public static BindingType ElasticAPM { get; } = new BindingType("ElasticAPM");
+        public static BindingType CACertificates { get; } = new BindingType("CACertificates");
 
         public static bool operator ==(BindingType left, BindingType right) => left.Equals(right);
         public static bool operator !=(BindingType left, BindingType right) => !left.Equals(right);
@@ -66,6 +101,74 @@ namespace Pulumi.AzureNative.AppPlatform
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BindingType other && Equals(other);
         public bool Equals(BindingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enabled state of the config server. This is only used in Consumption tier.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfigServerEnabledState : IEquatable<ConfigServerEnabledState>
+    {
+        private readonly string _value;
+
+        private ConfigServerEnabledState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Enable the config server.
+        /// </summary>
+        public static ConfigServerEnabledState Enabled { get; } = new ConfigServerEnabledState("Enabled");
+        /// <summary>
+        /// Disable the config server.
+        /// </summary>
+        public static ConfigServerEnabledState Disabled { get; } = new ConfigServerEnabledState("Disabled");
+
+        public static bool operator ==(ConfigServerEnabledState left, ConfigServerEnabledState right) => left.Equals(right);
+        public static bool operator !=(ConfigServerEnabledState left, ConfigServerEnabledState right) => !left.Equals(right);
+
+        public static explicit operator string(ConfigServerEnabledState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfigServerEnabledState other && Equals(other);
+        public bool Equals(ConfigServerEnabledState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The generation of the Application Configuration Service.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfigurationServiceGeneration : IEquatable<ConfigurationServiceGeneration>
+    {
+        private readonly string _value;
+
+        private ConfigurationServiceGeneration(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfigurationServiceGeneration Gen1 { get; } = new ConfigurationServiceGeneration("Gen1");
+        public static ConfigurationServiceGeneration Gen2 { get; } = new ConfigurationServiceGeneration("Gen2");
+
+        public static bool operator ==(ConfigurationServiceGeneration left, ConfigurationServiceGeneration right) => left.Equals(right);
+        public static bool operator !=(ConfigurationServiceGeneration left, ConfigurationServiceGeneration right) => !left.Equals(right);
+
+        public static explicit operator string(ConfigurationServiceGeneration value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfigurationServiceGeneration other && Equals(other);
+        public bool Equals(ConfigurationServiceGeneration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -111,6 +214,43 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
     /// <summary>
+    /// Whether to enable certificate verification or not
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayCertificateVerification : IEquatable<GatewayCertificateVerification>
+    {
+        private readonly string _value;
+
+        private GatewayCertificateVerification(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Enable certificate verification in Spring Cloud Gateway.
+        /// </summary>
+        public static GatewayCertificateVerification Enabled { get; } = new GatewayCertificateVerification("Enabled");
+        /// <summary>
+        /// Disable certificate verification in Spring Cloud Gateway.
+        /// </summary>
+        public static GatewayCertificateVerification Disabled { get; } = new GatewayCertificateVerification("Disabled");
+
+        public static bool operator ==(GatewayCertificateVerification left, GatewayCertificateVerification right) => left.Equals(right);
+        public static bool operator !=(GatewayCertificateVerification left, GatewayCertificateVerification right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayCertificateVerification value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayCertificateVerification other && Equals(other);
+        public bool Equals(GatewayCertificateVerification other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Protocol of routed Azure Spring Apps applications.
     /// </summary>
     [EnumType]
@@ -134,6 +274,37 @@ namespace Pulumi.AzureNative.AppPlatform
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GatewayRouteConfigProtocol other && Equals(other);
         public bool Equals(GatewayRouteConfigProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Git libraries used to support various repository providers
+    /// </summary>
+    [EnumType]
+    public readonly struct GitImplementation : IEquatable<GitImplementation>
+    {
+        private readonly string _value;
+
+        private GitImplementation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GitImplementation Go_git { get; } = new GitImplementation("go-git");
+        public static GitImplementation Libgit2 { get; } = new GitImplementation("libgit2");
+
+        public static bool operator ==(GitImplementation left, GitImplementation right) => left.Equals(right);
+        public static bool operator !=(GitImplementation left, GitImplementation right) => !left.Equals(right);
+
+        public static explicit operator string(GitImplementation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GitImplementation other && Equals(other);
+        public bool Equals(GitImplementation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

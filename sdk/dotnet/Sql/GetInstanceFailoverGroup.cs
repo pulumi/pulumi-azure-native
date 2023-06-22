@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a failover group.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetInstanceFailoverGroupResult> InvokeAsync(GetInstanceFailoverGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceFailoverGroupResult>("azure-native:sql:getInstanceFailoverGroup", args ?? new GetInstanceFailoverGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a failover group.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetInstanceFailoverGroupResult> Invoke(GetInstanceFailoverGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceFailoverGroupResult>("azure-native:sql:getInstanceFailoverGroup", args ?? new GetInstanceFailoverGroupInvokeArgs(), options.WithDefaults());
@@ -116,6 +116,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string ReplicationState;
         /// <summary>
+        /// Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
+        /// </summary>
+        public readonly string? SecondaryType;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.Sql
 
             string replicationState,
 
+            string? secondaryType,
+
             string type)
         {
             Id = id;
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNative.Sql
             ReadWriteEndpoint = readWriteEndpoint;
             ReplicationRole = replicationRole;
             ReplicationState = replicationState;
+            SecondaryType = secondaryType;
             Type = type;
         }
     }

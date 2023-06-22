@@ -42,7 +42,7 @@ class GetIPv6FirewallRuleResult:
     @pulumi.getter(name="endIPv6Address")
     def end_i_pv6_address(self) -> Optional[str]:
         """
-        The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
+        The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpv6Address.
         """
         return pulumi.get(self, "end_i_pv6_address")
 
@@ -98,7 +98,7 @@ def get_i_pv6_firewall_rule(firewall_rule_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIPv6FirewallRuleResult:
     """
     Gets an IPv6 firewall rule.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str firewall_rule_name: The name of the firewall rule.
@@ -127,7 +127,7 @@ def get_i_pv6_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPv6FirewallRuleResult]:
     """
     Gets an IPv6 firewall rule.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str firewall_rule_name: The name of the firewall rule.

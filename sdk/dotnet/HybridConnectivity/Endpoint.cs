@@ -101,7 +101,6 @@ namespace Pulumi.AzureNative.HybridConnectivity
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20211006preview:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20220501preview:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20230315:Endpoint"},
                 },

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ConfidentialLedger
     {
         /// <summary>
         /// Retrieves the properties of a Confidential Ledger.
-        /// Azure REST API version: 2022-05-13.
+        /// Azure REST API version: 2023-01-26-preview.
         /// </summary>
         public static Task<GetLedgerResult> InvokeAsync(GetLedgerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("azure-native:confidentialledger:getLedger", args ?? new GetLedgerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of a Confidential Ledger.
-        /// Azure REST API version: 2022-05-13.
+        /// Azure REST API version: 2023-01-26-preview.
         /// </summary>
         public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("azure-native:confidentialledger:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         public string LedgerName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         public Input<string> LedgerName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -72,15 +72,15 @@ namespace Pulumi.AzureNative.ConfidentialLedger
     public sealed class GetLedgerResult
     {
         /// <summary>
-        /// Fully qualified resource Id for the resource.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Azure location where the Confidential Ledger is running.
+        /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
-        /// Name of the Resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -88,15 +88,15 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         /// </summary>
         public readonly Outputs.LedgerPropertiesResponse Properties;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Additional tags for Confidential Ledger
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         private GetLedgerResult(
             string id,
 
-            string? location,
+            string location,
 
             string name,
 

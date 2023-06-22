@@ -65,13 +65,8 @@ namespace Pulumi.AzureNative.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:Table"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:Table"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:Table"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:Table"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:Table"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:Table"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:Table"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:Table"},
                 },
             };

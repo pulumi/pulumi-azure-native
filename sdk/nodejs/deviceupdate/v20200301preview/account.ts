@@ -117,7 +117,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate:Account" }, { type: "azure-native:deviceupdate/v20220401preview:Account" }, { type: "azure-native:deviceupdate/v20221001:Account" }, { type: "azure-native:deviceupdate/v20221201preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate:Account" }, { type: "azure-native:deviceupdate/v20221201preview:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }

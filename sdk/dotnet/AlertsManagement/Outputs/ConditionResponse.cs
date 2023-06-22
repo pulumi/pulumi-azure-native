@@ -11,33 +11,26 @@ namespace Pulumi.AzureNative.AlertsManagement.Outputs
 {
 
     /// <summary>
-    /// Condition to trigger an alert processing rule.
+    /// condition to trigger an action rule
     /// </summary>
     [OutputType]
     public sealed class ConditionResponse
     {
         /// <summary>
-        /// Field for a given condition.
-        /// </summary>
-        public readonly string? Field;
-        /// <summary>
-        /// Operator for a given condition.
+        /// operator for a given condition
         /// </summary>
         public readonly string? Operator;
         /// <summary>
-        /// List of values to match for a given condition.
+        /// list of values to match for a given condition.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
         private ConditionResponse(
-            string? field,
-
             string? @operator,
 
             ImmutableArray<string> values)
         {
-            Field = field;
             Operator = @operator;
             Values = values;
         }

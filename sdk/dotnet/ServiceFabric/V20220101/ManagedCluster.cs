@@ -270,13 +270,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric:ManagedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20200101preview:ManagedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:ManagedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:ManagedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:ManagedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:ManagedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:ManagedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220601preview:ManagedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220801preview:ManagedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20221001preview:ManagedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230201preview:ManagedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230301preview:ManagedCluster"},

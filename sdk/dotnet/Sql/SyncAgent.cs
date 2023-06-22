@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An Azure SQL Database sync agent.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:SyncAgent")]
     public partial class SyncAgent : global::Pulumi.CustomResource
@@ -96,10 +96,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:SyncAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:SyncAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:SyncAgent"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:SyncAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:SyncAgent"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:SyncAgent"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:SyncAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:SyncAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:SyncAgent"},
                 },

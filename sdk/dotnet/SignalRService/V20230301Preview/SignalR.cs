@@ -221,13 +221,8 @@ namespace Pulumi.AzureNative.SignalRService.V20230301Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalR"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20200501:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20200701preview:SignalR"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210401preview:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210601preview:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20210901preview:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20211001:SignalR"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalR"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220801preview:SignalR"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230201:SignalR"},
                 },
             };

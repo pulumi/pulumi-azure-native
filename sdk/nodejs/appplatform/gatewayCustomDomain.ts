@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom domain of the Spring Cloud Gateway
- * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2022-01-01-preview
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
  */
 export class GatewayCustomDomain extends pulumi.CustomResource {
     /**
@@ -90,7 +90,7 @@ export class GatewayCustomDomain extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:GatewayCustomDomain" }, { type: "azure-native:appplatform/v20220301preview:GatewayCustomDomain" }, { type: "azure-native:appplatform/v20220501preview:GatewayCustomDomain" }, { type: "azure-native:appplatform/v20220901preview:GatewayCustomDomain" }, { type: "azure-native:appplatform/v20221101preview:GatewayCustomDomain" }, { type: "azure-native:appplatform/v20221201:GatewayCustomDomain" }, { type: "azure-native:appplatform/v20230101preview:GatewayCustomDomain" }, { type: "azure-native:appplatform/v20230301preview:GatewayCustomDomain" }, { type: "azure-native:appplatform/v20230501preview:GatewayCustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:GatewayCustomDomain" }, { type: "azure-native:appplatform/v20230101preview:GatewayCustomDomain" }, { type: "azure-native:appplatform/v20230301preview:GatewayCustomDomain" }, { type: "azure-native:appplatform/v20230501preview:GatewayCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GatewayCustomDomain.__pulumiType, name, resourceInputs, opts);
     }

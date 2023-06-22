@@ -274,7 +274,7 @@ class StorageTarget(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210501:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210901:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20220101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20220501:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230301preview:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230501:StorageTarget")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230301preview:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230501:StorageTarget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageTarget, __self__).__init__(
             'azure-native:storagecache/v20210301:StorageTarget',

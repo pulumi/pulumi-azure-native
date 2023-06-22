@@ -107,17 +107,13 @@ namespace Pulumi.AzureNative.Web.V20160801
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppPremierAddOn"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppPremierAddOn"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPremierAddOn"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppPremierAddOn"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppPremierAddOn"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppPremierAddOn"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPremierAddOn"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPremierAddOn"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPremierAddOn"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPremierAddOn"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPremierAddOn"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPremierAddOn"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPremierAddOn"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppPremierAddOn"},
                 },

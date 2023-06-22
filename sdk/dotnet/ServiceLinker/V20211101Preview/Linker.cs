@@ -95,8 +95,6 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker:Linker"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20220101preview:Linker"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20220501:Linker"},
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20221101preview:Linker"},
                 },
             };

@@ -98,7 +98,7 @@ class GetNamespaceNetworkRuleSetResult:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[str]:
         """
-        This determines if traffic is allowed over public network. By default it is enabled.
+        This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
         """
         return pulumi.get(self, "public_network_access")
 
@@ -158,7 +158,7 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceNetworkRuleSetResult:
     """
     Gets NetworkRuleSet for a Namespace.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str namespace_name: The Namespace name
@@ -189,7 +189,7 @@ def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceNetworkRuleSetResult]:
     """
     Gets NetworkRuleSet for a Namespace.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str namespace_name: The Namespace name

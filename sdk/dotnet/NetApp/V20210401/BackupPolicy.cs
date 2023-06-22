@@ -132,13 +132,9 @@ namespace Pulumi.AzureNative.NetApp.V20210401
                 {
                     new global::Pulumi.Alias { Type = "azure-native:netapp:BackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20201201:BackupPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210201:BackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:BackupPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:BackupPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:BackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:BackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:BackupPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:BackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:BackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:BackupPolicy"},
                 },

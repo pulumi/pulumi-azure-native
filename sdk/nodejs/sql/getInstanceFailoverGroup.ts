@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a failover group.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getInstanceFailoverGroup(args: GetInstanceFailoverGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceFailoverGroupResult> {
 
@@ -73,13 +73,17 @@ export interface GetInstanceFailoverGroupResult {
      */
     readonly replicationState: string;
     /**
+     * Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
+     */
+    readonly secondaryType?: string;
+    /**
      * Resource type.
      */
     readonly type: string;
 }
 /**
  * Gets a failover group.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getInstanceFailoverGroupOutput(args: GetInstanceFailoverGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceFailoverGroupResult> {
     return pulumi.output(args).apply((a: any) => getInstanceFailoverGroup(a, opts))

@@ -59,16 +59,9 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:Certificate"},

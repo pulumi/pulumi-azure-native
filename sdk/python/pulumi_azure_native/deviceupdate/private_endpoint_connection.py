@@ -112,7 +112,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The Private Endpoint Connection resource.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
+        Azure REST API version: 2022-12-01-preview. Prior API version in Azure Native 1.x: 2020-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
+        Azure REST API version: 2022-12-01-preview. Prior API version in Azure Native 1.x: 2020-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.
@@ -177,7 +177,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:deviceupdate/v20220401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:deviceupdate/v20221001:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:deviceupdate/v20221201preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:deviceupdate/v20221201preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:deviceupdate:PrivateEndpointConnection',

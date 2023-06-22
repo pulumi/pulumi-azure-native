@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of a namespace authorization rule.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class QueueAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -99,7 +99,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20210101preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20210601preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20211101:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20220101preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20221001preview:QueueAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20220101preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20221001preview:QueueAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(QueueAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'Kind',
     'Name',
+    'ResourceIdentityType',
     'SigningKey',
 ]
 
@@ -26,6 +27,16 @@ class Name(str, Enum):
     S0 = "S0"
     S1 = "S1"
     G2 = "G2"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The identity type.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    NONE = "None"
 
 
 class SigningKey(str, Enum):

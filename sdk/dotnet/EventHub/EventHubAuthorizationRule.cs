@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:EventHubAuthorizationRule")]
     public partial class EventHubAuthorizationRule : global::Pulumi.CustomResource
@@ -73,9 +73,6 @@ namespace Pulumi.AzureNative.EventHub
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:EventHubAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:EventHubAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:EventHubAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:EventHubAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:EventHubAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:EventHubAuthorizationRule"},
                 },

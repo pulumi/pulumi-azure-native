@@ -20,21 +20,27 @@ class DatabaseArgs:
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
                  auto_pause_delay: Optional[pulumi.Input[int]] = None,
+                 availability_zone: Optional[pulumi.Input[Union[str, 'AvailabilityZoneType']]] = None,
                  catalog_collation: Optional[pulumi.Input[Union[str, 'CatalogCollationType']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
+                 encryption_protector: Optional[pulumi.Input[str]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
                  high_availability_replica_count: Optional[pulumi.Input[int]] = None,
                  identity: Optional[pulumi.Input['DatabaseIdentityArgs']] = None,
                  is_ledger_on: Optional[pulumi.Input[bool]] = None,
+                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'DatabaseLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  long_term_retention_backup_resource_id: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+                 manual_cutover: Optional[pulumi.Input[bool]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
+                 perform_cutover: Optional[pulumi.Input[bool]] = None,
+                 preferred_enclave_type: Optional[pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']]] = None,
                  read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
@@ -54,6 +60,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[int] auto_pause_delay: Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
+        :param pulumi.Input[Union[str, 'AvailabilityZoneType']] availability_zone: Specifies the availability zone the database is pinned to.
         :param pulumi.Input[Union[str, 'CatalogCollationType']] catalog_collation: Collation of the metadata catalog.
         :param pulumi.Input[str] collation: The collation of the database.
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Specifies the mode of database creation.
@@ -75,16 +82,33 @@ class DatabaseArgs:
                Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] elastic_pool_id: The resource identifier of the elastic pool containing this database.
+        :param pulumi.Input[str] encryption_protector: The azure key vault URI of the database if it's configured with per Database Customer Managed Keys.
         :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant per database CMK scenario
         :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input['DatabaseIdentityArgs'] identity: The Azure Active Directory identity of the database.
         :param pulumi.Input[bool] is_ledger_on: Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: The resource ids of the user assigned identities to use
         :param pulumi.Input[Union[str, 'DatabaseLicenseType']] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] long_term_retention_backup_resource_id: The resource identifier of the long term retention backup associated with create operation of this database.
         :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
+        :param pulumi.Input[bool] manual_cutover: Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
+               
+               This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier.
+               
+               When manualCutover is specified, the scaling operation will wait for user input to trigger cutover to Hyperscale database.
+               
+               To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
         :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused
+        :param pulumi.Input[bool] perform_cutover: To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
+               
+               This property parameter is only applicable for scaling operations that are initiated along with 'manualCutover' parameter.
+               
+               This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier is already in progress.
+               
+               When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
+        :param pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']] preferred_enclave_type: Type of enclave requested on the database i.e. Default or VBS enclaves.
         :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
         :param pulumi.Input[str] recovery_services_recovery_point_id: The resource identifier of the recovery point associated with create operation of this database.
@@ -92,7 +116,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] restorable_dropped_database_id: The resource identifier of the restorable dropped database associated with create operation of this database.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
         :param pulumi.Input[Union[str, 'SampleName']] sample_name: The name of the sample schema to apply when creating this database.
-        :param pulumi.Input[Union[str, 'SecondaryType']] secondary_type: The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+        :param pulumi.Input[Union[str, 'SecondaryType']] secondary_type: The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
         :param pulumi.Input['SkuArgs'] sku: The database SKU.
                
                The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
@@ -126,6 +150,8 @@ class DatabaseArgs:
         pulumi.set(__self__, "server_name", server_name)
         if auto_pause_delay is not None:
             pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if catalog_collation is not None:
             pulumi.set(__self__, "catalog_collation", catalog_collation)
         if collation is not None:
@@ -136,6 +162,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "database_name", database_name)
         if elastic_pool_id is not None:
             pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
+        if encryption_protector is not None:
+            pulumi.set(__self__, "encryption_protector", encryption_protector)
         if federated_client_id is not None:
             pulumi.set(__self__, "federated_client_id", federated_client_id)
         if high_availability_replica_count is not None:
@@ -144,6 +172,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "identity", identity)
         if is_ledger_on is not None:
             pulumi.set(__self__, "is_ledger_on", is_ledger_on)
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -152,10 +182,16 @@ class DatabaseArgs:
             pulumi.set(__self__, "long_term_retention_backup_resource_id", long_term_retention_backup_resource_id)
         if maintenance_configuration_id is not None:
             pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+        if manual_cutover is not None:
+            pulumi.set(__self__, "manual_cutover", manual_cutover)
         if max_size_bytes is not None:
             pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if min_capacity is not None:
             pulumi.set(__self__, "min_capacity", min_capacity)
+        if perform_cutover is not None:
+            pulumi.set(__self__, "perform_cutover", perform_cutover)
+        if preferred_enclave_type is not None:
+            pulumi.set(__self__, "preferred_enclave_type", preferred_enclave_type)
         if read_scale is not None:
             pulumi.set(__self__, "read_scale", read_scale)
         if recoverable_database_id is not None:
@@ -220,6 +256,18 @@ class DatabaseArgs:
     @auto_pause_delay.setter
     def auto_pause_delay(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "auto_pause_delay", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[Union[str, 'AvailabilityZoneType']]]:
+        """
+        Specifies the availability zone the database is pinned to.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[Union[str, 'AvailabilityZoneType']]]):
+        pulumi.set(self, "availability_zone", value)
 
     @property
     @pulumi.getter(name="catalogCollation")
@@ -298,6 +346,18 @@ class DatabaseArgs:
         pulumi.set(self, "elastic_pool_id", value)
 
     @property
+    @pulumi.getter(name="encryptionProtector")
+    def encryption_protector(self) -> Optional[pulumi.Input[str]]:
+        """
+        The azure key vault URI of the database if it's configured with per Database Customer Managed Keys.
+        """
+        return pulumi.get(self, "encryption_protector")
+
+    @encryption_protector.setter
+    def encryption_protector(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_protector", value)
+
+    @property
     @pulumi.getter(name="federatedClientId")
     def federated_client_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -344,6 +404,18 @@ class DatabaseArgs:
     @is_ledger_on.setter
     def is_ledger_on(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_ledger_on", value)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The resource ids of the user assigned identities to use
+        """
+        return pulumi.get(self, "keys")
+
+    @keys.setter
+    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "keys", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -394,6 +466,24 @@ class DatabaseArgs:
         pulumi.set(self, "maintenance_configuration_id", value)
 
     @property
+    @pulumi.getter(name="manualCutover")
+    def manual_cutover(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
+        
+        This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier.
+        
+        When manualCutover is specified, the scaling operation will wait for user input to trigger cutover to Hyperscale database.
+        
+        To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
+        """
+        return pulumi.get(self, "manual_cutover")
+
+    @manual_cutover.setter
+    def manual_cutover(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "manual_cutover", value)
+
+    @property
     @pulumi.getter(name="maxSizeBytes")
     def max_size_bytes(self) -> Optional[pulumi.Input[float]]:
         """
@@ -416,6 +506,36 @@ class DatabaseArgs:
     @min_capacity.setter
     def min_capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "min_capacity", value)
+
+    @property
+    @pulumi.getter(name="performCutover")
+    def perform_cutover(self) -> Optional[pulumi.Input[bool]]:
+        """
+        To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
+        
+        This property parameter is only applicable for scaling operations that are initiated along with 'manualCutover' parameter.
+        
+        This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier is already in progress.
+        
+        When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
+        """
+        return pulumi.get(self, "perform_cutover")
+
+    @perform_cutover.setter
+    def perform_cutover(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "perform_cutover", value)
+
+    @property
+    @pulumi.getter(name="preferredEnclaveType")
+    def preferred_enclave_type(self) -> Optional[pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']]]:
+        """
+        Type of enclave requested on the database i.e. Default or VBS enclaves.
+        """
+        return pulumi.get(self, "preferred_enclave_type")
+
+    @preferred_enclave_type.setter
+    def preferred_enclave_type(self, value: Optional[pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']]]):
+        pulumi.set(self, "preferred_enclave_type", value)
 
     @property
     @pulumi.getter(name="readScale")
@@ -505,7 +625,7 @@ class DatabaseArgs:
     @pulumi.getter(name="secondaryType")
     def secondary_type(self) -> Optional[pulumi.Input[Union[str, 'SecondaryType']]]:
         """
-        The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+        The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
         """
         return pulumi.get(self, "secondary_type")
 
@@ -614,21 +734,27 @@ class Database(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_pause_delay: Optional[pulumi.Input[int]] = None,
+                 availability_zone: Optional[pulumi.Input[Union[str, 'AvailabilityZoneType']]] = None,
                  catalog_collation: Optional[pulumi.Input[Union[str, 'CatalogCollationType']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
+                 encryption_protector: Optional[pulumi.Input[str]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
                  high_availability_replica_count: Optional[pulumi.Input[int]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['DatabaseIdentityArgs']]] = None,
                  is_ledger_on: Optional[pulumi.Input[bool]] = None,
+                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'DatabaseLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  long_term_retention_backup_resource_id: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+                 manual_cutover: Optional[pulumi.Input[bool]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
+                 perform_cutover: Optional[pulumi.Input[bool]] = None,
+                 preferred_enclave_type: Optional[pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']]] = None,
                  read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
@@ -648,11 +774,12 @@ class Database(pulumi.CustomResource):
                  __props__=None):
         """
         A database resource.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] auto_pause_delay: Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
+        :param pulumi.Input[Union[str, 'AvailabilityZoneType']] availability_zone: Specifies the availability zone the database is pinned to.
         :param pulumi.Input[Union[str, 'CatalogCollationType']] catalog_collation: Collation of the metadata catalog.
         :param pulumi.Input[str] collation: The collation of the database.
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Specifies the mode of database creation.
@@ -674,16 +801,33 @@ class Database(pulumi.CustomResource):
                Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] elastic_pool_id: The resource identifier of the elastic pool containing this database.
+        :param pulumi.Input[str] encryption_protector: The azure key vault URI of the database if it's configured with per Database Customer Managed Keys.
         :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant per database CMK scenario
         :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input[pulumi.InputType['DatabaseIdentityArgs']] identity: The Azure Active Directory identity of the database.
         :param pulumi.Input[bool] is_ledger_on: Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: The resource ids of the user assigned identities to use
         :param pulumi.Input[Union[str, 'DatabaseLicenseType']] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] long_term_retention_backup_resource_id: The resource identifier of the long term retention backup associated with create operation of this database.
         :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
+        :param pulumi.Input[bool] manual_cutover: Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
+               
+               This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier.
+               
+               When manualCutover is specified, the scaling operation will wait for user input to trigger cutover to Hyperscale database.
+               
+               To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
         :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused
+        :param pulumi.Input[bool] perform_cutover: To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
+               
+               This property parameter is only applicable for scaling operations that are initiated along with 'manualCutover' parameter.
+               
+               This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier is already in progress.
+               
+               When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
+        :param pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']] preferred_enclave_type: Type of enclave requested on the database i.e. Default or VBS enclaves.
         :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
         :param pulumi.Input[str] recovery_services_recovery_point_id: The resource identifier of the recovery point associated with create operation of this database.
@@ -692,7 +836,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] restorable_dropped_database_id: The resource identifier of the restorable dropped database associated with create operation of this database.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
         :param pulumi.Input[Union[str, 'SampleName']] sample_name: The name of the sample schema to apply when creating this database.
-        :param pulumi.Input[Union[str, 'SecondaryType']] secondary_type: The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+        :param pulumi.Input[Union[str, 'SecondaryType']] secondary_type: The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The database SKU.
                
@@ -731,7 +875,7 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A database resource.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -749,21 +893,27 @@ class Database(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_pause_delay: Optional[pulumi.Input[int]] = None,
+                 availability_zone: Optional[pulumi.Input[Union[str, 'AvailabilityZoneType']]] = None,
                  catalog_collation: Optional[pulumi.Input[Union[str, 'CatalogCollationType']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
+                 encryption_protector: Optional[pulumi.Input[str]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
                  high_availability_replica_count: Optional[pulumi.Input[int]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['DatabaseIdentityArgs']]] = None,
                  is_ledger_on: Optional[pulumi.Input[bool]] = None,
+                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'DatabaseLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  long_term_retention_backup_resource_id: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+                 manual_cutover: Optional[pulumi.Input[bool]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
+                 perform_cutover: Optional[pulumi.Input[bool]] = None,
+                 preferred_enclave_type: Optional[pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']]] = None,
                  read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
@@ -790,21 +940,27 @@ class Database(pulumi.CustomResource):
             __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
             __props__.__dict__["auto_pause_delay"] = auto_pause_delay
+            __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["catalog_collation"] = catalog_collation
             __props__.__dict__["collation"] = collation
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["elastic_pool_id"] = elastic_pool_id
+            __props__.__dict__["encryption_protector"] = encryption_protector
             __props__.__dict__["federated_client_id"] = federated_client_id
             __props__.__dict__["high_availability_replica_count"] = high_availability_replica_count
             __props__.__dict__["identity"] = identity
             __props__.__dict__["is_ledger_on"] = is_ledger_on
+            __props__.__dict__["keys"] = keys
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
             __props__.__dict__["long_term_retention_backup_resource_id"] = long_term_retention_backup_resource_id
             __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
+            __props__.__dict__["manual_cutover"] = manual_cutover
             __props__.__dict__["max_size_bytes"] = max_size_bytes
             __props__.__dict__["min_capacity"] = min_capacity
+            __props__.__dict__["perform_cutover"] = perform_cutover
+            __props__.__dict__["preferred_enclave_type"] = preferred_enclave_type
             __props__.__dict__["read_scale"] = read_scale
             __props__.__dict__["recoverable_database_id"] = recoverable_database_id
             __props__.__dict__["recovery_services_recovery_point_id"] = recovery_services_recovery_point_id
@@ -843,7 +999,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["resumed_date"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:Database"), pulumi.Alias(type_="azure-native:sql/v20170301preview:Database"), pulumi.Alias(type_="azure-native:sql/v20171001preview:Database"), pulumi.Alias(type_="azure-native:sql/v20190601preview:Database"), pulumi.Alias(type_="azure-native:sql/v20200202preview:Database"), pulumi.Alias(type_="azure-native:sql/v20200801preview:Database"), pulumi.Alias(type_="azure-native:sql/v20201101preview:Database"), pulumi.Alias(type_="azure-native:sql/v20210201preview:Database"), pulumi.Alias(type_="azure-native:sql/v20210501preview:Database"), pulumi.Alias(type_="azure-native:sql/v20210801preview:Database"), pulumi.Alias(type_="azure-native:sql/v20211101:Database"), pulumi.Alias(type_="azure-native:sql/v20211101preview:Database"), pulumi.Alias(type_="azure-native:sql/v20220201preview:Database"), pulumi.Alias(type_="azure-native:sql/v20220501preview:Database"), pulumi.Alias(type_="azure-native:sql/v20220801preview:Database"), pulumi.Alias(type_="azure-native:sql/v20221101preview:Database")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:Database"), pulumi.Alias(type_="azure-native:sql/v20170301preview:Database"), pulumi.Alias(type_="azure-native:sql/v20190601preview:Database"), pulumi.Alias(type_="azure-native:sql/v20200202preview:Database"), pulumi.Alias(type_="azure-native:sql/v20200801preview:Database"), pulumi.Alias(type_="azure-native:sql/v20201101preview:Database"), pulumi.Alias(type_="azure-native:sql/v20210201preview:Database"), pulumi.Alias(type_="azure-native:sql/v20210501preview:Database"), pulumi.Alias(type_="azure-native:sql/v20210801preview:Database"), pulumi.Alias(type_="azure-native:sql/v20211101preview:Database"), pulumi.Alias(type_="azure-native:sql/v20220801preview:Database"), pulumi.Alias(type_="azure-native:sql/v20221101preview:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azure-native:sql:Database',
@@ -868,6 +1024,7 @@ class Database(pulumi.CustomResource):
         __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
         __props__.__dict__["auto_pause_delay"] = None
+        __props__.__dict__["availability_zone"] = None
         __props__.__dict__["catalog_collation"] = None
         __props__.__dict__["collation"] = None
         __props__.__dict__["creation_date"] = None
@@ -878,22 +1035,27 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["default_secondary_location"] = None
         __props__.__dict__["earliest_restore_date"] = None
         __props__.__dict__["elastic_pool_id"] = None
+        __props__.__dict__["encryption_protector"] = None
         __props__.__dict__["failover_group_id"] = None
         __props__.__dict__["federated_client_id"] = None
         __props__.__dict__["high_availability_replica_count"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["is_infra_encryption_enabled"] = None
         __props__.__dict__["is_ledger_on"] = None
+        __props__.__dict__["keys"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["license_type"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["maintenance_configuration_id"] = None
         __props__.__dict__["managed_by"] = None
+        __props__.__dict__["manual_cutover"] = None
         __props__.__dict__["max_log_size_bytes"] = None
         __props__.__dict__["max_size_bytes"] = None
         __props__.__dict__["min_capacity"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["paused_date"] = None
+        __props__.__dict__["perform_cutover"] = None
+        __props__.__dict__["preferred_enclave_type"] = None
         __props__.__dict__["read_scale"] = None
         __props__.__dict__["requested_backup_storage_redundancy"] = None
         __props__.__dict__["requested_service_objective_name"] = None
@@ -913,6 +1075,14 @@ class Database(pulumi.CustomResource):
         Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
         """
         return pulumi.get(self, "auto_pause_delay")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the availability zone the database is pinned to.
+        """
+        return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="catalogCollation")
@@ -995,6 +1165,14 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "elastic_pool_id")
 
     @property
+    @pulumi.getter(name="encryptionProtector")
+    def encryption_protector(self) -> pulumi.Output[Optional[str]]:
+        """
+        The azure key vault URI of the database if it's configured with per Database Customer Managed Keys.
+        """
+        return pulumi.get(self, "encryption_protector")
+
+    @property
     @pulumi.getter(name="failoverGroupId")
     def failover_group_id(self) -> pulumi.Output[str]:
         """
@@ -1044,6 +1222,14 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def keys(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DatabaseKeyResponse']]]:
+        """
+        The resource ids of the user assigned identities to use
+        """
+        return pulumi.get(self, "keys")
+
+    @property
+    @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
         Kind of database. This is metadata used for the Azure portal experience.
@@ -1081,6 +1267,20 @@ class Database(pulumi.CustomResource):
         Resource that manages the database.
         """
         return pulumi.get(self, "managed_by")
+
+    @property
+    @pulumi.getter(name="manualCutover")
+    def manual_cutover(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
+        
+        This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier.
+        
+        When manualCutover is specified, the scaling operation will wait for user input to trigger cutover to Hyperscale database.
+        
+        To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
+        """
+        return pulumi.get(self, "manual_cutover")
 
     @property
     @pulumi.getter(name="maxLogSizeBytes")
@@ -1123,6 +1323,28 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "paused_date")
 
     @property
+    @pulumi.getter(name="performCutover")
+    def perform_cutover(self) -> pulumi.Output[Optional[bool]]:
+        """
+        To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
+        
+        This property parameter is only applicable for scaling operations that are initiated along with 'manualCutover' parameter.
+        
+        This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier is already in progress.
+        
+        When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
+        """
+        return pulumi.get(self, "perform_cutover")
+
+    @property
+    @pulumi.getter(name="preferredEnclaveType")
+    def preferred_enclave_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of enclave requested on the database i.e. Default or VBS enclaves.
+        """
+        return pulumi.get(self, "preferred_enclave_type")
+
+    @property
     @pulumi.getter(name="readScale")
     def read_scale(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1158,7 +1380,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="secondaryType")
     def secondary_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+        The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
         """
         return pulumi.get(self, "secondary_type")
 

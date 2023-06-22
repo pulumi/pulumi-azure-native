@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single Event Hubs Cluster resource in List or Get operations.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2018-01-01-preview
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -63,6 +63,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * A value that indicates whether Scaling is Supported.
+     */
+    public readonly supportsScaling!: pulumi.Output<boolean | undefined>;
+    /**
      * The system meta data relating to this resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.SystemDataResponse>;
@@ -97,6 +101,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["supportsScaling"] = args ? args.supportsScaling : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;
@@ -112,13 +117,14 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["supportsScaling"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20180101preview:Cluster" }, { type: "azure-native:eventhub/v20210601preview:Cluster" }, { type: "azure-native:eventhub/v20211101:Cluster" }, { type: "azure-native:eventhub/v20220101preview:Cluster" }, { type: "azure-native:eventhub/v20221001preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20180101preview:Cluster" }, { type: "azure-native:eventhub/v20220101preview:Cluster" }, { type: "azure-native:eventhub/v20221001preview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -144,6 +150,10 @@ export interface ClusterArgs {
      * Properties of the cluster SKU.
      */
     sku?: pulumi.Input<inputs.eventhub.ClusterSkuArgs>;
+    /**
+     * A value that indicates whether Scaling is Supported.
+     */
+    supportsScaling?: pulumi.Input<boolean>;
     /**
      * Resource tags.
      */

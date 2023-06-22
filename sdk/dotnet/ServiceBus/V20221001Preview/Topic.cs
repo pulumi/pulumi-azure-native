@@ -169,9 +169,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20221001Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicebus:Topic"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Topic"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Topic"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Topic"},
                 },
             };

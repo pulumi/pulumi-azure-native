@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork:VendorSkus"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:VendorSkus"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:VendorSkus"},
                 },
             };

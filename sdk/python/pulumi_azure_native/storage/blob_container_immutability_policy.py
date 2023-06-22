@@ -213,7 +213,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20210101:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210201:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210401:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210601:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210801:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210901:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20220501:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20220901:BlobContainerImmutabilityPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20210201:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210801:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20220901:BlobContainerImmutabilityPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobContainerImmutabilityPolicy, __self__).__init__(
             'azure-native:storage:BlobContainerImmutabilityPolicy',

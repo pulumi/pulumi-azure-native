@@ -81,7 +81,6 @@ namespace Pulumi.AzureNative.Web.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSite"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSiteUserProvidedFunctionAppForStaticSite"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSiteUserProvidedFunctionAppForStaticSite"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteUserProvidedFunctionAppForStaticSite"},
                 },
             };

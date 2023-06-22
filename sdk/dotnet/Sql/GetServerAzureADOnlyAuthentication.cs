@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a specific Azure Active Directory only authentication property.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetServerAzureADOnlyAuthenticationResult> InvokeAsync(GetServerAzureADOnlyAuthenticationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADOnlyAuthenticationResult>("azure-native:sql:getServerAzureADOnlyAuthentication", args ?? new GetServerAzureADOnlyAuthenticationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific Azure Active Directory only authentication property.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetServerAzureADOnlyAuthenticationResult> Invoke(GetServerAzureADOnlyAuthenticationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerAzureADOnlyAuthenticationResult>("azure-native:sql:getServerAzureADOnlyAuthentication", args ?? new GetServerAzureADOnlyAuthenticationInvokeArgs(), options.WithDefaults());

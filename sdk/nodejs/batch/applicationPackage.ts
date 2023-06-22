@@ -111,7 +111,7 @@ export class ApplicationPackage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20210101:ApplicationPackage" }, { type: "azure-native:batch/v20210601:ApplicationPackage" }, { type: "azure-native:batch/v20220101:ApplicationPackage" }, { type: "azure-native:batch/v20220601:ApplicationPackage" }, { type: "azure-native:batch/v20221001:ApplicationPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20210101:ApplicationPackage" }, { type: "azure-native:batch/v20220101:ApplicationPackage" }, { type: "azure-native:batch/v20220601:ApplicationPackage" }, { type: "azure-native:batch/v20221001:ApplicationPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationPackage.__pulumiType, name, resourceInputs, opts);
     }

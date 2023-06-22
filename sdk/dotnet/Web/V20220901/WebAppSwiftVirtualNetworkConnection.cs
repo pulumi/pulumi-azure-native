@@ -71,17 +71,13 @@ namespace Pulumi.AzureNative.Web.V20220901
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppSwiftVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSwiftVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSwiftVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnection"},
                 },
             };

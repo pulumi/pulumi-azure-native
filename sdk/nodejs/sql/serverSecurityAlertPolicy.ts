@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A server security alert policy.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+ * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
     /**
@@ -131,7 +131,7 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20200202preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20200801preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20201101preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20210201preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20210501preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20210801preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20211101:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20211101preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20220201preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20220501preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20220801preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20221101preview:ServerSecurityAlertPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20200202preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20200801preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20201101preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20210201preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20210501preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20210801preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20211101preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20220801preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20221101preview:ServerSecurityAlertPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerSecurityAlertPolicy.__pulumiType, name, resourceInputs, opts);
     }

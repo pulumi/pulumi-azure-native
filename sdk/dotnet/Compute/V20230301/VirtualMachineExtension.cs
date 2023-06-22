@@ -140,10 +140,7 @@ namespace Pulumi.AzureNative.Compute.V20230301
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineExtension"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineExtension"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineExtension"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineExtension"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineExtension"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineExtension"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220801:VirtualMachineExtension"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20221101:VirtualMachineExtension"},
                 },
             };

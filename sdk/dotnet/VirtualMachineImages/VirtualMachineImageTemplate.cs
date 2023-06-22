@@ -150,8 +150,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate"},
-                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate"},
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate"},
                 },
             };

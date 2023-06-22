@@ -39,6 +39,16 @@ export const AdministratorType = {
  */
 export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
 
+export const AlwaysEncryptedEnclaveType = {
+    Default: "Default",
+    VBS: "VBS",
+} as const;
+
+/**
+ * Type of enclave requested on the elastic pool.
+ */
+export type AlwaysEncryptedEnclaveType = (typeof AlwaysEncryptedEnclaveType)[keyof typeof AlwaysEncryptedEnclaveType];
+
 export const AutoExecuteStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -49,6 +59,18 @@ export const AutoExecuteStatus = {
  * Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
  */
 export type AutoExecuteStatus = (typeof AutoExecuteStatus)[keyof typeof AutoExecuteStatus];
+
+export const AvailabilityZoneType = {
+    NoPreference: "NoPreference",
+    One: "1",
+    Two: "2",
+    Three: "3",
+} as const;
+
+/**
+ * Specifies the availability zone the pool's primary replica is pinned to.
+ */
+export type AvailabilityZoneType = (typeof AvailabilityZoneType)[keyof typeof AvailabilityZoneType];
 
 export const BackupStorageRedundancy = {
     Geo: "Geo",
@@ -394,13 +416,24 @@ export const SampleName = {
  */
 export type SampleName = (typeof SampleName)[keyof typeof SampleName];
 
-export const SecondaryType = {
+export const SecondaryInstanceType = {
     Geo: "Geo",
-    Named: "Named",
+    Standby: "Standby",
 } as const;
 
 /**
- * The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+ * Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
+ */
+export type SecondaryInstanceType = (typeof SecondaryInstanceType)[keyof typeof SecondaryInstanceType];
+
+export const SecondaryType = {
+    Geo: "Geo",
+    Named: "Named",
+    Standby: "Standby",
+} as const;
+
+/**
+ * The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
  */
 export type SecondaryType = (typeof SecondaryType)[keyof typeof SecondaryType];
 
@@ -474,6 +507,17 @@ export const ServerNetworkAccessFlag = {
  * Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
  */
 export type ServerNetworkAccessFlag = (typeof ServerNetworkAccessFlag)[keyof typeof ServerNetworkAccessFlag];
+
+export const ServerPublicNetworkAccessFlag = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    SecuredByPerimeter: "SecuredByPerimeter",
+} as const;
+
+/**
+ * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
+ */
+export type ServerPublicNetworkAccessFlag = (typeof ServerPublicNetworkAccessFlag)[keyof typeof ServerPublicNetworkAccessFlag];
 
 export const ServicePrincipalType = {
     None: "None",

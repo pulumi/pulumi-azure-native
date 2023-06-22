@@ -202,7 +202,7 @@ export class FluxConfiguration extends pulumi.CustomResource {
             resourceInputs["waitForReconciliation"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220301:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220701:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20221101:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20230501:FluxConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220701:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20221101:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20230501:FluxConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FluxConfiguration.__pulumiType, name, resourceInputs, opts);
     }

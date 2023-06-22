@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.Management.V20200501
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:management:ManagementGroupSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:management/v20201001:ManagementGroupSubscription"},
                     new global::Pulumi.Alias { Type = "azure-native:management/v20210401:ManagementGroupSubscription"},
                 },
             };

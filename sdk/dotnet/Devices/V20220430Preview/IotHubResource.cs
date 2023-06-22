@@ -94,21 +94,10 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devices:IotHubResource"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:IotHubResource"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200401:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200615:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200710preview:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200801:IotHubResource"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200831:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200831preview:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210201preview:IotHubResource"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20210303preview:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210331:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210701:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210701preview:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210702:IotHubResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210702preview:IotHubResource"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20221115preview:IotHubResource"},
                 },
             };

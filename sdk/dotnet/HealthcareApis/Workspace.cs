@@ -83,11 +83,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:Workspace"},

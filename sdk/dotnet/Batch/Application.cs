@@ -78,7 +78,6 @@ namespace Pulumi.AzureNative.Batch
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20210101:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:batch/v20210601:Application"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220101:Application"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220601:Application"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20221001:Application"},

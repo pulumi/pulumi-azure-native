@@ -60,11 +60,8 @@ namespace Pulumi.AzureNative.Resources
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20191001:TagAtScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200601:TagAtScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200801:TagAtScope"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:TagAtScope"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20210101:TagAtScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:TagAtScope"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20220901:TagAtScope"},
                 },
             };

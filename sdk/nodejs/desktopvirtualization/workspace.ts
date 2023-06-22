@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Workspace definition.
- * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
+ * Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -80,6 +80,14 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly objectId!: pulumi.Output<string>;
     public readonly plan!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
+    /**
+     * List of private endpoint connection associated with the specified resource
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.desktopvirtualization.PrivateEndpointConnectionResponse[]>;
+    /**
+     * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     public readonly sku!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
@@ -116,6 +124,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedBy"] = args ? args.managedBy : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -124,6 +133,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -139,13 +149,15 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210114preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210201preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210309preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210401preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210712:Workspace" }, { type: "azure-native:desktopvirtualization/v20210903preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20220210preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20220401preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20220909:Workspace" }, { type: "azure-native:desktopvirtualization/v20221014preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210201preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210401preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20220210preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20220401preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20221014preview:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
@@ -181,6 +193,10 @@ export interface WorkspaceArgs {
      */
     managedBy?: pulumi.Input<string>;
     plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs>;
+    /**
+     * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.desktopvirtualization.PublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A Geo backup policy.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2014-04-01
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2014-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:GeoBackupPolicy")]
     public partial class GeoBackupPolicy : global::Pulumi.CustomResource
@@ -78,9 +78,6 @@ namespace Pulumi.AzureNative.Sql
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:GeoBackupPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:GeoBackupPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:GeoBackupPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:GeoBackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:GeoBackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:GeoBackupPolicy"},
                 },

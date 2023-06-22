@@ -109,17 +109,13 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHybridConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHybridConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppHybridConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppHybridConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppHybridConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppHybridConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHybridConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppHybridConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppHybridConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHybridConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppHybridConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHybridConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHybridConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppHybridConnection"},
                 },

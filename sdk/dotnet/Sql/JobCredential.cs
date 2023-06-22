@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A stored credential that can be used by a job to connect to target databases.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:JobCredential")]
     public partial class JobCredential : global::Pulumi.CustomResource
@@ -66,10 +66,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobCredential"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobCredential"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:JobCredential"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:JobCredential"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:JobCredential"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:JobCredential"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:JobCredential"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:JobCredential"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:JobCredential"},
                 },

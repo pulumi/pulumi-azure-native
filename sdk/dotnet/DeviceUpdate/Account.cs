@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.DeviceUpdate
 {
     /// <summary>
     /// Device Update account details.
-    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
+    /// Azure REST API version: 2022-12-01-preview. Prior API version in Azure Native 1.x: 2020-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// CMK encryption at rest properties
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
+
         /// <summary>
         /// API host name.
         /// </summary>
@@ -114,8 +120,6 @@ namespace Pulumi.AzureNative.DeviceUpdate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20200301preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221201preview:Account"},
                 },
             };
@@ -145,6 +149,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
+
+        /// <summary>
+        /// CMK encryption at rest properties
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
         /// The type of identity used for the resource.

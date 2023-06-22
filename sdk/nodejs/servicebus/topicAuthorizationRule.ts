@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of a namespace authorization rule.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class TopicAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -99,7 +99,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20210101preview:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20210601preview:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20211101:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20220101preview:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20221001preview:TopicAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20220101preview:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20221001preview:TopicAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TopicAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }

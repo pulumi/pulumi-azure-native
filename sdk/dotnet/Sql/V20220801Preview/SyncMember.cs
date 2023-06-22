@@ -127,10 +127,7 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:SyncMember"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:SyncMember"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:SyncMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:SyncMember"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:SyncMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:SyncMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:SyncMember"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:SyncMember"},
                 },
             };

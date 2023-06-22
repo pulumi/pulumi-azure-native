@@ -45,6 +45,12 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Inputs
         [Input("ledgerType")]
         public InputUnion<string, Pulumi.AzureNative.ConfidentialLedger.LedgerType>? LedgerType { get; set; }
 
+        /// <summary>
+        /// Object representing RunningState for Ledger.
+        /// </summary>
+        [Input("runningState")]
+        public InputUnion<string, Pulumi.AzureNative.ConfidentialLedger.RunningState>? RunningState { get; set; }
+
         public LedgerPropertiesArgs()
         {
         }

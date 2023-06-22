@@ -157,7 +157,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             resourceInputs["typeHandlerVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineExtension" }, { type: "azure-native:compute/v20201201:VirtualMachineExtension" }, { type: "azure-native:compute/v20210301:VirtualMachineExtension" }, { type: "azure-native:compute/v20210401:VirtualMachineExtension" }, { type: "azure-native:compute/v20210701:VirtualMachineExtension" }, { type: "azure-native:compute/v20211101:VirtualMachineExtension" }, { type: "azure-native:compute/v20220301:VirtualMachineExtension" }, { type: "azure-native:compute/v20220801:VirtualMachineExtension" }, { type: "azure-native:compute/v20221101:VirtualMachineExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineExtension" }, { type: "azure-native:compute/v20201201:VirtualMachineExtension" }, { type: "azure-native:compute/v20210301:VirtualMachineExtension" }, { type: "azure-native:compute/v20210401:VirtualMachineExtension" }, { type: "azure-native:compute/v20211101:VirtualMachineExtension" }, { type: "azure-native:compute/v20221101:VirtualMachineExtension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineExtension.__pulumiType, name, resourceInputs, opts);
     }

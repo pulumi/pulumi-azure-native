@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific Azure Active Directory only authentication property.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getServerAzureADOnlyAuthentication(args: GetServerAzureADOnlyAuthenticationArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAzureADOnlyAuthenticationResult> {
 
@@ -56,7 +56,7 @@ export interface GetServerAzureADOnlyAuthenticationResult {
 }
 /**
  * Gets a specific Azure Active Directory only authentication property.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getServerAzureADOnlyAuthenticationOutput(args: GetServerAzureADOnlyAuthenticationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAzureADOnlyAuthenticationResult> {
     return pulumi.output(args).apply((a: any) => getServerAzureADOnlyAuthentication(a, opts))

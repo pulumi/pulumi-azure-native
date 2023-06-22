@@ -92,7 +92,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221201Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:Registry"},

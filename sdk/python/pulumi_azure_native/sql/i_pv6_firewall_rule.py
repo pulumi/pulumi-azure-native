@@ -24,7 +24,7 @@ class IPv6FirewallRuleArgs:
         The set of arguments for constructing a IPv6FirewallRule resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[str] end_i_pv6_address: The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
+        :param pulumi.Input[str] end_i_pv6_address: The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpv6Address.
         :param pulumi.Input[str] firewall_rule_name: The name of the firewall rule.
         :param pulumi.Input[str] name: Resource name.
         :param pulumi.Input[str] start_i_pv6_address: The start IP address of the firewall rule. Must be IPv6 format.
@@ -68,7 +68,7 @@ class IPv6FirewallRuleArgs:
     @pulumi.getter(name="endIPv6Address")
     def end_i_pv6_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
+        The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpv6Address.
         """
         return pulumi.get(self, "end_i_pv6_address")
 
@@ -127,11 +127,11 @@ class IPv6FirewallRule(pulumi.CustomResource):
                  __props__=None):
         """
         An IPv6 server firewall rule.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-08-01-preview
+        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-08-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] end_i_pv6_address: The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
+        :param pulumi.Input[str] end_i_pv6_address: The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpv6Address.
         :param pulumi.Input[str] firewall_rule_name: The name of the firewall rule.
         :param pulumi.Input[str] name: Resource name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -146,7 +146,7 @@ class IPv6FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An IPv6 server firewall rule.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-08-01-preview
+        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-08-01-preview
 
         :param str resource_name: The name of the resource.
         :param IPv6FirewallRuleArgs args: The arguments to use to populate this resource's properties.
@@ -189,7 +189,7 @@ class IPv6FirewallRule(pulumi.CustomResource):
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["start_i_pv6_address"] = start_i_pv6_address
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20210801preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20211101:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20211101preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220201preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220501preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220801preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20221101preview:IPv6FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20210801preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20211101preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220801preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20221101preview:IPv6FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IPv6FirewallRule, __self__).__init__(
             'azure-native:sql:IPv6FirewallRule',
@@ -223,7 +223,7 @@ class IPv6FirewallRule(pulumi.CustomResource):
     @pulumi.getter(name="endIPv6Address")
     def end_i_pv6_address(self) -> pulumi.Output[Optional[str]]:
         """
-        The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
+        The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpv6Address.
         """
         return pulumi.get(self, "end_i_pv6_address")
 

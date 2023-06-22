@@ -123,7 +123,7 @@ export class OriginGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:OriginGroup" }, { type: "azure-native:cdn/v20210601:OriginGroup" }, { type: "azure-native:cdn/v20220501preview:OriginGroup" }, { type: "azure-native:cdn/v20221101preview:OriginGroup" }, { type: "azure-native:cdn/v20230501:OriginGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:OriginGroup" }, { type: "azure-native:cdn/v20221101preview:OriginGroup" }, { type: "azure-native:cdn/v20230501:OriginGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OriginGroup.__pulumiType, name, resourceInputs, opts);
     }

@@ -144,7 +144,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagesync/v20200301:CloudEndpoint" }, { type: "azure-native:storagesync/v20200901:CloudEndpoint" }, { type: "azure-native:storagesync/v20220601:CloudEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagesync/v20200301:CloudEndpoint" }, { type: "azure-native:storagesync/v20220601:CloudEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudEndpoint.__pulumiType, name, resourceInputs, opts);
     }

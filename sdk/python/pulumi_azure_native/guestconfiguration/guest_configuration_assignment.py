@@ -193,7 +193,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
             __props__.__dict__["vm_name"] = vm_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestConfigurationAssignment, __self__).__init__(
             'azure-native:guestconfiguration:GuestConfigurationAssignment',

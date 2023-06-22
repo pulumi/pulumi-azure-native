@@ -71,8 +71,6 @@ namespace Pulumi.AzureNative.Maps.V20200201Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:maps:Creator"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210201:Creator"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210701preview:Creator"},
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20211201preview:Creator"},
                 },
             };

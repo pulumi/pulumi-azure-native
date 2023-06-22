@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns instance details for the given instance and account name.
- * Azure REST API version: 2022-10-01.
+ * Azure REST API version: 2022-12-01-preview.
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
 
@@ -87,7 +87,7 @@ export interface GetInstanceResult {
 }
 /**
  * Returns instance details for the given instance and account name.
- * Azure REST API version: 2022-10-01.
+ * Azure REST API version: 2022-12-01-preview.
  */
 export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
     return pulumi.output(args).apply((a: any) => getInstance(a, opts))

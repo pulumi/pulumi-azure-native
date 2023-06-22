@@ -123,7 +123,7 @@ def list_topic_keys(authorization_rule_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTopicKeysResult:
     """
     Gets the primary and secondary connection strings for the topic.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -157,7 +157,7 @@ def list_topic_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] 
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTopicKeysResult]:
     """
     Gets the primary and secondary connection strings for the topic.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.

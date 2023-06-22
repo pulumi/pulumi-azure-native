@@ -89,9 +89,7 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001preview:MoveCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20210101:MoveCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20210801:MoveCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20220801:MoveCollection"},
                 },
             };

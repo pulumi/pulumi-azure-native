@@ -171,7 +171,7 @@ def get_server_advisor(advisor_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerAdvisorResult:
     """
     Gets a server advisor.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str advisor_name: The name of the Server Advisor.
@@ -206,7 +206,7 @@ def get_server_advisor_output(advisor_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerAdvisorResult]:
     """
     Gets a server advisor.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str advisor_name: The name of the Server Advisor.

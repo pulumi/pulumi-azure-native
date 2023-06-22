@@ -419,7 +419,7 @@ class StaticSite(pulumi.CustomResource):
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["user_provided_function_apps"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20190801:StaticSite"), pulumi.Alias(type_="azure-native:web/v20200601:StaticSite"), pulumi.Alias(type_="azure-native:web/v20200901:StaticSite"), pulumi.Alias(type_="azure-native:web/v20201001:StaticSite"), pulumi.Alias(type_="azure-native:web/v20201201:StaticSite"), pulumi.Alias(type_="azure-native:web/v20210101:StaticSite"), pulumi.Alias(type_="azure-native:web/v20210115:StaticSite"), pulumi.Alias(type_="azure-native:web/v20210201:StaticSite"), pulumi.Alias(type_="azure-native:web/v20210301:StaticSite"), pulumi.Alias(type_="azure-native:web/v20220301:StaticSite"), pulumi.Alias(type_="azure-native:web/v20220901:StaticSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20190801:StaticSite"), pulumi.Alias(type_="azure-native:web/v20201001:StaticSite"), pulumi.Alias(type_="azure-native:web/v20201201:StaticSite"), pulumi.Alias(type_="azure-native:web/v20210101:StaticSite"), pulumi.Alias(type_="azure-native:web/v20210115:StaticSite"), pulumi.Alias(type_="azure-native:web/v20210201:StaticSite"), pulumi.Alias(type_="azure-native:web/v20220301:StaticSite"), pulumi.Alias(type_="azure-native:web/v20220901:StaticSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSite, __self__).__init__(
             'azure-native:web:StaticSite',

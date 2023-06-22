@@ -311,7 +311,7 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["topic"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:EventSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:EventSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventSubscription, __self__).__init__(
             'azure-native:eventgrid:EventSubscription',

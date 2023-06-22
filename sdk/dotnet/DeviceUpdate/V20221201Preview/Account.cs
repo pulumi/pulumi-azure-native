@@ -120,8 +120,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221201Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20200301preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

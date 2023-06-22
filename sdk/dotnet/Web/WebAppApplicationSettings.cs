@@ -66,17 +66,13 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppApplicationSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppApplicationSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppApplicationSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppApplicationSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppApplicationSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppApplicationSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppApplicationSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppApplicationSettings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppApplicationSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppApplicationSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppApplicationSettings"},
                 },

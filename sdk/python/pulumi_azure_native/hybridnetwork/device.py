@@ -112,7 +112,7 @@ class Device(pulumi.CustomResource):
                  __props__=None):
         """
         Device resource.
-        Azure REST API version: 2021-05-01. Prior API version in Azure Native 1.x: 2020-01-01-preview
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Device resource.
-        Azure REST API version: 2021-05-01. Prior API version in Azure Native 1.x: 2020-01-01-preview
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.
@@ -176,7 +176,7 @@ class Device(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:Device"), pulumi.Alias(type_="azure-native:hybridnetwork/v20210501:Device"), pulumi.Alias(type_="azure-native:hybridnetwork/v20220101preview:Device")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:Device"), pulumi.Alias(type_="azure-native:hybridnetwork/v20220101preview:Device")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Device, __self__).__init__(
             'azure-native:hybridnetwork:Device',

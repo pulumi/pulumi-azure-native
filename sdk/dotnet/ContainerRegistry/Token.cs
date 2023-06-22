@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a token for a container registry.
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Token")]
     public partial class Token : global::Pulumi.CustomResource
@@ -89,13 +89,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501preview:Token"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Token"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Token"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Token"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Token"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Token"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20221201:Token"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:Token"},
                 },
             };

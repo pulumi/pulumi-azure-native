@@ -112,7 +112,7 @@ def get_event_hub_authorization_rule(authorization_rule_name: Optional[str] = No
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubAuthorizationRuleResult:
     """
     Gets an AuthorizationRule for an Event Hub by rule name.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -145,7 +145,7 @@ def get_event_hub_authorization_rule_output(authorization_rule_name: Optional[pu
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubAuthorizationRuleResult]:
     """
     Gets an AuthorizationRule for an Event Hub by rule name.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.

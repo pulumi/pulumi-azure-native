@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Description of a namespace resource.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
@@ -59,10 +59,22 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string> MetricId { get; private set; } = null!;
 
         /// <summary>
+        /// The minimum TLS version for the cluster to support, e.g. '1.2'
+        /// </summary>
+        [Output("minimumTlsVersion")]
+        public Output<string?> MinimumTlsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
+        /// </summary>
+        [Output("premiumMessagingPartitions")]
+        public Output<int?> PremiumMessagingPartitions { get; private set; } = null!;
 
         /// <summary>
         /// List of private endpoint connections.
@@ -75,6 +87,12 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Endpoint you can use to perform Service Bus operations.
@@ -151,9 +169,6 @@ namespace Pulumi.AzureNative.ServiceBus
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:Namespace"},
                 },
@@ -210,10 +225,22 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The minimum TLS version for the cluster to support, e.g. '1.2'
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public InputUnion<string, Pulumi.AzureNative.ServiceBus.TlsVersion>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
         /// The namespace name.
         /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
+
+        /// <summary>
+        /// The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
+        /// </summary>
+        [Input("premiumMessagingPartitions")]
+        public Input<int>? PremiumMessagingPartitions { get; set; }
 
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
@@ -226,6 +253,12 @@ namespace Pulumi.AzureNative.ServiceBus
             get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
             set => _privateEndpointConnections = value;
         }
+
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.ServiceBus.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
@@ -259,6 +292,7 @@ namespace Pulumi.AzureNative.ServiceBus
 
         public NamespaceArgs()
         {
+            PublicNetworkAccess = "Enabled";
         }
         public static new NamespaceArgs Empty => new NamespaceArgs();
     }

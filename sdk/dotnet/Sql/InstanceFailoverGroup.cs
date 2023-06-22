@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An instance failover group.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:InstanceFailoverGroup")]
     public partial class InstanceFailoverGroup : global::Pulumi.CustomResource
@@ -59,6 +59,12 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> ReplicationState { get; private set; } = null!;
 
         /// <summary>
+        /// Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
+        /// </summary>
+        [Output("secondaryType")]
+        public Output<string?> SecondaryType { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
@@ -89,17 +95,13 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20171001preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:InstanceFailoverGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:InstanceFailoverGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:InstanceFailoverGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:InstanceFailoverGroup"},
                 },
@@ -178,6 +180,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
+        /// </summary>
+        [Input("secondaryType")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.SecondaryInstanceType>? SecondaryType { get; set; }
 
         public InstanceFailoverGroupArgs()
         {

@@ -150,7 +150,7 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/v20190930preview:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/v20191027preview:OpenShiftManagedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/v20191027preview:OpenShiftManagedCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OpenShiftManagedCluster.__pulumiType, name, resourceInputs, opts);
     }

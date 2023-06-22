@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a scope map for a container registry.
- * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class ScopeMap extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class ScopeMap extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20190501preview:ScopeMap" }, { type: "azure-native:containerregistry/v20201101preview:ScopeMap" }, { type: "azure-native:containerregistry/v20210601preview:ScopeMap" }, { type: "azure-native:containerregistry/v20210801preview:ScopeMap" }, { type: "azure-native:containerregistry/v20211201preview:ScopeMap" }, { type: "azure-native:containerregistry/v20220201preview:ScopeMap" }, { type: "azure-native:containerregistry/v20221201:ScopeMap" }, { type: "azure-native:containerregistry/v20230101preview:ScopeMap" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20201101preview:ScopeMap" }, { type: "azure-native:containerregistry/v20230101preview:ScopeMap" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScopeMap.__pulumiType, name, resourceInputs, opts);
     }

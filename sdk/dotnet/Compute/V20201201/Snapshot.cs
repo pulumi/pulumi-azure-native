@@ -181,9 +181,6 @@ namespace Pulumi.AzureNative.Compute.V20201201
                     new global::Pulumi.Alias { Type = "azure-native:compute:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:Snapshot"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220702:Snapshot"},
                 },
             };

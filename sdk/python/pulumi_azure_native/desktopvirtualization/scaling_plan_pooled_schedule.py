@@ -368,7 +368,7 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a ScalingPlanPooledSchedule definition.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2022-04-01-preview
+        Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -401,7 +401,7 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a ScalingPlanPooledSchedule definition.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2022-04-01-preview
+        Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param ScalingPlanPooledScheduleArgs args: The arguments to use to populate this resource's properties.
@@ -474,7 +474,7 @@ class ScalingPlanPooledSchedule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScalingPlanPooledSchedule, __self__).__init__(
             'azure-native:desktopvirtualization:ScalingPlanPooledSchedule',

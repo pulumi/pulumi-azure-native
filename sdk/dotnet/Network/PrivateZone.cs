@@ -119,8 +119,6 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateZone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateZone"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateZone"},
                 },
             };

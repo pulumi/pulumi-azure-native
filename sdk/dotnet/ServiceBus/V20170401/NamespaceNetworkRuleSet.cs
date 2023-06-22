@@ -72,9 +72,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicebus:NamespaceNetworkRuleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:NamespaceNetworkRuleSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:NamespaceNetworkRuleSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:NamespaceNetworkRuleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet"},
                 },

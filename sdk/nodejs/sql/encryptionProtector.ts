@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The server encryption protector.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+ * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class EncryptionProtector extends pulumi.CustomResource {
     /**
@@ -125,7 +125,7 @@ export class EncryptionProtector extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:EncryptionProtector" }, { type: "azure-native:sql/v20200202preview:EncryptionProtector" }, { type: "azure-native:sql/v20200801preview:EncryptionProtector" }, { type: "azure-native:sql/v20201101preview:EncryptionProtector" }, { type: "azure-native:sql/v20210201preview:EncryptionProtector" }, { type: "azure-native:sql/v20210501preview:EncryptionProtector" }, { type: "azure-native:sql/v20210801preview:EncryptionProtector" }, { type: "azure-native:sql/v20211101:EncryptionProtector" }, { type: "azure-native:sql/v20211101preview:EncryptionProtector" }, { type: "azure-native:sql/v20220201preview:EncryptionProtector" }, { type: "azure-native:sql/v20220501preview:EncryptionProtector" }, { type: "azure-native:sql/v20220801preview:EncryptionProtector" }, { type: "azure-native:sql/v20221101preview:EncryptionProtector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:EncryptionProtector" }, { type: "azure-native:sql/v20200202preview:EncryptionProtector" }, { type: "azure-native:sql/v20200801preview:EncryptionProtector" }, { type: "azure-native:sql/v20201101preview:EncryptionProtector" }, { type: "azure-native:sql/v20210201preview:EncryptionProtector" }, { type: "azure-native:sql/v20210501preview:EncryptionProtector" }, { type: "azure-native:sql/v20210801preview:EncryptionProtector" }, { type: "azure-native:sql/v20211101preview:EncryptionProtector" }, { type: "azure-native:sql/v20220801preview:EncryptionProtector" }, { type: "azure-native:sql/v20221101preview:EncryptionProtector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EncryptionProtector.__pulumiType, name, resourceInputs, opts);
     }

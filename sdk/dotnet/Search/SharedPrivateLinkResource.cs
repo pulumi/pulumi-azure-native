@@ -60,7 +60,6 @@ namespace Pulumi.AzureNative.Search
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:search/v20200801:SharedPrivateLinkResource"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:SharedPrivateLinkResource"},
                     new global::Pulumi.Alias { Type = "azure-native:search/v20210401preview:SharedPrivateLinkResource"},
                     new global::Pulumi.Alias { Type = "azure-native:search/v20220901:SharedPrivateLinkResource"},
                 },

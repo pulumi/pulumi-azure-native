@@ -18,6 +18,7 @@ __all__ = [
     'ArgumentResponse',
     'AuthCredentialResponse',
     'AuthInfoResponse',
+    'AzureADAuthenticationAsArmPolicyResponse',
     'BaseImageDependencyResponse',
     'BaseImageTriggerResponse',
     'BuildArgumentResponse',
@@ -70,6 +71,7 @@ __all__ = [
     'SecretObjectResponse',
     'SetValueResponse',
     'SkuResponse',
+    'SoftDeletePolicyResponse',
     'SourceControlAuthInfoResponse',
     'SourcePropertiesResponse',
     'SourceRegistryCredentialsResponse',
@@ -393,6 +395,31 @@ class AuthInfoResponse(dict):
         The scope of the access token.
         """
         return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class AzureADAuthenticationAsArmPolicyResponse(dict):
+    """
+    The policy for using ARM audience token for a container registry.
+    """
+    def __init__(__self__, *,
+                 status: Optional[str] = None):
+        """
+        The policy for using ARM audience token for a container registry.
+        :param str status: The value that indicates whether the policy is enabled or not.
+        """
+        if status is None:
+            status = 'enabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -3502,12 +3529,16 @@ class PoliciesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "exportPolicy":
+        if key == "azureADAuthenticationAsArmPolicy":
+            suggest = "azure_ad_authentication_as_arm_policy"
+        elif key == "exportPolicy":
             suggest = "export_policy"
         elif key == "quarantinePolicy":
             suggest = "quarantine_policy"
         elif key == "retentionPolicy":
             suggest = "retention_policy"
+        elif key == "softDeletePolicy":
+            suggest = "soft_delete_policy"
         elif key == "trustPolicy":
             suggest = "trust_policy"
 
@@ -3523,25 +3554,41 @@ class PoliciesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 azure_ad_authentication_as_arm_policy: Optional['outputs.AzureADAuthenticationAsArmPolicyResponse'] = None,
                  export_policy: Optional['outputs.ExportPolicyResponse'] = None,
                  quarantine_policy: Optional['outputs.QuarantinePolicyResponse'] = None,
                  retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
+                 soft_delete_policy: Optional['outputs.SoftDeletePolicyResponse'] = None,
                  trust_policy: Optional['outputs.TrustPolicyResponse'] = None):
         """
         The policies for a container registry.
+        :param 'AzureADAuthenticationAsArmPolicyResponse' azure_ad_authentication_as_arm_policy: The policy for using ARM audience token for a container registry.
         :param 'ExportPolicyResponse' export_policy: The export policy for a container registry.
         :param 'QuarantinePolicyResponse' quarantine_policy: The quarantine policy for a container registry.
         :param 'RetentionPolicyResponse' retention_policy: The retention policy for a container registry.
+        :param 'SoftDeletePolicyResponse' soft_delete_policy: The soft delete policy for a container registry.
         :param 'TrustPolicyResponse' trust_policy: The content trust policy for a container registry.
         """
+        if azure_ad_authentication_as_arm_policy is not None:
+            pulumi.set(__self__, "azure_ad_authentication_as_arm_policy", azure_ad_authentication_as_arm_policy)
         if export_policy is not None:
             pulumi.set(__self__, "export_policy", export_policy)
         if quarantine_policy is not None:
             pulumi.set(__self__, "quarantine_policy", quarantine_policy)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
+        if soft_delete_policy is not None:
+            pulumi.set(__self__, "soft_delete_policy", soft_delete_policy)
         if trust_policy is not None:
             pulumi.set(__self__, "trust_policy", trust_policy)
+
+    @property
+    @pulumi.getter(name="azureADAuthenticationAsArmPolicy")
+    def azure_ad_authentication_as_arm_policy(self) -> Optional['outputs.AzureADAuthenticationAsArmPolicyResponse']:
+        """
+        The policy for using ARM audience token for a container registry.
+        """
+        return pulumi.get(self, "azure_ad_authentication_as_arm_policy")
 
     @property
     @pulumi.getter(name="exportPolicy")
@@ -3566,6 +3613,14 @@ class PoliciesResponse(dict):
         The retention policy for a container registry.
         """
         return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="softDeletePolicy")
+    def soft_delete_policy(self) -> Optional['outputs.SoftDeletePolicyResponse']:
+        """
+        The soft delete policy for a container registry.
+        """
+        return pulumi.get(self, "soft_delete_policy")
 
     @property
     @pulumi.getter(name="trustPolicy")
@@ -4503,6 +4558,75 @@ class SkuResponse(dict):
         The SKU tier based on the SKU name.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SoftDeletePolicyResponse(dict):
+    """
+    The soft delete policy for a container registry
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "retentionDays":
+            suggest = "retention_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SoftDeletePolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SoftDeletePolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SoftDeletePolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_updated_time: str,
+                 retention_days: Optional[int] = None,
+                 status: Optional[str] = None):
+        """
+        The soft delete policy for a container registry
+        :param str last_updated_time: The timestamp when the policy was last updated.
+        :param int retention_days: The number of days after which a soft-deleted item is permanently deleted.
+        :param str status: The value that indicates whether the policy is enabled or not.
+        """
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if retention_days is None:
+            retention_days = 7
+        if retention_days is not None:
+            pulumi.set(__self__, "retention_days", retention_days)
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
+        """
+        The timestamp when the policy was last updated.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter(name="retentionDays")
+    def retention_days(self) -> Optional[int]:
+        """
+        The number of days after which a soft-deleted item is permanently deleted.
+        """
+        return pulumi.get(self, "retention_days")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

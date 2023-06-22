@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.WebPubSub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubCustomCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate"},
                 },

@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20230301Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSubCustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubCustomDomain"},
                 },
             };

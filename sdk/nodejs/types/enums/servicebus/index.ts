@@ -125,6 +125,17 @@ export const PrivateLinkConnectionStatus = {
  */
 export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
 
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    SecuredByPerimeter: "SecuredByPerimeter",
+} as const;
+
+/**
+ * This determines if traffic is allowed over public network. By default it is enabled.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const PublicNetworkAccessFlag = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -156,3 +167,14 @@ export const SkuTier = {
  * The billing tier of this particular SKU.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+
+export const TlsVersion = {
+    TlsVersion_1_0: "1.0",
+    TlsVersion_1_1: "1.1",
+    TlsVersion_1_2: "1.2",
+} as const;
+
+/**
+ * The minimum TLS version for the cluster to support, e.g. '1.2'
+ */
+export type TlsVersion = (typeof TlsVersion)[keyof typeof TlsVersion];

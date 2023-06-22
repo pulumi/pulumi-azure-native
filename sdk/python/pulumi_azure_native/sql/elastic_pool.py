@@ -19,6 +19,7 @@ class ElasticPoolArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
+                 availability_zone: Optional[pulumi.Input[Union[str, 'AvailabilityZoneType']]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
                  high_availability_replica_count: Optional[pulumi.Input[int]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ElasticPoolLicenseType']]] = None,
@@ -27,6 +28,7 @@ class ElasticPoolArgs:
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
                  per_database_settings: Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']] = None,
+                 preferred_enclave_type: Optional[pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
@@ -34,6 +36,7 @@ class ElasticPoolArgs:
         The set of arguments for constructing a ElasticPool resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
+        :param pulumi.Input[Union[str, 'AvailabilityZoneType']] availability_zone: Specifies the availability zone the pool's primary replica is pinned to.
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool.
         :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
         :param pulumi.Input[Union[str, 'ElasticPoolLicenseType']] license_type: The license type to apply for this elastic pool.
@@ -42,6 +45,7 @@ class ElasticPoolArgs:
         :param pulumi.Input[float] max_size_bytes: The storage limit for the database elastic pool in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that serverless pool will not shrink below, if not paused
         :param pulumi.Input['ElasticPoolPerDatabaseSettingsArgs'] per_database_settings: The per database settings for the elastic pool.
+        :param pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']] preferred_enclave_type: Type of enclave requested on the elastic pool.
         :param pulumi.Input['SkuArgs'] sku: The elastic pool SKU.
                
                The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
@@ -54,6 +58,8 @@ class ElasticPoolArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if elastic_pool_name is not None:
             pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
         if high_availability_replica_count is not None:
@@ -70,6 +76,8 @@ class ElasticPoolArgs:
             pulumi.set(__self__, "min_capacity", min_capacity)
         if per_database_settings is not None:
             pulumi.set(__self__, "per_database_settings", per_database_settings)
+        if preferred_enclave_type is not None:
+            pulumi.set(__self__, "preferred_enclave_type", preferred_enclave_type)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -100,6 +108,18 @@ class ElasticPoolArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[Union[str, 'AvailabilityZoneType']]]:
+        """
+        Specifies the availability zone the pool's primary replica is pinned to.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[Union[str, 'AvailabilityZoneType']]]):
+        pulumi.set(self, "availability_zone", value)
 
     @property
     @pulumi.getter(name="elasticPoolName")
@@ -198,6 +218,18 @@ class ElasticPoolArgs:
         pulumi.set(self, "per_database_settings", value)
 
     @property
+    @pulumi.getter(name="preferredEnclaveType")
+    def preferred_enclave_type(self) -> Optional[pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']]]:
+        """
+        Type of enclave requested on the elastic pool.
+        """
+        return pulumi.get(self, "preferred_enclave_type")
+
+    @preferred_enclave_type.setter
+    def preferred_enclave_type(self, value: Optional[pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']]]):
+        pulumi.set(self, "preferred_enclave_type", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
@@ -245,6 +277,7 @@ class ElasticPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone: Optional[pulumi.Input[Union[str, 'AvailabilityZoneType']]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
                  high_availability_replica_count: Optional[pulumi.Input[int]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ElasticPoolLicenseType']]] = None,
@@ -253,6 +286,7 @@ class ElasticPool(pulumi.CustomResource):
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
                  per_database_settings: Optional[pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']]] = None,
+                 preferred_enclave_type: Optional[pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -261,10 +295,11 @@ class ElasticPool(pulumi.CustomResource):
                  __props__=None):
         """
         An elastic pool.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[str, 'AvailabilityZoneType']] availability_zone: Specifies the availability zone the pool's primary replica is pinned to.
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool.
         :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
         :param pulumi.Input[Union[str, 'ElasticPoolLicenseType']] license_type: The license type to apply for this elastic pool.
@@ -273,6 +308,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[float] max_size_bytes: The storage limit for the database elastic pool in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that serverless pool will not shrink below, if not paused
         :param pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']] per_database_settings: The per database settings for the elastic pool.
+        :param pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']] preferred_enclave_type: Type of enclave requested on the elastic pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The elastic pool SKU.
@@ -293,7 +329,7 @@ class ElasticPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An elastic pool.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param ElasticPoolArgs args: The arguments to use to populate this resource's properties.
@@ -310,6 +346,7 @@ class ElasticPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone: Optional[pulumi.Input[Union[str, 'AvailabilityZoneType']]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
                  high_availability_replica_count: Optional[pulumi.Input[int]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ElasticPoolLicenseType']]] = None,
@@ -318,6 +355,7 @@ class ElasticPool(pulumi.CustomResource):
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
                  per_database_settings: Optional[pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']]] = None,
+                 preferred_enclave_type: Optional[pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -332,6 +370,7 @@ class ElasticPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ElasticPoolArgs.__new__(ElasticPoolArgs)
 
+            __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["elastic_pool_name"] = elastic_pool_name
             __props__.__dict__["high_availability_replica_count"] = high_availability_replica_count
             __props__.__dict__["license_type"] = license_type
@@ -340,6 +379,7 @@ class ElasticPool(pulumi.CustomResource):
             __props__.__dict__["max_size_bytes"] = max_size_bytes
             __props__.__dict__["min_capacity"] = min_capacity
             __props__.__dict__["per_database_settings"] = per_database_settings
+            __props__.__dict__["preferred_enclave_type"] = preferred_enclave_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -354,7 +394,7 @@ class ElasticPool(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20171001preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20211101:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ElasticPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ElasticPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ElasticPool, __self__).__init__(
             'azure-native:sql:ElasticPool',
@@ -378,6 +418,7 @@ class ElasticPool(pulumi.CustomResource):
 
         __props__ = ElasticPoolArgs.__new__(ElasticPoolArgs)
 
+        __props__.__dict__["availability_zone"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["high_availability_replica_count"] = None
         __props__.__dict__["kind"] = None
@@ -388,12 +429,21 @@ class ElasticPool(pulumi.CustomResource):
         __props__.__dict__["min_capacity"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["per_database_settings"] = None
+        __props__.__dict__["preferred_enclave_type"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["zone_redundant"] = None
         return ElasticPool(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the availability zone the pool's primary replica is pinned to.
+        """
+        return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -474,6 +524,14 @@ class ElasticPool(pulumi.CustomResource):
         The per database settings for the elastic pool.
         """
         return pulumi.get(self, "per_database_settings")
+
+    @property
+    @pulumi.getter(name="preferredEnclaveType")
+    def preferred_enclave_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of enclave requested on the elastic pool.
+        """
+        return pulumi.get(self, "preferred_enclave_type")
 
     @property
     @pulumi.getter

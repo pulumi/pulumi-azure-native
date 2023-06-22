@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureActiveDirectory
 {
     /// <summary>
-    /// Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2019-01-01-preview
+    /// Azure REST API version: 2023-01-18-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:azureactivedirectory:B2CTenant")]
     public partial class B2CTenant : global::Pulumi.CustomResource
@@ -20,6 +20,12 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// </summary>
         [Output("billingConfig")]
         public Output<Outputs.B2CTenantResourcePropertiesResponseBillingConfig?> BillingConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable GoLocal add-on to store data at rest in the specific Geo. Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see local data residency options.
+        /// </summary>
+        [Output("isGoLocalTenant")]
+        public Output<bool?> IsGoLocalTenant { get; private set; } = null!;
 
         /// <summary>
         /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
@@ -89,7 +95,6 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20190101preview:B2CTenant"},
-                    new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20210401:B2CTenant"},
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20230118preview:B2CTenant"},
                 },
             };
@@ -125,6 +130,12 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// Enable GoLocal add-on to store data at rest in the specific Geo. Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see local data residency options.
+        /// </summary>
+        [Input("isGoLocalTenant")]
+        public Input<bool>? IsGoLocalTenant { get; set; }
 
         /// <summary>
         /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.

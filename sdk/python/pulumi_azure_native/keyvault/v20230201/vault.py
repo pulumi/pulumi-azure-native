@@ -172,7 +172,7 @@ class Vault(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20190901:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20200401preview:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20211001:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20220201preview:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20220701:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20221101:Vault")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20190901:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:Vault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Vault, __self__).__init__(
             'azure-native:keyvault/v20230201:Vault',

@@ -38,6 +38,37 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
+    /// Type of enclave requested on the elastic pool.
+    /// </summary>
+    [EnumType]
+    public readonly struct AlwaysEncryptedEnclaveType : IEquatable<AlwaysEncryptedEnclaveType>
+    {
+        private readonly string _value;
+
+        private AlwaysEncryptedEnclaveType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlwaysEncryptedEnclaveType Default { get; } = new AlwaysEncryptedEnclaveType("Default");
+        public static AlwaysEncryptedEnclaveType VBS { get; } = new AlwaysEncryptedEnclaveType("VBS");
+
+        public static bool operator ==(AlwaysEncryptedEnclaveType left, AlwaysEncryptedEnclaveType right) => left.Equals(right);
+        public static bool operator !=(AlwaysEncryptedEnclaveType left, AlwaysEncryptedEnclaveType right) => !left.Equals(right);
+
+        public static explicit operator string(AlwaysEncryptedEnclaveType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlwaysEncryptedEnclaveType other && Equals(other);
+        public bool Equals(AlwaysEncryptedEnclaveType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
     /// </summary>
     [EnumType]
@@ -62,6 +93,39 @@ namespace Pulumi.AzureNative.Sql
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AutoExecuteStatus other && Equals(other);
         public bool Equals(AutoExecuteStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the availability zone the pool's primary replica is pinned to.
+    /// </summary>
+    [EnumType]
+    public readonly struct AvailabilityZoneType : IEquatable<AvailabilityZoneType>
+    {
+        private readonly string _value;
+
+        private AvailabilityZoneType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AvailabilityZoneType NoPreference { get; } = new AvailabilityZoneType("NoPreference");
+        public static AvailabilityZoneType One { get; } = new AvailabilityZoneType("1");
+        public static AvailabilityZoneType Two { get; } = new AvailabilityZoneType("2");
+        public static AvailabilityZoneType Three { get; } = new AvailabilityZoneType("3");
+
+        public static bool operator ==(AvailabilityZoneType left, AvailabilityZoneType right) => left.Equals(right);
+        public static bool operator !=(AvailabilityZoneType left, AvailabilityZoneType right) => !left.Equals(right);
+
+        public static explicit operator string(AvailabilityZoneType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AvailabilityZoneType other && Equals(other);
+        public bool Equals(AvailabilityZoneType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1044,7 +1108,38 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
-    /// The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+    /// Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecondaryInstanceType : IEquatable<SecondaryInstanceType>
+    {
+        private readonly string _value;
+
+        private SecondaryInstanceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecondaryInstanceType Geo { get; } = new SecondaryInstanceType("Geo");
+        public static SecondaryInstanceType Standby { get; } = new SecondaryInstanceType("Standby");
+
+        public static bool operator ==(SecondaryInstanceType left, SecondaryInstanceType right) => left.Equals(right);
+        public static bool operator !=(SecondaryInstanceType left, SecondaryInstanceType right) => !left.Equals(right);
+
+        public static explicit operator string(SecondaryInstanceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecondaryInstanceType other && Equals(other);
+        public bool Equals(SecondaryInstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
     /// </summary>
     [EnumType]
     public readonly struct SecondaryType : IEquatable<SecondaryType>
@@ -1058,6 +1153,7 @@ namespace Pulumi.AzureNative.Sql
 
         public static SecondaryType Geo { get; } = new SecondaryType("Geo");
         public static SecondaryType Named { get; } = new SecondaryType("Named");
+        public static SecondaryType Standby { get; } = new SecondaryType("Standby");
 
         public static bool operator ==(SecondaryType left, SecondaryType right) => left.Equals(right);
         public static bool operator !=(SecondaryType left, SecondaryType right) => !left.Equals(right);
@@ -1285,6 +1381,38 @@ namespace Pulumi.AzureNative.Sql
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServerNetworkAccessFlag other && Equals(other);
         public bool Equals(ServerNetworkAccessFlag other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerPublicNetworkAccessFlag : IEquatable<ServerPublicNetworkAccessFlag>
+    {
+        private readonly string _value;
+
+        private ServerPublicNetworkAccessFlag(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerPublicNetworkAccessFlag Enabled { get; } = new ServerPublicNetworkAccessFlag("Enabled");
+        public static ServerPublicNetworkAccessFlag Disabled { get; } = new ServerPublicNetworkAccessFlag("Disabled");
+        public static ServerPublicNetworkAccessFlag SecuredByPerimeter { get; } = new ServerPublicNetworkAccessFlag("SecuredByPerimeter");
+
+        public static bool operator ==(ServerPublicNetworkAccessFlag left, ServerPublicNetworkAccessFlag right) => left.Equals(right);
+        public static bool operator !=(ServerPublicNetworkAccessFlag left, ServerPublicNetworkAccessFlag right) => !left.Equals(right);
+
+        public static explicit operator string(ServerPublicNetworkAccessFlag value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerPublicNetworkAccessFlag other && Equals(other);
+        public bool Equals(ServerPublicNetworkAccessFlag other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

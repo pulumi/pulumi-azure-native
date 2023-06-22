@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Linker of source and target resource
- * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-11-01-preview
+ * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview
  */
 export class Linker extends pulumi.CustomResource {
     /**
@@ -41,11 +41,15 @@ export class Linker extends pulumi.CustomResource {
     /**
      * The authentication type.
      */
-    public readonly authInfo!: pulumi.Output<outputs.servicelinker.SecretAuthInfoResponse | outputs.servicelinker.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.UserAssignedIdentityAuthInfoResponse | undefined>;
+    public readonly authInfo!: pulumi.Output<outputs.servicelinker.AccessKeyInfoBaseResponse | outputs.servicelinker.SecretAuthInfoResponse | outputs.servicelinker.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.UserAccountAuthInfoResponse | outputs.servicelinker.UserAssignedIdentityAuthInfoResponse | undefined>;
     /**
      * The application client type
      */
     public readonly clientType!: pulumi.Output<string | undefined>;
+    /**
+     * The connection information consumed by applications, including secrets, connection strings.
+     */
+    public readonly configurationInfo!: pulumi.Output<outputs.servicelinker.ConfigurationInfoResponse | undefined>;
     /**
      * The name of the resource
      */
@@ -55,6 +59,10 @@ export class Linker extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The network solution.
+     */
+    public readonly publicNetworkSolution!: pulumi.Output<outputs.servicelinker.PublicNetworkSolutionResponse | undefined>;
+    /**
      * connection scope in source service.
      */
     public readonly scope!: pulumi.Output<string | undefined>;
@@ -63,13 +71,13 @@ export class Linker extends pulumi.CustomResource {
      */
     public readonly secretStore!: pulumi.Output<outputs.servicelinker.SecretStoreResponse | undefined>;
     /**
-     * The system data.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.servicelinker.SystemDataResponse>;
     /**
      * The target service properties
      */
-    public readonly targetService!: pulumi.Output<outputs.servicelinker.AzureResourceResponse | outputs.servicelinker.ConfluentBootstrapServerResponse | outputs.servicelinker.ConfluentSchemaRegistryResponse | undefined>;
+    public readonly targetService!: pulumi.Output<outputs.servicelinker.AzureResourceResponse | outputs.servicelinker.ConfluentBootstrapServerResponse | outputs.servicelinker.ConfluentSchemaRegistryResponse | outputs.servicelinker.SelfHostedServerResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -95,7 +103,9 @@ export class Linker extends pulumi.CustomResource {
             }
             resourceInputs["authInfo"] = args ? args.authInfo : undefined;
             resourceInputs["clientType"] = args ? args.clientType : undefined;
+            resourceInputs["configurationInfo"] = args ? args.configurationInfo : undefined;
             resourceInputs["linkerName"] = args ? args.linkerName : undefined;
+            resourceInputs["publicNetworkSolution"] = args ? args.publicNetworkSolution : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["secretStore"] = args ? args.secretStore : undefined;
@@ -108,8 +118,10 @@ export class Linker extends pulumi.CustomResource {
         } else {
             resourceInputs["authInfo"] = undefined /*out*/;
             resourceInputs["clientType"] = undefined /*out*/;
+            resourceInputs["configurationInfo"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkSolution"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["secretStore"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -118,7 +130,7 @@ export class Linker extends pulumi.CustomResource {
             resourceInputs["vNetSolution"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicelinker/v20211101preview:Linker" }, { type: "azure-native:servicelinker/v20220101preview:Linker" }, { type: "azure-native:servicelinker/v20220501:Linker" }, { type: "azure-native:servicelinker/v20221101preview:Linker" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicelinker/v20211101preview:Linker" }, { type: "azure-native:servicelinker/v20221101preview:Linker" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Linker.__pulumiType, name, resourceInputs, opts);
     }
@@ -131,15 +143,23 @@ export interface LinkerArgs {
     /**
      * The authentication type.
      */
-    authInfo?: pulumi.Input<inputs.servicelinker.SecretAuthInfoArgs | inputs.servicelinker.ServicePrincipalCertificateAuthInfoArgs | inputs.servicelinker.ServicePrincipalSecretAuthInfoArgs | inputs.servicelinker.SystemAssignedIdentityAuthInfoArgs | inputs.servicelinker.UserAssignedIdentityAuthInfoArgs>;
+    authInfo?: pulumi.Input<inputs.servicelinker.AccessKeyInfoBaseArgs | inputs.servicelinker.SecretAuthInfoArgs | inputs.servicelinker.ServicePrincipalCertificateAuthInfoArgs | inputs.servicelinker.ServicePrincipalSecretAuthInfoArgs | inputs.servicelinker.SystemAssignedIdentityAuthInfoArgs | inputs.servicelinker.UserAccountAuthInfoArgs | inputs.servicelinker.UserAssignedIdentityAuthInfoArgs>;
     /**
      * The application client type
      */
     clientType?: pulumi.Input<string | enums.servicelinker.ClientType>;
     /**
+     * The connection information consumed by applications, including secrets, connection strings.
+     */
+    configurationInfo?: pulumi.Input<inputs.servicelinker.ConfigurationInfoArgs>;
+    /**
      * The name Linker resource.
      */
     linkerName?: pulumi.Input<string>;
+    /**
+     * The network solution.
+     */
+    publicNetworkSolution?: pulumi.Input<inputs.servicelinker.PublicNetworkSolutionArgs>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
@@ -155,7 +175,7 @@ export interface LinkerArgs {
     /**
      * The target service properties
      */
-    targetService?: pulumi.Input<inputs.servicelinker.AzureResourceArgs | inputs.servicelinker.ConfluentBootstrapServerArgs | inputs.servicelinker.ConfluentSchemaRegistryArgs>;
+    targetService?: pulumi.Input<inputs.servicelinker.AzureResourceArgs | inputs.servicelinker.ConfluentBootstrapServerArgs | inputs.servicelinker.ConfluentSchemaRegistryArgs | inputs.servicelinker.SelfHostedServerArgs>;
     /**
      * The VNet solution.
      */

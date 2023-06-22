@@ -10,20 +10,10 @@ export type ActionRuleByName = import("./actionRuleByName").ActionRuleByName;
 export const ActionRuleByName: typeof import("./actionRuleByName").ActionRuleByName = null as any;
 utilities.lazyLoad(exports, ["ActionRuleByName"], () => require("./actionRuleByName"));
 
-export { AlertProcessingRuleByNameArgs } from "./alertProcessingRuleByName";
-export type AlertProcessingRuleByName = import("./alertProcessingRuleByName").AlertProcessingRuleByName;
-export const AlertProcessingRuleByName: typeof import("./alertProcessingRuleByName").AlertProcessingRuleByName = null as any;
-utilities.lazyLoad(exports, ["AlertProcessingRuleByName"], () => require("./alertProcessingRuleByName"));
-
 export { GetActionRuleByNameArgs, GetActionRuleByNameResult, GetActionRuleByNameOutputArgs } from "./getActionRuleByName";
 export const getActionRuleByName: typeof import("./getActionRuleByName").getActionRuleByName = null as any;
 export const getActionRuleByNameOutput: typeof import("./getActionRuleByName").getActionRuleByNameOutput = null as any;
 utilities.lazyLoad(exports, ["getActionRuleByName","getActionRuleByNameOutput"], () => require("./getActionRuleByName"));
-
-export { GetAlertProcessingRuleByNameArgs, GetAlertProcessingRuleByNameResult, GetAlertProcessingRuleByNameOutputArgs } from "./getAlertProcessingRuleByName";
-export const getAlertProcessingRuleByName: typeof import("./getAlertProcessingRuleByName").getAlertProcessingRuleByName = null as any;
-export const getAlertProcessingRuleByNameOutput: typeof import("./getAlertProcessingRuleByName").getAlertProcessingRuleByNameOutput = null as any;
-utilities.lazyLoad(exports, ["getAlertProcessingRuleByName","getAlertProcessingRuleByNameOutput"], () => require("./getAlertProcessingRuleByName"));
 
 export { GetPrometheusRuleGroupArgs, GetPrometheusRuleGroupResult, GetPrometheusRuleGroupOutputArgs } from "./getPrometheusRuleGroup";
 export const getPrometheusRuleGroup: typeof import("./getPrometheusRuleGroup").getPrometheusRuleGroup = null as any;
@@ -72,8 +62,6 @@ const _module = {
         switch (type) {
             case "azure-native:alertsmanagement:ActionRuleByName":
                 return new ActionRuleByName(name, <any>undefined, { urn })
-            case "azure-native:alertsmanagement:AlertProcessingRuleByName":
-                return new AlertProcessingRuleByName(name, <any>undefined, { urn })
             case "azure-native:alertsmanagement:PrometheusRuleGroup":
                 return new PrometheusRuleGroup(name, <any>undefined, { urn })
             case "azure-native:alertsmanagement:SmartDetectorAlertRule":

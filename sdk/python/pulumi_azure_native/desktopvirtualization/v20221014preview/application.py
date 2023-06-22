@@ -355,7 +355,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["object_id"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:Application")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azure-native:desktopvirtualization/v20221014preview:Application',

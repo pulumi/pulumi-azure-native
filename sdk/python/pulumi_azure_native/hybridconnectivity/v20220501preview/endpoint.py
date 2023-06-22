@@ -269,7 +269,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridconnectivity:Endpoint"), pulumi.Alias(type_="azure-native:hybridconnectivity/v20211006preview:Endpoint"), pulumi.Alias(type_="azure-native:hybridconnectivity/v20230315:Endpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridconnectivity:Endpoint"), pulumi.Alias(type_="azure-native:hybridconnectivity/v20230315:Endpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Endpoint, __self__).__init__(
             'azure-native:hybridconnectivity/v20220501preview:Endpoint',

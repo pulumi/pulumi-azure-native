@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get an resource upload URL for an App, which may be artifacts or source archive.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetAppResourceUploadUrlResult> InvokeAsync(GetAppResourceUploadUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResourceUploadUrlResult>("azure-native:appplatform:getAppResourceUploadUrl", args ?? new GetAppResourceUploadUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an resource upload URL for an App, which may be artifacts or source archive.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetAppResourceUploadUrlResult> Invoke(GetAppResourceUploadUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResourceUploadUrlResult>("azure-native:appplatform:getAppResourceUploadUrl", args ?? new GetAppResourceUploadUrlInvokeArgs(), options.WithDefaults());

@@ -109,10 +109,7 @@ namespace Pulumi.AzureNative.Sql.V20221101Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:DatabaseAdvisor"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DatabaseAdvisor"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DatabaseAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DatabaseAdvisor"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DatabaseAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DatabaseAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:DatabaseAdvisor"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:DatabaseAdvisor"},
                 },
             };

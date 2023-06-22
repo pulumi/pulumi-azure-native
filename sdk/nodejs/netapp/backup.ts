@@ -147,7 +147,7 @@ export class Backup extends pulumi.CustomResource {
             resourceInputs["volumeName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20201201:Backup" }, { type: "azure-native:netapp/v20210201:Backup" }, { type: "azure-native:netapp/v20210401:Backup" }, { type: "azure-native:netapp/v20210401preview:Backup" }, { type: "azure-native:netapp/v20210601:Backup" }, { type: "azure-native:netapp/v20210801:Backup" }, { type: "azure-native:netapp/v20211001:Backup" }, { type: "azure-native:netapp/v20220101:Backup" }, { type: "azure-native:netapp/v20220301:Backup" }, { type: "azure-native:netapp/v20220501:Backup" }, { type: "azure-native:netapp/v20220901:Backup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20201201:Backup" }, { type: "azure-native:netapp/v20210401:Backup" }, { type: "azure-native:netapp/v20210401preview:Backup" }, { type: "azure-native:netapp/v20211001:Backup" }, { type: "azure-native:netapp/v20220101:Backup" }, { type: "azure-native:netapp/v20220501:Backup" }, { type: "azure-native:netapp/v20220901:Backup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Backup.__pulumiType, name, resourceInputs, opts);
     }

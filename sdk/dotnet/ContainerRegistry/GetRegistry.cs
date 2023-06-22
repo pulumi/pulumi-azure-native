@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the specified container registry.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure-native:containerregistry:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified container registry.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure-native:containerregistry:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
@@ -75,6 +75,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// The value that indicates whether the admin user is enabled.
         /// </summary>
         public readonly bool? AdminUserEnabled;
+        /// <summary>
+        /// Enables registry-wide pull from unauthenticated clients.
+        /// </summary>
+        public readonly bool? AnonymousPullEnabled;
         /// <summary>
         /// The creation date of the container registry in ISO8601 format.
         /// </summary>
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         private GetRegistryResult(
             bool? adminUserEnabled,
 
+            bool? anonymousPullEnabled,
+
             string creationDate,
 
             bool? dataEndpointEnabled,
@@ -207,6 +213,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
             string? zoneRedundancy)
         {
             AdminUserEnabled = adminUserEnabled;
+            AnonymousPullEnabled = anonymousPullEnabled;
             CreationDate = creationDate;
             DataEndpointEnabled = dataEndpointEnabled;
             DataEndpointHostNames = dataEndpointHostNames;

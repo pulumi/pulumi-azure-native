@@ -129,7 +129,7 @@ export class Resource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resources:Resource" }, { type: "azure-native:resources/v20190510:Resource" }, { type: "azure-native:resources/v20190701:Resource" }, { type: "azure-native:resources/v20190801:Resource" }, { type: "azure-native:resources/v20191001:Resource" }, { type: "azure-native:resources/v20200601:Resource" }, { type: "azure-native:resources/v20200801:Resource" }, { type: "azure-native:resources/v20201001:Resource" }, { type: "azure-native:resources/v20210101:Resource" }, { type: "azure-native:resources/v20210401:Resource" }, { type: "azure-native:resources/v20220901:Resource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources:Resource" }, { type: "azure-native:resources/v20191001:Resource" }, { type: "azure-native:resources/v20201001:Resource" }, { type: "azure-native:resources/v20210101:Resource" }, { type: "azure-native:resources/v20220901:Resource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Resource.__pulumiType, name, resourceInputs, opts);
     }

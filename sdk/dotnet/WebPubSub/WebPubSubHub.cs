@@ -66,7 +66,6 @@ namespace Pulumi.AzureNative.WebPubSub
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubHub"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubHub"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubHub"},
                 },

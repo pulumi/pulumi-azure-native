@@ -65,16 +65,12 @@ namespace Pulumi.AzureNative.Network.V20221101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:PrivateDnsZoneGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:PrivateDnsZoneGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401:PrivateDnsZoneGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200501:PrivateDnsZoneGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateDnsZoneGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:PrivateDnsZoneGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:PrivateDnsZoneGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20201101:PrivateDnsZoneGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201:PrivateDnsZoneGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210301:PrivateDnsZoneGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:PrivateDnsZoneGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:PrivateDnsZoneGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:PrivateDnsZoneGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:PrivateDnsZoneGroup"},

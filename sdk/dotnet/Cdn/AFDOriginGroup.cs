@@ -99,8 +99,6 @@ namespace Pulumi.AzureNative.Cdn
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDOriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDOriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:AFDOriginGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:AFDOriginGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:AFDOriginGroup"},
                 },

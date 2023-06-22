@@ -54,7 +54,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
                 {
                     new global::Pulumi.Alias { Type = "azure-native:providerhub:Skus"},
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:Skus"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:Skus"},
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:Skus"},
                 },
             };

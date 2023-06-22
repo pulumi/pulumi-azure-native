@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Custom domain resource payload.
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-07-01
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:CustomDomain")]
     public partial class CustomDomain : global::Pulumi.CustomResource
@@ -66,16 +66,9 @@ namespace Pulumi.AzureNative.AppPlatform
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20200701:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:CustomDomain"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:CustomDomain"},

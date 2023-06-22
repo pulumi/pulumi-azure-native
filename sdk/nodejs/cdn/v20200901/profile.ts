@@ -114,7 +114,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn:Profile" }, { type: "azure-native:cdn/v20210601:Profile" }, { type: "azure-native:cdn/v20220501preview:Profile" }, { type: "azure-native:cdn/v20221101preview:Profile" }, { type: "azure-native:cdn/v20230501:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn:Profile" }, { type: "azure-native:cdn/v20221101preview:Profile" }, { type: "azure-native:cdn/v20230501:Profile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Profile.__pulumiType, name, resourceInputs, opts);
     }

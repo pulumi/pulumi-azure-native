@@ -214,7 +214,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20170301preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20171001preview:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20190601preview:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Database"},
@@ -222,10 +221,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:Database"},
                 },

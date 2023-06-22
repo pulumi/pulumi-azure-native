@@ -101,9 +101,7 @@ namespace Pulumi.AzureNative.DevCenter.V20221111Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devcenter:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Pool"},
                 },

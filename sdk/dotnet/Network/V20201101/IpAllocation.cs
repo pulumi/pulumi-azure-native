@@ -113,15 +113,11 @@ namespace Pulumi.AzureNative.Network.V20201101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:IpAllocation"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401:IpAllocation"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200501:IpAllocation"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:IpAllocation"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201:IpAllocation"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210301:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:IpAllocation"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:IpAllocation"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:IpAllocation"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:IpAllocation"},

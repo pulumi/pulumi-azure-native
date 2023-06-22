@@ -77,8 +77,6 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerservice:FleetMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:FleetMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220702preview:FleetMember"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230315preview:FleetMember"},
                 },
             };

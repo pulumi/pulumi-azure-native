@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An extended server blob auditing policy.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ExtendedServerBlobAuditingPolicy")]
     public partial class ExtendedServerBlobAuditingPolicy : global::Pulumi.CustomResource
@@ -206,10 +206,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ExtendedServerBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ExtendedServerBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ExtendedServerBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ExtendedServerBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ExtendedServerBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ExtendedServerBlobAuditingPolicy"},
                 },

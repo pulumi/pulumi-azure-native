@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the specified scope map.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Task<GetScopeMapResult> InvokeAsync(GetScopeMapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScopeMapResult>("azure-native:containerregistry:getScopeMap", args ?? new GetScopeMapArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified scope map.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Output<GetScopeMapResult> Invoke(GetScopeMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScopeMapResult>("azure-native:containerregistry:getScopeMap", args ?? new GetScopeMapInvokeArgs(), options.WithDefaults());

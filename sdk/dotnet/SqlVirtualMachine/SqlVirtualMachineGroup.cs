@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 {
     /// <summary>
     /// A SQL virtual machine group.
-    /// Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine:SqlVirtualMachineGroup")]
     public partial class SqlVirtualMachineGroup : global::Pulumi.CustomResource
@@ -114,10 +114,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachineGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachineGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachineGroup"},
                 },

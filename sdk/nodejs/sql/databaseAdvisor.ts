@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Database, Server or Elastic Pool Advisor.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+ * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class DatabaseAdvisor extends pulumi.CustomResource {
     /**
@@ -129,7 +129,7 @@ export class DatabaseAdvisor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:DatabaseAdvisor" }, { type: "azure-native:sql/v20150501preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20200202preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20200801preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20201101preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20210201preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20210501preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20210801preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20211101:DatabaseAdvisor" }, { type: "azure-native:sql/v20211101preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20220201preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20220501preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20220801preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20221101preview:DatabaseAdvisor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:DatabaseAdvisor" }, { type: "azure-native:sql/v20150501preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20200202preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20200801preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20201101preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20210201preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20210501preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20210801preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20211101preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20220801preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20221101preview:DatabaseAdvisor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseAdvisor.__pulumiType, name, resourceInputs, opts);
     }

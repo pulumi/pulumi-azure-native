@@ -77,13 +77,8 @@ namespace Pulumi.AzureNative.Storage.V20220901
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storage:FileServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:FileServiceProperties"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:FileServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:FileServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:FileServiceProperties"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:FileServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:FileServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:FileServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

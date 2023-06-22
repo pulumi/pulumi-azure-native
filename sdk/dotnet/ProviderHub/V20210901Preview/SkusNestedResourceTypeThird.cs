@@ -61,7 +61,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:providerhub:SkusNestedResourceTypeThird"},
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20201120:SkusNestedResourceTypeThird"},
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:SkusNestedResourceTypeThird"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:SkusNestedResourceTypeThird"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

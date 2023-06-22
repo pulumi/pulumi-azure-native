@@ -689,7 +689,7 @@ class SBSkuArgs:
         """
         SKU of the namespace.
         :param pulumi.Input['SkuName'] name: Name of this SKU.
-        :param pulumi.Input[int] capacity: The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
+        :param pulumi.Input[int] capacity: Messaging units for your service bus premium namespace. Valid capacities are {1, 2, 4, 8, 16} multiples of your properties.premiumMessagingPartitions setting. For example, If properties.premiumMessagingPartitions is 1 then possible capacity values are 1, 2, 4, 8, and 16. If properties.premiumMessagingPartitions is 4 then possible capacity values are 4, 8, 16, 32 and 64
         :param pulumi.Input['SkuTier'] tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -714,7 +714,7 @@ class SBSkuArgs:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
+        Messaging units for your service bus premium namespace. Valid capacities are {1, 2, 4, 8, 16} multiples of your properties.premiumMessagingPartitions setting. For example, If properties.premiumMessagingPartitions is 1 then possible capacity values are 1, 2, 4, 8, and 16. If properties.premiumMessagingPartitions is 4 then possible capacity values are 4, 8, 16, 32 and 64
         """
         return pulumi.get(self, "capacity")
 

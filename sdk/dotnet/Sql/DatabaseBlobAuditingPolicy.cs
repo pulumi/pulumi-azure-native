@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A database blob auditing policy.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DatabaseBlobAuditingPolicy")]
     public partial class DatabaseBlobAuditingPolicy : global::Pulumi.CustomResource
@@ -192,10 +192,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:DatabaseBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DatabaseBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DatabaseBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DatabaseBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DatabaseBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DatabaseBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:DatabaseBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:DatabaseBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:DatabaseBlobAuditingPolicy"},
                 },

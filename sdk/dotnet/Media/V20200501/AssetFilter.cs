@@ -77,10 +77,7 @@ namespace Pulumi.AzureNative.Media.V20200501
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:media:AssetFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:AssetFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:AssetFilter"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20211101:AssetFilter"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:AssetFilter"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20230101:AssetFilter"},
                 },
             };

@@ -108,7 +108,6 @@ namespace Pulumi.AzureNative.LabServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:User"},
-                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:User"},
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20220801:User"},
                 },
             };

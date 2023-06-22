@@ -149,7 +149,6 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220601:DataCollectionEndpoint"},
                 },

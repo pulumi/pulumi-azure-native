@@ -103,17 +103,13 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppVnetConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppVnetConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppVnetConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppVnetConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppVnetConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppVnetConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppVnetConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppVnetConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppVnetConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppVnetConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppVnetConnectionSlot"},
                 },

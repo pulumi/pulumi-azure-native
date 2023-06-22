@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a database advisor.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getDatabaseAdvisor(args: GetDatabaseAdvisorArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAdvisorResult> {
 
@@ -92,7 +92,7 @@ export interface GetDatabaseAdvisorResult {
 }
 /**
  * Gets a database advisor.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getDatabaseAdvisorOutput(args: GetDatabaseAdvisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAdvisorResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAdvisor(a, opts))

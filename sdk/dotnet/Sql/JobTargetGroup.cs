@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A group of job targets.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:JobTargetGroup")]
     public partial class JobTargetGroup : global::Pulumi.CustomResource
@@ -66,10 +66,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobTargetGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobTargetGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:JobTargetGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:JobTargetGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:JobTargetGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:JobTargetGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:JobTargetGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:JobTargetGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:JobTargetGroup"},
                 },

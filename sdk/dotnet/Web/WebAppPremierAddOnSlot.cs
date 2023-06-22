@@ -102,17 +102,13 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppPremierAddOnSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPremierAddOnSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppPremierAddOnSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPremierAddOnSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPremierAddOnSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPremierAddOnSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPremierAddOnSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPremierAddOnSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPremierAddOnSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPremierAddOnSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppPremierAddOnSlot"},
                 },

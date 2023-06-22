@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230301Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Administrator"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220308preview:Administrator"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221201:Administrator"},
                 },
             };

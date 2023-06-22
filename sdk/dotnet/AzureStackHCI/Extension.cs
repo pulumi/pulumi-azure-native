@@ -126,14 +126,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210101preview:Extension"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220101:Extension"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220301:Extension"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220501:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220901:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221001:Extension"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221201:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230201:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230301:Extension"},

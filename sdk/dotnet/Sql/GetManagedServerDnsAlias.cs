@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a server DNS alias.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetManagedServerDnsAliasResult> InvokeAsync(GetManagedServerDnsAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedServerDnsAliasResult>("azure-native:sql:getManagedServerDnsAlias", args ?? new GetManagedServerDnsAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a server DNS alias.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetManagedServerDnsAliasResult> Invoke(GetManagedServerDnsAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedServerDnsAliasResult>("azure-native:sql:getManagedServerDnsAlias", args ?? new GetManagedServerDnsAliasInvokeArgs(), options.WithDefaults());

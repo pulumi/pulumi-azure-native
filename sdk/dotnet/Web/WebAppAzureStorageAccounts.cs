@@ -65,17 +65,13 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAzureStorageAccounts"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppAzureStorageAccounts"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppAzureStorageAccounts"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAzureStorageAccounts"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAzureStorageAccounts"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAzureStorageAccounts"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAzureStorageAccounts"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAzureStorageAccounts"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAzureStorageAccounts"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAzureStorageAccounts"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAzureStorageAccounts"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAzureStorageAccounts"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppAzureStorageAccounts"},
                 },

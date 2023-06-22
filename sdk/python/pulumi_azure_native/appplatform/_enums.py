@@ -5,10 +5,15 @@
 from enum import Enum
 
 __all__ = [
+    'ApmType',
     'BackendProtocol',
     'BindingType',
+    'ConfigServerEnabledState',
+    'ConfigurationServiceGeneration',
     'DevToolPortalFeatureState',
+    'GatewayCertificateVerification',
     'GatewayRouteConfigProtocol',
+    'GitImplementation',
     'HTTPSchemeType',
     'ManagedIdentityType',
     'ProbeActionType',
@@ -16,6 +21,17 @@ __all__ = [
     'StorageType',
     'Type',
 ]
+
+
+class ApmType(str, Enum):
+    """
+    Type of application performance monitoring
+    """
+    APPLICATION_INSIGHTS = "ApplicationInsights"
+    APP_DYNAMICS = "AppDynamics"
+    DYNATRACE = "Dynatrace"
+    NEW_RELIC = "NewRelic"
+    ELASTIC_APM = "ElasticAPM"
 
 
 class BackendProtocol(str, Enum):
@@ -36,6 +52,29 @@ class BindingType(str, Enum):
     DYNATRACE = "Dynatrace"
     NEW_RELIC = "NewRelic"
     ELASTIC_APM = "ElasticAPM"
+    CA_CERTIFICATES = "CACertificates"
+
+
+class ConfigServerEnabledState(str, Enum):
+    """
+    Enabled state of the config server. This is only used in Consumption tier.
+    """
+    ENABLED = "Enabled"
+    """
+    Enable the config server.
+    """
+    DISABLED = "Disabled"
+    """
+    Disable the config server.
+    """
+
+
+class ConfigurationServiceGeneration(str, Enum):
+    """
+    The generation of the Application Configuration Service.
+    """
+    GEN1 = "Gen1"
+    GEN2 = "Gen2"
 
 
 class DevToolPortalFeatureState(str, Enum):
@@ -52,12 +91,34 @@ class DevToolPortalFeatureState(str, Enum):
     """
 
 
+class GatewayCertificateVerification(str, Enum):
+    """
+    Whether to enable certificate verification or not
+    """
+    ENABLED = "Enabled"
+    """
+    Enable certificate verification in Spring Cloud Gateway.
+    """
+    DISABLED = "Disabled"
+    """
+    Disable certificate verification in Spring Cloud Gateway.
+    """
+
+
 class GatewayRouteConfigProtocol(str, Enum):
     """
     Protocol of routed Azure Spring Apps applications.
     """
     HTTP = "HTTP"
     HTTPS = "HTTPS"
+
+
+class GitImplementation(str, Enum):
+    """
+    Git libraries used to support various repository providers
+    """
+    GO_GIT = "go-git"
+    LIBGIT2 = "libgit2"
 
 
 class HTTPSchemeType(str, Enum):

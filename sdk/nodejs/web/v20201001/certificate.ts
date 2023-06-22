@@ -210,7 +210,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["valid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web:Certificate" }, { type: "azure-native:web/v20160301:Certificate" }, { type: "azure-native:web/v20180201:Certificate" }, { type: "azure-native:web/v20181101:Certificate" }, { type: "azure-native:web/v20190801:Certificate" }, { type: "azure-native:web/v20200601:Certificate" }, { type: "azure-native:web/v20200901:Certificate" }, { type: "azure-native:web/v20201201:Certificate" }, { type: "azure-native:web/v20210101:Certificate" }, { type: "azure-native:web/v20210115:Certificate" }, { type: "azure-native:web/v20210201:Certificate" }, { type: "azure-native:web/v20210301:Certificate" }, { type: "azure-native:web/v20220301:Certificate" }, { type: "azure-native:web/v20220901:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:Certificate" }, { type: "azure-native:web/v20160301:Certificate" }, { type: "azure-native:web/v20181101:Certificate" }, { type: "azure-native:web/v20190801:Certificate" }, { type: "azure-native:web/v20201201:Certificate" }, { type: "azure-native:web/v20210101:Certificate" }, { type: "azure-native:web/v20210115:Certificate" }, { type: "azure-native:web/v20210201:Certificate" }, { type: "azure-native:web/v20220301:Certificate" }, { type: "azure-native:web/v20220901:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

@@ -90,9 +90,6 @@ namespace Pulumi.AzureNative.Cache
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20200601:LinkedServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201201:LinkedServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:LinkedServer"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:LinkedServer"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220601:LinkedServer"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20230401:LinkedServer"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20230501preview:LinkedServer"},

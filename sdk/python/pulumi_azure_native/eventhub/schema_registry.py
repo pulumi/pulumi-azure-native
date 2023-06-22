@@ -121,7 +121,7 @@ class SchemaRegistry(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in List or Get Schema Group operation
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2022-01-01-preview
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +138,7 @@ class SchemaRegistry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Schema Group operation
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2022-01-01-preview
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param SchemaRegistryArgs args: The arguments to use to populate this resource's properties.
@@ -187,7 +187,7 @@ class SchemaRegistry(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at_utc"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20211101:SchemaRegistry"), pulumi.Alias(type_="azure-native:eventhub/v20220101preview:SchemaRegistry"), pulumi.Alias(type_="azure-native:eventhub/v20221001preview:SchemaRegistry")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20220101preview:SchemaRegistry"), pulumi.Alias(type_="azure-native:eventhub/v20221001preview:SchemaRegistry")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SchemaRegistry, __self__).__init__(
             'azure-native:eventhub:SchemaRegistry',

@@ -143,9 +143,6 @@ namespace Pulumi.AzureNative.Network.V20200501
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:FrontDoor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:FrontDoor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190501:FrontDoor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:FrontDoor"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401:FrontDoor"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210601:FrontDoor"},
                 },

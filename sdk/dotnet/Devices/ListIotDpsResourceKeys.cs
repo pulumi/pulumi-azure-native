@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Devices
     {
         /// <summary>
         /// List the primary and secondary keys for a provisioning service.
-        /// Azure REST API version: 2022-12-12.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Task<ListIotDpsResourceKeysResult> InvokeAsync(ListIotDpsResourceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIotDpsResourceKeysResult>("azure-native:devices:listIotDpsResourceKeys", args ?? new ListIotDpsResourceKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// List the primary and secondary keys for a provisioning service.
-        /// Azure REST API version: 2022-12-12.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Output<ListIotDpsResourceKeysResult> Invoke(ListIotDpsResourceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIotDpsResourceKeysResult>("azure-native:devices:listIotDpsResourceKeys", args ?? new ListIotDpsResourceKeysInvokeArgs(), options.WithDefaults());

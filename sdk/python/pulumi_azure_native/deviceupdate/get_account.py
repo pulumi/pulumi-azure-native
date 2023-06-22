@@ -22,7 +22,10 @@ class GetAccountResult:
     """
     Device Update account details.
     """
-    def __init__(__self__, host_name=None, id=None, identity=None, location=None, locations=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, host_name=None, id=None, identity=None, location=None, locations=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, type=None):
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
@@ -62,6 +65,14 @@ class GetAccountResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+        """
+        CMK encryption at rest properties
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="hostName")
@@ -174,6 +185,7 @@ class AwaitableGetAccountResult(GetAccountResult):
         if False:
             yield self
         return GetAccountResult(
+            encryption=self.encryption,
             host_name=self.host_name,
             id=self.id,
             identity=self.identity,
@@ -194,7 +206,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Returns account details for the given account name.
-    Azure REST API version: 2022-10-01.
+    Azure REST API version: 2022-12-01-preview.
 
 
     :param str account_name: Account name.
@@ -207,6 +219,7 @@ def get_account(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:deviceupdate:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
+        encryption=__ret__.encryption,
         host_name=__ret__.host_name,
         id=__ret__.id,
         identity=__ret__.identity,
@@ -228,7 +241,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Returns account details for the given account name.
-    Azure REST API version: 2022-10-01.
+    Azure REST API version: 2022-12-01-preview.
 
 
     :param str account_name: Account name.

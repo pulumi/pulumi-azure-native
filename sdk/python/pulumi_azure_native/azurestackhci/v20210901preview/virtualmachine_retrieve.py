@@ -310,7 +310,7 @@ class VirtualmachineRetrieve(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vm_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci:VirtualmachineRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci:virtualmachineRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:VirtualmachineRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:VirtualmachineRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:virtualmachineRetrieve")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci:VirtualmachineRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci:virtualmachineRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:VirtualmachineRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:virtualmachineRetrieve")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualmachineRetrieve, __self__).__init__(
             'azure-native:azurestackhci/v20210901preview:VirtualmachineRetrieve',

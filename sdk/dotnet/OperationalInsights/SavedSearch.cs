@@ -101,7 +101,6 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:SavedSearch"},
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:SavedSearch"},
                 },
             };

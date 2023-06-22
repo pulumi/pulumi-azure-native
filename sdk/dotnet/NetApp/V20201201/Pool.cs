@@ -107,14 +107,10 @@ namespace Pulumi.AzureNative.NetApp.V20201201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:netapp:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210201:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Pool"},
                 },

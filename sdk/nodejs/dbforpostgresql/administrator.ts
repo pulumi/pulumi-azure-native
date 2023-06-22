@@ -103,7 +103,7 @@ export class Administrator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20220308preview:Administrator" }, { type: "azure-native:dbforpostgresql/v20221201:Administrator" }, { type: "azure-native:dbforpostgresql/v20230301preview:Administrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20221201:Administrator" }, { type: "azure-native:dbforpostgresql/v20230301preview:Administrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Administrator.__pulumiType, name, resourceInputs, opts);
     }

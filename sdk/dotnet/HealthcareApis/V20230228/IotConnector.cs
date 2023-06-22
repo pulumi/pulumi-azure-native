@@ -101,11 +101,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20230228
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis:IotConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:IotConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:IotConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:IotConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:IotConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:IotConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:IotConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:IotConnector"},
                 },

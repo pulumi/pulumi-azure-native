@@ -235,7 +235,7 @@ class GalleryImageVersion(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["replication_status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20210701:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20211001:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20220103:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20220303:GalleryImageVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:GalleryImageVersion"), pulumi.Alias(type_="azure-native:compute/v20220303:GalleryImageVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImageVersion, __self__).__init__(
             'azure-native:compute/v20200930:GalleryImageVersion',

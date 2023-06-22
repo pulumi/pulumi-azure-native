@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An Azure SQL job agent.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:JobAgent")]
     public partial class JobAgent : global::Pulumi.CustomResource
@@ -90,10 +90,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:JobAgent"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:JobAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:JobAgent"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:JobAgent"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:JobAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:JobAgent"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:JobAgent"},
                 },

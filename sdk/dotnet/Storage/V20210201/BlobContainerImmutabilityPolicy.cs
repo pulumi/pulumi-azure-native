@@ -77,12 +77,7 @@ namespace Pulumi.AzureNative.Storage.V20210201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storage:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:BlobContainerImmutabilityPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:BlobContainerImmutabilityPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:BlobContainerImmutabilityPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:BlobContainerImmutabilityPolicy"},
                 },
             };

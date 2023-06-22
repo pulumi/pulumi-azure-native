@@ -30,7 +30,7 @@ class NamespaceNetworkRuleSetArgs:
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[Union[str, 'DefaultAction']] default_action: Default Action for Network Rule Set
         :param pulumi.Input[Sequence[pulumi.Input['NWRuleSetIpRulesArgs']]] ip_rules: List of IpRules
-        :param pulumi.Input[Union[str, 'PublicNetworkAccessFlag']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccessFlag']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
         :param pulumi.Input[bool] trusted_service_access_enabled: Value that indicates whether Trusted Service Access is Enabled or not.
         :param pulumi.Input[Sequence[pulumi.Input['NWRuleSetVirtualNetworkRulesArgs']]] virtual_network_rules: List VirtualNetwork Rules
         """
@@ -101,7 +101,7 @@ class NamespaceNetworkRuleSetArgs:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccessFlag']]]:
         """
-        This determines if traffic is allowed over public network. By default it is enabled.
+        This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
         """
         return pulumi.get(self, "public_network_access")
 
@@ -149,14 +149,14 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  __props__=None):
         """
         Description of topic resource.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DefaultAction']] default_action: Default Action for Network Rule Set
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NWRuleSetIpRulesArgs']]]] ip_rules: List of IpRules
         :param pulumi.Input[str] namespace_name: The Namespace name
-        :param pulumi.Input[Union[str, 'PublicNetworkAccessFlag']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccessFlag']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[bool] trusted_service_access_enabled: Value that indicates whether Trusted Service Access is Enabled or not.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NWRuleSetVirtualNetworkRulesArgs']]]] virtual_network_rules: List VirtualNetwork Rules
@@ -169,7 +169,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of topic resource.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param NamespaceNetworkRuleSetArgs args: The arguments to use to populate this resource's properties.
@@ -219,7 +219,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20170401:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:eventhub/v20210601preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:eventhub/v20211101:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:eventhub/v20220101preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20170401:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:eventhub/v20220101preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceNetworkRuleSet, __self__).__init__(
             'azure-native:eventhub:NamespaceNetworkRuleSet',
@@ -290,7 +290,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> pulumi.Output[Optional[str]]:
         """
-        This determines if traffic is allowed over public network. By default it is enabled.
+        This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
         """
         return pulumi.get(self, "public_network_access")
 

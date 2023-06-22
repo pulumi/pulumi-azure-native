@@ -124,7 +124,6 @@ from .group import *
 from .group_user import *
 from .identity_provider import *
 from .list_authorization_server_secrets import *
-from .list_delegation_setting_secrets import *
 from .list_gateway_keys import *
 from .list_identity_provider_secrets import *
 from .list_named_value import *

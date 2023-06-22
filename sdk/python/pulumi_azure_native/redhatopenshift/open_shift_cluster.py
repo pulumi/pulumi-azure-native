@@ -333,7 +333,7 @@ class OpenShiftCluster(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20200430:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20210901preview:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20220401:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20220904:OpenShiftCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20200430:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20220904:OpenShiftCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OpenShiftCluster, __self__).__init__(
             'azure-native:redhatopenshift:OpenShiftCluster',

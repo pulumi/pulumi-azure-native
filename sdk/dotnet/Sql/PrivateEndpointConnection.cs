@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A private endpoint connection
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -84,10 +84,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:PrivateEndpointConnection"},
                 },

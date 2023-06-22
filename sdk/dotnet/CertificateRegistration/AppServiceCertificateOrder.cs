@@ -192,12 +192,6 @@ namespace Pulumi.AzureNative.CertificateRegistration
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20201001:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20201201:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20210101:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20210115:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20210201:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20210301:AppServiceCertificateOrder"},
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20220301:AppServiceCertificateOrder"},
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20220901:AppServiceCertificateOrder"},
                 },
             };

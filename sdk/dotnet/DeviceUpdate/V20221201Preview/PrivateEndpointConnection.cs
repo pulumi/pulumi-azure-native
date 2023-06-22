@@ -84,8 +84,6 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221201Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

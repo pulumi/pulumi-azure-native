@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DeviceUpdate
     {
         /// <summary>
         /// Returns account details for the given account name.
-        /// Azure REST API version: 2022-10-01.
+        /// Azure REST API version: 2022-12-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:deviceupdate:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns account details for the given account name.
-        /// Azure REST API version: 2022-10-01.
+        /// Azure REST API version: 2022-12-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:deviceupdate:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -71,6 +71,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
     [OutputType]
     public sealed class GetAccountResult
     {
+        /// <summary>
+        /// CMK encryption at rest properties
+        /// </summary>
+        public readonly Outputs.EncryptionResponse? Encryption;
         /// <summary>
         /// API host name.
         /// </summary>
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
         [OutputConstructor]
         private GetAccountResult(
+            Outputs.EncryptionResponse? encryption,
+
             string hostName,
 
             string id,
@@ -152,6 +158,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
             string type)
         {
+            Encryption = encryption;
             HostName = hostName;
             Id = id;
             Identity = identity;

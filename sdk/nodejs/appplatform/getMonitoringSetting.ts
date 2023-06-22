@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Monitoring Setting and its properties.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getMonitoringSetting(args: GetMonitoringSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringSettingResult> {
 
@@ -58,7 +58,7 @@ export interface GetMonitoringSettingResult {
 }
 /**
  * Get the Monitoring Setting and its properties.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getMonitoringSettingOutput(args: GetMonitoringSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringSettingResult> {
     return pulumi.output(args).apply((a: any) => getMonitoringSetting(a, opts))

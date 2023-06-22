@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:Authorization"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:Authorization"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:Authorization"},
                 },

@@ -66,17 +66,13 @@ namespace Pulumi.AzureNative.Web.V20220901
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppMetadataSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppMetadataSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppMetadataSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppMetadataSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppMetadataSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppMetadataSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppMetadataSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppMetadataSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppMetadataSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppMetadataSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppMetadataSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppMetadataSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppMetadataSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppMetadataSlot"},
                 },
             };

@@ -132,8 +132,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:virtualharddiskRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualharddiskRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:virtualharddiskRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualharddiskRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:VirtualharddiskRetrieve"},

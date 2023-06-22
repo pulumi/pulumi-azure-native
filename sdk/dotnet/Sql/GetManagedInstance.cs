@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a managed instance.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetManagedInstanceResult> InvokeAsync(GetManagedInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceResult>("azure-native:sql:getManagedInstance", args ?? new GetManagedInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a managed instance.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetManagedInstanceResult> Invoke(GetManagedInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure-native:sql:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithDefaults());
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// The Azure Active Directory administrator of the server.
+        /// The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         /// </summary>
         public readonly Outputs.ManagedInstanceExternalAdministratorResponse? Administrators;
         /// <summary>
@@ -151,6 +151,9 @@ namespace Pulumi.AzureNative.Sql
         /// List of private endpoint connections on a managed instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagedInstancePecPropertyResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// Provisioning state of managed instance.
+        /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
         /// Connection type used for connecting to the instance.
@@ -205,6 +208,10 @@ namespace Pulumi.AzureNative.Sql
         /// The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
         /// </summary>
         public readonly int? VCores;
+        /// <summary>
+        /// Virtual cluster resource id for the Managed Instance.
+        /// </summary>
+        public readonly string VirtualClusterId;
         /// <summary>
         /// Whether or not the multi-az is enabled.
         /// </summary>
@@ -272,6 +279,8 @@ namespace Pulumi.AzureNative.Sql
 
             int? vCores,
 
+            string virtualClusterId,
+
             bool? zoneRedundant)
         {
             AdministratorLogin = administratorLogin;
@@ -304,6 +313,7 @@ namespace Pulumi.AzureNative.Sql
             TimezoneId = timezoneId;
             Type = type;
             VCores = vCores;
+            VirtualClusterId = virtualClusterId;
             ZoneRedundant = zoneRedundant;
         }
     }

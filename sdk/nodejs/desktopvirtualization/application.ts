@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Schema for Application properties.
- * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
+ * Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -167,7 +167,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210114preview:Application" }, { type: "azure-native:desktopvirtualization/v20210201preview:Application" }, { type: "azure-native:desktopvirtualization/v20210309preview:Application" }, { type: "azure-native:desktopvirtualization/v20210401preview:Application" }, { type: "azure-native:desktopvirtualization/v20210712:Application" }, { type: "azure-native:desktopvirtualization/v20210903preview:Application" }, { type: "azure-native:desktopvirtualization/v20220210preview:Application" }, { type: "azure-native:desktopvirtualization/v20220401preview:Application" }, { type: "azure-native:desktopvirtualization/v20220909:Application" }, { type: "azure-native:desktopvirtualization/v20221014preview:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210201preview:Application" }, { type: "azure-native:desktopvirtualization/v20210401preview:Application" }, { type: "azure-native:desktopvirtualization/v20220210preview:Application" }, { type: "azure-native:desktopvirtualization/v20220401preview:Application" }, { type: "azure-native:desktopvirtualization/v20221014preview:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }

@@ -197,7 +197,7 @@ class CommunicationService(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20200820:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20200820preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20211001preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20220701preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20230301preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20230331:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20230401preview:CommunicationService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20200820:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20211001preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20220701preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20230301preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20230331:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20230401preview:CommunicationService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CommunicationService, __self__).__init__(
             'azure-native:communication:CommunicationService',

@@ -101,4 +101,38 @@ namespace Pulumi.AzureNative.ConfidentialLedger
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Object representing RunningState for Ledger.
+    /// </summary>
+    [EnumType]
+    public readonly struct RunningState : IEquatable<RunningState>
+    {
+        private readonly string _value;
+
+        private RunningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RunningState Active { get; } = new RunningState("Active");
+        public static RunningState Paused { get; } = new RunningState("Paused");
+        public static RunningState Unknown { get; } = new RunningState("Unknown");
+        public static RunningState Pausing { get; } = new RunningState("Pausing");
+        public static RunningState Resuming { get; } = new RunningState("Resuming");
+
+        public static bool operator ==(RunningState left, RunningState right) => left.Equals(right);
+        public static bool operator !=(RunningState left, RunningState right) => !left.Equals(right);
+
+        public static explicit operator string(RunningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RunningState other && Equals(other);
+        public bool Equals(RunningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

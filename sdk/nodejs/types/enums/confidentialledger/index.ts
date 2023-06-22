@@ -41,3 +41,16 @@ export const LedgerType = {
  * Type of Confidential Ledger
  */
 export type LedgerType = (typeof LedgerType)[keyof typeof LedgerType];
+
+export const RunningState = {
+    Active: "Active",
+    Paused: "Paused",
+    Unknown: "Unknown",
+    Pausing: "Pausing",
+    Resuming: "Resuming",
+} as const;
+
+/**
+ * Object representing RunningState for Ledger.
+ */
+export type RunningState = (typeof RunningState)[keyof typeof RunningState];

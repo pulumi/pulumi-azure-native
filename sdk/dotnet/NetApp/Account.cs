@@ -108,14 +108,10 @@ namespace Pulumi.AzureNative.NetApp
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20201201:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210201:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Account"},
                 },

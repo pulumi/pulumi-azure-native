@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     Single Event Hubs Cluster resource in List or Get operations.
     """
-    def __init__(__self__, created_at=None, id=None, location=None, metric_id=None, name=None, sku=None, status=None, system_data=None, tags=None, type=None, updated_at=None):
+    def __init__(__self__, created_at=None, id=None, location=None, metric_id=None, name=None, sku=None, status=None, supports_scaling=None, system_data=None, tags=None, type=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -44,6 +44,9 @@ class GetClusterResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if supports_scaling and not isinstance(supports_scaling, bool):
+            raise TypeError("Expected argument 'supports_scaling' to be a bool")
+        pulumi.set(__self__, "supports_scaling", supports_scaling)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -114,6 +117,14 @@ class GetClusterResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="supportsScaling")
+    def supports_scaling(self) -> Optional[bool]:
+        """
+        A value that indicates whether Scaling is Supported.
+        """
+        return pulumi.get(self, "supports_scaling")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -159,6 +170,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             name=self.name,
             sku=self.sku,
             status=self.status,
+            supports_scaling=self.supports_scaling,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
@@ -170,7 +182,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Gets the resource description of the specified Event Hubs Cluster.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str cluster_name: The name of the Event Hubs Cluster.
@@ -190,6 +202,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         name=__ret__.name,
         sku=__ret__.sku,
         status=__ret__.status,
+        supports_scaling=__ret__.supports_scaling,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
@@ -202,7 +215,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Gets the resource description of the specified Event Hubs Cluster.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str cluster_name: The name of the Event Hubs Cluster.

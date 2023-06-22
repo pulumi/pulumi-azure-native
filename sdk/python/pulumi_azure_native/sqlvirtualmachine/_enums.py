@@ -16,6 +16,7 @@ __all__ = [
     'Failover',
     'FullBackupFrequencyType',
     'IdentityType',
+    'LeastPrivilegeMode',
     'ReadableSecondary',
     'Role',
     'SqlImageSku',
@@ -130,6 +131,14 @@ class IdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+class LeastPrivilegeMode(str, Enum):
+    """
+    SQL IaaS Agent least privilege mode.
+    """
+    ENABLED = "Enabled"
+    NOT_SET = "NotSet"
+
+
 class ReadableSecondary(str, Enum):
     """
     Replica readable secondary mode in availability group.
@@ -160,7 +169,7 @@ class SqlImageSku(str, Enum):
 
 class SqlManagementMode(str, Enum):
     """
-    SQL Server Management type.
+    SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
     """
     FULL = "Full"
     LIGHT_WEIGHT = "LightWeight"

@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class ConfigurationServicePropertiesResponse
     {
         /// <summary>
+        /// The generation of the Application Configuration Service.
+        /// </summary>
+        public readonly string? Generation;
+        /// <summary>
         /// Collection of instances belong to Application Configuration Service.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationServiceInstanceResponse> Instances;
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
         [OutputConstructor]
         private ConfigurationServicePropertiesResponse(
+            string? generation,
+
             ImmutableArray<Outputs.ConfigurationServiceInstanceResponse> instances,
 
             string provisioningState,
@@ -43,6 +49,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             Outputs.ConfigurationServiceSettingsResponse? settings)
         {
+            Generation = generation;
             Instances = instances;
             ProvisioningState = provisioningState;
             ResourceRequests = resourceRequests;

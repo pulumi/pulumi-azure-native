@@ -127,7 +127,7 @@ export class NetworkinterfaceRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:networkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:NetworkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:networkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:NetworkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:networkinterfaceRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:networkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:NetworkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:networkinterfaceRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkinterfaceRetrieve.__pulumiType, name, resourceInputs, opts);
     }

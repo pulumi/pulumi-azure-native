@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.HealthBot
                 {
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201208:Bot"},
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201208preview:Bot"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210610:Bot"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210824:Bot"},
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20220808:Bot"},
                 },
             };

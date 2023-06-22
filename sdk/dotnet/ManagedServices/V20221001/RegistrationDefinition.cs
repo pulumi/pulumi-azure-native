@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.ManagedServices.V20221001
                 {
                     new global::Pulumi.Alias { Type = "azure-native:managedservices:RegistrationDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190901:RegistrationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20220101preview:RegistrationDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

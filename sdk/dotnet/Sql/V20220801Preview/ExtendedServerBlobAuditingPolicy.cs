@@ -206,10 +206,7 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ExtendedServerBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ExtendedServerBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ExtendedServerBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ExtendedServerBlobAuditingPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ExtendedServerBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ExtendedServerBlobAuditingPolicy"},
                 },
             };

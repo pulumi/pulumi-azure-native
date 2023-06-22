@@ -89,12 +89,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry:Token"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501preview:Token"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Token"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Token"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Token"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Token"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20221201:Token"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:Token"},
                 },
             };

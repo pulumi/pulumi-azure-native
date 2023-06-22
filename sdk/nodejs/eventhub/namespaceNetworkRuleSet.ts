@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of topic resource.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     /**
@@ -55,7 +55,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * This determines if traffic is allowed over public network. By default it is enabled.
+     * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
@@ -115,7 +115,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             resourceInputs["virtualNetworkRules"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20210601preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20211101:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20220101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20220101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceNetworkRuleSet.__pulumiType, name, resourceInputs, opts);
     }
@@ -138,7 +138,7 @@ export interface NamespaceNetworkRuleSetArgs {
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * This determines if traffic is allowed over public network. By default it is enabled.
+     * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
      */
     publicNetworkAccess?: pulumi.Input<string | enums.eventhub.PublicNetworkAccessFlag>;
     /**

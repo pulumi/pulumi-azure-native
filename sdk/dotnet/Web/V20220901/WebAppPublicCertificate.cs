@@ -78,17 +78,13 @@ namespace Pulumi.AzureNative.Web.V20220901
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppPublicCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPublicCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppPublicCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPublicCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppPublicCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppPublicCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppPublicCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPublicCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPublicCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPublicCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPublicCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPublicCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPublicCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPublicCertificate"},
                 },
             };

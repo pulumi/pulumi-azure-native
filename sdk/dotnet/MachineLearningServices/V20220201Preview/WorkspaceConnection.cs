@@ -89,18 +89,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:WorkspaceConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:WorkspaceConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210701:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220101preview:WorkspaceConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:WorkspaceConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:WorkspaceConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:WorkspaceConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:WorkspaceConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:WorkspaceConnection"},

@@ -83,14 +83,9 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:NamedValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:NamedValue"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:NamedValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:NamedValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:NamedValue"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:NamedValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:NamedValue"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:NamedValue"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:NamedValue"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:NamedValue"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:NamedValue"},
                 },

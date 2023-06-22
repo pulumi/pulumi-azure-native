@@ -181,7 +181,7 @@ export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScalingPlanPooledSchedule.__pulumiType, name, resourceInputs, opts);
     }

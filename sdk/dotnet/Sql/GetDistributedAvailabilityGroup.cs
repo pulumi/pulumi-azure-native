@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a distributed availability group info.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetDistributedAvailabilityGroupResult> InvokeAsync(GetDistributedAvailabilityGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributedAvailabilityGroupResult>("azure-native:sql:getDistributedAvailabilityGroup", args ?? new GetDistributedAvailabilityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a distributed availability group info.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetDistributedAvailabilityGroupResult> Invoke(GetDistributedAvailabilityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributedAvailabilityGroupResult>("azure-native:sql:getDistributedAvailabilityGroup", args ?? new GetDistributedAvailabilityGroupInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Role of managed instance
+        /// </summary>
+        public readonly string InstanceRole;
+        /// <summary>
         /// The last hardened lsn
         /// </summary>
         public readonly string LastHardenedLsn;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.Sql
 
             string id,
 
+            string instanceRole,
+
             string lastHardenedLsn,
 
             string linkState,
@@ -166,6 +172,7 @@ namespace Pulumi.AzureNative.Sql
         {
             DistributedAvailabilityGroupId = distributedAvailabilityGroupId;
             Id = id;
+            InstanceRole = instanceRole;
             LastHardenedLsn = lastHardenedLsn;
             LinkState = linkState;
             Name = name;

@@ -164,7 +164,6 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid:PartnerRegistration"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerRegistration"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerRegistration"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerRegistration"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:PartnerRegistration"},

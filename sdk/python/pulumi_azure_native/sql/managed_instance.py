@@ -51,7 +51,7 @@ class ManagedInstanceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] administrator_login: Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for managed instance creation).
-        :param pulumi.Input['ManagedInstanceExternalAdministratorArgs'] administrators: The Azure Active Directory administrator of the server.
+        :param pulumi.Input['ManagedInstanceExternalAdministratorArgs'] administrators: The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         :param pulumi.Input[str] collation: Collation of the managed instance.
         :param pulumi.Input[str] dns_zone_partner: The resource id of another managed instance whose DNS zone this managed instance will share after creation.
         :param pulumi.Input['ResourceIdentityArgs'] identity: The Azure Active Directory identity of the managed instance.
@@ -185,7 +185,7 @@ class ManagedInstanceArgs:
     @pulumi.getter
     def administrators(self) -> Optional[pulumi.Input['ManagedInstanceExternalAdministratorArgs']]:
         """
-        The Azure Active Directory administrator of the server.
+        The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         """
         return pulumi.get(self, "administrators")
 
@@ -540,13 +540,13 @@ class ManagedInstance(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure SQL managed instance.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for managed instance creation).
-        :param pulumi.Input[pulumi.InputType['ManagedInstanceExternalAdministratorArgs']] administrators: The Azure Active Directory administrator of the server.
+        :param pulumi.Input[pulumi.InputType['ManagedInstanceExternalAdministratorArgs']] administrators: The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         :param pulumi.Input[str] collation: Collation of the managed instance.
         :param pulumi.Input[str] dns_zone_partner: The resource id of another managed instance whose DNS zone this managed instance will share after creation.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the managed instance.
@@ -591,7 +591,7 @@ class ManagedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure SQL managed instance.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -685,7 +685,8 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20150501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ManagedInstance")])
+            __props__.__dict__["virtual_cluster_id"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20150501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ManagedInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedInstance, __self__).__init__(
             'azure-native:sql:ManagedInstance',
@@ -738,6 +739,7 @@ class ManagedInstance(pulumi.CustomResource):
         __props__.__dict__["timezone_id"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["v_cores"] = None
+        __props__.__dict__["virtual_cluster_id"] = None
         __props__.__dict__["zone_redundant"] = None
         return ManagedInstance(resource_name, opts=opts, __props__=__props__)
 
@@ -753,7 +755,7 @@ class ManagedInstance(pulumi.CustomResource):
     @pulumi.getter
     def administrators(self) -> pulumi.Output[Optional['outputs.ManagedInstanceExternalAdministratorResponse']]:
         """
-        The Azure Active Directory administrator of the server.
+        The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         """
         return pulumi.get(self, "administrators")
 
@@ -872,6 +874,9 @@ class ManagedInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        Provisioning state of managed instance.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property
@@ -974,6 +979,14 @@ class ManagedInstance(pulumi.CustomResource):
         The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
         """
         return pulumi.get(self, "v_cores")
+
+    @property
+    @pulumi.getter(name="virtualClusterId")
+    def virtual_cluster_id(self) -> pulumi.Output[str]:
+        """
+        Virtual cluster resource id for the Managed Instance.
+        """
+        return pulumi.get(self, "virtual_cluster_id")
 
     @property
     @pulumi.getter(name="zoneRedundant")

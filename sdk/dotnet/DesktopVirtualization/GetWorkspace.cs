@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get a workspace.
-        /// Azure REST API version: 2022-09-09.
+        /// Azure REST API version: 2022-10-14-preview.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:desktopvirtualization:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a workspace.
-        /// Azure REST API version: 2022-09-09.
+        /// Azure REST API version: 2022-10-14-preview.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:desktopvirtualization:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -117,6 +117,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string ObjectId;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
+        /// <summary>
+        /// List of private endpoint connection associated with the specified resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -159,6 +167,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
+            string? publicNetworkAccess,
+
             Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
 
             Outputs.SystemDataResponse systemData,
@@ -180,6 +192,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             Name = name;
             ObjectId = objectId;
             Plan = plan;
+            PrivateEndpointConnections = privateEndpointConnections;
+            PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;

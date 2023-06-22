@@ -102,9 +102,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicebus:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:Namespace"},
                 },

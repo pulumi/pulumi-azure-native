@@ -86,7 +86,7 @@ export class DomainTopic extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:DomainTopic" }, { type: "azure-native:eventgrid/v20200601:DomainTopic" }, { type: "azure-native:eventgrid/v20201015preview:DomainTopic" }, { type: "azure-native:eventgrid/v20210601preview:DomainTopic" }, { type: "azure-native:eventgrid/v20211015preview:DomainTopic" }, { type: "azure-native:eventgrid/v20211201:DomainTopic" }, { type: "azure-native:eventgrid/v20220615:DomainTopic" }, { type: "azure-native:eventgrid/v20230601preview:DomainTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:DomainTopic" }, { type: "azure-native:eventgrid/v20200601:DomainTopic" }, { type: "azure-native:eventgrid/v20210601preview:DomainTopic" }, { type: "azure-native:eventgrid/v20211015preview:DomainTopic" }, { type: "azure-native:eventgrid/v20220615:DomainTopic" }, { type: "azure-native:eventgrid/v20230601preview:DomainTopic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainTopic.__pulumiType, name, resourceInputs, opts);
     }

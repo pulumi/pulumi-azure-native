@@ -77,14 +77,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210901:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20221201:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

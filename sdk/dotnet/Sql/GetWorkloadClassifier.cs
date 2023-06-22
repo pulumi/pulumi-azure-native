@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a workload classifier
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetWorkloadClassifierResult> InvokeAsync(GetWorkloadClassifierArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadClassifierResult>("azure-native:sql:getWorkloadClassifier", args ?? new GetWorkloadClassifierArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a workload classifier
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetWorkloadClassifierResult> Invoke(GetWorkloadClassifierInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadClassifierResult>("azure-native:sql:getWorkloadClassifier", args ?? new GetWorkloadClassifierInvokeArgs(), options.WithDefaults());

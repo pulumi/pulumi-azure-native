@@ -114,7 +114,6 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:insights:DataCollectionRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionRule"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionRule"},
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220601:DataCollectionRule"},
                 },

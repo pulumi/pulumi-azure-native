@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class AzureFileVolumeResponse
     {
         /// <summary>
+        /// If set to true, it will create and mount a dedicated directory for every individual app instance.
+        /// </summary>
+        public readonly bool? EnableSubPath;
+        /// <summary>
         /// These are the mount options for a persistent disk.
         /// </summary>
         public readonly ImmutableArray<string> MountOptions;
@@ -31,7 +35,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// <summary>
         /// The share name of the Azure File share.
         /// </summary>
-        public readonly string ShareName;
+        public readonly string? ShareName;
         /// <summary>
         /// The type of the underlying resource to mount as a persistent disk.
         /// Expected value is 'AzureFileVolume'.
@@ -40,16 +44,19 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
         [OutputConstructor]
         private AzureFileVolumeResponse(
+            bool? enableSubPath,
+
             ImmutableArray<string> mountOptions,
 
             string mountPath,
 
             bool? readOnly,
 
-            string shareName,
+            string? shareName,
 
             string type)
         {
+            EnableSubPath = enableSubPath;
             MountOptions = mountOptions;
             MountPath = mountPath;
             ReadOnly = readOnly;

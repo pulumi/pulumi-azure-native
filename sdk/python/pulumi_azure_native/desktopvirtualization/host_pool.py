@@ -33,6 +33,7 @@ class HostPoolArgs:
                  max_session_limit: Optional[pulumi.Input[int]] = None,
                  personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
                  plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']]] = None,
                  registration_info: Optional[pulumi.Input['RegistrationInfoArgs']] = None,
                  ring: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
@@ -60,6 +61,7 @@ class HostPoolArgs:
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
         :param pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
+        :param pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']] public_network_access: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
         :param pulumi.Input['RegistrationInfoArgs'] registration_info: The registration info of HostPool.
         :param pulumi.Input[int] ring: The ring number of HostPool.
         :param pulumi.Input[str] sso_client_id: ClientId for the registered Relying Party used to issue WVD SSO certificates.
@@ -99,6 +101,8 @@ class HostPoolArgs:
             pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if registration_info is not None:
             pulumi.set(__self__, "registration_info", registration_info)
         if ring is not None:
@@ -309,6 +313,18 @@ class HostPoolArgs:
         pulumi.set(self, "plan", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']]]:
+        """
+        Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter(name="registrationInfo")
     def registration_info(self) -> Optional[pulumi.Input['RegistrationInfoArgs']]:
         """
@@ -458,6 +474,7 @@ class HostPool(pulumi.CustomResource):
                  personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetPlanArgs']]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[Union[str, 'PreferredAppGroupType']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']]] = None,
                  registration_info: Optional[pulumi.Input[pulumi.InputType['RegistrationInfoArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ring: Optional[pulumi.Input[int]] = None,
@@ -473,7 +490,7 @@ class HostPool(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a HostPool definition.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -490,6 +507,7 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
         :param pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
         :param pulumi.Input[Union[str, 'PreferredAppGroupType']] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
+        :param pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']] public_network_access: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
         :param pulumi.Input[pulumi.InputType['RegistrationInfoArgs']] registration_info: The registration info of HostPool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] ring: The ring number of HostPool.
@@ -510,7 +528,7 @@ class HostPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a HostPool definition.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param HostPoolArgs args: The arguments to use to populate this resource's properties.
@@ -542,6 +560,7 @@ class HostPool(pulumi.CustomResource):
                  personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetPlanArgs']]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[Union[str, 'PreferredAppGroupType']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']]] = None,
                  registration_info: Optional[pulumi.Input[pulumi.InputType['RegistrationInfoArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ring: Optional[pulumi.Input[int]] = None,
@@ -584,6 +603,7 @@ class HostPool(pulumi.CustomResource):
             if preferred_app_group_type is None and not opts.urn:
                 raise TypeError("Missing required property 'preferred_app_group_type'")
             __props__.__dict__["preferred_app_group_type"] = preferred_app_group_type
+            __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["registration_info"] = registration_info
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -603,9 +623,10 @@ class HostPool(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["object_id"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:HostPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:HostPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HostPool, __self__).__init__(
             'azure-native:desktopvirtualization:HostPool',
@@ -648,6 +669,8 @@ class HostPool(pulumi.CustomResource):
         __props__.__dict__["personal_desktop_assignment_type"] = None
         __props__.__dict__["plan"] = None
         __props__.__dict__["preferred_app_group_type"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["registration_info"] = None
         __props__.__dict__["ring"] = None
         __props__.__dict__["sku"] = None
@@ -808,6 +831,22 @@ class HostPool(pulumi.CustomResource):
         The type of preferred application group type, default to Desktop Application Group
         """
         return pulumi.get(self, "preferred_app_group_type")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connection associated with the specified resource
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="registrationInfo")

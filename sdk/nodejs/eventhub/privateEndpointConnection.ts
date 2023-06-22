@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the PrivateEndpointConnection.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2018-01-01-preview
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20180101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20210101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20211101:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20220101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20221001preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20180101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20220101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20221001preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

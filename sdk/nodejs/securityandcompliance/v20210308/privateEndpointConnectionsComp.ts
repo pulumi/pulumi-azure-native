@@ -100,7 +100,7 @@ export class PrivateEndpointConnectionsComp extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance:PrivateEndpointConnectionsComp" }, { type: "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance:PrivateEndpointConnectionsComp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionsComp.__pulumiType, name, resourceInputs, opts);
     }

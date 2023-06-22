@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a HostPool definition.
-    /// Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
+    /// Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:HostPool")]
     public partial class HostPool : global::Pulumi.CustomResource
@@ -125,6 +125,18 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<string> PreferredAppGroupType { get; private set; } = null!;
 
         /// <summary>
+        /// List of private endpoint connection associated with the specified resource
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// The registration info of HostPool.
         /// </summary>
         [Output("registrationInfo")]
@@ -224,15 +236,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:HostPool"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:HostPool"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:HostPool"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:HostPool"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:HostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:HostPool"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:HostPool"},
                 },
             };
@@ -340,6 +347,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Input("preferredAppGroupType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.PreferredAppGroupType> PreferredAppGroupType { get; set; } = null!;
+
+        /// <summary>
+        /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.HostpoolPublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The registration info of HostPool.

@@ -126,7 +126,6 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagepool:DiskPool"},
                     new global::Pulumi.Alias { Type = "azure-native:storagepool/v20200315preview:DiskPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210401preview:DiskPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

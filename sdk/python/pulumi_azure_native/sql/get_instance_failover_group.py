@@ -22,7 +22,7 @@ class GetInstanceFailoverGroupResult:
     """
     An instance failover group.
     """
-    def __init__(__self__, id=None, managed_instance_pairs=None, name=None, partner_regions=None, read_only_endpoint=None, read_write_endpoint=None, replication_role=None, replication_state=None, type=None):
+    def __init__(__self__, id=None, managed_instance_pairs=None, name=None, partner_regions=None, read_only_endpoint=None, read_write_endpoint=None, replication_role=None, replication_state=None, secondary_type=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -47,6 +47,9 @@ class GetInstanceFailoverGroupResult:
         if replication_state and not isinstance(replication_state, str):
             raise TypeError("Expected argument 'replication_state' to be a str")
         pulumi.set(__self__, "replication_state", replication_state)
+        if secondary_type and not isinstance(secondary_type, str):
+            raise TypeError("Expected argument 'secondary_type' to be a str")
+        pulumi.set(__self__, "secondary_type", secondary_type)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -116,6 +119,14 @@ class GetInstanceFailoverGroupResult:
         return pulumi.get(self, "replication_state")
 
     @property
+    @pulumi.getter(name="secondaryType")
+    def secondary_type(self) -> Optional[str]:
+        """
+        Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
+        """
+        return pulumi.get(self, "secondary_type")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -138,6 +149,7 @@ class AwaitableGetInstanceFailoverGroupResult(GetInstanceFailoverGroupResult):
             read_write_endpoint=self.read_write_endpoint,
             replication_role=self.replication_role,
             replication_state=self.replication_state,
+            secondary_type=self.secondary_type,
             type=self.type)
 
 
@@ -147,7 +159,7 @@ def get_instance_failover_group(failover_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceFailoverGroupResult:
     """
     Gets a failover group.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str failover_group_name: The name of the failover group.
@@ -170,6 +182,7 @@ def get_instance_failover_group(failover_group_name: Optional[str] = None,
         read_write_endpoint=__ret__.read_write_endpoint,
         replication_role=__ret__.replication_role,
         replication_state=__ret__.replication_state,
+        secondary_type=__ret__.secondary_type,
         type=__ret__.type)
 
 
@@ -180,7 +193,7 @@ def get_instance_failover_group_output(failover_group_name: Optional[pulumi.Inpu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceFailoverGroupResult]:
     """
     Gets a failover group.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str failover_group_name: The name of the failover group.

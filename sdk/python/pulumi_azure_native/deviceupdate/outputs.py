@@ -14,6 +14,7 @@ from ._enums import *
 __all__ = [
     'ConnectionDetailsResponse',
     'DiagnosticStoragePropertiesResponse',
+    'EncryptionResponse',
     'GroupConnectivityInformationResponse',
     'IotHubSettingsResponse',
     'LocationResponse',
@@ -182,6 +183,60 @@ class DiagnosticStoragePropertiesResponse(dict):
         ConnectionString of the diagnostic storage account
         """
         return pulumi.get(self, "connection_string")
+
+
+@pulumi.output_type
+class EncryptionResponse(dict):
+    """
+    The CMK encryption settings on the Device Update account.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultKeyUri":
+            suggest = "key_vault_key_uri"
+        elif key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_key_uri: Optional[str] = None,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        The CMK encryption settings on the Device Update account.
+        :param str key_vault_key_uri: The URI of the key vault
+        :param str user_assigned_identity: The full resourceId of the user assigned identity to be used for key vault access. Identity has to be also assigned to the Account
+        """
+        if key_vault_key_uri is not None:
+            pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUri")
+    def key_vault_key_uri(self) -> Optional[str]:
+        """
+        The URI of the key vault
+        """
+        return pulumi.get(self, "key_vault_key_uri")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The full resourceId of the user assigned identity to be used for key vault access. Identity has to be also assigned to the Account
+        """
+        return pulumi.get(self, "user_assigned_identity")
 
 
 @pulumi.output_type

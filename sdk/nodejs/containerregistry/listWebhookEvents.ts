@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists recent events for the specified webhook.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function listWebhookEvents(args: ListWebhookEventsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebhookEventsResult> {
 
@@ -51,7 +51,7 @@ export interface ListWebhookEventsResult {
 }
 /**
  * Lists recent events for the specified webhook.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function listWebhookEventsOutput(args: ListWebhookEventsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebhookEventsResult> {
     return pulumi.output(args).apply((a: any) => listWebhookEvents(a, opts))

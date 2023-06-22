@@ -363,7 +363,7 @@ def get_queue(namespace_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
     Returns a description for the specified queue.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str namespace_name: The namespace name
@@ -414,7 +414,7 @@ def get_queue_output(namespace_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
     """
     Returns a description for the specified queue.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str namespace_name: The namespace name

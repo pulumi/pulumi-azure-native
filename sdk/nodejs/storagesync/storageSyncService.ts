@@ -130,7 +130,7 @@ export class StorageSyncService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagesync/v20200301:StorageSyncService" }, { type: "azure-native:storagesync/v20200901:StorageSyncService" }, { type: "azure-native:storagesync/v20220601:StorageSyncService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagesync/v20200301:StorageSyncService" }, { type: "azure-native:storagesync/v20220601:StorageSyncService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageSyncService.__pulumiType, name, resourceInputs, opts);
     }

@@ -129,7 +129,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20210601:Certificate" }, { type: "azure-native:batch/v20220101:Certificate" }, { type: "azure-native:batch/v20220601:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20220101:Certificate" }, { type: "azure-native:batch/v20220601:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

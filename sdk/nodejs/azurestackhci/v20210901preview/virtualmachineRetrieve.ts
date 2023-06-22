@@ -156,7 +156,7 @@ export class VirtualmachineRetrieve extends pulumi.CustomResource {
             resourceInputs["vmId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve" }, { type: "azure-native:azurestackhci:VirtualmachineRetrieve" }, { type: "azure-native:azurestackhci:virtualmachineRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:VirtualmachineRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualmachineRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:virtualmachineRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve" }, { type: "azure-native:azurestackhci:VirtualmachineRetrieve" }, { type: "azure-native:azurestackhci:virtualmachineRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualmachineRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:virtualmachineRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualmachineRetrieve.__pulumiType, name, resourceInputs, opts);
     }

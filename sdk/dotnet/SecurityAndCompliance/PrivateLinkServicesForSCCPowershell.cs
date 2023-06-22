@@ -96,8 +96,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForSCCPowershell"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForSCCPowershell"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell"},
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForSCCPowershell"},
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell"},
                 },

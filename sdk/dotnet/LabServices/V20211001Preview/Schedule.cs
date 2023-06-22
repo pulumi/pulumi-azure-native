@@ -95,7 +95,6 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:labservices:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:Schedule"},
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20220801:Schedule"},
                 },
             };

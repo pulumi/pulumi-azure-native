@@ -52,6 +52,7 @@ namespace Pulumi.AzureNative.Chaos
 
         public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
 
         public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
         public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
@@ -81,10 +82,8 @@ namespace Pulumi.AzureNative.Chaos
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SelectorType Percent { get; } = new SelectorType("Percent");
-        public static SelectorType Random { get; } = new SelectorType("Random");
-        public static SelectorType Tag { get; } = new SelectorType("Tag");
         public static SelectorType List { get; } = new SelectorType("List");
+        public static SelectorType Query { get; } = new SelectorType("Query");
 
         public static bool operator ==(SelectorType left, SelectorType right) => left.Equals(right);
         public static bool operator !=(SelectorType left, SelectorType right) => !left.Equals(right);

@@ -72,7 +72,6 @@ namespace Pulumi.AzureNative.ApiManagement
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PolicyFragment"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:PolicyFragment"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:PolicyFragment"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:PolicyFragment"},
                 },

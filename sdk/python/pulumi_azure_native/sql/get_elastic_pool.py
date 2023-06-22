@@ -22,7 +22,10 @@ class GetElasticPoolResult:
     """
     An elastic pool.
     """
-    def __init__(__self__, creation_date=None, high_availability_replica_count=None, id=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, max_size_bytes=None, min_capacity=None, name=None, per_database_settings=None, sku=None, state=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, availability_zone=None, creation_date=None, high_availability_replica_count=None, id=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, max_size_bytes=None, min_capacity=None, name=None, per_database_settings=None, preferred_enclave_type=None, sku=None, state=None, tags=None, type=None, zone_redundant=None):
+        if availability_zone and not isinstance(availability_zone, str):
+            raise TypeError("Expected argument 'availability_zone' to be a str")
+        pulumi.set(__self__, "availability_zone", availability_zone)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -56,6 +59,9 @@ class GetElasticPoolResult:
         if per_database_settings and not isinstance(per_database_settings, dict):
             raise TypeError("Expected argument 'per_database_settings' to be a dict")
         pulumi.set(__self__, "per_database_settings", per_database_settings)
+        if preferred_enclave_type and not isinstance(preferred_enclave_type, str):
+            raise TypeError("Expected argument 'preferred_enclave_type' to be a str")
+        pulumi.set(__self__, "preferred_enclave_type", preferred_enclave_type)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -71,6 +77,14 @@ class GetElasticPoolResult:
         if zone_redundant and not isinstance(zone_redundant, bool):
             raise TypeError("Expected argument 'zone_redundant' to be a bool")
         pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        """
+        Specifies the availability zone the pool's primary replica is pinned to.
+        """
+        return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -161,6 +175,14 @@ class GetElasticPoolResult:
         return pulumi.get(self, "per_database_settings")
 
     @property
+    @pulumi.getter(name="preferredEnclaveType")
+    def preferred_enclave_type(self) -> Optional[str]:
+        """
+        Type of enclave requested on the elastic pool.
+        """
+        return pulumi.get(self, "preferred_enclave_type")
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
@@ -213,6 +235,7 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
         if False:
             yield self
         return GetElasticPoolResult(
+            availability_zone=self.availability_zone,
             creation_date=self.creation_date,
             high_availability_replica_count=self.high_availability_replica_count,
             id=self.id,
@@ -224,6 +247,7 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
             min_capacity=self.min_capacity,
             name=self.name,
             per_database_settings=self.per_database_settings,
+            preferred_enclave_type=self.preferred_enclave_type,
             sku=self.sku,
             state=self.state,
             tags=self.tags,
@@ -237,7 +261,7 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticPoolResult:
     """
     Gets an elastic pool.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str elastic_pool_name: The name of the elastic pool.
@@ -252,6 +276,7 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getElasticPool', __args__, opts=opts, typ=GetElasticPoolResult).value
 
     return AwaitableGetElasticPoolResult(
+        availability_zone=__ret__.availability_zone,
         creation_date=__ret__.creation_date,
         high_availability_replica_count=__ret__.high_availability_replica_count,
         id=__ret__.id,
@@ -263,6 +288,7 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
         min_capacity=__ret__.min_capacity,
         name=__ret__.name,
         per_database_settings=__ret__.per_database_settings,
+        preferred_enclave_type=__ret__.preferred_enclave_type,
         sku=__ret__.sku,
         state=__ret__.state,
         tags=__ret__.tags,
@@ -277,7 +303,7 @@ def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticPoolResult]:
     """
     Gets an elastic pool.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str elastic_pool_name: The name of the elastic pool.

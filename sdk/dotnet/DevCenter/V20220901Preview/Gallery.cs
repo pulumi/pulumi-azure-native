@@ -71,8 +71,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devcenter:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Gallery"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Gallery"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Gallery"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Gallery"},

@@ -9,13 +9,15 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a database.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql:getDatabase", {
         "databaseName": args.databaseName,
+        "expand": args.expand,
+        "filter": args.filter,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
@@ -26,6 +28,14 @@ export interface GetDatabaseArgs {
      * The name of the database.
      */
     databaseName: string;
+    /**
+     * The child resources to include in the response.
+     */
+    expand?: string;
+    /**
+     * An OData filter expression that filters elements in the collection.
+     */
+    filter?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -44,6 +54,10 @@ export interface GetDatabaseResult {
      * Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
      */
     readonly autoPauseDelay?: number;
+    /**
+     * Specifies the availability zone the database is pinned to.
+     */
+    readonly availabilityZone?: string;
     /**
      * Collation of the metadata catalog.
      */
@@ -85,6 +99,10 @@ export interface GetDatabaseResult {
      */
     readonly elasticPoolId?: string;
     /**
+     * The azure key vault URI of the database if it's configured with per Database Customer Managed Keys.
+     */
+    readonly encryptionProtector?: string;
+    /**
      * Failover Group resource identifier that this database belongs to.
      */
     readonly failoverGroupId: string;
@@ -113,6 +131,10 @@ export interface GetDatabaseResult {
      */
     readonly isLedgerOn?: boolean;
     /**
+     * The resource ids of the user assigned identities to use
+     */
+    readonly keys?: {[key: string]: outputs.sql.DatabaseKeyResponse};
+    /**
      * Kind of database. This is metadata used for the Azure portal experience.
      */
     readonly kind: string;
@@ -132,6 +154,16 @@ export interface GetDatabaseResult {
      * Resource that manages the database.
      */
     readonly managedBy: string;
+    /**
+     * Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
+     * 
+     * This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier.
+     * 
+     * When manualCutover is specified, the scaling operation will wait for user input to trigger cutover to Hyperscale database.
+     * 
+     * To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
+     */
+    readonly manualCutover?: boolean;
     /**
      * The max log size for this database.
      */
@@ -153,6 +185,20 @@ export interface GetDatabaseResult {
      */
     readonly pausedDate: string;
     /**
+     * To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
+     * 
+     * This property parameter is only applicable for scaling operations that are initiated along with 'manualCutover' parameter.
+     * 
+     * This property is only applicable when scaling database from Business Critical/General Purpose/Premium/Standard tier to Hyperscale tier is already in progress.
+     * 
+     * When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
+     */
+    readonly performCutover?: boolean;
+    /**
+     * Type of enclave requested on the database i.e. Default or VBS enclaves.
+     */
+    readonly preferredEnclaveType?: string;
+    /**
      * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
      */
     readonly readScale?: string;
@@ -169,7 +215,7 @@ export interface GetDatabaseResult {
      */
     readonly resumedDate: string;
     /**
-     * The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+     * The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
      */
     readonly secondaryType?: string;
     /**
@@ -205,7 +251,7 @@ export interface GetDatabaseResult {
 }
 /**
  * Gets a database.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
@@ -216,6 +262,14 @@ export interface GetDatabaseOutputArgs {
      * The name of the database.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * The child resources to include in the response.
+     */
+    expand?: pulumi.Input<string>;
+    /**
+     * An OData filter expression that filters elements in the collection.
+     */
+    filter?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

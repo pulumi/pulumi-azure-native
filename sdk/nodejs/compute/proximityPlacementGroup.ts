@@ -124,7 +124,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20201201:ProximityPlacementGroup" }, { type: "azure-native:compute/v20210301:ProximityPlacementGroup" }, { type: "azure-native:compute/v20210401:ProximityPlacementGroup" }, { type: "azure-native:compute/v20210701:ProximityPlacementGroup" }, { type: "azure-native:compute/v20211101:ProximityPlacementGroup" }, { type: "azure-native:compute/v20220301:ProximityPlacementGroup" }, { type: "azure-native:compute/v20220801:ProximityPlacementGroup" }, { type: "azure-native:compute/v20221101:ProximityPlacementGroup" }, { type: "azure-native:compute/v20230301:ProximityPlacementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20201201:ProximityPlacementGroup" }, { type: "azure-native:compute/v20210301:ProximityPlacementGroup" }, { type: "azure-native:compute/v20210401:ProximityPlacementGroup" }, { type: "azure-native:compute/v20211101:ProximityPlacementGroup" }, { type: "azure-native:compute/v20221101:ProximityPlacementGroup" }, { type: "azure-native:compute/v20230301:ProximityPlacementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProximityPlacementGroup.__pulumiType, name, resourceInputs, opts);
     }

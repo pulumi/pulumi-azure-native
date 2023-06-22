@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom Locations definition.
- * Azure REST API version: 2021-08-15. Prior API version in Azure Native 1.x: 2021-03-15-preview
+ * Azure REST API version: 2021-08-31-preview. Prior API version in Azure Native 1.x: 2021-03-15-preview
  */
 export class CustomLocation extends pulumi.CustomResource {
     /**
@@ -136,7 +136,7 @@ export class CustomLocation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:extendedlocation/v20210315preview:CustomLocation" }, { type: "azure-native:extendedlocation/v20210815:CustomLocation" }, { type: "azure-native:extendedlocation/v20210831preview:CustomLocation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:extendedlocation/v20210315preview:CustomLocation" }, { type: "azure-native:extendedlocation/v20210831preview:CustomLocation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomLocation.__pulumiType, name, resourceInputs, opts);
     }

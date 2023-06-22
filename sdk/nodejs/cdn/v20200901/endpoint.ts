@@ -208,7 +208,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["webApplicationFirewallPolicyLink"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn:Endpoint" }, { type: "azure-native:cdn/v20210601:Endpoint" }, { type: "azure-native:cdn/v20220501preview:Endpoint" }, { type: "azure-native:cdn/v20221101preview:Endpoint" }, { type: "azure-native:cdn/v20230501:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn:Endpoint" }, { type: "azure-native:cdn/v20221101preview:Endpoint" }, { type: "azure-native:cdn/v20230501:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }

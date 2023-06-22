@@ -66,9 +66,6 @@ namespace Pulumi.AzureNative.Cache.V20220601
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cache:PatchSchedule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20200601:PatchSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201201:PatchSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:PatchSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:PatchSchedule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20230401:PatchSchedule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20230501preview:PatchSchedule"},
                 },

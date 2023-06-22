@@ -129,7 +129,7 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:EventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:EventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:EventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:EventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:EventSubscription" }, { type: "azure-native:eventgrid/v20211201:EventSubscription" }, { type: "azure-native:eventgrid/v20220615:EventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:EventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:EventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:EventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:EventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:EventSubscription" }, { type: "azure-native:eventgrid/v20220615:EventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:EventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventSubscription.__pulumiType, name, resourceInputs, opts);
     }

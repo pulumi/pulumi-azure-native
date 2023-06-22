@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The X509 Certificate.
-    /// Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01
+    /// Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:DpsCertificate")]
     public partial class DpsCertificate : global::Pulumi.CustomResource
@@ -74,8 +74,6 @@ namespace Pulumi.AzureNative.Devices
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:DpsCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200901preview:DpsCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20211015:DpsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20220205:DpsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20221212:DpsCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20230301preview:DpsCertificate"},
                 },
             };

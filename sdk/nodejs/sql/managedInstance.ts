@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL managed instance.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+ * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class ManagedInstance extends pulumi.CustomResource {
     /**
@@ -43,7 +43,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * The Azure Active Directory administrator of the server.
+     * The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
      */
     public readonly administrators!: pulumi.Output<outputs.sql.ManagedInstanceExternalAdministratorResponse | undefined>;
     /**
@@ -102,6 +102,9 @@ export class ManagedInstance extends pulumi.CustomResource {
      * List of private endpoint connections on a managed instance.
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.sql.ManagedInstancePecPropertyResponse[]>;
+    /**
+     * Provisioning state of managed instance.
+     */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Connection type used for connecting to the instance.
@@ -156,6 +159,10 @@ export class ManagedInstance extends pulumi.CustomResource {
      * The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
      */
     public readonly vCores!: pulumi.Output<number | undefined>;
+    /**
+     * Virtual cluster resource id for the Managed Instance.
+     */
+    public /*out*/ readonly virtualClusterId!: pulumi.Output<string>;
     /**
      * Whether or not the multi-az is enabled.
      */
@@ -212,6 +219,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualClusterId"] = undefined /*out*/;
         } else {
             resourceInputs["administratorLogin"] = undefined /*out*/;
             resourceInputs["administrators"] = undefined /*out*/;
@@ -242,10 +250,11 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["timezoneId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vCores"] = undefined /*out*/;
+            resourceInputs["virtualClusterId"] = undefined /*out*/;
             resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:ManagedInstance" }, { type: "azure-native:sql/v20180601preview:ManagedInstance" }, { type: "azure-native:sql/v20200202preview:ManagedInstance" }, { type: "azure-native:sql/v20200801preview:ManagedInstance" }, { type: "azure-native:sql/v20201101preview:ManagedInstance" }, { type: "azure-native:sql/v20210201preview:ManagedInstance" }, { type: "azure-native:sql/v20210501preview:ManagedInstance" }, { type: "azure-native:sql/v20210801preview:ManagedInstance" }, { type: "azure-native:sql/v20211101:ManagedInstance" }, { type: "azure-native:sql/v20211101preview:ManagedInstance" }, { type: "azure-native:sql/v20220201preview:ManagedInstance" }, { type: "azure-native:sql/v20220501preview:ManagedInstance" }, { type: "azure-native:sql/v20220801preview:ManagedInstance" }, { type: "azure-native:sql/v20221101preview:ManagedInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:ManagedInstance" }, { type: "azure-native:sql/v20180601preview:ManagedInstance" }, { type: "azure-native:sql/v20200202preview:ManagedInstance" }, { type: "azure-native:sql/v20200801preview:ManagedInstance" }, { type: "azure-native:sql/v20201101preview:ManagedInstance" }, { type: "azure-native:sql/v20210201preview:ManagedInstance" }, { type: "azure-native:sql/v20210501preview:ManagedInstance" }, { type: "azure-native:sql/v20210801preview:ManagedInstance" }, { type: "azure-native:sql/v20211101preview:ManagedInstance" }, { type: "azure-native:sql/v20220801preview:ManagedInstance" }, { type: "azure-native:sql/v20221101preview:ManagedInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstance.__pulumiType, name, resourceInputs, opts);
     }
@@ -264,7 +273,7 @@ export interface ManagedInstanceArgs {
      */
     administratorLoginPassword?: pulumi.Input<string>;
     /**
-     * The Azure Active Directory administrator of the server.
+     * The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
      */
     administrators?: pulumi.Input<inputs.sql.ManagedInstanceExternalAdministratorArgs>;
     /**

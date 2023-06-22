@@ -119,7 +119,6 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:labservices:LabPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:LabPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20220801:LabPlan"},
                 },
             };

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Maps Creator resource.
- * Azure REST API version: 2021-02-01.
+ * Azure REST API version: 2021-12-01-preview.
  */
 export function getCreator(args: GetCreatorArgs, opts?: pulumi.InvokeOptions): Promise<GetCreatorResult> {
 
@@ -57,6 +57,10 @@ export interface GetCreatorResult {
      */
     readonly properties: outputs.maps.CreatorPropertiesResponse;
     /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.maps.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -67,7 +71,7 @@ export interface GetCreatorResult {
 }
 /**
  * Get a Maps Creator resource.
- * Azure REST API version: 2021-02-01.
+ * Azure REST API version: 2021-12-01-preview.
  */
 export function getCreatorOutput(args: GetCreatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCreatorResult> {
     return pulumi.output(args).apply((a: any) => getCreator(a, opts))

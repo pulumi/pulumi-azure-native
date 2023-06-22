@@ -122,7 +122,7 @@ def get_guest_usage(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestUsageResult:
     """
     Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
-    Azure REST API version: 2021-04-01.
+    Azure REST API version: 2023-01-18-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -150,7 +150,7 @@ def get_guest_usage_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestUsageResult]:
     """
     Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
-    Azure REST API version: 2021-04-01.
+    Azure REST API version: 2023-01-18-preview.
 
 
     :param str resource_group_name: The name of the resource group.

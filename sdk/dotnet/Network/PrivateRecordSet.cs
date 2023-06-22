@@ -131,8 +131,6 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateRecordSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateRecordSet"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateRecordSet"},
                 },
             };

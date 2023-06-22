@@ -186,8 +186,6 @@ namespace Pulumi.AzureNative.Aad
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:aad/v20210301:DomainService"},
-                    new global::Pulumi.Alias { Type = "azure-native:aad/v20210501:DomainService"},
-                    new global::Pulumi.Alias { Type = "azure-native:aad/v20220901:DomainService"},
                     new global::Pulumi.Alias { Type = "azure-native:aad/v20221201:DomainService"},
                 },
             };

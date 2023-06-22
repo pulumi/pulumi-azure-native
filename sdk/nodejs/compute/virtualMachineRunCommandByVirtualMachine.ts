@@ -170,7 +170,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210701:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20220301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20220801:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20230301:VirtualMachineRunCommandByVirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20230301:VirtualMachineRunCommandByVirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineRunCommandByVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }

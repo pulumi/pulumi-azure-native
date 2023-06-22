@@ -509,7 +509,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20200901:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20210601:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20230501:Endpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20200901:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20230501:Endpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Endpoint, __self__).__init__(
             'azure-native:cdn/v20221101preview:Endpoint',

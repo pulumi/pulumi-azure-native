@@ -174,12 +174,9 @@ namespace Pulumi.AzureNative.Network.V20221101
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:CustomIPPrefix"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:CustomIPPrefix"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:CustomIPPrefix"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:CustomIPPrefix"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20201101:CustomIPPrefix"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201:CustomIPPrefix"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210301:CustomIPPrefix"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:CustomIPPrefix"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:CustomIPPrefix"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:CustomIPPrefix"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:CustomIPPrefix"},

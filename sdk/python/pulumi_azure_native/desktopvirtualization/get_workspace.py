@@ -22,7 +22,7 @@ class GetWorkspaceResult:
     """
     Represents a Workspace definition.
     """
-    def __init__(__self__, application_group_references=None, cloud_pc_resource=None, description=None, etag=None, friendly_name=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, object_id=None, plan=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, application_group_references=None, cloud_pc_resource=None, description=None, etag=None, friendly_name=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, object_id=None, plan=None, private_endpoint_connections=None, public_network_access=None, sku=None, system_data=None, tags=None, type=None):
         if application_group_references and not isinstance(application_group_references, list):
             raise TypeError("Expected argument 'application_group_references' to be a list")
         pulumi.set(__self__, "application_group_references", application_group_references)
@@ -62,6 +62,12 @@ class GetWorkspaceResult:
         if plan and not isinstance(plan, dict):
             raise TypeError("Expected argument 'plan' to be a dict")
         pulumi.set(__self__, "plan", plan)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -174,6 +180,22 @@ class GetWorkspaceResult:
         return pulumi.get(self, "plan")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connection associated with the specified resource
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponseSku']:
         return pulumi.get(self, "sku")
@@ -222,6 +244,8 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             name=self.name,
             object_id=self.object_id,
             plan=self.plan,
+            private_endpoint_connections=self.private_endpoint_connections,
+            public_network_access=self.public_network_access,
             sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
@@ -233,7 +257,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Get a workspace.
-    Azure REST API version: 2022-09-09.
+    Azure REST API version: 2022-10-14-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -259,6 +283,8 @@ def get_workspace(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         object_id=__ret__.object_id,
         plan=__ret__.plan,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
+        public_network_access=__ret__.public_network_access,
         sku=__ret__.sku,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
@@ -271,7 +297,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Get a workspace.
-    Azure REST API version: 2022-09-09.
+    Azure REST API version: 2022-10-14-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

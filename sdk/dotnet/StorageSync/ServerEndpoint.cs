@@ -180,7 +180,6 @@ namespace Pulumi.AzureNative.StorageSync
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200301:ServerEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:ServerEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20220601:ServerEndpoint"},
                 },
             };

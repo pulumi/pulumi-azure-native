@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A logical database transparent data encryption state.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2014-04-01
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2014-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:TransparentDataEncryption")]
     public partial class TransparentDataEncryption : global::Pulumi.CustomResource
@@ -66,10 +66,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:TransparentDataEncryption"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:TransparentDataEncryption"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:TransparentDataEncryption"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:TransparentDataEncryption"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:TransparentDataEncryption"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:TransparentDataEncryption"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:TransparentDataEncryption"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:TransparentDataEncryption"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:TransparentDataEncryption"},
                 },

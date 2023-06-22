@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single item in List or Get Schema Group operation
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2022-01-01-preview
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
  */
 export class SchemaRegistry extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export class SchemaRegistry extends pulumi.CustomResource {
             resourceInputs["updatedAtUtc"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20211101:SchemaRegistry" }, { type: "azure-native:eventhub/v20220101preview:SchemaRegistry" }, { type: "azure-native:eventhub/v20221001preview:SchemaRegistry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20220101preview:SchemaRegistry" }, { type: "azure-native:eventhub/v20221001preview:SchemaRegistry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SchemaRegistry.__pulumiType, name, resourceInputs, opts);
     }

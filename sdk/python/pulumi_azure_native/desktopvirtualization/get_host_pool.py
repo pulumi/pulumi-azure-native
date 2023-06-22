@@ -22,7 +22,7 @@ class GetHostPoolResult:
     """
     Represents a HostPool definition.
     """
-    def __init__(__self__, agent_update=None, application_group_references=None, cloud_pc_resource=None, custom_rdp_property=None, description=None, etag=None, friendly_name=None, host_pool_type=None, id=None, identity=None, kind=None, load_balancer_type=None, location=None, managed_by=None, max_session_limit=None, name=None, object_id=None, personal_desktop_assignment_type=None, plan=None, preferred_app_group_type=None, registration_info=None, ring=None, sku=None, sso_client_id=None, sso_client_secret_key_vault_path=None, sso_secret_type=None, ssoadfs_authority=None, start_vm_on_connect=None, system_data=None, tags=None, type=None, validation_environment=None, vm_template=None):
+    def __init__(__self__, agent_update=None, application_group_references=None, cloud_pc_resource=None, custom_rdp_property=None, description=None, etag=None, friendly_name=None, host_pool_type=None, id=None, identity=None, kind=None, load_balancer_type=None, location=None, managed_by=None, max_session_limit=None, name=None, object_id=None, personal_desktop_assignment_type=None, plan=None, preferred_app_group_type=None, private_endpoint_connections=None, public_network_access=None, registration_info=None, ring=None, sku=None, sso_client_id=None, sso_client_secret_key_vault_path=None, sso_secret_type=None, ssoadfs_authority=None, start_vm_on_connect=None, system_data=None, tags=None, type=None, validation_environment=None, vm_template=None):
         if agent_update and not isinstance(agent_update, dict):
             raise TypeError("Expected argument 'agent_update' to be a dict")
         pulumi.set(__self__, "agent_update", agent_update)
@@ -83,6 +83,12 @@ class GetHostPoolResult:
         if preferred_app_group_type and not isinstance(preferred_app_group_type, str):
             raise TypeError("Expected argument 'preferred_app_group_type' to be a str")
         pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if registration_info and not isinstance(registration_info, dict):
             raise TypeError("Expected argument 'registration_info' to be a dict")
         pulumi.set(__self__, "registration_info", registration_info)
@@ -278,6 +284,22 @@ class GetHostPoolResult:
         return pulumi.get(self, "preferred_app_group_type")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connection associated with the specified resource
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="registrationInfo")
     def registration_info(self) -> Optional['outputs.RegistrationInfoResponse']:
         """
@@ -405,6 +427,8 @@ class AwaitableGetHostPoolResult(GetHostPoolResult):
             personal_desktop_assignment_type=self.personal_desktop_assignment_type,
             plan=self.plan,
             preferred_app_group_type=self.preferred_app_group_type,
+            private_endpoint_connections=self.private_endpoint_connections,
+            public_network_access=self.public_network_access,
             registration_info=self.registration_info,
             ring=self.ring,
             sku=self.sku,
@@ -425,7 +449,7 @@ def get_host_pool(host_pool_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHostPoolResult:
     """
     Get a host pool.
-    Azure REST API version: 2022-09-09.
+    Azure REST API version: 2022-10-14-preview.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -458,6 +482,8 @@ def get_host_pool(host_pool_name: Optional[str] = None,
         personal_desktop_assignment_type=__ret__.personal_desktop_assignment_type,
         plan=__ret__.plan,
         preferred_app_group_type=__ret__.preferred_app_group_type,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
+        public_network_access=__ret__.public_network_access,
         registration_info=__ret__.registration_info,
         ring=__ret__.ring,
         sku=__ret__.sku,
@@ -479,7 +505,7 @@ def get_host_pool_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostPoolResult]:
     """
     Get a host pool.
-    Azure REST API version: 2022-09-09.
+    Azure REST API version: 2022-10-14-preview.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

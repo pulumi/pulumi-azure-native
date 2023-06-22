@@ -169,11 +169,8 @@ namespace Pulumi.AzureNative.Media.V20200501
                     new global::Pulumi.Alias { Type = "azure-native:media:StreamingEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20190501preview:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:StreamingEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20221101:StreamingEndpoint"},
                 },
             };

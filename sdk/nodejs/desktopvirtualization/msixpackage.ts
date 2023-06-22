@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Schema for MSIX Package properties.
- * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
+ * Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class MSIXPackage extends pulumi.CustomResource {
     /**
@@ -146,7 +146,7 @@ export class MSIXPackage extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210114preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210201preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210309preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210712:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210903preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220210preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220909:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20221014preview:MSIXPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210201preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220210preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20220401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20221014preview:MSIXPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MSIXPackage.__pulumiType, name, resourceInputs, opts);
     }

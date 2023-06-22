@@ -109,10 +109,7 @@ namespace Pulumi.AzureNative.Media.V20200501
                     new global::Pulumi.Alias { Type = "azure-native:media:Asset"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:Asset"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:Asset"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:Asset"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:Asset"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20211101:Asset"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:Asset"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20230101:Asset"},
                 },
             };

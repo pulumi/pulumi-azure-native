@@ -90,17 +90,8 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20160627Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20170301:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210901:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Registry"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20221201:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:Registry"},
                 },
             };

@@ -230,7 +230,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:eventgrid/v20230601preview:PrivateEndpointConnection',

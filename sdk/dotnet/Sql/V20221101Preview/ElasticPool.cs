@@ -150,17 +150,13 @@ namespace Pulumi.AzureNative.Sql.V20221101Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20171001preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ElasticPool"},
                 },
             };

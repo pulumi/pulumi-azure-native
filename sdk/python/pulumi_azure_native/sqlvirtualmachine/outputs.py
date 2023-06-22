@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AADAuthenticationSettingsResponse',
     'AdditionalFeaturesServerConfigurationsResponse',
     'AgConfigurationResponse',
     'AgReplicaResponse',
@@ -33,9 +34,52 @@ __all__ = [
     'SqlWorkloadTypeUpdateSettingsResponse',
     'StorageConfigurationSettingsResponse',
     'SystemDataResponse',
+    'TroubleshootingAdditionalPropertiesResponse',
+    'TroubleshootingStatusResponse',
+    'UnhealthyReplicaInfoResponse',
     'WsfcDomainCredentialsResponse',
     'WsfcDomainProfileResponse',
 ]
+
+@pulumi.output_type
+class AADAuthenticationSettingsResponse(dict):
+    """
+    Enable AAD authentication for SQL VM.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AADAuthenticationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AADAuthenticationSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AADAuthenticationSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None):
+        """
+        Enable AAD authentication for SQL VM.
+        :param str client_id: The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity
+        """
+        return pulumi.get(self, "client_id")
+
 
 @pulumi.output_type
 class AdditionalFeaturesServerConfigurationsResponse(dict):
@@ -193,7 +237,7 @@ class AgReplicaResponse(dict):
 @pulumi.output_type
 class AssessmentSettingsResponse(dict):
     """
-    Configure assessment for databases in your SQL virtual machine.
+    Configure SQL best practices Assessment for databases in your SQL virtual machine.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -217,10 +261,10 @@ class AssessmentSettingsResponse(dict):
                  run_immediately: Optional[bool] = None,
                  schedule: Optional['outputs.ScheduleResponse'] = None):
         """
-        Configure assessment for databases in your SQL virtual machine.
-        :param bool enable: Enable or disable assessment feature on SQL virtual machine.
-        :param bool run_immediately: Run assessment immediately on SQL virtual machine.
-        :param 'ScheduleResponse' schedule: Schedule for Assessment.
+        Configure SQL best practices Assessment for databases in your SQL virtual machine.
+        :param bool enable: Enable or disable SQL best practices Assessment feature on SQL virtual machine.
+        :param bool run_immediately: Run SQL best practices Assessment immediately on SQL virtual machine.
+        :param 'ScheduleResponse' schedule: Schedule for SQL best practices Assessment.
         """
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
@@ -233,7 +277,7 @@ class AssessmentSettingsResponse(dict):
     @pulumi.getter
     def enable(self) -> Optional[bool]:
         """
-        Enable or disable assessment feature on SQL virtual machine.
+        Enable or disable SQL best practices Assessment feature on SQL virtual machine.
         """
         return pulumi.get(self, "enable")
 
@@ -241,7 +285,7 @@ class AssessmentSettingsResponse(dict):
     @pulumi.getter(name="runImmediately")
     def run_immediately(self) -> Optional[bool]:
         """
-        Run assessment immediately on SQL virtual machine.
+        Run SQL best practices Assessment immediately on SQL virtual machine.
         """
         return pulumi.get(self, "run_immediately")
 
@@ -249,7 +293,7 @@ class AssessmentSettingsResponse(dict):
     @pulumi.getter
     def schedule(self) -> Optional['outputs.ScheduleResponse']:
         """
-        Schedule for Assessment.
+        Schedule for SQL best practices Assessment.
         """
         return pulumi.get(self, "schedule")
 
@@ -1004,6 +1048,8 @@ class SQLStorageSettingsResponse(dict):
         suggest = None
         if key == "defaultFilePath":
             suggest = "default_file_path"
+        elif key == "useStoragePool":
+            suggest = "use_storage_pool"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SQLStorageSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1018,16 +1064,20 @@ class SQLStorageSettingsResponse(dict):
 
     def __init__(__self__, *,
                  default_file_path: Optional[str] = None,
-                 luns: Optional[Sequence[int]] = None):
+                 luns: Optional[Sequence[int]] = None,
+                 use_storage_pool: Optional[bool] = None):
         """
         Set disk storage settings for SQL Server.
         :param str default_file_path: SQL Server default file path
         :param Sequence[int] luns: Logical Unit Numbers for the disks.
+        :param bool use_storage_pool: Use storage pool to build a drive if true or not provided
         """
         if default_file_path is not None:
             pulumi.set(__self__, "default_file_path", default_file_path)
         if luns is not None:
             pulumi.set(__self__, "luns", luns)
+        if use_storage_pool is not None:
+            pulumi.set(__self__, "use_storage_pool", use_storage_pool)
 
     @property
     @pulumi.getter(name="defaultFilePath")
@@ -1045,9 +1095,20 @@ class SQLStorageSettingsResponse(dict):
         """
         return pulumi.get(self, "luns")
 
+    @property
+    @pulumi.getter(name="useStoragePool")
+    def use_storage_pool(self) -> Optional[bool]:
+        """
+        Use storage pool to build a drive if true or not provided
+        """
+        return pulumi.get(self, "use_storage_pool")
+
 
 @pulumi.output_type
 class SQLTempDbSettingsResponse(dict):
+    """
+    Set tempDb storage settings for SQL Server.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1067,6 +1128,8 @@ class SQLTempDbSettingsResponse(dict):
             suggest = "persist_folder"
         elif key == "persistFolderPath":
             suggest = "persist_folder_path"
+        elif key == "useStoragePool":
+            suggest = "use_storage_pool"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SQLTempDbSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1088,8 +1151,10 @@ class SQLTempDbSettingsResponse(dict):
                  log_growth: Optional[int] = None,
                  luns: Optional[Sequence[int]] = None,
                  persist_folder: Optional[bool] = None,
-                 persist_folder_path: Optional[str] = None):
+                 persist_folder_path: Optional[str] = None,
+                 use_storage_pool: Optional[bool] = None):
         """
+        Set tempDb storage settings for SQL Server.
         :param int data_file_count: SQL Server tempdb data file count
         :param int data_file_size: SQL Server tempdb data file size
         :param int data_growth: SQL Server tempdb data file autoGrowth size
@@ -1099,6 +1164,7 @@ class SQLTempDbSettingsResponse(dict):
         :param Sequence[int] luns: Logical Unit Numbers for the disks.
         :param bool persist_folder: SQL Server tempdb persist folder choice
         :param str persist_folder_path: SQL Server tempdb persist folder location
+        :param bool use_storage_pool: Use storage pool to build a drive if true or not provided
         """
         if data_file_count is not None:
             pulumi.set(__self__, "data_file_count", data_file_count)
@@ -1118,6 +1184,8 @@ class SQLTempDbSettingsResponse(dict):
             pulumi.set(__self__, "persist_folder", persist_folder)
         if persist_folder_path is not None:
             pulumi.set(__self__, "persist_folder_path", persist_folder_path)
+        if use_storage_pool is not None:
+            pulumi.set(__self__, "use_storage_pool", use_storage_pool)
 
     @property
     @pulumi.getter(name="dataFileCount")
@@ -1191,9 +1259,20 @@ class SQLTempDbSettingsResponse(dict):
         """
         return pulumi.get(self, "persist_folder_path")
 
+    @property
+    @pulumi.getter(name="useStoragePool")
+    def use_storage_pool(self) -> Optional[bool]:
+        """
+        Use storage pool to build a drive if true or not provided
+        """
+        return pulumi.get(self, "use_storage_pool")
+
 
 @pulumi.output_type
 class ScheduleResponse(dict):
+    """
+    Set assessment schedule for SQL Server.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1224,6 +1303,7 @@ class ScheduleResponse(dict):
                  start_time: Optional[str] = None,
                  weekly_interval: Optional[int] = None):
         """
+        Set assessment schedule for SQL Server.
         :param str day_of_week: Day of the week to run assessment.
         :param bool enable: Enable or disable assessment schedule on SQL virtual machine.
         :param int monthly_occurrence: Occurrence of the DayOfWeek day within a month to schedule assessment. Takes values: 1,2,3,4 and -1. Use -1 for last DayOfWeek day of the month
@@ -1292,6 +1372,8 @@ class ServerConfigurationsManagementSettingsResponse(dict):
         suggest = None
         if key == "additionalFeaturesServerConfigurations":
             suggest = "additional_features_server_configurations"
+        elif key == "azureAdAuthenticationSettings":
+            suggest = "azure_ad_authentication_settings"
         elif key == "sqlConnectivityUpdateSettings":
             suggest = "sql_connectivity_update_settings"
         elif key == "sqlInstanceSettings":
@@ -1314,6 +1396,7 @@ class ServerConfigurationsManagementSettingsResponse(dict):
 
     def __init__(__self__, *,
                  additional_features_server_configurations: Optional['outputs.AdditionalFeaturesServerConfigurationsResponse'] = None,
+                 azure_ad_authentication_settings: Optional['outputs.AADAuthenticationSettingsResponse'] = None,
                  sql_connectivity_update_settings: Optional['outputs.SqlConnectivityUpdateSettingsResponse'] = None,
                  sql_instance_settings: Optional['outputs.SQLInstanceSettingsResponse'] = None,
                  sql_storage_update_settings: Optional['outputs.SqlStorageUpdateSettingsResponse'] = None,
@@ -1321,6 +1404,7 @@ class ServerConfigurationsManagementSettingsResponse(dict):
         """
         Set the connectivity, storage and workload settings.
         :param 'AdditionalFeaturesServerConfigurationsResponse' additional_features_server_configurations: Additional SQL feature settings.
+        :param 'AADAuthenticationSettingsResponse' azure_ad_authentication_settings: Azure AD authentication Settings.
         :param 'SqlConnectivityUpdateSettingsResponse' sql_connectivity_update_settings: SQL connectivity type settings.
         :param 'SQLInstanceSettingsResponse' sql_instance_settings: SQL Instance settings.
         :param 'SqlStorageUpdateSettingsResponse' sql_storage_update_settings: SQL storage update settings.
@@ -1328,6 +1412,8 @@ class ServerConfigurationsManagementSettingsResponse(dict):
         """
         if additional_features_server_configurations is not None:
             pulumi.set(__self__, "additional_features_server_configurations", additional_features_server_configurations)
+        if azure_ad_authentication_settings is not None:
+            pulumi.set(__self__, "azure_ad_authentication_settings", azure_ad_authentication_settings)
         if sql_connectivity_update_settings is not None:
             pulumi.set(__self__, "sql_connectivity_update_settings", sql_connectivity_update_settings)
         if sql_instance_settings is not None:
@@ -1344,6 +1430,14 @@ class ServerConfigurationsManagementSettingsResponse(dict):
         Additional SQL feature settings.
         """
         return pulumi.get(self, "additional_features_server_configurations")
+
+    @property
+    @pulumi.getter(name="azureAdAuthenticationSettings")
+    def azure_ad_authentication_settings(self) -> Optional['outputs.AADAuthenticationSettingsResponse']:
+        """
+        Azure AD authentication Settings.
+        """
+        return pulumi.get(self, "azure_ad_authentication_settings")
 
     @property
     @pulumi.getter(name="sqlConnectivityUpdateSettings")
@@ -1759,6 +1853,190 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class TroubleshootingAdditionalPropertiesResponse(dict):
+    """
+    SQL VM Troubleshooting additional properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unhealthyReplicaInfo":
+            suggest = "unhealthy_replica_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TroubleshootingAdditionalPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TroubleshootingAdditionalPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TroubleshootingAdditionalPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unhealthy_replica_info: Optional['outputs.UnhealthyReplicaInfoResponse'] = None):
+        """
+        SQL VM Troubleshooting additional properties.
+        :param 'UnhealthyReplicaInfoResponse' unhealthy_replica_info: The unhealthy replica information
+        """
+        if unhealthy_replica_info is not None:
+            pulumi.set(__self__, "unhealthy_replica_info", unhealthy_replica_info)
+
+    @property
+    @pulumi.getter(name="unhealthyReplicaInfo")
+    def unhealthy_replica_info(self) -> Optional['outputs.UnhealthyReplicaInfoResponse']:
+        """
+        The unhealthy replica information
+        """
+        return pulumi.get(self, "unhealthy_replica_info")
+
+
+@pulumi.output_type
+class TroubleshootingStatusResponse(dict):
+    """
+    Status of last troubleshooting operation on this SQL VM
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTimeUtc":
+            suggest = "end_time_utc"
+        elif key == "lastTriggerTimeUtc":
+            suggest = "last_trigger_time_utc"
+        elif key == "rootCause":
+            suggest = "root_cause"
+        elif key == "startTimeUtc":
+            suggest = "start_time_utc"
+        elif key == "troubleshootingScenario":
+            suggest = "troubleshooting_scenario"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TroubleshootingStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TroubleshootingStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TroubleshootingStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_time_utc: str,
+                 last_trigger_time_utc: str,
+                 properties: 'outputs.TroubleshootingAdditionalPropertiesResponse',
+                 root_cause: str,
+                 start_time_utc: str,
+                 troubleshooting_scenario: str):
+        """
+        Status of last troubleshooting operation on this SQL VM
+        :param str end_time_utc: End time in UTC timezone.
+        :param str last_trigger_time_utc: Last troubleshooting trigger time in UTC timezone
+        :param 'TroubleshootingAdditionalPropertiesResponse' properties: Troubleshooting properties
+        :param str root_cause: Root cause of the issue
+        :param str start_time_utc: Start time in UTC timezone.
+        :param str troubleshooting_scenario: SQL VM troubleshooting scenario.
+        """
+        pulumi.set(__self__, "end_time_utc", end_time_utc)
+        pulumi.set(__self__, "last_trigger_time_utc", last_trigger_time_utc)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "root_cause", root_cause)
+        pulumi.set(__self__, "start_time_utc", start_time_utc)
+        if troubleshooting_scenario is None:
+            troubleshooting_scenario = 'UnhealthyReplica'
+        pulumi.set(__self__, "troubleshooting_scenario", troubleshooting_scenario)
+
+    @property
+    @pulumi.getter(name="endTimeUtc")
+    def end_time_utc(self) -> str:
+        """
+        End time in UTC timezone.
+        """
+        return pulumi.get(self, "end_time_utc")
+
+    @property
+    @pulumi.getter(name="lastTriggerTimeUtc")
+    def last_trigger_time_utc(self) -> str:
+        """
+        Last troubleshooting trigger time in UTC timezone
+        """
+        return pulumi.get(self, "last_trigger_time_utc")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.TroubleshootingAdditionalPropertiesResponse':
+        """
+        Troubleshooting properties
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="rootCause")
+    def root_cause(self) -> str:
+        """
+        Root cause of the issue
+        """
+        return pulumi.get(self, "root_cause")
+
+    @property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> str:
+        """
+        Start time in UTC timezone.
+        """
+        return pulumi.get(self, "start_time_utc")
+
+    @property
+    @pulumi.getter(name="troubleshootingScenario")
+    def troubleshooting_scenario(self) -> str:
+        """
+        SQL VM troubleshooting scenario.
+        """
+        return pulumi.get(self, "troubleshooting_scenario")
+
+
+@pulumi.output_type
+class UnhealthyReplicaInfoResponse(dict):
+    """
+    SQL VM Troubleshoot UnhealthyReplica scenario information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityGroupName":
+            suggest = "availability_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UnhealthyReplicaInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UnhealthyReplicaInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UnhealthyReplicaInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_group_name: Optional[str] = None):
+        """
+        SQL VM Troubleshoot UnhealthyReplica scenario information.
+        :param str availability_group_name: The name of the availability group
+        """
+        if availability_group_name is not None:
+            pulumi.set(__self__, "availability_group_name", availability_group_name)
+
+    @property
+    @pulumi.getter(name="availabilityGroupName")
+    def availability_group_name(self) -> Optional[str]:
+        """
+        The name of the availability group
+        """
+        return pulumi.get(self, "availability_group_name")
+
+
+@pulumi.output_type
 class WsfcDomainCredentialsResponse(dict):
     """
     Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
@@ -1844,6 +2122,8 @@ class WsfcDomainProfileResponse(dict):
             suggest = "domain_fqdn"
         elif key == "fileShareWitnessPath":
             suggest = "file_share_witness_path"
+        elif key == "isSqlServiceAccountGmsa":
+            suggest = "is_sql_service_account_gmsa"
         elif key == "ouPath":
             suggest = "ou_path"
         elif key == "sqlServiceAccount":
@@ -1868,6 +2148,7 @@ class WsfcDomainProfileResponse(dict):
                  cluster_subnet_type: Optional[str] = None,
                  domain_fqdn: Optional[str] = None,
                  file_share_witness_path: Optional[str] = None,
+                 is_sql_service_account_gmsa: Optional[bool] = None,
                  ou_path: Optional[str] = None,
                  sql_service_account: Optional[str] = None,
                  storage_account_url: Optional[str] = None):
@@ -1878,6 +2159,7 @@ class WsfcDomainProfileResponse(dict):
         :param str cluster_subnet_type: Cluster subnet type.
         :param str domain_fqdn: Fully qualified name of the domain.
         :param str file_share_witness_path: Optional path for fileshare witness.
+        :param bool is_sql_service_account_gmsa: The flag to check if SQL service account is GMSA.
         :param str ou_path: Organizational Unit path in which the nodes and cluster will be present.
         :param str sql_service_account: Account name under which SQL service will run on all participating SQL virtual machines in the cluster.
         :param str storage_account_url: Fully qualified ARM resource id of the witness storage account.
@@ -1892,6 +2174,8 @@ class WsfcDomainProfileResponse(dict):
             pulumi.set(__self__, "domain_fqdn", domain_fqdn)
         if file_share_witness_path is not None:
             pulumi.set(__self__, "file_share_witness_path", file_share_witness_path)
+        if is_sql_service_account_gmsa is not None:
+            pulumi.set(__self__, "is_sql_service_account_gmsa", is_sql_service_account_gmsa)
         if ou_path is not None:
             pulumi.set(__self__, "ou_path", ou_path)
         if sql_service_account is not None:
@@ -1938,6 +2222,14 @@ class WsfcDomainProfileResponse(dict):
         Optional path for fileshare witness.
         """
         return pulumi.get(self, "file_share_witness_path")
+
+    @property
+    @pulumi.getter(name="isSqlServiceAccountGmsa")
+    def is_sql_service_account_gmsa(self) -> Optional[bool]:
+        """
+        The flag to check if SQL service account is GMSA.
+        """
+        return pulumi.get(self, "is_sql_service_account_gmsa")
 
     @property
     @pulumi.getter(name="ouPath")

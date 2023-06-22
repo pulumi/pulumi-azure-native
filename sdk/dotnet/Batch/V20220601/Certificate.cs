@@ -104,7 +104,6 @@ namespace Pulumi.AzureNative.Batch.V20220601
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20210101:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:batch/v20210601:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220101:Certificate"},
                 },
             };

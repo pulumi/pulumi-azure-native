@@ -139,10 +139,6 @@ namespace Pulumi.AzureNative.AppConfiguration
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200601:ConfigurationStore"},
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:ConfigurationStore"},
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230301:ConfigurationStore"},
                 },
             };

@@ -96,8 +96,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForM365ComplianceCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForM365ComplianceCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter"},
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForM365ComplianceCenter"},
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter"},
                 },

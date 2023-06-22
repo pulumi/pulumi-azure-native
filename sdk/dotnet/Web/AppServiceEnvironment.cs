@@ -193,16 +193,12 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160901:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:AppServiceEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:AppServiceEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:AppServiceEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:AppServiceEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:AppServiceEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:AppServiceEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:AppServiceEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:AppServiceEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:AppServiceEnvironment"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:AppServiceEnvironment"},
                 },

@@ -66,12 +66,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20230101Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform:BuildServiceAgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:BuildServiceAgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:BuildServiceAgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:BuildServiceAgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:BuildServiceAgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:BuildServiceAgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:BuildServiceAgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:BuildServiceAgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:BuildServiceAgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:BuildServiceAgentPool"},
                 },

@@ -72,7 +72,6 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20220125
                 {
                     new global::Pulumi.Alias { Type = "azure-native:guestconfiguration:GuestConfigurationAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

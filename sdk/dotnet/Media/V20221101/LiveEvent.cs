@@ -151,12 +151,9 @@ namespace Pulumi.AzureNative.Media.V20221101
                     new global::Pulumi.Alias { Type = "azure-native:media:LiveEvent"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveEvent"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:LiveEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:LiveEvent"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20190501preview:LiveEvent"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20200501:LiveEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:LiveEvent"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20211101:LiveEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:LiveEvent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Storage resource payload.
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-09-01-preview
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2021-09-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Storage")]
     public partial class Storage : global::Pulumi.CustomResource
@@ -67,11 +67,6 @@ namespace Pulumi.AzureNative.AppPlatform
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Storage"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Storage"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:Storage"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:Storage"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:Storage"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:Storage"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:Storage"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:Storage"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:Storage"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:Storage"},

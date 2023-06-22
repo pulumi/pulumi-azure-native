@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ConfigServerArgs', 'ConfigServer']
@@ -78,7 +79,7 @@ class ConfigServer(pulumi.CustomResource):
                  __props__=None):
         """
         Config Server resource
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-07-01
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -94,7 +95,7 @@ class ConfigServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Config Server resource
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-07-01
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
 
         :param str resource_name: The name of the resource.
         :param ConfigServerArgs args: The arguments to use to populate this resource's properties.
@@ -133,7 +134,7 @@ class ConfigServer(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220401:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20221201:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20230501preview:ConfigServer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:ConfigServer"), pulumi.Alias(type_="azure-native:appplatform/v20230501preview:ConfigServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigServer, __self__).__init__(
             'azure-native:appplatform:ConfigServer',

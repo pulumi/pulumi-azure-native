@@ -122,7 +122,7 @@ export class NatRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:NatRule" }, { type: "azure-native:network/v20200801:NatRule" }, { type: "azure-native:network/v20201101:NatRule" }, { type: "azure-native:network/v20210201:NatRule" }, { type: "azure-native:network/v20210301:NatRule" }, { type: "azure-native:network/v20210501:NatRule" }, { type: "azure-native:network/v20210801:NatRule" }, { type: "azure-native:network/v20220101:NatRule" }, { type: "azure-native:network/v20220501:NatRule" }, { type: "azure-native:network/v20220701:NatRule" }, { type: "azure-native:network/v20221101:NatRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:NatRule" }, { type: "azure-native:network/v20201101:NatRule" }, { type: "azure-native:network/v20210201:NatRule" }, { type: "azure-native:network/v20210301:NatRule" }, { type: "azure-native:network/v20210801:NatRule" }, { type: "azure-native:network/v20220101:NatRule" }, { type: "azure-native:network/v20220501:NatRule" }, { type: "azure-native:network/v20220701:NatRule" }, { type: "azure-native:network/v20221101:NatRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NatRule.__pulumiType, name, resourceInputs, opts);
     }

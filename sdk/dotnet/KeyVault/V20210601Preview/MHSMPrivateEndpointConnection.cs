@@ -101,12 +101,6 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:keyvault:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220201preview:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220701:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20221101:MHSMPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection"},
                 },
             };

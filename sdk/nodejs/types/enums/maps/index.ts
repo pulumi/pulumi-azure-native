@@ -29,6 +29,18 @@ export const Name = {
  */
 export type Name = (typeof Name)[keyof typeof Name];
 
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
 export const SigningKey = {
     PrimaryKey: "primaryKey",
     SecondaryKey: "secondaryKey",

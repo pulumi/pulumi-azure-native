@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Buildpack Binding Resource object
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2022-01-01-preview
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:BuildpackBinding")]
     public partial class BuildpackBinding : global::Pulumi.CustomResource
@@ -66,12 +66,6 @@ namespace Pulumi.AzureNative.AppPlatform
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:BuildpackBinding"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:BuildpackBinding"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:BuildpackBinding"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:BuildpackBinding"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:BuildpackBinding"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:BuildpackBinding"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:BuildpackBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:BuildpackBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:BuildpackBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:BuildpackBinding"},

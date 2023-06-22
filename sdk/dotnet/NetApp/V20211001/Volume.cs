@@ -327,13 +327,9 @@ namespace Pulumi.AzureNative.NetApp.V20211001
                 {
                     new global::Pulumi.Alias { Type = "azure-native:netapp:Volume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20201201:Volume"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210201:Volume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401:Volume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Volume"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:Volume"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:Volume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Volume"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Volume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Volume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Volume"},
                 },

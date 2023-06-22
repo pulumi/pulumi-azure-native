@@ -71,7 +71,6 @@ namespace Pulumi.AzureNative.Logz.V20201001
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:logz:SubAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:logz/v20201001preview:SubAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:logz/v20220101preview:SubAccount"},
                 },
             };

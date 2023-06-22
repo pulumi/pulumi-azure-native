@@ -69,7 +69,6 @@ namespace Pulumi.AzureNative.DataMigration
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:SqlMigrationService"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:SqlMigrationService"},
                     new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:SqlMigrationService"},
                 },
             };

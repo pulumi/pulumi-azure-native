@@ -97,7 +97,7 @@ export class SapLandscapeMonitor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20221101preview:SapLandscapeMonitor" }, { type: "azure-native:workloads/v20230401:SapLandscapeMonitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20230401:SapLandscapeMonitor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SapLandscapeMonitor.__pulumiType, name, resourceInputs, opts);
     }

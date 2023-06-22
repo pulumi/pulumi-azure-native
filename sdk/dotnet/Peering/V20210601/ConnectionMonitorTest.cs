@@ -95,8 +95,6 @@ namespace Pulumi.AzureNative.Peering.V20210601
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:peering:ConnectionMonitorTest"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:ConnectionMonitorTest"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:ConnectionMonitorTest"},
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20221001:ConnectionMonitorTest"},
                 },
             };

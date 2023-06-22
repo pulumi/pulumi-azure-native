@@ -88,7 +88,7 @@ export class RuleSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn:RuleSet" }, { type: "azure-native:cdn/v20210601:RuleSet" }, { type: "azure-native:cdn/v20220501preview:RuleSet" }, { type: "azure-native:cdn/v20221101preview:RuleSet" }, { type: "azure-native:cdn/v20230501:RuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn:RuleSet" }, { type: "azure-native:cdn/v20221101preview:RuleSet" }, { type: "azure-native:cdn/v20230501:RuleSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RuleSet.__pulumiType, name, resourceInputs, opts);
     }

@@ -91,9 +91,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20221001Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicebus:Rule"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Rule"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Rule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Rule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Rule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Rule"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Rule"},
                 },
             };

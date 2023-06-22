@@ -80,7 +80,6 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory:B2CTenant"},
-                    new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20210401:B2CTenant"},
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20230118preview:B2CTenant"},
                 },
             };

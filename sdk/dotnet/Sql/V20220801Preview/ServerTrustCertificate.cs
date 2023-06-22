@@ -73,10 +73,7 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql:ServerTrustCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerTrustCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerTrustCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerTrustCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerTrustCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerTrustCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ServerTrustCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ServerTrustCertificate"},
                 },
             };

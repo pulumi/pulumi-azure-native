@@ -9,6 +9,7 @@ __all__ = [
     'ActionsRequired',
     'Architecture',
     'AuditLogStatus',
+    'AzureADAuthenticationAsArmPolicyStatus',
     'BaseImageTriggerType',
     'ConnectedRegistryMode',
     'ConnectionStatus',
@@ -79,6 +80,14 @@ class AuditLogStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class AzureADAuthenticationAsArmPolicyStatus(str, Enum):
+    """
+    The value that indicates whether the policy is enabled or not.
+    """
+    ENABLED = "enabled"
+    DISABLED = "disabled"
 
 
 class BaseImageTriggerType(str, Enum):

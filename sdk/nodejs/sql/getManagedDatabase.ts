@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a managed database.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getManagedDatabase(args: GetManagedDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseResult> {
 
@@ -66,6 +66,10 @@ export interface GetManagedDatabaseResult {
      */
     readonly id: string;
     /**
+     * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+     */
+    readonly isLedgerOn?: boolean;
+    /**
      * Resource location.
      */
     readonly location: string;
@@ -88,7 +92,7 @@ export interface GetManagedDatabaseResult {
 }
 /**
  * Gets a managed database.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getManagedDatabaseOutput(args: GetManagedDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getManagedDatabase(a, opts))

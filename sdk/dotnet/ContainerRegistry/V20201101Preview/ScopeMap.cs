@@ -85,12 +85,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry:ScopeMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501preview:ScopeMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ScopeMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ScopeMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:ScopeMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:ScopeMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20221201:ScopeMap"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:ScopeMap"},
                 },
             };

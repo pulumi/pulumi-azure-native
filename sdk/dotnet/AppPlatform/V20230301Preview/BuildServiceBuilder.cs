@@ -66,12 +66,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20230301Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform:BuildServiceBuilder"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:BuildServiceBuilder"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:BuildServiceBuilder"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:BuildServiceBuilder"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:BuildServiceBuilder"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:BuildServiceBuilder"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:BuildServiceBuilder"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:BuildServiceBuilder"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:BuildServiceBuilder"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:BuildServiceBuilder"},
                 },

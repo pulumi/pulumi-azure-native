@@ -37,11 +37,7 @@
   ],
   "AppComplianceAutomation": [],
   "AppConfiguration": [],
-  "AppPlatform": [
-    "2023-01-01-preview",
-    "2023-03-01-preview",
-    "2023-05-01-preview"
-  ],
+  "AppPlatform": [],
   "Attestation": [
     "2021-06-01-preview"
   ],
@@ -76,9 +72,7 @@
     "2022-08-08"
   ],
   "AutonomousDevelopmentPlatform": [],
-  "AzureActiveDirectory": [
-    "2023-01-18-preview"
-  ],
+  "AzureActiveDirectory": [],
   "AzureArcData": [],
   "AzureData": [],
   "AzureSphere": [],
@@ -113,10 +107,7 @@
   "Cdn": [],
   "CertificateRegistration": [],
   "ChangeAnalysis": [],
-  "Chaos": [
-    "2023-04-01-preview",
-    "2023-04-15-preview"
-  ],
+  "Chaos": [],
   "CognitiveServices": [],
   "Commerce": [],
   "Communication": [
@@ -130,10 +121,7 @@
     "2022-11-01",
     "2023-03-01"
   ],
-  "ConfidentialLedger": [
-    "2022-09-08-preview",
-    "2023-01-26-preview"
-  ],
+  "ConfidentialLedger": [],
   "Confluent": [],
   "ConnectedVMwarevSphere": [],
   "Consumption": [],
@@ -298,17 +286,13 @@
   "Datadog": [],
   "DelegatedNetwork": [],
   "DeploymentManager": [],
-  "DesktopVirtualization": [
-    "2022-10-14-preview"
-  ],
+  "DesktopVirtualization": [],
   "DevCenter": [],
   "DevHub": [],
   "DevOps": [],
   "DevSpaces": [],
   "DevTestLab": [],
-  "DeviceUpdate": [
-    "2022-12-01-preview"
-  ],
+  "DeviceUpdate": [],
   "Devices": [
     "2021-07-02-preview",
     "2021-10-15",
@@ -347,9 +331,7 @@
     "2022-01-01-preview",
     "2022-10-01-preview"
   ],
-  "ExtendedLocation": [
-    "2021-08-31-preview"
-  ],
+  "ExtendedLocation": [],
   "Features": [],
   "FluidRelay": [],
   "GraphServices": [],
@@ -386,9 +368,7 @@
   "HybridConnectivity": [],
   "HybridContainerService": [],
   "HybridData": [],
-  "HybridNetwork": [
-    "2022-01-01-preview"
-  ],
+  "HybridNetwork": [],
   "ImportExport": [],
   "Insights": [
     "2016-03-01",
@@ -446,11 +426,7 @@
   "IoTFirmwareDefense": [],
   "IoTSecurity": [],
   "KeyVault": [],
-  "Kubernetes": [
-    "2021-10-01",
-    "2022-05-01-preview",
-    "2022-10-01-preview"
-  ],
+  "Kubernetes": [],
   "KubernetesConfiguration": [
     "2022-07-01",
     "2022-11-01",
@@ -655,16 +631,16 @@
     "2022-03-01-preview"
   ],
   "RecoveryServices": [
-    "2023-02-01",
     "2023-04-01"
   ],
   "RedHatOpenShift": [],
   "Relay": [],
-  "ResourceConnector": [
-    "2022-10-27"
-  ],
+  "ResourceConnector": [],
   "ResourceGraph": [],
-  "ResourceHealth": [],
+  "ResourceHealth": [
+    "2022-10-01",
+    "2022-10-01-preview"
+  ],
   "Resources": [
     "2021-01-01",
     "2021-03-01-preview",
@@ -719,9 +695,7 @@
   ],
   "ServiceFabric": [],
   "ServiceFabricMesh": [],
-  "ServiceLinker": [
-    "2022-11-01-preview"
-  ],
+  "ServiceLinker": [],
   "ServiceNetworking": [],
   "SignalRService": [
     "2023-03-01-preview"
@@ -747,12 +721,7 @@
     "2022-08-01-preview",
     "2022-11-01-preview"
   ],
-  "SqlVirtualMachine": [
-    "2022-02-01-preview",
-    "2022-07-01-preview",
-    "2022-08-01-preview",
-    "2023-01-01-preview"
-  ],
+  "SqlVirtualMachine": [],
   "StorSimple": [],
   "Storage": [],
   "StorageCache": [],

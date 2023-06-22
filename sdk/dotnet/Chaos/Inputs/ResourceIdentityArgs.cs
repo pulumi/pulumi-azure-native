@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Chaos.Inputs
 {
 
     /// <summary>
-    /// The managed identity of a resource.
+    /// The identity of a resource.
     /// </summary>
     public sealed class ResourceIdentityArgs : global::Pulumi.ResourceArgs
     {
@@ -20,6 +20,18 @@ namespace Pulumi.AzureNative.Chaos.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AzureNative.Chaos.ResourceIdentityType> Type { get; set; } = null!;
+
+        [Input("userAssignedIdentities")]
+        private InputList<string>? _userAssignedIdentities;
+
+        /// <summary>
+        /// The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// </summary>
+        public InputList<string> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            set => _userAssignedIdentities = value;
+        }
 
         public ResourceIdentityArgs()
         {

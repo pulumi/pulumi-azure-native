@@ -94,7 +94,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  __props__=None):
         """
         Description of a namespace authorization rule.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +111,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of a namespace authorization rule.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param NamespaceAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
@@ -155,7 +155,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20211101:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:NamespaceAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:NamespaceAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azure-native:servicebus:NamespaceAuthorizationRule',

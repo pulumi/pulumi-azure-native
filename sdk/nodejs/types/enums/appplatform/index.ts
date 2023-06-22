@@ -18,6 +18,19 @@ export {
     v20230501preview,
 };
 
+export const ApmType = {
+    ApplicationInsights: "ApplicationInsights",
+    AppDynamics: "AppDynamics",
+    Dynatrace: "Dynatrace",
+    NewRelic: "NewRelic",
+    ElasticAPM: "ElasticAPM",
+} as const;
+
+/**
+ * Type of application performance monitoring
+ */
+export type ApmType = (typeof ApmType)[keyof typeof ApmType];
+
 export const BackendProtocol = {
     GRPC: "GRPC",
     Default: "Default",
@@ -35,12 +48,39 @@ export const BindingType = {
     Dynatrace: "Dynatrace",
     NewRelic: "NewRelic",
     ElasticAPM: "ElasticAPM",
+    CACertificates: "CACertificates",
 } as const;
 
 /**
  * Buildpack Binding Type
  */
 export type BindingType = (typeof BindingType)[keyof typeof BindingType];
+
+export const ConfigServerEnabledState = {
+    /**
+     * Enable the config server.
+     */
+    Enabled: "Enabled",
+    /**
+     * Disable the config server.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enabled state of the config server. This is only used in Consumption tier.
+ */
+export type ConfigServerEnabledState = (typeof ConfigServerEnabledState)[keyof typeof ConfigServerEnabledState];
+
+export const ConfigurationServiceGeneration = {
+    Gen1: "Gen1",
+    Gen2: "Gen2",
+} as const;
+
+/**
+ * The generation of the Application Configuration Service.
+ */
+export type ConfigurationServiceGeneration = (typeof ConfigurationServiceGeneration)[keyof typeof ConfigurationServiceGeneration];
 
 export const DevToolPortalFeatureState = {
     /**
@@ -58,6 +98,22 @@ export const DevToolPortalFeatureState = {
  */
 export type DevToolPortalFeatureState = (typeof DevToolPortalFeatureState)[keyof typeof DevToolPortalFeatureState];
 
+export const GatewayCertificateVerification = {
+    /**
+     * Enable certificate verification in Spring Cloud Gateway.
+     */
+    Enabled: "Enabled",
+    /**
+     * Disable certificate verification in Spring Cloud Gateway.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether to enable certificate verification or not
+ */
+export type GatewayCertificateVerification = (typeof GatewayCertificateVerification)[keyof typeof GatewayCertificateVerification];
+
 export const GatewayRouteConfigProtocol = {
     HTTP: "HTTP",
     HTTPS: "HTTPS",
@@ -67,6 +123,16 @@ export const GatewayRouteConfigProtocol = {
  * Protocol of routed Azure Spring Apps applications.
  */
 export type GatewayRouteConfigProtocol = (typeof GatewayRouteConfigProtocol)[keyof typeof GatewayRouteConfigProtocol];
+
+export const GitImplementation = {
+    Go_git: "go-git",
+    Libgit2: "libgit2",
+} as const;
+
+/**
+ * Git libraries used to support various repository providers
+ */
+export type GitImplementation = (typeof GitImplementation)[keyof typeof GitImplementation];
 
 export const HTTPSchemeType = {
     HTTP: "HTTP",

@@ -113,7 +113,6 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagepool:DiskPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210401preview:DiskPool"},
                     new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210801:DiskPool"},
                 },
             };

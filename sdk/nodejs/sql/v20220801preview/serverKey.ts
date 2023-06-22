@@ -114,7 +114,7 @@ export class ServerKey extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerKey" }, { type: "azure-native:sql/v20150501preview:ServerKey" }, { type: "azure-native:sql/v20200202preview:ServerKey" }, { type: "azure-native:sql/v20200801preview:ServerKey" }, { type: "azure-native:sql/v20201101preview:ServerKey" }, { type: "azure-native:sql/v20210201preview:ServerKey" }, { type: "azure-native:sql/v20210501preview:ServerKey" }, { type: "azure-native:sql/v20210801preview:ServerKey" }, { type: "azure-native:sql/v20211101:ServerKey" }, { type: "azure-native:sql/v20211101preview:ServerKey" }, { type: "azure-native:sql/v20220201preview:ServerKey" }, { type: "azure-native:sql/v20220501preview:ServerKey" }, { type: "azure-native:sql/v20221101preview:ServerKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerKey" }, { type: "azure-native:sql/v20150501preview:ServerKey" }, { type: "azure-native:sql/v20200202preview:ServerKey" }, { type: "azure-native:sql/v20200801preview:ServerKey" }, { type: "azure-native:sql/v20201101preview:ServerKey" }, { type: "azure-native:sql/v20210201preview:ServerKey" }, { type: "azure-native:sql/v20210501preview:ServerKey" }, { type: "azure-native:sql/v20210801preview:ServerKey" }, { type: "azure-native:sql/v20211101preview:ServerKey" }, { type: "azure-native:sql/v20221101preview:ServerKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerKey.__pulumiType, name, resourceInputs, opts);
     }

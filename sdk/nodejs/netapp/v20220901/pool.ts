@@ -157,7 +157,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["utilizedThroughputMibps"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp:Pool" }, { type: "azure-native:netapp/v20201201:Pool" }, { type: "azure-native:netapp/v20210201:Pool" }, { type: "azure-native:netapp/v20210401:Pool" }, { type: "azure-native:netapp/v20210401preview:Pool" }, { type: "azure-native:netapp/v20210601:Pool" }, { type: "azure-native:netapp/v20210801:Pool" }, { type: "azure-native:netapp/v20211001:Pool" }, { type: "azure-native:netapp/v20220101:Pool" }, { type: "azure-native:netapp/v20220301:Pool" }, { type: "azure-native:netapp/v20220501:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp:Pool" }, { type: "azure-native:netapp/v20201201:Pool" }, { type: "azure-native:netapp/v20210401:Pool" }, { type: "azure-native:netapp/v20210401preview:Pool" }, { type: "azure-native:netapp/v20211001:Pool" }, { type: "azure-native:netapp/v20220101:Pool" }, { type: "azure-native:netapp/v20220501:Pool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pool.__pulumiType, name, resourceInputs, opts);
     }

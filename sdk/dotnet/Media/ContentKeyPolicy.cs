@@ -91,11 +91,8 @@ namespace Pulumi.AzureNative.Media
                 {
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:ContentKeyPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:ContentKeyPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:ContentKeyPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20200501:ContentKeyPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:ContentKeyPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20211101:ContentKeyPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:ContentKeyPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20230101:ContentKeyPolicy"},
                 },
             };

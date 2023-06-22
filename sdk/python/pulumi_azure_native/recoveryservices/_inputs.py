@@ -18,7 +18,6 @@ __all__ = [
     'A2APolicyCreationInputArgs',
     'A2AVmDiskInputDetailsArgs',
     'A2AVmManagedDiskInputDetailsArgs',
-    'AADProperties',
     'AddRecoveryServicesProviderInputPropertiesArgs',
     'AddVCenterRequestPropertiesArgs',
     'AzureBackupServerContainerArgs',
@@ -891,71 +890,6 @@ class A2AVmManagedDiskInputDetailsArgs:
     @recovery_target_disk_account_type.setter
     def recovery_target_disk_account_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "recovery_target_disk_account_type", value)
-
-
-@pulumi.input_type
-class AADProperties:
-    def __init__(__self__, *,
-                 audience: Optional[str] = None,
-                 authority: Optional[str] = None,
-                 service_principal_client_id: Optional[str] = None,
-                 service_principal_object_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None):
-        if audience is not None:
-            pulumi.set(__self__, "audience", audience)
-        if authority is not None:
-            pulumi.set(__self__, "authority", authority)
-        if service_principal_client_id is not None:
-            pulumi.set(__self__, "service_principal_client_id", service_principal_client_id)
-        if service_principal_object_id is not None:
-            pulumi.set(__self__, "service_principal_object_id", service_principal_object_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter
-    def audience(self) -> Optional[str]:
-        return pulumi.get(self, "audience")
-
-    @audience.setter
-    def audience(self, value: Optional[str]):
-        pulumi.set(self, "audience", value)
-
-    @property
-    @pulumi.getter
-    def authority(self) -> Optional[str]:
-        return pulumi.get(self, "authority")
-
-    @authority.setter
-    def authority(self, value: Optional[str]):
-        pulumi.set(self, "authority", value)
-
-    @property
-    @pulumi.getter(name="servicePrincipalClientId")
-    def service_principal_client_id(self) -> Optional[str]:
-        return pulumi.get(self, "service_principal_client_id")
-
-    @service_principal_client_id.setter
-    def service_principal_client_id(self, value: Optional[str]):
-        pulumi.set(self, "service_principal_client_id", value)
-
-    @property
-    @pulumi.getter(name="servicePrincipalObjectId")
-    def service_principal_object_id(self) -> Optional[str]:
-        return pulumi.get(self, "service_principal_object_id")
-
-    @service_principal_object_id.setter
-    def service_principal_object_id(self, value: Optional[str]):
-        pulumi.set(self, "service_principal_object_id", value)
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: Optional[str]):
-        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type

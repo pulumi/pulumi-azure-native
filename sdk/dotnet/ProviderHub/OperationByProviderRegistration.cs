@@ -75,7 +75,6 @@ namespace Pulumi.AzureNative.ProviderHub
                 {
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20201120:OperationByProviderRegistration"},
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:OperationByProviderRegistration"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:OperationByProviderRegistration"},
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:OperationByProviderRegistration"},
                 },
             };

@@ -300,7 +300,7 @@ export class Disk extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:Disk" }, { type: "azure-native:compute/v20200930:Disk" }, { type: "azure-native:compute/v20201201:Disk" }, { type: "azure-native:compute/v20210401:Disk" }, { type: "azure-native:compute/v20210801:Disk" }, { type: "azure-native:compute/v20211201:Disk" }, { type: "azure-native:compute/v20220302:Disk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:Disk" }, { type: "azure-native:compute/v20200930:Disk" }, { type: "azure-native:compute/v20201201:Disk" }, { type: "azure-native:compute/v20210401:Disk" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Disk.__pulumiType, name, resourceInputs, opts);
     }

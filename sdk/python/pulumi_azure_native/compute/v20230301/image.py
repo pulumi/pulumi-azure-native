@@ -231,7 +231,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:Image"), pulumi.Alias(type_="azure-native:compute/v20201201:Image"), pulumi.Alias(type_="azure-native:compute/v20210301:Image"), pulumi.Alias(type_="azure-native:compute/v20210401:Image"), pulumi.Alias(type_="azure-native:compute/v20210701:Image"), pulumi.Alias(type_="azure-native:compute/v20211101:Image"), pulumi.Alias(type_="azure-native:compute/v20220301:Image"), pulumi.Alias(type_="azure-native:compute/v20220801:Image"), pulumi.Alias(type_="azure-native:compute/v20221101:Image")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:Image"), pulumi.Alias(type_="azure-native:compute/v20201201:Image"), pulumi.Alias(type_="azure-native:compute/v20210301:Image"), pulumi.Alias(type_="azure-native:compute/v20210401:Image"), pulumi.Alias(type_="azure-native:compute/v20211101:Image"), pulumi.Alias(type_="azure-native:compute/v20221101:Image")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Image, __self__).__init__(
             'azure-native:compute/v20230301:Image',

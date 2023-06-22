@@ -78,7 +78,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByHostPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool"},
                 },

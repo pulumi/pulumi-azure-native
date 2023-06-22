@@ -159,7 +159,7 @@ def get_webhook(registry_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebhookResult:
     """
     Gets the properties of the specified webhook.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str registry_name: The name of the container registry.
@@ -193,7 +193,7 @@ def get_webhook_output(registry_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebhookResult]:
     """
     Gets the properties of the specified webhook.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str registry_name: The name of the container registry.

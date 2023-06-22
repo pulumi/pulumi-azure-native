@@ -114,7 +114,7 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:certificateregistration:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20201201:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20210101:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20210115:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20210201:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20210301:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20220301:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20220901:AppServiceCertificateOrderCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:certificateregistration:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20220901:AppServiceCertificateOrderCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServiceCertificateOrderCertificate.__pulumiType, name, resourceInputs, opts);
     }

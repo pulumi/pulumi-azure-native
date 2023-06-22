@@ -109,17 +109,13 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHybridConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHybridConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppHybridConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppHybridConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppHybridConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppHybridConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHybridConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppHybridConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppHybridConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHybridConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppHybridConnectionSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHybridConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHybridConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppHybridConnectionSlot"},
                 },

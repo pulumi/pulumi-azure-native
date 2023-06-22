@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a server.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:sql:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a server.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:sql:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -88,9 +88,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// The Azure Active Directory administrator of the server.
+        /// The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         /// </summary>
         public readonly Outputs.ServerExternalAdministratorResponse? Administrators;
+        /// <summary>
+        /// Status of external governance.
+        /// </summary>
+        public readonly string ExternalGovernanceStatus;
         /// <summary>
         /// The Client id used for cross tenant CMK scenario
         /// </summary>
@@ -120,7 +124,7 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        /// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
         /// </summary>
         public readonly string? MinimalTlsVersion;
         /// <summary>
@@ -136,7 +140,7 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
-        /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
@@ -169,6 +173,8 @@ namespace Pulumi.AzureNative.Sql
             string? administratorLogin,
 
             Outputs.ServerExternalAdministratorResponse? administrators,
+
+            string externalGovernanceStatus,
 
             string? federatedClientId,
 
@@ -208,6 +214,7 @@ namespace Pulumi.AzureNative.Sql
         {
             AdministratorLogin = administratorLogin;
             Administrators = administrators;
+            ExternalGovernanceStatus = externalGovernanceStatus;
             FederatedClientId = federatedClientId;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             Id = id;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Database, Server or Elastic Pool Advisor.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DatabaseAdvisor")]
     public partial class DatabaseAdvisor : global::Pulumi.CustomResource
@@ -109,10 +109,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:DatabaseAdvisor"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DatabaseAdvisor"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DatabaseAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DatabaseAdvisor"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DatabaseAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DatabaseAdvisor"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:DatabaseAdvisor"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:DatabaseAdvisor"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:DatabaseAdvisor"},
                 },

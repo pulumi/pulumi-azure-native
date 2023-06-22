@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a scaling plan definition.
-    /// Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
+    /// Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:ScalingPlan")]
     public partial class ScalingPlan : global::Pulumi.CustomResource
@@ -146,15 +146,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:ScalingPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:ScalingPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:ScalingPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:ScalingPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:ScalingPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:ScalingPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:ScalingPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:ScalingPlan"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:ScalingPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:ScalingPlan"},
                 },
             };

@@ -162,7 +162,7 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Distributed availability group between box and Sql Managed Instance.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-05-01-preview
+        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +183,7 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Distributed availability group between box and Sql Managed Instance.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-05-01-preview
+        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param DistributedAvailabilityGroupArgs args: The arguments to use to populate this resource's properties.
@@ -230,13 +230,14 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
             __props__.__dict__["source_endpoint"] = source_endpoint
             __props__.__dict__["target_database"] = target_database
             __props__.__dict__["distributed_availability_group_id"] = None
+            __props__.__dict__["instance_role"] = None
             __props__.__dict__["last_hardened_lsn"] = None
             __props__.__dict__["link_state"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["source_replica_id"] = None
             __props__.__dict__["target_replica_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20210501preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20210801preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20211101:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20211101preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20220201preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20220501preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20220801preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20221101preview:DistributedAvailabilityGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20210501preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20210801preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20211101preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20220801preview:DistributedAvailabilityGroup"), pulumi.Alias(type_="azure-native:sql/v20221101preview:DistributedAvailabilityGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DistributedAvailabilityGroup, __self__).__init__(
             'azure-native:sql:DistributedAvailabilityGroup',
@@ -261,6 +262,7 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
         __props__ = DistributedAvailabilityGroupArgs.__new__(DistributedAvailabilityGroupArgs)
 
         __props__.__dict__["distributed_availability_group_id"] = None
+        __props__.__dict__["instance_role"] = None
         __props__.__dict__["last_hardened_lsn"] = None
         __props__.__dict__["link_state"] = None
         __props__.__dict__["name"] = None
@@ -281,6 +283,14 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
         The distributed availability group id
         """
         return pulumi.get(self, "distributed_availability_group_id")
+
+    @property
+    @pulumi.getter(name="instanceRole")
+    def instance_role(self) -> pulumi.Output[str]:
+        """
+        Role of managed instance
+        """
+        return pulumi.get(self, "instance_role")
 
     @property
     @pulumi.getter(name="lastHardenedLsn")

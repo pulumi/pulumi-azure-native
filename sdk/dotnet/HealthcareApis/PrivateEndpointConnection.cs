@@ -77,12 +77,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210111:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:PrivateEndpointConnection"},

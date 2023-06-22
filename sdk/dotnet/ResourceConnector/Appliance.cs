@@ -114,7 +114,6 @@ namespace Pulumi.AzureNative.ResourceConnector
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:resourceconnector/v20211031preview:Appliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:resourceconnector/v20220415preview:Appliance"},
                     new global::Pulumi.Alias { Type = "azure-native:resourceconnector/v20221027:Appliance"},
                 },
             };

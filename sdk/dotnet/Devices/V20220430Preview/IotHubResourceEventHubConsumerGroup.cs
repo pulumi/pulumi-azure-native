@@ -64,21 +64,10 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devices:IotHubResourceEventHubConsumerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:IotHubResourceEventHubConsumerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200401:IotHubResourceEventHubConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200615:IotHubResourceEventHubConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200710preview:IotHubResourceEventHubConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200801:IotHubResourceEventHubConsumerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200831:IotHubResourceEventHubConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200831preview:IotHubResourceEventHubConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210201preview:IotHubResourceEventHubConsumerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20210303preview:IotHubResourceEventHubConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210331:IotHubResourceEventHubConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210701:IotHubResourceEventHubConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210701preview:IotHubResourceEventHubConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210702:IotHubResourceEventHubConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210702preview:IotHubResourceEventHubConsumerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20221115preview:IotHubResourceEventHubConsumerGroup"},
                 },
             };

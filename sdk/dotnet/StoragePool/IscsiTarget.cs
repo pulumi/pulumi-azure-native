@@ -126,7 +126,6 @@ namespace Pulumi.AzureNative.StoragePool
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagepool/v20200315preview:IscsiTarget"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210401preview:IscsiTarget"},
                     new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210801:IscsiTarget"},
                 },
             };

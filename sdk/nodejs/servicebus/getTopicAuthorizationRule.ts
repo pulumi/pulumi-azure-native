@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the specified authorization rule.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicAuthorizationRuleResult> {
 
@@ -72,7 +72,7 @@ export interface GetTopicAuthorizationRuleResult {
 }
 /**
  * Returns the specified authorization rule.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getTopicAuthorizationRule(a, opts))

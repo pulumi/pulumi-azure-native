@@ -291,13 +291,13 @@ class JobScheduleArgs:
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if end_time is None:
-            end_time = '9999-12-31T11:59:59+00:00'
+            end_time = '9999-12-31T03:59:59-08:00'
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
         if start_time is None:
-            start_time = '0001-01-01T00:00:00+00:00'
+            start_time = '0001-01-01T16:00:00-08:00'
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
         if type is None:

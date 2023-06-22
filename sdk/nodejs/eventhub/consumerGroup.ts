@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single item in List or Get Consumer group operation
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class ConsumerGroup extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
             resourceInputs["userMetadata"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20170401:ConsumerGroup" }, { type: "azure-native:eventhub/v20180101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20210101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20210601preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20211101:ConsumerGroup" }, { type: "azure-native:eventhub/v20220101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20221001preview:ConsumerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20170401:ConsumerGroup" }, { type: "azure-native:eventhub/v20180101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20220101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20221001preview:ConsumerGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConsumerGroup.__pulumiType, name, resourceInputs, opts);
     }

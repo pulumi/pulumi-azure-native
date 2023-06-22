@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a webhook for a container registry.
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2019-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource
@@ -95,17 +95,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Webhook"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Webhook"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501:Webhook"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Webhook"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Webhook"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Webhook"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Webhook"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210901:Webhook"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Webhook"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Webhook"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20221201:Webhook"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:Webhook"},
                 },
             };

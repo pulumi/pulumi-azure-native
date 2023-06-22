@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The private endpoint connection of a provisioning service
- * Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01
+ * Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-03-01
  */
 export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -89,7 +89,7 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20221212:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotDpsResourcePrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

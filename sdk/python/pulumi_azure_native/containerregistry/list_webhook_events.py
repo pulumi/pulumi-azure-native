@@ -63,7 +63,7 @@ def list_webhook_events(registry_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebhookEventsResult:
     """
     Lists recent events for the specified webhook.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str registry_name: The name of the container registry.
@@ -89,7 +89,7 @@ def list_webhook_events_output(registry_name: Optional[pulumi.Input[str]] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebhookEventsResult]:
     """
     Lists recent events for the specified webhook.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str registry_name: The name of the container registry.

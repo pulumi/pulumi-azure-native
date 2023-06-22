@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Monitoring Setting resource
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-07-01
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:MonitoringSetting")]
     public partial class MonitoringSetting : global::Pulumi.CustomResource
@@ -66,16 +66,9 @@ namespace Pulumi.AzureNative.AppPlatform
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20200701:MonitoringSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:MonitoringSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:MonitoringSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:MonitoringSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:MonitoringSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:MonitoringSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:MonitoringSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:MonitoringSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:MonitoringSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:MonitoringSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:MonitoringSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:MonitoringSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:MonitoringSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:MonitoringSetting"},

@@ -16,10 +16,28 @@ namespace Pulumi.AzureNative.Maps.Inputs
     public sealed class MapsAccountPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+        /// </summary>
+        [Input("cors")]
+        public Input<Inputs.CorsRulesArgs>? Cors { get; set; }
+
+        /// <summary>
         /// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
         /// </summary>
         [Input("disableLocalAuth")]
         public Input<bool>? DisableLocalAuth { get; set; }
+
+        [Input("linkedResources")]
+        private InputList<Inputs.LinkedResourceArgs>? _linkedResources;
+
+        /// <summary>
+        /// Sets the resources to be used for Managed Identities based operations for the Map account resource.
+        /// </summary>
+        public InputList<Inputs.LinkedResourceArgs> LinkedResources
+        {
+            get => _linkedResources ?? (_linkedResources = new InputList<Inputs.LinkedResourceArgs>());
+            set => _linkedResources = value;
+        }
 
         public MapsAccountPropertiesArgs()
         {

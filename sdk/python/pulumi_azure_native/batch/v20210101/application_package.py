@@ -155,7 +155,7 @@ class ApplicationPackage(pulumi.CustomResource):
             __props__.__dict__["storage_url"] = None
             __props__.__dict__["storage_url_expiry"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20210601:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20220101:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20220601:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20221001:ApplicationPackage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20220101:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20220601:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20221001:ApplicationPackage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationPackage, __self__).__init__(
             'azure-native:batch/v20210101:ApplicationPackage',

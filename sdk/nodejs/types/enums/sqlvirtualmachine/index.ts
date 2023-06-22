@@ -137,6 +137,16 @@ export const IdentityType = {
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
+export const LeastPrivilegeMode = {
+    Enabled: "Enabled",
+    NotSet: "NotSet",
+} as const;
+
+/**
+ * SQL IaaS Agent least privilege mode.
+ */
+export type LeastPrivilegeMode = (typeof LeastPrivilegeMode)[keyof typeof LeastPrivilegeMode];
+
 export const ReadableSecondary = {
     No: "No",
     All: "All",
@@ -178,7 +188,7 @@ export const SqlManagementMode = {
 } as const;
 
 /**
- * SQL Server Management type.
+ * SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
  */
 export type SqlManagementMode = (typeof SqlManagementMode)[keyof typeof SqlManagementMode];
 

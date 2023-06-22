@@ -143,16 +143,11 @@ namespace Pulumi.AzureNative.Network.V20201101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20191201:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:NetworkVirtualAppliance"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401:NetworkVirtualAppliance"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200501:NetworkVirtualAppliance"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkVirtualAppliance"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201:NetworkVirtualAppliance"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210301:NetworkVirtualAppliance"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:NetworkVirtualAppliance"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:NetworkVirtualAppliance"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkVirtualAppliance"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:NetworkVirtualAppliance"},

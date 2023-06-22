@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An Azure SQL managed instance.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedInstance")]
     public partial class ManagedInstance : global::Pulumi.CustomResource
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Sql
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Active Directory administrator of the server.
+        /// The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         /// </summary>
         [Output("administrators")]
         public Output<Outputs.ManagedInstanceExternalAdministratorResponse?> Administrators { get; private set; } = null!;
@@ -112,6 +112,9 @@ namespace Pulumi.AzureNative.Sql
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.ManagedInstancePecPropertyResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
+        /// <summary>
+        /// Provisioning state of managed instance.
+        /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
@@ -193,6 +196,12 @@ namespace Pulumi.AzureNative.Sql
         public Output<int?> VCores { get; private set; } = null!;
 
         /// <summary>
+        /// Virtual cluster resource id for the Managed Instance.
+        /// </summary>
+        [Output("virtualClusterId")]
+        public Output<string> VirtualClusterId { get; private set; } = null!;
+
+        /// <summary>
         /// Whether or not the multi-az is enabled.
         /// </summary>
         [Output("zoneRedundant")]
@@ -231,10 +240,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ManagedInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ManagedInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ManagedInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ManagedInstance"},
                 },
@@ -273,7 +279,7 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? AdministratorLoginPassword { get; set; }
 
         /// <summary>
-        /// The Azure Active Directory administrator of the server.
+        /// The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         /// </summary>
         [Input("administrators")]
         public Input<Inputs.ManagedInstanceExternalAdministratorArgs>? Administrators { get; set; }

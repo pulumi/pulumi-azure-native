@@ -221,8 +221,6 @@ namespace Pulumi.AzureNative.Authorization.V20210301Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:authorization:AccessReviewScheduleDefinitionById"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20211116preview:AccessReviewScheduleDefinitionById"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById"},
                 },

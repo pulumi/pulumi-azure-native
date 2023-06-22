@@ -181,9 +181,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20221001Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicebus:Subscription"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Subscription"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Subscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Subscription"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Subscription"},
                 },
             };

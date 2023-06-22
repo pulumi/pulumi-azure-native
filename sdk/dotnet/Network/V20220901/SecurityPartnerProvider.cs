@@ -95,16 +95,12 @@ namespace Pulumi.AzureNative.Network.V20220901
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:SecurityPartnerProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200301:SecurityPartnerProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401:SecurityPartnerProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200501:SecurityPartnerProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:SecurityPartnerProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:SecurityPartnerProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:SecurityPartnerProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20201101:SecurityPartnerProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201:SecurityPartnerProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210301:SecurityPartnerProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:SecurityPartnerProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:SecurityPartnerProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:SecurityPartnerProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:SecurityPartnerProvider"},

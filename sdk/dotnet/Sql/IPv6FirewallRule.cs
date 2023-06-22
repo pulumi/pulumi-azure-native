@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An IPv6 server firewall rule.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-08-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-08-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:IPv6FirewallRule")]
     public partial class IPv6FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
+        /// The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpv6Address.
         /// </summary>
         [Output("endIPv6Address")]
         public Output<string?> EndIPv6Address { get; private set; } = null!;
@@ -66,10 +66,7 @@ namespace Pulumi.AzureNative.Sql
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:IPv6FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:IPv6FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:IPv6FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:IPv6FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:IPv6FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:IPv6FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:IPv6FirewallRule"},
                 },
@@ -96,7 +93,7 @@ namespace Pulumi.AzureNative.Sql
     public sealed class IPv6FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
+        /// The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpv6Address.
         /// </summary>
         [Input("endIPv6Address")]
         public Input<string>? EndIPv6Address { get; set; }

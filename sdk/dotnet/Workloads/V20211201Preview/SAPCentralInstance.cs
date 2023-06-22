@@ -155,7 +155,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:workloads:SAPCentralInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SAPCentralInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SAPCentralInstance"},
                 },
             };

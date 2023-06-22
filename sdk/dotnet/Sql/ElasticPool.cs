@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An elastic pool.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ElasticPool")]
     public partial class ElasticPool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies the availability zone the pool's primary replica is pinned to.
+        /// </summary>
+        [Output("availabilityZone")]
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
+
         /// <summary>
         /// The creation date of the elastic pool (ISO8601 format).
         /// </summary>
@@ -75,6 +81,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("perDatabaseSettings")]
         public Output<Outputs.ElasticPoolPerDatabaseSettingsResponse?> PerDatabaseSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of enclave requested on the elastic pool.
+        /// </summary>
+        [Output("preferredEnclaveType")]
+        public Output<string?> PreferredEnclaveType { get; private set; } = null!;
 
         /// <summary>
         /// The elastic pool SKU.
@@ -138,17 +150,13 @@ namespace Pulumi.AzureNative.Sql
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20171001preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ElasticPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ElasticPool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ElasticPool"},
                 },
@@ -174,6 +182,12 @@ namespace Pulumi.AzureNative.Sql
 
     public sealed class ElasticPoolArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the availability zone the pool's primary replica is pinned to.
+        /// </summary>
+        [Input("availabilityZone")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.AvailabilityZoneType>? AvailabilityZone { get; set; }
+
         /// <summary>
         /// The name of the elastic pool.
         /// </summary>
@@ -221,6 +235,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("perDatabaseSettings")]
         public Input<Inputs.ElasticPoolPerDatabaseSettingsArgs>? PerDatabaseSettings { get; set; }
+
+        /// <summary>
+        /// Type of enclave requested on the elastic pool.
+        /// </summary>
+        [Input("preferredEnclaveType")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.AlwaysEncryptedEnclaveType>? PreferredEnclaveType { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

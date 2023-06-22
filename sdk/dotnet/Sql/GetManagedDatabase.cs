@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a managed database.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetManagedDatabaseResult> InvokeAsync(GetManagedDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseResult>("azure-native:sql:getManagedDatabase", args ?? new GetManagedDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a managed database.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetManagedDatabaseResult> Invoke(GetManagedDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure-native:sql:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+        /// </summary>
+        public readonly bool? IsLedgerOn;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNative.Sql
 
             string id,
 
+            bool? isLedgerOn,
+
             string location,
 
             string name,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.Sql
             EarliestRestorePoint = earliestRestorePoint;
             FailoverGroupId = failoverGroupId;
             Id = id;
+            IsLedgerOn = isLedgerOn;
             Location = location;
             Name = name;
             Status = status;

@@ -8,6 +8,7 @@ __all__ = [
     'LanguageRuntime',
     'LedgerRoleName',
     'LedgerType',
+    'RunningState',
 ]
 
 
@@ -35,3 +36,14 @@ class LedgerType(str, Enum):
     UNKNOWN = "Unknown"
     PUBLIC = "Public"
     PRIVATE = "Private"
+
+
+class RunningState(str, Enum):
+    """
+    Object representing RunningState for Ledger.
+    """
+    ACTIVE = "Active"
+    PAUSED = "Paused"
+    UNKNOWN = "Unknown"
+    PAUSING = "Pausing"
+    RESUMING = "Resuming"

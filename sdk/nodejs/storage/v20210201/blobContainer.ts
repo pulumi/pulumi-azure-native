@@ -175,7 +175,7 @@ export class BlobContainer extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage:BlobContainer" }, { type: "azure-native:storage/v20210101:BlobContainer" }, { type: "azure-native:storage/v20210401:BlobContainer" }, { type: "azure-native:storage/v20210601:BlobContainer" }, { type: "azure-native:storage/v20210801:BlobContainer" }, { type: "azure-native:storage/v20210901:BlobContainer" }, { type: "azure-native:storage/v20220501:BlobContainer" }, { type: "azure-native:storage/v20220901:BlobContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:BlobContainer" }, { type: "azure-native:storage/v20210801:BlobContainer" }, { type: "azure-native:storage/v20220901:BlobContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlobContainer.__pulumiType, name, resourceInputs, opts);
     }

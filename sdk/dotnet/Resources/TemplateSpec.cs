@@ -96,8 +96,6 @@ namespace Pulumi.AzureNative.Resources
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20190601preview:TemplateSpec"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210301preview:TemplateSpec"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210501:TemplateSpec"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20220201:TemplateSpec"},
                 },
             };

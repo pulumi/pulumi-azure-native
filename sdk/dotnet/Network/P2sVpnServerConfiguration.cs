@@ -114,11 +114,8 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:P2sVpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181001:P2sVpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20181101:P2sVpnServerConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181201:P2sVpnServerConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190201:P2sVpnServerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:P2sVpnServerConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190601:P2sVpnServerConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190701:P2sVpnServerConfiguration"},
                 },

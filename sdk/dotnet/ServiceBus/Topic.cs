@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Description of topic resource.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:Topic")]
     public partial class Topic : global::Pulumi.CustomResource
@@ -169,9 +169,6 @@ namespace Pulumi.AzureNative.ServiceBus
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Topic"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Topic"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Topic"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Topic"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:Topic"},
                 },

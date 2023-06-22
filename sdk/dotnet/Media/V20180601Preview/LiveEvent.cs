@@ -132,12 +132,9 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:media:LiveEvent"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:LiveEvent"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20190501preview:LiveEvent"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20200501:LiveEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:LiveEvent"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20211101:LiveEvent"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:LiveEvent"},
                     new global::Pulumi.Alias { Type = "azure-native:media/v20221101:LiveEvent"},
                 },
             };

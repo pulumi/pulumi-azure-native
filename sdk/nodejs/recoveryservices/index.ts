@@ -30,11 +30,6 @@ export const getProtectionPolicy: typeof import("./getProtectionPolicy").getProt
 export const getProtectionPolicyOutput: typeof import("./getProtectionPolicy").getProtectionPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getProtectionPolicy","getProtectionPolicyOutput"], () => require("./getProtectionPolicy"));
 
-export { GetRecoveryPointAccessTokenArgs, GetRecoveryPointAccessTokenResult, GetRecoveryPointAccessTokenOutputArgs } from "./getRecoveryPointAccessToken";
-export const getRecoveryPointAccessToken: typeof import("./getRecoveryPointAccessToken").getRecoveryPointAccessToken = null as any;
-export const getRecoveryPointAccessTokenOutput: typeof import("./getRecoveryPointAccessToken").getRecoveryPointAccessTokenOutput = null as any;
-utilities.lazyLoad(exports, ["getRecoveryPointAccessToken","getRecoveryPointAccessTokenOutput"], () => require("./getRecoveryPointAccessToken"));
-
 export { GetReplicationFabricArgs, GetReplicationFabricResult, GetReplicationFabricOutputArgs } from "./getReplicationFabric";
 export const getReplicationFabric: typeof import("./getReplicationFabric").getReplicationFabric = null as any;
 export const getReplicationFabricOutput: typeof import("./getReplicationFabric").getReplicationFabricOutput = null as any;

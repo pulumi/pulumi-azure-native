@@ -298,7 +298,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["object_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-native:desktopvirtualization/v20210201preview:Workspace',

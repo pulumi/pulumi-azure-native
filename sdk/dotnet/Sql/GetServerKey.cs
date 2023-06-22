@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a server key.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-native:sql:getServerKey", args ?? new GetServerKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a server key.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetServerKeyResult> Invoke(GetServerKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerKeyResult>("azure-native:sql:getServerKey", args ?? new GetServerKeyInvokeArgs(), options.WithDefaults());

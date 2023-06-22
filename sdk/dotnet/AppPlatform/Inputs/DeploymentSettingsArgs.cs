@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
             set => _addonConfigs = value;
         }
 
+        [Input("apms")]
+        private InputList<Inputs.ApmReferenceArgs>? _apms;
+
+        /// <summary>
+        /// Collection of ApmReferences
+        /// </summary>
+        public InputList<Inputs.ApmReferenceArgs> Apms
+        {
+            get => _apms ?? (_apms = new InputList<Inputs.ApmReferenceArgs>());
+            set => _apms = value;
+        }
+
         /// <summary>
         /// Container liveness and readiness probe settings
         /// </summary>
@@ -62,6 +74,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         /// </summary>
         [Input("resourceRequests")]
         public Input<Inputs.ResourceRequestsArgs>? ResourceRequests { get; set; }
+
+        /// <summary>
+        /// Scaling properties for the Azure Spring Apps App Instance.
+        /// </summary>
+        [Input("scale")]
+        public Input<Inputs.ScaleArgs>? Scale { get; set; }
 
         /// <summary>
         /// StartupProbe indicates that the App Instance has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a App Instance's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes

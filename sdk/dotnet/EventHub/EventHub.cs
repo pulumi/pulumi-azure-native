@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Single item in List or Get Event Hub operation
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:EventHub")]
     public partial class EventHub : global::Pulumi.CustomResource
@@ -57,6 +57,12 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         [Output("partitionIds")]
         public Output<ImmutableArray<string>> PartitionIds { get; private set; } = null!;
+
+        /// <summary>
+        /// Event Hub retention settings
+        /// </summary>
+        [Output("retentionDescription")]
+        public Output<Outputs.RetentionDescriptionResponse?> RetentionDescription { get; private set; } = null!;
 
         /// <summary>
         /// Enumerates the possible values for the status of the Event Hub.
@@ -109,9 +115,6 @@ namespace Pulumi.AzureNative.EventHub
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:EventHub"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:EventHub"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:EventHub"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:EventHub"},
                 },
@@ -172,6 +175,12 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Event Hub retention settings
+        /// </summary>
+        [Input("retentionDescription")]
+        public Input<Inputs.RetentionDescriptionArgs>? RetentionDescription { get; set; }
 
         /// <summary>
         /// Enumerates the possible values for the status of the Event Hub.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a target group.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetJobTargetGroupResult> InvokeAsync(GetJobTargetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobTargetGroupResult>("azure-native:sql:getJobTargetGroup", args ?? new GetJobTargetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a target group.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetJobTargetGroupResult> Invoke(GetJobTargetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobTargetGroupResult>("azure-native:sql:getJobTargetGroup", args ?? new GetJobTargetGroupInvokeArgs(), options.WithDefaults());

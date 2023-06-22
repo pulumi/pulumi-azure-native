@@ -102,8 +102,6 @@ namespace Pulumi.AzureNative.Resources.V20220201
                 {
                     new global::Pulumi.Alias { Type = "azure-native:resources:TemplateSpecVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20190601preview:TemplateSpecVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210301preview:TemplateSpecVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210501:TemplateSpecVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Chaos
 {
     /// <summary>
     /// Model that represents a Target resource.
-    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview
+    /// Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos:Target")]
     public partial class Target : global::Pulumi.CustomResource
@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.Chaos
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20210915preview:Target"},
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20220701preview:Target"},
-                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20221001preview:Target"},
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20230401preview:Target"},
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20230415preview:Target"},
                 },

@@ -64,21 +64,10 @@ namespace Pulumi.AzureNative.Devices.V20221115Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devices:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200401:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200615:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200710preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200801:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200831:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20200831preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210201preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20210303preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210331:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210701:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210701preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210702:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:devices/v20210702preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20220430preview:Certificate"},
                 },
             };

@@ -681,7 +681,7 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:Disk"), pulumi.Alias(type_="azure-native:compute/v20200930:Disk"), pulumi.Alias(type_="azure-native:compute/v20201201:Disk"), pulumi.Alias(type_="azure-native:compute/v20210401:Disk"), pulumi.Alias(type_="azure-native:compute/v20210801:Disk"), pulumi.Alias(type_="azure-native:compute/v20211201:Disk"), pulumi.Alias(type_="azure-native:compute/v20220302:Disk")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:Disk"), pulumi.Alias(type_="azure-native:compute/v20200930:Disk"), pulumi.Alias(type_="azure-native:compute/v20201201:Disk"), pulumi.Alias(type_="azure-native:compute/v20210401:Disk")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Disk, __self__).__init__(
             'azure-native:compute/v20220702:Disk',

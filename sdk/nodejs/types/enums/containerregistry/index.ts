@@ -62,6 +62,16 @@ export const AuditLogStatus = {
  */
 export type AuditLogStatus = (typeof AuditLogStatus)[keyof typeof AuditLogStatus];
 
+export const AzureADAuthenticationAsArmPolicyStatus = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * The value that indicates whether the policy is enabled or not.
+ */
+export type AzureADAuthenticationAsArmPolicyStatus = (typeof AzureADAuthenticationAsArmPolicyStatus)[keyof typeof AzureADAuthenticationAsArmPolicyStatus];
+
 export const BaseImageTriggerType = {
     All: "All",
     Runtime: "Runtime",

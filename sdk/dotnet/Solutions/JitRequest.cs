@@ -120,8 +120,6 @@ namespace Pulumi.AzureNative.Solutions
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:solutions/v20190701:JitRequest"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:JitRequest"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:JitRequest"},
                     new global::Pulumi.Alias { Type = "azure-native:solutions/v20210701:JitRequest"},
                 },
             };

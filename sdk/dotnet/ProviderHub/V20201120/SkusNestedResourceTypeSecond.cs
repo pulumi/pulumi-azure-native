@@ -54,7 +54,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
                 {
                     new global::Pulumi.Alias { Type = "azure-native:providerhub:SkusNestedResourceTypeSecond"},
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:SkusNestedResourceTypeSecond"},
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:SkusNestedResourceTypeSecond"},
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond"},
                 },
             };

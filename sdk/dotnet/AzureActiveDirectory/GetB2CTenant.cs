@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     {
         /// <summary>
         /// Get the Azure AD B2C tenant resource.
-        /// Azure REST API version: 2021-04-01.
+        /// Azure REST API version: 2023-01-18-preview.
         /// </summary>
         public static Task<GetB2CTenantResult> InvokeAsync(GetB2CTenantArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Azure AD B2C tenant resource.
-        /// Azure REST API version: 2021-04-01.
+        /// Azure REST API version: 2023-01-18-preview.
         /// </summary>
         public static Output<GetB2CTenantResult> Invoke(GetB2CTenantInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantInvokeArgs(), options.WithDefaults());
@@ -80,6 +80,10 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Enable GoLocal add-on to store data at rest in the specific Geo. Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see local data residency options.
+        /// </summary>
+        public readonly bool? IsGoLocalTenant;
+        /// <summary>
         /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         /// </summary>
         public readonly string Location;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 
             string id,
 
+            bool? isGoLocalTenant,
+
             string location,
 
             string name,
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         {
             BillingConfig = billingConfig;
             Id = id;
+            IsGoLocalTenant = isGoLocalTenant;
             Location = location;
             Name = name;
             Sku = sku;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure resource which represents Maps Creator product and provides ability to manage private location data.
- * Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-02-01-preview
+ * Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 1.x: 2020-02-01-preview
  */
 export class Creator extends pulumi.CustomResource {
     /**
@@ -51,6 +51,10 @@ export class Creator extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.maps.CreatorPropertiesResponse>;
     /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.maps.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -86,16 +90,18 @@ export class Creator extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maps/v20200201preview:Creator" }, { type: "azure-native:maps/v20210201:Creator" }, { type: "azure-native:maps/v20210701preview:Creator" }, { type: "azure-native:maps/v20211201preview:Creator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maps/v20200201preview:Creator" }, { type: "azure-native:maps/v20211201preview:Creator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Creator.__pulumiType, name, resourceInputs, opts);
     }

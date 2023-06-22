@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
- * Azure REST API version: 2021-10-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedClusterResult> {
 
@@ -44,6 +44,10 @@ export interface GetConnectedClusterResult {
      */
     readonly agentVersion: string;
     /**
+     * Indicates whether Azure Hybrid Benefit is opted in
+     */
+    readonly azureHybridBenefit?: string;
+    /**
      * Represents the connectivity status of the connected cluster.
      */
     readonly connectivityStatus: string;
@@ -51,6 +55,10 @@ export interface GetConnectedClusterResult {
      * The Kubernetes distribution running on this connected cluster.
      */
     readonly distribution?: string;
+    /**
+     * The Kubernetes distribution version on this connected cluster.
+     */
+    readonly distributionVersion?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -80,6 +88,10 @@ export interface GetConnectedClusterResult {
      */
     readonly managedIdentityCertificateExpirationTime: string;
     /**
+     * More properties related to the Connected Cluster
+     */
+    readonly miscellaneousProperties: {[key: string]: string};
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -87,6 +99,14 @@ export interface GetConnectedClusterResult {
      * Connected cluster offering
      */
     readonly offering: string;
+    /**
+     * The resource id of the private link scope this connected cluster is assigned to, if any.
+     */
+    readonly privateLinkScopeResourceId?: string;
+    /**
+     * Property which describes the state of private link on a connected cluster resource.
+     */
+    readonly privateLinkState?: string;
     /**
      * Provisioning state of the connected cluster resource.
      */
@@ -114,7 +134,7 @@ export interface GetConnectedClusterResult {
 }
 /**
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
- * Azure REST API version: 2021-10-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getConnectedClusterOutput(args: GetConnectedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedClusterResult> {
     return pulumi.output(args).apply((a: any) => getConnectedCluster(a, opts))

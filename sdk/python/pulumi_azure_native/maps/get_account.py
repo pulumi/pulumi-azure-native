@@ -22,10 +22,13 @@ class GetAccountResult:
     """
     An Azure resource which represents access to a suite of Maps REST APIs.
     """
-    def __init__(__self__, id=None, kind=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, identity=None, kind=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -58,6 +61,14 @@ class GetAccountResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Sets the identity property for maps account.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -131,6 +142,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             id=self.id,
+            identity=self.identity,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -146,7 +158,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Get a Maps Account.
-    Azure REST API version: 2021-02-01.
+    Azure REST API version: 2021-12-01-preview.
 
 
     :param str account_name: The name of the Maps Account.
@@ -160,6 +172,7 @@ def get_account(account_name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         id=__ret__.id,
+        identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
@@ -176,7 +189,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Get a Maps Account.
-    Azure REST API version: 2021-02-01.
+    Azure REST API version: 2021-12-01-preview.
 
 
     :param str account_name: The name of the Maps Account.

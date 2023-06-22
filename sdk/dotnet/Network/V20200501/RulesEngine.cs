@@ -65,7 +65,6 @@ namespace Pulumi.AzureNative.Network.V20200501
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:RulesEngine"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:RulesEngine"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401:RulesEngine"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210601:RulesEngine"},
                 },

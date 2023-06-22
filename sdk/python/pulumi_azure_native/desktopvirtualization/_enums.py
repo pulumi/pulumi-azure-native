@@ -9,10 +9,12 @@ __all__ = [
     'CommandLineSetting',
     'DayOfWeek',
     'HostPoolType',
+    'HostpoolPublicNetworkAccess',
     'LoadBalancerType',
     'PersonalDesktopAssignmentType',
     'PreferredAppGroupType',
     'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
     'RegistrationTokenOperation',
     'RemoteApplicationType',
     'ResourceIdentityType',
@@ -70,6 +72,16 @@ class HostPoolType(str, Enum):
     """
 
 
+class HostpoolPublicNetworkAccess(str, Enum):
+    """
+    Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    ENABLED_FOR_SESSION_HOSTS_ONLY = "EnabledForSessionHostsOnly"
+    ENABLED_FOR_CLIENTS_ONLY = "EnabledForClientsOnly"
+
+
 class LoadBalancerType(str, Enum):
     """
     The type of the load balancer.
@@ -103,6 +115,14 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     PENDING = "Pending"
     APPROVED = "Approved"
     REJECTED = "Rejected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class RegistrationTokenOperation(str, Enum):

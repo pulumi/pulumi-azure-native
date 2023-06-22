@@ -37,10 +37,6 @@ namespace Pulumi.AzureNative.Billing.Outputs
         /// </summary>
         public readonly string BillingProfileStatusReasonCode;
         /// <summary>
-        /// The system generated unique identifier for a billing profile.
-        /// </summary>
-        public readonly string BillingProfileSystemId;
-        /// <summary>
         /// Enabled azure plans for the associated billing profile.
         /// </summary>
         public readonly ImmutableArray<Outputs.AzurePlanResponse> EnabledAzurePlans;
@@ -52,10 +48,6 @@ namespace Pulumi.AzureNative.Billing.Outputs
         /// The ID of the invoice section.
         /// </summary>
         public readonly string InvoiceSectionId;
-        /// <summary>
-        /// The system generated unique identifier for an invoice section.
-        /// </summary>
-        public readonly string InvoiceSectionSystemId;
 
         [OutputConstructor]
         private InvoiceSectionWithCreateSubPermissionResponse(
@@ -69,26 +61,20 @@ namespace Pulumi.AzureNative.Billing.Outputs
 
             string billingProfileStatusReasonCode,
 
-            string billingProfileSystemId,
-
             ImmutableArray<Outputs.AzurePlanResponse> enabledAzurePlans,
 
             string invoiceSectionDisplayName,
 
-            string invoiceSectionId,
-
-            string invoiceSectionSystemId)
+            string invoiceSectionId)
         {
             BillingProfileDisplayName = billingProfileDisplayName;
             BillingProfileId = billingProfileId;
             BillingProfileSpendingLimit = billingProfileSpendingLimit;
             BillingProfileStatus = billingProfileStatus;
             BillingProfileStatusReasonCode = billingProfileStatusReasonCode;
-            BillingProfileSystemId = billingProfileSystemId;
             EnabledAzurePlans = enabledAzurePlans;
             InvoiceSectionDisplayName = invoiceSectionDisplayName;
             InvoiceSectionId = invoiceSectionId;
-            InvoiceSectionSystemId = invoiceSectionSystemId;
         }
     }
 }

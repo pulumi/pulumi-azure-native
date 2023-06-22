@@ -66,11 +66,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform:Storage"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:Storage"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:Storage"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:Storage"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:Storage"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:Storage"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:Storage"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:Storage"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:Storage"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:Storage"},

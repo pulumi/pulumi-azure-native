@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Maps
     {
         /// <summary>
         /// Get a Maps Account.
-        /// Azure REST API version: 2021-02-01.
+        /// Azure REST API version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:maps:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Maps Account.
-        /// Azure REST API version: 2021-02-01.
+        /// Azure REST API version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:maps:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -76,6 +76,10 @@ namespace Pulumi.AzureNative.Maps
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Sets the identity property for maps account.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
         /// Get or Set Kind property.
         /// </summary>
         public readonly string? Kind;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.Maps
         private GetAccountResult(
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
             string? kind,
 
             string location,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.Maps
             string type)
         {
             Id = id;
+            Identity = identity;
             Kind = kind;
             Location = location;
             Name = name;

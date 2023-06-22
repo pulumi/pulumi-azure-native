@@ -148,7 +148,7 @@ export class VirtualharddiskRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:virtualharddiskRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:VirtualharddiskRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:virtualharddiskRetrieve" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualharddiskRetrieve" }, { type: "azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualharddiskRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:virtualharddiskRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:virtualharddiskRetrieve" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualharddiskRetrieve" }, { type: "azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualharddiskRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:virtualharddiskRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualharddiskRetrieve.__pulumiType, name, resourceInputs, opts);
     }

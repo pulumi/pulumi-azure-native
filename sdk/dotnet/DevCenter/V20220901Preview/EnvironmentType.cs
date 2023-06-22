@@ -71,8 +71,6 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devcenter:EnvironmentType"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:EnvironmentType"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:EnvironmentType"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:EnvironmentType"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:EnvironmentType"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:EnvironmentType"},

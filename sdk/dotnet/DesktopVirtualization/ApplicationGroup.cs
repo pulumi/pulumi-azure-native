@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a ApplicationGroup definition.
-    /// Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
+    /// Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:ApplicationGroup")]
     public partial class ApplicationGroup : global::Pulumi.CustomResource
@@ -140,15 +140,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:ApplicationGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:ApplicationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:ApplicationGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:ApplicationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:ApplicationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:ApplicationGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:ApplicationGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:ApplicationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:ApplicationGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:ApplicationGroup"},
                 },
             };

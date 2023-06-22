@@ -17,11 +17,19 @@ namespace Pulumi.AzureNative.Maps.Outputs
     public sealed class MapsAccountPropertiesResponse
     {
         /// <summary>
+        /// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+        /// </summary>
+        public readonly Outputs.CorsRulesResponse? Cors;
+        /// <summary>
         /// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
         /// </summary>
         public readonly bool? DisableLocalAuth;
         /// <summary>
-        /// the state of the provisioning.
+        /// Sets the resources to be used for Managed Identities based operations for the Map account resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LinkedResourceResponse> LinkedResources;
+        /// <summary>
+        /// The provisioning state of the Map account resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -31,13 +39,19 @@ namespace Pulumi.AzureNative.Maps.Outputs
 
         [OutputConstructor]
         private MapsAccountPropertiesResponse(
+            Outputs.CorsRulesResponse? cors,
+
             bool? disableLocalAuth,
+
+            ImmutableArray<Outputs.LinkedResourceResponse> linkedResources,
 
             string provisioningState,
 
             string uniqueId)
         {
+            Cors = cors;
             DisableLocalAuth = disableLocalAuth;
+            LinkedResources = linkedResources;
             ProvisioningState = provisioningState;
             UniqueId = uniqueId;
         }

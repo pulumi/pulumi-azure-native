@@ -11,24 +11,24 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
 {
 
     /// <summary>
-    /// Configure assessment for databases in your SQL virtual machine.
+    /// Configure SQL best practices Assessment for databases in your SQL virtual machine.
     /// </summary>
     public sealed class AssessmentSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable or disable assessment feature on SQL virtual machine.
+        /// Enable or disable SQL best practices Assessment feature on SQL virtual machine.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
 
         /// <summary>
-        /// Run assessment immediately on SQL virtual machine.
+        /// Run SQL best practices Assessment immediately on SQL virtual machine.
         /// </summary>
         [Input("runImmediately")]
         public Input<bool>? RunImmediately { get; set; }
 
         /// <summary>
-        /// Schedule for Assessment.
+        /// Schedule for SQL best practices Assessment.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.ScheduleArgs>? Schedule { get; set; }

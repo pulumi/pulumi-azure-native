@@ -86,18 +86,7 @@ namespace Pulumi.AzureNative.DataProtection.V20221101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection:ResourceGuard"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20210701:ResourceGuard"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20211001preview:ResourceGuard"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20211201preview:ResourceGuard"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220101:ResourceGuard"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220201preview:ResourceGuard"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220301:ResourceGuard"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220331preview:ResourceGuard"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220401:ResourceGuard"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220501:ResourceGuard"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220901preview:ResourceGuard"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221001preview:ResourceGuard"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221201:ResourceGuard"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230101:ResourceGuard"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230401preview:ResourceGuard"},
                 },

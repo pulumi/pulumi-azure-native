@@ -87,7 +87,7 @@ export class DataContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:DataContainer" }, { type: "azure-native:machinelearningservices/v20210301preview:DataContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:DataContainer" }, { type: "azure-native:machinelearningservices/v20220501:DataContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:DataContainer" }, { type: "azure-native:machinelearningservices/v20221001:DataContainer" }, { type: "azure-native:machinelearningservices/v20221001preview:DataContainer" }, { type: "azure-native:machinelearningservices/v20230201preview:DataContainer" }, { type: "azure-native:machinelearningservices/v20230401:DataContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:DataContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:DataContainer" }, { type: "azure-native:machinelearningservices/v20210301preview:DataContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:DataContainer" }, { type: "azure-native:machinelearningservices/v20230201preview:DataContainer" }, { type: "azure-native:machinelearningservices/v20230401:DataContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:DataContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataContainer.__pulumiType, name, resourceInputs, opts);
     }

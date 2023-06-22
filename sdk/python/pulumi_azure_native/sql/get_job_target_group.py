@@ -88,7 +88,7 @@ def get_job_target_group(job_agent_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobTargetGroupResult:
     """
     Gets a target group.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str job_agent_name: The name of the job agent.
@@ -119,7 +119,7 @@ def get_job_target_group_output(job_agent_name: Optional[pulumi.Input[str]] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobTargetGroupResult]:
     """
     Gets a target group.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str job_agent_name: The name of the job agent.

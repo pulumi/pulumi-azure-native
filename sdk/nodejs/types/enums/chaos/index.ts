@@ -24,6 +24,7 @@ export type FilterType = (typeof FilterType)[keyof typeof FilterType];
 export const ResourceIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
 } as const;
 
 /**
@@ -32,10 +33,8 @@ export const ResourceIdentityType = {
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SelectorType = {
-    Percent: "Percent",
-    Random: "Random",
-    Tag: "Tag",
     List: "List",
+    Query: "Query",
 } as const;
 
 /**

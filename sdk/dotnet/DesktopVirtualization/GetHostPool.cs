@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get a host pool.
-        /// Azure REST API version: 2022-09-09.
+        /// Azure REST API version: 2022-10-14-preview.
         /// </summary>
         public static Task<GetHostPoolResult> InvokeAsync(GetHostPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a host pool.
-        /// Azure REST API version: 2022-09-09.
+        /// Azure REST API version: 2022-10-14-preview.
         /// </summary>
         public static Output<GetHostPoolResult> Invoke(GetHostPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolInvokeArgs(), options.WithDefaults());
@@ -146,6 +146,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string PreferredAppGroupType;
         /// <summary>
+        /// List of private endpoint connection associated with the specified resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// The registration info of HostPool.
         /// </summary>
         public readonly Outputs.RegistrationInfoResponse? RegistrationInfo;
@@ -237,6 +245,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string preferredAppGroupType,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
+            string? publicNetworkAccess,
+
             Outputs.RegistrationInfoResponse? registrationInfo,
 
             int? ring,
@@ -283,6 +295,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             PersonalDesktopAssignmentType = personalDesktopAssignmentType;
             Plan = plan;
             PreferredAppGroupType = preferredAppGroupType;
+            PrivateEndpointConnections = privateEndpointConnections;
+            PublicNetworkAccess = publicNetworkAccess;
             RegistrationInfo = registrationInfo;
             Ring = ring;
             Sku = sku;

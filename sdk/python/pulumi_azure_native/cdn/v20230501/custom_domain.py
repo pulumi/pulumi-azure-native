@@ -178,7 +178,7 @@ class CustomDomain(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_data"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20200901:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20210601:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:CustomDomain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20200901:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:CustomDomain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomDomain, __self__).__init__(
             'azure-native:cdn/v20230501:CustomDomain',

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a replication for a container registry.
- * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2019-05-01
  */
 export class Replication extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export class Replication extends pulumi.CustomResource {
             resourceInputs["zoneRedundancy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20170601preview:Replication" }, { type: "azure-native:containerregistry/v20171001:Replication" }, { type: "azure-native:containerregistry/v20190501:Replication" }, { type: "azure-native:containerregistry/v20191201preview:Replication" }, { type: "azure-native:containerregistry/v20201101preview:Replication" }, { type: "azure-native:containerregistry/v20210601preview:Replication" }, { type: "azure-native:containerregistry/v20210801preview:Replication" }, { type: "azure-native:containerregistry/v20210901:Replication" }, { type: "azure-native:containerregistry/v20211201preview:Replication" }, { type: "azure-native:containerregistry/v20220201preview:Replication" }, { type: "azure-native:containerregistry/v20221201:Replication" }, { type: "azure-native:containerregistry/v20230101preview:Replication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20190501:Replication" }, { type: "azure-native:containerregistry/v20201101preview:Replication" }, { type: "azure-native:containerregistry/v20230101preview:Replication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Replication.__pulumiType, name, resourceInputs, opts);
     }

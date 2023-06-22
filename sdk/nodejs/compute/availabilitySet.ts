@@ -118,7 +118,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             resourceInputs["virtualMachines"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20201201:AvailabilitySet" }, { type: "azure-native:compute/v20210301:AvailabilitySet" }, { type: "azure-native:compute/v20210401:AvailabilitySet" }, { type: "azure-native:compute/v20210701:AvailabilitySet" }, { type: "azure-native:compute/v20211101:AvailabilitySet" }, { type: "azure-native:compute/v20220301:AvailabilitySet" }, { type: "azure-native:compute/v20220801:AvailabilitySet" }, { type: "azure-native:compute/v20221101:AvailabilitySet" }, { type: "azure-native:compute/v20230301:AvailabilitySet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20201201:AvailabilitySet" }, { type: "azure-native:compute/v20210301:AvailabilitySet" }, { type: "azure-native:compute/v20210401:AvailabilitySet" }, { type: "azure-native:compute/v20211101:AvailabilitySet" }, { type: "azure-native:compute/v20221101:AvailabilitySet" }, { type: "azure-native:compute/v20230301:AvailabilitySet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AvailabilitySet.__pulumiType, name, resourceInputs, opts);
     }

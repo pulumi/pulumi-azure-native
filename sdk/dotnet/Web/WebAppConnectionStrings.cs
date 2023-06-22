@@ -66,17 +66,13 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppConnectionStrings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppConnectionStrings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppConnectionStrings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppConnectionStrings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppConnectionStrings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppConnectionStrings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppConnectionStrings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppConnectionStrings"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppConnectionStrings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppConnectionStrings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppConnectionStrings"},
                 },

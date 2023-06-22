@@ -114,17 +114,13 @@ namespace Pulumi.AzureNative.Web.V20220901
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppHostNameBindingSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHostNameBindingSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppHostNameBindingSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppHostNameBindingSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHostNameBindingSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppHostNameBindingSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppHostNameBindingSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHostNameBindingSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppHostNameBindingSlot"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHostNameBindingSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHostNameBindingSlot"},
                 },
             };

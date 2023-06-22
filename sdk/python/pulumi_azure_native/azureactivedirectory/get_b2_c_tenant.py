@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetB2CTenantResult:
-    def __init__(__self__, billing_config=None, id=None, location=None, name=None, sku=None, system_data=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, billing_config=None, id=None, is_go_local_tenant=None, location=None, name=None, sku=None, system_data=None, tags=None, tenant_id=None, type=None):
         if billing_config and not isinstance(billing_config, dict):
             raise TypeError("Expected argument 'billing_config' to be a dict")
         pulumi.set(__self__, "billing_config", billing_config)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_go_local_tenant and not isinstance(is_go_local_tenant, bool):
+            raise TypeError("Expected argument 'is_go_local_tenant' to be a bool")
+        pulumi.set(__self__, "is_go_local_tenant", is_go_local_tenant)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -63,6 +66,14 @@ class GetB2CTenantResult:
         An identifier that represents the Azure AD B2C tenant resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isGoLocalTenant")
+    def is_go_local_tenant(self) -> Optional[bool]:
+        """
+        Enable GoLocal add-on to store data at rest in the specific Geo. Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see local data residency options.
+        """
+        return pulumi.get(self, "is_go_local_tenant")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetB2CTenantResult(GetB2CTenantResult):
         return GetB2CTenantResult(
             billing_config=self.billing_config,
             id=self.id,
+            is_go_local_tenant=self.is_go_local_tenant,
             location=self.location,
             name=self.name,
             sku=self.sku,
@@ -143,7 +155,7 @@ def get_b2_c_tenant(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetB2CTenantResult:
     """
     Get the Azure AD B2C tenant resource.
-    Azure REST API version: 2021-04-01.
+    Azure REST API version: 2023-01-18-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -158,6 +170,7 @@ def get_b2_c_tenant(resource_group_name: Optional[str] = None,
     return AwaitableGetB2CTenantResult(
         billing_config=__ret__.billing_config,
         id=__ret__.id,
+        is_go_local_tenant=__ret__.is_go_local_tenant,
         location=__ret__.location,
         name=__ret__.name,
         sku=__ret__.sku,
@@ -173,7 +186,7 @@ def get_b2_c_tenant_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetB2CTenantResult]:
     """
     Get the Azure AD B2C tenant resource.
-    Azure REST API version: 2021-04-01.
+    Azure REST API version: 2023-01-18-preview.
 
 
     :param str resource_group_name: The name of the resource group.

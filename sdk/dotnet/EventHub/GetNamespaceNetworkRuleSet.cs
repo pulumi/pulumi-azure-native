@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets NetworkRuleSet for a Namespace.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Task<GetNamespaceNetworkRuleSetResult> InvokeAsync(GetNamespaceNetworkRuleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceNetworkRuleSetResult>("azure-native:eventhub:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets NetworkRuleSet for a Namespace.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Output<GetNamespaceNetworkRuleSetResult> Invoke(GetNamespaceNetworkRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceNetworkRuleSetResult>("azure-native:eventhub:getNamespaceNetworkRuleSet", args ?? new GetNamespaceNetworkRuleSetInvokeArgs(), options.WithDefaults());
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>

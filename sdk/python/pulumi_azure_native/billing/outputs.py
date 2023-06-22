@@ -60,10 +60,8 @@ class InvoiceSectionWithCreateSubPermissionResponse(dict):
                  billing_profile_spending_limit: str,
                  billing_profile_status: str,
                  billing_profile_status_reason_code: str,
-                 billing_profile_system_id: str,
                  invoice_section_display_name: str,
                  invoice_section_id: str,
-                 invoice_section_system_id: str,
                  enabled_azure_plans: Optional[Sequence['outputs.AzurePlanResponse']] = None):
         """
         Invoice section properties with create subscription permission.
@@ -72,10 +70,8 @@ class InvoiceSectionWithCreateSubPermissionResponse(dict):
         :param str billing_profile_spending_limit: The billing profile spending limit.
         :param str billing_profile_status: The status of the billing profile.
         :param str billing_profile_status_reason_code: Reason for the specified billing profile status.
-        :param str billing_profile_system_id: The system generated unique identifier for a billing profile.
         :param str invoice_section_display_name: The name of the invoice section.
         :param str invoice_section_id: The ID of the invoice section.
-        :param str invoice_section_system_id: The system generated unique identifier for an invoice section.
         :param Sequence['AzurePlanResponse'] enabled_azure_plans: Enabled azure plans for the associated billing profile.
         """
         pulumi.set(__self__, "billing_profile_display_name", billing_profile_display_name)
@@ -83,10 +79,8 @@ class InvoiceSectionWithCreateSubPermissionResponse(dict):
         pulumi.set(__self__, "billing_profile_spending_limit", billing_profile_spending_limit)
         pulumi.set(__self__, "billing_profile_status", billing_profile_status)
         pulumi.set(__self__, "billing_profile_status_reason_code", billing_profile_status_reason_code)
-        pulumi.set(__self__, "billing_profile_system_id", billing_profile_system_id)
         pulumi.set(__self__, "invoice_section_display_name", invoice_section_display_name)
         pulumi.set(__self__, "invoice_section_id", invoice_section_id)
-        pulumi.set(__self__, "invoice_section_system_id", invoice_section_system_id)
         if enabled_azure_plans is not None:
             pulumi.set(__self__, "enabled_azure_plans", enabled_azure_plans)
 
@@ -131,14 +125,6 @@ class InvoiceSectionWithCreateSubPermissionResponse(dict):
         return pulumi.get(self, "billing_profile_status_reason_code")
 
     @property
-    @pulumi.getter(name="billingProfileSystemId")
-    def billing_profile_system_id(self) -> str:
-        """
-        The system generated unique identifier for a billing profile.
-        """
-        return pulumi.get(self, "billing_profile_system_id")
-
-    @property
     @pulumi.getter(name="invoiceSectionDisplayName")
     def invoice_section_display_name(self) -> str:
         """
@@ -153,14 +139,6 @@ class InvoiceSectionWithCreateSubPermissionResponse(dict):
         The ID of the invoice section.
         """
         return pulumi.get(self, "invoice_section_id")
-
-    @property
-    @pulumi.getter(name="invoiceSectionSystemId")
-    def invoice_section_system_id(self) -> str:
-        """
-        The system generated unique identifier for an invoice section.
-        """
-        return pulumi.get(self, "invoice_section_system_id")
 
     @property
     @pulumi.getter(name="enabledAzurePlans")

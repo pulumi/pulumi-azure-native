@@ -81,13 +81,10 @@ namespace Pulumi.AzureNative.Web.V20201201
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppPrivateEndpointConnection"},
                 },

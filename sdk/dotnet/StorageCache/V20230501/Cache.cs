@@ -168,11 +168,6 @@ namespace Pulumi.AzureNative.StorageCache.V20230501
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagecache:Cache"},
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20210301:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20210501:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20210901:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20220101:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20220501:Cache"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230101:Cache"},
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230301preview:Cache"},
                 },
             };

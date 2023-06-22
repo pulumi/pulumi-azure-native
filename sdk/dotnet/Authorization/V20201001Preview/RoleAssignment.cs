@@ -127,10 +127,8 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
                     new global::Pulumi.Alias { Type = "azure-native:authorization:RoleAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20171001preview:RoleAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20180101preview:RoleAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20180901preview:RoleAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20200301preview:RoleAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20200401preview:RoleAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200801preview:RoleAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20220401:RoleAssignment"},
                 },
             };

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a ScalingPlanPooledSchedule definition.
- * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2022-04-01-preview
+ * Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview
  */
 export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
     /**
@@ -182,7 +182,7 @@ export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule" }, { type: "azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScalingPlanPooledSchedule.__pulumiType, name, resourceInputs, opts);
     }

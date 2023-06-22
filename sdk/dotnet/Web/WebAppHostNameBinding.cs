@@ -114,17 +114,13 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHostNameBinding"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppHostNameBinding"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppHostNameBinding"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppHostNameBinding"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHostNameBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppHostNameBinding"},
                 },

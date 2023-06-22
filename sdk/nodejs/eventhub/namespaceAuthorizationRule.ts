@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single item in a List or Get AuthorizationRule operation
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20170401:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20180101preview:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20210101preview:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20210601preview:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20211101:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20220101preview:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20221001preview:NamespaceAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20170401:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20180101preview:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20220101preview:NamespaceAuthorizationRule" }, { type: "azure-native:eventhub/v20221001preview:NamespaceAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }

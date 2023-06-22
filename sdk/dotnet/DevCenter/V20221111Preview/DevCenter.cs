@@ -89,9 +89,7 @@ namespace Pulumi.AzureNative.DevCenter.V20221111Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devcenter:DevCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:DevCenter"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:DevCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:DevCenter"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:DevCenter"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:DevCenter"},
                 },

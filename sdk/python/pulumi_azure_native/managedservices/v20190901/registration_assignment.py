@@ -129,7 +129,7 @@ class RegistrationAssignment(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedservices:RegistrationAssignment"), pulumi.Alias(type_="azure-native:managedservices/v20200201preview:RegistrationAssignment"), pulumi.Alias(type_="azure-native:managedservices/v20220101preview:RegistrationAssignment"), pulumi.Alias(type_="azure-native:managedservices/v20221001:RegistrationAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedservices:RegistrationAssignment"), pulumi.Alias(type_="azure-native:managedservices/v20221001:RegistrationAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegistrationAssignment, __self__).__init__(
             'azure-native:managedservices/v20190901:RegistrationAssignment',

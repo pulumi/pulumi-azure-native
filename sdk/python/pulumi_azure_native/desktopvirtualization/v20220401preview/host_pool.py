@@ -644,7 +644,7 @@ class HostPool(pulumi.CustomResource):
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:HostPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:HostPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HostPool, __self__).__init__(
             'azure-native:desktopvirtualization/v20220401preview:HostPool',

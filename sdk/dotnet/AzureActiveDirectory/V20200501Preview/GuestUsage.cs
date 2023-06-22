@@ -71,7 +71,6 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20200501Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory:GuestUsage"},
-                    new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20210401:GuestUsage"},
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20230118preview:GuestUsage"},
                 },
             };

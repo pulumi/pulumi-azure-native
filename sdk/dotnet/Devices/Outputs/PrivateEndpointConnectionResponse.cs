@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Devices.Outputs
 {
 
     /// <summary>
-    /// The private endpoint connection of an IotHub
+    /// The private endpoint connection of a provisioning service
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse? SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
             Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
-            Outputs.SystemDataResponse? systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

@@ -71,12 +71,7 @@ namespace Pulumi.AzureNative.Storage.V20210201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storage:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:PrivateEndpointConnection"},
                 },
             };

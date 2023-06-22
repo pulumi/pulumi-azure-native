@@ -71,17 +71,8 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210325preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210422preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210517preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210520:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20211210preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220310:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220510preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220811preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20221110:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20221227:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20221227preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20230315preview:PrivateEndpointConnection"},

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of a namespace resource.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -67,9 +67,17 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly metricId!: pulumi.Output<string>;
     /**
+     * The minimum TLS version for the cluster to support, e.g. '1.2'
+     */
+    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
+     */
+    public readonly premiumMessagingPartitions!: pulumi.Output<number | undefined>;
     /**
      * List of private endpoint connections.
      */
@@ -78,6 +86,10 @@ export class Namespace extends pulumi.CustomResource {
      * Provisioning state of the namespace.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * Endpoint you can use to perform Service Bus operations.
      */
@@ -130,8 +142,11 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.servicebus.encryptionArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["premiumMessagingPartitions"] = args ? args.premiumMessagingPartitions : undefined;
             resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -153,9 +168,12 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;
+            resourceInputs["minimumTlsVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["premiumMessagingPartitions"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["serviceBusEndpoint"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -166,7 +184,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:Namespace" }, { type: "azure-native:servicebus/v20180101preview:Namespace" }, { type: "azure-native:servicebus/v20210101preview:Namespace" }, { type: "azure-native:servicebus/v20210601preview:Namespace" }, { type: "azure-native:servicebus/v20211101:Namespace" }, { type: "azure-native:servicebus/v20220101preview:Namespace" }, { type: "azure-native:servicebus/v20221001preview:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:Namespace" }, { type: "azure-native:servicebus/v20180101preview:Namespace" }, { type: "azure-native:servicebus/v20220101preview:Namespace" }, { type: "azure-native:servicebus/v20221001preview:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }
@@ -197,13 +215,25 @@ export interface NamespaceArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * The minimum TLS version for the cluster to support, e.g. '1.2'
+     */
+    minimumTlsVersion?: pulumi.Input<string | enums.servicebus.TlsVersion>;
+    /**
      * The namespace name.
      */
     namespaceName?: pulumi.Input<string>;
     /**
+     * The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
+     */
+    premiumMessagingPartitions?: pulumi.Input<number>;
+    /**
      * List of private endpoint connections.
      */
     privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.servicebus.PrivateEndpointConnectionArgs>[]>;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.servicebus.PublicNetworkAccess>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

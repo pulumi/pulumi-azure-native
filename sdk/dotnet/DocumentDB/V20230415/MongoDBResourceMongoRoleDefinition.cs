@@ -78,12 +78,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20230415
                 {
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:MongoDBResourceMongoRoleDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:MongoDBResourceMongoRoleDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:MongoDBResourceMongoRoleDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:MongoDBResourceMongoRoleDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:MongoDBResourceMongoRoleDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:MongoDBResourceMongoRoleDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:MongoDBResourceMongoRoleDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:MongoDBResourceMongoRoleDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:MongoDBResourceMongoRoleDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:MongoDBResourceMongoRoleDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:MongoDBResourceMongoRoleDefinition"},

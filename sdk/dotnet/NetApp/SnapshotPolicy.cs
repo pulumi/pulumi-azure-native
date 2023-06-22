@@ -114,14 +114,10 @@ namespace Pulumi.AzureNative.NetApp
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20201201:SnapshotPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210201:SnapshotPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401:SnapshotPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:SnapshotPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:SnapshotPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:SnapshotPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:SnapshotPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:SnapshotPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:SnapshotPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:SnapshotPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:SnapshotPolicy"},
                 },

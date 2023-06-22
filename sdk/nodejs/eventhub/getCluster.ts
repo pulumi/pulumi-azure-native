@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the resource description of the specified Event Hubs Cluster.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -64,6 +64,10 @@ export interface GetClusterResult {
      */
     readonly status: string;
     /**
+     * A value that indicates whether Scaling is Supported.
+     */
+    readonly supportsScaling?: boolean;
+    /**
      * The system meta data relating to this resource.
      */
     readonly systemData: outputs.eventhub.SystemDataResponse;
@@ -82,7 +86,7 @@ export interface GetClusterResult {
 }
 /**
  * Gets the resource description of the specified Event Hubs Cluster.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

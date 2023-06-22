@@ -328,7 +328,7 @@ def get_subscription(namespace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
     Returns a subscription description for the specified topic.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str namespace_name: The namespace name
@@ -379,7 +379,7 @@ def get_subscription_output(namespace_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Returns a subscription description for the specified topic.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str namespace_name: The namespace name

@@ -95,7 +95,7 @@ class DpsCertificate(pulumi.CustomResource):
                  __props__=None):
         """
         The X509 Certificate.
-        Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +112,7 @@ class DpsCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The X509 Certificate.
-        Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-03-01
 
         :param str resource_name: The name of the resource.
         :param DpsCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -154,7 +154,7 @@ class DpsCertificate(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices/v20200301:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20200901preview:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20211015:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20220205:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20221212:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20230301preview:DpsCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices/v20200301:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20200901preview:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20211015:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20230301preview:DpsCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DpsCertificate, __self__).__init__(
             'azure-native:devices:DpsCertificate',

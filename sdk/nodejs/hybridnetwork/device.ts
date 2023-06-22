@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Device resource.
- * Azure REST API version: 2021-05-01. Prior API version in Azure Native 1.x: 2020-01-01-preview
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -115,7 +115,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20200101preview:Device" }, { type: "azure-native:hybridnetwork/v20210501:Device" }, { type: "azure-native:hybridnetwork/v20220101preview:Device" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20200101preview:Device" }, { type: "azure-native:hybridnetwork/v20220101preview:Device" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Device.__pulumiType, name, resourceInputs, opts);
     }

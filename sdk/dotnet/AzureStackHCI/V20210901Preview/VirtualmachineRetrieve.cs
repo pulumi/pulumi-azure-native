@@ -142,8 +142,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:VirtualmachineRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:virtualmachineRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualmachineRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:VirtualmachineRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:virtualmachineRetrieve"},
                 },

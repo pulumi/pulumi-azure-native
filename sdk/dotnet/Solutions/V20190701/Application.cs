@@ -185,8 +185,6 @@ namespace Pulumi.AzureNative.Solutions.V20190701
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:solutions:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:Application"},
                     new global::Pulumi.Alias { Type = "azure-native:solutions/v20210701:Application"},
                 },
             };

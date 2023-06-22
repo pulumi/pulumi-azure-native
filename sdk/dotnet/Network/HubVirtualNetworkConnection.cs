@@ -91,12 +91,9 @@ namespace Pulumi.AzureNative.Network
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200501:HubVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:HubVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200701:HubVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200801:HubVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20201101:HubVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201:HubVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210301:HubVirtualNetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:HubVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:HubVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:HubVirtualNetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:HubVirtualNetworkConnection"},

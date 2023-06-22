@@ -175,7 +175,6 @@ import * as redhatopenshift from "./redhatopenshift";
 import * as relay from "./relay";
 import * as resourceconnector from "./resourceconnector";
 import * as resourcegraph from "./resourcegraph";
-import * as resourcehealth from "./resourcehealth";
 import * as resources from "./resources";
 import * as saas from "./saas";
 import * as scheduler from "./scheduler";
@@ -385,7 +384,6 @@ export {
     relay,
     resourceconnector,
     resourcegraph,
-    resourcehealth,
     resources,
     saas,
     scheduler,

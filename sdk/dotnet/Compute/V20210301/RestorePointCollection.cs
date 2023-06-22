@@ -90,10 +90,7 @@ namespace Pulumi.AzureNative.Compute.V20210301
                 {
                     new global::Pulumi.Alias { Type = "azure-native:compute:RestorePointCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:RestorePointCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:RestorePointCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:RestorePointCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:RestorePointCollection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220801:RestorePointCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20221101:RestorePointCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230301:RestorePointCollection"},
                 },

@@ -111,7 +111,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:Image" }, { type: "azure-native:compute/v20210301:Image" }, { type: "azure-native:compute/v20210401:Image" }, { type: "azure-native:compute/v20210701:Image" }, { type: "azure-native:compute/v20211101:Image" }, { type: "azure-native:compute/v20220301:Image" }, { type: "azure-native:compute/v20220801:Image" }, { type: "azure-native:compute/v20221101:Image" }, { type: "azure-native:compute/v20230301:Image" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:Image" }, { type: "azure-native:compute/v20210301:Image" }, { type: "azure-native:compute/v20210401:Image" }, { type: "azure-native:compute/v20211101:Image" }, { type: "azure-native:compute/v20221101:Image" }, { type: "azure-native:compute/v20230301:Image" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Image.__pulumiType, name, resourceInputs, opts);
     }

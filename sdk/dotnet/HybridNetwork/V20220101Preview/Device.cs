@@ -96,7 +96,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork:Device"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:Device"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:Device"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

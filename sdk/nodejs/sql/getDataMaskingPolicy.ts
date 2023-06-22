@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the database data masking policy.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getDataMaskingPolicy(args: GetDataMaskingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDataMaskingPolicyResult> {
 
@@ -81,7 +81,7 @@ export interface GetDataMaskingPolicyResult {
 }
 /**
  * Gets the database data masking policy.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getDataMaskingPolicyOutput(args: GetDataMaskingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataMaskingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDataMaskingPolicy(a, opts))

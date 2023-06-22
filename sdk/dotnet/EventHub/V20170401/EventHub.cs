@@ -96,9 +96,6 @@ namespace Pulumi.AzureNative.EventHub.V20170401
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventhub:EventHub"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:EventHub"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:EventHub"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:EventHub"},
                 },

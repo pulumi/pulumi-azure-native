@@ -89,17 +89,13 @@ namespace Pulumi.AzureNative.Web.V20160801
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppBackupConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppBackupConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppBackupConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppBackupConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppBackupConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppBackupConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppBackupConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppBackupConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppBackupConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppBackupConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppBackupConfiguration"},
                 },

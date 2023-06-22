@@ -66,7 +66,6 @@ namespace Pulumi.AzureNative.Logz
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:logz/v20201001:TagRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:logz/v20201001preview:TagRule"},
                     new global::Pulumi.Alias { Type = "azure-native:logz/v20220101preview:TagRule"},
                 },
             };

@@ -66,10 +66,7 @@ namespace Pulumi.AzureNative.Sql.V20221101Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerDnsAlias"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerDnsAlias"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ServerDnsAlias"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ServerDnsAlias"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ServerDnsAlias"},
                 },
             };

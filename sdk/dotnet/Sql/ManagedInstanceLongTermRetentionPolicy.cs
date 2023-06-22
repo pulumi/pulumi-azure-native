@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ManagedInstanceLongTermRetentionPolicy"},
                 },

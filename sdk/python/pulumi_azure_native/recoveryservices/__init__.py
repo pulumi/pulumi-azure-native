@@ -11,7 +11,6 @@ from .get_protected_item import *
 from .get_protection_container import *
 from .get_protection_intent import *
 from .get_protection_policy import *
-from .get_recovery_point_access_token import *
 from .get_replication_fabric import *
 from .get_replication_migration_item import *
 from .get_replication_network_mapping import *

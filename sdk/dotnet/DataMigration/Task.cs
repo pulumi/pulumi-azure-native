@@ -75,7 +75,6 @@ namespace Pulumi.AzureNative.DataMigration
                     new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Task"},
                     new global::Pulumi.Alias { Type = "azure-native:datamigration/v20210630:Task"},
                     new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:Task"},
                     new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:Task"},
                 },
             };

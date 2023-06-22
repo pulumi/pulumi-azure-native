@@ -65,7 +65,6 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagesync:SyncGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:SyncGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20220601:SyncGroup"},
                 },
             };

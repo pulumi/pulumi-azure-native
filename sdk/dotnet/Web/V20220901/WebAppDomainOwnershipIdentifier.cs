@@ -66,17 +66,13 @@ namespace Pulumi.AzureNative.Web.V20220901
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppDomainOwnershipIdentifier"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDomainOwnershipIdentifier"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDomainOwnershipIdentifier"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDomainOwnershipIdentifier"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppDomainOwnershipIdentifier"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppDomainOwnershipIdentifier"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppDomainOwnershipIdentifier"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppDomainOwnershipIdentifier"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppDomainOwnershipIdentifier"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppDomainOwnershipIdentifier"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppDomainOwnershipIdentifier"},
                 },
             };

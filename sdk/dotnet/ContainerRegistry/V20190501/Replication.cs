@@ -77,16 +77,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Replication"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210901:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Replication"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20221201:Replication"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:Replication"},
                 },
             };

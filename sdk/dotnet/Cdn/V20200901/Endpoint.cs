@@ -185,8 +185,6 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cdn:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:Endpoint"},
                 },

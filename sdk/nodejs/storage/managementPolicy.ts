@@ -89,7 +89,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20210101:ManagementPolicy" }, { type: "azure-native:storage/v20210201:ManagementPolicy" }, { type: "azure-native:storage/v20210401:ManagementPolicy" }, { type: "azure-native:storage/v20210601:ManagementPolicy" }, { type: "azure-native:storage/v20210801:ManagementPolicy" }, { type: "azure-native:storage/v20210901:ManagementPolicy" }, { type: "azure-native:storage/v20220501:ManagementPolicy" }, { type: "azure-native:storage/v20220901:ManagementPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20210201:ManagementPolicy" }, { type: "azure-native:storage/v20210801:ManagementPolicy" }, { type: "azure-native:storage/v20220901:ManagementPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementPolicy.__pulumiType, name, resourceInputs, opts);
     }

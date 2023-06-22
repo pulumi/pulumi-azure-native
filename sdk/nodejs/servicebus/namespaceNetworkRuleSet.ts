@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of NetworkRuleSet resource.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     /**
@@ -115,7 +115,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             resourceInputs["virtualNetworkRules"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:servicebus/v20210101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:servicebus/v20210601preview:NamespaceNetworkRuleSet" }, { type: "azure-native:servicebus/v20211101:NamespaceNetworkRuleSet" }, { type: "azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceNetworkRuleSet.__pulumiType, name, resourceInputs, opts);
     }

@@ -171,7 +171,7 @@ export class BatchAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:batch:BatchAccount" }, { type: "azure-native:batch/v20210101:BatchAccount" }, { type: "azure-native:batch/v20210601:BatchAccount" }, { type: "azure-native:batch/v20220601:BatchAccount" }, { type: "azure-native:batch/v20221001:BatchAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batch:BatchAccount" }, { type: "azure-native:batch/v20210101:BatchAccount" }, { type: "azure-native:batch/v20220601:BatchAccount" }, { type: "azure-native:batch/v20221001:BatchAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BatchAccount.__pulumiType, name, resourceInputs, opts);
     }

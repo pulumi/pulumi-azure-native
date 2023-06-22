@@ -83,14 +83,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20230201Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric:ManagedClusterApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:ManagedClusterApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:ManagedClusterApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:ManagedClusterApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:ManagedClusterApplicationTypeVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220101:ManagedClusterApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:ManagedClusterApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220601preview:ManagedClusterApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220801preview:ManagedClusterApplicationTypeVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20221001preview:ManagedClusterApplicationTypeVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230301preview:ManagedClusterApplicationTypeVersion"},
                 },

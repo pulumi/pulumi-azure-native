@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A logical database transparent data encryption state.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2014-04-01
+ * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2014-04-01
  */
 export class TransparentDataEncryption extends pulumi.CustomResource {
     /**
@@ -87,7 +87,7 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:TransparentDataEncryption" }, { type: "azure-native:sql/v20200202preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20200801preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20201101preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210201preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210501preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210801preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20211101:TransparentDataEncryption" }, { type: "azure-native:sql/v20211101preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20220201preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20220501preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20220801preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20221101preview:TransparentDataEncryption" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:TransparentDataEncryption" }, { type: "azure-native:sql/v20200202preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20200801preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20201101preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210201preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210501preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210801preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20211101preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20220801preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20221101preview:TransparentDataEncryption" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TransparentDataEncryption.__pulumiType, name, resourceInputs, opts);
     }

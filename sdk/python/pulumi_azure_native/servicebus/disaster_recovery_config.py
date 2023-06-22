@@ -111,7 +111,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param DisasterRecoveryConfigArgs args: The arguments to use to populate this resource's properties.
@@ -176,7 +176,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
             __props__.__dict__["role"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20211101:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:DisasterRecoveryConfig")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:DisasterRecoveryConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DisasterRecoveryConfig, __self__).__init__(
             'azure-native:servicebus:DisasterRecoveryConfig',

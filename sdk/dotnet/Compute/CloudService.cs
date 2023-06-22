@@ -83,9 +83,7 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201001preview:CloudService"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:CloudService"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220404:CloudService"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220904:CloudService"},
                 },
             };

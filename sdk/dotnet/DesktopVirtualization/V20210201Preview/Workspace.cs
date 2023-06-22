@@ -122,14 +122,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:Workspace"},
                 },
             };

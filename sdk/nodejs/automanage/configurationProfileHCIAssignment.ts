@@ -92,7 +92,7 @@ export class ConfigurationProfileHCIAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment" }, { type: "azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationProfileHCIAssignment.__pulumiType, name, resourceInputs, opts);
     }

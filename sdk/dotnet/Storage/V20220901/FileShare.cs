@@ -167,13 +167,8 @@ namespace Pulumi.AzureNative.Storage.V20220901
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storage:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:FileShare"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:FileShare"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:FileShare"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:FileShare"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -6,7 +6,9 @@ from enum import Enum
 
 __all__ = [
     'AdministratorType',
+    'AlwaysEncryptedEnclaveType',
     'AutoExecuteStatus',
+    'AvailabilityZoneType',
     'BackupStorageRedundancy',
     'BlobAuditingPolicyState',
     'CatalogCollationType',
@@ -37,6 +39,7 @@ __all__ = [
     'ReadWriteEndpointFailoverPolicy',
     'ReplicationMode',
     'SampleName',
+    'SecondaryInstanceType',
     'SecondaryType',
     'SecurityAlertPolicyEmailAccountAdmins',
     'SecurityAlertPolicyState',
@@ -45,6 +48,7 @@ __all__ = [
     'SensitivityLabelRank',
     'ServerKeyType',
     'ServerNetworkAccessFlag',
+    'ServerPublicNetworkAccessFlag',
     'ServicePrincipalType',
     'SqlVulnerabilityAssessmentState',
     'SyncConflictResolutionPolicy',
@@ -61,6 +65,14 @@ class AdministratorType(str, Enum):
     ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
+class AlwaysEncryptedEnclaveType(str, Enum):
+    """
+    Type of enclave requested on the elastic pool.
+    """
+    DEFAULT = "Default"
+    VBS = "VBS"
+
+
 class AutoExecuteStatus(str, Enum):
     """
     Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
@@ -68,6 +80,16 @@ class AutoExecuteStatus(str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
     DEFAULT = "Default"
+
+
+class AvailabilityZoneType(str, Enum):
+    """
+    Specifies the availability zone the pool's primary replica is pinned to.
+    """
+    NO_PREFERENCE = "NoPreference"
+    ONE = "1"
+    TWO = "2"
+    THREE = "3"
 
 
 class BackupStorageRedundancy(str, Enum):
@@ -354,12 +376,21 @@ class SampleName(str, Enum):
     WIDE_WORLD_IMPORTERS_FULL = "WideWorldImportersFull"
 
 
+class SecondaryInstanceType(str, Enum):
+    """
+    Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
+    """
+    GEO = "Geo"
+    STANDBY = "Standby"
+
+
 class SecondaryType(str, Enum):
     """
-    The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
+    The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
     """
     GEO = "Geo"
     NAMED = "Named"
+    STANDBY = "Standby"
 
 
 class SecurityAlertPolicyEmailAccountAdmins(str, Enum):
@@ -417,6 +448,15 @@ class ServerNetworkAccessFlag(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class ServerPublicNetworkAccessFlag(str, Enum):
+    """
+    Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
 class ServicePrincipalType(str, Enum):

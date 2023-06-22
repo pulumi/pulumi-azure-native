@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified scope map.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getScopeMap(args: GetScopeMapArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeMapResult> {
 
@@ -77,7 +77,7 @@ export interface GetScopeMapResult {
 }
 /**
  * Gets the properties of the specified scope map.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getScopeMapOutput(args: GetScopeMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeMapResult> {
     return pulumi.output(args).apply((a: any) => getScopeMap(a, opts))

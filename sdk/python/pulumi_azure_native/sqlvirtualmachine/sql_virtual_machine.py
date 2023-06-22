@@ -21,8 +21,10 @@ class SqlVirtualMachineArgs:
                  assessment_settings: Optional[pulumi.Input['AssessmentSettingsArgs']] = None,
                  auto_backup_settings: Optional[pulumi.Input['AutoBackupSettingsArgs']] = None,
                  auto_patching_settings: Optional[pulumi.Input['AutoPatchingSettingsArgs']] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
                  key_vault_credential_settings: Optional[pulumi.Input['KeyVaultCredentialSettingsArgs']] = None,
+                 least_privilege_mode: Optional[pulumi.Input[Union[str, 'LeastPrivilegeMode']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  server_configurations_management_settings: Optional[pulumi.Input['ServerConfigurationsManagementSettingsArgs']] = None,
                  sql_image_offer: Optional[pulumi.Input[str]] = None,
@@ -39,16 +41,18 @@ class SqlVirtualMachineArgs:
         """
         The set of arguments for constructing a SqlVirtualMachine resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input['AssessmentSettingsArgs'] assessment_settings: Assessment Settings.
+        :param pulumi.Input['AssessmentSettingsArgs'] assessment_settings: SQL best practices Assessment Settings.
         :param pulumi.Input['AutoBackupSettingsArgs'] auto_backup_settings: Auto backup settings for SQL Server.
         :param pulumi.Input['AutoPatchingSettingsArgs'] auto_patching_settings: Auto patching settings for applying critical security updates to SQL virtual machine.
+        :param pulumi.Input[bool] enable_automatic_upgrade: Enable automatic upgrade of Sql IaaS extension Agent.
         :param pulumi.Input['ResourceIdentityArgs'] identity: Azure Active Directory identity of the server.
         :param pulumi.Input['KeyVaultCredentialSettingsArgs'] key_vault_credential_settings: Key vault credential settings.
+        :param pulumi.Input[Union[str, 'LeastPrivilegeMode']] least_privilege_mode: SQL IaaS Agent least privilege mode.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['ServerConfigurationsManagementSettingsArgs'] server_configurations_management_settings: SQL Server configuration management settings.
         :param pulumi.Input[str] sql_image_offer: SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
         :param pulumi.Input[Union[str, 'SqlImageSku']] sql_image_sku: SQL Server edition type.
-        :param pulumi.Input[Union[str, 'SqlManagementMode']] sql_management: SQL Server Management type.
+        :param pulumi.Input[Union[str, 'SqlManagementMode']] sql_management: SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
         :param pulumi.Input[Union[str, 'SqlServerLicenseType']] sql_server_license_type: SQL Server license type.
         :param pulumi.Input[str] sql_virtual_machine_group_resource_id: ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
         :param pulumi.Input[str] sql_virtual_machine_name: Name of the SQL virtual machine.
@@ -65,10 +69,18 @@ class SqlVirtualMachineArgs:
             pulumi.set(__self__, "auto_backup_settings", auto_backup_settings)
         if auto_patching_settings is not None:
             pulumi.set(__self__, "auto_patching_settings", auto_patching_settings)
+        if enable_automatic_upgrade is None:
+            enable_automatic_upgrade = False
+        if enable_automatic_upgrade is not None:
+            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if key_vault_credential_settings is not None:
             pulumi.set(__self__, "key_vault_credential_settings", key_vault_credential_settings)
+        if least_privilege_mode is None:
+            least_privilege_mode = 'NotSet'
+        if least_privilege_mode is not None:
+            pulumi.set(__self__, "least_privilege_mode", least_privilege_mode)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if server_configurations_management_settings is not None:
@@ -112,7 +124,7 @@ class SqlVirtualMachineArgs:
     @pulumi.getter(name="assessmentSettings")
     def assessment_settings(self) -> Optional[pulumi.Input['AssessmentSettingsArgs']]:
         """
-        Assessment Settings.
+        SQL best practices Assessment Settings.
         """
         return pulumi.get(self, "assessment_settings")
 
@@ -145,6 +157,18 @@ class SqlVirtualMachineArgs:
         pulumi.set(self, "auto_patching_settings", value)
 
     @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable automatic upgrade of Sql IaaS extension Agent.
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
+
+    @enable_automatic_upgrade.setter
+    def enable_automatic_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_upgrade", value)
+
+    @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
         """
@@ -167,6 +191,18 @@ class SqlVirtualMachineArgs:
     @key_vault_credential_settings.setter
     def key_vault_credential_settings(self, value: Optional[pulumi.Input['KeyVaultCredentialSettingsArgs']]):
         pulumi.set(self, "key_vault_credential_settings", value)
+
+    @property
+    @pulumi.getter(name="leastPrivilegeMode")
+    def least_privilege_mode(self) -> Optional[pulumi.Input[Union[str, 'LeastPrivilegeMode']]]:
+        """
+        SQL IaaS Agent least privilege mode.
+        """
+        return pulumi.get(self, "least_privilege_mode")
+
+    @least_privilege_mode.setter
+    def least_privilege_mode(self, value: Optional[pulumi.Input[Union[str, 'LeastPrivilegeMode']]]):
+        pulumi.set(self, "least_privilege_mode", value)
 
     @property
     @pulumi.getter
@@ -220,7 +256,7 @@ class SqlVirtualMachineArgs:
     @pulumi.getter(name="sqlManagement")
     def sql_management(self) -> Optional[pulumi.Input[Union[str, 'SqlManagementMode']]]:
         """
-        SQL Server Management type.
+        SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
         """
         return pulumi.get(self, "sql_management")
 
@@ -333,8 +369,10 @@ class SqlVirtualMachine(pulumi.CustomResource):
                  assessment_settings: Optional[pulumi.Input[pulumi.InputType['AssessmentSettingsArgs']]] = None,
                  auto_backup_settings: Optional[pulumi.Input[pulumi.InputType['AutoBackupSettingsArgs']]] = None,
                  auto_patching_settings: Optional[pulumi.Input[pulumi.InputType['AutoPatchingSettingsArgs']]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  key_vault_credential_settings: Optional[pulumi.Input[pulumi.InputType['KeyVaultCredentialSettingsArgs']]] = None,
+                 least_privilege_mode: Optional[pulumi.Input[Union[str, 'LeastPrivilegeMode']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_configurations_management_settings: Optional[pulumi.Input[pulumi.InputType['ServerConfigurationsManagementSettingsArgs']]] = None,
@@ -352,21 +390,23 @@ class SqlVirtualMachine(pulumi.CustomResource):
                  __props__=None):
         """
         A SQL virtual machine.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AssessmentSettingsArgs']] assessment_settings: Assessment Settings.
+        :param pulumi.Input[pulumi.InputType['AssessmentSettingsArgs']] assessment_settings: SQL best practices Assessment Settings.
         :param pulumi.Input[pulumi.InputType['AutoBackupSettingsArgs']] auto_backup_settings: Auto backup settings for SQL Server.
         :param pulumi.Input[pulumi.InputType['AutoPatchingSettingsArgs']] auto_patching_settings: Auto patching settings for applying critical security updates to SQL virtual machine.
+        :param pulumi.Input[bool] enable_automatic_upgrade: Enable automatic upgrade of Sql IaaS extension Agent.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Azure Active Directory identity of the server.
         :param pulumi.Input[pulumi.InputType['KeyVaultCredentialSettingsArgs']] key_vault_credential_settings: Key vault credential settings.
+        :param pulumi.Input[Union[str, 'LeastPrivilegeMode']] least_privilege_mode: SQL IaaS Agent least privilege mode.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[pulumi.InputType['ServerConfigurationsManagementSettingsArgs']] server_configurations_management_settings: SQL Server configuration management settings.
         :param pulumi.Input[str] sql_image_offer: SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
         :param pulumi.Input[Union[str, 'SqlImageSku']] sql_image_sku: SQL Server edition type.
-        :param pulumi.Input[Union[str, 'SqlManagementMode']] sql_management: SQL Server Management type.
+        :param pulumi.Input[Union[str, 'SqlManagementMode']] sql_management: SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
         :param pulumi.Input[Union[str, 'SqlServerLicenseType']] sql_server_license_type: SQL Server license type.
         :param pulumi.Input[str] sql_virtual_machine_group_resource_id: ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
         :param pulumi.Input[str] sql_virtual_machine_name: Name of the SQL virtual machine.
@@ -384,7 +424,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL virtual machine.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param SqlVirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -404,8 +444,10 @@ class SqlVirtualMachine(pulumi.CustomResource):
                  assessment_settings: Optional[pulumi.Input[pulumi.InputType['AssessmentSettingsArgs']]] = None,
                  auto_backup_settings: Optional[pulumi.Input[pulumi.InputType['AutoBackupSettingsArgs']]] = None,
                  auto_patching_settings: Optional[pulumi.Input[pulumi.InputType['AutoPatchingSettingsArgs']]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  key_vault_credential_settings: Optional[pulumi.Input[pulumi.InputType['KeyVaultCredentialSettingsArgs']]] = None,
+                 least_privilege_mode: Optional[pulumi.Input[Union[str, 'LeastPrivilegeMode']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_configurations_management_settings: Optional[pulumi.Input[pulumi.InputType['ServerConfigurationsManagementSettingsArgs']]] = None,
@@ -432,8 +474,14 @@ class SqlVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["assessment_settings"] = assessment_settings
             __props__.__dict__["auto_backup_settings"] = auto_backup_settings
             __props__.__dict__["auto_patching_settings"] = auto_patching_settings
+            if enable_automatic_upgrade is None:
+                enable_automatic_upgrade = False
+            __props__.__dict__["enable_automatic_upgrade"] = enable_automatic_upgrade
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_credential_settings"] = key_vault_credential_settings
+            if least_privilege_mode is None:
+                least_privilege_mode = 'NotSet'
+            __props__.__dict__["least_privilege_mode"] = least_privilege_mode
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -453,8 +501,9 @@ class SqlVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
+            __props__.__dict__["troubleshooting_status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlVirtualMachine, __self__).__init__(
             'azure-native:sqlvirtualmachine:SqlVirtualMachine',
@@ -481,8 +530,10 @@ class SqlVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["assessment_settings"] = None
         __props__.__dict__["auto_backup_settings"] = None
         __props__.__dict__["auto_patching_settings"] = None
+        __props__.__dict__["enable_automatic_upgrade"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["key_vault_credential_settings"] = None
+        __props__.__dict__["least_privilege_mode"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -495,6 +546,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["storage_configuration_settings"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["troubleshooting_status"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_machine_resource_id"] = None
         __props__.__dict__["wsfc_domain_credentials"] = None
@@ -505,7 +557,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="assessmentSettings")
     def assessment_settings(self) -> pulumi.Output[Optional['outputs.AssessmentSettingsResponse']]:
         """
-        Assessment Settings.
+        SQL best practices Assessment Settings.
         """
         return pulumi.get(self, "assessment_settings")
 
@@ -526,6 +578,14 @@ class SqlVirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "auto_patching_settings")
 
     @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable automatic upgrade of Sql IaaS extension Agent.
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
+
+    @property
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
         """
@@ -540,6 +600,14 @@ class SqlVirtualMachine(pulumi.CustomResource):
         Key vault credential settings.
         """
         return pulumi.get(self, "key_vault_credential_settings")
+
+    @property
+    @pulumi.getter(name="leastPrivilegeMode")
+    def least_privilege_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        SQL IaaS Agent least privilege mode.
+        """
+        return pulumi.get(self, "least_privilege_mode")
 
     @property
     @pulumi.getter
@@ -593,7 +661,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="sqlManagement")
     def sql_management(self) -> pulumi.Output[Optional[str]]:
         """
-        SQL Server Management type.
+        SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
         """
         return pulumi.get(self, "sql_management")
 
@@ -636,6 +704,14 @@ class SqlVirtualMachine(pulumi.CustomResource):
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="troubleshootingStatus")
+    def troubleshooting_status(self) -> pulumi.Output['outputs.TroubleshootingStatusResponse']:
+        """
+        Troubleshooting status
+        """
+        return pulumi.get(self, "troubleshooting_status")
 
     @property
     @pulumi.getter

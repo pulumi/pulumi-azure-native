@@ -81,7 +81,7 @@ export class GatewayCertificateAuthority extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20201201:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210801:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20220401preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20220801:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20201201:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20220801:GatewayCertificateAuthority" }, { type: "azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GatewayCertificateAuthority.__pulumiType, name, resourceInputs, opts);
     }

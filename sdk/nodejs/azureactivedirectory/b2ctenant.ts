@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2019-01-01-preview
+ * Azure REST API version: 2023-01-18-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview
  */
 export class B2CTenant extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class B2CTenant extends pulumi.CustomResource {
      * The billing configuration for the tenant.
      */
     public /*out*/ readonly billingConfig!: pulumi.Output<outputs.azureactivedirectory.B2CTenantResourcePropertiesResponseBillingConfig | undefined>;
+    /**
+     * Enable GoLocal add-on to store data at rest in the specific Geo. Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see local data residency options.
+     */
+    public readonly isGoLocalTenant!: pulumi.Output<boolean | undefined>;
     /**
      * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
      */
@@ -89,6 +93,7 @@ export class B2CTenant extends pulumi.CustomResource {
             }
             resourceInputs["countryCode"] = args ? args.countryCode : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["isGoLocalTenant"] = args ? args.isGoLocalTenant : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
@@ -101,6 +106,7 @@ export class B2CTenant extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["billingConfig"] = undefined /*out*/;
+            resourceInputs["isGoLocalTenant"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
@@ -110,7 +116,7 @@ export class B2CTenant extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azureactivedirectory/v20190101preview:B2CTenant" }, { type: "azure-native:azureactivedirectory/v20210401:B2CTenant" }, { type: "azure-native:azureactivedirectory/v20230118preview:B2CTenant" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azureactivedirectory/v20190101preview:B2CTenant" }, { type: "azure-native:azureactivedirectory/v20230118preview:B2CTenant" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(B2CTenant.__pulumiType, name, resourceInputs, opts);
     }
@@ -128,6 +134,10 @@ export interface B2CTenantArgs {
      * The display name of the Azure AD B2C tenant.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * Enable GoLocal add-on to store data at rest in the specific Geo. Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see local data residency options.
+     */
+    isGoLocalTenant?: pulumi.Input<boolean>;
     /**
      * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
      */

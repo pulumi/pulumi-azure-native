@@ -90,11 +90,6 @@ namespace Pulumi.AzureNative.Elastic
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20200701:Monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20200701preview:Monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20210901preview:Monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20211001preview:Monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20220505preview:Monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20220701preview:Monitor"},
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20220901preview:Monitor"},
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20230201preview:Monitor"},
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20230501preview:Monitor"},

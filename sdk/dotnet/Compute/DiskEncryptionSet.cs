@@ -122,9 +122,6 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskEncryptionSet"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskEncryptionSet"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskEncryptionSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:DiskEncryptionSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskEncryptionSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:DiskEncryptionSet"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220702:DiskEncryptionSet"},
                 },
             };

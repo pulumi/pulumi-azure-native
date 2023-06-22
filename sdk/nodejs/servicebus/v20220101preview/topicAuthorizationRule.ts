@@ -98,7 +98,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20210101preview:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20210601preview:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20211101:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20221001preview:TopicAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20221001preview:TopicAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TopicAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An Azure SQL Database server.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:Server")]
     public partial class Server : global::Pulumi.CustomResource
@@ -23,10 +23,16 @@ namespace Pulumi.AzureNative.Sql
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Active Directory administrator of the server.
+        /// The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         /// </summary>
         [Output("administrators")]
         public Output<Outputs.ServerExternalAdministratorResponse?> Administrators { get; private set; } = null!;
+
+        /// <summary>
+        /// Status of external governance.
+        /// </summary>
+        [Output("externalGovernanceStatus")]
+        public Output<string> ExternalGovernanceStatus { get; private set; } = null!;
 
         /// <summary>
         /// The Client id used for cross tenant CMK scenario
@@ -65,7 +71,7 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        /// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
         /// </summary>
         [Output("minimalTlsVersion")]
         public Output<string?> MinimalTlsVersion { get; private set; } = null!;
@@ -89,7 +95,7 @@ namespace Pulumi.AzureNative.Sql
         public Output<ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
@@ -164,10 +170,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:Server"},
                 },
@@ -206,7 +209,7 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? AdministratorLoginPassword { get; set; }
 
         /// <summary>
-        /// The Azure Active Directory administrator of the server.
+        /// The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
         /// </summary>
         [Input("administrators")]
         public Input<Inputs.ServerExternalAdministratorArgs>? Administrators { get; set; }
@@ -236,7 +239,7 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        /// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
         /// </summary>
         [Input("minimalTlsVersion")]
         public Input<string>? MinimalTlsVersion { get; set; }
@@ -248,10 +251,10 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? PrimaryUserAssignedIdentityId { get; set; }
 
         /// <summary>
-        /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNative.Sql.ServerNetworkAccessFlag>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.ServerPublicNetworkAccessFlag>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -333,7 +333,7 @@ class Subscription(pulumi.CustomResource):
                  __props__=None):
         """
         Description of subscription resource.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -364,7 +364,7 @@ class Subscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of subscription resource.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -441,7 +441,7 @@ class Subscription(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:Subscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:Subscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Subscription, __self__).__init__(
             'azure-native:servicebus:Subscription',

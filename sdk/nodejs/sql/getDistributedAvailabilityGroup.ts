@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a distributed availability group info.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getDistributedAvailabilityGroup(args: GetDistributedAvailabilityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributedAvailabilityGroupResult> {
 
@@ -45,6 +45,10 @@ export interface GetDistributedAvailabilityGroupResult {
      * Resource ID.
      */
     readonly id: string;
+    /**
+     * Role of managed instance
+     */
+    readonly instanceRole: string;
     /**
      * The last hardened lsn
      */
@@ -92,7 +96,7 @@ export interface GetDistributedAvailabilityGroupResult {
 }
 /**
  * Gets a distributed availability group info.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getDistributedAvailabilityGroupOutput(args: GetDistributedAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributedAvailabilityGroupResult> {
     return pulumi.output(args).apply((a: any) => getDistributedAvailabilityGroup(a, opts))

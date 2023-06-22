@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Primary and secondary connection strings to the queue.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function listQueueKeys(args: ListQueueKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListQueueKeysResult> {
 
@@ -73,7 +73,7 @@ export interface ListQueueKeysResult {
 }
 /**
  * Primary and secondary connection strings to the queue.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function listQueueKeysOutput(args: ListQueueKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQueueKeysResult> {
     return pulumi.output(args).apply((a: any) => listQueueKeys(a, opts))

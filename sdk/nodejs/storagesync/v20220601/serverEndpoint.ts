@@ -203,7 +203,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
             resourceInputs["volumeFreeSpacePercent"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagesync:ServerEndpoint" }, { type: "azure-native:storagesync/v20200301:ServerEndpoint" }, { type: "azure-native:storagesync/v20200901:ServerEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagesync:ServerEndpoint" }, { type: "azure-native:storagesync/v20200301:ServerEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerEndpoint.__pulumiType, name, resourceInputs, opts);
     }

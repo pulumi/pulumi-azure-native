@@ -120,9 +120,6 @@ namespace Pulumi.AzureNative.EventHub.V20170401
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventhub:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:Namespace"},
                 },

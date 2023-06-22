@@ -157,7 +157,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200601:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200701preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20210301preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20211001preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20220301preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20220501:ConfigurationStore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200601:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200701preview:ConfigurationStore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationStore.__pulumiType, name, resourceInputs, opts);
     }

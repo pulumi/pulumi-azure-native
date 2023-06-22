@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Spring Cloud Gateway route config resource
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2022-01-01-preview
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:GatewayRouteConfig")]
     public partial class GatewayRouteConfig : global::Pulumi.CustomResource
@@ -66,11 +66,6 @@ namespace Pulumi.AzureNative.AppPlatform
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:GatewayRouteConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:GatewayRouteConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:GatewayRouteConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220901preview:GatewayRouteConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:GatewayRouteConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:GatewayRouteConfig"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:GatewayRouteConfig"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:GatewayRouteConfig"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:GatewayRouteConfig"},

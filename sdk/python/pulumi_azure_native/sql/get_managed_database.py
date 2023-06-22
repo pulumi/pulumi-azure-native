@@ -21,7 +21,7 @@ class GetManagedDatabaseResult:
     """
     A managed database resource.
     """
-    def __init__(__self__, catalog_collation=None, collation=None, creation_date=None, default_secondary_location=None, earliest_restore_point=None, failover_group_id=None, id=None, location=None, name=None, status=None, tags=None, type=None):
+    def __init__(__self__, catalog_collation=None, collation=None, creation_date=None, default_secondary_location=None, earliest_restore_point=None, failover_group_id=None, id=None, is_ledger_on=None, location=None, name=None, status=None, tags=None, type=None):
         if catalog_collation and not isinstance(catalog_collation, str):
             raise TypeError("Expected argument 'catalog_collation' to be a str")
         pulumi.set(__self__, "catalog_collation", catalog_collation)
@@ -43,6 +43,9 @@ class GetManagedDatabaseResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_ledger_on and not isinstance(is_ledger_on, bool):
+            raise TypeError("Expected argument 'is_ledger_on' to be a bool")
+        pulumi.set(__self__, "is_ledger_on", is_ledger_on)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -116,6 +119,14 @@ class GetManagedDatabaseResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="isLedgerOn")
+    def is_ledger_on(self) -> Optional[bool]:
+        """
+        Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+        """
+        return pulumi.get(self, "is_ledger_on")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -169,6 +180,7 @@ class AwaitableGetManagedDatabaseResult(GetManagedDatabaseResult):
             earliest_restore_point=self.earliest_restore_point,
             failover_group_id=self.failover_group_id,
             id=self.id,
+            is_ledger_on=self.is_ledger_on,
             location=self.location,
             name=self.name,
             status=self.status,
@@ -182,7 +194,7 @@ def get_managed_database(database_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedDatabaseResult:
     """
     Gets a managed database.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str database_name: The name of the database.
@@ -204,6 +216,7 @@ def get_managed_database(database_name: Optional[str] = None,
         earliest_restore_point=__ret__.earliest_restore_point,
         failover_group_id=__ret__.failover_group_id,
         id=__ret__.id,
+        is_ledger_on=__ret__.is_ledger_on,
         location=__ret__.location,
         name=__ret__.name,
         status=__ret__.status,
@@ -218,7 +231,7 @@ def get_managed_database_output(database_name: Optional[pulumi.Input[str]] = Non
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedDatabaseResult]:
     """
     Gets a managed database.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str database_name: The name of the database.

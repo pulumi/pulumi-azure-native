@@ -85,7 +85,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devices:Certificate" }, { type: "azure-native:devices/v20200301:Certificate" }, { type: "azure-native:devices/v20200401:Certificate" }, { type: "azure-native:devices/v20200615:Certificate" }, { type: "azure-native:devices/v20200710preview:Certificate" }, { type: "azure-native:devices/v20200801:Certificate" }, { type: "azure-native:devices/v20200831preview:Certificate" }, { type: "azure-native:devices/v20210201preview:Certificate" }, { type: "azure-native:devices/v20210303preview:Certificate" }, { type: "azure-native:devices/v20210331:Certificate" }, { type: "azure-native:devices/v20210701:Certificate" }, { type: "azure-native:devices/v20210701preview:Certificate" }, { type: "azure-native:devices/v20210702:Certificate" }, { type: "azure-native:devices/v20210702preview:Certificate" }, { type: "azure-native:devices/v20220430preview:Certificate" }, { type: "azure-native:devices/v20221115preview:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devices/v20200301:Certificate" }, { type: "azure-native:devices/v20200401:Certificate" }, { type: "azure-native:devices/v20210303preview:Certificate" }, { type: "azure-native:devices/v20220430preview:Certificate" }, { type: "azure-native:devices/v20221115preview:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

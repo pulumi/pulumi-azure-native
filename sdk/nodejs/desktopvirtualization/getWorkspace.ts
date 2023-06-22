@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a workspace.
- * Azure REST API version: 2022-09-09.
+ * Azure REST API version: 2022-10-14-preview.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -81,6 +81,14 @@ export interface GetWorkspaceResult {
      */
     readonly objectId: string;
     readonly plan?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan;
+    /**
+     * List of private endpoint connection associated with the specified resource
+     */
+    readonly privateEndpointConnections: outputs.desktopvirtualization.PrivateEndpointConnectionResponse[];
+    /**
+     * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+     */
+    readonly publicNetworkAccess?: string;
     readonly sku?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku;
     /**
      * Metadata pertaining to creation and last modification of the resource.
@@ -97,7 +105,7 @@ export interface GetWorkspaceResult {
 }
 /**
  * Get a workspace.
- * Azure REST API version: 2022-09-09.
+ * Azure REST API version: 2022-10-14-preview.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

@@ -87,7 +87,7 @@ def get_transparent_data_encryption(database_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransparentDataEncryptionResult:
     """
     Gets a logical database's transparent data encryption.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str database_name: The name of the logical database for which the transparent data encryption is defined.
@@ -118,7 +118,7 @@ def get_transparent_data_encryption_output(database_name: Optional[pulumi.Input[
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransparentDataEncryptionResult]:
     """
     Gets a logical database's transparent data encryption.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str database_name: The name of the logical database for which the transparent data encryption is defined.

@@ -96,8 +96,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForEDMUpload"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForEDMUpload"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload"},
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForEDMUpload"},
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload"},
                 },

@@ -47,8 +47,8 @@ namespace Pulumi.AzureNative.Sql.Inputs
 
         public JobScheduleArgs()
         {
-            EndTime = "9999-12-31T11:59:59+00:00";
-            StartTime = "0001-01-01T00:00:00+00:00";
+            EndTime = "9999-12-31T03:59:59-08:00";
+            StartTime = "0001-01-01T16:00:00-08:00";
             Type = Pulumi.AzureNative.Sql.JobScheduleType.Once;
         }
         public static new JobScheduleArgs Empty => new JobScheduleArgs();

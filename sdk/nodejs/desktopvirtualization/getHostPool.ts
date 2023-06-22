@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a host pool.
- * Azure REST API version: 2022-09-09.
+ * Azure REST API version: 2022-10-14-preview.
  */
 export function getHostPool(args: GetHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolResult> {
 
@@ -110,6 +110,14 @@ export interface GetHostPoolResult {
      */
     readonly preferredAppGroupType: string;
     /**
+     * List of private endpoint connection associated with the specified resource
+     */
+    readonly privateEndpointConnections: outputs.desktopvirtualization.PrivateEndpointConnectionResponse[];
+    /**
+     * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+     */
+    readonly publicNetworkAccess?: string;
+    /**
      * The registration info of HostPool.
      */
     readonly registrationInfo?: outputs.desktopvirtualization.RegistrationInfoResponse;
@@ -161,7 +169,7 @@ export interface GetHostPoolResult {
 }
 /**
  * Get a host pool.
- * Azure REST API version: 2022-09-09.
+ * Azure REST API version: 2022-10-14-preview.
  */
 export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolResult> {
     return pulumi.output(args).apply((a: any) => getHostPool(a, opts))

@@ -81,6 +81,18 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         [Input("public")]
         public Input<bool>? Public { get; set; }
 
+        [Input("secrets")]
+        private InputList<Inputs.SecretArgs>? _secrets;
+
+        /// <summary>
+        /// Collection of auth secrets
+        /// </summary>
+        public InputList<Inputs.SecretArgs> Secrets
+        {
+            get => _secrets ?? (_secrets = new InputList<Inputs.SecretArgs>());
+            set => _secrets = value;
+        }
+
         /// <summary>
         /// Temporary disk settings
         /// </summary>
@@ -92,6 +104,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         /// </summary>
         [Input("vnetAddons")]
         public Input<Inputs.AppVNetAddonsArgs>? VnetAddons { get; set; }
+
+        /// <summary>
+        /// The workload profile used for this app. Supported for Consumption + Dedicated plan.
+        /// </summary>
+        [Input("workloadProfileName")]
+        public Input<string>? WorkloadProfileName { get; set; }
 
         public AppResourcePropertiesArgs()
         {

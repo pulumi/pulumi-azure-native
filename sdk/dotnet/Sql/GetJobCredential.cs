@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a jobs credential.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetJobCredentialResult> InvokeAsync(GetJobCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobCredentialResult>("azure-native:sql:getJobCredential", args ?? new GetJobCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a jobs credential.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetJobCredentialResult> Invoke(GetJobCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobCredentialResult>("azure-native:sql:getJobCredential", args ?? new GetJobCredentialInvokeArgs(), options.WithDefaults());
