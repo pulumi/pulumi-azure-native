@@ -106,8 +106,6 @@ if typing.TYPE_CHECKING:
     v20210401 = __v20210401
     import pulumi_azure_native.securityinsights.v20210901preview as __v20210901preview
     v20210901preview = __v20210901preview
-    import pulumi_azure_native.securityinsights.v20211001 as __v20211001
-    v20211001 = __v20211001
     import pulumi_azure_native.securityinsights.v20211001preview as __v20211001preview
     v20211001preview = __v20211001preview
     import pulumi_azure_native.securityinsights.v20220101preview as __v20220101preview
@@ -120,16 +118,12 @@ if typing.TYPE_CHECKING:
     v20220601preview = __v20220601preview
     import pulumi_azure_native.securityinsights.v20220701preview as __v20220701preview
     v20220701preview = __v20220701preview
-    import pulumi_azure_native.securityinsights.v20220801 as __v20220801
-    v20220801 = __v20220801
     import pulumi_azure_native.securityinsights.v20220801preview as __v20220801preview
     v20220801preview = __v20220801preview
     import pulumi_azure_native.securityinsights.v20220901preview as __v20220901preview
     v20220901preview = __v20220901preview
     import pulumi_azure_native.securityinsights.v20221001preview as __v20221001preview
     v20221001preview = __v20221001preview
-    import pulumi_azure_native.securityinsights.v20221101 as __v20221101
-    v20221101 = __v20221101
     import pulumi_azure_native.securityinsights.v20221101preview as __v20221101preview
     v20221101preview = __v20221101preview
     import pulumi_azure_native.securityinsights.v20221201preview as __v20221201preview
@@ -150,18 +144,15 @@ else:
     v20210301preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20210301preview')
     v20210401 = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20210401')
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20210901preview')
-    v20211001 = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20211001')
     v20211001preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20211001preview')
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20220101preview')
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20220401preview')
     v20220501preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20220501preview')
     v20220601preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20220601preview')
     v20220701preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20220701preview')
-    v20220801 = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20220801')
     v20220801preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20220801preview')
     v20220901preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20220901preview')
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20221001preview')
-    v20221101 = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20221101')
     v20221101preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20221101preview')
     v20221201preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20221201preview')
     v20230201 = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20230201')

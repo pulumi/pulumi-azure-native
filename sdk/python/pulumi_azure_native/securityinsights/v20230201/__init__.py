@@ -11,15 +11,10 @@ from .aatp_data_connector import *
 from .aws_cloud_trail_data_connector import *
 from .get_aad_data_connector import *
 from .get_aatp_data_connector import *
-from .get_anomaly_security_ml_analytics_settings import *
-from .get_asc_data_connector import *
 from .get_aws_cloud_trail_data_connector import *
-from .get_fusion_alert_rule import *
 from .get_mcas_data_connector import *
 from .get_mdatp_data_connector import *
-from .get_microsoft_security_incident_creation_alert_rule import *
 from .get_office_data_connector import *
-from .get_scheduled_alert_rule import *
 from .get_ti_data_connector import *
 from .get_watchlist import *
 from .mcas_data_connector import *

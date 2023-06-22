@@ -15,26 +15,6 @@ export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy
 export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getAccessPolicy","getAccessPolicyOutput"], () => require("./getAccessPolicy"));
 
-export { GetEventHubEventSourceArgs, GetEventHubEventSourceResult, GetEventHubEventSourceOutputArgs } from "./getEventHubEventSource";
-export const getEventHubEventSource: typeof import("./getEventHubEventSource").getEventHubEventSource = null as any;
-export const getEventHubEventSourceOutput: typeof import("./getEventHubEventSource").getEventHubEventSourceOutput = null as any;
-utilities.lazyLoad(exports, ["getEventHubEventSource","getEventHubEventSourceOutput"], () => require("./getEventHubEventSource"));
-
-export { GetGen1EnvironmentArgs, GetGen1EnvironmentResult, GetGen1EnvironmentOutputArgs } from "./getGen1Environment";
-export const getGen1Environment: typeof import("./getGen1Environment").getGen1Environment = null as any;
-export const getGen1EnvironmentOutput: typeof import("./getGen1Environment").getGen1EnvironmentOutput = null as any;
-utilities.lazyLoad(exports, ["getGen1Environment","getGen1EnvironmentOutput"], () => require("./getGen1Environment"));
-
-export { GetGen2EnvironmentArgs, GetGen2EnvironmentResult, GetGen2EnvironmentOutputArgs } from "./getGen2Environment";
-export const getGen2Environment: typeof import("./getGen2Environment").getGen2Environment = null as any;
-export const getGen2EnvironmentOutput: typeof import("./getGen2Environment").getGen2EnvironmentOutput = null as any;
-utilities.lazyLoad(exports, ["getGen2Environment","getGen2EnvironmentOutput"], () => require("./getGen2Environment"));
-
-export { GetIoTHubEventSourceArgs, GetIoTHubEventSourceResult, GetIoTHubEventSourceOutputArgs } from "./getIoTHubEventSource";
-export const getIoTHubEventSource: typeof import("./getIoTHubEventSource").getIoTHubEventSource = null as any;
-export const getIoTHubEventSourceOutput: typeof import("./getIoTHubEventSource").getIoTHubEventSourceOutput = null as any;
-utilities.lazyLoad(exports, ["getIoTHubEventSource","getIoTHubEventSourceOutput"], () => require("./getIoTHubEventSource"));
-
 export { GetReferenceDataSetArgs, GetReferenceDataSetResult, GetReferenceDataSetOutputArgs } from "./getReferenceDataSet";
 export const getReferenceDataSet: typeof import("./getReferenceDataSet").getReferenceDataSet = null as any;
 export const getReferenceDataSetOutput: typeof import("./getReferenceDataSet").getReferenceDataSetOutput = null as any;

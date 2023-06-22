@@ -14,11 +14,6 @@ from .get_attached_database_configuration import *
 from .get_cluster import *
 from .get_cluster_principal_assignment import *
 from .get_database_principal_assignment import *
-from .get_event_grid_data_connection import *
-from .get_event_hub_data_connection import *
-from .get_iot_hub_data_connection import *
-from .get_read_only_following_database import *
-from .get_read_write_database import *
 from .get_script import *
 from .list_cluster_follower_databases import *
 from .list_cluster_language_extensions import *

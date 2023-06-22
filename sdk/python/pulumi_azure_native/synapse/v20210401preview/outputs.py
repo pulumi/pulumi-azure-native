@@ -12,7 +12,6 @@ from ._enums import *
 
 __all__ = [
     'AzureSkuResponse',
-    'DatabaseStatisticsResponse',
     'SystemDataResponse',
 ]
 
@@ -59,29 +58,6 @@ class AzureSkuResponse(dict):
         The number of instances of the cluster.
         """
         return pulumi.get(self, "capacity")
-
-
-@pulumi.output_type
-class DatabaseStatisticsResponse(dict):
-    """
-    A class that contains database statistics information.
-    """
-    def __init__(__self__, *,
-                 size: Optional[float] = None):
-        """
-        A class that contains database statistics information.
-        :param float size: The database size - the total size of compressed data and index in bytes.
-        """
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[float]:
-        """
-        The database size - the total size of compressed data and index in bytes.
-        """
-        return pulumi.get(self, "size")
 
 
 @pulumi.output_type
