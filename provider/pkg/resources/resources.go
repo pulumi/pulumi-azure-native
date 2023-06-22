@@ -60,6 +60,8 @@ type AzureAPIProperty struct {
 	AutoName AutoNameKind `json:"autoname,omitempty"`
 	// If the property is represented as a map of string to nothing, the SDK represents it as a list of strings.
 	IsStringSet bool `json:"isStringSet,omitempty"`
+	// Default is the default value for the parameter, if any
+	Default interface{} `json:"default,omitempty"`
 }
 
 // AzureAPIType represents the shape of an object property.
@@ -98,6 +100,17 @@ type AzureAPIResource struct {
 	// By default, we populate the `location` property of every resource to the location of its resource
 	// group or the configured value. AutoLocationDisabled can override this default behavior.
 	AutoLocationDisabled bool `json:"autoLocationDisabled,omitempty"`
+}
+
+func (res *AzureAPIResource) LookupProperty(key string) (AzureAPIProperty, bool) {
+	for _, param := range res.PutParameters {
+		if param.Location == "body" {
+			if prop, ok := param.Body.Properties[key]; ok {
+				return prop, true
+			}
+		}
+	}
+	return AzureAPIProperty{}, false
 }
 
 // AzureAPIExample provides a pointer to examples relevant to a resource from the Azure REST API spec.

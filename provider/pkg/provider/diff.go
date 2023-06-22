@@ -4,11 +4,13 @@ package provider
 
 import (
 	"fmt"
+	"reflect"
 	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
@@ -230,4 +232,56 @@ func applyAzureSpecificDiff(diff *resource.ObjectDiff) {
 // "WestUS2" to the lowercase and no-space format of "westus2".
 func normalizedLocation(location string) string {
 	return strings.ToLower(strings.ReplaceAll(location, " ", ""))
+}
+
+// calculateChangesAndReplacements compares a property diff with the old and new inputs and the
+// previous state. It returns a list of properties that will change, and a list of properties
+// that will be replaced. In some cases, entries of the diff may not lead to any change or
+// replacement, e.g., new properties set to their default value are not considered changes.
+func calculateChangesAndReplacements(
+	detailedDiff map[string]*rpc.PropertyDiff,
+	oldInputs, newInputs, oldState resource.PropertyMap,
+	res resources.AzureAPIResource) ([]string, []string) {
+
+	var changes, replaces []string
+	for k, v := range detailedDiff {
+		switch v.Kind {
+		case rpc.PropertyDiff_ADD_REPLACE:
+			// Special case: previously, the property input had no value but is now set to X.
+			// If the output contains this property and it's X, that's not a replacement.
+			// Workaround for https://github.com/pulumi/pulumi-azure-nextgen/issues/238
+			// TODO: remove this block before GA.
+			key := resource.PropertyKey(k)
+			_, hasOldInput := oldInputs[key]
+			newInputValue, hasNewInput := newInputs[key]
+			outputValue, hasOutput := oldState[key]
+			if !hasOldInput && hasNewInput && hasOutput && reflect.DeepEqual(newInputValue, outputValue) {
+				v.Kind = rpc.PropertyDiff_ADD
+			} else {
+				replaces = append(replaces, k)
+			}
+
+		case rpc.PropertyDiff_ADD:
+			key := resource.PropertyKey(k)
+			_, hasOldInput := oldInputs[key]
+			newInputValue, hasNewInput := newInputs[key]
+			if !hasOldInput && hasNewInput {
+				// If this is a new property that is merely being initialized with its default
+				// value, we don't need to show a noisy diff.
+				prop, found := res.LookupProperty(k)
+				if found && prop.Default != nil && reflect.DeepEqual(newInputValue.V, prop.Default) {
+					logging.V(9).Infof("Skipping diff for %s, property with default value %v is added", k, newInputValue)
+					continue
+				}
+			}
+
+		case rpc.PropertyDiff_DELETE_REPLACE, rpc.PropertyDiff_UPDATE_REPLACE:
+			replaces = append(replaces, k)
+		}
+
+		parts := strings.Split(k, ".")
+		changes = append(changes, parts[0])
+		v.InputDiff = true
+	}
+	return changes, replaces
 }
