@@ -17,6 +17,7 @@ import (
 )
 
 type VersionMetadata struct {
+	VersionSources
 	AllResourcesByVersion         ProvidersVersionResources
 	AllResourceVersionsByResource ProviderResourceVersions
 	Active                        providerlist.ProviderPathVersionsJson
@@ -63,6 +64,7 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 	removedInvokes := ResourceRemovals(findRemovedInvokesFromResources(providers, openapi.RemovableResources(versionSources.v2ResourcesToRemove)))
 
 	return VersionMetadata{
+		VersionSources:                versionSources,
 		AllResourcesByVersion:         allResourcesByVersion,
 		AllResourceVersionsByResource: allResourceVersionsByResource,
 		Active:                        activePathVersionsJson,

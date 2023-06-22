@@ -45,22 +45,17 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		return nil, err
 	}
 
-	versionSources, err := ReadVersionSources(args.RootDir)
+	versionMetadata, err := GenerateVersionMetadata(args.RootDir, providers)
 	if err != nil {
 		return nil, err
 	}
 
-	versionMetadata, err := calculateVersionMetadata(versionSources, providers)
-	if err != nil {
-		return nil, err
-	}
+	providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.V2Lock, versionMetadata.v1Lock, nil, versionMetadata.V2Removed)
 
-	providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.V2Lock, versionSources.v1Lock, nil, versionSources.V2Removed)
-
-	pathChanges := findPathChanges(providers, versionMetadata.V2Lock, versionSources.v1Lock, versionSources.v2Config)
+	pathChanges := findPathChanges(providers, versionMetadata.V2Lock, versionMetadata.v1Lock, versionMetadata.v2Config)
 	printPathChanges(pathChanges)
 
-	providers = openapi.RemoveResources(providers, openapi.RemovableResources(versionSources.v2ResourcesToRemove))
+	providers = openapi.RemoveResources(providers, openapi.RemovableResources(versionMetadata.v2ResourcesToRemove))
 
 	if args.ExcludeExplicitVersions {
 		providers = openapi.SingleVersion(providers)
@@ -73,7 +68,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 
 	// Some resources are added manually during generation which won't therefore be
 	// matched during the first removal, and we want to exclude these too.
-	dropFromSchema(pkgSpec, versionSources.v2ResourcesToRemove)
+	dropFromSchema(pkgSpec, versionMetadata.v2ResourcesToRemove)
 
 	if len(args.ExampleLanguages) > 0 {
 		// Ensure the spec is stamped with a version - Go gen needs it.
