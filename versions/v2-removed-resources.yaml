@@ -12,7 +12,6 @@ azure-native:advisor/v20170419:Suppression: azure-native:advisor/v20221001:Suppr
 azure-native:advisor/v20220901:Suppression: azure-native:advisor/v20221001:Suppression
 azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule: azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule
 azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup: azure-native:alertsmanagement/v20230301:PrometheusRuleGroup
-azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName: azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName
 azure-native:analysisservices/v20160516:ServerDetails: azure-native:analysisservices/v20170801beta:ServerDetails
 azure-native:analysisservices/v20170714:ServerDetails: azure-native:analysisservices/v20170801beta:ServerDetails
 azure-native:apimanagement/v20170301:ApiDiagnostic: azure-native:apimanagement/v20180101:ApiDiagnostic
@@ -2337,10 +2336,6 @@ azure-native:devices/v20210701preview:Certificate: azure-native:devices/v2022043
 azure-native:devices/v20210701preview:IotHubResource: azure-native:devices/v20220430preview:IotHubResource
 azure-native:devices/v20210701preview:IotHubResourceEventHubConsumerGroup: azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup
 azure-native:devices/v20210701preview:PrivateEndpointConnection: azure-native:devices/v20220430preview:PrivateEndpointConnection
-azure-native:devices/v20210702:Certificate: azure-native:devices/v20220430preview:Certificate
-azure-native:devices/v20210702:IotHubResource: azure-native:devices/v20220430preview:IotHubResource
-azure-native:devices/v20210702:IotHubResourceEventHubConsumerGroup: azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup
-azure-native:devices/v20210702:PrivateEndpointConnection: azure-native:devices/v20220430preview:PrivateEndpointConnection
 azure-native:devices/v20210702preview:Certificate: azure-native:devices/v20220430preview:Certificate
 azure-native:devices/v20210702preview:IotHubResource: azure-native:devices/v20220430preview:IotHubResource
 azure-native:devices/v20210702preview:IotHubResourceEventHubConsumerGroup: azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup
