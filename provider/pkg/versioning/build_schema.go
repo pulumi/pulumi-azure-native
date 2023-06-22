@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"path"
+	"regexp"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
@@ -188,12 +189,28 @@ func printPathChanges(changes []pathChange) {
 
 // Caution: pkgSpec is modified in place
 func dropFromSchema(pkgSpec *schema.PackageSpec, toRemove ResourceRemovals) {
-	removed := 0
+	// Matches (azure-native:machinelearningservices/v20200515preview):(ACIService)
+	resourceTokPattern := regexp.MustCompile(`^(.+/v[0-9]{8}(?:preview)?):(.+)$`)
+
+	removedResources := []string{}
+	removedInvokesCount := 0
 	for token := range toRemove {
 		if _, ok := pkgSpec.Resources[token]; ok {
 			delete(pkgSpec.Resources, token)
-			removed++
+			removedResources = append(removedResources, token)
 		}
 	}
-	log.Printf("Removed %d out of %d resources from schema\n", removed, len(toRemove))
+
+	// Heuristically remove invokes corresponding to removed resources, by constructing their "get..."
+	// name.
+	for _, token := range removedResources {
+		invokeName := resourceTokPattern.ReplaceAllString(token, "${1}:get${2}")
+		if _, ok := pkgSpec.Functions[invokeName]; ok {
+			delete(pkgSpec.Functions, invokeName)
+			removedInvokesCount++
+		}
+	}
+
+	log.Printf("Removed %d out of %d removable resources, and %d invokes, from schema\n",
+		len(removedResources), len(toRemove), removedInvokesCount)
 }
