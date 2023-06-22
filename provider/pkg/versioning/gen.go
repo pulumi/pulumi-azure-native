@@ -22,20 +22,20 @@ type VersionMetadata struct {
 	AllResourceVersionsByResource ProviderResourceVersions
 	Active                        providerlist.ProviderPathVersionsJson
 	Pending                       openapi.ProviderVersionList
-	V2Spec                        Spec
-	V2Lock                        openapi.DefaultVersionLock
-	V2RemovedInvokes              ResourceRemovals
+	Spec                          Spec
+	Lock                          openapi.DefaultVersionLock
+	RemovedInvokes                ResourceRemovals
 }
 
-func GenerateVersionMetadata(rootDir string, providers openapi.AzureProviders) (VersionMetadata, error) {
-	versionSources, err := ReadVersionSources(rootDir)
+func GenerateVersionMetadata(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionMetadata, error) {
+	versionSources, err := ReadVersionSources(rootDir, majorVersion)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
-	return calculateVersionMetadata(versionSources, providers)
+	return calculateVersionMetadata(versionSources, providers, majorVersion)
 }
 
-func calculateVersionMetadata(versionSources VersionSources, providers map[string]map[string]openapi.VersionResources) (VersionMetadata, error) {
+func calculateVersionMetadata(versionSources VersionSources, providers openapi.AzureProviders, majorVersion int) (VersionMetadata, error) {
 	// map[LoweredProviderName]map[ResourcePath]ApiVersions
 	activePathVersions := versionSources.activePathVersions
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
@@ -43,17 +43,17 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 	// provider->version->[]resource
 	allResourcesByVersion := FindAllResources(providers)
 
-	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(allResourcesByVersion, versionSources.V2Removed)
+	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(allResourcesByVersion, versionSources.RemovedVersions)
 
-	v2Spec := versionSources.v2Spec
+	spec := versionSources.Spec
 
-	v2Config := versionSources.v2Config
-	v2Spec = BuildSpec(allResourcesByVersionWithoutDeprecations, v2Config, v2Spec)
+	config := versionSources.Config
+	spec = BuildSpec(allResourcesByVersionWithoutDeprecations, config, spec)
 
-	violations := ValidateDefaultConfig(v2Spec, v2Config)
-	PrintViolationsAsWarnings(versionSources.v2ConfigPath, violations)
+	violations := ValidateDefaultConfig(spec, config)
+	PrintViolationsAsWarnings(versionSources.ConfigPath, violations)
 
-	v2Lock, err := DefaultConfigToDefaultVersionLock(allResourcesByVersionWithoutDeprecations, v2Spec)
+	v2Lock, err := DefaultConfigToDefaultVersionLock(allResourcesByVersionWithoutDeprecations, spec)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
@@ -61,7 +61,7 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 	// provider->resource->[]version
 	allResourceVersionsByResource := FormatResourceVersions(allResourcesByVersion)
 
-	removedInvokes := ResourceRemovals(findRemovedInvokesFromResources(providers, openapi.RemovableResources(versionSources.v2ResourcesToRemove)))
+	removedInvokes := ResourceRemovals(findRemovedInvokesFromResources(providers, openapi.RemovableResources(versionSources.ResourcesToRemove)))
 
 	return VersionMetadata{
 		VersionSources:                versionSources,
@@ -69,36 +69,41 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 		AllResourceVersionsByResource: allResourceVersionsByResource,
 		Active:                        activePathVersionsJson,
 		Pending:                       FindNewerVersions(allResourcesByVersion, v2Lock),
-		V2Spec:                        v2Spec,
-		V2Lock:                        v2Lock,
-		V2RemovedInvokes:              removedInvokes,
+		Spec:                          spec,
+		Lock:                          v2Lock,
+		RemovedInvokes:                removedInvokes,
 	}, nil
 }
 
 func (v VersionMetadata) WriteTo(outputDir string) error {
+	filePrefix := fmt.Sprintf("v%d-", v.MajorVersion)
+	specPath := filePrefix + "spec.yaml"
+	lockPath := filePrefix + "lock.json"
+	removedInvokesPath := filePrefix + "removed-invokes.yaml"
 	return gen.EmitFiles(outputDir, gen.FileMap{
 		"allResourcesByVersion.json":         v.AllResourcesByVersion,
 		"allResourceVersionsByResource.json": v.AllResourceVersionsByResource,
 		"active.json":                        v.Active,
 		"pending.json":                       v.Pending,
-		"v2-spec.yaml":                       v.V2Spec,
-		"v2-lock.json":                       v.V2Lock,
-		"v2-removed-invokes.yaml":            v.V2RemovedInvokes,
+		specPath:                             v.Spec,
+		lockPath:                             v.Lock,
+		removedInvokesPath:                   v.RemovedInvokes,
 	})
 }
 
 type VersionSources struct {
+	MajorVersion              int
 	activePathVersions        providerlist.ProviderPathVersions
 	requiredExplicitResources []string
-	v1Lock                    openapi.DefaultVersionLock
-	V2Removed                 openapi.ProviderVersionList
-	v2Spec                    Spec
-	v2Config                  Curations
-	v2ConfigPath              string
-	v2ResourcesToRemove       ResourceRemovals
+	PreviousLock              openapi.DefaultVersionLock
+	RemovedVersions           openapi.ProviderVersionList
+	Spec                      Spec
+	Config                    Curations
+	ConfigPath                string
+	ResourcesToRemove         ResourceRemovals
 }
 
-func ReadVersionSources(rootDir string) (VersionSources, error) {
+func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error) {
 	activePathVersions, err := providerlist.ReadProviderList(filepath.Join(rootDir, "azure-provider-versions", "provider_list.json"))
 	if err != nil {
 		return VersionSources{}, err
@@ -109,43 +114,47 @@ func ReadVersionSources(rootDir string) (VersionSources, error) {
 		return VersionSources{}, err
 	}
 
-	v1LockPath := path.Join(rootDir, "versions", "v1-lock.json")
-	v1Lock, err := openapi.ReadDefaultVersionLock(v1LockPath)
+	previousFilePrefix := fmt.Sprintf("v%d-", majorVersion-1)
+	filePrefix := fmt.Sprintf("v%d-", majorVersion)
+
+	previousLockPath := path.Join(rootDir, "versions", previousFilePrefix+"lock.json")
+	previousLock, err := openapi.ReadDefaultVersionLock(previousLockPath)
 	if err != nil {
 		return VersionSources{}, err
 	}
 
-	v2Removed, err := ReadDeprecations(path.Join(rootDir, "versions", "v2-removed.json"))
+	removed, err := ReadDeprecations(path.Join(rootDir, "versions", filePrefix+"removed.json"))
 	if err != nil {
 		return VersionSources{}, err
 	}
 
-	v2Spec, err := ReadSpec(path.Join(rootDir, "versions", "v2-spec.yaml"))
+	spec, err := ReadSpec(path.Join(rootDir, "versions", filePrefix+"spec.yaml"))
 	if err != nil {
 		return VersionSources{}, err
 	}
 
-	v2ConfigPath := path.Join(rootDir, "versions", "v2-config.yaml")
-	v2Config, err := ReadManualCurations(v2ConfigPath)
+	configPath := path.Join(rootDir, "versions", filePrefix+"config.yaml")
+	config, err := ReadManualCurations(configPath)
 	if err != nil {
 		return VersionSources{}, err
 	}
 
-	v2ResourcesToRemovePath := path.Join(rootDir, "versions", "v2-removed-resources.yaml")
-	v2ResourcesToRemove, err := ReadResourceRemovals(v2ResourcesToRemovePath)
+	resourcesToRemovePath := path.Join(rootDir, "versions", filePrefix+"removed-resources.yaml")
+	resourcesToRemove, err := ReadResourceRemovals(resourcesToRemovePath)
 	if err != nil {
-		return VersionSources{}, fmt.Errorf("could not read v2-removed-resources: %v", err)
+		return VersionSources{}, fmt.Errorf("could not read %s: %v", resourcesToRemovePath, err)
 	}
 
 	return VersionSources{
+		MajorVersion:              majorVersion,
 		activePathVersions:        activePathVersions,
 		requiredExplicitResources: knownExplicitResources,
-		v1Lock:                    v1Lock,
-		V2Removed:                 v2Removed,
-		v2Spec:                    v2Spec,
-		v2Config:                  v2Config,
-		v2ConfigPath:              v2ConfigPath,
-		v2ResourcesToRemove:       v2ResourcesToRemove,
+		PreviousLock:              previousLock,
+		RemovedVersions:           removed,
+		Spec:                      spec,
+		Config:                    config,
+		ConfigPath:                configPath,
+		ResourcesToRemove:         resourcesToRemove,
 	}, nil
 }
 
