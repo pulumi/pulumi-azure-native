@@ -195,6 +195,13 @@
       "FarmBeatsModel",
       "PrivateEndpointConnection",
       "Solution"
+    ],
+    "2023-06-01-preview": [
+      "DataConnector",
+      "DataManagerForAgricultureResource",
+      "Extension",
+      "PrivateEndpointConnection",
+      "Solution"
     ]
   },
   "AlertsManagement": {
@@ -228,6 +235,9 @@
     ],
     "2023-04-01-preview": [
       "TenantActivityLogAlert"
+    ],
+    "2023-05-01-preview": [
+      "AlertProcessingRuleByName"
     ]
   },
   "AnalysisServices": {
@@ -1850,6 +1860,9 @@
       "RoleAssignment",
       "RoleDefinition"
     ],
+    "2022-05-01-preview": [
+      "RoleDefinition"
+    ],
     "2022-06-01": [
       "PolicyAssignment"
     ],
@@ -2340,6 +2353,13 @@
       "listBatchAccountKeys"
     ],
     "2022-10-01": [
+      "Application",
+      "ApplicationPackage",
+      "BatchAccount",
+      "Pool",
+      "listBatchAccountKeys"
+    ],
+    "2023-05-01": [
       "Application",
       "ApplicationPackage",
       "BatchAccount",
@@ -3560,6 +3580,9 @@
     ],
     "2023-03-01": [
       "Budget"
+    ],
+    "2023-05-01": [
+      "Budget"
     ]
   },
   "ContainerInstance": {
@@ -4356,6 +4379,28 @@
       "listManagedClusterUserCredentials"
     ],
     "2023-04-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2023-05-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2023-05-02-preview": [
       "AgentPool",
       "MaintenanceConfiguration",
       "ManagedCluster",
@@ -5781,6 +5826,12 @@
       "Instance",
       "PrivateEndpointConnection",
       "PrivateEndpointConnectionProxy"
+    ],
+    "2023-07-01": [
+      "Account",
+      "Instance",
+      "PrivateEndpointConnection",
+      "PrivateEndpointConnectionProxy"
     ]
   },
   "Devices": {
@@ -7069,6 +7120,18 @@
       "listUpgradableVersionDetails",
       "listVMHost",
       "listlistAssociatedTrafficFilter"
+    ],
+    "2023-06-15-preview": [
+      "Monitor",
+      "TagRule",
+      "getOrganizationApiKey",
+      "getOrganizationElasticToAzureSubscriptionMapping",
+      "listAllTrafficFilter",
+      "listDeploymentInfo",
+      "listMonitoredResource",
+      "listUpgradableVersionDetails",
+      "listVMHost",
+      "listlistAssociatedTrafficFilter"
     ]
   },
   "ElasticSan": {
@@ -7628,6 +7691,10 @@
     ],
     "2021-11-30": [
       "DedicatedHsm"
+    ],
+    "2022-08-31-preview": [
+      "CloudHsmCluster",
+      "CloudHsmClusterPrivateEndpointConnection"
     ]
   },
   "HealthBot": {
@@ -7650,6 +7717,10 @@
       "Bot"
     ],
     "2022-08-08": [
+      "Bot",
+      "listBotSecrets"
+    ],
+    "2023-05-01": [
       "Bot",
       "listBotSecrets"
     ]
@@ -9399,8 +9470,9 @@
       "AccessControlList",
       "ExternalNetwork",
       "InternalNetwork",
-      "IpCommunityList",
-      "IpPrefixList",
+      "IpCommunity",
+      "IpExtendedCommunity",
+      "IpPrefix",
       "L2IsolationDomain",
       "L3IsolationDomain",
       "NetworkDevice",
@@ -10138,6 +10210,21 @@
       "VolumeGroup",
       "VolumeQuotaRule",
       "getSubvolumeMetadata",
+      "listVolumeReplications"
+    ],
+    "2022-11-01": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
       "listVolumeReplications"
     ]
   },
@@ -13038,6 +13125,116 @@
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules"
     ],
+    "2023-02-01": [
+      "AdminRule",
+      "AdminRuleCollection",
+      "ApplicationGateway",
+      "ApplicationGatewayPrivateEndpointConnection",
+      "ApplicationSecurityGroup",
+      "AzureFirewall",
+      "BastionHost",
+      "ConfigurationPolicyGroup",
+      "ConnectionMonitor",
+      "ConnectivityConfiguration",
+      "CustomIPPrefix",
+      "DdosCustomPolicy",
+      "DdosProtectionPlan",
+      "DscpConfiguration",
+      "ExpressRouteCircuit",
+      "ExpressRouteCircuitAuthorization",
+      "ExpressRouteCircuitConnection",
+      "ExpressRouteCircuitPeering",
+      "ExpressRouteConnection",
+      "ExpressRouteCrossConnectionPeering",
+      "ExpressRouteGateway",
+      "ExpressRoutePort",
+      "ExpressRoutePortAuthorization",
+      "FirewallPolicy",
+      "FirewallPolicyRuleCollectionGroup",
+      "FlowLog",
+      "HubRouteTable",
+      "HubVirtualNetworkConnection",
+      "InboundNatRule",
+      "IpAllocation",
+      "IpGroup",
+      "LoadBalancer",
+      "LoadBalancerBackendAddressPool",
+      "LocalNetworkGateway",
+      "ManagementGroupNetworkManagerConnection",
+      "NatGateway",
+      "NatRule",
+      "NetworkGroup",
+      "NetworkInterface",
+      "NetworkInterfaceTapConfiguration",
+      "NetworkManager",
+      "NetworkProfile",
+      "NetworkSecurityGroup",
+      "NetworkVirtualAppliance",
+      "NetworkVirtualApplianceConnection",
+      "NetworkWatcher",
+      "P2sVpnGateway",
+      "PacketCapture",
+      "PrivateDnsZoneGroup",
+      "PrivateEndpoint",
+      "PrivateLinkService",
+      "PrivateLinkServicePrivateEndpointConnection",
+      "PublicIPAddress",
+      "PublicIPPrefix",
+      "Route",
+      "RouteFilter",
+      "RouteFilterRule",
+      "RouteMap",
+      "RouteTable",
+      "RoutingIntent",
+      "ScopeConnection",
+      "SecurityAdminConfiguration",
+      "SecurityPartnerProvider",
+      "SecurityRule",
+      "ServiceEndpointPolicy",
+      "ServiceEndpointPolicyDefinition",
+      "StaticMember",
+      "Subnet",
+      "SubscriptionNetworkManagerConnection",
+      "VirtualApplianceSite",
+      "VirtualHub",
+      "VirtualHubBgpConnection",
+      "VirtualHubIpConfiguration",
+      "VirtualHubRouteTableV2",
+      "VirtualNetwork",
+      "VirtualNetworkGateway",
+      "VirtualNetworkGatewayConnection",
+      "VirtualNetworkGatewayNatRule",
+      "VirtualNetworkPeering",
+      "VirtualNetworkTap",
+      "VirtualRouter",
+      "VirtualRouterPeering",
+      "VirtualWan",
+      "VpnConnection",
+      "VpnGateway",
+      "VpnServerConfiguration",
+      "VpnSite",
+      "WebApplicationFirewallPolicy",
+      "getActiveSessions",
+      "getApplicationGatewayBackendHealthOnDemand",
+      "getBastionShareableLink",
+      "getP2sVpnGatewayP2sVpnConnectionHealth",
+      "getP2sVpnGatewayP2sVpnConnectionHealthDetailed",
+      "getVirtualNetworkGatewayAdvertisedRoutes",
+      "getVirtualNetworkGatewayBgpPeerStatus",
+      "getVirtualNetworkGatewayConnectionIkeSas",
+      "getVirtualNetworkGatewayLearnedRoutes",
+      "getVirtualNetworkGatewayVpnProfilePackageUrl",
+      "getVirtualNetworkGatewayVpnclientConnectionHealth",
+      "getVirtualNetworkGatewayVpnclientIpsecParameters",
+      "getVpnLinkConnectionIkeSas",
+      "listActiveConnectivityConfigurations",
+      "listActiveSecurityAdminRules",
+      "listFirewallPolicyIdpsSignature",
+      "listFirewallPolicyIdpsSignaturesFilterValue",
+      "listNetworkManagerDeploymentStatus",
+      "listNetworkManagerEffectiveConnectivityConfigurations",
+      "listNetworkManagerEffectiveSecurityAdminRules"
+    ],
     "2023-07-01-preview": [
       "DnssecConfig",
       "RecordSet",
@@ -13056,6 +13253,25 @@
       "Console",
       "DefaultCniNetwork",
       "HybridAksCluster",
+      "L2Network",
+      "L3Network",
+      "MetricsConfiguration",
+      "Rack",
+      "StorageAppliance",
+      "TrunkedNetwork",
+      "VirtualMachine",
+      "Volume"
+    ],
+    "2023-05-01-preview": [
+      "AgentPool",
+      "BareMetalMachine",
+      "BareMetalMachineKeySet",
+      "BmcKeySet",
+      "CloudServicesNetwork",
+      "Cluster",
+      "ClusterManager",
+      "Console",
+      "KubernetesCluster",
       "L2Network",
       "L3Network",
       "MetricsConfiguration",
@@ -13948,6 +14164,11 @@
       "Vault"
     ],
     "2023-04-01": [
+      "PrivateEndpointConnection",
+      "ProtectedItem",
+      "ProtectionContainer",
+      "ProtectionIntent",
+      "ProtectionPolicy",
       "ReplicationFabric",
       "ReplicationMigrationItem",
       "ReplicationNetworkMapping",
@@ -13958,6 +14179,7 @@
       "ReplicationRecoveryServicesProvider",
       "ReplicationStorageClassificationMapping",
       "ReplicationvCenter",
+      "ResourceGuardProxy",
       "Vault"
     ]
   },
@@ -14414,6 +14636,9 @@
     ],
     "2023-03-01-preview": [
       "SecurityConnector"
+    ],
+    "2023-05-01": [
+      "ServerVulnerabilityAssessmentsSetting"
     ]
   },
   "SecurityAndCompliance": {
@@ -14943,6 +15168,39 @@
       "SecurityMLAnalyticsSetting",
       "SentinelOnboardingState",
       "SourceControl",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "WorkspaceManagerAssignment",
+      "WorkspaceManagerConfiguration",
+      "WorkspaceManagerGroup",
+      "WorkspaceManagerMember",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listSourceControlRepositories"
+    ],
+    "2023-06-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "ContentPackage",
+      "ContentTemplate",
+      "DataConnector",
+      "EntityQuery",
+      "FileImport",
+      "Hunt",
+      "HuntComment",
+      "HuntRelation",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "IncidentTask",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
       "ThreatIntelligenceIndicator",
       "Watchlist",
       "WatchlistItem",
