@@ -53,12 +53,14 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		return nil, err
 	}
 
-	versionMetadata, err := LoadVersionMetadata(args.RootDir, providers, int(majorVersion))
-	if err != nil {
-		return nil, err
-	}
+	var versionMetadata VersionMetadata
 	if args.OnlyExplicitVersions {
 		versionMetadata = VersionMetadata{}
+	} else {
+		versionMetadata, err = LoadVersionMetadata(args.RootDir, providers, int(majorVersion))
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	if !args.OnlyExplicitVersions {
