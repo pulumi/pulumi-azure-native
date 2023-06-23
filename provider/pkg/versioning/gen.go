@@ -27,6 +27,34 @@ type VersionMetadata struct {
 	RemovedInvokes                ResourceRemovals
 }
 
+func (v VersionMetadata) ShouldInclude(provider string, version string, typeName, token string) bool {
+	// Keep any resources in the default version lock
+	if resources, ok := v.Lock[provider]; ok {
+		if defaultResourceVersion, ok := resources[typeName]; ok {
+			if openapi.ApiToSdkVersion(defaultResourceVersion) == version {
+				return true
+			}
+		}
+	}
+	// Exclude versions from removed versions
+	if versions, ok := v.RemovedVersions[provider]; ok {
+		for _, removedVersion := range versions {
+			if openapi.ApiToSdkVersion(removedVersion) == version {
+				return false
+			}
+		}
+	}
+	// Exclude removed resources
+	if _, ok := v.ResourcesToRemove[token]; ok {
+		return false
+	}
+	// Exclude removed invokes
+	if _, ok := v.RemovedInvokes[token]; ok {
+		return false
+	}
+	return true
+}
+
 func GenerateVersionMetadata(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionMetadata, error) {
 	versionSources, err := ReadVersionSources(rootDir, majorVersion)
 	if err != nil {
