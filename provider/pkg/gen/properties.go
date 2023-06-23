@@ -27,6 +27,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // propertyBag keeps the schema and metadata properties for a single API type.
@@ -208,12 +209,12 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	// TODO: Remove this switch if https://github.com/Azure/azure-rest-api-specs/issues/13167 is fixed
 	defaultValue := schema.Default
 	if defaultValue != nil && typeSpec.Type == "object" {
-		fmt.Printf("Default value '%v' can't be specified for an object property %q\n", schema.Default, name)
+		logging.V(5).Infof("Default value '%v' can't be specified for an object property %q\n", schema.Default, name)
 		defaultValue = nil
 	}
 	// #2187 - there are array properties with default value '[]' in the schema which we don't support
 	if defaultValue != nil && typeSpec.Type == "array" {
-		fmt.Printf("Default value '%v' can't be specified for an array property %q\n", schema.Default, name)
+		logging.V(5).Infof("Default value '%v' can't be specified for an array property %q\n", schema.Default, name)
 		defaultValue = nil
 	}
 
@@ -238,7 +239,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		// cannot have a constant value; only booleans, integers, numbers and strings may have constant values;
 		// HACK: Check if the default value looks like JSON and remove it.
 		if strings.HasPrefix(defaultString, "{") {
-			fmt.Printf("Default value '%v' appears to be an object %q\n", schema.Default, name)
+			logging.V(5).Infof("Default value '%v' appears to be an object %q\n", schema.Default, name)
 			defaultValue = nil
 		}
 	}
