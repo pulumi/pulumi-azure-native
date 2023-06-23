@@ -26,10 +26,18 @@ func TestTypeAliasFormatting(t *testing.T) {
 	assert.Equal(t, "azure-native:compute:VirtualMachine", *actual.Type)
 }
 
+type constraintsStub struct {
+}
+
+func (v constraintsStub) ShouldInclude(provider string, version string, typeName, token string) bool {
+	return true
+}
+
 func TestAliases(t *testing.T) {
 	generator := packageGenerator{
-		pkg:        &pschema.PackageSpec{Name: "azure-native"},
-		apiVersion: "v20220222",
+		pkg:         &pschema.PackageSpec{Name: "azure-native"},
+		apiVersion:  "v20220222",
+		constraints: constraintsStub{},
 	}
 
 	resource := &resourceVariant{
