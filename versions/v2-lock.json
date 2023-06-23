@@ -2359,7 +2359,6 @@
     "listAppServicePlanHybridConnectionKeys": "2022-09-01",
     "listConnectionConsentLinks": "2016-06-01",
     "listConnectionKeys": "2015-08-01-preview",
-    "listContainerAppSecrets": "2022-09-01",
     "listCustomApiWsdlInterfaces": "2016-06-01",
     "listSiteIdentifiersAssignedToHostName": "2022-09-01",
     "listStaticSiteAppSettings": "2022-09-01",
