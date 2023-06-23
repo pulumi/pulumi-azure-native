@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"path"
+	"strconv"
+	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
@@ -45,7 +47,12 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		return nil, err
 	}
 
-	versionMetadata, err := LoadVersionMetadata(args.RootDir, providers, 2)
+	majorVersion, err := strconv.ParseInt(strings.Split(args.Version, ".")[0], 10, 64)
+	if err != nil {
+		return nil, err
+	}
+
+	versionMetadata, err := LoadVersionMetadata(args.RootDir, providers, int(majorVersion))
 	if err != nil {
 		return nil, err
 	}
