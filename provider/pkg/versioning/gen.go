@@ -167,7 +167,7 @@ func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error
 		return VersionSources{}, err
 	}
 
-	resourcesToRemovePath := path.Join(rootDir, "versions", filePrefix+"removed-resources.yaml")
+	resourcesToRemovePath := path.Join(rootDir, "versions", filePrefix+"removed-resources.json")
 	resourcesToRemove, err := ReadResourceRemovals(resourcesToRemovePath)
 	if err != nil {
 		return VersionSources{}, fmt.Errorf("could not read %s: %v", resourcesToRemovePath, err)
