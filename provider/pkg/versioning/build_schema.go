@@ -45,7 +45,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		return nil, err
 	}
 
-	versionMetadata, err := GenerateVersionMetadata(args.RootDir, providers, 2)
+	versionMetadata, err := LoadVersionMetadata(args.RootDir, providers, 2)
 	if err != nil {
 		return nil, err
 	}

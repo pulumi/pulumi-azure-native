@@ -55,7 +55,7 @@ func (v VersionMetadata) ShouldInclude(provider string, version string, typeName
 	return true
 }
 
-func GenerateVersionMetadata(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionMetadata, error) {
+func LoadVersionMetadata(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionMetadata, error) {
 	versionSources, err := ReadVersionSources(rootDir, majorVersion)
 	if err != nil {
 		return VersionMetadata{}, err
