@@ -616,14 +616,6 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 	delete(resourceResponse.specs, "id")
 	resourceResponse.requiredSpecs.Delete("id")
 
-	// Add an alias for each API version that has the same path in it.
-	var aliases []pschema.AliasSpec
-	for _, version := range resource.CompatibleVersions {
-		moduleName := providerApiToModule(prov, version)
-		alias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, moduleName, resource.typeName)
-		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
-	}
-
 	if upgradeMessage, ok := g.upgradeWarnings[resourceTok]; ok {
 		if resource.deprecationMessage == "" {
 			resource.deprecationMessage = upgradeMessage
