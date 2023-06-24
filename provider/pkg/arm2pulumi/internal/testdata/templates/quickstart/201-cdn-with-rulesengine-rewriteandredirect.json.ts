@@ -35,7 +35,6 @@ const endpointResource = new azure_native.cdn.v20230501.Endpoint("endpointResour
                     name: "UrlRewrite",
                     parameters: {
                         destination: "/mobile",
-                        odataType: "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRewriteActionParameters",
                         sourcePattern: "/standard",
                     },
                 }],
@@ -43,7 +42,6 @@ const endpointResource = new azure_native.cdn.v20230501.Endpoint("endpointResour
                     name: "IsDevice",
                     parameters: {
                         matchValues: ["Mobile"],
-                        odataType: "#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters",
                         operator: "Equal",
                     },
                 }],
@@ -55,7 +53,6 @@ const endpointResource = new azure_native.cdn.v20230501.Endpoint("endpointResour
                     name: "UrlRedirect",
                     parameters: {
                         destinationProtocol: "Https",
-                        odataType: "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRedirectActionParameters",
                         redirectType: "Found",
                     },
                 }],
@@ -63,7 +60,6 @@ const endpointResource = new azure_native.cdn.v20230501.Endpoint("endpointResour
                     name: "RequestScheme",
                     parameters: {
                         matchValues: ["HTTP"],
-                        odataType: "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters",
                         operator: "Equal",
                     },
                 }],
