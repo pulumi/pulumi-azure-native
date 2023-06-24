@@ -3,7 +3,7 @@ import * as azure_native from "@pulumi/azure-native";
 
 const config = new pulumi.Config();
 const resourceGroupNameParam = config.require("resourceGroupNameParam");
-const farmerpulumi2 = new azure_native.storage.v20210201.StorageAccount("farmerpulumi2", {
+const farmerpulumi2 = new azure_native.storage.v20220901.StorageAccount("farmerpulumi2", {
     accountName: "farmerpulumi2",
     kind: "StorageV2",
     location: "northeurope",
@@ -13,7 +13,7 @@ const farmerpulumi2 = new azure_native.storage.v20210201.StorageAccount("farmerp
     },
     tags: {},
 });
-const farmerpulumi3Ai = new azure_native.insights.v20150501.Component("farmerpulumi3Ai", {
+const farmerpulumi3Ai = new azure_native.insights.v20200202.Component("farmerpulumi3Ai", {
     applicationType: "web",
     disableIpMasking: false,
     kind: "web",

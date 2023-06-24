@@ -19,7 +19,7 @@ const profileResource = new azure_native.cdn.v20200901.Profile("profileResource"
         name: cDNSkuParam,
     },
 });
-const endpointResource = new azure_native.cdn.v20200901.Endpoint("endpointResource", {
+const endpointResource = new azure_native.cdn.v20230501.Endpoint("endpointResource", {
     contentTypesToCompress: [
         "text/plain",
         "text/html",
@@ -83,6 +83,6 @@ const endpointResource = new azure_native.cdn.v20200901.Endpoint("endpointResour
         name: "origin1",
     }],
     profileName: profileResource.name,
-    queryStringCachingBehavior: azure_native.cdn.v20200901.QueryStringCachingBehavior.IgnoreQueryString,
+    queryStringCachingBehavior: azure_native.cdn.v20230501.QueryStringCachingBehavior.IgnoreQueryString,
     resourceGroupName: resourceGroupNameParam,
 });
