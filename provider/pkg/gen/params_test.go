@@ -37,7 +37,7 @@ func TestFlattenParams(t *testing.T) {
 	}{
 		{
 			name:         "ContainersInBody",
-			resourceName: "azure-native:compute/v20210301:VirtualMachine",
+			resourceName: "azure-native:compute/v20230301:VirtualMachine",
 			input: map[string]interface{}{
 				"parameters": map[string]interface{}{
 					"resourceGroupName": "myResourceGroup",
@@ -156,7 +156,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-native:botservice/v20210301:BotConnection",
+			resourceName: "azure-native:botservice/v20220915:BotConnection",
 			expected: map[string]interface{}{
 				"resourceGroupName": "OneResourceGroupName",
 				"resourceName":      "samplebotname",
@@ -364,7 +364,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-native:network/v20220901:NetworkSecurityGroup",
+			resourceName: "azure-native:network/v20230201:NetworkSecurityGroup",
 			expected: map[string]interface{}{
 				"networkSecurityGroupName": "rancher-security-group",
 				"securityRules": []interface{}{
@@ -753,7 +753,7 @@ func TestFlattenParams(t *testing.T) {
     }
   }
 }`),
-			resourceName: "azure-native:compute/v20210301:VirtualMachineExtension",
+			resourceName: "azure-native:compute/v20230301:VirtualMachineExtension",
 			expected: map[string]interface{}{
 				"autoUpgradeMinorVersion": true,
 				"publisher":               "Microsoft.OSTCExtensions",
@@ -791,7 +791,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-native:botservice/v20210301:Channel",
+			resourceName: "azure-native:botservice/v20220915:Channel",
 			expected: map[string]interface{}{
 				"channelName": "AlexaChannel",
 				"location":    "global",
