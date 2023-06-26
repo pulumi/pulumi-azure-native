@@ -119,6 +119,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:MSIXPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:MSIXPackage"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:MSIXPackage"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:MSIXPackage"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:MSIXPackage"},

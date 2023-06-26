@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Subscription.V20211001
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:subscription:Alias"},
+                    new global::Pulumi.Alias { Type = "azure-native:subscription/v20191001preview:Alias"},
                     new global::Pulumi.Alias { Type = "azure-native:subscription/v20200901:Alias"},
                 },
             };

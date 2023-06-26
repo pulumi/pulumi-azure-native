@@ -203,6 +203,14 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20171201:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180401:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20181001:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachineScaleSetVM"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineScaleSetVM"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineScaleSetVM"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineScaleSetVM"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineScaleSetVM"},

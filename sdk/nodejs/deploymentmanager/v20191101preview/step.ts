@@ -90,7 +90,7 @@ export class Step extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:Step" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:Step" }, { type: "azure-native:deploymentmanager/v20180901preview:Step" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Step.__pulumiType, name, resourceInputs, opts);
     }

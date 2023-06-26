@@ -154,7 +154,7 @@ class ControllerDetails(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:delegatednetwork/v20210315:ControllerDetails")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:delegatednetwork/v20200808preview:ControllerDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20210315:ControllerDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ControllerDetails, __self__).__init__(
             'azure-native:delegatednetwork:ControllerDetails',

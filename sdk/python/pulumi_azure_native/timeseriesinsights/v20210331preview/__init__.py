@@ -7,10 +7,7 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .gen2_environment import *
-from .get_event_hub_event_source import *
-from .get_gen1_environment import *
 from .get_gen2_environment import *
-from .get_io_t_hub_event_source import *
 from .get_private_endpoint_connection import *
 from .private_endpoint_connection import *
 from ._inputs import *

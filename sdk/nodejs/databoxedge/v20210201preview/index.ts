@@ -10,16 +10,6 @@ export type Device = import("./device").Device;
 export const Device: typeof import("./device").Device = null as any;
 utilities.lazyLoad(exports, ["Device"], () => require("./device"));
 
-export { GetArcAddonArgs, GetArcAddonResult, GetArcAddonOutputArgs } from "./getArcAddon";
-export const getArcAddon: typeof import("./getArcAddon").getArcAddon = null as any;
-export const getArcAddonOutput: typeof import("./getArcAddon").getArcAddonOutput = null as any;
-utilities.lazyLoad(exports, ["getArcAddon","getArcAddonOutput"], () => require("./getArcAddon"));
-
-export { GetCloudEdgeManagementRoleArgs, GetCloudEdgeManagementRoleResult, GetCloudEdgeManagementRoleOutputArgs } from "./getCloudEdgeManagementRole";
-export const getCloudEdgeManagementRole: typeof import("./getCloudEdgeManagementRole").getCloudEdgeManagementRole = null as any;
-export const getCloudEdgeManagementRoleOutput: typeof import("./getCloudEdgeManagementRole").getCloudEdgeManagementRoleOutput = null as any;
-utilities.lazyLoad(exports, ["getCloudEdgeManagementRole","getCloudEdgeManagementRoleOutput"], () => require("./getCloudEdgeManagementRole"));
-
 export { GetDeviceArgs, GetDeviceResult, GetDeviceOutputArgs } from "./getDevice";
 export const getDevice: typeof import("./getDevice").getDevice = null as any;
 export const getDeviceOutput: typeof import("./getDevice").getDeviceOutput = null as any;
@@ -29,36 +19,6 @@ export { GetDeviceExtendedInformationArgs, GetDeviceExtendedInformationResult, G
 export const getDeviceExtendedInformation: typeof import("./getDeviceExtendedInformation").getDeviceExtendedInformation = null as any;
 export const getDeviceExtendedInformationOutput: typeof import("./getDeviceExtendedInformation").getDeviceExtendedInformationOutput = null as any;
 utilities.lazyLoad(exports, ["getDeviceExtendedInformation","getDeviceExtendedInformationOutput"], () => require("./getDeviceExtendedInformation"));
-
-export { GetFileEventTriggerArgs, GetFileEventTriggerResult, GetFileEventTriggerOutputArgs } from "./getFileEventTrigger";
-export const getFileEventTrigger: typeof import("./getFileEventTrigger").getFileEventTrigger = null as any;
-export const getFileEventTriggerOutput: typeof import("./getFileEventTrigger").getFileEventTriggerOutput = null as any;
-utilities.lazyLoad(exports, ["getFileEventTrigger","getFileEventTriggerOutput"], () => require("./getFileEventTrigger"));
-
-export { GetIoTAddonArgs, GetIoTAddonResult, GetIoTAddonOutputArgs } from "./getIoTAddon";
-export const getIoTAddon: typeof import("./getIoTAddon").getIoTAddon = null as any;
-export const getIoTAddonOutput: typeof import("./getIoTAddon").getIoTAddonOutput = null as any;
-utilities.lazyLoad(exports, ["getIoTAddon","getIoTAddonOutput"], () => require("./getIoTAddon"));
-
-export { GetIoTRoleArgs, GetIoTRoleResult, GetIoTRoleOutputArgs } from "./getIoTRole";
-export const getIoTRole: typeof import("./getIoTRole").getIoTRole = null as any;
-export const getIoTRoleOutput: typeof import("./getIoTRole").getIoTRoleOutput = null as any;
-utilities.lazyLoad(exports, ["getIoTRole","getIoTRoleOutput"], () => require("./getIoTRole"));
-
-export { GetKubernetesRoleArgs, GetKubernetesRoleResult, GetKubernetesRoleOutputArgs } from "./getKubernetesRole";
-export const getKubernetesRole: typeof import("./getKubernetesRole").getKubernetesRole = null as any;
-export const getKubernetesRoleOutput: typeof import("./getKubernetesRole").getKubernetesRoleOutput = null as any;
-utilities.lazyLoad(exports, ["getKubernetesRole","getKubernetesRoleOutput"], () => require("./getKubernetesRole"));
-
-export { GetMECRoleArgs, GetMECRoleResult, GetMECRoleOutputArgs } from "./getMECRole";
-export const getMECRole: typeof import("./getMECRole").getMECRole = null as any;
-export const getMECRoleOutput: typeof import("./getMECRole").getMECRoleOutput = null as any;
-utilities.lazyLoad(exports, ["getMECRole","getMECRoleOutput"], () => require("./getMECRole"));
-
-export { GetPeriodicTimerEventTriggerArgs, GetPeriodicTimerEventTriggerResult, GetPeriodicTimerEventTriggerOutputArgs } from "./getPeriodicTimerEventTrigger";
-export const getPeriodicTimerEventTrigger: typeof import("./getPeriodicTimerEventTrigger").getPeriodicTimerEventTrigger = null as any;
-export const getPeriodicTimerEventTriggerOutput: typeof import("./getPeriodicTimerEventTrigger").getPeriodicTimerEventTriggerOutput = null as any;
-utilities.lazyLoad(exports, ["getPeriodicTimerEventTrigger","getPeriodicTimerEventTriggerOutput"], () => require("./getPeriodicTimerEventTrigger"));
 
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;

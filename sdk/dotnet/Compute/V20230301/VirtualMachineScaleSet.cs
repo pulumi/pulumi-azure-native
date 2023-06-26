@@ -209,6 +209,18 @@ namespace Pulumi.AzureNative.Compute.V20230301
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:compute:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20150615:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20160330:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20160430preview:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20170330:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20171201:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180401:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20181001:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:VirtualMachineScaleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineScaleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineScaleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineScaleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineScaleSet"},

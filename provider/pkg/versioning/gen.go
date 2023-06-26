@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"path"
 	"path/filepath"
@@ -12,28 +11,59 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/providerlist"
 	"gopkg.in/yaml.v3"
 )
 
 type VersionMetadata struct {
+	VersionSources
 	AllResourcesByVersion         ProvidersVersionResources
 	AllResourceVersionsByResource ProviderResourceVersions
 	Active                        providerlist.ProviderPathVersionsJson
 	Pending                       openapi.ProviderVersionList
-	V2Spec                        Spec
-	V2Lock                        openapi.DefaultVersionLock
+	Spec                          Spec
+	Lock                          openapi.DefaultVersionLock
+	RemovedInvokes                ResourceRemovals
 }
 
-func GenerateVersionMetadata(rootDir string, providers openapi.AzureProviders) (VersionMetadata, error) {
-	versionSources, err := ReadVersionSources(rootDir)
+func (v VersionMetadata) ShouldInclude(provider string, version string, typeName, token string) bool {
+	// Keep any resources in the default version lock
+	if resources, ok := v.Lock[provider]; ok {
+		if defaultResourceVersion, ok := resources[typeName]; ok {
+			if openapi.ApiToSdkVersion(defaultResourceVersion) == version {
+				return true
+			}
+		}
+	}
+	// Exclude versions from removed versions
+	if versions, ok := v.RemovedVersions[provider]; ok {
+		for _, removedVersion := range versions {
+			if openapi.ApiToSdkVersion(removedVersion) == version {
+				return false
+			}
+		}
+	}
+	// Exclude removed resources
+	if _, ok := v.ResourcesToRemove[token]; ok {
+		return false
+	}
+	// Exclude removed invokes
+	if _, ok := v.RemovedInvokes[token]; ok {
+		return false
+	}
+	return true
+}
+
+func LoadVersionMetadata(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionMetadata, error) {
+	versionSources, err := ReadVersionSources(rootDir, majorVersion)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
-	return calculateVersionMetadata(versionSources, providers)
+	return calculateVersionMetadata(versionSources, providers, majorVersion)
 }
 
-func calculateVersionMetadata(versionSources VersionSources, providers map[string]map[string]openapi.VersionResources) (VersionMetadata, error) {
+func calculateVersionMetadata(versionSources VersionSources, providers openapi.AzureProviders, majorVersion int) (VersionMetadata, error) {
 	// map[LoweredProviderName]map[ResourcePath]ApiVersions
 	activePathVersions := versionSources.activePathVersions
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
@@ -41,17 +71,17 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 	// provider->version->[]resource
 	allResourcesByVersion := FindAllResources(providers)
 
-	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(allResourcesByVersion, versionSources.v1Deprecations)
+	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(allResourcesByVersion, versionSources.RemovedVersions)
 
-	v2Spec := versionSources.v2Spec
+	spec := versionSources.Spec
 
-	v2Config := versionSources.v2Config
-	v2Spec = BuildSpec(allResourcesByVersionWithoutDeprecations, v2Config, v2Spec)
+	config := versionSources.Config
+	spec = BuildSpec(allResourcesByVersionWithoutDeprecations, config, spec)
 
-	violations := ValidateDefaultConfig(v2Spec, v2Config)
-	PrintViolationsAsWarnings(versionSources.v2ConfigPath, violations)
+	violations := ValidateDefaultConfig(spec, config)
+	PrintViolationsAsWarnings(versionSources.ConfigPath, violations)
 
-	v2Lock, err := DefaultConfigToDefaultVersionLock(allResourcesByVersionWithoutDeprecations, v2Spec)
+	v2Lock, err := DefaultConfigToDefaultVersionLock(allResourcesByVersionWithoutDeprecations, spec)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
@@ -59,40 +89,49 @@ func calculateVersionMetadata(versionSources VersionSources, providers map[strin
 	// provider->resource->[]version
 	allResourceVersionsByResource := FormatResourceVersions(allResourcesByVersion)
 
+	removedInvokes := ResourceRemovals(findRemovedInvokesFromResources(providers, openapi.RemovableResources(versionSources.ResourcesToRemove)))
+
 	return VersionMetadata{
+		VersionSources:                versionSources,
 		AllResourcesByVersion:         allResourcesByVersion,
 		AllResourceVersionsByResource: allResourceVersionsByResource,
 		Active:                        activePathVersionsJson,
 		Pending:                       FindNewerVersions(allResourcesByVersion, v2Lock),
-		V2Spec:                        v2Spec,
-		V2Lock:                        v2Lock,
+		Spec:                          spec,
+		Lock:                          v2Lock,
+		RemovedInvokes:                removedInvokes,
 	}, nil
 }
 
 func (v VersionMetadata) WriteTo(outputDir string) error {
+	filePrefix := fmt.Sprintf("v%d-", v.MajorVersion)
+	specPath := filePrefix + "spec.yaml"
+	lockPath := filePrefix + "lock.json"
+	removedInvokesPath := filePrefix + "removed-invokes.yaml"
 	return gen.EmitFiles(outputDir, gen.FileMap{
 		"allResourcesByVersion.json":         v.AllResourcesByVersion,
 		"allResourceVersionsByResource.json": v.AllResourceVersionsByResource,
 		"active.json":                        v.Active,
 		"pending.json":                       v.Pending,
-		"v2-spec.yaml":                       v.V2Spec,
-		"v2-lock.json":                       v.V2Lock,
+		specPath:                             v.Spec,
+		lockPath:                             v.Lock,
+		removedInvokesPath:                   v.RemovedInvokes,
 	})
 }
 
 type VersionSources struct {
+	MajorVersion              int
 	activePathVersions        providerlist.ProviderPathVersions
 	requiredExplicitResources []string
-	v1Lock                    openapi.DefaultVersionLock
-	v1Deprecations            openapi.ProviderVersionList
-	v2Spec                    Spec
-	v2Config                  Curations
-	v2ConfigPath              string
-	v1Squeeze                 ResourceRemovals
-	v2ResourcesToRemove       ResourceRemovals
+	PreviousLock              openapi.DefaultVersionLock
+	RemovedVersions           openapi.ProviderVersionList
+	Spec                      Spec
+	Config                    Curations
+	ConfigPath                string
+	ResourcesToRemove         ResourceRemovals
 }
 
-func ReadVersionSources(rootDir string) (VersionSources, error) {
+func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error) {
 	activePathVersions, err := providerlist.ReadProviderList(filepath.Join(rootDir, "azure-provider-versions", "provider_list.json"))
 	if err != nil {
 		return VersionSources{}, err
@@ -103,54 +142,47 @@ func ReadVersionSources(rootDir string) (VersionSources, error) {
 		return VersionSources{}, err
 	}
 
-	v1LockPath := path.Join(rootDir, "versions", "v1-lock.json")
-	v1Lock, err := openapi.ReadDefaultVersionLock(v1LockPath)
+	previousFilePrefix := fmt.Sprintf("v%d-", majorVersion-1)
+	filePrefix := fmt.Sprintf("v%d-", majorVersion)
+
+	previousLockPath := path.Join(rootDir, "versions", previousFilePrefix+"lock.json")
+	previousLock, err := openapi.ReadDefaultVersionLock(previousLockPath)
 	if err != nil {
 		return VersionSources{}, err
 	}
 
-	v1Deprecations, err := ReadDeprecations(path.Join(rootDir, "versions", "v1-deprecated.json"))
+	removed, err := ReadDeprecations(path.Join(rootDir, "versions", filePrefix+"removed.json"))
 	if err != nil {
 		return VersionSources{}, err
 	}
 
-	v2Spec, err := ReadSpec(path.Join(rootDir, "versions", "v2-spec.yaml"))
+	spec, err := ReadSpec(path.Join(rootDir, "versions", filePrefix+"spec.yaml"))
 	if err != nil {
 		return VersionSources{}, err
 	}
 
-	v2ConfigPath := path.Join(rootDir, "versions", "v2-config.yaml")
-	v2Config, err := ReadManualCurations(v2ConfigPath)
+	configPath := path.Join(rootDir, "versions", filePrefix+"config.yaml")
+	config, err := ReadManualCurations(configPath)
 	if err != nil {
 		return VersionSources{}, err
 	}
 
-	v1SqueezePath := path.Join(rootDir, "versions", "v1-squeeze.json")
-	// TODO tkappler We read all version files for all schema versions, so for v1 there's no
-	// squeeze file and v1 is required to generate the v2 squeeze file.
-	v1Squeeze, err := ReadResourceRemovals(v1SqueezePath)
+	resourcesToRemovePath := path.Join(rootDir, "versions", filePrefix+"removed-resources.yaml")
+	resourcesToRemove, err := ReadResourceRemovals(resourcesToRemovePath)
 	if err != nil {
-		log.Printf("Could not read v1-squeeze: %v, proceeding without", err)
-	} else {
-		log.Printf("Read %d squeeze entries from %s", len(v1Squeeze), v1SqueezePath)
-	}
-
-	v2ResourcesToRemovePath := path.Join(rootDir, "versions", "v2-removed-resources.yaml")
-	v2ResourcesToRemove, err := ReadResourceRemovals(v2ResourcesToRemovePath)
-	if err != nil {
-		return VersionSources{}, fmt.Errorf("could not read v2-removed-resources: %v", err)
+		return VersionSources{}, fmt.Errorf("could not read %s: %v", resourcesToRemovePath, err)
 	}
 
 	return VersionSources{
+		MajorVersion:              majorVersion,
 		activePathVersions:        activePathVersions,
 		requiredExplicitResources: knownExplicitResources,
-		v1Lock:                    v1Lock,
-		v1Deprecations:            v1Deprecations,
-		v2Spec:                    v2Spec,
-		v2Config:                  v2Config,
-		v2ConfigPath:              v2ConfigPath,
-		v1Squeeze:                 v1Squeeze,
-		v2ResourcesToRemove:       v2ResourcesToRemove,
+		PreviousLock:              previousLock,
+		RemovedVersions:           removed,
+		Spec:                      spec,
+		Config:                    config,
+		ConfigPath:                configPath,
+		ResourcesToRemove:         resourcesToRemove,
 	}, nil
 }
 
@@ -206,4 +238,41 @@ func ReadRequiredExplicitResources(path string) ([]string, error) {
 	// Split on new line
 	lines := strings.Split(string(bytes), "\r")
 	return lines, nil
+}
+
+func findRemovedInvokesFromResources(providers openapi.AzureProviders, removedResources openapi.RemovableResources) openapi.RemovableResources {
+	removableInvokes := openapi.RemovableResources{}
+	for provider, versions := range providers {
+		for version, resources := range versions {
+			removedResourcePaths := []string{}
+			for resourceName, resource := range resources.Resources {
+				if removedResources.CanBeRemoved(provider, resourceName, version) {
+					removedResourcePaths = append(removedResourcePaths, paths.NormalizePath(resource.Path))
+					continue
+				}
+			}
+			for invokeName, invoke := range resources.Invokes {
+				fullyQualifiedName := openapi.ToFullyQualifiedName(provider, invokeName, version)
+				// Check if the "resource" removal is actually an invoke.
+				if removedResources.CanBeRemoved(provider, invokeName, version) {
+					removableInvokes[fullyQualifiedName] = ""
+					continue
+				}
+				invokePath := paths.NormalizePath(invoke.Path)
+				// Try to match on the path - if the invoke sits below a.
+				found := false
+				for _, resourcePath := range removedResourcePaths {
+					if strings.HasPrefix(invokePath, resourcePath) {
+						found = true
+						break
+					}
+				}
+				if found {
+					removableInvokes[fullyQualifiedName] = ""
+					continue
+				}
+			}
+		}
+	}
+	return removableInvokes
 }

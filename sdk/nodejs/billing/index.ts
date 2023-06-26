@@ -43,9 +43,11 @@ utilities.lazyLoad(exports, ["listBillingAccountInvoiceSectionsByCreateSubscript
 
 // Export sub-modules:
 import * as v20191001preview from "./v20191001preview";
+import * as v20200501 from "./v20200501";
 
 export {
     v20191001preview,
+    v20200501,
 };
 
 const _module = {

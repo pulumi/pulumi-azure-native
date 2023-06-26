@@ -5,21 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetACIServiceArgs, GetACIServiceResult, GetACIServiceOutputArgs } from "./getACIService";
-export const getACIService: typeof import("./getACIService").getACIService = null as any;
-export const getACIServiceOutput: typeof import("./getACIService").getACIServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getACIService","getACIServiceOutput"], () => require("./getACIService"));
-
-export { GetAKSServiceArgs, GetAKSServiceResult, GetAKSServiceOutputArgs } from "./getAKSService";
-export const getAKSService: typeof import("./getAKSService").getAKSService = null as any;
-export const getAKSServiceOutput: typeof import("./getAKSService").getAKSServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getAKSService","getAKSServiceOutput"], () => require("./getAKSService"));
-
-export { GetEndpointVariantArgs, GetEndpointVariantResult, GetEndpointVariantOutputArgs } from "./getEndpointVariant";
-export const getEndpointVariant: typeof import("./getEndpointVariant").getEndpointVariant = null as any;
-export const getEndpointVariantOutput: typeof import("./getEndpointVariant").getEndpointVariantOutput = null as any;
-utilities.lazyLoad(exports, ["getEndpointVariant","getEndpointVariantOutput"], () => require("./getEndpointVariant"));
-
 export { GetMachineLearningComputeArgs, GetMachineLearningComputeResult, GetMachineLearningComputeOutputArgs } from "./getMachineLearningCompute";
 export const getMachineLearningCompute: typeof import("./getMachineLearningCompute").getMachineLearningCompute = null as any;
 export const getMachineLearningComputeOutput: typeof import("./getMachineLearningCompute").getMachineLearningComputeOutput = null as any;

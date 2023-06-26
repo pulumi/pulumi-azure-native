@@ -131,6 +131,14 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170601:InboundNatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170801:InboundNatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:InboundNatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:InboundNatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171101:InboundNatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180101:InboundNatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:InboundNatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:InboundNatRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180601:InboundNatRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180701:InboundNatRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:InboundNatRule"},

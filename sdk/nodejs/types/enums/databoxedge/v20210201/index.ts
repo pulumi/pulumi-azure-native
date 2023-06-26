@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AddonType = {
-    IotEdge: "IotEdge",
-    ArcForKubernetes: "ArcForKubernetes",
-} as const;
-
-/**
- * Addon type.
- */
-export type AddonType = (typeof AddonType)[keyof typeof AddonType];
-
 export const DataBoxEdgeDeviceKind = {
     AzureDataBoxGateway: "AzureDataBoxGateway",
     AzureStackEdge: "AzureStackEdge",
@@ -49,17 +39,6 @@ export const DataResidencyType = {
  */
 export type DataResidencyType = (typeof DataResidencyType)[keyof typeof DataResidencyType];
 
-export const EncryptionAlgorithm = {
-    None: "None",
-    AES256: "AES256",
-    RSAES_PKCS1_v_1_5: "RSAES_PKCS1_v_1_5",
-} as const;
-
-/**
- * The algorithm used to encrypt "Value".
- */
-export type EncryptionAlgorithm = (typeof EncryptionAlgorithm)[keyof typeof EncryptionAlgorithm];
-
 export const MsiIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
@@ -70,41 +49,6 @@ export const MsiIdentityType = {
  * Identity type
  */
 export type MsiIdentityType = (typeof MsiIdentityType)[keyof typeof MsiIdentityType];
-
-export const PlatformType = {
-    Windows: "Windows",
-    Linux: "Linux",
-} as const;
-
-/**
- * Host OS supported by the Kubernetes role.
- */
-export type PlatformType = (typeof PlatformType)[keyof typeof PlatformType];
-
-export const RoleStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Role status.
- */
-export type RoleStatus = (typeof RoleStatus)[keyof typeof RoleStatus];
-
-export const RoleTypes = {
-    IOT: "IOT",
-    ASA: "ASA",
-    Functions: "Functions",
-    Cognitive: "Cognitive",
-    MEC: "MEC",
-    CloudEdgeManagement: "CloudEdgeManagement",
-    Kubernetes: "Kubernetes",
-} as const;
-
-/**
- * Role type.
- */
-export type RoleTypes = (typeof RoleTypes)[keyof typeof RoleTypes];
 
 export const SkuName = {
     Gateway: "Gateway",
@@ -147,13 +91,3 @@ export const SkuTier = {
  * The SKU tier. This is based on the SKU name.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
-
-export const TriggerEventType = {
-    FileEvent: "FileEvent",
-    PeriodicTimerEvent: "PeriodicTimerEvent",
-} as const;
-
-/**
- * Trigger Kind.
- */
-export type TriggerEventType = (typeof TriggerEventType)[keyof typeof TriggerEventType];

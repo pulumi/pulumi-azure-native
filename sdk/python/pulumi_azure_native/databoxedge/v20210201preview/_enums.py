@@ -5,26 +5,13 @@
 from enum import Enum
 
 __all__ = [
-    'AddonType',
     'DataBoxEdgeDeviceStatus',
     'EncryptionAlgorithm',
     'MsiIdentityType',
-    'PlatformType',
-    'RoleStatus',
-    'RoleTypes',
     'SkuName',
     'SkuTier',
-    'TriggerEventType',
     'UserType',
 ]
-
-
-class AddonType(str, Enum):
-    """
-    Addon type.
-    """
-    IOT_EDGE = "IotEdge"
-    ARC_FOR_KUBERNETES = "ArcForKubernetes"
 
 
 class DataBoxEdgeDeviceStatus(str, Enum):
@@ -56,35 +43,6 @@ class MsiIdentityType(str, Enum):
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
-
-
-class PlatformType(str, Enum):
-    """
-    Host OS supported by the Kubernetes role.
-    """
-    WINDOWS = "Windows"
-    LINUX = "Linux"
-
-
-class RoleStatus(str, Enum):
-    """
-    Role status.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class RoleTypes(str, Enum):
-    """
-    Role type.
-    """
-    IOT = "IOT"
-    ASA = "ASA"
-    FUNCTIONS = "Functions"
-    COGNITIVE = "Cognitive"
-    MEC = "MEC"
-    CLOUD_EDGE_MANAGEMENT = "CloudEdgeManagement"
-    KUBERNETES = "Kubernetes"
 
 
 class SkuName(str, Enum):
@@ -123,14 +81,6 @@ class SkuTier(str, Enum):
     The SKU tier. This is based on the SKU name.
     """
     STANDARD = "Standard"
-
-
-class TriggerEventType(str, Enum):
-    """
-    Trigger Kind.
-    """
-    FILE_EVENT = "FileEvent"
-    PERIODIC_TIMER_EVENT = "PeriodicTimerEvent"
 
 
 class UserType(str, Enum):

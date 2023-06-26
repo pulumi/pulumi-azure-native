@@ -12,36 +12,6 @@ export const EnvironmentKind = {
  */
 export type EnvironmentKind = (typeof EnvironmentKind)[keyof typeof EnvironmentKind];
 
-export const EventSourceKind = {
-    Microsoft_EventHub: "Microsoft.EventHub",
-    Microsoft_IoTHub: "Microsoft.IoTHub",
-} as const;
-
-/**
- * The kind of the event source.
- */
-export type EventSourceKind = (typeof EventSourceKind)[keyof typeof EventSourceKind];
-
-export const IngressStartAtType = {
-    EarliestAvailable: "EarliestAvailable",
-    EventSourceCreationTime: "EventSourceCreationTime",
-    CustomEnqueuedTime: "CustomEnqueuedTime",
-} as const;
-
-/**
- * The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
- */
-export type IngressStartAtType = (typeof IngressStartAtType)[keyof typeof IngressStartAtType];
-
-export const LocalTimestampFormat = {
-    Embedded: "Embedded",
-} as const;
-
-/**
- * An enum that represents the format of the local timestamp property that needs to be set.
- */
-export type LocalTimestampFormat = (typeof LocalTimestampFormat)[keyof typeof LocalTimestampFormat];
-
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",
@@ -83,13 +53,3 @@ export const SkuName = {
  * The name of this SKU.
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
-
-export const StorageLimitExceededBehavior = {
-    PurgeOldData: "PurgeOldData",
-    PauseIngress: "PauseIngress",
-} as const;
-
-/**
- * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
- */
-export type StorageLimitExceededBehavior = (typeof StorageLimitExceededBehavior)[keyof typeof StorageLimitExceededBehavior];

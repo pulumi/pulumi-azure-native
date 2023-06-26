@@ -59,6 +59,8 @@ namespace Pulumi.AzureNative.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:QueueServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:QueueServiceProperties"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:QueueServiceProperties"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:QueueServiceProperties"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:QueueServiceProperties"},

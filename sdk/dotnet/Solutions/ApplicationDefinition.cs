@@ -173,6 +173,13 @@ namespace Pulumi.AzureNative.Solutions
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20170901:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20171201:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180201:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180301:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180601:ApplicationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20180901preview:ApplicationDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:solutions/v20190701:ApplicationDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:ApplicationDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:ApplicationDefinition"},

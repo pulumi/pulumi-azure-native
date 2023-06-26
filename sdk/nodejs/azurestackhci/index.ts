@@ -142,6 +142,7 @@ export * from "../types/enums/azurestackhci";
 // Export sub-modules:
 import * as v20201001 from "./v20201001";
 import * as v20210101preview from "./v20210101preview";
+import * as v20210701preview from "./v20210701preview";
 import * as v20210901preview from "./v20210901preview";
 import * as v20220101 from "./v20220101";
 import * as v20220901 from "./v20220901";
@@ -153,6 +154,7 @@ import * as v20230301 from "./v20230301";
 export {
     v20201001,
     v20210101preview,
+    v20210701preview,
     v20210901preview,
     v20220101,
     v20220901,

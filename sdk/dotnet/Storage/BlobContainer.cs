@@ -173,6 +173,13 @@ namespace Pulumi.AzureNative.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180201:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180301preview:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20181101:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190401:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:BlobContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobContainer"},

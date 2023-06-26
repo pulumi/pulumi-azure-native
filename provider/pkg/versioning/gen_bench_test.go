@@ -18,7 +18,7 @@ func BenchmarkGen(b *testing.B) {
 
 	b.ResetTimer()
 
-	versionSources, err := ReadVersionSources(rootDir)
+	versionSources, err := ReadVersionSources(rootDir, 2)
 	if err != nil {
 		b.Fatal(err)
 	}
@@ -28,12 +28,12 @@ func BenchmarkGen(b *testing.B) {
 		b.Fatal(err)
 	}
 
-	versionMetadata, err := calculateVersionMetadata(versionSources, specs)
+	versionMetadata, err := calculateVersionMetadata(versionSources, specs, 2)
 	if err != nil {
 		b.Fatal(err)
 	}
 
-	specs = openapi.ApplyProvidersTransformations(specs, versionMetadata.V2Lock, nil, versionSources.v1Deprecations, map[string][]string{})
+	specs = openapi.ApplyProvidersTransformations(specs, versionMetadata.Lock, nil, versionSources.RemovedVersions, map[string][]string{})
 
-	gen.PulumiSchema(specs)
+	gen.PulumiSchema(specs, versionMetadata)
 }

@@ -65,6 +65,8 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20200625
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:guestconfiguration:GuestConfigurationAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment"},
                 },

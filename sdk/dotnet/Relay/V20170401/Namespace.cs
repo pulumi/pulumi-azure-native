@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.Relay.V20170401
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:relay:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20180101preview:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:Namespace"},
                 },

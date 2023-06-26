@@ -137,6 +137,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190123preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190924preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20191210preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:Application"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:Application"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:Application"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:Application"},

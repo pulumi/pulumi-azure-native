@@ -9,24 +9,10 @@ __all__ = [
     'AlertRuleKind',
     'AlertSeverity',
     'AttackTactic',
-    'ConnectivityType',
-    'CustomEntityQueryKind',
-    'DataConnectorKind',
-    'DataTypeState',
     'EntityMappingType',
     'EntityTimelineKind',
-    'EntityType',
-    'EventGroupingAggregationKind',
     'MatchingMethod',
-    'MicrosoftSecurityProductName',
-    'PermissionProviderScope',
-    'PollingFrequency',
-    'ProviderName',
-    'SettingKind',
-    'SettingType',
     'Source',
-    'TriggerOperator',
-    'UebaDataSources',
 ]
 
 
@@ -99,53 +85,6 @@ class AttackTactic(str, Enum):
     PRE_ATTACK = "PreAttack"
     IMPAIR_PROCESS_CONTROL = "ImpairProcessControl"
     INHIBIT_RESPONSE_FUNCTION = "InhibitResponseFunction"
-
-
-class ConnectivityType(str, Enum):
-    """
-    type of connectivity
-    """
-    IS_CONNECTED_QUERY = "IsConnectedQuery"
-
-
-class CustomEntityQueryKind(str, Enum):
-    """
-    the entity query kind
-    """
-    ACTIVITY = "Activity"
-
-
-class DataConnectorKind(str, Enum):
-    """
-    The data connector kind
-    """
-    AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
-    AZURE_SECURITY_CENTER = "AzureSecurityCenter"
-    MICROSOFT_CLOUD_APP_SECURITY = "MicrosoftCloudAppSecurity"
-    THREAT_INTELLIGENCE = "ThreatIntelligence"
-    THREAT_INTELLIGENCE_TAXII = "ThreatIntelligenceTaxii"
-    OFFICE365 = "Office365"
-    OFFICE_ATP = "OfficeATP"
-    OFFICE_IRM = "OfficeIRM"
-    OFFICE365_PROJECT = "Office365Project"
-    OFFICE_POWER_BI = "OfficePowerBI"
-    AMAZON_WEB_SERVICES_CLOUD_TRAIL = "AmazonWebServicesCloudTrail"
-    AMAZON_WEB_SERVICES_S3 = "AmazonWebServicesS3"
-    AZURE_ADVANCED_THREAT_PROTECTION = "AzureAdvancedThreatProtection"
-    MICROSOFT_DEFENDER_ADVANCED_THREAT_PROTECTION = "MicrosoftDefenderAdvancedThreatProtection"
-    DYNAMICS365 = "Dynamics365"
-    MICROSOFT_THREAT_PROTECTION = "MicrosoftThreatProtection"
-    MICROSOFT_THREAT_INTELLIGENCE = "MicrosoftThreatIntelligence"
-    GENERIC_UI = "GenericUI"
-    API_POLLING = "APIPolling"
-
-
-class DataTypeState(str, Enum):
-    """
-    Describe whether this data type connection is enabled or not.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class EntityMappingType(str, Enum):
@@ -244,104 +183,6 @@ class EntityTimelineKind(str, Enum):
     """
 
 
-class EntityType(str, Enum):
-    """
-    The type of the query's source entity
-    """
-    ACCOUNT = "Account"
-    """
-    Entity represents account in the system.
-    """
-    HOST = "Host"
-    """
-    Entity represents host in the system.
-    """
-    FILE = "File"
-    """
-    Entity represents file in the system.
-    """
-    AZURE_RESOURCE = "AzureResource"
-    """
-    Entity represents azure resource in the system.
-    """
-    CLOUD_APPLICATION = "CloudApplication"
-    """
-    Entity represents cloud application in the system.
-    """
-    DNS = "DNS"
-    """
-    Entity represents dns in the system.
-    """
-    FILE_HASH = "FileHash"
-    """
-    Entity represents file hash in the system.
-    """
-    IP = "IP"
-    """
-    Entity represents ip in the system.
-    """
-    MALWARE = "Malware"
-    """
-    Entity represents malware in the system.
-    """
-    PROCESS = "Process"
-    """
-    Entity represents process in the system.
-    """
-    REGISTRY_KEY = "RegistryKey"
-    """
-    Entity represents registry key in the system.
-    """
-    REGISTRY_VALUE = "RegistryValue"
-    """
-    Entity represents registry value in the system.
-    """
-    SECURITY_GROUP = "SecurityGroup"
-    """
-    Entity represents security group in the system.
-    """
-    URL = "URL"
-    """
-    Entity represents url in the system.
-    """
-    IO_T_DEVICE = "IoTDevice"
-    """
-    Entity represents IoT device in the system.
-    """
-    SECURITY_ALERT = "SecurityAlert"
-    """
-    Entity represents security alert in the system.
-    """
-    HUNTING_BOOKMARK = "HuntingBookmark"
-    """
-    Entity represents HuntingBookmark in the system.
-    """
-    MAIL_CLUSTER = "MailCluster"
-    """
-    Entity represents mail cluster in the system.
-    """
-    MAIL_MESSAGE = "MailMessage"
-    """
-    Entity represents mail message in the system.
-    """
-    MAILBOX = "Mailbox"
-    """
-    Entity represents mailbox in the system.
-    """
-    SUBMISSION_MAIL = "SubmissionMail"
-    """
-    Entity represents submission mail in the system.
-    """
-
-
-class EventGroupingAggregationKind(str, Enum):
-    """
-    The event grouping aggregation kinds
-    """
-    SINGLE_ALERT = "SingleAlert"
-    ALERT_PER_RESULT = "AlertPerResult"
-
-
 class MatchingMethod(str, Enum):
     """
     Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
@@ -360,100 +201,9 @@ class MatchingMethod(str, Enum):
     """
 
 
-class MicrosoftSecurityProductName(str, Enum):
-    """
-    The alerts' productName on which the cases will be generated
-    """
-    MICROSOFT_CLOUD_APP_SECURITY = "Microsoft Cloud App Security"
-    AZURE_SECURITY_CENTER = "Azure Security Center"
-    AZURE_ADVANCED_THREAT_PROTECTION = "Azure Advanced Threat Protection"
-    AZURE_ACTIVE_DIRECTORY_IDENTITY_PROTECTION = "Azure Active Directory Identity Protection"
-    AZURE_SECURITY_CENTER_FOR_IO_T = "Azure Security Center for IoT"
-    OFFICE_365_ADVANCED_THREAT_PROTECTION = "Office 365 Advanced Threat Protection"
-    MICROSOFT_DEFENDER_ADVANCED_THREAT_PROTECTION = "Microsoft Defender Advanced Threat Protection"
-
-
-class PermissionProviderScope(str, Enum):
-    """
-    Permission provider scope
-    """
-    RESOURCE_GROUP = "ResourceGroup"
-    SUBSCRIPTION = "Subscription"
-    WORKSPACE = "Workspace"
-
-
-class PollingFrequency(str, Enum):
-    """
-    The polling frequency for the TAXII server.
-    """
-    ONCE_A_MINUTE = "OnceAMinute"
-    """
-    Once a minute
-    """
-    ONCE_AN_HOUR = "OnceAnHour"
-    """
-    Once an hour
-    """
-    ONCE_A_DAY = "OnceADay"
-    """
-    Once a day
-    """
-
-
-class ProviderName(str, Enum):
-    """
-    Provider name
-    """
-    MICROSOFT_OPERATIONAL_INSIGHTS_SOLUTIONS = "Microsoft.OperationalInsights/solutions"
-    MICROSOFT_OPERATIONAL_INSIGHTS_WORKSPACES = "Microsoft.OperationalInsights/workspaces"
-    MICROSOFT_OPERATIONAL_INSIGHTS_WORKSPACES_DATASOURCES = "Microsoft.OperationalInsights/workspaces/datasources"
-    MICROSOFT_AADIAM_DIAGNOSTIC_SETTINGS = "microsoft.aadiam/diagnosticSettings"
-    MICROSOFT_OPERATIONAL_INSIGHTS_WORKSPACES_SHARED_KEYS = "Microsoft.OperationalInsights/workspaces/sharedKeys"
-    MICROSOFT_AUTHORIZATION_POLICY_ASSIGNMENTS = "Microsoft.Authorization/policyAssignments"
-
-
-class SettingKind(str, Enum):
-    """
-    The kind of the setting
-    """
-    ANOMALIES = "Anomalies"
-    EYES_ON = "EyesOn"
-    ENTITY_ANALYTICS = "EntityAnalytics"
-    UEBA = "Ueba"
-
-
-class SettingType(str, Enum):
-    """
-    The kind of the setting
-    """
-    COPYABLE_LABEL = "CopyableLabel"
-    INSTRUCTION_STEPS_GROUP = "InstructionStepsGroup"
-    INFO_MESSAGE = "InfoMessage"
-
-
 class Source(str, Enum):
     """
     The source of the watchlist
     """
     LOCAL_FILE = "Local file"
     REMOTE_STORAGE = "Remote storage"
-
-
-class TriggerOperator(str, Enum):
-    """
-    The operation against the threshold that triggers alert rule.
-    """
-    GREATER_THAN = "GreaterThan"
-    LESS_THAN = "LessThan"
-    EQUAL = "Equal"
-    NOT_EQUAL = "NotEqual"
-
-
-class UebaDataSources(str, Enum):
-    """
-    The data source that enriched by ueba.
-    """
-    AUDIT_LOGS = "AuditLogs"
-    AZURE_ACTIVITY = "AzureActivity"
-    SECURITY_EVENT = "SecurityEvent"
-    SIGNIN_LOGS = "SigninLogs"

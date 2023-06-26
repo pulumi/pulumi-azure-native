@@ -103,6 +103,8 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datashare:KustoDatabaseDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:KustoDatabaseDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:KustoDatabaseDataSetMapping"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:KustoDatabaseDataSetMapping"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:KustoDatabaseDataSetMapping"},
                 },

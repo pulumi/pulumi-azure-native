@@ -52,11 +52,13 @@ export * from "../types/enums/maps";
 // Export sub-modules:
 import * as v20180501 from "./v20180501";
 import * as v20200201preview from "./v20200201preview";
+import * as v20210201 from "./v20210201";
 import * as v20211201preview from "./v20211201preview";
 
 export {
     v20180501,
     v20200201preview,
+    v20210201,
     v20211201preview,
 };
 

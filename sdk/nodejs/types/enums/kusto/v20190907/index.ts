@@ -2,26 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const DataFormat = {
-    MULTIJSON: "MULTIJSON",
-    JSON: "JSON",
-    CSV: "CSV",
-    TSV: "TSV",
-    SCSV: "SCSV",
-    SOHSV: "SOHSV",
-    PSV: "PSV",
-    TXT: "TXT",
-    RAW: "RAW",
-    SINGLEJSON: "SINGLEJSON",
-    AVRO: "AVRO",
-    TSVE: "TSVE",
-} as const;
-
-/**
- * The data format of the message. Optionally the data format can be added to each message.
- */
-export type DataFormat = (typeof DataFormat)[keyof typeof DataFormat];
-
 export const Kind = {
     ReadWrite: "ReadWrite",
     ReadOnlyFollowing: "ReadOnlyFollowing",

@@ -155,6 +155,7 @@ namespace Pulumi.AzureNative.Network.V20201101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:AzureFirewall"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:AzureFirewall"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180601:AzureFirewall"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180701:AzureFirewall"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:AzureFirewall"},

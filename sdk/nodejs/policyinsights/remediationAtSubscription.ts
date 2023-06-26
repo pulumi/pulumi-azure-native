@@ -150,7 +150,7 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights/v20190701:RemediationAtSubscription" }, { type: "azure-native:policyinsights/v20211001:RemediationAtSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights/v20180701preview:RemediationAtSubscription" }, { type: "azure-native:policyinsights/v20190701:RemediationAtSubscription" }, { type: "azure-native:policyinsights/v20211001:RemediationAtSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RemediationAtSubscription.__pulumiType, name, resourceInputs, opts);
     }

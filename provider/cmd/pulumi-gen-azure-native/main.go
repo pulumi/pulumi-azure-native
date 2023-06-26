@@ -61,7 +61,6 @@ func main() {
 	// Use DEBUG_CODEGEN_APIVERSIONS to just generate certain versions (e.g. "2019-09-01", "2019*") for quick testing,
 	// likely in combination with DEBUG_CODEGEN_NAMESPACES
 	apiVersions := os.Getenv("DEBUG_CODEGEN_APIVERSIONS")
-	codegenVersion := os.Getenv("CODEGEN_VERSION")
 	codegenSchemaOutputPath := os.Getenv("CODEGEN_SCHEMA_OUTPUT_PATH")
 	codegenMetadataOutputPath := os.Getenv("CODEGEN_METADATA_OUTPUT_PATH")
 
@@ -71,9 +70,8 @@ func main() {
 			NamespaceFilter: namespaces,
 			VersionsFilter:  apiVersions,
 		},
-		RootDir:  wd,
-		Version:  version,
-		Version2: codegenVersion == "v2",
+		RootDir: wd,
+		Version: version,
 	}
 
 	switch languages {

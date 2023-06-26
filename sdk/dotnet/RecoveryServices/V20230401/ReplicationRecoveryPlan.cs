@@ -65,6 +65,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationRecoveryPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationRecoveryPlan"},

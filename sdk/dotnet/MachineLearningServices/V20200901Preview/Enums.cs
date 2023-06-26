@@ -8,37 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
     /// <summary>
-    /// The compute environment type for the service.
-    /// </summary>
-    [EnumType]
-    public readonly struct ComputeEnvironmentType : IEquatable<ComputeEnvironmentType>
-    {
-        private readonly string _value;
-
-        private ComputeEnvironmentType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ComputeEnvironmentType ACI { get; } = new ComputeEnvironmentType("ACI");
-        public static ComputeEnvironmentType AKS { get; } = new ComputeEnvironmentType("AKS");
-
-        public static bool operator ==(ComputeEnvironmentType left, ComputeEnvironmentType right) => left.Equals(right);
-        public static bool operator !=(ComputeEnvironmentType left, ComputeEnvironmentType right) => !left.Equals(right);
-
-        public static explicit operator string(ComputeEnvironmentType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ComputeEnvironmentType other && Equals(other);
-        public bool Equals(ComputeEnvironmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Indicates whether or not the encryption is enabled for the workspace.
     /// </summary>
     [EnumType]
@@ -222,37 +191,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The type of the variant.
-    /// </summary>
-    [EnumType]
-    public readonly struct VariantType : IEquatable<VariantType>
-    {
-        private readonly string _value;
-
-        private VariantType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static VariantType Control { get; } = new VariantType("Control");
-        public static VariantType Treatment { get; } = new VariantType("Treatment");
-
-        public static bool operator ==(VariantType left, VariantType right) => left.Equals(right);
-        public static bool operator !=(VariantType left, VariantType right) => !left.Equals(right);
-
-        public static explicit operator string(VariantType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is VariantType other && Equals(other);
-        public bool Equals(VariantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

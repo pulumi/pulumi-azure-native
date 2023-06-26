@@ -54,6 +54,21 @@ export const getUserRuleCollection: typeof import("./getUserRuleCollection").get
 export const getUserRuleCollectionOutput: typeof import("./getUserRuleCollection").getUserRuleCollectionOutput = null as any;
 utilities.lazyLoad(exports, ["getUserRuleCollection","getUserRuleCollectionOutput"], () => require("./getUserRuleCollection"));
 
+export { ListActiveSecurityUserRulesArgs, ListActiveSecurityUserRulesResult, ListActiveSecurityUserRulesOutputArgs } from "./listActiveSecurityUserRules";
+export const listActiveSecurityUserRules: typeof import("./listActiveSecurityUserRules").listActiveSecurityUserRules = null as any;
+export const listActiveSecurityUserRulesOutput: typeof import("./listActiveSecurityUserRules").listActiveSecurityUserRulesOutput = null as any;
+utilities.lazyLoad(exports, ["listActiveSecurityUserRules","listActiveSecurityUserRulesOutput"], () => require("./listActiveSecurityUserRules"));
+
+export { ListEffectiveVirtualNetworkByNetworkManagerArgs, ListEffectiveVirtualNetworkByNetworkManagerResult, ListEffectiveVirtualNetworkByNetworkManagerOutputArgs } from "./listEffectiveVirtualNetworkByNetworkManager";
+export const listEffectiveVirtualNetworkByNetworkManager: typeof import("./listEffectiveVirtualNetworkByNetworkManager").listEffectiveVirtualNetworkByNetworkManager = null as any;
+export const listEffectiveVirtualNetworkByNetworkManagerOutput: typeof import("./listEffectiveVirtualNetworkByNetworkManager").listEffectiveVirtualNetworkByNetworkManagerOutput = null as any;
+utilities.lazyLoad(exports, ["listEffectiveVirtualNetworkByNetworkManager","listEffectiveVirtualNetworkByNetworkManagerOutput"], () => require("./listEffectiveVirtualNetworkByNetworkManager"));
+
+export { ListListEffectiveVirtualNetworkByNetworkGroupArgs, ListListEffectiveVirtualNetworkByNetworkGroupResult, ListListEffectiveVirtualNetworkByNetworkGroupOutputArgs } from "./listListEffectiveVirtualNetworkByNetworkGroup";
+export const listListEffectiveVirtualNetworkByNetworkGroup: typeof import("./listListEffectiveVirtualNetworkByNetworkGroup").listListEffectiveVirtualNetworkByNetworkGroup = null as any;
+export const listListEffectiveVirtualNetworkByNetworkGroupOutput: typeof import("./listListEffectiveVirtualNetworkByNetworkGroup").listListEffectiveVirtualNetworkByNetworkGroupOutput = null as any;
+utilities.lazyLoad(exports, ["listListEffectiveVirtualNetworkByNetworkGroup","listListEffectiveVirtualNetworkByNetworkGroupOutput"], () => require("./listListEffectiveVirtualNetworkByNetworkGroup"));
+
 export { ListNetworkManagerEffectiveConnectivityConfigurationsArgs, ListNetworkManagerEffectiveConnectivityConfigurationsResult, ListNetworkManagerEffectiveConnectivityConfigurationsOutputArgs } from "./listNetworkManagerEffectiveConnectivityConfigurations";
 export const listNetworkManagerEffectiveConnectivityConfigurations: typeof import("./listNetworkManagerEffectiveConnectivityConfigurations").listNetworkManagerEffectiveConnectivityConfigurations = null as any;
 export const listNetworkManagerEffectiveConnectivityConfigurationsOutput: typeof import("./listNetworkManagerEffectiveConnectivityConfigurations").listNetworkManagerEffectiveConnectivityConfigurationsOutput = null as any;

@@ -12,6 +12,8 @@ from .get_web_app_domain_ownership_identifier_slot import *
 from .get_web_app_slot import *
 from .list_web_app_backup_status_secrets import *
 from .list_web_app_backup_status_secrets_slot import *
+from .list_web_app_hybrid_connection_keys import *
+from .list_web_app_hybrid_connection_keys_slot import *
 from .list_web_app_publishing_credentials import *
 from .list_web_app_publishing_credentials_slot import *
 from .list_web_app_sync_function_triggers import *

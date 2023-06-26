@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ComputeEnvironmentType = {
-    ACI: "ACI",
-    AKS: "AKS",
-} as const;
-
-/**
- * The compute environment type for the service.
- */
-export type ComputeEnvironmentType = (typeof ComputeEnvironmentType)[keyof typeof ComputeEnvironmentType];
-
 export const DatasetType = {
     Tabular: "tabular",
     File: "file",
@@ -60,13 +50,3 @@ export const SourceType = {
  * Data source type.
  */
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];
-
-export const VariantType = {
-    Control: "Control",
-    Treatment: "Treatment",
-} as const;
-
-/**
- * The type of the variant.
- */
-export type VariantType = (typeof VariantType)[keyof typeof VariantType];

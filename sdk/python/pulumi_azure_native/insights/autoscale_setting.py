@@ -297,7 +297,7 @@ class AutoscaleSetting(pulumi.CustomResource):
             __props__.__dict__["target_resource_uri"] = target_resource_uri
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20150401:AutoscaleSetting"), pulumi.Alias(type_="azure-native:insights/v20210501preview:AutoscaleSetting"), pulumi.Alias(type_="azure-native:insights/v20221001:AutoscaleSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20140401:AutoscaleSetting"), pulumi.Alias(type_="azure-native:insights/v20150401:AutoscaleSetting"), pulumi.Alias(type_="azure-native:insights/v20210501preview:AutoscaleSetting"), pulumi.Alias(type_="azure-native:insights/v20221001:AutoscaleSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutoscaleSetting, __self__).__init__(
             'azure-native:insights:AutoscaleSetting',

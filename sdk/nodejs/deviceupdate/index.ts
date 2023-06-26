@@ -51,10 +51,12 @@ export * from "../types/enums/deviceupdate";
 
 // Export sub-modules:
 import * as v20200301preview from "./v20200301preview";
+import * as v20221001 from "./v20221001";
 import * as v20221201preview from "./v20221201preview";
 
 export {
     v20200301preview,
+    v20221001,
     v20221201preview,
 };
 

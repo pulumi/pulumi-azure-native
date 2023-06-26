@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180701preview:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

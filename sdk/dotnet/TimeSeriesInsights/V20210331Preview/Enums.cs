@@ -39,99 +39,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
     }
 
     /// <summary>
-    /// The kind of the event source.
-    /// </summary>
-    [EnumType]
-    public readonly struct EventSourceKind : IEquatable<EventSourceKind>
-    {
-        private readonly string _value;
-
-        private EventSourceKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static EventSourceKind Microsoft_EventHub { get; } = new EventSourceKind("Microsoft.EventHub");
-        public static EventSourceKind Microsoft_IoTHub { get; } = new EventSourceKind("Microsoft.IoTHub");
-
-        public static bool operator ==(EventSourceKind left, EventSourceKind right) => left.Equals(right);
-        public static bool operator !=(EventSourceKind left, EventSourceKind right) => !left.Equals(right);
-
-        public static explicit operator string(EventSourceKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EventSourceKind other && Equals(other);
-        public bool Equals(EventSourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
-    /// </summary>
-    [EnumType]
-    public readonly struct IngressStartAtType : IEquatable<IngressStartAtType>
-    {
-        private readonly string _value;
-
-        private IngressStartAtType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static IngressStartAtType EarliestAvailable { get; } = new IngressStartAtType("EarliestAvailable");
-        public static IngressStartAtType EventSourceCreationTime { get; } = new IngressStartAtType("EventSourceCreationTime");
-        public static IngressStartAtType CustomEnqueuedTime { get; } = new IngressStartAtType("CustomEnqueuedTime");
-
-        public static bool operator ==(IngressStartAtType left, IngressStartAtType right) => left.Equals(right);
-        public static bool operator !=(IngressStartAtType left, IngressStartAtType right) => !left.Equals(right);
-
-        public static explicit operator string(IngressStartAtType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IngressStartAtType other && Equals(other);
-        public bool Equals(IngressStartAtType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// An enum that represents the format of the local timestamp property that needs to be set.
-    /// </summary>
-    [EnumType]
-    public readonly struct LocalTimestampFormat : IEquatable<LocalTimestampFormat>
-    {
-        private readonly string _value;
-
-        private LocalTimestampFormat(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static LocalTimestampFormat Embedded { get; } = new LocalTimestampFormat("Embedded");
-
-        public static bool operator ==(LocalTimestampFormat left, LocalTimestampFormat right) => left.Equals(right);
-        public static bool operator !=(LocalTimestampFormat left, LocalTimestampFormat right) => !left.Equals(right);
-
-        public static explicit operator string(LocalTimestampFormat value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LocalTimestampFormat other && Equals(other);
-        public bool Equals(LocalTimestampFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     /// </summary>
     [EnumType]
@@ -250,37 +157,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
         public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-    /// </summary>
-    [EnumType]
-    public readonly struct StorageLimitExceededBehavior : IEquatable<StorageLimitExceededBehavior>
-    {
-        private readonly string _value;
-
-        private StorageLimitExceededBehavior(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static StorageLimitExceededBehavior PurgeOldData { get; } = new StorageLimitExceededBehavior("PurgeOldData");
-        public static StorageLimitExceededBehavior PauseIngress { get; } = new StorageLimitExceededBehavior("PauseIngress");
-
-        public static bool operator ==(StorageLimitExceededBehavior left, StorageLimitExceededBehavior right) => left.Equals(right);
-        public static bool operator !=(StorageLimitExceededBehavior left, StorageLimitExceededBehavior right) => !left.Equals(right);
-
-        public static explicit operator string(StorageLimitExceededBehavior value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StorageLimitExceededBehavior other && Equals(other);
-        public bool Equals(StorageLimitExceededBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

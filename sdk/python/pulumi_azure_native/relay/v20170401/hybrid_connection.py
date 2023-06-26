@@ -171,7 +171,7 @@ class HybridConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay:HybridConnection"), pulumi.Alias(type_="azure-native:relay/v20211101:HybridConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay:HybridConnection"), pulumi.Alias(type_="azure-native:relay/v20160701:HybridConnection"), pulumi.Alias(type_="azure-native:relay/v20211101:HybridConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HybridConnection, __self__).__init__(
             'azure-native:relay/v20170401:HybridConnection',

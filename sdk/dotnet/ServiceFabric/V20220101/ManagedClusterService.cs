@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:ManagedClusterService"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:ManagedClusterService"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:ManagedClusterService"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:ManagedClusterService"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:ManagedClusterService"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:ManagedClusterService"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20220601preview:ManagedClusterService"},

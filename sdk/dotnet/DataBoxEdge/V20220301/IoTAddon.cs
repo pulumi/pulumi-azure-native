@@ -109,6 +109,8 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge:IoTAddon"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:IoTAddon"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:IoTAddon"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:IoTAddon"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:IoTAddon"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:IoTAddon"},

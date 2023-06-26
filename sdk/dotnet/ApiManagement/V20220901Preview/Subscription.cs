@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220901Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:Subscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Subscription"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Subscription"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Subscription"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Subscription"},

@@ -149,6 +149,8 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicebus:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Topic"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Topic"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Topic"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Topic"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Topic"},

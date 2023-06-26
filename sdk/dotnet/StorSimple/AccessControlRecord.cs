@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:storsimple/v20161001:AccessControlRecord"},
                     new global::Pulumi.Alias { Type = "azure-native:storsimple/v20170601:AccessControlRecord"},
                 },
             };

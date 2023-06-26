@@ -19,12 +19,15 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.sqlvirtualmachine.v20170301preview as __v20170301preview
     v20170301preview = __v20170301preview
+    import pulumi_azure_native.sqlvirtualmachine.v20220201 as __v20220201
+    v20220201 = __v20220201
     import pulumi_azure_native.sqlvirtualmachine.v20220801preview as __v20220801preview
     v20220801preview = __v20220801preview
     import pulumi_azure_native.sqlvirtualmachine.v20230101preview as __v20230101preview
     v20230101preview = __v20230101preview
 else:
     v20170301preview = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20170301preview')
+    v20220201 = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20220201')
     v20220801preview = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20220801preview')
     v20230101preview = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20230101preview')
 

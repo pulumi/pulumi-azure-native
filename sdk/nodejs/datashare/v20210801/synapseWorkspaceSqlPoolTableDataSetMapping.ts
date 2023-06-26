@@ -123,7 +123,7 @@ export class SynapseWorkspaceSqlPoolTableDataSetMapping extends pulumi.CustomRes
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping" }, { type: "azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping" }, { type: "azure-native:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSetMapping" }, { type: "azure-native:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSetMapping" }, { type: "azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SynapseWorkspaceSqlPoolTableDataSetMapping.__pulumiType, name, resourceInputs, opts);
     }

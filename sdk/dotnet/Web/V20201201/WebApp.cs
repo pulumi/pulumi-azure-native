@@ -325,6 +325,7 @@ namespace Pulumi.AzureNative.Web.V20201201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebApp"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebApp"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebApp"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebApp"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebApp"},

@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ComputeEnvironmentType = {
-    ACI: "ACI",
-    AKS: "AKS",
-} as const;
-
-/**
- * The compute environment type for the service.
- */
-export type ComputeEnvironmentType = (typeof ComputeEnvironmentType)[keyof typeof ComputeEnvironmentType];
-
 export const EncryptionStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -76,13 +66,3 @@ export const ResourceIdentityType = {
  * The identity type.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
-
-export const VariantType = {
-    Control: "Control",
-    Treatment: "Treatment",
-} as const;
-
-/**
- * The type of the variant.
- */
-export type VariantType = (typeof VariantType)[keyof typeof VariantType];

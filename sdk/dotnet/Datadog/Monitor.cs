@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Datadog
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:datadog/v20200201preview:Monitor"},
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20210301:Monitor"},
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20220601:Monitor"},
                 },

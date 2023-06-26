@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storsimple:StorageAccountCredential"},
+                    new global::Pulumi.Alias { Type = "azure-native:storsimple/v20161001:StorageAccountCredential"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

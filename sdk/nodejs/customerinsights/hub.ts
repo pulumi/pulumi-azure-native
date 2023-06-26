@@ -112,7 +112,7 @@ export class Hub extends pulumi.CustomResource {
             resourceInputs["webEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/v20170426:Hub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/v20170101:Hub" }, { type: "azure-native:customerinsights/v20170426:Hub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Hub.__pulumiType, name, resourceInputs, opts);
     }

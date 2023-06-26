@@ -109,6 +109,8 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen1FileDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ADLSGen1FileDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:ADLSGen1FileDataSet"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:ADLSGen1FileDataSet"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen1FileDataSet"},
                 },

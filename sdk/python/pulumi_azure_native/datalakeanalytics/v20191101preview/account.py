@@ -457,7 +457,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["system_max_job_count"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_network_rules"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datalakeanalytics:Account"), pulumi.Alias(type_="azure-native:datalakeanalytics/v20161101:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datalakeanalytics:Account"), pulumi.Alias(type_="azure-native:datalakeanalytics/v20151001preview:Account"), pulumi.Alias(type_="azure-native:datalakeanalytics/v20161101:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:datalakeanalytics/v20191101preview:Account',

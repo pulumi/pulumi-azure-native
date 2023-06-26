@@ -35,6 +35,16 @@ export const listWebAppBackupStatusSecretsSlot: typeof import("./listWebAppBacku
 export const listWebAppBackupStatusSecretsSlotOutput: typeof import("./listWebAppBackupStatusSecretsSlot").listWebAppBackupStatusSecretsSlotOutput = null as any;
 utilities.lazyLoad(exports, ["listWebAppBackupStatusSecretsSlot","listWebAppBackupStatusSecretsSlotOutput"], () => require("./listWebAppBackupStatusSecretsSlot"));
 
+export { ListWebAppHybridConnectionKeysArgs, ListWebAppHybridConnectionKeysResult, ListWebAppHybridConnectionKeysOutputArgs } from "./listWebAppHybridConnectionKeys";
+export const listWebAppHybridConnectionKeys: typeof import("./listWebAppHybridConnectionKeys").listWebAppHybridConnectionKeys = null as any;
+export const listWebAppHybridConnectionKeysOutput: typeof import("./listWebAppHybridConnectionKeys").listWebAppHybridConnectionKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listWebAppHybridConnectionKeys","listWebAppHybridConnectionKeysOutput"], () => require("./listWebAppHybridConnectionKeys"));
+
+export { ListWebAppHybridConnectionKeysSlotArgs, ListWebAppHybridConnectionKeysSlotResult, ListWebAppHybridConnectionKeysSlotOutputArgs } from "./listWebAppHybridConnectionKeysSlot";
+export const listWebAppHybridConnectionKeysSlot: typeof import("./listWebAppHybridConnectionKeysSlot").listWebAppHybridConnectionKeysSlot = null as any;
+export const listWebAppHybridConnectionKeysSlotOutput: typeof import("./listWebAppHybridConnectionKeysSlot").listWebAppHybridConnectionKeysSlotOutput = null as any;
+utilities.lazyLoad(exports, ["listWebAppHybridConnectionKeysSlot","listWebAppHybridConnectionKeysSlotOutput"], () => require("./listWebAppHybridConnectionKeysSlot"));
+
 export { ListWebAppPublishingCredentialsArgs, ListWebAppPublishingCredentialsResult, ListWebAppPublishingCredentialsOutputArgs } from "./listWebAppPublishingCredentials";
 export const listWebAppPublishingCredentials: typeof import("./listWebAppPublishingCredentials").listWebAppPublishingCredentials = null as any;
 export const listWebAppPublishingCredentialsOutput: typeof import("./listWebAppPublishingCredentials").listWebAppPublishingCredentialsOutput = null as any;

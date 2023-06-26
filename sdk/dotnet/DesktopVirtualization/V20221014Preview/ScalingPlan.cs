@@ -146,6 +146,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:ScalingPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:ScalingPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:ScalingPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:ScalingPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:ScalingPlan"},

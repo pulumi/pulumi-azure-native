@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"path"
+	"strconv"
+	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
@@ -26,7 +28,6 @@ type BuildSchemaArgs struct {
 	RootDir                 string
 	ExcludeExplicitVersions bool
 	ExampleLanguages        []string
-	Version2                bool
 	Version                 string
 }
 
@@ -46,45 +47,29 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		return nil, err
 	}
 
-	versionSources, err := ReadVersionSources(args.RootDir)
+	majorVersion, err := strconv.ParseInt(strings.Split(args.Version, ".")[0], 10, 64)
 	if err != nil {
 		return nil, err
 	}
 
-	versionMetadata, err := calculateVersionMetadata(versionSources, providers)
+	versionMetadata, err := LoadVersionMetadata(args.RootDir, providers, int(majorVersion))
 	if err != nil {
 		return nil, err
 	}
 
-	var removed openapi.ProviderVersionList
-	if args.Version2 {
-		removed, err = openapi.ReadProviderVersionList(path.Join(args.RootDir, "versions", "v2-removed.json"))
-	} else {
-		removed, err = openapi.ReadProviderVersionList(path.Join(args.RootDir, "versions", "v1-removed.json"))
-	}
-	if err != nil {
-		return nil, err
-	}
+	providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.Lock, versionMetadata.PreviousLock, nil, nil)
 
-	providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.V2Lock, versionSources.v1Lock, nil, removed)
-
-	pathChanges := findPathChanges(providers, versionMetadata.V2Lock, versionSources.v1Lock, versionSources.v2Config)
+	pathChanges := findPathChanges(providers, versionMetadata.Lock, versionMetadata.PreviousLock, versionMetadata.Config)
 	printPathChanges(pathChanges)
-
-	providers = openapi.RemoveResources(providers, openapi.RemovableResources(versionSources.v2ResourcesToRemove))
 
 	if args.ExcludeExplicitVersions {
 		providers = openapi.SingleVersion(providers)
 	}
 
-	pkgSpec, metadata, examples, err := gen.PulumiSchema(providers)
+	pkgSpec, metadata, examples, err := gen.PulumiSchema(providers, versionMetadata)
 	if err != nil {
 		return nil, err
 	}
-
-	// Some resources are added manually during generation which won't therefore be
-	// matched during the first removal, and we want to exclude these too.
-	dropFromSchema(pkgSpec, versionSources.v2ResourcesToRemove)
 
 	if len(args.ExampleLanguages) > 0 {
 		// Ensure the spec is stamped with a version - Go gen needs it.
@@ -184,16 +169,4 @@ func printPathChanges(changes []pathChange) {
 		}
 		fmt.Printf(fmtStr, change.resourceName, prev[:idx], cur[idx:], prev[idx:])
 	}
-}
-
-// Caution: pkgSpec is modified in place
-func dropFromSchema(pkgSpec *schema.PackageSpec, toRemove ResourceRemovals) {
-	removed := 0
-	for token := range toRemove {
-		if _, ok := pkgSpec.Resources[token]; ok {
-			delete(pkgSpec.Resources, token)
-			removed++
-		}
-	}
-	log.Printf("Removed %d out of %d resources from schema\n", removed, len(toRemove))
 }

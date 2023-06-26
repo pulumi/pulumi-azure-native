@@ -8,12 +8,8 @@ import typing
 from ._enums import *
 from .database_principal_assignment import *
 from .get_database_principal_assignment import *
-from .get_event_grid_data_connection import *
-from .get_event_hub_data_connection import *
-from .get_iot_hub_data_connection import *
 from .get_kusto_pool import *
 from .get_kusto_pool_principal_assignment import *
-from .get_read_write_database import *
 from .kusto_pool import *
 from .kusto_pool_principal_assignment import *
 from ._inputs import *

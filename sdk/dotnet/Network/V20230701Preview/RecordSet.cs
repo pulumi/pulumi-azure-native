@@ -167,6 +167,11 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:RecordSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20150504preview:RecordSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160401:RecordSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:RecordSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:RecordSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180301preview:RecordSet"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180501:RecordSet"},
                 },
             };

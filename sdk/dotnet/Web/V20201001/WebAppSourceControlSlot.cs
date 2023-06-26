@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Web.V20201001
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppSourceControlSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSourceControlSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSourceControlSlot"},

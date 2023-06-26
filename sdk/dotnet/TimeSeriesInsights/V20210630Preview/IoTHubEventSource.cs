@@ -133,6 +133,9 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights:IoTHubEventSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:IoTHubEventSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource"},
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:IoTHubEventSource"},
                     new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource"},
                 },

@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppConnectionStringsSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppConnectionStringsSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppConnectionStringsSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppConnectionStringsSlot"},

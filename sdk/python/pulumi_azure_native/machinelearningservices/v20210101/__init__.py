@@ -6,9 +6,6 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_aci_service import *
-from .get_aks_service import *
-from .get_endpoint_variant import *
 from .get_machine_learning_compute import *
 from .get_private_endpoint_connection import *
 from .get_workspace import *

@@ -296,7 +296,7 @@ class Relationship(pulumi.CustomResource):
             __props__.__dict__["relationship_guid_id"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:customerinsights:Relationship")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:customerinsights:Relationship"), pulumi.Alias(type_="azure-native:customerinsights/v20170101:Relationship")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Relationship, __self__).__init__(
             'azure-native:customerinsights/v20170426:Relationship',

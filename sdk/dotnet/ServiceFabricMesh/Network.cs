@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180701preview:Network"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Network"},
                 },
             };

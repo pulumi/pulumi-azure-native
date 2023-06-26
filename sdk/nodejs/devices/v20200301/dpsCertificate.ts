@@ -87,7 +87,7 @@ export class DpsCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devices:DpsCertificate" }, { type: "azure-native:devices/v20200901preview:DpsCertificate" }, { type: "azure-native:devices/v20211015:DpsCertificate" }, { type: "azure-native:devices/v20220205:DpsCertificate" }, { type: "azure-native:devices/v20221212:DpsCertificate" }, { type: "azure-native:devices/v20230301preview:DpsCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devices:DpsCertificate" }, { type: "azure-native:devices/v20170821preview:DpsCertificate" }, { type: "azure-native:devices/v20171115:DpsCertificate" }, { type: "azure-native:devices/v20180122:DpsCertificate" }, { type: "azure-native:devices/v20200101:DpsCertificate" }, { type: "azure-native:devices/v20200901preview:DpsCertificate" }, { type: "azure-native:devices/v20211015:DpsCertificate" }, { type: "azure-native:devices/v20220205:DpsCertificate" }, { type: "azure-native:devices/v20221212:DpsCertificate" }, { type: "azure-native:devices/v20230301preview:DpsCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DpsCertificate.__pulumiType, name, resourceInputs, opts);
     }

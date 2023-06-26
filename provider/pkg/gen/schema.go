@@ -40,8 +40,12 @@ import (
 // Note - this needs to be kept in sync with the layout in the SDK package
 const goBasePath = "github.com/pulumi/pulumi-azure-native-sdk/v2"
 
+type Constraints interface {
+	ShouldInclude(provider string, version string, typeName, token string) bool
+}
+
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *resources.AzureAPIMetadata, map[string][]resources.AzureAPIExample, error) {
+func PulumiSchema(providerMap openapi.AzureProviders, constraints Constraints) (*pschema.PackageSpec, *resources.AzureAPIMetadata, map[string][]resources.AzureAPIExample, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
@@ -217,6 +221,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 				apiVersion:      version,
 				examples:        exampleMap,
 				upgradeWarnings: upgradePathMap,
+				constraints:     constraints,
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
@@ -423,6 +428,7 @@ type packageGenerator struct {
 	examples        map[string][]resources.AzureAPIExample
 	apiVersion      string
 	upgradeWarnings map[string]string
+	constraints     Constraints
 }
 
 func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec) error {
@@ -563,6 +569,9 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 	path := resource.PathItem
 
 	resourceTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, resource.typeName)
+	if !g.constraints.ShouldInclude(prov, g.apiVersion, resource.typeName, resourceTok) {
+		return nil
+	}
 
 	// Generate the resource.
 	gen := moduleGenerator{
@@ -607,14 +616,6 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 	delete(resourceResponse.specs, "id")
 	resourceResponse.requiredSpecs.Delete("id")
 
-	// Add an alias for each API version that has the same path in it.
-	var aliases []pschema.AliasSpec
-	for _, version := range resource.CompatibleVersions {
-		moduleName := providerApiToModule(prov, version)
-		alias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, moduleName, resource.typeName)
-		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
-	}
-
 	if upgradeMessage, ok := g.upgradeWarnings[resourceTok]; ok {
 		if resource.deprecationMessage == "" {
 			resource.deprecationMessage = upgradeMessage
@@ -639,57 +640,58 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, resource.typeName)
-
-	var readOp *spec.Operation
-	switch {
-	case resource.PathItemList != nil:
-		if resource.PathItemList.Post != nil {
-			readOp = resource.PathItemList.Post
-		} else {
-			readOp = resource.PathItemList.Get
+	if g.constraints.ShouldInclude(prov, g.apiVersion, resource.typeName, functionTok) {
+		var readOp *spec.Operation
+		switch {
+		case resource.PathItemList != nil:
+			if resource.PathItemList.Post != nil {
+				readOp = resource.PathItemList.Post
+			} else {
+				readOp = resource.PathItemList.Get
+			}
+		case path.Get == nil:
+			readOp = path.Head
+		default:
+			readOp = path.Get
 		}
-	case path.Get == nil:
-		readOp = path.Head
-	default:
-		readOp = path.Get
-	}
 
-	parameters = swagger.MergeParameters(readOp.Parameters, path.Parameters)
-	requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, resource.body)
-	if err != nil {
-		return errors.Wrapf(err, "failed to generate '%s': request type", functionTok)
-	}
-	responseFunction, err := gen.genResponse(readOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
-	if err != nil {
-		return errors.Wrapf(err, "failed to generate '%s': response type", functionTok)
-	}
-
-	if path.Get != nil && responseFunction != nil {
-		functionSpec := pschema.FunctionSpec{
-			Description:        g.formatFunctionDescription(readOp, resourceResponse, swagger.Info),
-			DeprecationMessage: resource.deprecationMessage,
-			Inputs: &pschema.ObjectTypeSpec{
-				Description: requestFunction.description,
-				Type:        "object",
-				Properties:  requestFunction.specs,
-				Required:    requestFunction.requiredSpecs.SortedValues(),
-			},
-			Outputs: &pschema.ObjectTypeSpec{
-				Description: responseFunction.description,
-				Type:        "object",
-				Properties:  responseFunction.specs,
-				Required:    responseFunction.requiredSpecs.SortedValues(),
-			},
+		parameters = swagger.MergeParameters(readOp.Parameters, path.Parameters)
+		requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, resource.body)
+		if err != nil {
+			return errors.Wrapf(err, "failed to generate '%s': request type", functionTok)
 		}
-		g.pkg.Functions[functionTok] = functionSpec
-
-		f := resources.AzureAPIInvoke{
-			APIVersion:    swagger.Info.Version,
-			Path:          resource.Path,
-			GetParameters: requestFunction.parameters,
-			Response:      responseFunction.properties,
+		responseFunction, err := gen.genResponse(readOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
+		if err != nil {
+			return errors.Wrapf(err, "failed to generate '%s': response type", functionTok)
 		}
-		g.metadata.Invokes[functionTok] = f
+
+		if path.Get != nil && responseFunction != nil {
+			functionSpec := pschema.FunctionSpec{
+				Description:        g.formatFunctionDescription(readOp, resourceResponse, swagger.Info),
+				DeprecationMessage: resource.deprecationMessage,
+				Inputs: &pschema.ObjectTypeSpec{
+					Description: requestFunction.description,
+					Type:        "object",
+					Properties:  requestFunction.specs,
+					Required:    requestFunction.requiredSpecs.SortedValues(),
+				},
+				Outputs: &pschema.ObjectTypeSpec{
+					Description: responseFunction.description,
+					Type:        "object",
+					Properties:  responseFunction.specs,
+					Required:    responseFunction.requiredSpecs.SortedValues(),
+				},
+			}
+			g.pkg.Functions[functionTok] = functionSpec
+
+			f := resources.AzureAPIInvoke{
+				APIVersion:    swagger.Info.Version,
+				Path:          resource.Path,
+				GetParameters: requestFunction.parameters,
+				Response:      responseFunction.properties,
+			}
+			g.metadata.Invokes[functionTok] = f
+		}
 	}
 
 	var readMethod, readPath string
@@ -816,6 +818,9 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName)
+	if !g.constraints.ShouldInclude(prov, g.apiVersion, typeName, functionTok) {
+		return
+	}
 
 	parameters := swagger.MergeParameters(pathItem.Post.Parameters, pathItem.Parameters)
 	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, nil)

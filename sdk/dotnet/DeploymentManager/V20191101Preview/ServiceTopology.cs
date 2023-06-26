@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deploymentmanager:ServiceTopology"},
+                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:ServiceTopology"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

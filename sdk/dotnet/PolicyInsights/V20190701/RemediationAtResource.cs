@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtResource"},
                     new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtResource"},
                 },
             };

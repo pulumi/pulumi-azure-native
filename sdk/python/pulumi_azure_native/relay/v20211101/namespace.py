@@ -221,7 +221,7 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay:Namespace"), pulumi.Alias(type_="azure-native:relay/v20170401:Namespace"), pulumi.Alias(type_="azure-native:relay/v20180101preview:Namespace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay:Namespace"), pulumi.Alias(type_="azure-native:relay/v20160701:Namespace"), pulumi.Alias(type_="azure-native:relay/v20170401:Namespace"), pulumi.Alias(type_="azure-native:relay/v20180101preview:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Namespace, __self__).__init__(
             'azure-native:relay/v20211101:Namespace',

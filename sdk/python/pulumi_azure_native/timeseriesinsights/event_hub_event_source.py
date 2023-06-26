@@ -404,7 +404,7 @@ class EventHubEventSource(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:EventHubEventSource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:EventHubEventSource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHubEventSource, __self__).__init__(
             'azure-native:timeseriesinsights:EventHubEventSource',
