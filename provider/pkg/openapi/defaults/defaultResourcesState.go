@@ -150,11 +150,15 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 			},
 		},
 	},
+	// https://learn.microsoft.com/en-us/azure/templates/microsoft.web/sites/basicpublishingcredentialspolicies-ftp?pivots=deployment-language-arm-template#csmpublishingcredentialspoliciesentityproperties-1
+	// We set the default value to true, as this is the observed behavior when the resource is created.
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/basicPublishingCredentialsPolicies/ftp": {
-		"allow": false,
+		"allow": true,
 	},
+	// https://learn.microsoft.com/en-us/azure/templates/microsoft.web/sites/basicpublishingcredentialspolicies-ftp?pivots=deployment-language-arm-template#csmpublishingcredentialspoliciesentityproperties-1
+	// We set the default value to true, as this is the observed behavior when the resource is created.
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/basicPublishingCredentialsPolicies/scm": {
-		"allow": false,
+		"allow": true,
 	},
 }
 
