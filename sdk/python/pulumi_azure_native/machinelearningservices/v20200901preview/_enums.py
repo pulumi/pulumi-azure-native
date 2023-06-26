@@ -5,23 +5,13 @@
 from enum import Enum
 
 __all__ = [
-    'ComputeEnvironmentType',
     'EncryptionStatus',
     'ImageAnnotationType',
     'LinkedServiceLinkType',
     'MediaType',
     'PrivateEndpointServiceConnectionStatus',
     'ResourceIdentityType',
-    'VariantType',
 ]
-
-
-class ComputeEnvironmentType(str, Enum):
-    """
-    The compute environment type for the service.
-    """
-    ACI = "ACI"
-    AKS = "AKS"
 
 
 class EncryptionStatus(str, Enum):
@@ -75,11 +65,3 @@ class ResourceIdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
     USER_ASSIGNED = "UserAssigned"
     NONE = "None"
-
-
-class VariantType(str, Enum):
-    """
-    The type of the variant.
-    """
-    CONTROL = "Control"
-    TREATMENT = "Treatment"

@@ -71,6 +71,8 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:TopicAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:TopicAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:TopicAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:TopicAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:TopicAuthorizationRule"},

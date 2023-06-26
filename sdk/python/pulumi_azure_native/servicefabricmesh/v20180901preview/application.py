@@ -236,7 +236,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["status_details"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unhealthy_evaluation"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabricmesh:Application")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabricmesh:Application"), pulumi.Alias(type_="azure-native:servicefabricmesh/v20180701preview:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azure-native:servicefabricmesh/v20180901preview:Application',

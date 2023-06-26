@@ -149,6 +149,7 @@ namespace Pulumi.AzureNative.Compute.V20230301
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:compute:VirtualMachineScaleSetVMRunCommand"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineScaleSetVMRunCommand"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineScaleSetVMRunCommand"},

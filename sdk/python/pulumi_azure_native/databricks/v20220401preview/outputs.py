@@ -13,11 +13,14 @@ from ._enums import *
 
 __all__ = [
     'AccessConnectorPropertiesResponse',
+    'AddressSpaceResponse',
     'IdentityDataResponse',
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'SystemDataResponse',
+    'VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork',
+    'VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork',
 ]
 
 @pulumi.output_type
@@ -53,6 +56,46 @@ class AccessConnectorPropertiesResponse(dict):
         Provisioning status of the accessConnector.
         """
         return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class AddressSpaceResponse(dict):
+    """
+    AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefixes":
+            suggest = "address_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AddressSpaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AddressSpaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AddressSpaceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_prefixes: Optional[Sequence[str]] = None):
+        """
+        AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+        :param Sequence[str] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
+        """
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        A list of address blocks reserved for this virtual network in CIDR notation.
+        """
+        return pulumi.get(self, "address_prefixes")
 
 
 @pulumi.output_type
@@ -391,5 +434,51 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork(dict):
+    """
+     The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        :param str id: The Id of the databricks virtual network.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The Id of the databricks virtual network.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork(dict):
+    """
+     The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        :param str id: The Id of the remote virtual network.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The Id of the remote virtual network.
+        """
+        return pulumi.get(self, "id")
 
 

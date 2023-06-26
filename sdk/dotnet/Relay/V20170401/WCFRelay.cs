@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Relay.V20170401
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:relay:WCFRelay"},
+                    new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:WCFRelay"},
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:WCFRelay"},
                 },
             };

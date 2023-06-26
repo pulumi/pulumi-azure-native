@@ -151,7 +151,7 @@ export class OperationalizationCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningcompute/v20170601preview:OperationalizationCluster" }, { type: "azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OperationalizationCluster.__pulumiType, name, resourceInputs, opts);
     }

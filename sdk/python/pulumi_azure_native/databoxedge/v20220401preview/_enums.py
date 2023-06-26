@@ -5,25 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'AddonType',
     'DataResidencyType',
-    'EncryptionAlgorithm',
-    'PlatformType',
-    'RoleStatus',
-    'RoleTypes',
     'ShipmentType',
     'SkuName',
     'SkuTier',
-    'TriggerEventType',
 ]
-
-
-class AddonType(str, Enum):
-    """
-    Addon type.
-    """
-    IOT_EDGE = "IotEdge"
-    ARC_FOR_KUBERNETES = "ArcForKubernetes"
 
 
 class DataResidencyType(str, Enum):
@@ -32,44 +18,6 @@ class DataResidencyType(str, Enum):
     """
     GEO_ZONE_REPLICATION = "GeoZoneReplication"
     ZONE_REPLICATION = "ZoneReplication"
-
-
-class EncryptionAlgorithm(str, Enum):
-    """
-    The algorithm used to encrypt "Value".
-    """
-    NONE = "None"
-    AES256 = "AES256"
-    RSAE_S_PKCS1_V_1_5 = "RSAES_PKCS1_v_1_5"
-
-
-class PlatformType(str, Enum):
-    """
-    Host OS supported by the Kubernetes role.
-    """
-    WINDOWS = "Windows"
-    LINUX = "Linux"
-
-
-class RoleStatus(str, Enum):
-    """
-    Role status.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class RoleTypes(str, Enum):
-    """
-    Role type.
-    """
-    IOT = "IOT"
-    ASA = "ASA"
-    FUNCTIONS = "Functions"
-    COGNITIVE = "Cognitive"
-    MEC = "MEC"
-    CLOUD_EDGE_MANAGEMENT = "CloudEdgeManagement"
-    KUBERNETES = "Kubernetes"
 
 
 class ShipmentType(str, Enum):
@@ -121,11 +69,3 @@ class SkuTier(str, Enum):
     The SKU tier. This is based on the SKU name.
     """
     STANDARD = "Standard"
-
-
-class TriggerEventType(str, Enum):
-    """
-    Trigger Kind.
-    """
-    FILE_EVENT = "FileEvent"
-    PERIODIC_TIMER_EVENT = "PeriodicTimerEvent"

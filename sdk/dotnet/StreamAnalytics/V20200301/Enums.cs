@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.StreamAnalytics.V20200301
 {
     /// <summary>
+    /// Authentication Mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthenticationMode : IEquatable<AuthenticationMode>
+    {
+        private readonly string _value;
+
+        private AuthenticationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AuthenticationMode Msi { get; } = new AuthenticationMode("Msi");
+        public static AuthenticationMode UserToken { get; } = new AuthenticationMode("UserToken");
+        public static AuthenticationMode ConnectionString { get; } = new AuthenticationMode("ConnectionString");
+
+        public static bool operator ==(AuthenticationMode left, AuthenticationMode right) => left.Equals(right);
+        public static bool operator !=(AuthenticationMode left, AuthenticationMode right) => !left.Equals(right);
+
+        public static explicit operator string(AuthenticationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthenticationMode other && Equals(other);
+        public bool Equals(AuthenticationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
     /// </summary>
     [EnumType]
@@ -33,6 +65,381 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ClusterSkuName other && Equals(other);
         public bool Equals(ClusterSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Controls certain runtime behaviors of the streaming job.
+    /// </summary>
+    [EnumType]
+    public readonly struct CompatibilityLevel : IEquatable<CompatibilityLevel>
+    {
+        private readonly string _value;
+
+        private CompatibilityLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CompatibilityLevel CompatibilityLevel_1_0 { get; } = new CompatibilityLevel("1.0");
+        public static CompatibilityLevel CompatibilityLevel_1_2 { get; } = new CompatibilityLevel("1.2");
+
+        public static bool operator ==(CompatibilityLevel left, CompatibilityLevel right) => left.Equals(right);
+        public static bool operator !=(CompatibilityLevel left, CompatibilityLevel right) => !left.Equals(right);
+
+        public static explicit operator string(CompatibilityLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CompatibilityLevel other && Equals(other);
+        public bool Equals(CompatibilityLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
+    /// </summary>
+    [EnumType]
+    public readonly struct CompressionType : IEquatable<CompressionType>
+    {
+        private readonly string _value;
+
+        private CompressionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CompressionType None { get; } = new CompressionType("None");
+        public static CompressionType GZip { get; } = new CompressionType("GZip");
+        public static CompressionType Deflate { get; } = new CompressionType("Deflate");
+
+        public static bool operator ==(CompressionType left, CompressionType right) => left.Equals(right);
+        public static bool operator !=(CompressionType left, CompressionType right) => !left.Equals(right);
+
+        public static explicit operator string(CompressionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CompressionType other && Equals(other);
+        public bool Equals(CompressionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+    /// </summary>
+    [EnumType]
+    public readonly struct ContentStoragePolicy : IEquatable<ContentStoragePolicy>
+    {
+        private readonly string _value;
+
+        private ContentStoragePolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContentStoragePolicy SystemAccount { get; } = new ContentStoragePolicy("SystemAccount");
+        public static ContentStoragePolicy JobStorageAccount { get; } = new ContentStoragePolicy("JobStorageAccount");
+
+        public static bool operator ==(ContentStoragePolicy left, ContentStoragePolicy right) => left.Equals(right);
+        public static bool operator !=(ContentStoragePolicy left, ContentStoragePolicy right) => !left.Equals(right);
+
+        public static explicit operator string(ContentStoragePolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContentStoragePolicy other && Equals(other);
+        public bool Equals(ContentStoragePolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
+    /// </summary>
+    [EnumType]
+    public readonly struct Encoding : IEquatable<Encoding>
+    {
+        private readonly string _value;
+
+        private Encoding(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Encoding UTF8 { get; } = new Encoding("UTF8");
+
+        public static bool operator ==(Encoding left, Encoding right) => left.Equals(right);
+        public static bool operator !=(Encoding left, Encoding right) => !left.Equals(right);
+
+        public static explicit operator string(Encoding value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Encoding other && Equals(other);
+        public bool Equals(Encoding other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSerializationType : IEquatable<EventSerializationType>
+    {
+        private readonly string _value;
+
+        private EventSerializationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSerializationType Csv { get; } = new EventSerializationType("Csv");
+        public static EventSerializationType Avro { get; } = new EventSerializationType("Avro");
+        public static EventSerializationType Json { get; } = new EventSerializationType("Json");
+        public static EventSerializationType Parquet { get; } = new EventSerializationType("Parquet");
+
+        public static bool operator ==(EventSerializationType left, EventSerializationType right) => left.Equals(right);
+        public static bool operator !=(EventSerializationType left, EventSerializationType right) => !left.Equals(right);
+
+        public static explicit operator string(EventSerializationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSerializationType other && Equals(other);
+        public bool Equals(EventSerializationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the policy to apply to events that arrive out of order in the input event stream.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventsOutOfOrderPolicy : IEquatable<EventsOutOfOrderPolicy>
+    {
+        private readonly string _value;
+
+        private EventsOutOfOrderPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventsOutOfOrderPolicy Adjust { get; } = new EventsOutOfOrderPolicy("Adjust");
+        public static EventsOutOfOrderPolicy Drop { get; } = new EventsOutOfOrderPolicy("Drop");
+
+        public static bool operator ==(EventsOutOfOrderPolicy left, EventsOutOfOrderPolicy right) => left.Equals(right);
+        public static bool operator !=(EventsOutOfOrderPolicy left, EventsOutOfOrderPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(EventsOutOfOrderPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventsOutOfOrderPolicy other && Equals(other);
+        public bool Equals(EventsOutOfOrderPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+    /// </summary>
+    [EnumType]
+    public readonly struct JobType : IEquatable<JobType>
+    {
+        private readonly string _value;
+
+        private JobType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobType Cloud { get; } = new JobType("Cloud");
+        public static JobType Edge { get; } = new JobType("Edge");
+
+        public static bool operator ==(JobType left, JobType right) => left.Equals(right);
+        public static bool operator !=(JobType left, JobType right) => !left.Equals(right);
+
+        public static explicit operator string(JobType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobType other && Equals(other);
+        public bool Equals(JobType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
+    /// </summary>
+    [EnumType]
+    public readonly struct JsonOutputSerializationFormat : IEquatable<JsonOutputSerializationFormat>
+    {
+        private readonly string _value;
+
+        private JsonOutputSerializationFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JsonOutputSerializationFormat LineSeparated { get; } = new JsonOutputSerializationFormat("LineSeparated");
+        public static JsonOutputSerializationFormat Array { get; } = new JsonOutputSerializationFormat("Array");
+
+        public static bool operator ==(JsonOutputSerializationFormat left, JsonOutputSerializationFormat right) => left.Equals(right);
+        public static bool operator !=(JsonOutputSerializationFormat left, JsonOutputSerializationFormat right) => !left.Equals(right);
+
+        public static explicit operator string(JsonOutputSerializationFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JsonOutputSerializationFormat other && Equals(other);
+        public bool Equals(JsonOutputSerializationFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
+    /// </summary>
+    [EnumType]
+    public readonly struct OutputErrorPolicy : IEquatable<OutputErrorPolicy>
+    {
+        private readonly string _value;
+
+        private OutputErrorPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OutputErrorPolicy Stop { get; } = new OutputErrorPolicy("Stop");
+        public static OutputErrorPolicy Drop { get; } = new OutputErrorPolicy("Drop");
+
+        public static bool operator ==(OutputErrorPolicy left, OutputErrorPolicy right) => left.Equals(right);
+        public static bool operator !=(OutputErrorPolicy left, OutputErrorPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(OutputErrorPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OutputErrorPolicy other && Equals(other);
+        public bool Equals(OutputErrorPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
+    /// </summary>
+    [EnumType]
+    public readonly struct OutputStartMode : IEquatable<OutputStartMode>
+    {
+        private readonly string _value;
+
+        private OutputStartMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OutputStartMode JobStartTime { get; } = new OutputStartMode("JobStartTime");
+        public static OutputStartMode CustomTime { get; } = new OutputStartMode("CustomTime");
+        public static OutputStartMode LastOutputEventTime { get; } = new OutputStartMode("LastOutputEventTime");
+
+        public static bool operator ==(OutputStartMode left, OutputStartMode right) => left.Equals(right);
+        public static bool operator !=(OutputStartMode left, OutputStartMode right) => !left.Equals(right);
+
+        public static explicit operator string(OutputStartMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OutputStartMode other && Equals(other);
+        public bool Equals(OutputStartMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the type of data refresh option.
+    /// </summary>
+    [EnumType]
+    public readonly struct RefreshType : IEquatable<RefreshType>
+    {
+        private readonly string _value;
+
+        private RefreshType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RefreshType Static { get; } = new RefreshType("Static");
+        public static RefreshType RefreshPeriodicallyWithFull { get; } = new RefreshType("RefreshPeriodicallyWithFull");
+        public static RefreshType RefreshPeriodicallyWithDelta { get; } = new RefreshType("RefreshPeriodicallyWithDelta");
+
+        public static bool operator ==(RefreshType left, RefreshType right) => left.Equals(right);
+        public static bool operator !=(RefreshType left, RefreshType right) => !left.Equals(right);
+
+        public static explicit operator string(RefreshType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RefreshType other && Equals(other);
+        public bool Equals(RefreshType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of the SKU. Required on PUT (CreateOrReplace) requests.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuName : IEquatable<SkuName>
+    {
+        private readonly string _value;
+
+        private SkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkuName Standard { get; } = new SkuName("Standard");
+
+        public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
+        public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
+
+        public static explicit operator string(SkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
+        public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

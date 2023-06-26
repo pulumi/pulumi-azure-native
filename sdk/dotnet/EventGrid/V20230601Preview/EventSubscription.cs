@@ -129,6 +129,15 @@ namespace Pulumi.AzureNative.EventGrid.V20230601Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20170615preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20170915preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180101:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180501preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190101:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:EventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:EventSubscription"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:EventSubscription"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:EventSubscription"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:EventSubscription"},

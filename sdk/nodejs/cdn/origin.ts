@@ -171,7 +171,7 @@ export class Origin extends pulumi.CustomResource {
             resourceInputs["weight"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:Origin" }, { type: "azure-native:cdn/v20210601:Origin" }, { type: "azure-native:cdn/v20220501preview:Origin" }, { type: "azure-native:cdn/v20221101preview:Origin" }, { type: "azure-native:cdn/v20230501:Origin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20150601:Origin" }, { type: "azure-native:cdn/v20160402:Origin" }, { type: "azure-native:cdn/v20191231:Origin" }, { type: "azure-native:cdn/v20200331:Origin" }, { type: "azure-native:cdn/v20200415:Origin" }, { type: "azure-native:cdn/v20200901:Origin" }, { type: "azure-native:cdn/v20210601:Origin" }, { type: "azure-native:cdn/v20220501preview:Origin" }, { type: "azure-native:cdn/v20221101preview:Origin" }, { type: "azure-native:cdn/v20230501:Origin" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Origin.__pulumiType, name, resourceInputs, opts);
     }

@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Logger"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Logger"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Logger"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Logger"},

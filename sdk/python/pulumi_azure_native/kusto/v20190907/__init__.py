@@ -6,9 +6,6 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_event_grid_data_connection import *
-from .get_event_hub_data_connection import *
-from .get_iot_hub_data_connection import *
 from .get_read_only_following_database import *
 from .get_read_write_database import *
 from .read_only_following_database import *

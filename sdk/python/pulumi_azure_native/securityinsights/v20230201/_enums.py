@@ -5,132 +5,375 @@
 from enum import Enum
 
 __all__ = [
-    'AlertDetail',
-    'AlertProperty',
-    'AlertRuleKind',
-    'AlertSeverity',
-    'AttackTactic',
+    'ActionType',
+    'AutomationRulePropertyArrayChangedConditionSupportedArrayType',
+    'AutomationRulePropertyArrayChangedConditionSupportedChangeType',
+    'AutomationRulePropertyChangedConditionSupportedChangedType',
+    'AutomationRulePropertyChangedConditionSupportedPropertyType',
+    'AutomationRulePropertyConditionSupportedOperator',
+    'AutomationRulePropertyConditionSupportedProperty',
+    'ConditionType',
     'DataConnectorKind',
     'DataTypeState',
-    'EntityMappingType',
-    'EventGroupingAggregationKind',
-    'MatchingMethod',
-    'MicrosoftSecurityProductName',
-    'SecurityMLAnalyticsSettingsKind',
-    'SettingsStatus',
+    'IncidentClassification',
+    'IncidentClassificationReason',
+    'IncidentSeverity',
+    'IncidentStatus',
+    'Operator',
+    'OwnerType',
     'Source',
-    'TriggerOperator',
+    'SourceKind',
+    'SupportTier',
+    'ThreatIntelligenceResourceInnerKind',
+    'TriggersOn',
+    'TriggersWhen',
 ]
 
 
-class AlertDetail(str, Enum):
+class ActionType(str, Enum):
     """
-    Alert detail
+    The type of the automation rule action.
     """
-    DISPLAY_NAME = "DisplayName"
+    MODIFY_PROPERTIES = "ModifyProperties"
     """
-    Alert display name
+    Modify an object's properties
     """
-    SEVERITY = "Severity"
+    RUN_PLAYBOOK = "RunPlaybook"
     """
-    Alert severity
-    """
-
-
-class AlertProperty(str, Enum):
-    """
-    The V3 alert property
-    """
-    ALERT_LINK = "AlertLink"
-    """
-    Alert's link
-    """
-    CONFIDENCE_LEVEL = "ConfidenceLevel"
-    """
-    Confidence level property
-    """
-    CONFIDENCE_SCORE = "ConfidenceScore"
-    """
-    Confidence score
-    """
-    EXTENDED_LINKS = "ExtendedLinks"
-    """
-    Extended links to the alert
-    """
-    PRODUCT_NAME = "ProductName"
-    """
-    Product name alert property
-    """
-    PROVIDER_NAME = "ProviderName"
-    """
-    Provider name alert property
-    """
-    PRODUCT_COMPONENT_NAME = "ProductComponentName"
-    """
-    Product component name alert property
-    """
-    REMEDIATION_STEPS = "RemediationSteps"
-    """
-    Remediation steps alert property
-    """
-    TECHNIQUES = "Techniques"
-    """
-    Techniques alert property
+    Run a playbook on an object
     """
 
 
-class AlertRuleKind(str, Enum):
+class AutomationRulePropertyArrayChangedConditionSupportedArrayType(str, Enum):
+    ALERTS = "Alerts"
     """
-    The alert rule kind
+    Evaluate the condition on the alerts
     """
-    SCHEDULED = "Scheduled"
-    MICROSOFT_SECURITY_INCIDENT_CREATION = "MicrosoftSecurityIncidentCreation"
-    FUSION = "Fusion"
-
-
-class AlertSeverity(str, Enum):
+    LABELS = "Labels"
     """
-    The severity for alerts created by this alert rule.
+    Evaluate the condition on the labels
     """
-    HIGH = "High"
+    TACTICS = "Tactics"
     """
-    High severity
+    Evaluate the condition on the tactics
     """
-    MEDIUM = "Medium"
+    COMMENTS = "Comments"
     """
-    Medium severity
-    """
-    LOW = "Low"
-    """
-    Low severity
-    """
-    INFORMATIONAL = "Informational"
-    """
-    Informational severity
+    Evaluate the condition on the comments
     """
 
 
-class AttackTactic(str, Enum):
+class AutomationRulePropertyArrayChangedConditionSupportedChangeType(str, Enum):
+    ADDED = "Added"
     """
-    The severity for alerts created by this alert rule.
+    Evaluate the condition on items added to the array
     """
-    RECONNAISSANCE = "Reconnaissance"
-    RESOURCE_DEVELOPMENT = "ResourceDevelopment"
-    INITIAL_ACCESS = "InitialAccess"
-    EXECUTION = "Execution"
-    PERSISTENCE = "Persistence"
-    PRIVILEGE_ESCALATION = "PrivilegeEscalation"
-    DEFENSE_EVASION = "DefenseEvasion"
-    CREDENTIAL_ACCESS = "CredentialAccess"
-    DISCOVERY = "Discovery"
-    LATERAL_MOVEMENT = "LateralMovement"
-    COLLECTION = "Collection"
-    EXFILTRATION = "Exfiltration"
-    COMMAND_AND_CONTROL = "CommandAndControl"
-    IMPACT = "Impact"
-    PRE_ATTACK = "PreAttack"
-    IMPAIR_PROCESS_CONTROL = "ImpairProcessControl"
-    INHIBIT_RESPONSE_FUNCTION = "InhibitResponseFunction"
+
+
+class AutomationRulePropertyChangedConditionSupportedChangedType(str, Enum):
+    CHANGED_FROM = "ChangedFrom"
+    """
+    Evaluate the condition on the previous value of the property
+    """
+    CHANGED_TO = "ChangedTo"
+    """
+    Evaluate the condition on the updated value of the property
+    """
+
+
+class AutomationRulePropertyChangedConditionSupportedPropertyType(str, Enum):
+    INCIDENT_SEVERITY = "IncidentSeverity"
+    """
+    Evaluate the condition on the incident severity
+    """
+    INCIDENT_STATUS = "IncidentStatus"
+    """
+    Evaluate the condition on the incident status
+    """
+    INCIDENT_OWNER = "IncidentOwner"
+    """
+    Evaluate the condition on the incident owner
+    """
+
+
+class AutomationRulePropertyConditionSupportedOperator(str, Enum):
+    EQUALS = "Equals"
+    """
+    Evaluates if the property equals at least one of the condition values
+    """
+    NOT_EQUALS = "NotEquals"
+    """
+    Evaluates if the property does not equal any of the condition values
+    """
+    CONTAINS = "Contains"
+    """
+    Evaluates if the property contains at least one of the condition values
+    """
+    NOT_CONTAINS = "NotContains"
+    """
+    Evaluates if the property does not contain any of the condition values
+    """
+    STARTS_WITH = "StartsWith"
+    """
+    Evaluates if the property starts with any of the condition values
+    """
+    NOT_STARTS_WITH = "NotStartsWith"
+    """
+    Evaluates if the property does not start with any of the condition values
+    """
+    ENDS_WITH = "EndsWith"
+    """
+    Evaluates if the property ends with any of the condition values
+    """
+    NOT_ENDS_WITH = "NotEndsWith"
+    """
+    Evaluates if the property does not end with any of the condition values
+    """
+
+
+class AutomationRulePropertyConditionSupportedProperty(str, Enum):
+    """
+    The property to evaluate in an automation rule property condition.
+    """
+    INCIDENT_TITLE = "IncidentTitle"
+    """
+    The title of the incident
+    """
+    INCIDENT_DESCRIPTION = "IncidentDescription"
+    """
+    The description of the incident
+    """
+    INCIDENT_SEVERITY = "IncidentSeverity"
+    """
+    The severity of the incident
+    """
+    INCIDENT_STATUS = "IncidentStatus"
+    """
+    The status of the incident
+    """
+    INCIDENT_RELATED_ANALYTIC_RULE_IDS = "IncidentRelatedAnalyticRuleIds"
+    """
+    The related Analytic rule ids of the incident
+    """
+    INCIDENT_TACTICS = "IncidentTactics"
+    """
+    The tactics of the incident
+    """
+    INCIDENT_LABEL = "IncidentLabel"
+    """
+    The labels of the incident
+    """
+    INCIDENT_PROVIDER_NAME = "IncidentProviderName"
+    """
+    The provider name of the incident
+    """
+    INCIDENT_UPDATED_BY_SOURCE = "IncidentUpdatedBySource"
+    """
+    The update source of the incident
+    """
+    ACCOUNT_AAD_TENANT_ID = "AccountAadTenantId"
+    """
+    The account Azure Active Directory tenant id
+    """
+    ACCOUNT_AAD_USER_ID = "AccountAadUserId"
+    """
+    The account Azure Active Directory user id
+    """
+    ACCOUNT_NAME = "AccountName"
+    """
+    The account name
+    """
+    ACCOUNT_NT_DOMAIN = "AccountNTDomain"
+    """
+    The account NetBIOS domain name
+    """
+    ACCOUNT_PUID = "AccountPUID"
+    """
+    The account Azure Active Directory Passport User ID
+    """
+    ACCOUNT_SID = "AccountSid"
+    """
+    The account security identifier
+    """
+    ACCOUNT_OBJECT_GUID = "AccountObjectGuid"
+    """
+    The account unique identifier
+    """
+    ACCOUNT_UPN_SUFFIX = "AccountUPNSuffix"
+    """
+    The account user principal name suffix
+    """
+    ALERT_PRODUCT_NAMES = "AlertProductNames"
+    """
+    The name of the product of the alert
+    """
+    ALERT_ANALYTIC_RULE_IDS = "AlertAnalyticRuleIds"
+    """
+    The analytic rule ids of the alert
+    """
+    AZURE_RESOURCE_RESOURCE_ID = "AzureResourceResourceId"
+    """
+    The Azure resource id
+    """
+    AZURE_RESOURCE_SUBSCRIPTION_ID = "AzureResourceSubscriptionId"
+    """
+    The Azure resource subscription id
+    """
+    CLOUD_APPLICATION_APP_ID = "CloudApplicationAppId"
+    """
+    The cloud application identifier
+    """
+    CLOUD_APPLICATION_APP_NAME = "CloudApplicationAppName"
+    """
+    The cloud application name
+    """
+    DNS_DOMAIN_NAME = "DNSDomainName"
+    """
+    The dns record domain name
+    """
+    FILE_DIRECTORY = "FileDirectory"
+    """
+    The file directory full path
+    """
+    FILE_NAME = "FileName"
+    """
+    The file name without path
+    """
+    FILE_HASH_VALUE = "FileHashValue"
+    """
+    The file hash value
+    """
+    HOST_AZURE_ID = "HostAzureID"
+    """
+    The host Azure resource id
+    """
+    HOST_NAME = "HostName"
+    """
+    The host name without domain
+    """
+    HOST_NET_BIOS_NAME = "HostNetBiosName"
+    """
+    The host NetBIOS name
+    """
+    HOST_NT_DOMAIN = "HostNTDomain"
+    """
+    The host NT domain
+    """
+    HOST_OS_VERSION = "HostOSVersion"
+    """
+    The host operating system
+    """
+    IO_T_DEVICE_ID = "IoTDeviceId"
+    """
+    "The IoT device id
+    """
+    IO_T_DEVICE_NAME = "IoTDeviceName"
+    """
+    The IoT device name
+    """
+    IO_T_DEVICE_TYPE = "IoTDeviceType"
+    """
+    The IoT device type
+    """
+    IO_T_DEVICE_VENDOR = "IoTDeviceVendor"
+    """
+    The IoT device vendor
+    """
+    IO_T_DEVICE_MODEL = "IoTDeviceModel"
+    """
+    The IoT device model
+    """
+    IO_T_DEVICE_OPERATING_SYSTEM = "IoTDeviceOperatingSystem"
+    """
+    The IoT device operating system
+    """
+    IP_ADDRESS = "IPAddress"
+    """
+    The IP address
+    """
+    MAILBOX_DISPLAY_NAME = "MailboxDisplayName"
+    """
+    The mailbox display name
+    """
+    MAILBOX_PRIMARY_ADDRESS = "MailboxPrimaryAddress"
+    """
+    The mailbox primary address
+    """
+    MAILBOX_UPN = "MailboxUPN"
+    """
+    The mailbox user principal name
+    """
+    MAIL_MESSAGE_DELIVERY_ACTION = "MailMessageDeliveryAction"
+    """
+    The mail message delivery action
+    """
+    MAIL_MESSAGE_DELIVERY_LOCATION = "MailMessageDeliveryLocation"
+    """
+    The mail message delivery location
+    """
+    MAIL_MESSAGE_RECIPIENT = "MailMessageRecipient"
+    """
+    The mail message recipient
+    """
+    MAIL_MESSAGE_SENDER_IP = "MailMessageSenderIP"
+    """
+    The mail message sender IP address
+    """
+    MAIL_MESSAGE_SUBJECT = "MailMessageSubject"
+    """
+    The mail message subject
+    """
+    MAIL_MESSAGE_P1_SENDER = "MailMessageP1Sender"
+    """
+    The mail message P1 sender
+    """
+    MAIL_MESSAGE_P2_SENDER = "MailMessageP2Sender"
+    """
+    The mail message P2 sender
+    """
+    MALWARE_CATEGORY = "MalwareCategory"
+    """
+    The malware category
+    """
+    MALWARE_NAME = "MalwareName"
+    """
+    The malware name
+    """
+    PROCESS_COMMAND_LINE = "ProcessCommandLine"
+    """
+    The process execution command line
+    """
+    PROCESS_ID = "ProcessId"
+    """
+    The process id
+    """
+    REGISTRY_KEY = "RegistryKey"
+    """
+    The registry key path
+    """
+    REGISTRY_VALUE_DATA = "RegistryValueData"
+    """
+    The registry key value in string formatted representation
+    """
+    URL = "Url"
+    """
+    The url
+    """
+
+
+class ConditionType(str, Enum):
+    PROPERTY = "Property"
+    """
+    Evaluate an object property value
+    """
+    PROPERTY_CHANGED = "PropertyChanged"
+    """
+    Evaluate an object property changed value
+    """
+    PROPERTY_ARRAY_CHANGED = "PropertyArrayChanged"
+    """
+    Evaluate an object array property changed value
+    """
 
 
 class DataConnectorKind(str, Enum):
@@ -155,139 +398,113 @@ class DataTypeState(str, Enum):
     DISABLED = "Disabled"
 
 
-class EntityMappingType(str, Enum):
+class IncidentClassification(str, Enum):
     """
-    The V3 type of the mapped entity
+    The reason the incident was closed
     """
-    ACCOUNT = "Account"
+    UNDETERMINED = "Undetermined"
     """
-    User account entity type
+    Incident classification was undetermined
     """
-    HOST = "Host"
+    TRUE_POSITIVE = "TruePositive"
     """
-    Host entity type
+    Incident was true positive
     """
-    IP = "IP"
+    BENIGN_POSITIVE = "BenignPositive"
     """
-    IP address entity type
+    Incident was benign positive
     """
-    MALWARE = "Malware"
+    FALSE_POSITIVE = "FalsePositive"
     """
-    Malware entity type
-    """
-    FILE = "File"
-    """
-    System file entity type
-    """
-    PROCESS = "Process"
-    """
-    Process entity type
-    """
-    CLOUD_APPLICATION = "CloudApplication"
-    """
-    Cloud app entity type
-    """
-    DNS = "DNS"
-    """
-    DNS entity type
-    """
-    AZURE_RESOURCE = "AzureResource"
-    """
-    Azure resource entity type
-    """
-    FILE_HASH = "FileHash"
-    """
-    File-hash entity type
-    """
-    REGISTRY_KEY = "RegistryKey"
-    """
-    Registry key entity type
-    """
-    REGISTRY_VALUE = "RegistryValue"
-    """
-    Registry value entity type
-    """
-    SECURITY_GROUP = "SecurityGroup"
-    """
-    Security group entity type
-    """
-    URL = "URL"
-    """
-    URL entity type
-    """
-    MAILBOX = "Mailbox"
-    """
-    Mailbox entity type
-    """
-    MAIL_CLUSTER = "MailCluster"
-    """
-    Mail cluster entity type
-    """
-    MAIL_MESSAGE = "MailMessage"
-    """
-    Mail message entity type
-    """
-    SUBMISSION_MAIL = "SubmissionMail"
-    """
-    Submission mail entity type
+    Incident was false positive
     """
 
 
-class EventGroupingAggregationKind(str, Enum):
+class IncidentClassificationReason(str, Enum):
     """
-    The event grouping aggregation kinds
+    The classification reason the incident was closed with
     """
-    SINGLE_ALERT = "SingleAlert"
-    ALERT_PER_RESULT = "AlertPerResult"
-
-
-class MatchingMethod(str, Enum):
+    SUSPICIOUS_ACTIVITY = "SuspiciousActivity"
     """
-    Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+    Classification reason was suspicious activity
     """
-    ALL_ENTITIES = "AllEntities"
+    SUSPICIOUS_BUT_EXPECTED = "SuspiciousButExpected"
     """
-    Grouping alerts into a single incident if all the entities match
+    Classification reason was suspicious but expected
     """
-    ANY_ALERT = "AnyAlert"
+    INCORRECT_ALERT_LOGIC = "IncorrectAlertLogic"
     """
-    Grouping any alerts triggered by this rule into a single incident
+    Classification reason was incorrect alert logic
     """
-    SELECTED = "Selected"
+    INACCURATE_DATA = "InaccurateData"
     """
-    Grouping alerts into a single incident if the selected entities, custom details and alert details match
+    Classification reason was inaccurate data
     """
 
 
-class MicrosoftSecurityProductName(str, Enum):
+class IncidentSeverity(str, Enum):
     """
-    The alerts' productName on which the cases will be generated
+    The severity of the incident
     """
-    MICROSOFT_CLOUD_APP_SECURITY = "Microsoft Cloud App Security"
-    AZURE_SECURITY_CENTER = "Azure Security Center"
-    AZURE_ADVANCED_THREAT_PROTECTION = "Azure Advanced Threat Protection"
-    AZURE_ACTIVE_DIRECTORY_IDENTITY_PROTECTION = "Azure Active Directory Identity Protection"
-    AZURE_SECURITY_CENTER_FOR_IO_T = "Azure Security Center for IoT"
+    HIGH = "High"
+    """
+    High severity
+    """
+    MEDIUM = "Medium"
+    """
+    Medium severity
+    """
+    LOW = "Low"
+    """
+    Low severity
+    """
+    INFORMATIONAL = "Informational"
+    """
+    Informational severity
+    """
 
 
-class SecurityMLAnalyticsSettingsKind(str, Enum):
+class IncidentStatus(str, Enum):
     """
-    The kind of security ML Analytics Settings
+    The status of the incident
     """
-    ANOMALY = "Anomaly"
+    NEW = "New"
+    """
+    An active incident which isn't being handled currently
+    """
+    ACTIVE = "Active"
+    """
+    An active incident which is being handled
+    """
+    CLOSED = "Closed"
+    """
+    A non-active incident
+    """
 
 
-class SettingsStatus(str, Enum):
+class Operator(str, Enum):
     """
-    The anomaly SecurityMLAnalyticsSettings status
+    Operator used for list of dependencies in criteria array.
     """
-    PRODUCTION = "Production"
+    AND_ = "AND"
+    OR_ = "OR"
+
+
+class OwnerType(str, Enum):
     """
-    Anomaly settings status in Production mode
+    The type of the owner the incident is assigned to.
     """
-    FLIGHTING = "Flighting"
+    UNKNOWN = "Unknown"
     """
-    Anomaly settings status in Flighting mode
+    The incident owner type is unknown
+    """
+    USER = "User"
+    """
+    The incident owner type is an AAD user
+    """
+    GROUP = "Group"
+    """
+    The incident owner type is an AAD group
     """
 
 
@@ -299,11 +516,52 @@ class Source(str, Enum):
     REMOTE_STORAGE = "Remote storage"
 
 
-class TriggerOperator(str, Enum):
+class SourceKind(str, Enum):
     """
-    The operation against the threshold that triggers alert rule.
+    Source type of the content
     """
-    GREATER_THAN = "GreaterThan"
-    LESS_THAN = "LessThan"
-    EQUAL = "Equal"
-    NOT_EQUAL = "NotEqual"
+    LOCAL_WORKSPACE = "LocalWorkspace"
+    COMMUNITY = "Community"
+    SOLUTION = "Solution"
+    SOURCE_REPOSITORY = "SourceRepository"
+
+
+class SupportTier(str, Enum):
+    """
+    Type of support for content item
+    """
+    MICROSOFT = "Microsoft"
+    PARTNER = "Partner"
+    COMMUNITY = "Community"
+
+
+class ThreatIntelligenceResourceInnerKind(str, Enum):
+    """
+    The kind of the entity.
+    """
+    INDICATOR = "indicator"
+    """
+    Entity represents threat intelligence indicator in the system.
+    """
+
+
+class TriggersOn(str, Enum):
+    INCIDENTS = "Incidents"
+    """
+    Trigger on Incidents
+    """
+    ALERTS = "Alerts"
+    """
+    Trigger on Alerts
+    """
+
+
+class TriggersWhen(str, Enum):
+    CREATED = "Created"
+    """
+    Trigger on created objects
+    """
+    UPDATED = "Updated"
+    """
+    Trigger on updated objects
+    """

@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const Compression = {
-    None: "None",
-    GZip: "GZip",
-} as const;
-
-/**
- * The event hub messages compression type
- */
-export type Compression = (typeof Compression)[keyof typeof Compression];
-
 export const EventGridDataFormat = {
     MULTIJSON: "MULTIJSON",
     JSON: "JSON",
@@ -34,56 +24,13 @@ export const EventGridDataFormat = {
  */
 export type EventGridDataFormat = (typeof EventGridDataFormat)[keyof typeof EventGridDataFormat];
 
-export const EventHubDataFormat = {
-    MULTIJSON: "MULTIJSON",
-    JSON: "JSON",
-    CSV: "CSV",
-    TSV: "TSV",
-    SCSV: "SCSV",
-    SOHSV: "SOHSV",
-    PSV: "PSV",
-    TXT: "TXT",
-    RAW: "RAW",
-    SINGLEJSON: "SINGLEJSON",
-    AVRO: "AVRO",
-    TSVE: "TSVE",
-    PARQUET: "PARQUET",
-    ORC: "ORC",
-} as const;
-
-/**
- * The data format of the message. Optionally the data format can be added to each message.
- */
-export type EventHubDataFormat = (typeof EventHubDataFormat)[keyof typeof EventHubDataFormat];
-
-export const IotHubDataFormat = {
-    MULTIJSON: "MULTIJSON",
-    JSON: "JSON",
-    CSV: "CSV",
-    TSV: "TSV",
-    SCSV: "SCSV",
-    SOHSV: "SOHSV",
-    PSV: "PSV",
-    TXT: "TXT",
-    RAW: "RAW",
-    SINGLEJSON: "SINGLEJSON",
-    AVRO: "AVRO",
-    TSVE: "TSVE",
-    PARQUET: "PARQUET",
-    ORC: "ORC",
-} as const;
-
-/**
- * The data format of the message. Optionally the data format can be added to each message.
- */
-export type IotHubDataFormat = (typeof IotHubDataFormat)[keyof typeof IotHubDataFormat];
-
 export const Kind = {
-    ReadWrite: "ReadWrite",
-    ReadOnlyFollowing: "ReadOnlyFollowing",
+    EventHub: "EventHub",
+    EventGrid: "EventGrid",
+    IotHub: "IotHub",
 } as const;
 
 /**
- * Kind of the database
+ * Kind of the endpoint for the data connection
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];

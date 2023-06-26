@@ -136,6 +136,11 @@ namespace Pulumi.AzureNative.ServiceFabric.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20210601:Service"},
                 },

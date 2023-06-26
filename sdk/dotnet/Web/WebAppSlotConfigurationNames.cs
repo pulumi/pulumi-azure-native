@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSlotConfigurationNames"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSlotConfigurationNames"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSlotConfigurationNames"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSlotConfigurationNames"},

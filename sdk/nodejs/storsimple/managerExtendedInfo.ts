@@ -127,7 +127,7 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/v20170601:ManagerExtendedInfo" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/v20161001:ManagerExtendedInfo" }, { type: "azure-native:storsimple/v20170601:ManagerExtendedInfo" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagerExtendedInfo.__pulumiType, name, resourceInputs, opts);
     }

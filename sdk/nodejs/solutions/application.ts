@@ -211,7 +211,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["updatedBy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:solutions/v20190701:Application" }, { type: "azure-native:solutions/v20200821preview:Application" }, { type: "azure-native:solutions/v20210201preview:Application" }, { type: "azure-native:solutions/v20210701:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:solutions/v20160901preview:Application" }, { type: "azure-native:solutions/v20170901:Application" }, { type: "azure-native:solutions/v20171201:Application" }, { type: "azure-native:solutions/v20180201:Application" }, { type: "azure-native:solutions/v20180301:Application" }, { type: "azure-native:solutions/v20180601:Application" }, { type: "azure-native:solutions/v20180901preview:Application" }, { type: "azure-native:solutions/v20190701:Application" }, { type: "azure-native:solutions/v20200821preview:Application" }, { type: "azure-native:solutions/v20210201preview:Application" }, { type: "azure-native:solutions/v20210701:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }

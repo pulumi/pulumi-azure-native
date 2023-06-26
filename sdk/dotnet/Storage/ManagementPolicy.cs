@@ -65,6 +65,11 @@ namespace Pulumi.AzureNative.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20180301preview:ManagementPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20181101:ManagementPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190401:ManagementPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:ManagementPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:ManagementPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:ManagementPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:ManagementPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:ManagementPolicy"},

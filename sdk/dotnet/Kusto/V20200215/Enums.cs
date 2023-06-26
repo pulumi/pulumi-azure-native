@@ -8,37 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Kusto.V20200215
 {
     /// <summary>
-    /// The event hub messages compression type
-    /// </summary>
-    [EnumType]
-    public readonly struct Compression : IEquatable<Compression>
-    {
-        private readonly string _value;
-
-        private Compression(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Compression None { get; } = new Compression("None");
-        public static Compression GZip { get; } = new Compression("GZip");
-
-        public static bool operator ==(Compression left, Compression right) => left.Equals(right);
-        public static bool operator !=(Compression left, Compression right) => !left.Equals(right);
-
-        public static explicit operator string(Compression value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Compression other && Equals(other);
-        public bool Equals(Compression other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The data format of the message. Optionally the data format can be added to each message.
     /// </summary>
     [EnumType]
@@ -82,93 +51,7 @@ namespace Pulumi.AzureNative.Kusto.V20200215
     }
 
     /// <summary>
-    /// The data format of the message. Optionally the data format can be added to each message.
-    /// </summary>
-    [EnumType]
-    public readonly struct EventHubDataFormat : IEquatable<EventHubDataFormat>
-    {
-        private readonly string _value;
-
-        private EventHubDataFormat(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static EventHubDataFormat MULTIJSON { get; } = new EventHubDataFormat("MULTIJSON");
-        public static EventHubDataFormat JSON { get; } = new EventHubDataFormat("JSON");
-        public static EventHubDataFormat CSV { get; } = new EventHubDataFormat("CSV");
-        public static EventHubDataFormat TSV { get; } = new EventHubDataFormat("TSV");
-        public static EventHubDataFormat SCSV { get; } = new EventHubDataFormat("SCSV");
-        public static EventHubDataFormat SOHSV { get; } = new EventHubDataFormat("SOHSV");
-        public static EventHubDataFormat PSV { get; } = new EventHubDataFormat("PSV");
-        public static EventHubDataFormat TXT { get; } = new EventHubDataFormat("TXT");
-        public static EventHubDataFormat RAW { get; } = new EventHubDataFormat("RAW");
-        public static EventHubDataFormat SINGLEJSON { get; } = new EventHubDataFormat("SINGLEJSON");
-        public static EventHubDataFormat AVRO { get; } = new EventHubDataFormat("AVRO");
-        public static EventHubDataFormat TSVE { get; } = new EventHubDataFormat("TSVE");
-        public static EventHubDataFormat PARQUET { get; } = new EventHubDataFormat("PARQUET");
-        public static EventHubDataFormat ORC { get; } = new EventHubDataFormat("ORC");
-
-        public static bool operator ==(EventHubDataFormat left, EventHubDataFormat right) => left.Equals(right);
-        public static bool operator !=(EventHubDataFormat left, EventHubDataFormat right) => !left.Equals(right);
-
-        public static explicit operator string(EventHubDataFormat value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EventHubDataFormat other && Equals(other);
-        public bool Equals(EventHubDataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The data format of the message. Optionally the data format can be added to each message.
-    /// </summary>
-    [EnumType]
-    public readonly struct IotHubDataFormat : IEquatable<IotHubDataFormat>
-    {
-        private readonly string _value;
-
-        private IotHubDataFormat(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static IotHubDataFormat MULTIJSON { get; } = new IotHubDataFormat("MULTIJSON");
-        public static IotHubDataFormat JSON { get; } = new IotHubDataFormat("JSON");
-        public static IotHubDataFormat CSV { get; } = new IotHubDataFormat("CSV");
-        public static IotHubDataFormat TSV { get; } = new IotHubDataFormat("TSV");
-        public static IotHubDataFormat SCSV { get; } = new IotHubDataFormat("SCSV");
-        public static IotHubDataFormat SOHSV { get; } = new IotHubDataFormat("SOHSV");
-        public static IotHubDataFormat PSV { get; } = new IotHubDataFormat("PSV");
-        public static IotHubDataFormat TXT { get; } = new IotHubDataFormat("TXT");
-        public static IotHubDataFormat RAW { get; } = new IotHubDataFormat("RAW");
-        public static IotHubDataFormat SINGLEJSON { get; } = new IotHubDataFormat("SINGLEJSON");
-        public static IotHubDataFormat AVRO { get; } = new IotHubDataFormat("AVRO");
-        public static IotHubDataFormat TSVE { get; } = new IotHubDataFormat("TSVE");
-        public static IotHubDataFormat PARQUET { get; } = new IotHubDataFormat("PARQUET");
-        public static IotHubDataFormat ORC { get; } = new IotHubDataFormat("ORC");
-
-        public static bool operator ==(IotHubDataFormat left, IotHubDataFormat right) => left.Equals(right);
-        public static bool operator !=(IotHubDataFormat left, IotHubDataFormat right) => !left.Equals(right);
-
-        public static explicit operator string(IotHubDataFormat value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IotHubDataFormat other && Equals(other);
-        public bool Equals(IotHubDataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Kind of the database
+    /// Kind of the endpoint for the data connection
     /// </summary>
     [EnumType]
     public readonly struct Kind : IEquatable<Kind>
@@ -180,8 +63,9 @@ namespace Pulumi.AzureNative.Kusto.V20200215
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Kind ReadWrite { get; } = new Kind("ReadWrite");
-        public static Kind ReadOnlyFollowing { get; } = new Kind("ReadOnlyFollowing");
+        public static Kind EventHub { get; } = new Kind("EventHub");
+        public static Kind EventGrid { get; } = new Kind("EventGrid");
+        public static Kind IotHub { get; } = new Kind("IotHub");
 
         public static bool operator ==(Kind left, Kind right) => left.Equals(right);
         public static bool operator !=(Kind left, Kind right) => !left.Equals(right);

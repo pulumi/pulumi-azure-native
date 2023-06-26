@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Certificate"},

@@ -119,6 +119,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge:Share"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Share"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Share"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Share"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Share"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Share"},
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Share"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Share"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Share"},
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Share"},

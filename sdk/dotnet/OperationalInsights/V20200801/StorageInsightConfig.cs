@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights:StorageInsightConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20150320:StorageInsightConfig"},
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:StorageInsightConfig"},
                 },
             };

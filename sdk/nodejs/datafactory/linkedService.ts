@@ -89,7 +89,7 @@ export class LinkedService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datafactory/v20180601:LinkedService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datafactory/v20170901preview:LinkedService" }, { type: "azure-native:datafactory/v20180601:LinkedService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedService.__pulumiType, name, resourceInputs, opts);
     }

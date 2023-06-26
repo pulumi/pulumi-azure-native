@@ -830,6 +830,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "alertsmanagement/v20210808",
+  "fqn": "pulumi_azure_native.alertsmanagement.v20210808",
+  "classes": {
+   "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName": "AlertProcessingRuleByName"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "alertsmanagement/v20210808preview",
   "fqn": "pulumi_azure_native.alertsmanagement.v20210808preview",
   "classes": {
@@ -1528,6 +1536,32 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "appplatform/v20221201",
+  "fqn": "pulumi_azure_native.appplatform.v20221201",
+  "classes": {
+   "azure-native:appplatform/v20221201:ApiPortal": "ApiPortal",
+   "azure-native:appplatform/v20221201:ApiPortalCustomDomain": "ApiPortalCustomDomain",
+   "azure-native:appplatform/v20221201:App": "App",
+   "azure-native:appplatform/v20221201:Binding": "Binding",
+   "azure-native:appplatform/v20221201:BuildServiceAgentPool": "BuildServiceAgentPool",
+   "azure-native:appplatform/v20221201:BuildServiceBuilder": "BuildServiceBuilder",
+   "azure-native:appplatform/v20221201:BuildpackBinding": "BuildpackBinding",
+   "azure-native:appplatform/v20221201:Certificate": "Certificate",
+   "azure-native:appplatform/v20221201:ConfigServer": "ConfigServer",
+   "azure-native:appplatform/v20221201:ConfigurationService": "ConfigurationService",
+   "azure-native:appplatform/v20221201:CustomDomain": "CustomDomain",
+   "azure-native:appplatform/v20221201:Deployment": "Deployment",
+   "azure-native:appplatform/v20221201:Gateway": "Gateway",
+   "azure-native:appplatform/v20221201:GatewayCustomDomain": "GatewayCustomDomain",
+   "azure-native:appplatform/v20221201:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform/v20221201:MonitoringSetting": "MonitoringSetting",
+   "azure-native:appplatform/v20221201:Service": "Service",
+   "azure-native:appplatform/v20221201:ServiceRegistry": "ServiceRegistry",
+   "azure-native:appplatform/v20221201:Storage": "Storage"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "appplatform/v20230101preview",
   "fqn": "pulumi_azure_native.appplatform.v20230101preview",
   "classes": {
@@ -2184,6 +2218,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azureactivedirectory/v20210401",
+  "fqn": "pulumi_azure_native.azureactivedirectory.v20210401",
+  "classes": {
+   "azure-native:azureactivedirectory/v20210401:B2CTenant": "B2CTenant",
+   "azure-native:azureactivedirectory/v20210401:GuestUsage": "GuestUsage"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azureactivedirectory/v20230118preview",
   "fqn": "pulumi_azure_native.azureactivedirectory.v20230118preview",
   "classes": {
@@ -2368,6 +2411,18 @@ _utilities.register(
   "classes": {
    "azure-native:azurestackhci/v20210101preview:ArcSetting": "ArcSetting",
    "azure-native:azurestackhci/v20210101preview:Extension": "Extension"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurestackhci/v20210701preview",
+  "fqn": "pulumi_azure_native.azurestackhci.v20210701preview",
+  "classes": {
+   "azure-native:azurestackhci/v20210701preview:GalleryimageRetrieve": "GalleryimageRetrieve",
+   "azure-native:azurestackhci/v20210701preview:NetworkinterfaceRetrieve": "NetworkinterfaceRetrieve",
+   "azure-native:azurestackhci/v20210701preview:VirtualharddiskRetrieve": "VirtualharddiskRetrieve",
+   "azure-native:azurestackhci/v20210701preview:VirtualmachineRetrieve": "VirtualmachineRetrieve",
+   "azure-native:azurestackhci/v20210701preview:VirtualnetworkRetrieve": "VirtualnetworkRetrieve"
   }
  },
  {
@@ -2921,6 +2976,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "chaos/v20221001preview",
+  "fqn": "pulumi_azure_native.chaos.v20221001preview",
+  "classes": {
+   "azure-native:chaos/v20221001preview:Capability": "Capability",
+   "azure-native:chaos/v20221001preview:Experiment": "Experiment",
+   "azure-native:chaos/v20221001preview:Target": "Target"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "chaos/v20230401preview",
   "fqn": "pulumi_azure_native.chaos.v20230401preview",
   "classes": {
@@ -3278,6 +3343,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "confidentialledger/v20220513",
+  "fqn": "pulumi_azure_native.confidentialledger.v20220513",
+  "classes": {
+   "azure-native:confidentialledger/v20220513:Ledger": "Ledger"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "confidentialledger/v20230126preview",
   "fqn": "pulumi_azure_native.confidentialledger.v20230126preview",
   "classes": {
@@ -3550,6 +3623,19 @@ _utilities.register(
    "azure-native:containerregistry/v20201101preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:containerregistry/v20201101preview:ScopeMap": "ScopeMap",
    "azure-native:containerregistry/v20201101preview:Token": "Token"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerregistry/v20221201",
+  "fqn": "pulumi_azure_native.containerregistry.v20221201",
+  "classes": {
+   "azure-native:containerregistry/v20221201:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerregistry/v20221201:Registry": "Registry",
+   "azure-native:containerregistry/v20221201:Replication": "Replication",
+   "azure-native:containerregistry/v20221201:ScopeMap": "ScopeMap",
+   "azure-native:containerregistry/v20221201:Token": "Token",
+   "azure-native:containerregistry/v20221201:Webhook": "Webhook"
   }
  },
  {
@@ -4122,7 +4208,16 @@ _utilities.register(
   "mod": "databoxedge/v20220301",
   "fqn": "pulumi_azure_native.databoxedge.v20220301",
   "classes": {
-   "azure-native:databoxedge/v20220301:IoTAddon": "IoTAddon"
+   "azure-native:databoxedge/v20220301:BandwidthSchedule": "BandwidthSchedule",
+   "azure-native:databoxedge/v20220301:Container": "Container",
+   "azure-native:databoxedge/v20220301:Device": "Device",
+   "azure-native:databoxedge/v20220301:IoTAddon": "IoTAddon",
+   "azure-native:databoxedge/v20220301:MonitoringConfig": "MonitoringConfig",
+   "azure-native:databoxedge/v20220301:Order": "Order",
+   "azure-native:databoxedge/v20220301:Share": "Share",
+   "azure-native:databoxedge/v20220301:StorageAccount": "StorageAccount",
+   "azure-native:databoxedge/v20220301:StorageAccountCredential": "StorageAccountCredential",
+   "azure-native:databoxedge/v20220301:User": "User"
   }
  },
  {
@@ -4179,11 +4274,20 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "databricks/v20210401preview",
+  "fqn": "pulumi_azure_native.databricks.v20210401preview",
+  "classes": {
+   "azure-native:databricks/v20210401preview:VNetPeering": "VNetPeering"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "databricks/v20220401preview",
   "fqn": "pulumi_azure_native.databricks.v20220401preview",
   "classes": {
    "azure-native:databricks/v20220401preview:AccessConnector": "AccessConnector",
-   "azure-native:databricks/v20220401preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+   "azure-native:databricks/v20220401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:databricks/v20220401preview:VNetPeering": "VNetPeering"
   }
  },
  {
@@ -4379,8 +4483,11 @@ _utilities.register(
   "mod": "datamigration/v20210630",
   "fqn": "pulumi_azure_native.datamigration.v20210630",
   "classes": {
+   "azure-native:datamigration/v20210630:File": "File",
    "azure-native:datamigration/v20210630:Project": "Project",
-   "azure-native:datamigration/v20210630:Service": "Service"
+   "azure-native:datamigration/v20210630:Service": "Service",
+   "azure-native:datamigration/v20210630:ServiceTask": "ServiceTask",
+   "azure-native:datamigration/v20210630:Task": "Task"
   }
  },
  {
@@ -4696,7 +4803,8 @@ _utilities.register(
   "mod": "dbformysql/v20200701preview",
   "fqn": "pulumi_azure_native.dbformysql.v20200701preview",
   "classes": {
-   "azure-native:dbformysql/v20200701preview:Server": "Server"
+   "azure-native:dbformysql/v20200701preview:Server": "Server",
+   "azure-native:dbformysql/v20200701preview:ServerKey": "ServerKey"
   }
  },
  {
@@ -4988,6 +5096,20 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "desktopvirtualization/v20220909",
+  "fqn": "pulumi_azure_native.desktopvirtualization.v20220909",
+  "classes": {
+   "azure-native:desktopvirtualization/v20220909:Application": "Application",
+   "azure-native:desktopvirtualization/v20220909:ApplicationGroup": "ApplicationGroup",
+   "azure-native:desktopvirtualization/v20220909:HostPool": "HostPool",
+   "azure-native:desktopvirtualization/v20220909:MSIXPackage": "MSIXPackage",
+   "azure-native:desktopvirtualization/v20220909:ScalingPlan": "ScalingPlan",
+   "azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule": "ScalingPlanPooledSchedule",
+   "azure-native:desktopvirtualization/v20220909:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "desktopvirtualization/v20221014preview",
   "fqn": "pulumi_azure_native.desktopvirtualization.v20221014preview",
   "classes": {
@@ -5177,6 +5299,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devices/v20210702",
+  "fqn": "pulumi_azure_native.devices.v20210702",
+  "classes": {
+   "azure-native:devices/v20210702:Certificate": "Certificate",
+   "azure-native:devices/v20210702:IotHubResource": "IotHubResource",
+   "azure-native:devices/v20210702:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
+   "azure-native:devices/v20210702:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "devices/v20211015",
   "fqn": "pulumi_azure_native.devices.v20211015",
   "classes": {
@@ -5203,6 +5336,16 @@ _utilities.register(
    "azure-native:devices/v20221115preview:IotHubResource": "IotHubResource",
    "azure-native:devices/v20221115preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
    "azure-native:devices/v20221115preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devices/v20221212",
+  "fqn": "pulumi_azure_native.devices.v20221212",
+  "classes": {
+   "azure-native:devices/v20221212:DpsCertificate": "DpsCertificate",
+   "azure-native:devices/v20221212:IotDpsResource": "IotDpsResource",
+   "azure-native:devices/v20221212:IotDpsResourcePrivateEndpointConnection": "IotDpsResourcePrivateEndpointConnection"
   }
  },
  {
@@ -5235,6 +5378,17 @@ _utilities.register(
    "azure-native:deviceupdate/v20200301preview:Instance": "Instance",
    "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy": "PrivateEndpointConnectionProxy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "deviceupdate/v20221001",
+  "fqn": "pulumi_azure_native.deviceupdate.v20221001",
+  "classes": {
+   "azure-native:deviceupdate/v20221001:Account": "Account",
+   "azure-native:deviceupdate/v20221001:Instance": "Instance",
+   "azure-native:deviceupdate/v20221001:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy": "PrivateEndpointConnectionProxy"
   }
  },
  {
@@ -6037,6 +6191,23 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "eventhub/v20211101",
+  "fqn": "pulumi_azure_native.eventhub.v20211101",
+  "classes": {
+   "azure-native:eventhub/v20211101:Cluster": "Cluster",
+   "azure-native:eventhub/v20211101:ConsumerGroup": "ConsumerGroup",
+   "azure-native:eventhub/v20211101:DisasterRecoveryConfig": "DisasterRecoveryConfig",
+   "azure-native:eventhub/v20211101:EventHub": "EventHub",
+   "azure-native:eventhub/v20211101:EventHubAuthorizationRule": "EventHubAuthorizationRule",
+   "azure-native:eventhub/v20211101:Namespace": "Namespace",
+   "azure-native:eventhub/v20211101:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
+   "azure-native:eventhub/v20211101:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet",
+   "azure-native:eventhub/v20211101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:eventhub/v20211101:SchemaRegistry": "SchemaRegistry"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "eventhub/v20220101preview",
   "fqn": "pulumi_azure_native.eventhub.v20220101preview",
   "classes": {
@@ -6077,6 +6248,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.extendedlocation.v20210315preview",
   "classes": {
    "azure-native:extendedlocation/v20210315preview:CustomLocation": "CustomLocation"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "extendedlocation/v20210815",
+  "fqn": "pulumi_azure_native.extendedlocation.v20210815",
+  "classes": {
+   "azure-native:extendedlocation/v20210815:CustomLocation": "CustomLocation"
   }
  },
  {
@@ -6605,6 +6784,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "hybridnetwork/v20210501",
+  "fqn": "pulumi_azure_native.hybridnetwork.v20210501",
+  "classes": {
+   "azure-native:hybridnetwork/v20210501:Device": "Device",
+   "azure-native:hybridnetwork/v20210501:NetworkFunction": "NetworkFunction",
+   "azure-native:hybridnetwork/v20210501:Vendor": "Vendor",
+   "azure-native:hybridnetwork/v20210501:VendorSkuPreview": "VendorSkuPreview",
+   "azure-native:hybridnetwork/v20210501:VendorSkus": "VendorSkus"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "hybridnetwork/v20220101preview",
   "fqn": "pulumi_azure_native.hybridnetwork.v20220101preview",
   "classes": {
@@ -6927,6 +7118,7 @@ _utilities.register(
   "mod": "insights/v20220615",
   "fqn": "pulumi_azure_native.insights.v20220615",
   "classes": {
+   "azure-native:insights/v20220615:ScheduledQueryRule": "ScheduledQueryRule",
    "azure-native:insights/v20220615:WebTest": "WebTest"
   }
  },
@@ -7141,6 +7333,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.kubernetes.v20210301",
   "classes": {
    "azure-native:kubernetes/v20210301:ConnectedCluster": "ConnectedCluster"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kubernetes/v20211001",
+  "fqn": "pulumi_azure_native.kubernetes.v20211001",
+  "classes": {
+   "azure-native:kubernetes/v20211001:ConnectedCluster": "ConnectedCluster"
   }
  },
  {
@@ -8228,6 +8428,15 @@ _utilities.register(
   "classes": {
    "azure-native:maps/v20200201preview:Creator": "Creator",
    "azure-native:maps/v20200201preview:PrivateAtlase": "PrivateAtlase"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "maps/v20210201",
+  "fqn": "pulumi_azure_native.maps.v20210201",
+  "classes": {
+   "azure-native:maps/v20210201:Account": "Account",
+   "azure-native:maps/v20210201:Creator": "Creator"
   }
  },
  {
@@ -10820,6 +11029,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "securityandcompliance/v20210111",
+  "fqn": "pulumi_azure_native.securityandcompliance.v20210111",
+  "classes": {
+   "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForEDMUpload": "PrivateLinkServicesForEDMUpload",
+   "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForM365ComplianceCenter": "PrivateLinkServicesForM365ComplianceCenter",
+   "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForM365SecurityCenter": "PrivateLinkServicesForM365SecurityCenter",
+   "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForO365ManagementActivityAPI": "PrivateLinkServicesForO365ManagementActivityAPI",
+   "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForSCCPowershell": "PrivateLinkServicesForSCCPowershell"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "securityandcompliance/v20210308",
   "fqn": "pulumi_azure_native.securityandcompliance.v20210308",
   "classes": {
@@ -11010,12 +11231,22 @@ _utilities.register(
   "classes": {
    "azure-native:securityinsights/v20230201:AADDataConnector": "AADDataConnector",
    "azure-native:securityinsights/v20230201:AATPDataConnector": "AATPDataConnector",
+   "azure-native:securityinsights/v20230201:Action": "Action",
+   "azure-native:securityinsights/v20230201:AutomationRule": "AutomationRule",
    "azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector": "AwsCloudTrailDataConnector",
+   "azure-native:securityinsights/v20230201:Bookmark": "Bookmark",
+   "azure-native:securityinsights/v20230201:Incident": "Incident",
+   "azure-native:securityinsights/v20230201:IncidentComment": "IncidentComment",
+   "azure-native:securityinsights/v20230201:IncidentRelation": "IncidentRelation",
    "azure-native:securityinsights/v20230201:MCASDataConnector": "MCASDataConnector",
    "azure-native:securityinsights/v20230201:MDATPDataConnector": "MDATPDataConnector",
+   "azure-native:securityinsights/v20230201:Metadata": "Metadata",
    "azure-native:securityinsights/v20230201:OfficeDataConnector": "OfficeDataConnector",
+   "azure-native:securityinsights/v20230201:SentinelOnboardingState": "SentinelOnboardingState",
    "azure-native:securityinsights/v20230201:TIDataConnector": "TIDataConnector",
-   "azure-native:securityinsights/v20230201:Watchlist": "Watchlist"
+   "azure-native:securityinsights/v20230201:ThreatIntelligenceIndicator": "ThreatIntelligenceIndicator",
+   "azure-native:securityinsights/v20230201:Watchlist": "Watchlist",
+   "azure-native:securityinsights/v20230201:WatchlistItem": "WatchlistItem"
   }
  },
  {
@@ -11278,6 +11509,25 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "servicebus/v20211101",
+  "fqn": "pulumi_azure_native.servicebus.v20211101",
+  "classes": {
+   "azure-native:servicebus/v20211101:DisasterRecoveryConfig": "DisasterRecoveryConfig",
+   "azure-native:servicebus/v20211101:MigrationConfig": "MigrationConfig",
+   "azure-native:servicebus/v20211101:Namespace": "Namespace",
+   "azure-native:servicebus/v20211101:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
+   "azure-native:servicebus/v20211101:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet",
+   "azure-native:servicebus/v20211101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:servicebus/v20211101:Queue": "Queue",
+   "azure-native:servicebus/v20211101:QueueAuthorizationRule": "QueueAuthorizationRule",
+   "azure-native:servicebus/v20211101:Rule": "Rule",
+   "azure-native:servicebus/v20211101:Subscription": "Subscription",
+   "azure-native:servicebus/v20211101:Topic": "Topic",
+   "azure-native:servicebus/v20211101:TopicAuthorizationRule": "TopicAuthorizationRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "servicebus/v20220101preview",
   "fqn": "pulumi_azure_native.servicebus.v20220101preview",
   "classes": {
@@ -11449,6 +11699,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.servicelinker.v20211101preview",
   "classes": {
    "azure-native:servicelinker/v20211101preview:Linker": "Linker"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicelinker/v20220501",
+  "fqn": "pulumi_azure_native.servicelinker.v20220501",
+  "classes": {
+   "azure-native:servicelinker/v20220501:Linker": "Linker"
   }
  },
  {
@@ -11836,6 +12094,70 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "sql/v20211101",
+  "fqn": "pulumi_azure_native.sql.v20211101",
+  "classes": {
+   "azure-native:sql/v20211101:BackupShortTermRetentionPolicy": "BackupShortTermRetentionPolicy",
+   "azure-native:sql/v20211101:DataMaskingPolicy": "DataMaskingPolicy",
+   "azure-native:sql/v20211101:Database": "Database",
+   "azure-native:sql/v20211101:DatabaseAdvisor": "DatabaseAdvisor",
+   "azure-native:sql/v20211101:DatabaseBlobAuditingPolicy": "DatabaseBlobAuditingPolicy",
+   "azure-native:sql/v20211101:DatabaseSecurityAlertPolicy": "DatabaseSecurityAlertPolicy",
+   "azure-native:sql/v20211101:DatabaseVulnerabilityAssessment": "DatabaseVulnerabilityAssessment",
+   "azure-native:sql/v20211101:DatabaseVulnerabilityAssessmentRuleBaseline": "DatabaseVulnerabilityAssessmentRuleBaseline",
+   "azure-native:sql/v20211101:DistributedAvailabilityGroup": "DistributedAvailabilityGroup",
+   "azure-native:sql/v20211101:ElasticPool": "ElasticPool",
+   "azure-native:sql/v20211101:EncryptionProtector": "EncryptionProtector",
+   "azure-native:sql/v20211101:ExtendedDatabaseBlobAuditingPolicy": "ExtendedDatabaseBlobAuditingPolicy",
+   "azure-native:sql/v20211101:ExtendedServerBlobAuditingPolicy": "ExtendedServerBlobAuditingPolicy",
+   "azure-native:sql/v20211101:FailoverGroup": "FailoverGroup",
+   "azure-native:sql/v20211101:FirewallRule": "FirewallRule",
+   "azure-native:sql/v20211101:GeoBackupPolicy": "GeoBackupPolicy",
+   "azure-native:sql/v20211101:IPv6FirewallRule": "IPv6FirewallRule",
+   "azure-native:sql/v20211101:InstanceFailoverGroup": "InstanceFailoverGroup",
+   "azure-native:sql/v20211101:InstancePool": "InstancePool",
+   "azure-native:sql/v20211101:Job": "Job",
+   "azure-native:sql/v20211101:JobAgent": "JobAgent",
+   "azure-native:sql/v20211101:JobCredential": "JobCredential",
+   "azure-native:sql/v20211101:JobStep": "JobStep",
+   "azure-native:sql/v20211101:JobTargetGroup": "JobTargetGroup",
+   "azure-native:sql/v20211101:LongTermRetentionPolicy": "LongTermRetentionPolicy",
+   "azure-native:sql/v20211101:ManagedDatabase": "ManagedDatabase",
+   "azure-native:sql/v20211101:ManagedDatabaseSensitivityLabel": "ManagedDatabaseSensitivityLabel",
+   "azure-native:sql/v20211101:ManagedDatabaseVulnerabilityAssessment": "ManagedDatabaseVulnerabilityAssessment",
+   "azure-native:sql/v20211101:ManagedDatabaseVulnerabilityAssessmentRuleBaseline": "ManagedDatabaseVulnerabilityAssessmentRuleBaseline",
+   "azure-native:sql/v20211101:ManagedInstance": "ManagedInstance",
+   "azure-native:sql/v20211101:ManagedInstanceAdministrator": "ManagedInstanceAdministrator",
+   "azure-native:sql/v20211101:ManagedInstanceAzureADOnlyAuthentication": "ManagedInstanceAzureADOnlyAuthentication",
+   "azure-native:sql/v20211101:ManagedInstanceKey": "ManagedInstanceKey",
+   "azure-native:sql/v20211101:ManagedInstancePrivateEndpointConnection": "ManagedInstancePrivateEndpointConnection",
+   "azure-native:sql/v20211101:ManagedInstanceVulnerabilityAssessment": "ManagedInstanceVulnerabilityAssessment",
+   "azure-native:sql/v20211101:ManagedServerDnsAlias": "ManagedServerDnsAlias",
+   "azure-native:sql/v20211101:OutboundFirewallRule": "OutboundFirewallRule",
+   "azure-native:sql/v20211101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:sql/v20211101:SensitivityLabel": "SensitivityLabel",
+   "azure-native:sql/v20211101:Server": "Server",
+   "azure-native:sql/v20211101:ServerAdvisor": "ServerAdvisor",
+   "azure-native:sql/v20211101:ServerAzureADAdministrator": "ServerAzureADAdministrator",
+   "azure-native:sql/v20211101:ServerAzureADOnlyAuthentication": "ServerAzureADOnlyAuthentication",
+   "azure-native:sql/v20211101:ServerBlobAuditingPolicy": "ServerBlobAuditingPolicy",
+   "azure-native:sql/v20211101:ServerDnsAlias": "ServerDnsAlias",
+   "azure-native:sql/v20211101:ServerKey": "ServerKey",
+   "azure-native:sql/v20211101:ServerSecurityAlertPolicy": "ServerSecurityAlertPolicy",
+   "azure-native:sql/v20211101:ServerTrustCertificate": "ServerTrustCertificate",
+   "azure-native:sql/v20211101:ServerTrustGroup": "ServerTrustGroup",
+   "azure-native:sql/v20211101:ServerVulnerabilityAssessment": "ServerVulnerabilityAssessment",
+   "azure-native:sql/v20211101:SyncAgent": "SyncAgent",
+   "azure-native:sql/v20211101:SyncGroup": "SyncGroup",
+   "azure-native:sql/v20211101:SyncMember": "SyncMember",
+   "azure-native:sql/v20211101:TransparentDataEncryption": "TransparentDataEncryption",
+   "azure-native:sql/v20211101:VirtualNetworkRule": "VirtualNetworkRule",
+   "azure-native:sql/v20211101:WorkloadClassifier": "WorkloadClassifier",
+   "azure-native:sql/v20211101:WorkloadGroup": "WorkloadGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "sql/v20211101preview",
   "fqn": "pulumi_azure_native.sql.v20211101preview",
   "classes": {
@@ -11998,6 +12320,16 @@ _utilities.register(
    "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener": "AvailabilityGroupListener",
    "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine": "SqlVirtualMachine",
    "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup": "SqlVirtualMachineGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "sqlvirtualmachine/v20220201",
+  "fqn": "pulumi_azure_native.sqlvirtualmachine.v20220201",
+  "classes": {
+   "azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener": "AvailabilityGroupListener",
+   "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine": "SqlVirtualMachine",
+   "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup": "SqlVirtualMachineGroup"
   }
  },
  {
@@ -12309,7 +12641,11 @@ _utilities.register(
   "fqn": "pulumi_azure_native.streamanalytics.v20200301",
   "classes": {
    "azure-native:streamanalytics/v20200301:Cluster": "Cluster",
-   "azure-native:streamanalytics/v20200301:PrivateEndpoint": "PrivateEndpoint"
+   "azure-native:streamanalytics/v20200301:Function": "Function",
+   "azure-native:streamanalytics/v20200301:Input": "Input",
+   "azure-native:streamanalytics/v20200301:Output": "Output",
+   "azure-native:streamanalytics/v20200301:PrivateEndpoint": "PrivateEndpoint",
+   "azure-native:streamanalytics/v20200301:StreamingJob": "StreamingJob"
   }
  },
  {
@@ -12439,7 +12775,23 @@ _utilities.register(
   "mod": "synapse/v20210601",
   "fqn": "pulumi_azure_native.synapse.v20210601",
   "classes": {
-   "azure-native:synapse/v20210601:SqlPoolVulnerabilityAssessment": "SqlPoolVulnerabilityAssessment"
+   "azure-native:synapse/v20210601:BigDataPool": "BigDataPool",
+   "azure-native:synapse/v20210601:IntegrationRuntime": "IntegrationRuntime",
+   "azure-native:synapse/v20210601:IpFirewallRule": "IpFirewallRule",
+   "azure-native:synapse/v20210601:Key": "Key",
+   "azure-native:synapse/v20210601:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:synapse/v20210601:PrivateLinkHub": "PrivateLinkHub",
+   "azure-native:synapse/v20210601:SqlPool": "SqlPool",
+   "azure-native:synapse/v20210601:SqlPoolSensitivityLabel": "SqlPoolSensitivityLabel",
+   "azure-native:synapse/v20210601:SqlPoolTransparentDataEncryption": "SqlPoolTransparentDataEncryption",
+   "azure-native:synapse/v20210601:SqlPoolVulnerabilityAssessment": "SqlPoolVulnerabilityAssessment",
+   "azure-native:synapse/v20210601:SqlPoolVulnerabilityAssessmentRuleBaseline": "SqlPoolVulnerabilityAssessmentRuleBaseline",
+   "azure-native:synapse/v20210601:SqlPoolWorkloadClassifier": "SqlPoolWorkloadClassifier",
+   "azure-native:synapse/v20210601:SqlPoolWorkloadGroup": "SqlPoolWorkloadGroup",
+   "azure-native:synapse/v20210601:Workspace": "Workspace",
+   "azure-native:synapse/v20210601:WorkspaceAadAdmin": "WorkspaceAadAdmin",
+   "azure-native:synapse/v20210601:WorkspaceManagedSqlServerVulnerabilityAssessment": "WorkspaceManagedSqlServerVulnerabilityAssessment",
+   "azure-native:synapse/v20210601:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin"
   }
  },
  {
@@ -13234,6 +13586,14 @@ _utilities.register(
    "azure-native:workloads/v20211201preview:SAPDatabaseInstance": "SAPDatabaseInstance",
    "azure-native:workloads/v20211201preview:SAPVirtualInstance": "SAPVirtualInstance",
    "azure-native:workloads/v20211201preview:WordpressInstance": "WordpressInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "workloads/v20221101preview",
+  "fqn": "pulumi_azure_native.workloads.v20221101preview",
+  "classes": {
+   "azure-native:workloads/v20221101preview:Monitor": "Monitor"
   }
  },
  {

@@ -167,6 +167,16 @@ namespace Pulumi.AzureNative.Batch.V20221001
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:batch:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20151201:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170101:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170501:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170901:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20181201:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190401:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190801:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200301:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200501:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200901:BatchAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20210101:BatchAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20210601:BatchAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220101:BatchAccount"},

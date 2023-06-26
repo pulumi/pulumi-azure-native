@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devtestlab:ServiceRunner"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ServiceRunner"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

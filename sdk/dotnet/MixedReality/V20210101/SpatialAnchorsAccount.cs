@@ -113,6 +113,9 @@ namespace Pulumi.AzureNative.MixedReality.V20210101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:mixedreality:SpatialAnchorsAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20200501:SpatialAnchorsAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount"},
                 },
             };

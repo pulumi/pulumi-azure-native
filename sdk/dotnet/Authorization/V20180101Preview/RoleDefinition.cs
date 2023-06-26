@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.Authorization.V20180101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:authorization:RoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20220401:RoleDefinition"},
                 },
             };

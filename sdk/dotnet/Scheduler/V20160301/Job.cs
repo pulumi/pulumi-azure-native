@@ -56,6 +56,8 @@ namespace Pulumi.AzureNative.Scheduler.V20160301
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scheduler:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:scheduler/v20140801preview:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:scheduler/v20160101:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

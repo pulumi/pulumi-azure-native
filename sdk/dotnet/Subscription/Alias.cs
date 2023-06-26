@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Subscription
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:subscription/v20191001preview:Alias"},
                     new global::Pulumi.Alias { Type = "azure-native:subscription/v20200901:Alias"},
                     new global::Pulumi.Alias { Type = "azure-native:subscription/v20211001:Alias"},
                 },

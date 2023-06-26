@@ -8,35 +8,237 @@ using Pulumi;
 namespace Pulumi.AzureNative.SecurityInsights.V20230201
 {
     /// <summary>
-    /// Alert detail
+    /// The type of the automation rule action.
     /// </summary>
     [EnumType]
-    public readonly struct AlertDetail : IEquatable<AlertDetail>
+    public readonly struct ActionType : IEquatable<ActionType>
     {
         private readonly string _value;
 
-        private AlertDetail(string value)
+        private ActionType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
-        /// Alert display name
+        /// Modify an object's properties
         /// </summary>
-        public static AlertDetail DisplayName { get; } = new AlertDetail("DisplayName");
+        public static ActionType ModifyProperties { get; } = new ActionType("ModifyProperties");
         /// <summary>
-        /// Alert severity
+        /// Run a playbook on an object
         /// </summary>
-        public static AlertDetail Severity { get; } = new AlertDetail("Severity");
+        public static ActionType RunPlaybook { get; } = new ActionType("RunPlaybook");
 
-        public static bool operator ==(AlertDetail left, AlertDetail right) => left.Equals(right);
-        public static bool operator !=(AlertDetail left, AlertDetail right) => !left.Equals(right);
+        public static bool operator ==(ActionType left, ActionType right) => left.Equals(right);
+        public static bool operator !=(ActionType left, ActionType right) => !left.Equals(right);
 
-        public static explicit operator string(AlertDetail value) => value._value;
+        public static explicit operator string(ActionType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AlertDetail other && Equals(other);
-        public bool Equals(AlertDetail other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ActionType other && Equals(other);
+        public bool Equals(ActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AutomationRulePropertyArrayChangedConditionSupportedArrayType : IEquatable<AutomationRulePropertyArrayChangedConditionSupportedArrayType>
+    {
+        private readonly string _value;
+
+        private AutomationRulePropertyArrayChangedConditionSupportedArrayType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Evaluate the condition on the alerts
+        /// </summary>
+        public static AutomationRulePropertyArrayChangedConditionSupportedArrayType Alerts { get; } = new AutomationRulePropertyArrayChangedConditionSupportedArrayType("Alerts");
+        /// <summary>
+        /// Evaluate the condition on the labels
+        /// </summary>
+        public static AutomationRulePropertyArrayChangedConditionSupportedArrayType Labels { get; } = new AutomationRulePropertyArrayChangedConditionSupportedArrayType("Labels");
+        /// <summary>
+        /// Evaluate the condition on the tactics
+        /// </summary>
+        public static AutomationRulePropertyArrayChangedConditionSupportedArrayType Tactics { get; } = new AutomationRulePropertyArrayChangedConditionSupportedArrayType("Tactics");
+        /// <summary>
+        /// Evaluate the condition on the comments
+        /// </summary>
+        public static AutomationRulePropertyArrayChangedConditionSupportedArrayType Comments { get; } = new AutomationRulePropertyArrayChangedConditionSupportedArrayType("Comments");
+
+        public static bool operator ==(AutomationRulePropertyArrayChangedConditionSupportedArrayType left, AutomationRulePropertyArrayChangedConditionSupportedArrayType right) => left.Equals(right);
+        public static bool operator !=(AutomationRulePropertyArrayChangedConditionSupportedArrayType left, AutomationRulePropertyArrayChangedConditionSupportedArrayType right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRulePropertyArrayChangedConditionSupportedArrayType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRulePropertyArrayChangedConditionSupportedArrayType other && Equals(other);
+        public bool Equals(AutomationRulePropertyArrayChangedConditionSupportedArrayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AutomationRulePropertyArrayChangedConditionSupportedChangeType : IEquatable<AutomationRulePropertyArrayChangedConditionSupportedChangeType>
+    {
+        private readonly string _value;
+
+        private AutomationRulePropertyArrayChangedConditionSupportedChangeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Evaluate the condition on items added to the array
+        /// </summary>
+        public static AutomationRulePropertyArrayChangedConditionSupportedChangeType Added { get; } = new AutomationRulePropertyArrayChangedConditionSupportedChangeType("Added");
+
+        public static bool operator ==(AutomationRulePropertyArrayChangedConditionSupportedChangeType left, AutomationRulePropertyArrayChangedConditionSupportedChangeType right) => left.Equals(right);
+        public static bool operator !=(AutomationRulePropertyArrayChangedConditionSupportedChangeType left, AutomationRulePropertyArrayChangedConditionSupportedChangeType right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRulePropertyArrayChangedConditionSupportedChangeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRulePropertyArrayChangedConditionSupportedChangeType other && Equals(other);
+        public bool Equals(AutomationRulePropertyArrayChangedConditionSupportedChangeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AutomationRulePropertyChangedConditionSupportedChangedType : IEquatable<AutomationRulePropertyChangedConditionSupportedChangedType>
+    {
+        private readonly string _value;
+
+        private AutomationRulePropertyChangedConditionSupportedChangedType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Evaluate the condition on the previous value of the property
+        /// </summary>
+        public static AutomationRulePropertyChangedConditionSupportedChangedType ChangedFrom { get; } = new AutomationRulePropertyChangedConditionSupportedChangedType("ChangedFrom");
+        /// <summary>
+        /// Evaluate the condition on the updated value of the property
+        /// </summary>
+        public static AutomationRulePropertyChangedConditionSupportedChangedType ChangedTo { get; } = new AutomationRulePropertyChangedConditionSupportedChangedType("ChangedTo");
+
+        public static bool operator ==(AutomationRulePropertyChangedConditionSupportedChangedType left, AutomationRulePropertyChangedConditionSupportedChangedType right) => left.Equals(right);
+        public static bool operator !=(AutomationRulePropertyChangedConditionSupportedChangedType left, AutomationRulePropertyChangedConditionSupportedChangedType right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRulePropertyChangedConditionSupportedChangedType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRulePropertyChangedConditionSupportedChangedType other && Equals(other);
+        public bool Equals(AutomationRulePropertyChangedConditionSupportedChangedType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AutomationRulePropertyChangedConditionSupportedPropertyType : IEquatable<AutomationRulePropertyChangedConditionSupportedPropertyType>
+    {
+        private readonly string _value;
+
+        private AutomationRulePropertyChangedConditionSupportedPropertyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Evaluate the condition on the incident severity
+        /// </summary>
+        public static AutomationRulePropertyChangedConditionSupportedPropertyType IncidentSeverity { get; } = new AutomationRulePropertyChangedConditionSupportedPropertyType("IncidentSeverity");
+        /// <summary>
+        /// Evaluate the condition on the incident status
+        /// </summary>
+        public static AutomationRulePropertyChangedConditionSupportedPropertyType IncidentStatus { get; } = new AutomationRulePropertyChangedConditionSupportedPropertyType("IncidentStatus");
+        /// <summary>
+        /// Evaluate the condition on the incident owner
+        /// </summary>
+        public static AutomationRulePropertyChangedConditionSupportedPropertyType IncidentOwner { get; } = new AutomationRulePropertyChangedConditionSupportedPropertyType("IncidentOwner");
+
+        public static bool operator ==(AutomationRulePropertyChangedConditionSupportedPropertyType left, AutomationRulePropertyChangedConditionSupportedPropertyType right) => left.Equals(right);
+        public static bool operator !=(AutomationRulePropertyChangedConditionSupportedPropertyType left, AutomationRulePropertyChangedConditionSupportedPropertyType right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRulePropertyChangedConditionSupportedPropertyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRulePropertyChangedConditionSupportedPropertyType other && Equals(other);
+        public bool Equals(AutomationRulePropertyChangedConditionSupportedPropertyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AutomationRulePropertyConditionSupportedOperator : IEquatable<AutomationRulePropertyConditionSupportedOperator>
+    {
+        private readonly string _value;
+
+        private AutomationRulePropertyConditionSupportedOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Evaluates if the property equals at least one of the condition values
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedOperator EqualsValue { get; } = new AutomationRulePropertyConditionSupportedOperator("Equals");
+        /// <summary>
+        /// Evaluates if the property does not equal any of the condition values
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedOperator NotEquals { get; } = new AutomationRulePropertyConditionSupportedOperator("NotEquals");
+        /// <summary>
+        /// Evaluates if the property contains at least one of the condition values
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedOperator Contains { get; } = new AutomationRulePropertyConditionSupportedOperator("Contains");
+        /// <summary>
+        /// Evaluates if the property does not contain any of the condition values
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedOperator NotContains { get; } = new AutomationRulePropertyConditionSupportedOperator("NotContains");
+        /// <summary>
+        /// Evaluates if the property starts with any of the condition values
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedOperator StartsWith { get; } = new AutomationRulePropertyConditionSupportedOperator("StartsWith");
+        /// <summary>
+        /// Evaluates if the property does not start with any of the condition values
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedOperator NotStartsWith { get; } = new AutomationRulePropertyConditionSupportedOperator("NotStartsWith");
+        /// <summary>
+        /// Evaluates if the property ends with any of the condition values
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedOperator EndsWith { get; } = new AutomationRulePropertyConditionSupportedOperator("EndsWith");
+        /// <summary>
+        /// Evaluates if the property does not end with any of the condition values
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedOperator NotEndsWith { get; } = new AutomationRulePropertyConditionSupportedOperator("NotEndsWith");
+
+        public static bool operator ==(AutomationRulePropertyConditionSupportedOperator left, AutomationRulePropertyConditionSupportedOperator right) => left.Equals(right);
+        public static bool operator !=(AutomationRulePropertyConditionSupportedOperator left, AutomationRulePropertyConditionSupportedOperator right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRulePropertyConditionSupportedOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRulePropertyConditionSupportedOperator other && Equals(other);
+        public bool Equals(AutomationRulePropertyConditionSupportedOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -45,63 +247,251 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
     }
 
     /// <summary>
-    /// The V3 alert property
+    /// The property to evaluate in an automation rule property condition.
     /// </summary>
     [EnumType]
-    public readonly struct AlertProperty : IEquatable<AlertProperty>
+    public readonly struct AutomationRulePropertyConditionSupportedProperty : IEquatable<AutomationRulePropertyConditionSupportedProperty>
     {
         private readonly string _value;
 
-        private AlertProperty(string value)
+        private AutomationRulePropertyConditionSupportedProperty(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
-        /// Alert's link
+        /// The title of the incident
         /// </summary>
-        public static AlertProperty AlertLink { get; } = new AlertProperty("AlertLink");
+        public static AutomationRulePropertyConditionSupportedProperty IncidentTitle { get; } = new AutomationRulePropertyConditionSupportedProperty("IncidentTitle");
         /// <summary>
-        /// Confidence level property
+        /// The description of the incident
         /// </summary>
-        public static AlertProperty ConfidenceLevel { get; } = new AlertProperty("ConfidenceLevel");
+        public static AutomationRulePropertyConditionSupportedProperty IncidentDescription { get; } = new AutomationRulePropertyConditionSupportedProperty("IncidentDescription");
         /// <summary>
-        /// Confidence score
+        /// The severity of the incident
         /// </summary>
-        public static AlertProperty ConfidenceScore { get; } = new AlertProperty("ConfidenceScore");
+        public static AutomationRulePropertyConditionSupportedProperty IncidentSeverity { get; } = new AutomationRulePropertyConditionSupportedProperty("IncidentSeverity");
         /// <summary>
-        /// Extended links to the alert
+        /// The status of the incident
         /// </summary>
-        public static AlertProperty ExtendedLinks { get; } = new AlertProperty("ExtendedLinks");
+        public static AutomationRulePropertyConditionSupportedProperty IncidentStatus { get; } = new AutomationRulePropertyConditionSupportedProperty("IncidentStatus");
         /// <summary>
-        /// Product name alert property
+        /// The related Analytic rule ids of the incident
         /// </summary>
-        public static AlertProperty ProductName { get; } = new AlertProperty("ProductName");
+        public static AutomationRulePropertyConditionSupportedProperty IncidentRelatedAnalyticRuleIds { get; } = new AutomationRulePropertyConditionSupportedProperty("IncidentRelatedAnalyticRuleIds");
         /// <summary>
-        /// Provider name alert property
+        /// The tactics of the incident
         /// </summary>
-        public static AlertProperty ProviderName { get; } = new AlertProperty("ProviderName");
+        public static AutomationRulePropertyConditionSupportedProperty IncidentTactics { get; } = new AutomationRulePropertyConditionSupportedProperty("IncidentTactics");
         /// <summary>
-        /// Product component name alert property
+        /// The labels of the incident
         /// </summary>
-        public static AlertProperty ProductComponentName { get; } = new AlertProperty("ProductComponentName");
+        public static AutomationRulePropertyConditionSupportedProperty IncidentLabel { get; } = new AutomationRulePropertyConditionSupportedProperty("IncidentLabel");
         /// <summary>
-        /// Remediation steps alert property
+        /// The provider name of the incident
         /// </summary>
-        public static AlertProperty RemediationSteps { get; } = new AlertProperty("RemediationSteps");
+        public static AutomationRulePropertyConditionSupportedProperty IncidentProviderName { get; } = new AutomationRulePropertyConditionSupportedProperty("IncidentProviderName");
         /// <summary>
-        /// Techniques alert property
+        /// The update source of the incident
         /// </summary>
-        public static AlertProperty Techniques { get; } = new AlertProperty("Techniques");
+        public static AutomationRulePropertyConditionSupportedProperty IncidentUpdatedBySource { get; } = new AutomationRulePropertyConditionSupportedProperty("IncidentUpdatedBySource");
+        /// <summary>
+        /// The account Azure Active Directory tenant id
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty AccountAadTenantId { get; } = new AutomationRulePropertyConditionSupportedProperty("AccountAadTenantId");
+        /// <summary>
+        /// The account Azure Active Directory user id
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty AccountAadUserId { get; } = new AutomationRulePropertyConditionSupportedProperty("AccountAadUserId");
+        /// <summary>
+        /// The account name
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty AccountName { get; } = new AutomationRulePropertyConditionSupportedProperty("AccountName");
+        /// <summary>
+        /// The account NetBIOS domain name
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty AccountNTDomain { get; } = new AutomationRulePropertyConditionSupportedProperty("AccountNTDomain");
+        /// <summary>
+        /// The account Azure Active Directory Passport User ID
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty AccountPUID { get; } = new AutomationRulePropertyConditionSupportedProperty("AccountPUID");
+        /// <summary>
+        /// The account security identifier
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty AccountSid { get; } = new AutomationRulePropertyConditionSupportedProperty("AccountSid");
+        /// <summary>
+        /// The account unique identifier
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty AccountObjectGuid { get; } = new AutomationRulePropertyConditionSupportedProperty("AccountObjectGuid");
+        /// <summary>
+        /// The account user principal name suffix
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty AccountUPNSuffix { get; } = new AutomationRulePropertyConditionSupportedProperty("AccountUPNSuffix");
+        /// <summary>
+        /// The name of the product of the alert
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty AlertProductNames { get; } = new AutomationRulePropertyConditionSupportedProperty("AlertProductNames");
+        /// <summary>
+        /// The analytic rule ids of the alert
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty AlertAnalyticRuleIds { get; } = new AutomationRulePropertyConditionSupportedProperty("AlertAnalyticRuleIds");
+        /// <summary>
+        /// The Azure resource id
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty AzureResourceResourceId { get; } = new AutomationRulePropertyConditionSupportedProperty("AzureResourceResourceId");
+        /// <summary>
+        /// The Azure resource subscription id
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty AzureResourceSubscriptionId { get; } = new AutomationRulePropertyConditionSupportedProperty("AzureResourceSubscriptionId");
+        /// <summary>
+        /// The cloud application identifier
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty CloudApplicationAppId { get; } = new AutomationRulePropertyConditionSupportedProperty("CloudApplicationAppId");
+        /// <summary>
+        /// The cloud application name
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty CloudApplicationAppName { get; } = new AutomationRulePropertyConditionSupportedProperty("CloudApplicationAppName");
+        /// <summary>
+        /// The dns record domain name
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty DNSDomainName { get; } = new AutomationRulePropertyConditionSupportedProperty("DNSDomainName");
+        /// <summary>
+        /// The file directory full path
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty FileDirectory { get; } = new AutomationRulePropertyConditionSupportedProperty("FileDirectory");
+        /// <summary>
+        /// The file name without path
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty FileName { get; } = new AutomationRulePropertyConditionSupportedProperty("FileName");
+        /// <summary>
+        /// The file hash value
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty FileHashValue { get; } = new AutomationRulePropertyConditionSupportedProperty("FileHashValue");
+        /// <summary>
+        /// The host Azure resource id
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty HostAzureID { get; } = new AutomationRulePropertyConditionSupportedProperty("HostAzureID");
+        /// <summary>
+        /// The host name without domain
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty HostName { get; } = new AutomationRulePropertyConditionSupportedProperty("HostName");
+        /// <summary>
+        /// The host NetBIOS name
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty HostNetBiosName { get; } = new AutomationRulePropertyConditionSupportedProperty("HostNetBiosName");
+        /// <summary>
+        /// The host NT domain
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty HostNTDomain { get; } = new AutomationRulePropertyConditionSupportedProperty("HostNTDomain");
+        /// <summary>
+        /// The host operating system
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty HostOSVersion { get; } = new AutomationRulePropertyConditionSupportedProperty("HostOSVersion");
+        /// <summary>
+        /// "The IoT device id
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty IoTDeviceId { get; } = new AutomationRulePropertyConditionSupportedProperty("IoTDeviceId");
+        /// <summary>
+        /// The IoT device name
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty IoTDeviceName { get; } = new AutomationRulePropertyConditionSupportedProperty("IoTDeviceName");
+        /// <summary>
+        /// The IoT device type
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty IoTDeviceType { get; } = new AutomationRulePropertyConditionSupportedProperty("IoTDeviceType");
+        /// <summary>
+        /// The IoT device vendor
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty IoTDeviceVendor { get; } = new AutomationRulePropertyConditionSupportedProperty("IoTDeviceVendor");
+        /// <summary>
+        /// The IoT device model
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty IoTDeviceModel { get; } = new AutomationRulePropertyConditionSupportedProperty("IoTDeviceModel");
+        /// <summary>
+        /// The IoT device operating system
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty IoTDeviceOperatingSystem { get; } = new AutomationRulePropertyConditionSupportedProperty("IoTDeviceOperatingSystem");
+        /// <summary>
+        /// The IP address
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty IPAddress { get; } = new AutomationRulePropertyConditionSupportedProperty("IPAddress");
+        /// <summary>
+        /// The mailbox display name
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty MailboxDisplayName { get; } = new AutomationRulePropertyConditionSupportedProperty("MailboxDisplayName");
+        /// <summary>
+        /// The mailbox primary address
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty MailboxPrimaryAddress { get; } = new AutomationRulePropertyConditionSupportedProperty("MailboxPrimaryAddress");
+        /// <summary>
+        /// The mailbox user principal name
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty MailboxUPN { get; } = new AutomationRulePropertyConditionSupportedProperty("MailboxUPN");
+        /// <summary>
+        /// The mail message delivery action
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty MailMessageDeliveryAction { get; } = new AutomationRulePropertyConditionSupportedProperty("MailMessageDeliveryAction");
+        /// <summary>
+        /// The mail message delivery location
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty MailMessageDeliveryLocation { get; } = new AutomationRulePropertyConditionSupportedProperty("MailMessageDeliveryLocation");
+        /// <summary>
+        /// The mail message recipient
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty MailMessageRecipient { get; } = new AutomationRulePropertyConditionSupportedProperty("MailMessageRecipient");
+        /// <summary>
+        /// The mail message sender IP address
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty MailMessageSenderIP { get; } = new AutomationRulePropertyConditionSupportedProperty("MailMessageSenderIP");
+        /// <summary>
+        /// The mail message subject
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty MailMessageSubject { get; } = new AutomationRulePropertyConditionSupportedProperty("MailMessageSubject");
+        /// <summary>
+        /// The mail message P1 sender
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty MailMessageP1Sender { get; } = new AutomationRulePropertyConditionSupportedProperty("MailMessageP1Sender");
+        /// <summary>
+        /// The mail message P2 sender
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty MailMessageP2Sender { get; } = new AutomationRulePropertyConditionSupportedProperty("MailMessageP2Sender");
+        /// <summary>
+        /// The malware category
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty MalwareCategory { get; } = new AutomationRulePropertyConditionSupportedProperty("MalwareCategory");
+        /// <summary>
+        /// The malware name
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty MalwareName { get; } = new AutomationRulePropertyConditionSupportedProperty("MalwareName");
+        /// <summary>
+        /// The process execution command line
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty ProcessCommandLine { get; } = new AutomationRulePropertyConditionSupportedProperty("ProcessCommandLine");
+        /// <summary>
+        /// The process id
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty ProcessId { get; } = new AutomationRulePropertyConditionSupportedProperty("ProcessId");
+        /// <summary>
+        /// The registry key path
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty RegistryKey { get; } = new AutomationRulePropertyConditionSupportedProperty("RegistryKey");
+        /// <summary>
+        /// The registry key value in string formatted representation
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty RegistryValueData { get; } = new AutomationRulePropertyConditionSupportedProperty("RegistryValueData");
+        /// <summary>
+        /// The url
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty Url { get; } = new AutomationRulePropertyConditionSupportedProperty("Url");
 
-        public static bool operator ==(AlertProperty left, AlertProperty right) => left.Equals(right);
-        public static bool operator !=(AlertProperty left, AlertProperty right) => !left.Equals(right);
+        public static bool operator ==(AutomationRulePropertyConditionSupportedProperty left, AutomationRulePropertyConditionSupportedProperty right) => left.Equals(right);
+        public static bool operator !=(AutomationRulePropertyConditionSupportedProperty left, AutomationRulePropertyConditionSupportedProperty right) => !left.Equals(right);
 
-        public static explicit operator string(AlertProperty value) => value._value;
+        public static explicit operator string(AutomationRulePropertyConditionSupportedProperty value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AlertProperty other && Equals(other);
-        public bool Equals(AlertProperty other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is AutomationRulePropertyConditionSupportedProperty other && Equals(other);
+        public bool Equals(AutomationRulePropertyConditionSupportedProperty other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -109,122 +499,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The alert rule kind
-    /// </summary>
     [EnumType]
-    public readonly struct AlertRuleKind : IEquatable<AlertRuleKind>
+    public readonly struct ConditionType : IEquatable<ConditionType>
     {
         private readonly string _value;
 
-        private AlertRuleKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AlertRuleKind Scheduled { get; } = new AlertRuleKind("Scheduled");
-        public static AlertRuleKind MicrosoftSecurityIncidentCreation { get; } = new AlertRuleKind("MicrosoftSecurityIncidentCreation");
-        public static AlertRuleKind Fusion { get; } = new AlertRuleKind("Fusion");
-
-        public static bool operator ==(AlertRuleKind left, AlertRuleKind right) => left.Equals(right);
-        public static bool operator !=(AlertRuleKind left, AlertRuleKind right) => !left.Equals(right);
-
-        public static explicit operator string(AlertRuleKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AlertRuleKind other && Equals(other);
-        public bool Equals(AlertRuleKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The severity for alerts created by this alert rule.
-    /// </summary>
-    [EnumType]
-    public readonly struct AlertSeverity : IEquatable<AlertSeverity>
-    {
-        private readonly string _value;
-
-        private AlertSeverity(string value)
+        private ConditionType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
-        /// High severity
+        /// Evaluate an object property value
         /// </summary>
-        public static AlertSeverity High { get; } = new AlertSeverity("High");
+        public static ConditionType Property { get; } = new ConditionType("Property");
         /// <summary>
-        /// Medium severity
+        /// Evaluate an object property changed value
         /// </summary>
-        public static AlertSeverity Medium { get; } = new AlertSeverity("Medium");
+        public static ConditionType PropertyChanged { get; } = new ConditionType("PropertyChanged");
         /// <summary>
-        /// Low severity
+        /// Evaluate an object array property changed value
         /// </summary>
-        public static AlertSeverity Low { get; } = new AlertSeverity("Low");
-        /// <summary>
-        /// Informational severity
-        /// </summary>
-        public static AlertSeverity Informational { get; } = new AlertSeverity("Informational");
+        public static ConditionType PropertyArrayChanged { get; } = new ConditionType("PropertyArrayChanged");
 
-        public static bool operator ==(AlertSeverity left, AlertSeverity right) => left.Equals(right);
-        public static bool operator !=(AlertSeverity left, AlertSeverity right) => !left.Equals(right);
+        public static bool operator ==(ConditionType left, ConditionType right) => left.Equals(right);
+        public static bool operator !=(ConditionType left, ConditionType right) => !left.Equals(right);
 
-        public static explicit operator string(AlertSeverity value) => value._value;
+        public static explicit operator string(ConditionType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AlertSeverity other && Equals(other);
-        public bool Equals(AlertSeverity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The severity for alerts created by this alert rule.
-    /// </summary>
-    [EnumType]
-    public readonly struct AttackTactic : IEquatable<AttackTactic>
-    {
-        private readonly string _value;
-
-        private AttackTactic(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AttackTactic Reconnaissance { get; } = new AttackTactic("Reconnaissance");
-        public static AttackTactic ResourceDevelopment { get; } = new AttackTactic("ResourceDevelopment");
-        public static AttackTactic InitialAccess { get; } = new AttackTactic("InitialAccess");
-        public static AttackTactic Execution { get; } = new AttackTactic("Execution");
-        public static AttackTactic Persistence { get; } = new AttackTactic("Persistence");
-        public static AttackTactic PrivilegeEscalation { get; } = new AttackTactic("PrivilegeEscalation");
-        public static AttackTactic DefenseEvasion { get; } = new AttackTactic("DefenseEvasion");
-        public static AttackTactic CredentialAccess { get; } = new AttackTactic("CredentialAccess");
-        public static AttackTactic Discovery { get; } = new AttackTactic("Discovery");
-        public static AttackTactic LateralMovement { get; } = new AttackTactic("LateralMovement");
-        public static AttackTactic Collection { get; } = new AttackTactic("Collection");
-        public static AttackTactic Exfiltration { get; } = new AttackTactic("Exfiltration");
-        public static AttackTactic CommandAndControl { get; } = new AttackTactic("CommandAndControl");
-        public static AttackTactic Impact { get; } = new AttackTactic("Impact");
-        public static AttackTactic PreAttack { get; } = new AttackTactic("PreAttack");
-        public static AttackTactic ImpairProcessControl { get; } = new AttackTactic("ImpairProcessControl");
-        public static AttackTactic InhibitResponseFunction { get; } = new AttackTactic("InhibitResponseFunction");
-
-        public static bool operator ==(AttackTactic left, AttackTactic right) => left.Equals(right);
-        public static bool operator !=(AttackTactic left, AttackTactic right) => !left.Equals(right);
-
-        public static explicit operator string(AttackTactic value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AttackTactic other && Equals(other);
-        public bool Equals(AttackTactic other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ConditionType other && Equals(other);
+        public bool Equals(ConditionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -301,99 +606,43 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
     }
 
     /// <summary>
-    /// The V3 type of the mapped entity
+    /// The reason the incident was closed
     /// </summary>
     [EnumType]
-    public readonly struct EntityMappingType : IEquatable<EntityMappingType>
+    public readonly struct IncidentClassification : IEquatable<IncidentClassification>
     {
         private readonly string _value;
 
-        private EntityMappingType(string value)
+        private IncidentClassification(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
-        /// User account entity type
+        /// Incident classification was undetermined
         /// </summary>
-        public static EntityMappingType Account { get; } = new EntityMappingType("Account");
+        public static IncidentClassification Undetermined { get; } = new IncidentClassification("Undetermined");
         /// <summary>
-        /// Host entity type
+        /// Incident was true positive
         /// </summary>
-        public static EntityMappingType Host { get; } = new EntityMappingType("Host");
+        public static IncidentClassification TruePositive { get; } = new IncidentClassification("TruePositive");
         /// <summary>
-        /// IP address entity type
+        /// Incident was benign positive
         /// </summary>
-        public static EntityMappingType IP { get; } = new EntityMappingType("IP");
+        public static IncidentClassification BenignPositive { get; } = new IncidentClassification("BenignPositive");
         /// <summary>
-        /// Malware entity type
+        /// Incident was false positive
         /// </summary>
-        public static EntityMappingType Malware { get; } = new EntityMappingType("Malware");
-        /// <summary>
-        /// System file entity type
-        /// </summary>
-        public static EntityMappingType File { get; } = new EntityMappingType("File");
-        /// <summary>
-        /// Process entity type
-        /// </summary>
-        public static EntityMappingType Process { get; } = new EntityMappingType("Process");
-        /// <summary>
-        /// Cloud app entity type
-        /// </summary>
-        public static EntityMappingType CloudApplication { get; } = new EntityMappingType("CloudApplication");
-        /// <summary>
-        /// DNS entity type
-        /// </summary>
-        public static EntityMappingType DNS { get; } = new EntityMappingType("DNS");
-        /// <summary>
-        /// Azure resource entity type
-        /// </summary>
-        public static EntityMappingType AzureResource { get; } = new EntityMappingType("AzureResource");
-        /// <summary>
-        /// File-hash entity type
-        /// </summary>
-        public static EntityMappingType FileHash { get; } = new EntityMappingType("FileHash");
-        /// <summary>
-        /// Registry key entity type
-        /// </summary>
-        public static EntityMappingType RegistryKey { get; } = new EntityMappingType("RegistryKey");
-        /// <summary>
-        /// Registry value entity type
-        /// </summary>
-        public static EntityMappingType RegistryValue { get; } = new EntityMappingType("RegistryValue");
-        /// <summary>
-        /// Security group entity type
-        /// </summary>
-        public static EntityMappingType SecurityGroup { get; } = new EntityMappingType("SecurityGroup");
-        /// <summary>
-        /// URL entity type
-        /// </summary>
-        public static EntityMappingType URL { get; } = new EntityMappingType("URL");
-        /// <summary>
-        /// Mailbox entity type
-        /// </summary>
-        public static EntityMappingType Mailbox { get; } = new EntityMappingType("Mailbox");
-        /// <summary>
-        /// Mail cluster entity type
-        /// </summary>
-        public static EntityMappingType MailCluster { get; } = new EntityMappingType("MailCluster");
-        /// <summary>
-        /// Mail message entity type
-        /// </summary>
-        public static EntityMappingType MailMessage { get; } = new EntityMappingType("MailMessage");
-        /// <summary>
-        /// Submission mail entity type
-        /// </summary>
-        public static EntityMappingType SubmissionMail { get; } = new EntityMappingType("SubmissionMail");
+        public static IncidentClassification FalsePositive { get; } = new IncidentClassification("FalsePositive");
 
-        public static bool operator ==(EntityMappingType left, EntityMappingType right) => left.Equals(right);
-        public static bool operator !=(EntityMappingType left, EntityMappingType right) => !left.Equals(right);
+        public static bool operator ==(IncidentClassification left, IncidentClassification right) => left.Equals(right);
+        public static bool operator !=(IncidentClassification left, IncidentClassification right) => !left.Equals(right);
 
-        public static explicit operator string(EntityMappingType value) => value._value;
+        public static explicit operator string(IncidentClassification value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EntityMappingType other && Equals(other);
-        public bool Equals(EntityMappingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is IncidentClassification other && Equals(other);
+        public bool Equals(IncidentClassification other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -402,29 +651,43 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
     }
 
     /// <summary>
-    /// The event grouping aggregation kinds
+    /// The classification reason the incident was closed with
     /// </summary>
     [EnumType]
-    public readonly struct EventGroupingAggregationKind : IEquatable<EventGroupingAggregationKind>
+    public readonly struct IncidentClassificationReason : IEquatable<IncidentClassificationReason>
     {
         private readonly string _value;
 
-        private EventGroupingAggregationKind(string value)
+        private IncidentClassificationReason(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static EventGroupingAggregationKind SingleAlert { get; } = new EventGroupingAggregationKind("SingleAlert");
-        public static EventGroupingAggregationKind AlertPerResult { get; } = new EventGroupingAggregationKind("AlertPerResult");
+        /// <summary>
+        /// Classification reason was suspicious activity
+        /// </summary>
+        public static IncidentClassificationReason SuspiciousActivity { get; } = new IncidentClassificationReason("SuspiciousActivity");
+        /// <summary>
+        /// Classification reason was suspicious but expected
+        /// </summary>
+        public static IncidentClassificationReason SuspiciousButExpected { get; } = new IncidentClassificationReason("SuspiciousButExpected");
+        /// <summary>
+        /// Classification reason was incorrect alert logic
+        /// </summary>
+        public static IncidentClassificationReason IncorrectAlertLogic { get; } = new IncidentClassificationReason("IncorrectAlertLogic");
+        /// <summary>
+        /// Classification reason was inaccurate data
+        /// </summary>
+        public static IncidentClassificationReason InaccurateData { get; } = new IncidentClassificationReason("InaccurateData");
 
-        public static bool operator ==(EventGroupingAggregationKind left, EventGroupingAggregationKind right) => left.Equals(right);
-        public static bool operator !=(EventGroupingAggregationKind left, EventGroupingAggregationKind right) => !left.Equals(right);
+        public static bool operator ==(IncidentClassificationReason left, IncidentClassificationReason right) => left.Equals(right);
+        public static bool operator !=(IncidentClassificationReason left, IncidentClassificationReason right) => !left.Equals(right);
 
-        public static explicit operator string(EventGroupingAggregationKind value) => value._value;
+        public static explicit operator string(IncidentClassificationReason value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EventGroupingAggregationKind other && Equals(other);
-        public bool Equals(EventGroupingAggregationKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is IncidentClassificationReason other && Equals(other);
+        public bool Equals(IncidentClassificationReason other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -433,39 +696,43 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
     }
 
     /// <summary>
-    /// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+    /// The severity of the incident
     /// </summary>
     [EnumType]
-    public readonly struct MatchingMethod : IEquatable<MatchingMethod>
+    public readonly struct IncidentSeverity : IEquatable<IncidentSeverity>
     {
         private readonly string _value;
 
-        private MatchingMethod(string value)
+        private IncidentSeverity(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
-        /// Grouping alerts into a single incident if all the entities match
+        /// High severity
         /// </summary>
-        public static MatchingMethod AllEntities { get; } = new MatchingMethod("AllEntities");
+        public static IncidentSeverity High { get; } = new IncidentSeverity("High");
         /// <summary>
-        /// Grouping any alerts triggered by this rule into a single incident
+        /// Medium severity
         /// </summary>
-        public static MatchingMethod AnyAlert { get; } = new MatchingMethod("AnyAlert");
+        public static IncidentSeverity Medium { get; } = new IncidentSeverity("Medium");
         /// <summary>
-        /// Grouping alerts into a single incident if the selected entities, custom details and alert details match
+        /// Low severity
         /// </summary>
-        public static MatchingMethod Selected { get; } = new MatchingMethod("Selected");
+        public static IncidentSeverity Low { get; } = new IncidentSeverity("Low");
+        /// <summary>
+        /// Informational severity
+        /// </summary>
+        public static IncidentSeverity Informational { get; } = new IncidentSeverity("Informational");
 
-        public static bool operator ==(MatchingMethod left, MatchingMethod right) => left.Equals(right);
-        public static bool operator !=(MatchingMethod left, MatchingMethod right) => !left.Equals(right);
+        public static bool operator ==(IncidentSeverity left, IncidentSeverity right) => left.Equals(right);
+        public static bool operator !=(IncidentSeverity left, IncidentSeverity right) => !left.Equals(right);
 
-        public static explicit operator string(MatchingMethod value) => value._value;
+        public static explicit operator string(IncidentSeverity value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MatchingMethod other && Equals(other);
-        public bool Equals(MatchingMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is IncidentSeverity other && Equals(other);
+        public bool Equals(IncidentSeverity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -474,32 +741,39 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
     }
 
     /// <summary>
-    /// The alerts' productName on which the cases will be generated
+    /// The status of the incident
     /// </summary>
     [EnumType]
-    public readonly struct MicrosoftSecurityProductName : IEquatable<MicrosoftSecurityProductName>
+    public readonly struct IncidentStatus : IEquatable<IncidentStatus>
     {
         private readonly string _value;
 
-        private MicrosoftSecurityProductName(string value)
+        private IncidentStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static MicrosoftSecurityProductName Microsoft_Cloud_App_Security { get; } = new MicrosoftSecurityProductName("Microsoft Cloud App Security");
-        public static MicrosoftSecurityProductName Azure_Security_Center { get; } = new MicrosoftSecurityProductName("Azure Security Center");
-        public static MicrosoftSecurityProductName Azure_Advanced_Threat_Protection { get; } = new MicrosoftSecurityProductName("Azure Advanced Threat Protection");
-        public static MicrosoftSecurityProductName Azure_Active_Directory_Identity_Protection { get; } = new MicrosoftSecurityProductName("Azure Active Directory Identity Protection");
-        public static MicrosoftSecurityProductName Azure_Security_Center_for_IoT { get; } = new MicrosoftSecurityProductName("Azure Security Center for IoT");
+        /// <summary>
+        /// An active incident which isn't being handled currently
+        /// </summary>
+        public static IncidentStatus New { get; } = new IncidentStatus("New");
+        /// <summary>
+        /// An active incident which is being handled
+        /// </summary>
+        public static IncidentStatus Active { get; } = new IncidentStatus("Active");
+        /// <summary>
+        /// A non-active incident
+        /// </summary>
+        public static IncidentStatus Closed { get; } = new IncidentStatus("Closed");
 
-        public static bool operator ==(MicrosoftSecurityProductName left, MicrosoftSecurityProductName right) => left.Equals(right);
-        public static bool operator !=(MicrosoftSecurityProductName left, MicrosoftSecurityProductName right) => !left.Equals(right);
+        public static bool operator ==(IncidentStatus left, IncidentStatus right) => left.Equals(right);
+        public static bool operator !=(IncidentStatus left, IncidentStatus right) => !left.Equals(right);
 
-        public static explicit operator string(MicrosoftSecurityProductName value) => value._value;
+        public static explicit operator string(IncidentStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MicrosoftSecurityProductName other && Equals(other);
-        public bool Equals(MicrosoftSecurityProductName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is IncidentStatus other && Equals(other);
+        public bool Equals(IncidentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -508,28 +782,29 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
     }
 
     /// <summary>
-    /// The kind of security ML Analytics Settings
+    /// Operator used for list of dependencies in criteria array.
     /// </summary>
     [EnumType]
-    public readonly struct SecurityMLAnalyticsSettingsKind : IEquatable<SecurityMLAnalyticsSettingsKind>
+    public readonly struct Operator : IEquatable<Operator>
     {
         private readonly string _value;
 
-        private SecurityMLAnalyticsSettingsKind(string value)
+        private Operator(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SecurityMLAnalyticsSettingsKind Anomaly { get; } = new SecurityMLAnalyticsSettingsKind("Anomaly");
+        public static Operator AND { get; } = new Operator("AND");
+        public static Operator OR { get; } = new Operator("OR");
 
-        public static bool operator ==(SecurityMLAnalyticsSettingsKind left, SecurityMLAnalyticsSettingsKind right) => left.Equals(right);
-        public static bool operator !=(SecurityMLAnalyticsSettingsKind left, SecurityMLAnalyticsSettingsKind right) => !left.Equals(right);
+        public static bool operator ==(Operator left, Operator right) => left.Equals(right);
+        public static bool operator !=(Operator left, Operator right) => !left.Equals(right);
 
-        public static explicit operator string(SecurityMLAnalyticsSettingsKind value) => value._value;
+        public static explicit operator string(Operator value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SecurityMLAnalyticsSettingsKind other && Equals(other);
-        public bool Equals(SecurityMLAnalyticsSettingsKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is Operator other && Equals(other);
+        public bool Equals(Operator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -538,35 +813,39 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
     }
 
     /// <summary>
-    /// The anomaly SecurityMLAnalyticsSettings status
+    /// The type of the owner the incident is assigned to.
     /// </summary>
     [EnumType]
-    public readonly struct SettingsStatus : IEquatable<SettingsStatus>
+    public readonly struct OwnerType : IEquatable<OwnerType>
     {
         private readonly string _value;
 
-        private SettingsStatus(string value)
+        private OwnerType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
-        /// Anomaly settings status in Production mode
+        /// The incident owner type is unknown
         /// </summary>
-        public static SettingsStatus Production { get; } = new SettingsStatus("Production");
+        public static OwnerType Unknown { get; } = new OwnerType("Unknown");
         /// <summary>
-        /// Anomaly settings status in Flighting mode
+        /// The incident owner type is an AAD user
         /// </summary>
-        public static SettingsStatus Flighting { get; } = new SettingsStatus("Flighting");
+        public static OwnerType User { get; } = new OwnerType("User");
+        /// <summary>
+        /// The incident owner type is an AAD group
+        /// </summary>
+        public static OwnerType Group { get; } = new OwnerType("Group");
 
-        public static bool operator ==(SettingsStatus left, SettingsStatus right) => left.Equals(right);
-        public static bool operator !=(SettingsStatus left, SettingsStatus right) => !left.Equals(right);
+        public static bool operator ==(OwnerType left, OwnerType right) => left.Equals(right);
+        public static bool operator !=(OwnerType left, OwnerType right) => !left.Equals(right);
 
-        public static explicit operator string(SettingsStatus value) => value._value;
+        public static explicit operator string(OwnerType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SettingsStatus other && Equals(other);
-        public bool Equals(SettingsStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is OwnerType other && Equals(other);
+        public bool Equals(OwnerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -606,31 +885,164 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
     }
 
     /// <summary>
-    /// The operation against the threshold that triggers alert rule.
+    /// Source type of the content
     /// </summary>
     [EnumType]
-    public readonly struct TriggerOperator : IEquatable<TriggerOperator>
+    public readonly struct SourceKind : IEquatable<SourceKind>
     {
         private readonly string _value;
 
-        private TriggerOperator(string value)
+        private SourceKind(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TriggerOperator GreaterThan { get; } = new TriggerOperator("GreaterThan");
-        public static TriggerOperator LessThan { get; } = new TriggerOperator("LessThan");
-        public static TriggerOperator Equal { get; } = new TriggerOperator("Equal");
-        public static TriggerOperator NotEqual { get; } = new TriggerOperator("NotEqual");
+        public static SourceKind LocalWorkspace { get; } = new SourceKind("LocalWorkspace");
+        public static SourceKind Community { get; } = new SourceKind("Community");
+        public static SourceKind Solution { get; } = new SourceKind("Solution");
+        public static SourceKind SourceRepository { get; } = new SourceKind("SourceRepository");
 
-        public static bool operator ==(TriggerOperator left, TriggerOperator right) => left.Equals(right);
-        public static bool operator !=(TriggerOperator left, TriggerOperator right) => !left.Equals(right);
+        public static bool operator ==(SourceKind left, SourceKind right) => left.Equals(right);
+        public static bool operator !=(SourceKind left, SourceKind right) => !left.Equals(right);
 
-        public static explicit operator string(TriggerOperator value) => value._value;
+        public static explicit operator string(SourceKind value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TriggerOperator other && Equals(other);
-        public bool Equals(TriggerOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is SourceKind other && Equals(other);
+        public bool Equals(SourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of support for content item
+    /// </summary>
+    [EnumType]
+    public readonly struct SupportTier : IEquatable<SupportTier>
+    {
+        private readonly string _value;
+
+        private SupportTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SupportTier Microsoft { get; } = new SupportTier("Microsoft");
+        public static SupportTier Partner { get; } = new SupportTier("Partner");
+        public static SupportTier Community { get; } = new SupportTier("Community");
+
+        public static bool operator ==(SupportTier left, SupportTier right) => left.Equals(right);
+        public static bool operator !=(SupportTier left, SupportTier right) => !left.Equals(right);
+
+        public static explicit operator string(SupportTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SupportTier other && Equals(other);
+        public bool Equals(SupportTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The kind of the entity.
+    /// </summary>
+    [EnumType]
+    public readonly struct ThreatIntelligenceResourceInnerKind : IEquatable<ThreatIntelligenceResourceInnerKind>
+    {
+        private readonly string _value;
+
+        private ThreatIntelligenceResourceInnerKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Entity represents threat intelligence indicator in the system.
+        /// </summary>
+        public static ThreatIntelligenceResourceInnerKind Indicator { get; } = new ThreatIntelligenceResourceInnerKind("indicator");
+
+        public static bool operator ==(ThreatIntelligenceResourceInnerKind left, ThreatIntelligenceResourceInnerKind right) => left.Equals(right);
+        public static bool operator !=(ThreatIntelligenceResourceInnerKind left, ThreatIntelligenceResourceInnerKind right) => !left.Equals(right);
+
+        public static explicit operator string(ThreatIntelligenceResourceInnerKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ThreatIntelligenceResourceInnerKind other && Equals(other);
+        public bool Equals(ThreatIntelligenceResourceInnerKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TriggersOn : IEquatable<TriggersOn>
+    {
+        private readonly string _value;
+
+        private TriggersOn(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Trigger on Incidents
+        /// </summary>
+        public static TriggersOn Incidents { get; } = new TriggersOn("Incidents");
+        /// <summary>
+        /// Trigger on Alerts
+        /// </summary>
+        public static TriggersOn Alerts { get; } = new TriggersOn("Alerts");
+
+        public static bool operator ==(TriggersOn left, TriggersOn right) => left.Equals(right);
+        public static bool operator !=(TriggersOn left, TriggersOn right) => !left.Equals(right);
+
+        public static explicit operator string(TriggersOn value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggersOn other && Equals(other);
+        public bool Equals(TriggersOn other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TriggersWhen : IEquatable<TriggersWhen>
+    {
+        private readonly string _value;
+
+        private TriggersWhen(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Trigger on created objects
+        /// </summary>
+        public static TriggersWhen Created { get; } = new TriggersWhen("Created");
+        /// <summary>
+        /// Trigger on updated objects
+        /// </summary>
+        public static TriggersWhen Updated { get; } = new TriggersWhen("Updated");
+
+        public static bool operator ==(TriggersWhen left, TriggersWhen right) => left.Equals(right);
+        public static bool operator !=(TriggersWhen left, TriggersWhen right) => !left.Equals(right);
+
+        public static explicit operator string(TriggersWhen value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggersWhen other && Equals(other);
+        public bool Equals(TriggersWhen other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

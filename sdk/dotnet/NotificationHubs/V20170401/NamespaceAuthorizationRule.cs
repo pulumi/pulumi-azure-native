@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs:NamespaceAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

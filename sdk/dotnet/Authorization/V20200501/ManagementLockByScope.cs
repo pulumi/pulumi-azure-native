@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.Authorization.V20200501
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:authorization:ManagementLockByScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockByScope"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLockByScope"},
                 },
             };

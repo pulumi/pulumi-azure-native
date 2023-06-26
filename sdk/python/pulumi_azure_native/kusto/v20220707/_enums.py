@@ -7,17 +7,9 @@ from enum import Enum
 __all__ = [
     'AzureSkuName',
     'AzureSkuTier',
-    'BlobStorageEventType',
     'ClusterNetworkAccessFlag',
-    'Compression',
-    'DataConnectionKind',
-    'DatabaseRouting',
     'EngineType',
-    'EventGridDataFormat',
-    'EventHubDataFormat',
     'IdentityType',
-    'IotHubDataFormat',
-    'Kind',
     'PublicIPType',
     'PublicNetworkAccess',
 ]
@@ -99,45 +91,12 @@ class AzureSkuTier(str, Enum):
     STANDARD = "Standard"
 
 
-class BlobStorageEventType(str, Enum):
-    """
-    The name of blob storage event type to process.
-    """
-    MICROSOFT_STORAGE_BLOB_CREATED = "Microsoft.Storage.BlobCreated"
-    MICROSOFT_STORAGE_BLOB_RENAMED = "Microsoft.Storage.BlobRenamed"
-
-
 class ClusterNetworkAccessFlag(str, Enum):
     """
     Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class Compression(str, Enum):
-    """
-    The event hub messages compression type
-    """
-    NONE = "None"
-    G_ZIP = "GZip"
-
-
-class DataConnectionKind(str, Enum):
-    """
-    Kind of the endpoint for the data connection
-    """
-    EVENT_HUB = "EventHub"
-    EVENT_GRID = "EventGrid"
-    IOT_HUB = "IotHub"
-
-
-class DatabaseRouting(str, Enum):
-    """
-    Indication for database routing information from the data connection, by default only database routing information is allowed
-    """
-    SINGLE = "Single"
-    MULTI = "Multi"
 
 
 class EngineType(str, Enum):
@@ -148,50 +107,6 @@ class EngineType(str, Enum):
     V3 = "V3"
 
 
-class EventGridDataFormat(str, Enum):
-    """
-    The data format of the message. Optionally the data format can be added to each message.
-    """
-    MULTIJSON = "MULTIJSON"
-    JSON = "JSON"
-    CSV = "CSV"
-    TSV = "TSV"
-    SCSV = "SCSV"
-    SOHSV = "SOHSV"
-    PSV = "PSV"
-    TXT = "TXT"
-    RAW = "RAW"
-    SINGLEJSON = "SINGLEJSON"
-    AVRO = "AVRO"
-    TSVE = "TSVE"
-    PARQUET = "PARQUET"
-    ORC = "ORC"
-    APACHEAVRO = "APACHEAVRO"
-    W3_CLOGFILE = "W3CLOGFILE"
-
-
-class EventHubDataFormat(str, Enum):
-    """
-    The data format of the message. Optionally the data format can be added to each message.
-    """
-    MULTIJSON = "MULTIJSON"
-    JSON = "JSON"
-    CSV = "CSV"
-    TSV = "TSV"
-    SCSV = "SCSV"
-    SOHSV = "SOHSV"
-    PSV = "PSV"
-    TXT = "TXT"
-    RAW = "RAW"
-    SINGLEJSON = "SINGLEJSON"
-    AVRO = "AVRO"
-    TSVE = "TSVE"
-    PARQUET = "PARQUET"
-    ORC = "ORC"
-    APACHEAVRO = "APACHEAVRO"
-    W3_CLOGFILE = "W3CLOGFILE"
-
-
 class IdentityType(str, Enum):
     """
     The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
@@ -200,36 +115,6 @@ class IdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
-
-
-class IotHubDataFormat(str, Enum):
-    """
-    The data format of the message. Optionally the data format can be added to each message.
-    """
-    MULTIJSON = "MULTIJSON"
-    JSON = "JSON"
-    CSV = "CSV"
-    TSV = "TSV"
-    SCSV = "SCSV"
-    SOHSV = "SOHSV"
-    PSV = "PSV"
-    TXT = "TXT"
-    RAW = "RAW"
-    SINGLEJSON = "SINGLEJSON"
-    AVRO = "AVRO"
-    TSVE = "TSVE"
-    PARQUET = "PARQUET"
-    ORC = "ORC"
-    APACHEAVRO = "APACHEAVRO"
-    W3_CLOGFILE = "W3CLOGFILE"
-
-
-class Kind(str, Enum):
-    """
-    Kind of the database
-    """
-    READ_WRITE = "ReadWrite"
-    READ_ONLY_FOLLOWING = "ReadOnlyFollowing"
 
 
 class PublicIPType(str, Enum):

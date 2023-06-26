@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:testbase:CustomerEvent"},
+                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:CustomerEvent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

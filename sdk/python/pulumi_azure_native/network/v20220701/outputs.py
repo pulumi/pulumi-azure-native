@@ -67,6 +67,7 @@ __all__ = [
     'TargetDnsServerResponse',
     'TrafficAnalyticsConfigurationPropertiesResponse',
     'TrafficAnalyticsPropertiesResponse',
+    'VirtualNetworkDnsForwardingRulesetResponse',
     'VirtualNetworkTapResponse',
 ]
 
@@ -6370,20 +6371,19 @@ class ServiceEndpointPropertiesFormatResponse(dict):
 @pulumi.output_type
 class SubResourceResponse(dict):
     """
-    Reference to another subresource.
+    Reference to another ARM resource.
     """
     def __init__(__self__, *,
-                 id: Optional[str] = None):
+                 id: str):
         """
-        Reference to another subresource.
+        Reference to another ARM resource.
         :param str id: Resource ID.
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
+    def id(self) -> str:
         """
         Resource ID.
         """
@@ -7017,6 +7017,41 @@ class TrafficAnalyticsPropertiesResponse(dict):
         Parameters that define the configuration of traffic analytics.
         """
         return pulumi.get(self, "network_watcher_flow_analytics_configuration")
+
+
+@pulumi.output_type
+class VirtualNetworkDnsForwardingRulesetResponse(dict):
+    """
+    Reference to DNS forwarding ruleset and associated virtual network link.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 virtual_network_link: Optional['outputs.SubResourceResponse'] = None):
+        """
+        Reference to DNS forwarding ruleset and associated virtual network link.
+        :param str id: DNS Forwarding Ruleset Resource ID.
+        :param 'SubResourceResponse' virtual_network_link: The reference to the virtual network link.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if virtual_network_link is not None:
+            pulumi.set(__self__, "virtual_network_link", virtual_network_link)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        DNS Forwarding Ruleset Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="virtualNetworkLink")
+    def virtual_network_link(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The reference to the virtual network link.
+        """
+        return pulumi.get(self, "virtual_network_link")
 
 
 @pulumi.output_type

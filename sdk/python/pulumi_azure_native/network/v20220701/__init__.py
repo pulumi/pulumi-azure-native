@@ -18,6 +18,8 @@ from .get_private_resolver_virtual_network_link import *
 from .get_security_rule import *
 from .get_subnet import *
 from .inbound_endpoint import *
+from .list_dns_forwarding_ruleset_by_virtual_network import *
+from .list_dns_resolver_by_virtual_network import *
 from .outbound_endpoint import *
 from .private_resolver_virtual_network_link import *
 from .security_rule import *

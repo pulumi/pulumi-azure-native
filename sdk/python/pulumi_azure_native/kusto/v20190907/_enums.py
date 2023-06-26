@@ -5,27 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'DataFormat',
     'Kind',
 ]
-
-
-class DataFormat(str, Enum):
-    """
-    The data format of the message. Optionally the data format can be added to each message.
-    """
-    MULTIJSON = "MULTIJSON"
-    JSON = "JSON"
-    CSV = "CSV"
-    TSV = "TSV"
-    SCSV = "SCSV"
-    SOHSV = "SOHSV"
-    PSV = "PSV"
-    TXT = "TXT"
-    RAW = "RAW"
-    SINGLEJSON = "SINGLEJSON"
-    AVRO = "AVRO"
-    TSVE = "TSVE"
 
 
 class Kind(str, Enum):

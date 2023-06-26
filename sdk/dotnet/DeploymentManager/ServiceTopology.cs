@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.DeploymentManager
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:ServiceTopology"},
                     new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:ServiceTopology"},
                 },
             };

@@ -212,7 +212,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20180601preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20210601:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20150301preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20180601preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20210601:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:hdinsight/v20230415preview:Cluster',

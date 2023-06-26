@@ -100,7 +100,7 @@ export class Property extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20161010:Property" }, { type: "azure-native:apimanagement/v20170301:Property" }, { type: "azure-native:apimanagement/v20180101:Property" }, { type: "azure-native:apimanagement/v20180601preview:Property" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20160707:Property" }, { type: "azure-native:apimanagement/v20161010:Property" }, { type: "azure-native:apimanagement/v20170301:Property" }, { type: "azure-native:apimanagement/v20180101:Property" }, { type: "azure-native:apimanagement/v20180601preview:Property" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Property.__pulumiType, name, resourceInputs, opts);
     }

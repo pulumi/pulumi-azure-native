@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.Compute.V20221101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:compute:VirtualMachineRunCommandByVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine"},

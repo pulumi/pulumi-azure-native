@@ -3,10 +3,12 @@
 
 // Export sub-modules:
 import * as v20210315preview from "./v20210315preview";
+import * as v20210815 from "./v20210815";
 import * as v20210831preview from "./v20210831preview";
 
 export {
     v20210315preview,
+    v20210815,
     v20210831preview,
 };
 

@@ -191,6 +191,17 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20150601:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20160402:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20161002:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20170402:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20171012:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190415:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20191231:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Endpoint"},

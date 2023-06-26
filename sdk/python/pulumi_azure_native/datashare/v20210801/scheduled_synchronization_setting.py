@@ -221,7 +221,7 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["user_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:ScheduledSynchronizationSetting"), pulumi.Alias(type_="azure-native:datashare/v20200901:ScheduledSynchronizationSetting"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ScheduledSynchronizationSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:ScheduledSynchronizationSetting"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting"), pulumi.Alias(type_="azure-native:datashare/v20191101:ScheduledSynchronizationSetting"), pulumi.Alias(type_="azure-native:datashare/v20200901:ScheduledSynchronizationSetting"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ScheduledSynchronizationSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScheduledSynchronizationSetting, __self__).__init__(
             'azure-native:datashare/v20210801:ScheduledSynchronizationSetting',

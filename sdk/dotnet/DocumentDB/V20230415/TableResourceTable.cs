@@ -71,6 +71,17 @@ namespace Pulumi.AzureNative.DocumentDB.V20230415
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150401:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20150408:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20151106:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160319:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20160331:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200401:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:TableResourceTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200901:TableResourceTable"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210115:TableResourceTable"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:TableResourceTable"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210315:TableResourceTable"},

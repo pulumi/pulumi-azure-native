@@ -5,21 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'ComputeEnvironmentType',
     'DatasetType',
     'DatastoreTypeArm',
     'Header',
     'SourceType',
-    'VariantType',
 ]
-
-
-class ComputeEnvironmentType(str, Enum):
-    """
-    The compute environment type for the service.
-    """
-    ACI = "ACI"
-    AKS = "AKS"
 
 
 class DatasetType(str, Enum):
@@ -61,11 +51,3 @@ class SourceType(str, Enum):
     DELIMITED_FILES = "delimited_files"
     JSON_LINES_FILES = "json_lines_files"
     PARQUET_FILES = "parquet_files"
-
-
-class VariantType(str, Enum):
-    """
-    The type of the variant.
-    """
-    CONTROL = "Control"
-    TREATMENT = "Treatment"

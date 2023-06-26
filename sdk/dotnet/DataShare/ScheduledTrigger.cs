@@ -115,6 +115,8 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ScheduledTrigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:ScheduledTrigger"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:ScheduledTrigger"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ScheduledTrigger"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ScheduledTrigger"},

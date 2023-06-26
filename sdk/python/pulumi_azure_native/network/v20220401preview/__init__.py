@@ -16,6 +16,9 @@ from .get_security_user_configuration import *
 from .get_traffic_manager_user_metrics_key import *
 from .get_user_rule import *
 from .get_user_rule_collection import *
+from .list_active_security_user_rules import *
+from .list_effective_virtual_network_by_network_manager import *
+from .list_list_effective_virtual_network_by_network_group import *
 from .list_network_manager_effective_connectivity_configurations import *
 from .list_network_manager_effective_security_admin_rules import *
 from .network_group import *

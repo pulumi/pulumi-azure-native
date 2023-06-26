@@ -21,6 +21,8 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.databricks.v20180401 as __v20180401
     v20180401 = __v20180401
+    import pulumi_azure_native.databricks.v20210401preview as __v20210401preview
+    v20210401preview = __v20210401preview
     import pulumi_azure_native.databricks.v20220401preview as __v20220401preview
     v20220401preview = __v20220401preview
     import pulumi_azure_native.databricks.v20221001preview as __v20221001preview
@@ -31,6 +33,7 @@ if typing.TYPE_CHECKING:
     v20230501 = __v20230501
 else:
     v20180401 = _utilities.lazy_import('pulumi_azure_native.databricks.v20180401')
+    v20210401preview = _utilities.lazy_import('pulumi_azure_native.databricks.v20210401preview')
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.databricks.v20220401preview')
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.databricks.v20221001preview')
     v20230201 = _utilities.lazy_import('pulumi_azure_native.databricks.v20230201')

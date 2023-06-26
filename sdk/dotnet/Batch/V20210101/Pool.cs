@@ -191,6 +191,13 @@ namespace Pulumi.AzureNative.Batch.V20210101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:batch:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170901:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20181201:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190401:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190801:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200301:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200501:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200901:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20210601:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220101:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220601:Pool"},

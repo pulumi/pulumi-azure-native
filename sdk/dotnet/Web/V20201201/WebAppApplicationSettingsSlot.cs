@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Web.V20201201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppApplicationSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppApplicationSettingsSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppApplicationSettingsSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppApplicationSettingsSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppApplicationSettingsSlot"},

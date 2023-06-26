@@ -490,7 +490,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["target_resource_id"] = target_resource_id
             __props__.__dict__["type"] = type
             __props__.__dict__["weight"] = weight
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180801:Endpoint"), pulumi.Alias(type_="azure-native:network/v20220401:Endpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:Endpoint"), pulumi.Alias(type_="azure-native:network/v20151101:Endpoint"), pulumi.Alias(type_="azure-native:network/v20170301:Endpoint"), pulumi.Alias(type_="azure-native:network/v20170501:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180201:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180301:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180401:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180801:Endpoint"), pulumi.Alias(type_="azure-native:network/v20220401:Endpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Endpoint, __self__).__init__(
             'azure-native:network/v20220401preview:Endpoint',

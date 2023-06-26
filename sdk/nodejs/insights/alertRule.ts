@@ -133,7 +133,7 @@ export class AlertRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20160301:AlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20140401:AlertRule" }, { type: "azure-native:insights/v20160301:AlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AlertRule.__pulumiType, name, resourceInputs, opts);
     }

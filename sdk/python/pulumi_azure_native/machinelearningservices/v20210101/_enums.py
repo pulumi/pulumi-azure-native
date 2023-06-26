@@ -7,7 +7,6 @@ from enum import Enum
 __all__ = [
     'ApplicationSharingPolicy',
     'ClusterPurpose',
-    'ComputeEnvironmentType',
     'ComputeInstanceAuthorizationType',
     'ComputeType',
     'EncryptionStatus',
@@ -17,7 +16,6 @@ __all__ = [
     'ResourceIdentityType',
     'SshPublicAccess',
     'ValueFormat',
-    'VariantType',
     'VmPriority',
 ]
 
@@ -37,14 +35,6 @@ class ClusterPurpose(str, Enum):
     FAST_PROD = "FastProd"
     DENSE_PROD = "DenseProd"
     DEV_TEST = "DevTest"
-
-
-class ComputeEnvironmentType(str, Enum):
-    """
-    The compute environment type for the service.
-    """
-    ACI = "ACI"
-    AKS = "AKS"
 
 
 class ComputeInstanceAuthorizationType(str, Enum):
@@ -127,14 +117,6 @@ class ValueFormat(str, Enum):
     format for the workspace connection value
     """
     JSON = "JSON"
-
-
-class VariantType(str, Enum):
-    """
-    The type of the variant.
-    """
-    CONTROL = "Control"
-    TREATMENT = "Treatment"
 
 
 class VmPriority(str, Enum):

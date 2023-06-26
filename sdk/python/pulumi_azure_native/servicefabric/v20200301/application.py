@@ -377,7 +377,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20201201preview:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20210601:Application")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20170701preview:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20190301:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20190301preview:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20190601preview:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20191101preview:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20201201preview:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20210601:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azure-native:servicefabric/v20200301:Application',

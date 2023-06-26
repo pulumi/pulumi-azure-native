@@ -91,7 +91,7 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh/v20180901preview:Network" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh/v20180701preview:Network" }, { type: "azure-native:servicefabricmesh/v20180901preview:Network" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Network.__pulumiType, name, resourceInputs, opts);
     }

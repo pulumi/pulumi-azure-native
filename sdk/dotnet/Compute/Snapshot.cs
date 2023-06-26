@@ -221,6 +221,16 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20170330:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180401:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180930:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191101:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200501:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200630:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:Snapshot"},

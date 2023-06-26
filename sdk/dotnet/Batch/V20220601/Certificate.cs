@@ -103,6 +103,13 @@ namespace Pulumi.AzureNative.Batch.V20220601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20170901:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20181201:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190401:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20190801:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200301:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200501:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20200901:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20210101:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20210601:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220101:Certificate"},

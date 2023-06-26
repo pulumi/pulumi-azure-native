@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:FirewallRule"},
                 },
             };

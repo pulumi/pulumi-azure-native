@@ -242,7 +242,7 @@ class ScheduledTrigger(pulumi.CustomResource):
             __props__.__dict__["trigger_status"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["user_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:ScheduledTrigger"), pulumi.Alias(type_="azure-native:datashare/v20200901:ScheduledTrigger"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ScheduledTrigger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:ScheduledTrigger"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:ScheduledTrigger"), pulumi.Alias(type_="azure-native:datashare/v20191101:ScheduledTrigger"), pulumi.Alias(type_="azure-native:datashare/v20200901:ScheduledTrigger"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ScheduledTrigger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScheduledTrigger, __self__).__init__(
             'azure-native:datashare/v20210801:ScheduledTrigger',

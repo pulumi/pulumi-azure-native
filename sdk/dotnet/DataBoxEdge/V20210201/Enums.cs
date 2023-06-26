@@ -8,37 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201
 {
     /// <summary>
-    /// Addon type.
-    /// </summary>
-    [EnumType]
-    public readonly struct AddonType : IEquatable<AddonType>
-    {
-        private readonly string _value;
-
-        private AddonType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AddonType IotEdge { get; } = new AddonType("IotEdge");
-        public static AddonType ArcForKubernetes { get; } = new AddonType("ArcForKubernetes");
-
-        public static bool operator ==(AddonType left, AddonType right) => left.Equals(right);
-        public static bool operator !=(AddonType left, AddonType right) => !left.Equals(right);
-
-        public static explicit operator string(AddonType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AddonType other && Equals(other);
-        public bool Equals(AddonType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The kind of the device.
     /// </summary>
     [EnumType]
@@ -139,38 +108,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
     }
 
     /// <summary>
-    /// The algorithm used to encrypt "Value".
-    /// </summary>
-    [EnumType]
-    public readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
-    {
-        private readonly string _value;
-
-        private EncryptionAlgorithm(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static EncryptionAlgorithm None { get; } = new EncryptionAlgorithm("None");
-        public static EncryptionAlgorithm AES256 { get; } = new EncryptionAlgorithm("AES256");
-        public static EncryptionAlgorithm RSAES_PKCS1_v_1_5 { get; } = new EncryptionAlgorithm("RSAES_PKCS1_v_1_5");
-
-        public static bool operator ==(EncryptionAlgorithm left, EncryptionAlgorithm right) => left.Equals(right);
-        public static bool operator !=(EncryptionAlgorithm left, EncryptionAlgorithm right) => !left.Equals(right);
-
-        public static explicit operator string(EncryptionAlgorithm value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EncryptionAlgorithm other && Equals(other);
-        public bool Equals(EncryptionAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Identity type
     /// </summary>
     [EnumType]
@@ -195,104 +132,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MsiIdentityType other && Equals(other);
         public bool Equals(MsiIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Host OS supported by the Kubernetes role.
-    /// </summary>
-    [EnumType]
-    public readonly struct PlatformType : IEquatable<PlatformType>
-    {
-        private readonly string _value;
-
-        private PlatformType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PlatformType Windows { get; } = new PlatformType("Windows");
-        public static PlatformType Linux { get; } = new PlatformType("Linux");
-
-        public static bool operator ==(PlatformType left, PlatformType right) => left.Equals(right);
-        public static bool operator !=(PlatformType left, PlatformType right) => !left.Equals(right);
-
-        public static explicit operator string(PlatformType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PlatformType other && Equals(other);
-        public bool Equals(PlatformType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Role status.
-    /// </summary>
-    [EnumType]
-    public readonly struct RoleStatus : IEquatable<RoleStatus>
-    {
-        private readonly string _value;
-
-        private RoleStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RoleStatus Enabled { get; } = new RoleStatus("Enabled");
-        public static RoleStatus Disabled { get; } = new RoleStatus("Disabled");
-
-        public static bool operator ==(RoleStatus left, RoleStatus right) => left.Equals(right);
-        public static bool operator !=(RoleStatus left, RoleStatus right) => !left.Equals(right);
-
-        public static explicit operator string(RoleStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RoleStatus other && Equals(other);
-        public bool Equals(RoleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Role type.
-    /// </summary>
-    [EnumType]
-    public readonly struct RoleTypes : IEquatable<RoleTypes>
-    {
-        private readonly string _value;
-
-        private RoleTypes(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RoleTypes IOT { get; } = new RoleTypes("IOT");
-        public static RoleTypes ASA { get; } = new RoleTypes("ASA");
-        public static RoleTypes Functions { get; } = new RoleTypes("Functions");
-        public static RoleTypes Cognitive { get; } = new RoleTypes("Cognitive");
-        public static RoleTypes MEC { get; } = new RoleTypes("MEC");
-        public static RoleTypes CloudEdgeManagement { get; } = new RoleTypes("CloudEdgeManagement");
-        public static RoleTypes Kubernetes { get; } = new RoleTypes("Kubernetes");
-
-        public static bool operator ==(RoleTypes left, RoleTypes right) => left.Equals(right);
-        public static bool operator !=(RoleTypes left, RoleTypes right) => !left.Equals(right);
-
-        public static explicit operator string(RoleTypes value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RoleTypes other && Equals(other);
-        public bool Equals(RoleTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -377,37 +216,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
         public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Trigger Kind.
-    /// </summary>
-    [EnumType]
-    public readonly struct TriggerEventType : IEquatable<TriggerEventType>
-    {
-        private readonly string _value;
-
-        private TriggerEventType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static TriggerEventType FileEvent { get; } = new TriggerEventType("FileEvent");
-        public static TriggerEventType PeriodicTimerEvent { get; } = new TriggerEventType("PeriodicTimerEvent");
-
-        public static bool operator ==(TriggerEventType left, TriggerEventType right) => left.Equals(right);
-        public static bool operator !=(TriggerEventType left, TriggerEventType right) => !left.Equals(right);
-
-        public static explicit operator string(TriggerEventType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TriggerEventType other && Equals(other);
-        public bool Equals(TriggerEventType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

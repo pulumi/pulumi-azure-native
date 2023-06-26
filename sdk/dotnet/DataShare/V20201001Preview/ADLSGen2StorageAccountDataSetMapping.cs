@@ -121,6 +121,8 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2StorageAccountDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ADLSGen2StorageAccountDataSetMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:ADLSGen2StorageAccountDataSetMapping"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:ADLSGen2StorageAccountDataSetMapping"},
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2StorageAccountDataSetMapping"},
                 },

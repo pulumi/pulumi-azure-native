@@ -71,6 +71,14 @@ namespace Pulumi.AzureNative.Resources
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20151101:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20160201:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20160701:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20160901:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20170510:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20180201:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20180501:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190301:Deployment"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20190501:Deployment"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20190510:Deployment"},
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20190701:Deployment"},
