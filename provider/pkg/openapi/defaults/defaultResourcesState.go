@@ -150,6 +150,12 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 			},
 		},
 	},
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/basicPublishingCredentialsPolicies/ftp": {
+		"allow": false,
+	},
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/basicPublishingCredentialsPolicies/scm": {
+		"allow": false,
+	},
 }
 
 var skipDeleteResources = map[string]bool{

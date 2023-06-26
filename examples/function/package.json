@@ -1,0 +1,11 @@
+{
+    "name": "function",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^16"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0",
+        "@pulumi/azure-native": "^1.0.0"
+    }
+}

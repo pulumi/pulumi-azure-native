@@ -22,13 +22,12 @@ make ensure
 make build
 ```
 
-Add the `bin` folder to your `$PATH` or copy the `bin/pulumi-resource-azurerm` file to another location in your `$PATH`.
-
 ### Running a nodejs example
 
 Navigate to one of the `examples` and run Pulumi:
 
 ```bash
+make install
 cd ./examples/simple
 yarn link @pulumi/azure-native
 pulumi up
