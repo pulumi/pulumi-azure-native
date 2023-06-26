@@ -20,6 +20,7 @@ from .get_web_app_deployment_slot import *
 from .get_web_app_diagnostic_logs_configuration import *
 from .get_web_app_domain_ownership_identifier import *
 from .get_web_app_domain_ownership_identifier_slot import *
+from .get_web_app_ftp_allowed import *
 from .get_web_app_function import *
 from .get_web_app_host_name_binding import *
 from .get_web_app_host_name_binding_slot import *
@@ -33,6 +34,7 @@ from .get_web_app_public_certificate import *
 from .get_web_app_public_certificate_slot import *
 from .get_web_app_relay_service_connection import *
 from .get_web_app_relay_service_connection_slot import *
+from .get_web_app_scm_allowed import *
 from .get_web_app_site_extension import *
 from .get_web_app_site_extension_slot import *
 from .get_web_app_slot import *
@@ -96,6 +98,7 @@ from .web_app_deployment_slot import *
 from .web_app_diagnostic_logs_configuration import *
 from .web_app_domain_ownership_identifier import *
 from .web_app_domain_ownership_identifier_slot import *
+from .web_app_ftp_allowed import *
 from .web_app_function import *
 from .web_app_host_name_binding import *
 from .web_app_host_name_binding_slot import *
@@ -111,6 +114,7 @@ from .web_app_public_certificate import *
 from .web_app_public_certificate_slot import *
 from .web_app_relay_service_connection import *
 from .web_app_relay_service_connection_slot import *
+from .web_app_scm_allowed import *
 from .web_app_site_extension import *
 from .web_app_site_extension_slot import *
 from .web_app_site_push_settings import *

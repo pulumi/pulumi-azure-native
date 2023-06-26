@@ -110,6 +110,11 @@ export const getWebAppDomainOwnershipIdentifierSlot: typeof import("./getWebAppD
 export const getWebAppDomainOwnershipIdentifierSlotOutput: typeof import("./getWebAppDomainOwnershipIdentifierSlot").getWebAppDomainOwnershipIdentifierSlotOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppDomainOwnershipIdentifierSlot","getWebAppDomainOwnershipIdentifierSlotOutput"], () => require("./getWebAppDomainOwnershipIdentifierSlot"));
 
+export { GetWebAppFtpAllowedArgs, GetWebAppFtpAllowedResult, GetWebAppFtpAllowedOutputArgs } from "./getWebAppFtpAllowed";
+export const getWebAppFtpAllowed: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowed = null as any;
+export const getWebAppFtpAllowedOutput: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowedOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppFtpAllowed","getWebAppFtpAllowedOutput"], () => require("./getWebAppFtpAllowed"));
+
 export { GetWebAppFunctionArgs, GetWebAppFunctionResult, GetWebAppFunctionOutputArgs } from "./getWebAppFunction";
 export const getWebAppFunction: typeof import("./getWebAppFunction").getWebAppFunction = null as any;
 export const getWebAppFunctionOutput: typeof import("./getWebAppFunction").getWebAppFunctionOutput = null as any;
@@ -179,6 +184,11 @@ export { GetWebAppRelayServiceConnectionSlotArgs, GetWebAppRelayServiceConnectio
 export const getWebAppRelayServiceConnectionSlot: typeof import("./getWebAppRelayServiceConnectionSlot").getWebAppRelayServiceConnectionSlot = null as any;
 export const getWebAppRelayServiceConnectionSlotOutput: typeof import("./getWebAppRelayServiceConnectionSlot").getWebAppRelayServiceConnectionSlotOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppRelayServiceConnectionSlot","getWebAppRelayServiceConnectionSlotOutput"], () => require("./getWebAppRelayServiceConnectionSlot"));
+
+export { GetWebAppScmAllowedArgs, GetWebAppScmAllowedResult, GetWebAppScmAllowedOutputArgs } from "./getWebAppScmAllowed";
+export const getWebAppScmAllowed: typeof import("./getWebAppScmAllowed").getWebAppScmAllowed = null as any;
+export const getWebAppScmAllowedOutput: typeof import("./getWebAppScmAllowed").getWebAppScmAllowedOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppScmAllowed","getWebAppScmAllowedOutput"], () => require("./getWebAppScmAllowed"));
 
 export { GetWebAppSiteExtensionArgs, GetWebAppSiteExtensionResult, GetWebAppSiteExtensionOutputArgs } from "./getWebAppSiteExtension";
 export const getWebAppSiteExtension: typeof import("./getWebAppSiteExtension").getWebAppSiteExtension = null as any;
@@ -535,6 +545,11 @@ export type WebAppDomainOwnershipIdentifierSlot = import("./webAppDomainOwnershi
 export const WebAppDomainOwnershipIdentifierSlot: typeof import("./webAppDomainOwnershipIdentifierSlot").WebAppDomainOwnershipIdentifierSlot = null as any;
 utilities.lazyLoad(exports, ["WebAppDomainOwnershipIdentifierSlot"], () => require("./webAppDomainOwnershipIdentifierSlot"));
 
+export { WebAppFtpAllowedArgs } from "./webAppFtpAllowed";
+export type WebAppFtpAllowed = import("./webAppFtpAllowed").WebAppFtpAllowed;
+export const WebAppFtpAllowed: typeof import("./webAppFtpAllowed").WebAppFtpAllowed = null as any;
+utilities.lazyLoad(exports, ["WebAppFtpAllowed"], () => require("./webAppFtpAllowed"));
+
 export { WebAppFunctionArgs } from "./webAppFunction";
 export type WebAppFunction = import("./webAppFunction").WebAppFunction;
 export const WebAppFunction: typeof import("./webAppFunction").WebAppFunction = null as any;
@@ -614,6 +629,11 @@ export { WebAppRelayServiceConnectionSlotArgs } from "./webAppRelayServiceConnec
 export type WebAppRelayServiceConnectionSlot = import("./webAppRelayServiceConnectionSlot").WebAppRelayServiceConnectionSlot;
 export const WebAppRelayServiceConnectionSlot: typeof import("./webAppRelayServiceConnectionSlot").WebAppRelayServiceConnectionSlot = null as any;
 utilities.lazyLoad(exports, ["WebAppRelayServiceConnectionSlot"], () => require("./webAppRelayServiceConnectionSlot"));
+
+export { WebAppScmAllowedArgs } from "./webAppScmAllowed";
+export type WebAppScmAllowed = import("./webAppScmAllowed").WebAppScmAllowed;
+export const WebAppScmAllowed: typeof import("./webAppScmAllowed").WebAppScmAllowed = null as any;
+utilities.lazyLoad(exports, ["WebAppScmAllowed"], () => require("./webAppScmAllowed"));
 
 export { WebAppSiteExtensionArgs } from "./webAppSiteExtension";
 export type WebAppSiteExtension = import("./webAppSiteExtension").WebAppSiteExtension;
@@ -741,6 +761,8 @@ const _module = {
                 return new WebAppDomainOwnershipIdentifier(name, <any>undefined, { urn })
             case "azure-native:web/v20210201:WebAppDomainOwnershipIdentifierSlot":
                 return new WebAppDomainOwnershipIdentifierSlot(name, <any>undefined, { urn })
+            case "azure-native:web/v20210201:WebAppFtpAllowed":
+                return new WebAppFtpAllowed(name, <any>undefined, { urn })
             case "azure-native:web/v20210201:WebAppFunction":
                 return new WebAppFunction(name, <any>undefined, { urn })
             case "azure-native:web/v20210201:WebAppHostNameBinding":
@@ -773,6 +795,8 @@ const _module = {
                 return new WebAppRelayServiceConnection(name, <any>undefined, { urn })
             case "azure-native:web/v20210201:WebAppRelayServiceConnectionSlot":
                 return new WebAppRelayServiceConnectionSlot(name, <any>undefined, { urn })
+            case "azure-native:web/v20210201:WebAppScmAllowed":
+                return new WebAppScmAllowed(name, <any>undefined, { urn })
             case "azure-native:web/v20210201:WebAppSiteExtension":
                 return new WebAppSiteExtension(name, <any>undefined, { urn })
             case "azure-native:web/v20210201:WebAppSiteExtensionSlot":
