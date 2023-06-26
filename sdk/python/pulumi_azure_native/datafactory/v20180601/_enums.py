@@ -57,7 +57,6 @@ __all__ = [
     'RecurrenceFrequency',
     'RestServiceAuthenticationType',
     'SalesforceSinkWriteBehavior',
-    'SalesforceSourceReadBehavior',
     'SapCloudForCustomerSinkWriteBehavior',
     'SapHanaAuthenticationType',
     'ScriptActivityLogDestination',
@@ -553,14 +552,6 @@ class SalesforceSinkWriteBehavior(str, Enum):
     """
     INSERT = "Insert"
     UPSERT = "Upsert"
-
-
-class SalesforceSourceReadBehavior(str, Enum):
-    """
-    The read behavior for the operation. Default is Query.
-    """
-    QUERY = "Query"
-    QUERY_ALL = "QueryAll"
 
 
 class SapCloudForCustomerSinkWriteBehavior(str, Enum):

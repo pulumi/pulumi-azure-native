@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Chaos
     {
         /// <summary>
         /// Get a Experiment resource.
-        /// Azure REST API version: 2022-10-01-preview.
+        /// Azure REST API version: 2023-04-15-preview.
         /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-native:chaos:getExperiment", args ?? new GetExperimentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Experiment resource.
-        /// Azure REST API version: 2022-10-01-preview.
+        /// Azure REST API version: 2023-04-15-preview.
         /// </summary>
         public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:chaos:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());

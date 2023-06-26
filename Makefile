@@ -147,7 +147,7 @@ clean:
 	if dotnet nuget list source | grep "$(WORKING_DIR)"; then \
 		dotnet nuget remove source "$(WORKING_DIR)" \
 	; fi
- 
+
 .PHONY: test test_dotnet test_python test_go test_nodejs
 # Set TEST_TAGS to override -tags for tests
 TEST_TAGS ?= all
@@ -170,8 +170,9 @@ test_nodejs: provider install_nodejs_sdk
 	cd examples && go test -v -tags=nodejs -timeout 2h $(TEST_RUN)
 
 .PHONY: schema_squeeze
-schema_squeeze: bin/schema-tools bin/schema-full.json
-	./bin/schema-tools squeeze -s bin/schema-full.json --out versions/v1-squeeze.json
+schema_squeeze: bin/$(CODEGEN) bin/schema-tools bin/schema-full.json
+	bin/$(CODEGEN) raw-schema $(VERSION_GENERIC)
+	./bin/schema-tools squeeze -s bin/raw-schema.json --out versions/v2-removed-resources.json
 
 .PHONY: explode_schema
 explode_schema: dist/docs-schema.json
@@ -251,11 +252,11 @@ bin/$(CODEGEN): bin/pulumictl .make/provider_mod_download provider/cmd/$(CODEGEN
 
 # Writes schema-full.json and metadata-compact.json to bin/
 # Also re-calculates files in versions/ at same time
-bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v1-lock.json versions/v2-config.yaml versions/v2-spec.yaml versions/v2-removed-resources.yaml
+bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v1-lock.json versions/v2-config.yaml versions/v2-spec.yaml versions/v2-removed-resources.json
 	bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
 # Docs schema
-provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) versions/v1-lock.json versions/v2-config.yaml versions/v2-removed-resources.yaml
+provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) versions/v1-lock.json versions/v2-config.yaml versions/v2-removed-resources.json
 	bin/$(CODEGEN) docs $(VERSION_GENERIC)
 
 bin/$(LOCAL_PROVIDER_FILENAME): bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)

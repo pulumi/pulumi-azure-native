@@ -55,7 +55,7 @@ export interface GetNetworkToNetworkInterconnectResult {
     /**
      * Common properties for Layer2Configuration.
      */
-    readonly layer2Configuration?: outputs.managednetworkfabric.NetworkToNetworkInterconnectPropertiesResponseLayer2Configuration;
+    readonly layer2Configuration?: outputs.managednetworkfabric.Layer2ConfigurationResponse;
     /**
      * Common properties for Layer3Configuration.
      */
@@ -64,6 +64,10 @@ export interface GetNetworkToNetworkInterconnectResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * Type of NNI used. Example: CE | NPB
+     */
+    readonly nniType?: string;
     /**
      * Gets the provisioning state of the resource.
      */

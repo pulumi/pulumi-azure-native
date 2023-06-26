@@ -52,6 +52,12 @@ namespace Pulumi.AzureNative.Devices.Inputs
         public Input<string>? Comments { get; set; }
 
         /// <summary>
+        /// The device streams properties of iothub.
+        /// </summary>
+        [Input("deviceStreams")]
+        public Input<Inputs.IotHubPropertiesDeviceStreamsArgs>? DeviceStreams { get; set; }
+
+        /// <summary>
         /// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
         /// </summary>
         [Input("disableDeviceSAS")]
@@ -80,6 +86,12 @@ namespace Pulumi.AzureNative.Devices.Inputs
         /// </summary>
         [Input("enableFileUploadNotifications")]
         public Input<bool>? EnableFileUploadNotifications { get; set; }
+
+        /// <summary>
+        /// The encryption properties for the IoT hub.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionPropertiesDescriptionArgs>? Encryption { get; set; }
 
         [Input("eventHubEndpoints")]
         private InputMap<Inputs.EventHubPropertiesArgs>? _eventHubEndpoints;
@@ -110,6 +122,12 @@ namespace Pulumi.AzureNative.Devices.Inputs
             get => _ipFilterRules ?? (_ipFilterRules = new InputList<Inputs.IpFilterRuleArgs>());
             set => _ipFilterRules = value;
         }
+
+        /// <summary>
+        /// This property specifies the IP Version the hub is currently utilizing.
+        /// </summary>
+        [Input("ipVersion")]
+        public InputUnion<string, Pulumi.AzureNative.Devices.IpVersion>? IpVersion { get; set; }
 
         [Input("messagingEndpoints")]
         private InputMap<Inputs.MessagingEndpointPropertiesArgs>? _messagingEndpoints;
@@ -158,6 +176,12 @@ namespace Pulumi.AzureNative.Devices.Inputs
         /// </summary>
         [Input("restrictOutboundNetworkAccess")]
         public Input<bool>? RestrictOutboundNetworkAccess { get; set; }
+
+        /// <summary>
+        /// This property store root certificate related information
+        /// </summary>
+        [Input("rootCertificate")]
+        public Input<Inputs.RootCertificatePropertiesArgs>? RootCertificate { get; set; }
 
         /// <summary>
         /// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging

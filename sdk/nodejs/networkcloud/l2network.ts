@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2022-12-12-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
  */
 export class L2Network extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class L2Network extends pulumi.CustomResource {
     }
 
     /**
+     * The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+     */
+    public /*out*/ readonly associatedResourceIds!: pulumi.Output<string[]>;
+    /**
      * The resource ID of the Network Cloud cluster this L2 network is associated with.
      */
     public /*out*/ readonly clusterId!: pulumi.Output<string>;
@@ -54,11 +58,11 @@ export class L2Network extends pulumi.CustomResource {
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
-     * The list of Hybrid AKS cluster resource ID(s) that are associated with this L2 network.
+     * Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource ID(s) that are associated with this L2 network.
      */
     public /*out*/ readonly hybridAksClustersAssociatedIds!: pulumi.Output<string[]>;
     /**
-     * The network plugin type for Hybrid AKS.
+     * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
      */
     public readonly hybridAksPluginType!: pulumi.Output<string | undefined>;
     /**
@@ -94,7 +98,7 @@ export class L2Network extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The list of virtual machine resource ID(s), excluding any Hybrid AKS virtual machines, that are currently using this L2 network.
+     * Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource ID(s), excluding any Hybrid AKS virtual machines, that are currently using this L2 network.
      */
     public /*out*/ readonly virtualMachinesAssociatedIds!: pulumi.Output<string[]>;
 
@@ -126,6 +130,7 @@ export class L2Network extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
@@ -136,6 +141,7 @@ export class L2Network extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         } else {
+            resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
@@ -153,7 +159,7 @@ export class L2Network extends pulumi.CustomResource {
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:L2Network" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:L2Network" }, { type: "azure-native:networkcloud/v20230501preview:L2Network" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(L2Network.__pulumiType, name, resourceInputs, opts);
     }
@@ -168,7 +174,7 @@ export interface L2NetworkArgs {
      */
     extendedLocation: pulumi.Input<inputs.networkcloud.ExtendedLocationArgs>;
     /**
-     * The network plugin type for Hybrid AKS.
+     * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
      */
     hybridAksPluginType?: pulumi.Input<string | enums.networkcloud.HybridAksPluginType>;
     /**

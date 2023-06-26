@@ -22,7 +22,7 @@ class GetApplicationGatewayResult:
     """
     Application gateway resource.
     """
-    def __init__(__self__, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings_collection=None, backend_settings_collection=None, custom_error_configurations=None, enable_fips=None, enable_http2=None, etag=None, firewall_policy=None, force_firewall_policy_association=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, global_configuration=None, http_listeners=None, id=None, identity=None, listeners=None, load_distribution_policies=None, location=None, name=None, operational_state=None, private_endpoint_connections=None, private_link_configurations=None, probes=None, provisioning_state=None, redirect_configurations=None, request_routing_rules=None, resource_guid=None, rewrite_rule_sets=None, routing_rules=None, sku=None, ssl_certificates=None, ssl_policy=None, ssl_profiles=None, tags=None, trusted_client_certificates=None, trusted_root_certificates=None, type=None, url_path_maps=None, web_application_firewall_configuration=None, zones=None):
+    def __init__(__self__, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings_collection=None, backend_settings_collection=None, custom_error_configurations=None, default_predefined_ssl_policy=None, enable_fips=None, enable_http2=None, etag=None, firewall_policy=None, force_firewall_policy_association=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, global_configuration=None, http_listeners=None, id=None, identity=None, listeners=None, load_distribution_policies=None, location=None, name=None, operational_state=None, private_endpoint_connections=None, private_link_configurations=None, probes=None, provisioning_state=None, redirect_configurations=None, request_routing_rules=None, resource_guid=None, rewrite_rule_sets=None, routing_rules=None, sku=None, ssl_certificates=None, ssl_policy=None, ssl_profiles=None, tags=None, trusted_client_certificates=None, trusted_root_certificates=None, type=None, url_path_maps=None, web_application_firewall_configuration=None, zones=None):
         if authentication_certificates and not isinstance(authentication_certificates, list):
             raise TypeError("Expected argument 'authentication_certificates' to be a list")
         pulumi.set(__self__, "authentication_certificates", authentication_certificates)
@@ -41,6 +41,9 @@ class GetApplicationGatewayResult:
         if custom_error_configurations and not isinstance(custom_error_configurations, list):
             raise TypeError("Expected argument 'custom_error_configurations' to be a list")
         pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
+        if default_predefined_ssl_policy and not isinstance(default_predefined_ssl_policy, str):
+            raise TypeError("Expected argument 'default_predefined_ssl_policy' to be a str")
+        pulumi.set(__self__, "default_predefined_ssl_policy", default_predefined_ssl_policy)
         if enable_fips and not isinstance(enable_fips, bool):
             raise TypeError("Expected argument 'enable_fips' to be a bool")
         pulumi.set(__self__, "enable_fips", enable_fips)
@@ -200,6 +203,14 @@ class GetApplicationGatewayResult:
         Custom error configurations of the application gateway resource.
         """
         return pulumi.get(self, "custom_error_configurations")
+
+    @property
+    @pulumi.getter(name="defaultPredefinedSslPolicy")
+    def default_predefined_ssl_policy(self) -> str:
+        """
+        The default predefined SSL Policy applied on the application gateway resource.
+        """
+        return pulumi.get(self, "default_predefined_ssl_policy")
 
     @property
     @pulumi.getter(name="enableFips")
@@ -510,6 +521,7 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
             backend_http_settings_collection=self.backend_http_settings_collection,
             backend_settings_collection=self.backend_settings_collection,
             custom_error_configurations=self.custom_error_configurations,
+            default_predefined_ssl_policy=self.default_predefined_ssl_policy,
             enable_fips=self.enable_fips,
             enable_http2=self.enable_http2,
             etag=self.etag,
@@ -554,7 +566,7 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayResult:
     """
     Gets the specified application gateway.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str application_gateway_name: The name of the application gateway.
@@ -573,6 +585,7 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
         backend_http_settings_collection=__ret__.backend_http_settings_collection,
         backend_settings_collection=__ret__.backend_settings_collection,
         custom_error_configurations=__ret__.custom_error_configurations,
+        default_predefined_ssl_policy=__ret__.default_predefined_ssl_policy,
         enable_fips=__ret__.enable_fips,
         enable_http2=__ret__.enable_http2,
         etag=__ret__.etag,
@@ -618,7 +631,7 @@ def get_application_gateway_output(application_gateway_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGatewayResult]:
     """
     Gets the specified application gateway.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str application_gateway_name: The name of the application gateway.

@@ -14,6 +14,7 @@ __all__ = [
     'ArmIdentityArgs',
     'CertificatePropertiesArgs',
     'CloudToDevicePropertiesArgs',
+    'EncryptionPropertiesDescriptionArgs',
     'EnrichmentPropertiesArgs',
     'EventHubConsumerGroupNameArgs',
     'EventHubPropertiesArgs',
@@ -22,9 +23,11 @@ __all__ = [
     'IotDpsPropertiesDescriptionArgs',
     'IotDpsSkuInfoArgs',
     'IotHubDefinitionDescriptionArgs',
+    'IotHubPropertiesDeviceStreamsArgs',
     'IotHubPropertiesArgs',
     'IotHubSkuInfoArgs',
     'IpFilterRuleArgs',
+    'KeyVaultKeyPropertiesArgs',
     'ManagedIdentityArgs',
     'MessagingEndpointPropertiesArgs',
     'NetworkRuleSetIpRuleArgs',
@@ -32,7 +35,9 @@ __all__ = [
     'PrivateEndpointConnectionPropertiesArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'RootCertificatePropertiesArgs',
     'RoutePropertiesArgs',
+    'RoutingCosmosDBSqlApiPropertiesArgs',
     'RoutingEndpointsArgs',
     'RoutingEventHubPropertiesArgs',
     'RoutingPropertiesArgs',
@@ -51,7 +56,7 @@ class ArmIdentityArgs:
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -62,7 +67,7 @@ class ArmIdentityArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
-        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         """
         return pulumi.get(self, "type")
 
@@ -174,6 +179,46 @@ class CloudToDevicePropertiesArgs:
     @max_delivery_count.setter
     def max_delivery_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_delivery_count", value)
+
+
+@pulumi.input_type
+class EncryptionPropertiesDescriptionArgs:
+    def __init__(__self__, *,
+                 key_source: Optional[pulumi.Input[str]] = None,
+                 key_vault_properties: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultKeyPropertiesArgs']]]] = None):
+        """
+        The encryption properties for the IoT hub.
+        :param pulumi.Input[str] key_source: The source of the key.
+        :param pulumi.Input[Sequence[pulumi.Input['KeyVaultKeyPropertiesArgs']]] key_vault_properties: The properties of the KeyVault key.
+        """
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source of the key.
+        """
+        return pulumi.get(self, "key_source")
+
+    @key_source.setter
+    def key_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_source", value)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultKeyPropertiesArgs']]]]:
+        """
+        The properties of the KeyVault key.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultKeyPropertiesArgs']]]]):
+        pulumi.set(self, "key_vault_properties", value)
 
 
 @pulumi.input_type
@@ -714,26 +759,54 @@ class IotHubDefinitionDescriptionArgs:
 
 
 @pulumi.input_type
+class IotHubPropertiesDeviceStreamsArgs:
+    def __init__(__self__, *,
+                 streaming_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The device streams properties of iothub.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_endpoints: List of Device Streams Endpoints.
+        """
+        if streaming_endpoints is not None:
+            pulumi.set(__self__, "streaming_endpoints", streaming_endpoints)
+
+    @property
+    @pulumi.getter(name="streamingEndpoints")
+    def streaming_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Device Streams Endpoints.
+        """
+        return pulumi.get(self, "streaming_endpoints")
+
+    @streaming_endpoints.setter
+    def streaming_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "streaming_endpoints", value)
+
+
+@pulumi.input_type
 class IotHubPropertiesArgs:
     def __init__(__self__, *,
                  allowed_fqdn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgs']]]] = None,
                  cloud_to_device: Optional[pulumi.Input['CloudToDevicePropertiesArgs']] = None,
                  comments: Optional[pulumi.Input[str]] = None,
+                 device_streams: Optional[pulumi.Input['IotHubPropertiesDeviceStreamsArgs']] = None,
                  disable_device_sas: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  disable_module_sas: Optional[pulumi.Input[bool]] = None,
                  enable_data_residency: Optional[pulumi.Input[bool]] = None,
                  enable_file_upload_notifications: Optional[pulumi.Input[bool]] = None,
+                 encryption: Optional[pulumi.Input['EncryptionPropertiesDescriptionArgs']] = None,
                  event_hub_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]]] = None,
                  features: Optional[pulumi.Input[Union[str, 'Capabilities']]] = None,
                  ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]] = None,
+                 ip_version: Optional[pulumi.Input[Union[str, 'IpVersion']]] = None,
                  messaging_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  network_rule_sets: Optional[pulumi.Input['NetworkRuleSetPropertiesArgs']] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  restrict_outbound_network_access: Optional[pulumi.Input[bool]] = None,
+                 root_certificate: Optional[pulumi.Input['RootCertificatePropertiesArgs']] = None,
                  routing: Optional[pulumi.Input['RoutingPropertiesArgs']] = None,
                  storage_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['StorageEndpointPropertiesArgs']]]] = None):
         """
@@ -742,20 +815,24 @@ class IotHubPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgs']]] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
         :param pulumi.Input['CloudToDevicePropertiesArgs'] cloud_to_device: The IoT hub cloud-to-device messaging properties.
         :param pulumi.Input[str] comments: IoT hub comments.
+        :param pulumi.Input['IotHubPropertiesDeviceStreamsArgs'] device_streams: The device streams properties of iothub.
         :param pulumi.Input[bool] disable_device_sas: If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
         :param pulumi.Input[bool] disable_local_auth: If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
         :param pulumi.Input[bool] disable_module_sas: If true, all module scoped SAS keys cannot be used for authentication.
         :param pulumi.Input[bool] enable_data_residency: This property when set to true, will enable data residency, thus, disabling disaster recovery.
         :param pulumi.Input[bool] enable_file_upload_notifications: If True, file upload notifications are enabled.
+        :param pulumi.Input['EncryptionPropertiesDescriptionArgs'] encryption: The encryption properties for the IoT hub.
         :param pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]] event_hub_endpoints: The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
         :param pulumi.Input[Union[str, 'Capabilities']] features: The capabilities and features enabled for the IoT hub.
         :param pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]] ip_filter_rules: The IP filter rules.
+        :param pulumi.Input[Union[str, 'IpVersion']] ip_version: This property specifies the IP Version the hub is currently utilizing.
         :param pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
         :param pulumi.Input['NetworkRuleSetPropertiesArgs'] network_rule_sets: Network Rule Set Properties of IotHub
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: Private endpoint connections created on this IotHub
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input[bool] restrict_outbound_network_access: If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
+        :param pulumi.Input['RootCertificatePropertiesArgs'] root_certificate: This property store root certificate related information
         :param pulumi.Input['RoutingPropertiesArgs'] routing: The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
         :param pulumi.Input[Mapping[str, pulumi.Input['StorageEndpointPropertiesArgs']]] storage_endpoints: The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
         """
@@ -767,6 +844,8 @@ class IotHubPropertiesArgs:
             pulumi.set(__self__, "cloud_to_device", cloud_to_device)
         if comments is not None:
             pulumi.set(__self__, "comments", comments)
+        if device_streams is not None:
+            pulumi.set(__self__, "device_streams", device_streams)
         if disable_device_sas is not None:
             pulumi.set(__self__, "disable_device_sas", disable_device_sas)
         if disable_local_auth is not None:
@@ -777,12 +856,16 @@ class IotHubPropertiesArgs:
             pulumi.set(__self__, "enable_data_residency", enable_data_residency)
         if enable_file_upload_notifications is not None:
             pulumi.set(__self__, "enable_file_upload_notifications", enable_file_upload_notifications)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if event_hub_endpoints is not None:
             pulumi.set(__self__, "event_hub_endpoints", event_hub_endpoints)
         if features is not None:
             pulumi.set(__self__, "features", features)
         if ip_filter_rules is not None:
             pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
+        if ip_version is not None:
+            pulumi.set(__self__, "ip_version", ip_version)
         if messaging_endpoints is not None:
             pulumi.set(__self__, "messaging_endpoints", messaging_endpoints)
         if min_tls_version is not None:
@@ -795,6 +878,8 @@ class IotHubPropertiesArgs:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if restrict_outbound_network_access is not None:
             pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
+        if root_certificate is not None:
+            pulumi.set(__self__, "root_certificate", root_certificate)
         if routing is not None:
             pulumi.set(__self__, "routing", routing)
         if storage_endpoints is not None:
@@ -847,6 +932,18 @@ class IotHubPropertiesArgs:
     @comments.setter
     def comments(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comments", value)
+
+    @property
+    @pulumi.getter(name="deviceStreams")
+    def device_streams(self) -> Optional[pulumi.Input['IotHubPropertiesDeviceStreamsArgs']]:
+        """
+        The device streams properties of iothub.
+        """
+        return pulumi.get(self, "device_streams")
+
+    @device_streams.setter
+    def device_streams(self, value: Optional[pulumi.Input['IotHubPropertiesDeviceStreamsArgs']]):
+        pulumi.set(self, "device_streams", value)
 
     @property
     @pulumi.getter(name="disableDeviceSAS")
@@ -909,6 +1006,18 @@ class IotHubPropertiesArgs:
         pulumi.set(self, "enable_file_upload_notifications", value)
 
     @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionPropertiesDescriptionArgs']]:
+        """
+        The encryption properties for the IoT hub.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionPropertiesDescriptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
     @pulumi.getter(name="eventHubEndpoints")
     def event_hub_endpoints(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]]]:
         """
@@ -943,6 +1052,18 @@ class IotHubPropertiesArgs:
     @ip_filter_rules.setter
     def ip_filter_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]]):
         pulumi.set(self, "ip_filter_rules", value)
+
+    @property
+    @pulumi.getter(name="ipVersion")
+    def ip_version(self) -> Optional[pulumi.Input[Union[str, 'IpVersion']]]:
+        """
+        This property specifies the IP Version the hub is currently utilizing.
+        """
+        return pulumi.get(self, "ip_version")
+
+    @ip_version.setter
+    def ip_version(self, value: Optional[pulumi.Input[Union[str, 'IpVersion']]]):
+        pulumi.set(self, "ip_version", value)
 
     @property
     @pulumi.getter(name="messagingEndpoints")
@@ -1015,6 +1136,18 @@ class IotHubPropertiesArgs:
     @restrict_outbound_network_access.setter
     def restrict_outbound_network_access(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "restrict_outbound_network_access", value)
+
+    @property
+    @pulumi.getter(name="rootCertificate")
+    def root_certificate(self) -> Optional[pulumi.Input['RootCertificatePropertiesArgs']]:
+        """
+        This property store root certificate related information
+        """
+        return pulumi.get(self, "root_certificate")
+
+    @root_certificate.setter
+    def root_certificate(self, value: Optional[pulumi.Input['RootCertificatePropertiesArgs']]):
+        pulumi.set(self, "root_certificate", value)
 
     @property
     @pulumi.getter
@@ -1131,6 +1264,46 @@ class IpFilterRuleArgs:
     @ip_mask.setter
     def ip_mask(self, value: pulumi.Input[str]):
         pulumi.set(self, "ip_mask", value)
+
+
+@pulumi.input_type
+class KeyVaultKeyPropertiesArgs:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+                 key_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the KeyVault key.
+        :param pulumi.Input['ManagedIdentityArgs'] identity: Managed identity properties of KeyVault Key.
+        :param pulumi.Input[str] key_identifier: The identifier of the key.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_identifier is not None:
+            pulumi.set(__self__, "key_identifier", key_identifier)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedIdentityArgs']]:
+        """
+        Managed identity properties of KeyVault Key.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the key.
+        """
+        return pulumi.get(self, "key_identifier")
+
+    @key_identifier.setter
+    def key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_identifier", value)
 
 
 @pulumi.input_type
@@ -1426,6 +1599,30 @@ class PrivateLinkServiceConnectionStateArgs:
 
 
 @pulumi.input_type
+class RootCertificatePropertiesArgs:
+    def __init__(__self__, *,
+                 enable_root_certificate_v2: Optional[pulumi.Input[bool]] = None):
+        """
+        This property store root certificate related information
+        :param pulumi.Input[bool] enable_root_certificate_v2: This property when set to true, hub will use G2 cert; while it's set to false, hub uses Baltimore Cert.
+        """
+        if enable_root_certificate_v2 is not None:
+            pulumi.set(__self__, "enable_root_certificate_v2", enable_root_certificate_v2)
+
+    @property
+    @pulumi.getter(name="enableRootCertificateV2")
+    def enable_root_certificate_v2(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This property when set to true, hub will use G2 cert; while it's set to false, hub uses Baltimore Cert.
+        """
+        return pulumi.get(self, "enable_root_certificate_v2")
+
+    @enable_root_certificate_v2.setter
+    def enable_root_certificate_v2(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_root_certificate_v2", value)
+
+
+@pulumi.input_type
 class RoutePropertiesArgs:
     def __init__(__self__, *,
                  endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1510,19 +1707,235 @@ class RoutePropertiesArgs:
 
 
 @pulumi.input_type
+class RoutingCosmosDBSqlApiPropertiesArgs:
+    def __init__(__self__, *,
+                 collection_name: pulumi.Input[str],
+                 database_name: pulumi.Input[str],
+                 endpoint_uri: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+                 partition_key_name: Optional[pulumi.Input[str]] = None,
+                 partition_key_template: Optional[pulumi.Input[str]] = None,
+                 primary_key: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None):
+        """
+        The properties related to a cosmos DB sql collection endpoint.
+        :param pulumi.Input[str] collection_name: The name of the cosmos DB sql collection in the cosmos DB database.
+        :param pulumi.Input[str] database_name: The name of the cosmos DB database in the cosmos DB account.
+        :param pulumi.Input[str] endpoint_uri: The url of the cosmos DB account. It must include the protocol https://
+        :param pulumi.Input[str] name: The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
+        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Method used to authenticate against the cosmos DB sql collection endpoint
+        :param pulumi.Input[str] id: Id of the cosmos DB sql collection endpoint
+        :param pulumi.Input['ManagedIdentityArgs'] identity: Managed identity properties of routing cosmos DB collection endpoint.
+        :param pulumi.Input[str] partition_key_name: The name of the partition key associated with this cosmos DB sql collection if one exists. This is an optional parameter.
+        :param pulumi.Input[str] partition_key_template: The template for generating a synthetic partition key value for use with this cosmos DB sql collection. The template must include at least one of the following placeholders: {iothub}, {deviceid}, {DD}, {MM}, and {YYYY}. Any one placeholder may be specified at most once, but order and non-placeholder components are arbitrary. This parameter is only required if PartitionKeyName is specified.
+        :param pulumi.Input[str] primary_key: The primary key of the cosmos DB account.
+        :param pulumi.Input[str] resource_group: The name of the resource group of the cosmos DB account.
+        :param pulumi.Input[str] secondary_key: The secondary key of the cosmos DB account.
+        :param pulumi.Input[str] subscription_id: The subscription identifier of the cosmos DB account.
+        """
+        pulumi.set(__self__, "collection_name", collection_name)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+        pulumi.set(__self__, "name", name)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if partition_key_name is not None:
+            pulumi.set(__self__, "partition_key_name", partition_key_name)
+        if partition_key_template is not None:
+            pulumi.set(__self__, "partition_key_template", partition_key_template)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="collectionName")
+    def collection_name(self) -> pulumi.Input[str]:
+        """
+        The name of the cosmos DB sql collection in the cosmos DB database.
+        """
+        return pulumi.get(self, "collection_name")
+
+    @collection_name.setter
+    def collection_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "collection_name", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the cosmos DB database in the cosmos DB account.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> pulumi.Input[str]:
+        """
+        The url of the cosmos DB account. It must include the protocol https://
+        """
+        return pulumi.get(self, "endpoint_uri")
+
+    @endpoint_uri.setter
+    def endpoint_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_uri", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationType']]]:
+        """
+        Method used to authenticate against the cosmos DB sql collection endpoint
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationType']]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the cosmos DB sql collection endpoint
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedIdentityArgs']]:
+        """
+        Managed identity properties of routing cosmos DB collection endpoint.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="partitionKeyName")
+    def partition_key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the partition key associated with this cosmos DB sql collection if one exists. This is an optional parameter.
+        """
+        return pulumi.get(self, "partition_key_name")
+
+    @partition_key_name.setter
+    def partition_key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition_key_name", value)
+
+    @property
+    @pulumi.getter(name="partitionKeyTemplate")
+    def partition_key_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template for generating a synthetic partition key value for use with this cosmos DB sql collection. The template must include at least one of the following placeholders: {iothub}, {deviceid}, {DD}, {MM}, and {YYYY}. Any one placeholder may be specified at most once, but order and non-placeholder components are arbitrary. This parameter is only required if PartitionKeyName is specified.
+        """
+        return pulumi.get(self, "partition_key_template")
+
+    @partition_key_template.setter
+    def partition_key_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition_key_template", value)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary key of the cosmos DB account.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group of the cosmos DB account.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary key of the cosmos DB account.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @secondary_key.setter
+    def secondary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_key", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subscription identifier of the cosmos DB account.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
 class RoutingEndpointsArgs:
     def __init__(__self__, *,
+                 cosmos_db_sql_collections: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingCosmosDBSqlApiPropertiesArgs']]]] = None,
                  event_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingEventHubPropertiesArgs']]]] = None,
                  service_bus_queues: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusQueueEndpointPropertiesArgs']]]] = None,
                  service_bus_topics: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusTopicEndpointPropertiesArgs']]]] = None,
                  storage_containers: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingStorageContainerPropertiesArgs']]]] = None):
         """
         The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutingCosmosDBSqlApiPropertiesArgs']]] cosmos_db_sql_collections: The list of Cosmos DB collection endpoints that IoT hub routes messages to, based on the routing rules.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingEventHubPropertiesArgs']]] event_hubs: The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusQueueEndpointPropertiesArgs']]] service_bus_queues: The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusTopicEndpointPropertiesArgs']]] service_bus_topics: The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingStorageContainerPropertiesArgs']]] storage_containers: The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
         """
+        if cosmos_db_sql_collections is not None:
+            pulumi.set(__self__, "cosmos_db_sql_collections", cosmos_db_sql_collections)
         if event_hubs is not None:
             pulumi.set(__self__, "event_hubs", event_hubs)
         if service_bus_queues is not None:
@@ -1531,6 +1944,18 @@ class RoutingEndpointsArgs:
             pulumi.set(__self__, "service_bus_topics", service_bus_topics)
         if storage_containers is not None:
             pulumi.set(__self__, "storage_containers", storage_containers)
+
+    @property
+    @pulumi.getter(name="cosmosDBSqlCollections")
+    def cosmos_db_sql_collections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingCosmosDBSqlApiPropertiesArgs']]]]:
+        """
+        The list of Cosmos DB collection endpoints that IoT hub routes messages to, based on the routing rules.
+        """
+        return pulumi.get(self, "cosmos_db_sql_collections")
+
+    @cosmos_db_sql_collections.setter
+    def cosmos_db_sql_collections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingCosmosDBSqlApiPropertiesArgs']]]]):
+        pulumi.set(self, "cosmos_db_sql_collections", value)
 
     @property
     @pulumi.getter(name="eventHubs")
@@ -1743,7 +2168,7 @@ class RoutingPropertiesArgs:
         The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
         :param pulumi.Input['RoutingEndpointsArgs'] endpoints: The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
         :param pulumi.Input[Sequence[pulumi.Input['EnrichmentPropertiesArgs']]] enrichments: The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
-        :param pulumi.Input['FallbackRoutePropertiesArgs'] fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not present in the template, the fallback route is disabled by default.
+        :param pulumi.Input['FallbackRoutePropertiesArgs'] fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['RoutePropertiesArgs']]] routes: The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
         """
         if endpoints is not None:
@@ -1783,7 +2208,7 @@ class RoutingPropertiesArgs:
     @pulumi.getter(name="fallbackRoute")
     def fallback_route(self) -> Optional[pulumi.Input['FallbackRoutePropertiesArgs']]:
         """
-        The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not present in the template, the fallback route is disabled by default.
+        The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
         """
         return pulumi.get(self, "fallback_route")
 

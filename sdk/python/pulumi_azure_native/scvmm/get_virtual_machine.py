@@ -22,7 +22,7 @@ class GetVirtualMachineResult:
     """
     The VirtualMachines resource definition.
     """
-    def __init__(__self__, availability_sets=None, checkpoint_type=None, checkpoints=None, cloud_id=None, extended_location=None, generation=None, hardware_profile=None, id=None, inventory_item_id=None, location=None, name=None, network_profile=None, os_profile=None, power_state=None, provisioning_state=None, storage_profile=None, system_data=None, tags=None, template_id=None, type=None, uuid=None, vm_name=None, vmm_server_id=None):
+    def __init__(__self__, availability_sets=None, checkpoint_type=None, checkpoints=None, cloud_id=None, extended_location=None, generation=None, guest_agent_profile=None, hardware_profile=None, id=None, identity=None, inventory_item_id=None, last_restored_vm_checkpoint=None, location=None, name=None, network_profile=None, os_profile=None, power_state=None, provisioning_state=None, storage_profile=None, system_data=None, tags=None, template_id=None, type=None, uuid=None, vm_name=None, vmm_server_id=None):
         if availability_sets and not isinstance(availability_sets, list):
             raise TypeError("Expected argument 'availability_sets' to be a list")
         pulumi.set(__self__, "availability_sets", availability_sets)
@@ -41,15 +41,24 @@ class GetVirtualMachineResult:
         if generation and not isinstance(generation, int):
             raise TypeError("Expected argument 'generation' to be a int")
         pulumi.set(__self__, "generation", generation)
+        if guest_agent_profile and not isinstance(guest_agent_profile, dict):
+            raise TypeError("Expected argument 'guest_agent_profile' to be a dict")
+        pulumi.set(__self__, "guest_agent_profile", guest_agent_profile)
         if hardware_profile and not isinstance(hardware_profile, dict):
             raise TypeError("Expected argument 'hardware_profile' to be a dict")
         pulumi.set(__self__, "hardware_profile", hardware_profile)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if inventory_item_id and not isinstance(inventory_item_id, str):
             raise TypeError("Expected argument 'inventory_item_id' to be a str")
         pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if last_restored_vm_checkpoint and not isinstance(last_restored_vm_checkpoint, dict):
+            raise TypeError("Expected argument 'last_restored_vm_checkpoint' to be a dict")
+        pulumi.set(__self__, "last_restored_vm_checkpoint", last_restored_vm_checkpoint)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -142,6 +151,14 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "generation")
 
     @property
+    @pulumi.getter(name="guestAgentProfile")
+    def guest_agent_profile(self) -> Optional['outputs.GuestAgentProfileResponse']:
+        """
+        Guest agent status properties.
+        """
+        return pulumi.get(self, "guest_agent_profile")
+
+    @property
     @pulumi.getter(name="hardwareProfile")
     def hardware_profile(self) -> Optional['outputs.HardwareProfileResponse']:
         """
@@ -158,12 +175,28 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
     @pulumi.getter(name="inventoryItemId")
     def inventory_item_id(self) -> Optional[str]:
         """
         Gets or sets the inventory Item ID for the resource.
         """
         return pulumi.get(self, "inventory_item_id")
+
+    @property
+    @pulumi.getter(name="lastRestoredVMCheckpoint")
+    def last_restored_vm_checkpoint(self) -> 'outputs.CheckpointResponse':
+        """
+        Last restored checkpoint in the vm.
+        """
+        return pulumi.get(self, "last_restored_vm_checkpoint")
 
     @property
     @pulumi.getter
@@ -290,9 +323,12 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             cloud_id=self.cloud_id,
             extended_location=self.extended_location,
             generation=self.generation,
+            guest_agent_profile=self.guest_agent_profile,
             hardware_profile=self.hardware_profile,
             id=self.id,
+            identity=self.identity,
             inventory_item_id=self.inventory_item_id,
+            last_restored_vm_checkpoint=self.last_restored_vm_checkpoint,
             location=self.location,
             name=self.name,
             network_profile=self.network_profile,
@@ -314,7 +350,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
     Implements VirtualMachine GET method.
-    Azure REST API version: 2020-06-05-preview.
+    Azure REST API version: 2022-05-21-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -333,9 +369,12 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
         cloud_id=__ret__.cloud_id,
         extended_location=__ret__.extended_location,
         generation=__ret__.generation,
+        guest_agent_profile=__ret__.guest_agent_profile,
         hardware_profile=__ret__.hardware_profile,
         id=__ret__.id,
+        identity=__ret__.identity,
         inventory_item_id=__ret__.inventory_item_id,
+        last_restored_vm_checkpoint=__ret__.last_restored_vm_checkpoint,
         location=__ret__.location,
         name=__ret__.name,
         network_profile=__ret__.network_profile,
@@ -358,7 +397,7 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Implements VirtualMachine GET method.
-    Azure REST API version: 2020-06-05-preview.
+    Azure REST API version: 2022-05-21-preview.
 
 
     :param str resource_group_name: The name of the resource group.

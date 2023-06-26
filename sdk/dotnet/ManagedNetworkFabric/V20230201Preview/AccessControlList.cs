@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// Access Control List conditions.
         /// </summary>
         [Output("conditions")]
-        public Output<ImmutableArray<Outputs.AccessControlListPropertiesResponseConditions>> Conditions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AccessControlListConditionPropertiesResponse>> Conditions { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -137,14 +137,14 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         public Input<string>? Annotation { get; set; }
 
         [Input("conditions", required: true)]
-        private InputList<Inputs.AccessControlListPropertiesConditionsArgs>? _conditions;
+        private InputList<Inputs.AccessControlListConditionPropertiesArgs>? _conditions;
 
         /// <summary>
         /// Access Control List conditions.
         /// </summary>
-        public InputList<Inputs.AccessControlListPropertiesConditionsArgs> Conditions
+        public InputList<Inputs.AccessControlListConditionPropertiesArgs> Conditions
         {
-            get => _conditions ?? (_conditions = new InputList<Inputs.AccessControlListPropertiesConditionsArgs>());
+            get => _conditions ?? (_conditions = new InputList<Inputs.AccessControlListConditionPropertiesArgs>());
             set => _conditions = value;
         }
 

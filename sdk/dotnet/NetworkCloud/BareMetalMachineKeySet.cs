@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Azure REST API version: 2022-12-12-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:BareMetalMachineKeySet")]
     public partial class BareMetalMachineKeySet : global::Pulumi.CustomResource
@@ -143,6 +143,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20221212preview:BareMetalMachineKeySet"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:BareMetalMachineKeySet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

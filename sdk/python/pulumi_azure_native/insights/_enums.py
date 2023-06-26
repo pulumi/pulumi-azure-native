@@ -16,6 +16,7 @@ __all__ = [
     'DynamicThresholdSensitivity',
     'FavoriteType',
     'FlowType',
+    'IdentityType',
     'IngestionMode',
     'ItemScope',
     'ItemType',
@@ -152,6 +153,15 @@ class FlowType(str, Enum):
     Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
     """
     BLUEFIELD = "Bluefield"
+
+
+class IdentityType(str, Enum):
+    """
+    Type of managed service identity.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    NONE = "None"
 
 
 class IngestionMode(str, Enum):

@@ -40,14 +40,6 @@ export interface GetRoutePolicyResult {
      */
     readonly annotation?: string;
     /**
-     * Route Policy conditions.
-     */
-    readonly conditions?: outputs.managednetworkfabric.RoutePolicyPropertiesResponseConditions[];
-    /**
-     * Route Policy description.
-     */
-    readonly description?: string;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -63,6 +55,10 @@ export interface GetRoutePolicyResult {
      * Gets the provisioning state of the resource.
      */
     readonly provisioningState: string;
+    /**
+     * Route Policy statements.
+     */
+    readonly statements: outputs.managednetworkfabric.RoutePolicyStatementPropertiesResponse[];
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

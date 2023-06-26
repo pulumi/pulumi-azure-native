@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2022-12-12-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
  */
 export class L3Network extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class L3Network extends pulumi.CustomResource {
     }
 
     /**
+     * The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+     */
+    public /*out*/ readonly associatedResourceIds!: pulumi.Output<string[]>;
+    /**
      * The resource ID of the Network Cloud cluster this L3 network is associated with.
      */
     public /*out*/ readonly clusterId!: pulumi.Output<string>;
@@ -54,15 +58,15 @@ export class L3Network extends pulumi.CustomResource {
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
-     * The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
+     * Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
      */
     public /*out*/ readonly hybridAksClustersAssociatedIds!: pulumi.Output<string[]>;
     /**
-     * The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+     * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
      */
     public readonly hybridAksIpamEnabled!: pulumi.Output<string | undefined>;
     /**
-     * The network plugin type for Hybrid AKS.
+     * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
      */
     public readonly hybridAksPluginType!: pulumi.Output<string | undefined>;
     /**
@@ -112,7 +116,7 @@ export class L3Network extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
+     * Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
      */
     public /*out*/ readonly virtualMachinesAssociatedIds!: pulumi.Output<string[]>;
     /**
@@ -156,6 +160,7 @@ export class L3Network extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vlan"] = args ? args.vlan : undefined;
+            resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
@@ -166,6 +171,7 @@ export class L3Network extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         } else {
+            resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
@@ -188,7 +194,7 @@ export class L3Network extends pulumi.CustomResource {
             resourceInputs["vlan"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:L3Network" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:L3Network" }, { type: "azure-native:networkcloud/v20230501preview:L3Network" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(L3Network.__pulumiType, name, resourceInputs, opts);
     }
@@ -203,11 +209,11 @@ export interface L3NetworkArgs {
      */
     extendedLocation: pulumi.Input<inputs.networkcloud.ExtendedLocationArgs>;
     /**
-     * The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+     * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
      */
     hybridAksIpamEnabled?: pulumi.Input<string | enums.networkcloud.HybridAksIpamEnabled>;
     /**
-     * The network plugin type for Hybrid AKS.
+     * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
      */
     hybridAksPluginType?: pulumi.Input<string | enums.networkcloud.HybridAksPluginType>;
     /**

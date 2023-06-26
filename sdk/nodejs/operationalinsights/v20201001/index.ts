@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ClusterArgs } from "./cluster";
-export type Cluster = import("./cluster").Cluster;
-export const Cluster: typeof import("./cluster").Cluster = null as any;
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-
-export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
-export const getCluster: typeof import("./getCluster").getCluster = null as any;
-export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
-
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -33,8 +23,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:operationalinsights/v20201001:Cluster":
-                return new Cluster(name, <any>undefined, { urn })
             case "azure-native:operationalinsights/v20201001:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:

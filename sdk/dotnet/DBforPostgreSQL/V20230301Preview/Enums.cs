@@ -507,6 +507,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230301Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static ServerVersion ServerVersion_15 { get; } = new ServerVersion("15");
         public static ServerVersion ServerVersion_14 { get; } = new ServerVersion("14");
         public static ServerVersion ServerVersion_13 { get; } = new ServerVersion("13");
         public static ServerVersion ServerVersion_12 { get; } = new ServerVersion("12");

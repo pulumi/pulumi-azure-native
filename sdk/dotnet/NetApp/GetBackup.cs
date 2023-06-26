@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Gets the specified backup of the volume
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetBackupResult> InvokeAsync(GetBackupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-native:netapp:getBackup", args ?? new GetBackupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified backup of the volume
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetBackupResult> Invoke(GetBackupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupResult>("azure-native:netapp:getBackup", args ?? new GetBackupInvokeArgs(), options.WithDefaults());

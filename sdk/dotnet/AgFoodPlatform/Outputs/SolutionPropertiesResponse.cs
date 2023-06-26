@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.Outputs
     public sealed class SolutionPropertiesResponse
     {
         /// <summary>
-        /// SaaS application Publisher Id.
+        /// SaaS application Marketplace Publisher Id.
         /// </summary>
         public readonly string MarketplacePublisherId;
         /// <summary>
@@ -41,10 +41,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform.Outputs
         /// </summary>
         public readonly string SaasSubscriptionName;
         /// <summary>
-        /// Solution Id.
-        /// </summary>
-        public readonly string SolutionId;
-        /// <summary>
         /// SaaS application Term Id.
         /// </summary>
         public readonly string TermId;
@@ -63,8 +59,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform.Outputs
 
             string saasSubscriptionName,
 
-            string solutionId,
-
             string termId)
         {
             MarketplacePublisherId = marketplacePublisherId;
@@ -73,7 +67,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform.Outputs
             PlanId = planId;
             SaasSubscriptionId = saasSubscriptionId;
             SaasSubscriptionName = saasSubscriptionName;
-            SolutionId = solutionId;
             TermId = termId;
         }
     }

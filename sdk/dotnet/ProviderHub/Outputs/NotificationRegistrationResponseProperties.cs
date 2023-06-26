@@ -17,6 +17,9 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         public readonly string? MessageScope;
         public readonly ImmutableArray<Outputs.NotificationEndpointResponse> NotificationEndpoints;
         public readonly string? NotificationMode;
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
         public readonly string? ProvisioningState;
 
         [OutputConstructor]

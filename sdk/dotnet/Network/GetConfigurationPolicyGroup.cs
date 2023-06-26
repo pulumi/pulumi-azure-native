@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a ConfigurationPolicyGroup.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetConfigurationPolicyGroupResult> InvokeAsync(GetConfigurationPolicyGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationPolicyGroupResult>("azure-native:network:getConfigurationPolicyGroup", args ?? new GetConfigurationPolicyGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a ConfigurationPolicyGroup.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetConfigurationPolicyGroupResult> Invoke(GetConfigurationPolicyGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationPolicyGroupResult>("azure-native:network:getConfigurationPolicyGroup", args ?? new GetConfigurationPolicyGroupInvokeArgs(), options.WithDefaults());

@@ -146,7 +146,7 @@ def get_bot(bot_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotResult:
     """
     Get a HealthBot.
-    Azure REST API version: 2022-08-08.
+    Azure REST API version: 2023-05-01.
 
 
     :param str bot_name: The name of the Bot resource.
@@ -176,7 +176,7 @@ def get_bot_output(bot_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotResult]:
     """
     Get a HealthBot.
-    Azure REST API version: 2022-08-08.
+    Azure REST API version: 2023-05-01.
 
 
     :param str bot_name: The name of the Bot resource.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// NetworkVirtualApplianceConnection resource.
-    /// Azure REST API version: 2022-11-01.
+    /// Azure REST API version: 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkVirtualApplianceConnection")]
     public partial class NetworkVirtualApplianceConnection : global::Pulumi.CustomResource
@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:NetworkVirtualApplianceConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:NetworkVirtualApplianceConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

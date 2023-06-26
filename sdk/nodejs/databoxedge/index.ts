@@ -195,7 +195,6 @@ utilities.lazyLoad(exports, ["User"], () => require("./user"));
 export * from "../types/enums/databoxedge";
 
 // Export sub-modules:
-import * as v20201201 from "./v20201201";
 import * as v20210201 from "./v20210201";
 import * as v20210201preview from "./v20210201preview";
 import * as v20220301 from "./v20220301";
@@ -203,7 +202,6 @@ import * as v20220401preview from "./v20220401preview";
 import * as v20230101preview from "./v20230101preview";
 
 export {
-    v20201201,
     v20210201,
     v20210201preview,
     v20220301,

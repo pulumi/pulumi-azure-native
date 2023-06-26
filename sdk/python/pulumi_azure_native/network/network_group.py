@@ -94,7 +94,7 @@ class NetworkGroup(pulumi.CustomResource):
                  __props__=None):
         """
         The network group resource
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +111,7 @@ class NetworkGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The network group resource
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param NetworkGroupArgs args: The arguments to use to populate this resource's properties.
@@ -152,9 +152,10 @@ class NetworkGroup(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20210501preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220101:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220201preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220401preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220501:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220701:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220901:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20221101:NetworkGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20210501preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220101:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220201preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220401preview:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220501:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220701:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20220901:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20221101:NetworkGroup"), pulumi.Alias(type_="azure-native:network/v20230201:NetworkGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkGroup, __self__).__init__(
             'azure-native:network:NetworkGroup',
@@ -182,6 +183,7 @@ class NetworkGroup(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return NetworkGroup(resource_name, opts=opts, __props__=__props__)
@@ -217,6 +219,14 @@ class NetworkGroup(pulumi.CustomResource):
         The provisioning state of the scope assignment resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[str]:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="systemData")

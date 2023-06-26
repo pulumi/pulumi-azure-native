@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a network manager security admin configuration rule collection.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetAdminRuleCollectionResult> InvokeAsync(GetAdminRuleCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleCollectionResult>("azure-native:network:getAdminRuleCollection", args ?? new GetAdminRuleCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager security admin configuration rule collection.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetAdminRuleCollectionResult> Invoke(GetAdminRuleCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdminRuleCollectionResult>("azure-native:network:getAdminRuleCollection", args ?? new GetAdminRuleCollectionInvokeArgs(), options.WithDefaults());
@@ -120,6 +120,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            string resourceGuid,
+
             Outputs.SystemDataResponse systemData,
 
             string type)
@@ -152,6 +158,7 @@ namespace Pulumi.AzureNative.Network
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             SystemData = systemData;
             Type = type;
         }

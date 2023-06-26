@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided volume.
- * Azure REST API version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
 
@@ -49,7 +49,7 @@ export interface GetVolumeResult {
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -87,7 +87,7 @@ export interface GetVolumeResult {
 }
 /**
  * Get properties of the provided volume.
- * Azure REST API version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))

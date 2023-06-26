@@ -360,6 +360,38 @@ namespace Pulumi.AzureNative.Insights
     }
 
     /// <summary>
+    /// Type of managed service identity.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityType : IEquatable<IdentityType>
+    {
+        private readonly string _value;
+
+        private IdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+        public static IdentityType None { get; } = new IdentityType("None");
+
+        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
+        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
+        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates the flow of the ingestion.
     /// </summary>
     [EnumType]

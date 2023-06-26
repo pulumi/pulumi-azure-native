@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Return the Bastion Shareable Links for all the VMs specified in the request.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getBastionShareableLink(args: GetBastionShareableLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionShareableLinkResult> {
 
@@ -51,7 +51,7 @@ export interface GetBastionShareableLinkResult {
 }
 /**
  * Return the Bastion Shareable Links for all the VMs specified in the request.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getBastionShareableLinkOutput(args: GetBastionShareableLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionShareableLinkResult> {
     return pulumi.output(args).apply((a: any) => getBastionShareableLink(a, opts))

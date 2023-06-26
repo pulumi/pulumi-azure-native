@@ -5,10 +5,19 @@
 from enum import Enum
 
 __all__ = [
+    'AuthCredentialsKind',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
     'ResourceIdentityType',
 ]
+
+
+class AuthCredentialsKind(str, Enum):
+    """
+    Enum for different types of AuthCredentials supported.
+    """
+    O_AUTH_CLIENT_CREDENTIALS = "OAuthClientCredentials"
+    API_KEY_AUTH_CREDENTIALS = "ApiKeyAuthCredentials"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):

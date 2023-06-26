@@ -30,16 +30,6 @@ export const getRequiredAmlFSSubnetsSize: typeof import("./getRequiredAmlFSSubne
 export const getRequiredAmlFSSubnetsSizeOutput: typeof import("./getRequiredAmlFSSubnetsSize").getRequiredAmlFSSubnetsSizeOutput = null as any;
 utilities.lazyLoad(exports, ["getRequiredAmlFSSubnetsSize","getRequiredAmlFSSubnetsSizeOutput"], () => require("./getRequiredAmlFSSubnetsSize"));
 
-export { GetStorageTargetArgs, GetStorageTargetResult, GetStorageTargetOutputArgs } from "./getStorageTarget";
-export const getStorageTarget: typeof import("./getStorageTarget").getStorageTarget = null as any;
-export const getStorageTargetOutput: typeof import("./getStorageTarget").getStorageTargetOutput = null as any;
-utilities.lazyLoad(exports, ["getStorageTarget","getStorageTargetOutput"], () => require("./getStorageTarget"));
-
-export { StorageTargetArgs } from "./storageTarget";
-export type StorageTarget = import("./storageTarget").StorageTarget;
-export const StorageTarget: typeof import("./storageTarget").StorageTarget = null as any;
-utilities.lazyLoad(exports, ["StorageTarget"], () => require("./storageTarget"));
-
 
 // Export enums:
 export * from "../../types/enums/storagecache/v20230301preview";
@@ -52,8 +42,6 @@ const _module = {
                 return new AmlFilesystem(name, <any>undefined, { urn })
             case "azure-native:storagecache/v20230301preview:Cache":
                 return new Cache(name, <any>undefined, { urn })
-            case "azure-native:storagecache/v20230301preview:StorageTarget":
-                return new StorageTarget(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * represented in the status of this resource. All resources associated with this cloud services network will be part
  * of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
  * virtual machines and/or Hybrid AKS clusters.
- * Azure REST API version: 2022-12-12-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
  */
 export class CloudServicesNetwork extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
      */
     public readonly additionalEgressEndpoints!: pulumi.Output<outputs.networkcloud.EgressEndpointResponse[] | undefined>;
     /**
+     * The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+     */
+    public /*out*/ readonly associatedResourceIds!: pulumi.Output<string[]>;
+    /**
      * The resource ID of the Network Cloud cluster this cloud services network is associated with.
      */
     public /*out*/ readonly clusterId!: pulumi.Output<string>;
@@ -70,7 +74,7 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
-     * The list of Hybrid AKS cluster resource IDs that are associated with this cloud services network.
+     * Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this cloud services network.
      */
     public /*out*/ readonly hybridAksClustersAssociatedIds!: pulumi.Output<string[]>;
     /**
@@ -102,7 +106,7 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this cloud services network.
+     * Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this cloud services network.
      */
     public /*out*/ readonly virtualMachinesAssociatedIds!: pulumi.Output<string[]>;
 
@@ -130,6 +134,7 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
@@ -143,6 +148,7 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         } else {
             resourceInputs["additionalEgressEndpoints"] = undefined /*out*/;
+            resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
@@ -160,7 +166,7 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:CloudServicesNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:CloudServicesNetwork" }, { type: "azure-native:networkcloud/v20230501preview:CloudServicesNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudServicesNetwork.__pulumiType, name, resourceInputs, opts);
     }

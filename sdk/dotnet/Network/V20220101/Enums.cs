@@ -71,36 +71,4 @@ namespace Pulumi.AzureNative.Network.V20220101
 
         public override string ToString() => _value;
     }
-
-    /// <summary>
-    /// The Vpn Policy member attribute type.
-    /// </summary>
-    [EnumType]
-    public readonly struct VpnPolicyMemberAttributeType : IEquatable<VpnPolicyMemberAttributeType>
-    {
-        private readonly string _value;
-
-        private VpnPolicyMemberAttributeType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static VpnPolicyMemberAttributeType CertificateGroupId { get; } = new VpnPolicyMemberAttributeType("CertificateGroupId");
-        public static VpnPolicyMemberAttributeType AADGroupId { get; } = new VpnPolicyMemberAttributeType("AADGroupId");
-        public static VpnPolicyMemberAttributeType RadiusAzureGroupId { get; } = new VpnPolicyMemberAttributeType("RadiusAzureGroupId");
-
-        public static bool operator ==(VpnPolicyMemberAttributeType left, VpnPolicyMemberAttributeType right) => left.Equals(right);
-        public static bool operator !=(VpnPolicyMemberAttributeType left, VpnPolicyMemberAttributeType right) => !left.Equals(right);
-
-        public static explicit operator string(VpnPolicyMemberAttributeType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is VpnPolicyMemberAttributeType other && Equals(other);
-        public bool Equals(VpnPolicyMemberAttributeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
 }

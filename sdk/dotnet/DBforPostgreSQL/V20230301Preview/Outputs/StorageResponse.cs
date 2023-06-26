@@ -25,13 +25,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230301Preview.Outputs
         /// </summary>
         public readonly int Iops;
         /// <summary>
-        /// Name of storage tier for IOPS.
-        /// </summary>
-        public readonly string? IopsTier;
-        /// <summary>
         /// Max storage allowed for a server.
         /// </summary>
         public readonly int? StorageSizeGB;
+        /// <summary>
+        /// Name of storage tier for IOPS.
+        /// </summary>
+        public readonly string? Tier;
 
         [OutputConstructor]
         private StorageResponse(
@@ -39,14 +39,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230301Preview.Outputs
 
             int iops,
 
-            string? iopsTier,
+            int? storageSizeGB,
 
-            int? storageSizeGB)
+            string? tier)
         {
             AutoGrow = autoGrow;
             Iops = iops;
-            IopsTier = iopsTier;
             StorageSizeGB = storageSizeGB;
+            Tier = tier;
         }
     }
 }

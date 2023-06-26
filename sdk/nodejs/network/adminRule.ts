@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Network admin rule.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class AdminRule extends pulumi.CustomResource {
     /**
@@ -84,6 +84,10 @@ export class AdminRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Unique identifier for this resource.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    /**
      * The source port ranges.
      */
     public readonly sourcePortRanges!: pulumi.Output<string[] | undefined>;
@@ -156,6 +160,7 @@ export class AdminRule extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -170,13 +175,14 @@ export class AdminRule extends pulumi.CustomResource {
             resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["sourcePortRanges"] = undefined /*out*/;
             resourceInputs["sources"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:AdminRule" }, { type: "azure-native:network/v20210501preview:AdminRule" }, { type: "azure-native:network/v20220101:AdminRule" }, { type: "azure-native:network/v20220201preview:AdminRule" }, { type: "azure-native:network/v20220401preview:AdminRule" }, { type: "azure-native:network/v20220501:AdminRule" }, { type: "azure-native:network/v20220701:AdminRule" }, { type: "azure-native:network/v20220901:AdminRule" }, { type: "azure-native:network/v20221101:AdminRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:AdminRule" }, { type: "azure-native:network/v20210501preview:AdminRule" }, { type: "azure-native:network/v20220101:AdminRule" }, { type: "azure-native:network/v20220201preview:AdminRule" }, { type: "azure-native:network/v20220401preview:AdminRule" }, { type: "azure-native:network/v20220501:AdminRule" }, { type: "azure-native:network/v20220701:AdminRule" }, { type: "azure-native:network/v20220901:AdminRule" }, { type: "azure-native:network/v20221101:AdminRule" }, { type: "azure-native:network/v20230201:AdminRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AdminRule.__pulumiType, name, resourceInputs, opts);
     }

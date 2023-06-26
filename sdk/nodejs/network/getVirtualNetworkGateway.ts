@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified virtual network gateway by resource group.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
 
@@ -39,6 +39,10 @@ export interface GetVirtualNetworkGatewayResult {
      * ActiveActive flag.
      */
     readonly activeActive?: boolean;
+    /**
+     * Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+     */
+    readonly adminState?: string;
     /**
      * Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
      */
@@ -158,7 +162,7 @@ export interface GetVirtualNetworkGatewayResult {
 }
 /**
  * Gets the specified virtual network gateway by resource group.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualNetworkGatewayOutput(args: GetVirtualNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGateway(a, opts))

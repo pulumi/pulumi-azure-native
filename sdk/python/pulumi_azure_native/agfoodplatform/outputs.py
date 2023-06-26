@@ -12,11 +12,15 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApiKeyAuthCredentialsResponse',
     'ApiPropertiesResponse',
+    'DataConnectorPropertiesResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
     'ErrorResponseResponse',
     'IdentityResponse',
+    'KeyVaultPropertiesResponse',
+    'OAuthClientCredentialsResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -24,6 +28,58 @@ __all__ = [
     'SolutionPropertiesResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class ApiKeyAuthCredentialsResponse(dict):
+    """
+    ApiKeyAuthCredentials class for ApiKey based Auth.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiKeyAuthCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiKeyAuthCredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiKeyAuthCredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: 'outputs.KeyVaultPropertiesResponse',
+                 kind: str):
+        """
+        ApiKeyAuthCredentials class for ApiKey based Auth.
+        :param 'KeyVaultPropertiesResponse' api_key: Properties of the key vault.
+        :param str kind: Enum for different types of AuthCredentials supported.
+               Expected value is 'ApiKeyAuthCredentials'.
+        """
+        pulumi.set(__self__, "api_key", api_key)
+        pulumi.set(__self__, "kind", 'ApiKeyAuthCredentials')
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> 'outputs.KeyVaultPropertiesResponse':
+        """
+        Properties of the key vault.
+        """
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Enum for different types of AuthCredentials supported.
+        Expected value is 'ApiKeyAuthCredentials'.
+        """
+        return pulumi.get(self, "kind")
+
 
 @pulumi.output_type
 class ApiPropertiesResponse(dict):
@@ -63,6 +119,28 @@ class ApiPropertiesResponse(dict):
         Interval in minutes for which the weather data for the api needs to be refreshed.
         """
         return pulumi.get(self, "api_freshness_time_in_minutes")
+
+
+@pulumi.output_type
+class DataConnectorPropertiesResponse(dict):
+    """
+    DataConnector Properties.
+    """
+    def __init__(__self__, *,
+                 credentials: Any):
+        """
+        DataConnector Properties.
+        :param Union['ApiKeyAuthCredentialsResponse', 'OAuthClientCredentialsResponse'] credentials: AuthCredentials abstract base class for Auth Purpose.
+        """
+        pulumi.set(__self__, "credentials", credentials)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Any:
+        """
+        AuthCredentials abstract base class for Auth Purpose.
+        """
+        return pulumi.get(self, "credentials")
 
 
 @pulumi.output_type
@@ -266,6 +344,136 @@ class IdentityResponse(dict):
         The identity type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class KeyVaultPropertiesResponse(dict):
+    """
+    Properties of the key vault.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyName":
+            suggest = "key_name"
+        elif key == "keyVaultUri":
+            suggest = "key_vault_uri"
+        elif key == "keyVersion":
+            suggest = "key_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_name: str,
+                 key_vault_uri: str,
+                 key_version: str):
+        """
+        Properties of the key vault.
+        :param str key_name: Name of Key Vault key.
+        :param str key_vault_uri: Uri of the key vault.
+        :param str key_version: Version of Key Vault key.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        Name of Key Vault key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> str:
+        """
+        Uri of the key vault.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> str:
+        """
+        Version of Key Vault key.
+        """
+        return pulumi.get(self, "key_version")
+
+
+@pulumi.output_type
+class OAuthClientCredentialsResponse(dict):
+    """
+    OAuthClientCredentials for clientId clientSecret auth.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuthClientCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuthClientCredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuthClientCredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 client_secret: 'outputs.KeyVaultPropertiesResponse',
+                 kind: str):
+        """
+        OAuthClientCredentials for clientId clientSecret auth.
+        :param str client_id: ClientId associated with the provider.
+        :param 'KeyVaultPropertiesResponse' client_secret: Properties of the key vault.
+        :param str kind: Enum for different types of AuthCredentials supported.
+               Expected value is 'OAuthClientCredentials'.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "kind", 'OAuthClientCredentials')
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        ClientId associated with the provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> 'outputs.KeyVaultPropertiesResponse':
+        """
+        Properties of the key vault.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Enum for different types of AuthCredentials supported.
+        Expected value is 'OAuthClientCredentials'.
+        """
+        return pulumi.get(self, "kind")
 
 
 @pulumi.output_type
@@ -564,8 +772,6 @@ class SolutionPropertiesResponse(dict):
             suggest = "saas_subscription_id"
         elif key == "saasSubscriptionName":
             suggest = "saas_subscription_name"
-        elif key == "solutionId":
-            suggest = "solution_id"
         elif key == "termId":
             suggest = "term_id"
 
@@ -587,17 +793,15 @@ class SolutionPropertiesResponse(dict):
                  plan_id: str,
                  saas_subscription_id: str,
                  saas_subscription_name: str,
-                 solution_id: str,
                  term_id: str):
         """
         Solution resource properties.
-        :param str marketplace_publisher_id: SaaS application Publisher Id.
+        :param str marketplace_publisher_id: SaaS application Marketplace Publisher Id.
         :param str offer_id: SaaS application Offer Id.
         :param str partner_id: Partner Id of the Solution.
         :param str plan_id: SaaS application Plan Id.
         :param str saas_subscription_id: SaaS subscriptionId of the installed SaaS application.
         :param str saas_subscription_name: SaaS subscription name of the installed SaaS application.
-        :param str solution_id: Solution Id.
         :param str term_id: SaaS application Term Id.
         """
         pulumi.set(__self__, "marketplace_publisher_id", marketplace_publisher_id)
@@ -606,14 +810,13 @@ class SolutionPropertiesResponse(dict):
         pulumi.set(__self__, "plan_id", plan_id)
         pulumi.set(__self__, "saas_subscription_id", saas_subscription_id)
         pulumi.set(__self__, "saas_subscription_name", saas_subscription_name)
-        pulumi.set(__self__, "solution_id", solution_id)
         pulumi.set(__self__, "term_id", term_id)
 
     @property
     @pulumi.getter(name="marketplacePublisherId")
     def marketplace_publisher_id(self) -> str:
         """
-        SaaS application Publisher Id.
+        SaaS application Marketplace Publisher Id.
         """
         return pulumi.get(self, "marketplace_publisher_id")
 
@@ -656,14 +859,6 @@ class SolutionPropertiesResponse(dict):
         SaaS subscription name of the installed SaaS application.
         """
         return pulumi.get(self, "saas_subscription_name")
-
-    @property
-    @pulumi.getter(name="solutionId")
-    def solution_id(self) -> str:
-        """
-        Solution Id.
-        """
-        return pulumi.get(self, "solution_id")
 
     @property
     @pulumi.getter(name="termId")

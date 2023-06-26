@@ -130,9 +130,11 @@ __all__ = [
     'DelegationSignerInfoResponse',
     'DevicePropertiesResponse',
     'DhcpOptionsResponse',
+    'DigestResponse',
     'DnsConfigResponse',
     'DnsResourceReferenceResponse',
     'DnsSettingsResponse',
+    'DsRecordResponse',
     'EffectiveConnectivityConfigurationResponse',
     'EffectiveDefaultSecurityAdminRuleResponse',
     'EffectiveSecurityAdminRuleResponse',
@@ -241,6 +243,7 @@ __all__ = [
     'MonitorConfigResponseCustomHeaders',
     'MonitorConfigResponseExpectedStatusCodeRanges',
     'MxRecordResponse',
+    'NaptrRecordResponse',
     'NatGatewayResponse',
     'NatGatewaySkuResponse',
     'NatRuleConditionResponse',
@@ -338,6 +341,7 @@ __all__ = [
     'SubscriptionIdResponse',
     'SystemDataResponse',
     'TargetDnsServerResponse',
+    'TlsaRecordResponse',
     'TrafficAnalyticsConfigurationPropertiesResponse',
     'TrafficAnalyticsPropertiesResponse',
     'TrafficSelectorPolicyResponse',
@@ -581,6 +585,7 @@ class ActiveConnectivityConfigurationResponse(dict):
                  applies_to_groups: Sequence['outputs.ConnectivityGroupItemResponse'],
                  connectivity_topology: str,
                  provisioning_state: str,
+                 resource_guid: str,
                  commit_time: Optional[str] = None,
                  configuration_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
                  delete_existing_peering: Optional[str] = None,
@@ -595,6 +600,7 @@ class ActiveConnectivityConfigurationResponse(dict):
         :param Sequence['ConnectivityGroupItemResponse'] applies_to_groups: Groups for configuration
         :param str connectivity_topology: Connectivity topology type.
         :param str provisioning_state: The provisioning state of the connectivity configuration resource.
+        :param str resource_guid: Unique identifier for this resource.
         :param str commit_time: Deployment time string.
         :param Sequence['ConfigurationGroupResponse'] configuration_groups: Effective configuration groups.
         :param str delete_existing_peering: Flag if need to remove current existing peerings.
@@ -608,6 +614,7 @@ class ActiveConnectivityConfigurationResponse(dict):
         pulumi.set(__self__, "applies_to_groups", applies_to_groups)
         pulumi.set(__self__, "connectivity_topology", connectivity_topology)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if commit_time is not None:
             pulumi.set(__self__, "commit_time", commit_time)
         if configuration_groups is not None:
@@ -650,6 +657,14 @@ class ActiveConnectivityConfigurationResponse(dict):
         The provisioning state of the connectivity configuration resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="commitTime")
@@ -739,6 +754,7 @@ class ActiveDefaultSecurityAdminRuleResponse(dict):
                  priority: int,
                  protocol: str,
                  provisioning_state: str,
+                 resource_guid: str,
                  source_port_ranges: Sequence[str],
                  sources: Sequence['outputs.AddressPrefixItemResponse'],
                  commit_time: Optional[str] = None,
@@ -764,6 +780,7 @@ class ActiveDefaultSecurityAdminRuleResponse(dict):
         :param int priority: The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param str protocol: Network protocol this rule applies to.
         :param str provisioning_state: The provisioning state of the resource.
+        :param str resource_guid: Unique identifier for this resource.
         :param Sequence[str] source_port_ranges: The source port ranges.
         :param Sequence['AddressPrefixItemResponse'] sources: The CIDR or source IP ranges.
         :param str commit_time: Deployment time string.
@@ -787,6 +804,7 @@ class ActiveDefaultSecurityAdminRuleResponse(dict):
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
         pulumi.set(__self__, "source_port_ranges", source_port_ranges)
         pulumi.set(__self__, "sources", sources)
         if commit_time is not None:
@@ -884,6 +902,14 @@ class ActiveDefaultSecurityAdminRuleResponse(dict):
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="sourcePortRanges")
@@ -1246,6 +1272,7 @@ class ActiveSecurityAdminRuleResponse(dict):
                  priority: int,
                  protocol: str,
                  provisioning_state: str,
+                 resource_guid: str,
                  commit_time: Optional[str] = None,
                  configuration_description: Optional[str] = None,
                  configuration_display_name: Optional[str] = None,
@@ -1270,6 +1297,7 @@ class ActiveSecurityAdminRuleResponse(dict):
         :param int priority: The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param str protocol: Network protocol this rule applies to.
         :param str provisioning_state: The provisioning state of the resource.
+        :param str resource_guid: Unique identifier for this resource.
         :param str commit_time: Deployment time string.
         :param str configuration_description: A description of the security admin configuration.
         :param str configuration_display_name: A display name of the security admin configuration.
@@ -1292,6 +1320,7 @@ class ActiveSecurityAdminRuleResponse(dict):
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if commit_time is not None:
             pulumi.set(__self__, "commit_time", commit_time)
         if configuration_description is not None:
@@ -1371,6 +1400,14 @@ class ActiveSecurityAdminRuleResponse(dict):
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="commitTime")
@@ -5202,7 +5239,9 @@ class ApplicationGatewayResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "operationalState":
+        if key == "defaultPredefinedSslPolicy":
+            suggest = "default_predefined_ssl_policy"
+        elif key == "operationalState":
             suggest = "operational_state"
         elif key == "privateEndpointConnections":
             suggest = "private_endpoint_connections"
@@ -5279,6 +5318,7 @@ class ApplicationGatewayResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 default_predefined_ssl_policy: str,
                  etag: str,
                  name: str,
                  operational_state: str,
@@ -5324,6 +5364,7 @@ class ApplicationGatewayResponse(dict):
                  zones: Optional[Sequence[str]] = None):
         """
         Application gateway resource.
+        :param str default_predefined_ssl_policy: The default predefined SSL Policy applied on the application gateway resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str name: Resource name.
         :param str operational_state: Operational state of the application gateway resource.
@@ -5368,6 +5409,7 @@ class ApplicationGatewayResponse(dict):
         :param 'ApplicationGatewayWebApplicationFirewallConfigurationResponse' web_application_firewall_configuration: Web application firewall configuration.
         :param Sequence[str] zones: A list of availability zones denoting where the resource needs to come from.
         """
+        pulumi.set(__self__, "default_predefined_ssl_policy", default_predefined_ssl_policy)
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operational_state", operational_state)
@@ -5447,6 +5489,14 @@ class ApplicationGatewayResponse(dict):
             pulumi.set(__self__, "web_application_firewall_configuration", web_application_firewall_configuration)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="defaultPredefinedSslPolicy")
+    def default_predefined_ssl_policy(self) -> str:
+        """
+        The default predefined SSL Policy applied on the application gateway resource.
+        """
+        return pulumi.get(self, "default_predefined_ssl_policy")
 
     @property
     @pulumi.getter
@@ -10111,6 +10161,7 @@ class ConfigurationGroupResponse(dict):
     """
     def __init__(__self__, *,
                  provisioning_state: str,
+                 resource_guid: str,
                  conditional_membership: Optional[str] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
@@ -10120,6 +10171,7 @@ class ConfigurationGroupResponse(dict):
         """
         The network configuration group resource
         :param str provisioning_state: The provisioning state of the scope assignment resource.
+        :param str resource_guid: Unique identifier for this resource.
         :param str conditional_membership: Network group conditional filter.
         :param str description: A description of the network group.
         :param str display_name: A friendly name for the network group.
@@ -10128,6 +10180,7 @@ class ConfigurationGroupResponse(dict):
         :param str member_type: Group member type.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if conditional_membership is not None:
             pulumi.set(__self__, "conditional_membership", conditional_membership)
         if description is not None:
@@ -10148,6 +10201,14 @@ class ConfigurationGroupResponse(dict):
         The provisioning state of the scope assignment resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="conditionalMembership")
@@ -12421,6 +12482,58 @@ class DhcpOptionsResponse(dict):
 
 
 @pulumi.output_type
+class DigestResponse(dict):
+    """
+    A digest.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "algorithmType":
+            suggest = "algorithm_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DigestResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DigestResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DigestResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 algorithm_type: Optional[int] = None,
+                 value: Optional[str] = None):
+        """
+        A digest.
+        :param int algorithm_type: The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
+        :param str value: The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
+        """
+        if algorithm_type is not None:
+            pulumi.set(__self__, "algorithm_type", algorithm_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="algorithmType")
+    def algorithm_type(self) -> Optional[int]:
+        """
+        The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
+        """
+        return pulumi.get(self, "algorithm_type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class DnsConfigResponse(dict):
     """
     Class containing DNS settings in a Traffic Manager profile.
@@ -12585,6 +12698,70 @@ class DnsSettingsResponse(dict):
 
 
 @pulumi.output_type
+class DsRecordResponse(dict):
+    """
+    A DS record. For more information about the DS record format, see RFC 4034: https://www.rfc-editor.org/rfc/rfc4034
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyTag":
+            suggest = "key_tag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DsRecordResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DsRecordResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DsRecordResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 algorithm: Optional[int] = None,
+                 digest: Optional['outputs.DigestResponse'] = None,
+                 key_tag: Optional[int] = None):
+        """
+        A DS record. For more information about the DS record format, see RFC 4034: https://www.rfc-editor.org/rfc/rfc4034
+        :param int algorithm: The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
+        :param 'DigestResponse' digest: The digest entity.
+        :param int key_tag: The key tag value is used to determine which DNSKEY Resource Record is used for signature verification.
+        """
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
+        if digest is not None:
+            pulumi.set(__self__, "digest", digest)
+        if key_tag is not None:
+            pulumi.set(__self__, "key_tag", key_tag)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> Optional[int]:
+        """
+        The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
+        """
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter
+    def digest(self) -> Optional['outputs.DigestResponse']:
+        """
+        The digest entity.
+        """
+        return pulumi.get(self, "digest")
+
+    @property
+    @pulumi.getter(name="keyTag")
+    def key_tag(self) -> Optional[int]:
+        """
+        The key tag value is used to determine which DNSKEY Resource Record is used for signature verification.
+        """
+        return pulumi.get(self, "key_tag")
+
+
+@pulumi.output_type
 class EffectiveConnectivityConfigurationResponse(dict):
     """
     The network manager effective connectivity configuration
@@ -12593,6 +12770,7 @@ class EffectiveConnectivityConfigurationResponse(dict):
                  applies_to_groups: Sequence['outputs.ConnectivityGroupItemResponse'],
                  connectivity_topology: str,
                  provisioning_state: str,
+                 resource_guid: str,
                  configuration_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
                  delete_existing_peering: Optional[str] = None,
                  description: Optional[str] = None,
@@ -12605,6 +12783,7 @@ class EffectiveConnectivityConfigurationResponse(dict):
         :param Sequence['ConnectivityGroupItemResponse'] applies_to_groups: Groups for configuration
         :param str connectivity_topology: Connectivity topology type.
         :param str provisioning_state: The provisioning state of the connectivity configuration resource.
+        :param str resource_guid: Unique identifier for this resource.
         :param Sequence['ConfigurationGroupResponse'] configuration_groups: Effective configuration groups.
         :param str delete_existing_peering: Flag if need to remove current existing peerings.
         :param str description: A description of the connectivity configuration.
@@ -12616,6 +12795,7 @@ class EffectiveConnectivityConfigurationResponse(dict):
         pulumi.set(__self__, "applies_to_groups", applies_to_groups)
         pulumi.set(__self__, "connectivity_topology", connectivity_topology)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if configuration_groups is not None:
             pulumi.set(__self__, "configuration_groups", configuration_groups)
         if delete_existing_peering is not None:
@@ -12654,6 +12834,14 @@ class EffectiveConnectivityConfigurationResponse(dict):
         The provisioning state of the connectivity configuration resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="configurationGroups")
@@ -12727,6 +12915,7 @@ class EffectiveDefaultSecurityAdminRuleResponse(dict):
                  priority: int,
                  protocol: str,
                  provisioning_state: str,
+                 resource_guid: str,
                  source_port_ranges: Sequence[str],
                  sources: Sequence['outputs.AddressPrefixItemResponse'],
                  configuration_description: Optional[str] = None,
@@ -12750,6 +12939,7 @@ class EffectiveDefaultSecurityAdminRuleResponse(dict):
         :param int priority: The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param str protocol: Network protocol this rule applies to.
         :param str provisioning_state: The provisioning state of the resource.
+        :param str resource_guid: Unique identifier for this resource.
         :param Sequence[str] source_port_ranges: The source port ranges.
         :param Sequence['AddressPrefixItemResponse'] sources: The CIDR or source IP ranges.
         :param str configuration_description: A description of the security admin configuration.
@@ -12771,6 +12961,7 @@ class EffectiveDefaultSecurityAdminRuleResponse(dict):
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
         pulumi.set(__self__, "source_port_ranges", source_port_ranges)
         pulumi.set(__self__, "sources", sources)
         if configuration_description is not None:
@@ -12864,6 +13055,14 @@ class EffectiveDefaultSecurityAdminRuleResponse(dict):
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="sourcePortRanges")
@@ -12966,6 +13165,7 @@ class EffectiveSecurityAdminRuleResponse(dict):
                  priority: int,
                  protocol: str,
                  provisioning_state: str,
+                 resource_guid: str,
                  configuration_description: Optional[str] = None,
                  configuration_display_name: Optional[str] = None,
                  description: Optional[str] = None,
@@ -12988,6 +13188,7 @@ class EffectiveSecurityAdminRuleResponse(dict):
         :param int priority: The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param str protocol: Network protocol this rule applies to.
         :param str provisioning_state: The provisioning state of the resource.
+        :param str resource_guid: Unique identifier for this resource.
         :param str configuration_description: A description of the security admin configuration.
         :param str configuration_display_name: A display name of the security admin configuration.
         :param str description: A description for this rule. Restricted to 140 chars.
@@ -13008,6 +13209,7 @@ class EffectiveSecurityAdminRuleResponse(dict):
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if configuration_description is not None:
             pulumi.set(__self__, "configuration_description", configuration_description)
         if configuration_display_name is not None:
@@ -13083,6 +13285,14 @@ class EffectiveSecurityAdminRuleResponse(dict):
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="configurationDescription")
@@ -21603,6 +21813,89 @@ class MxRecordResponse(dict):
         The preference value for this MX record.
         """
         return pulumi.get(self, "preference")
+
+
+@pulumi.output_type
+class NaptrRecordResponse(dict):
+    """
+    A NAPTR record. For more information about the NAPTR record format, see RFC 3403: https://www.rfc-editor.org/rfc/rfc3403
+    """
+    def __init__(__self__, *,
+                 flags: Optional[str] = None,
+                 order: Optional[int] = None,
+                 preference: Optional[int] = None,
+                 regexp: Optional[str] = None,
+                 replacement: Optional[str] = None,
+                 services: Optional[str] = None):
+        """
+        A NAPTR record. For more information about the NAPTR record format, see RFC 3403: https://www.rfc-editor.org/rfc/rfc3403
+        :param str flags: The flags specific to DDDS applications. Values currently defined in RFC 3404 are uppercase and lowercase letters "A", "P", "S", and "U", and the empty string, "". Enclose Flags in quotation marks.
+        :param int order: The order in which the NAPTR records MUST be processed in order to accurately represent the ordered list of rules. The ordering is from lowest to highest. Valid values: 0-65535.
+        :param int preference: The preference specifies the order in which NAPTR records with equal 'order' values should be processed, low numbers being processed before high numbers. Valid values: 0-65535.
+        :param str regexp: The regular expression that the DDDS application uses to convert an input value into an output value. For example: an IP phone system might use a regular expression to convert a phone number that is entered by a user into a SIP URI. Enclose the regular expression in quotation marks. Specify either a value for 'regexp' or a value for 'replacement'.
+        :param str replacement: The replacement is a fully qualified domain name (FQDN) of the next domain name that you want the DDDS application to submit a DNS query for. The DDDS application replaces the input value with the value specified for replacement. Specify either a value for 'regexp' or a value for 'replacement'. If you specify a value for 'regexp', specify a dot (.) for 'replacement'.
+        :param str services: The services specific to DDDS applications. Enclose Services in quotation marks.
+        """
+        if flags is not None:
+            pulumi.set(__self__, "flags", flags)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if preference is not None:
+            pulumi.set(__self__, "preference", preference)
+        if regexp is not None:
+            pulumi.set(__self__, "regexp", regexp)
+        if replacement is not None:
+            pulumi.set(__self__, "replacement", replacement)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter
+    def flags(self) -> Optional[str]:
+        """
+        The flags specific to DDDS applications. Values currently defined in RFC 3404 are uppercase and lowercase letters "A", "P", "S", and "U", and the empty string, "". Enclose Flags in quotation marks.
+        """
+        return pulumi.get(self, "flags")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[int]:
+        """
+        The order in which the NAPTR records MUST be processed in order to accurately represent the ordered list of rules. The ordering is from lowest to highest. Valid values: 0-65535.
+        """
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def preference(self) -> Optional[int]:
+        """
+        The preference specifies the order in which NAPTR records with equal 'order' values should be processed, low numbers being processed before high numbers. Valid values: 0-65535.
+        """
+        return pulumi.get(self, "preference")
+
+    @property
+    @pulumi.getter
+    def regexp(self) -> Optional[str]:
+        """
+        The regular expression that the DDDS application uses to convert an input value into an output value. For example: an IP phone system might use a regular expression to convert a phone number that is entered by a user into a SIP URI. Enclose the regular expression in quotation marks. Specify either a value for 'regexp' or a value for 'replacement'.
+        """
+        return pulumi.get(self, "regexp")
+
+    @property
+    @pulumi.getter
+    def replacement(self) -> Optional[str]:
+        """
+        The replacement is a fully qualified domain name (FQDN) of the next domain name that you want the DDDS application to submit a DNS query for. The DDDS application replaces the input value with the value specified for replacement. Specify either a value for 'regexp' or a value for 'replacement'. If you specify a value for 'regexp', specify a dot (.) for 'replacement'.
+        """
+        return pulumi.get(self, "replacement")
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[str]:
+        """
+        The services specific to DDDS applications. Enclose Services in quotation marks.
+        """
+        return pulumi.get(self, "services")
 
 
 @pulumi.output_type
@@ -31470,7 +31763,7 @@ class SystemDataResponse(dict):
         :param str created_at: The timestamp of resource creation (UTC).
         :param str created_by: The identity that created the resource.
         :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -31515,7 +31808,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[str]:
         """
-        The type of identity that last modified the resource.
+        The timestamp of resource last modification (UTC)
         """
         return pulumi.get(self, "last_modified_at")
 
@@ -31587,6 +31880,84 @@ class TargetDnsServerResponse(dict):
         DNS server port.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class TlsaRecordResponse(dict):
+    """
+    A TLSA record. For more information about the TLSA record format, see RFC 6698: https://www.rfc-editor.org/rfc/rfc6698
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certAssociationData":
+            suggest = "cert_association_data"
+        elif key == "matchingType":
+            suggest = "matching_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsaRecordResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsaRecordResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsaRecordResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cert_association_data: Optional[str] = None,
+                 matching_type: Optional[int] = None,
+                 selector: Optional[int] = None,
+                 usage: Optional[int] = None):
+        """
+        A TLSA record. For more information about the TLSA record format, see RFC 6698: https://www.rfc-editor.org/rfc/rfc6698
+        :param str cert_association_data: This specifies the certificate association data to be matched.
+        :param int matching_type: The matching type specifies how the certificate association is presented.
+        :param int selector: The selector specifies which part of the TLS certificate presented by the server will be matched against the association data.
+        :param int usage: The usage specifies the provided association that will be used to match the certificate presented in the TLS handshake.
+        """
+        if cert_association_data is not None:
+            pulumi.set(__self__, "cert_association_data", cert_association_data)
+        if matching_type is not None:
+            pulumi.set(__self__, "matching_type", matching_type)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if usage is not None:
+            pulumi.set(__self__, "usage", usage)
+
+    @property
+    @pulumi.getter(name="certAssociationData")
+    def cert_association_data(self) -> Optional[str]:
+        """
+        This specifies the certificate association data to be matched.
+        """
+        return pulumi.get(self, "cert_association_data")
+
+    @property
+    @pulumi.getter(name="matchingType")
+    def matching_type(self) -> Optional[int]:
+        """
+        The matching type specifies how the certificate association is presented.
+        """
+        return pulumi.get(self, "matching_type")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[int]:
+        """
+        The selector specifies which part of the TLS certificate presented by the server will be matched against the association data.
+        """
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter
+    def usage(self) -> Optional[int]:
+        """
+        The usage specifies the provided association that will be used to match the certificate presented in the TLS handshake.
+        """
+        return pulumi.get(self, "usage")
 
 
 @pulumi.output_type
@@ -31983,8 +32354,8 @@ class VirtualApplianceAdditionalNicPropertiesResponse(dict):
                  name: Optional[str] = None):
         """
         Network Virtual Appliance Additional NIC properties.
-        :param bool has_public_ip: Customer Intent for Public Ip on additional nic
-        :param str name: Customer Name for additional nic
+        :param bool has_public_ip: Flag (true or false) for Intent for Public Ip on additional nic
+        :param str name: Name of additional nic
         """
         if has_public_ip is not None:
             pulumi.set(__self__, "has_public_ip", has_public_ip)
@@ -31995,7 +32366,7 @@ class VirtualApplianceAdditionalNicPropertiesResponse(dict):
     @pulumi.getter(name="hasPublicIp")
     def has_public_ip(self) -> Optional[bool]:
         """
-        Customer Intent for Public Ip on additional nic
+        Flag (true or false) for Intent for Public Ip on additional nic
         """
         return pulumi.get(self, "has_public_ip")
 
@@ -32003,7 +32374,7 @@ class VirtualApplianceAdditionalNicPropertiesResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Customer Name for additional nic
+        Name of additional nic
         """
         return pulumi.get(self, "name")
 
@@ -33023,6 +33394,8 @@ class VirtualNetworkGatewayResponse(dict):
             suggest = "resource_guid"
         elif key == "activeActive":
             suggest = "active_active"
+        elif key == "adminState":
+            suggest = "admin_state"
         elif key == "allowRemoteVnetTraffic":
             suggest = "allow_remote_vnet_traffic"
         elif key == "allowVirtualWanTraffic":
@@ -33081,6 +33454,7 @@ class VirtualNetworkGatewayResponse(dict):
                  resource_guid: str,
                  type: str,
                  active_active: Optional[bool] = None,
+                 admin_state: Optional[str] = None,
                  allow_remote_vnet_traffic: Optional[bool] = None,
                  allow_virtual_wan_traffic: Optional[bool] = None,
                  bgp_settings: Optional['outputs.BgpSettingsResponse'] = None,
@@ -33113,6 +33487,7 @@ class VirtualNetworkGatewayResponse(dict):
         :param str resource_guid: The resource GUID property of the virtual network gateway resource.
         :param str type: Resource type.
         :param bool active_active: ActiveActive flag.
+        :param str admin_state: Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
         :param bool allow_remote_vnet_traffic: Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
         :param bool allow_virtual_wan_traffic: Configures this gateway to accept traffic from remote Virtual WAN networks.
         :param 'BgpSettingsResponse' bgp_settings: Virtual network gateway's BGP speaker settings.
@@ -33145,6 +33520,8 @@ class VirtualNetworkGatewayResponse(dict):
         pulumi.set(__self__, "type", type)
         if active_active is not None:
             pulumi.set(__self__, "active_active", active_active)
+        if admin_state is not None:
+            pulumi.set(__self__, "admin_state", admin_state)
         if allow_remote_vnet_traffic is not None:
             pulumi.set(__self__, "allow_remote_vnet_traffic", allow_remote_vnet_traffic)
         if allow_virtual_wan_traffic is not None:
@@ -33247,6 +33624,14 @@ class VirtualNetworkGatewayResponse(dict):
         ActiveActive flag.
         """
         return pulumi.get(self, "active_active")
+
+    @property
+    @pulumi.getter(name="adminState")
+    def admin_state(self) -> Optional[str]:
+        """
+        Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+        """
+        return pulumi.get(self, "admin_state")
 
     @property
     @pulumi.getter(name="allowRemoteVnetTraffic")

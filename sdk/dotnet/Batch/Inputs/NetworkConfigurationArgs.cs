@@ -19,6 +19,12 @@ namespace Pulumi.AzureNative.Batch.Inputs
         public Input<Pulumi.AzureNative.Batch.DynamicVNetAssignmentScope>? DynamicVnetAssignmentScope { get; set; }
 
         /// <summary>
+        /// Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
+        /// </summary>
+        [Input("enableAcceleratedNetworking")]
+        public Input<bool>? EnableAcceleratedNetworking { get; set; }
+
+        /// <summary>
         /// Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
         /// </summary>
         [Input("endpointConfiguration")]

@@ -48,7 +48,7 @@ export class NetworkFabricController extends pulumi.CustomResource {
     /**
      * InfrastructureServices IP ranges.
      */
-    public /*out*/ readonly infrastructureServices!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.NetworkFabricControllerPropertiesResponseInfrastructureServices>;
+    public /*out*/ readonly infrastructureServices!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.InfrastructureServicesResponse>;
     /**
      * IPv4 Network Fabric Controller Address Space.
      */
@@ -64,7 +64,7 @@ export class NetworkFabricController extends pulumi.CustomResource {
     /**
      * Managed Resource Group configuration properties.
      */
-    public readonly managedResourceGroupConfiguration!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.NetworkFabricControllerPropertiesResponseManagedResourceGroupConfiguration | undefined>;
+    public readonly managedResourceGroupConfiguration!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.ManagedResourceGroupConfigurationResponse | undefined>;
     /**
      * The name of the resource
      */
@@ -104,7 +104,7 @@ export class NetworkFabricController extends pulumi.CustomResource {
     /**
      * WorkloadServices IP ranges.
      */
-    public /*out*/ readonly workloadServices!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.NetworkFabricControllerPropertiesResponseWorkloadServices>;
+    public /*out*/ readonly workloadServices!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.WorkloadServicesResponse>;
 
     /**
      * Create a NetworkFabricController resource with the given unique name, arguments, and options.
@@ -192,7 +192,7 @@ export interface NetworkFabricControllerArgs {
     /**
      * Managed Resource Group configuration properties.
      */
-    managedResourceGroupConfiguration?: pulumi.Input<inputs.managednetworkfabric.v20230201preview.NetworkFabricControllerPropertiesManagedResourceGroupConfigurationArgs>;
+    managedResourceGroupConfiguration?: pulumi.Input<inputs.managednetworkfabric.v20230201preview.ManagedResourceGroupConfigurationArgs>;
     /**
      * Name of the Network Fabric Controller
      */

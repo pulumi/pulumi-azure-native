@@ -109,7 +109,7 @@ class BookmarkRelation(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a relation between two resources
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +127,7 @@ class BookmarkRelation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a relation between two resources
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param BookmarkRelationArgs args: The arguments to use to populate this resource's properties.
@@ -178,7 +178,7 @@ class BookmarkRelation(pulumi.CustomResource):
             __props__.__dict__["related_resource_type"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:BookmarkRelation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:BookmarkRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:BookmarkRelation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BookmarkRelation, __self__).__init__(
             'azure-native:securityinsights:BookmarkRelation',

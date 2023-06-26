@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A budget resource.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-10-01
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2019-10-01
  */
 export class Budget extends pulumi.CustomResource {
     /**
@@ -136,7 +136,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:consumption/v20190101:Budget" }, { type: "azure-native:consumption/v20190401preview:Budget" }, { type: "azure-native:consumption/v20190501:Budget" }, { type: "azure-native:consumption/v20190501preview:Budget" }, { type: "azure-native:consumption/v20190601:Budget" }, { type: "azure-native:consumption/v20191001:Budget" }, { type: "azure-native:consumption/v20191101:Budget" }, { type: "azure-native:consumption/v20210501:Budget" }, { type: "azure-native:consumption/v20211001:Budget" }, { type: "azure-native:consumption/v20220901:Budget" }, { type: "azure-native:consumption/v20230301:Budget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:consumption/v20190101:Budget" }, { type: "azure-native:consumption/v20190401preview:Budget" }, { type: "azure-native:consumption/v20190501:Budget" }, { type: "azure-native:consumption/v20190501preview:Budget" }, { type: "azure-native:consumption/v20190601:Budget" }, { type: "azure-native:consumption/v20191001:Budget" }, { type: "azure-native:consumption/v20191101:Budget" }, { type: "azure-native:consumption/v20210501:Budget" }, { type: "azure-native:consumption/v20211001:Budget" }, { type: "azure-native:consumption/v20220901:Budget" }, { type: "azure-native:consumption/v20230301:Budget" }, { type: "azure-native:consumption/v20230501:Budget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Budget.__pulumiType, name, resourceInputs, opts);
     }

@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayCustomErrorResponse> CustomErrorConfigurations;
         /// <summary>
+        /// The default predefined SSL Policy applied on the application gateway resource.
+        /// </summary>
+        public readonly string DefaultPredefinedSslPolicy;
+        /// <summary>
         /// Whether FIPS is enabled on the application gateway resource.
         /// </summary>
         public readonly bool? EnableFips;
@@ -203,6 +207,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             ImmutableArray<Outputs.ApplicationGatewayCustomErrorResponse> customErrorConfigurations,
 
+            string defaultPredefinedSslPolicy,
+
             bool? enableFips,
 
             bool? enableHttp2,
@@ -283,6 +289,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             BackendHttpSettingsCollection = backendHttpSettingsCollection;
             BackendSettingsCollection = backendSettingsCollection;
             CustomErrorConfigurations = customErrorConfigurations;
+            DefaultPredefinedSslPolicy = defaultPredefinedSslPolicy;
             EnableFips = enableFips;
             EnableHttp2 = enableHttp2;
             Etag = etag;

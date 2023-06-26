@@ -43,10 +43,12 @@ utilities.lazyLoad(exports, ["ManagementGroupSubscription"], () => require("./ma
 
 // Export sub-modules:
 import * as v20200501 from "./v20200501";
+import * as v20201001 from "./v20201001";
 import * as v20210401 from "./v20210401";
 
 export {
     v20200501,
+    v20201001,
     v20210401,
 };
 

@@ -70,6 +70,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
         /// Groups for rule collection
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponse> RuleCollectionAppliesToGroups;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string provisioningState,
 
+            string resourceGuid,
+
             ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponse> ruleCollectionAppliesToGroups,
 
             string? ruleCollectionDescription,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             Priority = priority;
             Protocol = protocol;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             RuleCollectionAppliesToGroups = ruleCollectionAppliesToGroups;
             RuleCollectionDescription = ruleCollectionDescription;
             RuleCollectionDisplayName = ruleCollectionDisplayName;

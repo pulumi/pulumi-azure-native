@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided storage appliance.
-        /// Azure REST API version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetStorageApplianceResult> InvokeAsync(GetStorageApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageApplianceResult>("azure-native:networkcloud:getStorageAppliance", args ?? new GetStorageApplianceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided storage appliance.
-        /// Azure REST API version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetStorageApplianceResult> Invoke(GetStorageApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageApplianceResult>("azure-native:networkcloud:getStorageAppliance", args ?? new GetStorageApplianceInvokeArgs(), options.WithDefaults());
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>

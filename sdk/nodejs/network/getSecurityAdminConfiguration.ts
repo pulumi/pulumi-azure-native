@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves a network manager security admin configuration.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getSecurityAdminConfiguration(args: GetSecurityAdminConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityAdminConfigurationResult> {
 
@@ -65,6 +65,10 @@ export interface GetSecurityAdminConfigurationResult {
      */
     readonly provisioningState: string;
     /**
+     * Unique identifier for this resource.
+     */
+    readonly resourceGuid: string;
+    /**
      * The system metadata related to this resource.
      */
     readonly systemData: outputs.network.SystemDataResponse;
@@ -75,7 +79,7 @@ export interface GetSecurityAdminConfigurationResult {
 }
 /**
  * Retrieves a network manager security admin configuration.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getSecurityAdminConfigurationOutput(args: GetSecurityAdminConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityAdminConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getSecurityAdminConfiguration(a, opts))

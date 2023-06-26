@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualNetworkGatewayAdvertisedRoutes(args: GetVirtualNetworkGatewayAdvertisedRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayAdvertisedRoutesResult> {
 
@@ -47,7 +47,7 @@ export interface GetVirtualNetworkGatewayAdvertisedRoutesResult {
 }
 /**
  * This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualNetworkGatewayAdvertisedRoutesOutput(args: GetVirtualNetworkGatewayAdvertisedRoutesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayAdvertisedRoutesResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayAdvertisedRoutes(a, opts))

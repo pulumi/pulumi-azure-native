@@ -1226,7 +1226,9 @@ class PermissionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataActions":
+        if key == "conditionVersion":
+            suggest = "condition_version"
+        elif key == "dataActions":
             suggest = "data_actions"
         elif key == "notActions":
             suggest = "not_actions"
@@ -1245,17 +1247,23 @@ class PermissionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 condition: str,
+                 condition_version: str,
                  actions: Optional[Sequence[str]] = None,
                  data_actions: Optional[Sequence[str]] = None,
                  not_actions: Optional[Sequence[str]] = None,
                  not_data_actions: Optional[Sequence[str]] = None):
         """
         Role definition permissions.
+        :param str condition: The conditions on the role definition. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+        :param str condition_version: Version of the condition. Currently the only accepted value is '2.0'
         :param Sequence[str] actions: Allowed actions.
         :param Sequence[str] data_actions: Allowed Data actions.
         :param Sequence[str] not_actions: Denied actions.
         :param Sequence[str] not_data_actions: Denied Data actions.
         """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "condition_version", condition_version)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if data_actions is not None:
@@ -1264,6 +1272,22 @@ class PermissionResponse(dict):
             pulumi.set(__self__, "not_actions", not_actions)
         if not_data_actions is not None:
             pulumi.set(__self__, "not_data_actions", not_data_actions)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> str:
+        """
+        The conditions on the role definition. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> str:
+        """
+        Version of the condition. Currently the only accepted value is '2.0'
+        """
+        return pulumi.get(self, "condition_version")
 
     @property
     @pulumi.getter

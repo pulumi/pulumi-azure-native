@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of the specified volume
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
 
@@ -45,6 +45,10 @@ export interface GetVolumeArgs {
  * Volume resource
  */
 export interface GetVolumeResult {
+    /**
+     * Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
+     */
+    readonly actualThroughputMibps: number;
     /**
      * Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
      */
@@ -178,6 +182,10 @@ export interface GetVolumeResult {
      */
     readonly networkSiblingSetId: string;
     /**
+     * Id of the snapshot or backup that the volume is restored from.
+     */
+    readonly originatingResourceId: string;
+    /**
      * Application specific placement rules for the particular volume
      */
     readonly placementRules?: outputs.netapp.PlacementKeyValuePairsResponse[];
@@ -222,7 +230,7 @@ export interface GetVolumeResult {
      */
     readonly smbNonBrowsable?: string;
     /**
-     * If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+     * If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
      */
     readonly snapshotDirectoryVisible?: boolean;
     /**
@@ -281,7 +289,7 @@ export interface GetVolumeResult {
 }
 /**
  * Get the details of the specified volume
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))

@@ -10,6 +10,7 @@ __all__ = [
     'ActionType',
     'AddressPrefixType',
     'AdminRuleKind',
+    'AdminState',
     'AllowedEndpointRecordType',
     'AlwaysServe',
     'ApplicationGatewayClientRevocationOptions',
@@ -259,6 +260,14 @@ class AdminRuleKind(str, Enum):
     DEFAULT = "Default"
 
 
+class AdminState(str, Enum):
+    """
+    Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class AllowedEndpointRecordType(str, Enum):
     """
     The allowed type DNS record types for this profile.
@@ -302,7 +311,6 @@ class ApplicationGatewayCustomErrorStatusCode(str, Enum):
     HTTP_STATUS404 = "HttpStatus404"
     HTTP_STATUS405 = "HttpStatus405"
     HTTP_STATUS408 = "HttpStatus408"
-    HTTP_STATUS499 = "HttpStatus499"
     HTTP_STATUS500 = "HttpStatus500"
     HTTP_STATUS502 = "HttpStatus502"
     HTTP_STATUS503 = "HttpStatus503"

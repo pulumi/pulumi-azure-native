@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     {
         /// <summary>
         /// Get installed Solution details by Solution id.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetSolutionResult> InvokeAsync(GetSolutionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-native:agfoodplatform:getSolution", args ?? new GetSolutionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get installed Solution details by Solution id.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetSolutionResult> Invoke(GetSolutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionResult>("azure-native:agfoodplatform:getSolution", args ?? new GetSolutionInvokeArgs(), options.WithDefaults());
@@ -30,10 +30,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public sealed class GetSolutionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// FarmBeats resource name.
+        /// DataManagerForAgriculture resource name.
         /// </summary>
-        [Input("farmBeatsResourceName", required: true)]
-        public string FarmBeatsResourceName { get; set; } = null!;
+        [Input("dataManagerForAgricultureResourceName", required: true)]
+        public string DataManagerForAgricultureResourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Solution Id of the solution.
+        /// SolutionId for Data Manager For Agriculture Resource.
         /// </summary>
         [Input("solutionId", required: true)]
         public string SolutionId { get; set; } = null!;
@@ -56,10 +56,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public sealed class GetSolutionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// FarmBeats resource name.
+        /// DataManagerForAgriculture resource name.
         /// </summary>
-        [Input("farmBeatsResourceName", required: true)]
-        public Input<string> FarmBeatsResourceName { get; set; } = null!;
+        [Input("dataManagerForAgricultureResourceName", required: true)]
+        public Input<string> DataManagerForAgricultureResourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Solution Id of the solution.
+        /// SolutionId for Data Manager For Agriculture Resource.
         /// </summary>
         [Input("solutionId", required: true)]
         public Input<string> SolutionId { get; set; } = null!;

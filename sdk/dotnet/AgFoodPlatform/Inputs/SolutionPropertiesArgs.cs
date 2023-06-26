@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.Inputs
     public sealed class SolutionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// SaaS application Publisher Id.
+        /// SaaS application Marketplace Publisher Id.
         /// </summary>
         [Input("marketplacePublisherId", required: true)]
         public Input<string> MarketplacePublisherId { get; set; } = null!;

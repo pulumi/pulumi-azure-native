@@ -2,11 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20200605preview from "./v20200605preview";
 import * as v20220521preview from "./v20220521preview";
 
 export {
-    v20200605preview,
     v20220521preview,
 };
 
@@ -39,6 +37,16 @@ export const DynamicMemoryEnabled = {
  * Gets or sets a value indicating whether to enable dynamic memory or not.
  */
 export type DynamicMemoryEnabled = (typeof DynamicMemoryEnabled)[keyof typeof DynamicMemoryEnabled];
+
+export const IdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * The type of managed service identity.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const InventoryType = {
     Cloud: "Cloud",

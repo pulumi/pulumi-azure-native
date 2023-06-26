@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a VirtualHubRouteTableV2.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualHubRouteTableV2(args: GetVirtualHubRouteTableV2Args, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubRouteTableV2Result> {
 
@@ -67,7 +67,7 @@ export interface GetVirtualHubRouteTableV2Result {
 }
 /**
  * Retrieves the details of a VirtualHubRouteTableV2.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualHubRouteTableV2Output(args: GetVirtualHubRouteTableV2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubRouteTableV2Result> {
     return pulumi.output(args).apply((a: any) => getVirtualHubRouteTableV2(a, opts))

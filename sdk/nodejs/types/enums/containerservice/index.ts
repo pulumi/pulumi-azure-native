@@ -2,44 +2,28 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20190430 from "./v20190430";
 import * as v20190601 from "./v20190601";
 import * as v20191027preview from "./v20191027preview";
 import * as v20200601 from "./v20200601";
 import * as v20210201 from "./v20210201";
-import * as v20210301 from "./v20210301";
 import * as v20210501 from "./v20210501";
 import * as v20210801 from "./v20210801";
-import * as v20220202preview from "./v20220202preview";
 import * as v20220402preview from "./v20220402preview";
-import * as v20230102preview from "./v20230102preview";
-import * as v20230201 from "./v20230201";
-import * as v20230202preview from "./v20230202preview";
-import * as v20230301 from "./v20230301";
-import * as v20230302preview from "./v20230302preview";
 import * as v20230315preview from "./v20230315preview";
 import * as v20230401 from "./v20230401";
-import * as v20230402preview from "./v20230402preview";
+import * as v20230502preview from "./v20230502preview";
 
 export {
-    v20190430,
     v20190601,
     v20191027preview,
     v20200601,
     v20210201,
-    v20210301,
     v20210501,
     v20210801,
-    v20220202preview,
     v20220402preview,
-    v20230102preview,
-    v20230201,
-    v20230202preview,
-    v20230301,
-    v20230302preview,
     v20230315preview,
     v20230401,
-    v20230402preview,
+    v20230502preview,
 };
 
 export const AgentPoolMode = {

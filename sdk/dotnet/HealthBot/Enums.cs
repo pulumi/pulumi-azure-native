@@ -56,6 +56,7 @@ namespace Pulumi.AzureNative.HealthBot
         public static SkuName F0 { get; } = new SkuName("F0");
         public static SkuName S1 { get; } = new SkuName("S1");
         public static SkuName C0 { get; } = new SkuName("C0");
+        public static SkuName PES { get; } = new SkuName("PES");
 
         public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
         public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);

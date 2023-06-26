@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * This operation applies only to Batch accounts with allowedAuthenticationModes containing 'SharedKey'. If the Batch account doesn't contain 'SharedKey' in its allowedAuthenticationMode, clients cannot use shared keys to authenticate, and must use another allowedAuthenticationModes instead. In this case, getting the keys will fail.
- * Azure REST API version: 2022-10-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function listBatchAccountKeys(args: ListBatchAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListBatchAccountKeysResult> {
 
@@ -47,7 +47,7 @@ export interface ListBatchAccountKeysResult {
 }
 /**
  * This operation applies only to Batch accounts with allowedAuthenticationModes containing 'SharedKey'. If the Batch account doesn't contain 'SharedKey' in its allowedAuthenticationMode, clients cannot use shared keys to authenticate, and must use another allowedAuthenticationModes instead. In this case, getting the keys will fail.
- * Azure REST API version: 2022-10-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function listBatchAccountKeysOutput(args: ListBatchAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBatchAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listBatchAccountKeys(a, opts))

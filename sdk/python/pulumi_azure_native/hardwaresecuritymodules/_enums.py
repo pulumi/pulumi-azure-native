@@ -5,8 +5,47 @@
 from enum import Enum
 
 __all__ = [
+    'CloudHsmClusterSkuFamily',
+    'CloudHsmClusterSkuName',
+    'PrivateEndpointServiceConnectionStatus',
+    'ProvisioningState',
     'SkuName',
 ]
+
+
+class CloudHsmClusterSkuFamily(str, Enum):
+    """
+    Sku family of the Cloud HSM Cluster
+    """
+    B = "B"
+
+
+class CloudHsmClusterSkuName(str, Enum):
+    """
+    Sku name of the Cloud HSM Cluster
+    """
+    STANDARD_B1 = "Standard_B1"
+    STANDARD_B10 = "Standard B10"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+
+
+class ProvisioningState(str, Enum):
+    """
+    The Cloud HSM Cluster's provisioningState
+    """
+    PROVISIONING = "Provisioning"
+    SUCCEEDED = "Succeeded"
+    FAILED = "Failed"
+    DELETING = "Deleting"
+    CANCELED = "Canceled"
 
 
 class SkuName(str, Enum):

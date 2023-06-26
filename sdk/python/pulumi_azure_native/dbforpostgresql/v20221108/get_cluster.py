@@ -185,7 +185,7 @@ class GetClusterResult:
     @pulumi.getter(name="enableShardsOnCoordinator")
     def enable_shards_on_coordinator(self) -> Optional[bool]:
         """
-        If shards on coordinator is enabled or not for the cluster.
+        If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
         """
         return pulumi.get(self, "enable_shards_on_coordinator")
 

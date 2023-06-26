@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VirtualWAN Resource.
-    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualWan")]
     public partial class VirtualWan : global::Pulumi.CustomResource
@@ -144,6 +144,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualWan"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualWan"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualWan"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:VirtualWan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

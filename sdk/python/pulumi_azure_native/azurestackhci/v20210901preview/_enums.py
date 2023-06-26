@@ -16,7 +16,6 @@ __all__ = [
     'OperatingSystemTypes',
     'OsTypeEnum',
     'PrivateIPAllocationMethodEnum',
-    'ProvisioningAction',
     'ResourceIdentityType',
 ]
 
@@ -115,15 +114,6 @@ class PrivateIPAllocationMethodEnum(str, Enum):
     """
     DYNAMIC = "Dynamic"
     STATIC = "Static"
-
-
-class ProvisioningAction(str, Enum):
-    """
-    The guest agent provisioning action.
-    """
-    INSTALL = "install"
-    UNINSTALL = "uninstall"
-    REPAIR = "repair"
 
 
 class ResourceIdentityType(str, Enum):

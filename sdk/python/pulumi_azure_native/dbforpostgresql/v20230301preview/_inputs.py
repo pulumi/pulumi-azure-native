@@ -548,20 +548,20 @@ class SkuArgs:
 class StorageArgs:
     def __init__(__self__, *,
                  auto_grow: Optional[pulumi.Input[Union[str, 'StorageAutoGrow']]] = None,
-                 iops_tier: Optional[pulumi.Input[Union[str, 'AzureManagedDiskPerformanceTiers']]] = None,
-                 storage_size_gb: Optional[pulumi.Input[int]] = None):
+                 storage_size_gb: Optional[pulumi.Input[int]] = None,
+                 tier: Optional[pulumi.Input[Union[str, 'AzureManagedDiskPerformanceTiers']]] = None):
         """
         Storage properties of a server
         :param pulumi.Input[Union[str, 'StorageAutoGrow']] auto_grow: Flag to enable / disable Storage Auto grow for flexible server.
-        :param pulumi.Input[Union[str, 'AzureManagedDiskPerformanceTiers']] iops_tier: Name of storage tier for IOPS.
         :param pulumi.Input[int] storage_size_gb: Max storage allowed for a server.
+        :param pulumi.Input[Union[str, 'AzureManagedDiskPerformanceTiers']] tier: Name of storage tier for IOPS.
         """
         if auto_grow is not None:
             pulumi.set(__self__, "auto_grow", auto_grow)
-        if iops_tier is not None:
-            pulumi.set(__self__, "iops_tier", iops_tier)
         if storage_size_gb is not None:
             pulumi.set(__self__, "storage_size_gb", storage_size_gb)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter(name="autoGrow")
@@ -576,18 +576,6 @@ class StorageArgs:
         pulumi.set(self, "auto_grow", value)
 
     @property
-    @pulumi.getter(name="iopsTier")
-    def iops_tier(self) -> Optional[pulumi.Input[Union[str, 'AzureManagedDiskPerformanceTiers']]]:
-        """
-        Name of storage tier for IOPS.
-        """
-        return pulumi.get(self, "iops_tier")
-
-    @iops_tier.setter
-    def iops_tier(self, value: Optional[pulumi.Input[Union[str, 'AzureManagedDiskPerformanceTiers']]]):
-        pulumi.set(self, "iops_tier", value)
-
-    @property
     @pulumi.getter(name="storageSizeGB")
     def storage_size_gb(self) -> Optional[pulumi.Input[int]]:
         """
@@ -598,6 +586,18 @@ class StorageArgs:
     @storage_size_gb.setter
     def storage_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "storage_size_gb", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'AzureManagedDiskPerformanceTiers']]]:
+        """
+        Name of storage tier for IOPS.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'AzureManagedDiskPerformanceTiers']]]):
+        pulumi.set(self, "tier", value)
 
 
 @pulumi.input_type

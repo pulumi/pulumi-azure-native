@@ -8,6 +8,7 @@ import typing
 from ._enums import *
 from .get_monitor import *
 from .get_organization_api_key import *
+from .get_organization_elastic_to_azure_subscription_mapping import *
 from .get_tag_rule import *
 from .list_all_traffic_filter import *
 from .list_deployment_info import *
@@ -22,20 +23,17 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.elastic.v20200701 as __v20200701
-    v20200701 = __v20200701
-    import pulumi_azure_native.elastic.v20220901preview as __v20220901preview
-    v20220901preview = __v20220901preview
     import pulumi_azure_native.elastic.v20230201preview as __v20230201preview
     v20230201preview = __v20230201preview
     import pulumi_azure_native.elastic.v20230501preview as __v20230501preview
     v20230501preview = __v20230501preview
     import pulumi_azure_native.elastic.v20230601 as __v20230601
     v20230601 = __v20230601
+    import pulumi_azure_native.elastic.v20230615preview as __v20230615preview
+    v20230615preview = __v20230615preview
 else:
-    v20200701 = _utilities.lazy_import('pulumi_azure_native.elastic.v20200701')
-    v20220901preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20220901preview')
     v20230201preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230201preview')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230501preview')
     v20230601 = _utilities.lazy_import('pulumi_azure_native.elastic.v20230601')
+    v20230615preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230615preview')
 

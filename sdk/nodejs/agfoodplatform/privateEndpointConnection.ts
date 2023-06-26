@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The private endpoint connection resource.
- * Azure REST API version: 2021-09-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -78,8 +78,8 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.farmBeatsResourceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'farmBeatsResourceName'");
+            if ((!args || args.dataManagerForAgricultureResourceName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataManagerForAgricultureResourceName'");
             }
             if ((!args || args.privateLinkServiceConnectionState === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkServiceConnectionState'");
@@ -87,7 +87,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["farmBeatsResourceName"] = args ? args.farmBeatsResourceName : undefined;
+            resourceInputs["dataManagerForAgricultureResourceName"] = args ? args.dataManagerForAgricultureResourceName : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -107,7 +107,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20210901preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20210901preview:PrivateEndpointConnection" }, { type: "azure-native:agfoodplatform/v20230601preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -118,9 +118,9 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface PrivateEndpointConnectionArgs {
     /**
-     * FarmBeats resource name.
+     * DataManagerForAgriculture resource name.
      */
-    farmBeatsResourceName: pulumi.Input<string>;
+    dataManagerForAgricultureResourceName: pulumi.Input<string>;
     /**
      * Private endpoint connection name.
      */

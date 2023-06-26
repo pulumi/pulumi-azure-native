@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a connected cluster.
- * Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2021-03-01
+ * Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class ConnectedCluster extends pulumi.CustomResource {
     /**
@@ -87,6 +87,14 @@ export class ConnectedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly offering!: pulumi.Output<string>;
     /**
+     * The resource id of the private link scope this connected cluster is assigned to, if any.
+     */
+    public readonly privateLinkScopeResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * Property which describes the state of private link on a connected cluster resource.
+     */
+    public readonly privateLinkState!: pulumi.Output<string | undefined>;
+    /**
      * Provisioning state of the connected cluster resource.
      */
     public readonly provisioningState!: pulumi.Output<string | undefined>;
@@ -137,6 +145,8 @@ export class ConnectedCluster extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? (args.identity ? pulumi.output(args.identity).apply(inputs.kubernetes.connectedClusterIdentityArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["infrastructure"] = args ? args.infrastructure : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["privateLinkScopeResourceId"] = args ? args.privateLinkScopeResourceId : undefined;
+            resourceInputs["privateLinkState"] = (args ? args.privateLinkState : undefined) ?? "Disabled";
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -164,6 +174,8 @@ export class ConnectedCluster extends pulumi.CustomResource {
             resourceInputs["managedIdentityCertificateExpirationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["offering"] = undefined /*out*/;
+            resourceInputs["privateLinkScopeResourceId"] = undefined /*out*/;
+            resourceInputs["privateLinkState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -206,6 +218,14 @@ export interface ConnectedClusterArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The resource id of the private link scope this connected cluster is assigned to, if any.
+     */
+    privateLinkScopeResourceId?: pulumi.Input<string>;
+    /**
+     * Property which describes the state of private link on a connected cluster resource.
+     */
+    privateLinkState?: pulumi.Input<string | enums.kubernetes.PrivateLinkState>;
     /**
      * Provisioning state of the connected cluster resource.
      */

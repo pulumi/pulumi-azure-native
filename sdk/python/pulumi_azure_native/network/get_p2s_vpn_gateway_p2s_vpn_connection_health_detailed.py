@@ -51,7 +51,7 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed(gateway_name: Optiona
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult:
     """
     Gets the sas url to get the connection health detail of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str gateway_name: The name of the P2SVpnGateway.
@@ -79,7 +79,7 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed_output(gateway_name: 
                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult]:
     """
     Gets the sas url to get the connection health detail of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str gateway_name: The name of the P2SVpnGateway.

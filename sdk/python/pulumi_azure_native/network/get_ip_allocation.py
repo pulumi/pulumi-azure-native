@@ -195,7 +195,7 @@ def get_ip_allocation(expand: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpAllocationResult:
     """
     Gets the specified IpAllocation by resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -232,7 +232,7 @@ def get_ip_allocation_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpAllocationResult]:
     """
     Gets the specified IpAllocation by resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified nat gateway in a specified resource group.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure-native:network:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified nat gateway in a specified resource group.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("azure-native:network:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());

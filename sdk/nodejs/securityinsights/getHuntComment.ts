@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a hunt comment
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getHuntComment(args: GetHuntCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetHuntCommentResult> {
 
@@ -72,7 +72,7 @@ export interface GetHuntCommentResult {
 }
 /**
  * Gets a hunt comment
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getHuntCommentOutput(args: GetHuntCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHuntCommentResult> {
     return pulumi.output(args).apply((a: any) => getHuntComment(a, opts))

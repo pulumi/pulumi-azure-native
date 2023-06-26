@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified application gateway.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayResult> {
 
@@ -59,6 +59,10 @@ export interface GetApplicationGatewayResult {
      * Custom error configurations of the application gateway resource.
      */
     readonly customErrorConfigurations?: outputs.network.ApplicationGatewayCustomErrorResponse[];
+    /**
+     * The default predefined SSL Policy applied on the application gateway resource.
+     */
+    readonly defaultPredefinedSslPolicy: string;
     /**
      * Whether FIPS is enabled on the application gateway resource.
      */
@@ -210,7 +214,7 @@ export interface GetApplicationGatewayResult {
 }
 /**
  * Gets the specified application gateway.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
     return pulumi.output(args).apply((a: any) => getApplicationGateway(a, opts))

@@ -49,7 +49,7 @@ export class NetworkFabricController extends pulumi.CustomResource {
     /**
      * InfrastructureServices IP ranges.
      */
-    public /*out*/ readonly infrastructureServices!: pulumi.Output<outputs.managednetworkfabric.NetworkFabricControllerPropertiesResponseInfrastructureServices>;
+    public /*out*/ readonly infrastructureServices!: pulumi.Output<outputs.managednetworkfabric.InfrastructureServicesResponse>;
     /**
      * IPv4 Network Fabric Controller Address Space.
      */
@@ -65,7 +65,7 @@ export class NetworkFabricController extends pulumi.CustomResource {
     /**
      * Managed Resource Group configuration properties.
      */
-    public readonly managedResourceGroupConfiguration!: pulumi.Output<outputs.managednetworkfabric.NetworkFabricControllerPropertiesResponseManagedResourceGroupConfiguration | undefined>;
+    public readonly managedResourceGroupConfiguration!: pulumi.Output<outputs.managednetworkfabric.ManagedResourceGroupConfigurationResponse | undefined>;
     /**
      * The name of the resource
      */
@@ -105,7 +105,7 @@ export class NetworkFabricController extends pulumi.CustomResource {
     /**
      * WorkloadServices IP ranges.
      */
-    public /*out*/ readonly workloadServices!: pulumi.Output<outputs.managednetworkfabric.NetworkFabricControllerPropertiesResponseWorkloadServices>;
+    public /*out*/ readonly workloadServices!: pulumi.Output<outputs.managednetworkfabric.WorkloadServicesResponse>;
 
     /**
      * Create a NetworkFabricController resource with the given unique name, arguments, and options.
@@ -193,7 +193,7 @@ export interface NetworkFabricControllerArgs {
     /**
      * Managed Resource Group configuration properties.
      */
-    managedResourceGroupConfiguration?: pulumi.Input<inputs.managednetworkfabric.NetworkFabricControllerPropertiesManagedResourceGroupConfigurationArgs>;
+    managedResourceGroupConfiguration?: pulumi.Input<inputs.managednetworkfabric.ManagedResourceGroupConfigurationArgs>;
     /**
      * Name of the Network Fabric Controller
      */

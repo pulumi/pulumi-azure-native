@@ -85,7 +85,7 @@ class GetL3IsolationDomainResult:
 
     @property
     @pulumi.getter(name="aggregateRouteConfiguration")
-    def aggregate_route_configuration(self) -> Optional['outputs.L3IsolationDomainPatchPropertiesResponseAggregateRouteConfiguration']:
+    def aggregate_route_configuration(self) -> Optional['outputs.AggregateRouteConfigurationResponse']:
         """
         List of Ipv4 and Ipv6 route configurations.
         """

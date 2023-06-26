@@ -11,12 +11,56 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApiKeyAuthCredentialsArgs',
     'ApiPropertiesArgs',
+    'DataConnectorPropertiesArgs',
     'IdentityArgs',
+    'KeyVaultPropertiesArgs',
+    'OAuthClientCredentialsArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'SensorIntegrationArgs',
     'SolutionPropertiesArgs',
 ]
+
+@pulumi.input_type
+class ApiKeyAuthCredentialsArgs:
+    def __init__(__self__, *,
+                 api_key: pulumi.Input['KeyVaultPropertiesArgs'],
+                 kind: pulumi.Input[str]):
+        """
+        ApiKeyAuthCredentials class for ApiKey based Auth.
+        :param pulumi.Input['KeyVaultPropertiesArgs'] api_key: Properties of the key vault.
+        :param pulumi.Input[str] kind: Enum for different types of AuthCredentials supported.
+               Expected value is 'ApiKeyAuthCredentials'.
+        """
+        pulumi.set(__self__, "api_key", api_key)
+        pulumi.set(__self__, "kind", 'ApiKeyAuthCredentials')
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> pulumi.Input['KeyVaultPropertiesArgs']:
+        """
+        Properties of the key vault.
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: pulumi.Input['KeyVaultPropertiesArgs']):
+        pulumi.set(self, "api_key", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        Enum for different types of AuthCredentials supported.
+        Expected value is 'ApiKeyAuthCredentials'.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
 
 @pulumi.input_type
 class ApiPropertiesArgs:
@@ -43,6 +87,29 @@ class ApiPropertiesArgs:
 
 
 @pulumi.input_type
+class DataConnectorPropertiesArgs:
+    def __init__(__self__, *,
+                 credentials: pulumi.Input[Union['ApiKeyAuthCredentialsArgs', 'OAuthClientCredentialsArgs']]):
+        """
+        DataConnector Properties.
+        :param pulumi.Input[Union['ApiKeyAuthCredentialsArgs', 'OAuthClientCredentialsArgs']] credentials: AuthCredentials abstract base class for Auth Purpose.
+        """
+        pulumi.set(__self__, "credentials", credentials)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> pulumi.Input[Union['ApiKeyAuthCredentialsArgs', 'OAuthClientCredentialsArgs']]:
+        """
+        AuthCredentials abstract base class for Auth Purpose.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: pulumi.Input[Union['ApiKeyAuthCredentialsArgs', 'OAuthClientCredentialsArgs']]):
+        pulumi.set(self, "credentials", value)
+
+
+@pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None):
@@ -64,6 +131,114 @@ class IdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 key_name: pulumi.Input[str],
+                 key_vault_uri: pulumi.Input[str],
+                 key_version: pulumi.Input[str]):
+        """
+        Properties of the key vault.
+        :param pulumi.Input[str] key_name: Name of Key Vault key.
+        :param pulumi.Input[str] key_vault_uri: Uri of the key vault.
+        :param pulumi.Input[str] key_version: Version of Key Vault key.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[str]:
+        """
+        Name of Key Vault key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> pulumi.Input[str]:
+        """
+        Uri of the key vault.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_uri", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> pulumi.Input[str]:
+        """
+        Version of Key Vault key.
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_version", value)
+
+
+@pulumi.input_type
+class OAuthClientCredentialsArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: pulumi.Input['KeyVaultPropertiesArgs'],
+                 kind: pulumi.Input[str]):
+        """
+        OAuthClientCredentials for clientId clientSecret auth.
+        :param pulumi.Input[str] client_id: ClientId associated with the provider.
+        :param pulumi.Input['KeyVaultPropertiesArgs'] client_secret: Properties of the key vault.
+        :param pulumi.Input[str] kind: Enum for different types of AuthCredentials supported.
+               Expected value is 'OAuthClientCredentials'.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "kind", 'OAuthClientCredentials')
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        ClientId associated with the provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input['KeyVaultPropertiesArgs']:
+        """
+        Properties of the key vault.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input['KeyVaultPropertiesArgs']):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        Enum for different types of AuthCredentials supported.
+        Expected value is 'OAuthClientCredentials'.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
 
 
 @pulumi.input_type
@@ -157,7 +332,7 @@ class SolutionPropertiesArgs:
                  term_id: pulumi.Input[str]):
         """
         Solution resource properties.
-        :param pulumi.Input[str] marketplace_publisher_id: SaaS application Publisher Id.
+        :param pulumi.Input[str] marketplace_publisher_id: SaaS application Marketplace Publisher Id.
         :param pulumi.Input[str] offer_id: SaaS application Offer Id.
         :param pulumi.Input[str] plan_id: SaaS application Plan Id.
         :param pulumi.Input[str] saas_subscription_id: SaaS subscriptionId of the installed SaaS application.
@@ -175,7 +350,7 @@ class SolutionPropertiesArgs:
     @pulumi.getter(name="marketplacePublisherId")
     def marketplace_publisher_id(self) -> pulumi.Input[str]:
         """
-        SaaS application Publisher Id.
+        SaaS application Marketplace Publisher Id.
         """
         return pulumi.get(self, "marketplace_publisher_id")
 

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified network group.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetNetworkGroupResult> InvokeAsync(GetNetworkGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkGroupResult>("azure-native:network:getNetworkGroup", args ?? new GetNetworkGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified network group.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetNetworkGroupResult> Invoke(GetNetworkGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkGroupResult>("azure-native:network:getNetworkGroup", args ?? new GetNetworkGroupInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            string resourceGuid,
+
             Outputs.SystemDataResponse systemData,
 
             string type)
@@ -133,6 +139,7 @@ namespace Pulumi.AzureNative.Network
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             SystemData = systemData;
             Type = type;
         }

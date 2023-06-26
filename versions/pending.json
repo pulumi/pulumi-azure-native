@@ -10,7 +10,9 @@
   ],
   "Addons": [],
   "Advisor": [],
-  "AgFoodPlatform": [],
+  "AgFoodPlatform": [
+    "2023-06-01-preview"
+  ],
   "AlertsManagement": [
     "2019-06-01",
     "2021-04-01",
@@ -18,7 +20,8 @@
     "2021-08-08",
     "2021-08-08-preview",
     "2023-03-01",
-    "2023-04-01-preview"
+    "2023-04-01-preview",
+    "2023-05-01-preview"
   ],
   "AnalysisServices": [
     "2017-08-01-beta"
@@ -57,6 +60,7 @@
     "2021-11-16-preview",
     "2021-12-01-preview",
     "2022-04-01",
+    "2022-05-01-preview",
     "2022-06-01",
     "2022-07-01-preview",
     "2022-08-01-preview"
@@ -113,10 +117,7 @@
   "Cdn": [],
   "CertificateRegistration": [],
   "ChangeAnalysis": [],
-  "Chaos": [
-    "2023-04-01-preview",
-    "2023-04-15-preview"
-  ],
+  "Chaos": [],
   "CognitiveServices": [],
   "Commerce": [],
   "Communication": [
@@ -205,7 +206,9 @@
     "2023-03-02-preview",
     "2023-03-15-preview",
     "2023-04-01",
-    "2023-04-02-preview"
+    "2023-04-02-preview",
+    "2023-05-01",
+    "2023-05-02-preview"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -306,15 +309,8 @@
   "DevOps": [],
   "DevSpaces": [],
   "DevTestLab": [],
-  "DeviceUpdate": [
-    "2022-12-01-preview"
-  ],
+  "DeviceUpdate": [],
   "Devices": [
-    "2021-07-02-preview",
-    "2021-10-15",
-    "2022-02-05",
-    "2022-04-30-preview",
-    "2022-11-15-preview",
     "2022-12-12",
     "2023-03-01-preview"
   ],
@@ -331,7 +327,9 @@
   ],
   "EdgeOrderPartner": [],
   "Education": [],
-  "Elastic": [],
+  "Elastic": [
+    "2023-06-15-preview"
+  ],
   "ElasticSan": [],
   "EngagementFabric": [],
   "EnterpriseKnowledgeGraph": [],
@@ -354,11 +352,11 @@
   "FluidRelay": [],
   "GraphServices": [],
   "GuestConfiguration": [],
-  "HDInsight": [
-    "2023-04-15-preview"
-  ],
+  "HDInsight": [],
   "HanaOnAzure": [],
-  "HardwareSecurityModules": [],
+  "HardwareSecurityModules": [
+    "2022-08-31-preview"
+  ],
   "HealthBot": [],
   "HealthcareApis": [
     "2022-12-01",
@@ -386,9 +384,7 @@
   "HybridConnectivity": [],
   "HybridContainerService": [],
   "HybridData": [],
-  "HybridNetwork": [
-    "2022-01-01-preview"
-  ],
+  "HybridNetwork": [],
   "ImportExport": [],
   "Insights": [
     "2016-03-01",
@@ -564,14 +560,6 @@
   "Monitor": [],
   "NetApp": [],
   "Network": [
-    "2018-06-01",
-    "2018-07-01",
-    "2018-08-01",
-    "2018-09-01",
-    "2018-10-01",
-    "2018-11-01",
-    "2018-12-01",
-    "2019-02-01",
     "2019-03-01",
     "2019-04-01",
     "2019-05-01",
@@ -607,9 +595,12 @@
     "2022-07-01",
     "2022-09-01",
     "2022-11-01",
+    "2023-02-01",
     "2023-07-01-preview"
   ],
-  "NetworkCloud": [],
+  "NetworkCloud": [
+    "2023-05-01-preview"
+  ],
   "NetworkFunction": [],
   "NotificationHubs": [],
   "OffAzure": [],
@@ -643,11 +634,7 @@
   "PowerBIDedicated": [],
   "PowerPlatform": [],
   "ProfessionalService": [],
-  "ProviderHub": [
-    "2021-05-01-preview",
-    "2021-06-01-preview",
-    "2021-09-01-preview"
-  ],
+  "ProviderHub": [],
   "Purview": [],
   "Quantum": [],
   "Quota": [],
@@ -664,7 +651,9 @@
     "2022-10-27"
   ],
   "ResourceGraph": [],
-  "ResourceHealth": [],
+  "ResourceHealth": [
+    "2022-10-01-preview"
+  ],
   "Resources": [
     "2021-01-01",
     "2021-03-01-preview",
@@ -675,9 +664,7 @@
     "2022-09-01"
   ],
   "SaaS": [],
-  "ScVmm": [
-    "2022-05-21-preview"
-  ],
+  "ScVmm": [],
   "Scheduler": [],
   "Search": [],
   "Security": [
@@ -699,7 +686,8 @@
     "2022-11-20-preview",
     "2023-01-01-preview",
     "2023-02-01-preview",
-    "2023-03-01-preview"
+    "2023-03-01-preview",
+    "2023-05-01"
   ],
   "SecurityAndCompliance": [],
   "SecurityDevOps": [],
@@ -707,7 +695,8 @@
     "2023-02-01-preview",
     "2023-03-01-preview",
     "2023-04-01-preview",
-    "2023-05-01-preview"
+    "2023-05-01-preview",
+    "2023-06-01-preview"
   ],
   "SerialConsole": [],
   "ServiceBus": [

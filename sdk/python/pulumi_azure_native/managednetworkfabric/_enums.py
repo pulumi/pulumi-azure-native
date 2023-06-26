@@ -6,20 +6,17 @@ from enum import Enum
 
 __all__ = [
     'AddressFamily',
-    'AdvertiseBoolean',
     'AllowASOverride',
     'BooleanEnumProperty',
-    'CommunityActionType',
+    'CommunityActionTypes',
+    'Condition',
     'ConditionActionType',
-    'ExportBoolean',
-    'GshutBoolean',
-    'InternetBoolean',
-    'LocalASBoolean',
     'NetworkDeviceRoleTypes',
+    'NniType',
     'PeeringOption',
-    'PrefixActionType',
     'RedistributeConnectedSubnets',
     'RedistributeStaticRoutes',
+    'WellKnownCommunities',
 ]
 
 
@@ -29,14 +26,6 @@ class AddressFamily(str, Enum):
     """
     IPV4 = "ipv4"
     IPV6 = "ipv6"
-
-
-class AdvertiseBoolean(str, Enum):
-    """
-    noAdvertise. Example: true | false.
-    """
-    TRUE = "true"
-    FALSE = "false"
 
 
 class AllowASOverride(str, Enum):
@@ -55,12 +44,21 @@ class BooleanEnumProperty(str, Enum):
     FALSE = "False"
 
 
-class CommunityActionType(str, Enum):
+class CommunityActionTypes(str, Enum):
     """
-    action. Example: allow | deny.
+    action. Example: Permit | Deny.
     """
-    ALLOW = "allow"
-    DENY = "deny"
+    PERMIT = "Permit"
+    DENY = "Deny"
+
+
+class Condition(str, Enum):
+    """
+    Specify prefix-list bounds.
+    """
+    EQUAL_TO = "EqualTo"
+    GREATER_THAN_OR_EQUAL_TO = "GreaterThanOrEqualTo"
+    LESSER_THAN_OR_EQUAL_TO = "LesserThanOrEqualTo"
 
 
 class ConditionActionType(str, Enum):
@@ -69,38 +67,6 @@ class ConditionActionType(str, Enum):
     """
     ALLOW = "allow"
     DENY = "deny"
-
-
-class ExportBoolean(str, Enum):
-    """
-    noExport. Example: true | false.
-    """
-    TRUE = "true"
-    FALSE = "false"
-
-
-class GshutBoolean(str, Enum):
-    """
-     Graceful Shutdown (GSHUT). Example: true | false.
-    """
-    TRUE = "true"
-    FALSE = "false"
-
-
-class InternetBoolean(str, Enum):
-    """
-    Internet access. Example: true | false.
-    """
-    TRUE = "true"
-    FALSE = "false"
-
-
-class LocalASBoolean(str, Enum):
-    """
-    Local Autonomous System. Example: true | false.
-    """
-    TRUE = "true"
-    FALSE = "false"
 
 
 class NetworkDeviceRoleTypes(str, Enum):
@@ -114,20 +80,20 @@ class NetworkDeviceRoleTypes(str, Enum):
     MANAGEMENT = "Management"
 
 
+class NniType(str, Enum):
+    """
+    Type of NNI used. Example: CE | NPB
+    """
+    CE = "CE"
+    NPB = "NPB"
+
+
 class PeeringOption(str, Enum):
     """
     Peering option list.
     """
     OPTION_A = "OptionA"
     OPTION_B = "OptionB"
-
-
-class PrefixActionType(str, Enum):
-    """
-    action. Example: allow | deny.
-    """
-    ALLOW = "allow"
-    DENY = "deny"
 
 
 class RedistributeConnectedSubnets(str, Enum):
@@ -144,3 +110,19 @@ class RedistributeStaticRoutes(str, Enum):
     """
     TRUE = "True"
     FALSE = "False"
+
+
+class WellKnownCommunities(str, Enum):
+    """
+
+    `Internet` - Advertise routes to internet community.
+     `LocalAS` - Advertise routes to only localAS peers.
+     `NoAdvertise` - Don't advertise routes to any peer.
+    `NoExport` - Don't export to next AS.
+    `GShut` - Graceful Shutdown (GSHUT) withdraw routes before terminating BGP connection.
+    """
+    INTERNET = "Internet"
+    LOCAL_AS = "LocalAS"
+    NO_ADVERTISE = "NoAdvertise"
+    NO_EXPORT = "NoExport"
+    G_SHUT = "GShut"

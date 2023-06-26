@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
 {
 
     /// <summary>
-    /// Option B configuration to be used for management vpn.
+    /// Option B configuration.
     /// </summary>
     [OutputType]
     public sealed class FabricOptionBPropertiesResponse

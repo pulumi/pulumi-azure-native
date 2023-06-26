@@ -12,10 +12,13 @@ from ._enums import *
 
 __all__ = [
     'DebugSettingArgs',
+    'DeploymentParameterArgs',
     'DeploymentPropertiesArgs',
     'ExpressionEvaluationOptionsArgs',
     'ExtendedLocationArgs',
     'IdentityArgs',
+    'KeyVaultParameterReferenceArgs',
+    'KeyVaultReferenceArgs',
     'OnErrorDeploymentArgs',
     'ParametersLinkArgs',
     'PlanArgs',
@@ -49,13 +52,53 @@ class DebugSettingArgs:
 
 
 @pulumi.input_type
+class DeploymentParameterArgs:
+    def __init__(__self__, *,
+                 reference: Optional[pulumi.Input['KeyVaultParameterReferenceArgs']] = None,
+                 value: Optional[Any] = None):
+        """
+        Deployment parameter for the template.
+        :param pulumi.Input['KeyVaultParameterReferenceArgs'] reference: Azure Key Vault parameter reference.
+        :param Any value: Input value to the parameter .
+        """
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def reference(self) -> Optional[pulumi.Input['KeyVaultParameterReferenceArgs']]:
+        """
+        Azure Key Vault parameter reference.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: Optional[pulumi.Input['KeyVaultParameterReferenceArgs']]):
+        pulumi.set(self, "reference", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        """
+        Input value to the parameter .
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[Any]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class DeploymentPropertiesArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input['DeploymentMode'],
                  debug_setting: Optional[pulumi.Input['DebugSettingArgs']] = None,
                  expression_evaluation_options: Optional[pulumi.Input['ExpressionEvaluationOptionsArgs']] = None,
                  on_error_deployment: Optional[pulumi.Input['OnErrorDeploymentArgs']] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]] = None,
                  parameters_link: Optional[pulumi.Input['ParametersLinkArgs']] = None,
                  template: Optional[Any] = None,
                  template_link: Optional[pulumi.Input['TemplateLinkArgs']] = None):
@@ -65,7 +108,7 @@ class DeploymentPropertiesArgs:
         :param pulumi.Input['DebugSettingArgs'] debug_setting: The debug setting of the deployment.
         :param pulumi.Input['ExpressionEvaluationOptionsArgs'] expression_evaluation_options: Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
         :param pulumi.Input['OnErrorDeploymentArgs'] on_error_deployment: The deployment on error behavior.
-        :param Any parameters: Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+        :param pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]] parameters: Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
         :param pulumi.Input['ParametersLinkArgs'] parameters_link: The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
         :param Any template: The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
         :param pulumi.Input['TemplateLinkArgs'] template_link: The URI of the template. Use either the templateLink property or the template property, but not both.
@@ -136,14 +179,14 @@ class DeploymentPropertiesArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Any]:
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]:
         """
         Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[Any]):
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -285,6 +328,83 @@ class IdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class KeyVaultParameterReferenceArgs:
+    def __init__(__self__, *,
+                 key_vault: pulumi.Input['KeyVaultReferenceArgs'],
+                 secret_name: pulumi.Input[str],
+                 secret_version: Optional[pulumi.Input[str]] = None):
+        """
+        Azure Key Vault parameter reference.
+        :param pulumi.Input['KeyVaultReferenceArgs'] key_vault: Azure Key Vault reference.
+        :param pulumi.Input[str] secret_name: Azure Key Vault secret name.
+        :param pulumi.Input[str] secret_version: Azure Key Vault secret version.
+        """
+        pulumi.set(__self__, "key_vault", key_vault)
+        pulumi.set(__self__, "secret_name", secret_name)
+        if secret_version is not None:
+            pulumi.set(__self__, "secret_version", secret_version)
+
+    @property
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> pulumi.Input['KeyVaultReferenceArgs']:
+        """
+        Azure Key Vault reference.
+        """
+        return pulumi.get(self, "key_vault")
+
+    @key_vault.setter
+    def key_vault(self, value: pulumi.Input['KeyVaultReferenceArgs']):
+        pulumi.set(self, "key_vault", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[str]:
+        """
+        Azure Key Vault secret name.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_name", value)
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Key Vault secret version.
+        """
+        return pulumi.get(self, "secret_version")
+
+    @secret_version.setter
+    def secret_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_version", value)
+
+
+@pulumi.input_type
+class KeyVaultReferenceArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        Azure Key Vault reference.
+        :param pulumi.Input[str] id: Azure Key Vault resource id.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Azure Key Vault resource id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

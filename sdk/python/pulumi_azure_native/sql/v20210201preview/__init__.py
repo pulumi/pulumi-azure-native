@@ -7,8 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_managed_instance import *
-from .get_outbound_firewall_rule import *
 from .managed_instance import *
-from .outbound_firewall_rule import *
 from ._inputs import *
 from . import outputs

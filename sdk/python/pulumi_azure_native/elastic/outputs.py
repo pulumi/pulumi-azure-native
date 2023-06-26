@@ -14,6 +14,7 @@ from ._enums import *
 __all__ = [
     'ElasticCloudDeploymentResponse',
     'ElasticCloudUserResponse',
+    'ElasticOrganizationToAzureSubscriptionMappingResponsePropertiesResponse',
     'ElasticPropertiesResponse',
     'ElasticTrafficFilterResponse',
     'ElasticTrafficFilterRuleResponse',
@@ -207,6 +208,64 @@ class ElasticCloudUserResponse(dict):
         User Id of the elastic account of the User.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ElasticOrganizationToAzureSubscriptionMappingResponsePropertiesResponse(dict):
+    """
+    The properties of Azure Subscription ID to which the Organization of the logged in user belongs and gets billed into.
+    """
+    def __init__(__self__, *,
+                 marketplace_saas_info: 'outputs.MarketplaceSaaSInfoResponse',
+                 billed_azure_subscription_id: Optional[str] = None,
+                 elastic_organization_id: Optional[str] = None,
+                 elastic_organization_name: Optional[str] = None):
+        """
+        The properties of Azure Subscription ID to which the Organization of the logged in user belongs and gets billed into.
+        :param 'MarketplaceSaaSInfoResponse' marketplace_saas_info: Marketplace SaaS Info of the resource.
+        :param str billed_azure_subscription_id: The Azure Subscription ID to which the Organization belongs and gets billed into. This is empty for a new user OR a user without an Elastic Organization.
+        :param str elastic_organization_id: The Elastic Organization Id.
+        :param str elastic_organization_name: The Elastic Organization Name.
+        """
+        pulumi.set(__self__, "marketplace_saas_info", marketplace_saas_info)
+        if billed_azure_subscription_id is not None:
+            pulumi.set(__self__, "billed_azure_subscription_id", billed_azure_subscription_id)
+        if elastic_organization_id is not None:
+            pulumi.set(__self__, "elastic_organization_id", elastic_organization_id)
+        if elastic_organization_name is not None:
+            pulumi.set(__self__, "elastic_organization_name", elastic_organization_name)
+
+    @property
+    @pulumi.getter(name="marketplaceSaasInfo")
+    def marketplace_saas_info(self) -> 'outputs.MarketplaceSaaSInfoResponse':
+        """
+        Marketplace SaaS Info of the resource.
+        """
+        return pulumi.get(self, "marketplace_saas_info")
+
+    @property
+    @pulumi.getter(name="billedAzureSubscriptionId")
+    def billed_azure_subscription_id(self) -> Optional[str]:
+        """
+        The Azure Subscription ID to which the Organization belongs and gets billed into. This is empty for a new user OR a user without an Elastic Organization.
+        """
+        return pulumi.get(self, "billed_azure_subscription_id")
+
+    @property
+    @pulumi.getter(name="elasticOrganizationId")
+    def elastic_organization_id(self) -> Optional[str]:
+        """
+        The Elastic Organization Id.
+        """
+        return pulumi.get(self, "elastic_organization_id")
+
+    @property
+    @pulumi.getter(name="elasticOrganizationName")
+    def elastic_organization_name(self) -> Optional[str]:
+        """
+        The Elastic Organization Name.
+        """
+        return pulumi.get(self, "elastic_organization_name")
 
 
 @pulumi.output_type

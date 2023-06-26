@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get metrics configuration of the provided cluster.
- * Azure REST API version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getMetricsConfiguration(args: GetMetricsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricsConfigurationResult> {
 
@@ -62,7 +62,7 @@ export interface GetMetricsConfigurationResult {
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -92,7 +92,7 @@ export interface GetMetricsConfigurationResult {
 }
 /**
  * Get metrics configuration of the provided cluster.
- * Azure REST API version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getMetricsConfigurationOutput(args: GetMetricsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricsConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getMetricsConfiguration(a, opts))

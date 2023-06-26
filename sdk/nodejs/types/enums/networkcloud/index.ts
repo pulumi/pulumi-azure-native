@@ -3,10 +3,33 @@
 
 // Export sub-modules:
 import * as v20221212preview from "./v20221212preview";
+import * as v20230501preview from "./v20230501preview";
 
 export {
     v20221212preview,
+    v20230501preview,
 };
+
+export const AdvertiseToFabric = {
+    True: "True",
+    False: "False",
+} as const;
+
+/**
+ * The indicator of if this advertisement is also made to the network fabric associated with the Network Cloud Cluster. This field is ignored if fabricPeeringEnabled is set to False.
+ */
+export type AdvertiseToFabric = (typeof AdvertiseToFabric)[keyof typeof AdvertiseToFabric];
+
+export const AgentPoolMode = {
+    System: "System",
+    User: "User",
+    NotApplicable: "NotApplicable",
+} as const;
+
+/**
+ * The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node.
+ */
+export type AgentPoolMode = (typeof AgentPoolMode)[keyof typeof AgentPoolMode];
 
 export const BareMetalMachineKeySetPrivilegeLevel = {
     Standard: "Standard",
@@ -17,6 +40,26 @@ export const BareMetalMachineKeySetPrivilegeLevel = {
  * The access level allowed for the users in this key set.
  */
 export type BareMetalMachineKeySetPrivilegeLevel = (typeof BareMetalMachineKeySetPrivilegeLevel)[keyof typeof BareMetalMachineKeySetPrivilegeLevel];
+
+export const BfdEnabled = {
+    True: "True",
+    False: "False",
+} as const;
+
+/**
+ * The indicator to prevent the use of IP addresses ending with .0 and .255 for this pool. Enabling this option will only use IP addresses between .1 and .254 inclusive.
+ */
+export type BfdEnabled = (typeof BfdEnabled)[keyof typeof BfdEnabled];
+
+export const BgpMultiHop = {
+    True: "True",
+    False: "False",
+} as const;
+
+/**
+ * The indicator to enable multi-hop peering support.
+ */
+export type BgpMultiHop = (typeof BgpMultiHop)[keyof typeof BgpMultiHop];
 
 export const BmcKeySetPrivilegeLevel = {
     ReadOnly: "ReadOnly",
@@ -69,13 +112,33 @@ export const DefaultGateway = {
  */
 export type DefaultGateway = (typeof DefaultGateway)[keyof typeof DefaultGateway];
 
+export const FabricPeeringEnabled = {
+    True: "True",
+    False: "False",
+} as const;
+
+/**
+ * The indicator to specify if the load balancer peers with the network fabric.
+ */
+export type FabricPeeringEnabled = (typeof FabricPeeringEnabled)[keyof typeof FabricPeeringEnabled];
+
+export const HugepagesSize = {
+    HugepagesSize_2M: "2M",
+    HugepagesSize_1G: "1G",
+} as const;
+
+/**
+ * The size of the hugepages to allocate.
+ */
+export type HugepagesSize = (typeof HugepagesSize)[keyof typeof HugepagesSize];
+
 export const HybridAksIpamEnabled = {
     True: "True",
     False: "False",
 } as const;
 
 /**
- * The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+ * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
  */
 export type HybridAksIpamEnabled = (typeof HybridAksIpamEnabled)[keyof typeof HybridAksIpamEnabled];
 
@@ -86,7 +149,7 @@ export const HybridAksPluginType = {
 } as const;
 
 /**
- * The network plugin type for Hybrid AKS.
+ * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
  */
 export type HybridAksPluginType = (typeof HybridAksPluginType)[keyof typeof HybridAksPluginType];
 
@@ -100,6 +163,29 @@ export const IpAllocationType = {
  * The type of the IP address allocation, defaulted to "DualStack".
  */
 export type IpAllocationType = (typeof IpAllocationType)[keyof typeof IpAllocationType];
+
+export const KubernetesPluginType = {
+    DPDK: "DPDK",
+    SRIOV: "SRIOV",
+    OSDevice: "OSDevice",
+    MACVLAN: "MACVLAN",
+    IPVLAN: "IPVLAN",
+} as const;
+
+/**
+ * The indicator of how this network will be utilized by the Kubernetes cluster.
+ */
+export type KubernetesPluginType = (typeof KubernetesPluginType)[keyof typeof KubernetesPluginType];
+
+export const L3NetworkConfigurationIpamEnabled = {
+    True: "True",
+    False: "False",
+} as const;
+
+/**
+ * The indication of whether this network will or will not perform IP address management and allocate IP addresses when attached.
+ */
+export type L3NetworkConfigurationIpamEnabled = (typeof L3NetworkConfigurationIpamEnabled)[keyof typeof L3NetworkConfigurationIpamEnabled];
 
 export const OsDiskCreateOption = {
     Ephemeral: "Ephemeral",

@@ -123,7 +123,7 @@ def get_volume_group(account_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeGroupResult:
     """
     Get details of the specified volume group
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -154,7 +154,7 @@ def get_volume_group_output(account_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeGroupResult]:
     """
     Get details of the specified volume group
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account

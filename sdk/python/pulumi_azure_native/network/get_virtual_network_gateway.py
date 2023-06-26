@@ -22,10 +22,13 @@ class GetVirtualNetworkGatewayResult:
     """
     A common class for general resource information.
     """
-    def __init__(__self__, active_active=None, allow_remote_vnet_traffic=None, allow_virtual_wan_traffic=None, bgp_settings=None, custom_routes=None, disable_ip_sec_replay_protection=None, enable_bgp=None, enable_bgp_route_translation_for_nat=None, enable_dns_forwarding=None, enable_private_ip_address=None, etag=None, extended_location=None, gateway_default_site=None, gateway_type=None, id=None, inbound_dns_forwarding_endpoint=None, ip_configurations=None, location=None, name=None, nat_rules=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None, v_net_extended_location_resource_id=None, virtual_network_gateway_policy_groups=None, vpn_client_configuration=None, vpn_gateway_generation=None, vpn_type=None):
+    def __init__(__self__, active_active=None, admin_state=None, allow_remote_vnet_traffic=None, allow_virtual_wan_traffic=None, bgp_settings=None, custom_routes=None, disable_ip_sec_replay_protection=None, enable_bgp=None, enable_bgp_route_translation_for_nat=None, enable_dns_forwarding=None, enable_private_ip_address=None, etag=None, extended_location=None, gateway_default_site=None, gateway_type=None, id=None, inbound_dns_forwarding_endpoint=None, ip_configurations=None, location=None, name=None, nat_rules=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None, v_net_extended_location_resource_id=None, virtual_network_gateway_policy_groups=None, vpn_client_configuration=None, vpn_gateway_generation=None, vpn_type=None):
         if active_active and not isinstance(active_active, bool):
             raise TypeError("Expected argument 'active_active' to be a bool")
         pulumi.set(__self__, "active_active", active_active)
+        if admin_state and not isinstance(admin_state, str):
+            raise TypeError("Expected argument 'admin_state' to be a str")
+        pulumi.set(__self__, "admin_state", admin_state)
         if allow_remote_vnet_traffic and not isinstance(allow_remote_vnet_traffic, bool):
             raise TypeError("Expected argument 'allow_remote_vnet_traffic' to be a bool")
         pulumi.set(__self__, "allow_remote_vnet_traffic", allow_remote_vnet_traffic)
@@ -121,6 +124,14 @@ class GetVirtualNetworkGatewayResult:
         ActiveActive flag.
         """
         return pulumi.get(self, "active_active")
+
+    @property
+    @pulumi.getter(name="adminState")
+    def admin_state(self) -> Optional[str]:
+        """
+        Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+        """
+        return pulumi.get(self, "admin_state")
 
     @property
     @pulumi.getter(name="allowRemoteVnetTraffic")
@@ -362,6 +373,7 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             yield self
         return GetVirtualNetworkGatewayResult(
             active_active=self.active_active,
+            admin_state=self.admin_state,
             allow_remote_vnet_traffic=self.allow_remote_vnet_traffic,
             allow_virtual_wan_traffic=self.allow_virtual_wan_traffic,
             bgp_settings=self.bgp_settings,
@@ -398,7 +410,7 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayResult:
     """
     Gets the specified virtual network gateway by resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -412,6 +424,7 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
 
     return AwaitableGetVirtualNetworkGatewayResult(
         active_active=__ret__.active_active,
+        admin_state=__ret__.admin_state,
         allow_remote_vnet_traffic=__ret__.allow_remote_vnet_traffic,
         allow_virtual_wan_traffic=__ret__.allow_virtual_wan_traffic,
         bgp_settings=__ret__.bgp_settings,
@@ -449,7 +462,7 @@ def get_virtual_network_gateway_output(resource_group_name: Optional[pulumi.Inpu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayResult]:
     """
     Gets the specified virtual network gateway by resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.

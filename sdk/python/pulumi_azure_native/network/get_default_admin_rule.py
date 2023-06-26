@@ -22,7 +22,7 @@ class GetDefaultAdminRuleResult:
     """
     Network default admin rule.
     """
-    def __init__(__self__, access=None, description=None, destination_port_ranges=None, destinations=None, direction=None, etag=None, flag=None, id=None, kind=None, name=None, priority=None, protocol=None, provisioning_state=None, source_port_ranges=None, sources=None, system_data=None, type=None):
+    def __init__(__self__, access=None, description=None, destination_port_ranges=None, destinations=None, direction=None, etag=None, flag=None, id=None, kind=None, name=None, priority=None, protocol=None, provisioning_state=None, resource_guid=None, source_port_ranges=None, sources=None, system_data=None, type=None):
         if access and not isinstance(access, str):
             raise TypeError("Expected argument 'access' to be a str")
         pulumi.set(__self__, "access", access)
@@ -62,6 +62,9 @@ class GetDefaultAdminRuleResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if source_port_ranges and not isinstance(source_port_ranges, list):
             raise TypeError("Expected argument 'source_port_ranges' to be a list")
         pulumi.set(__self__, "source_port_ranges", source_port_ranges)
@@ -181,6 +184,14 @@ class GetDefaultAdminRuleResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
     @pulumi.getter(name="sourcePortRanges")
     def source_port_ranges(self) -> Sequence[str]:
         """
@@ -232,6 +243,7 @@ class AwaitableGetDefaultAdminRuleResult(GetDefaultAdminRuleResult):
             priority=self.priority,
             protocol=self.protocol,
             provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             source_port_ranges=self.source_port_ranges,
             sources=self.sources,
             system_data=self.system_data,
@@ -246,7 +258,7 @@ def get_default_admin_rule(configuration_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultAdminRuleResult:
     """
     Gets a network manager security configuration admin rule.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -278,6 +290,7 @@ def get_default_admin_rule(configuration_name: Optional[str] = None,
         priority=__ret__.priority,
         protocol=__ret__.protocol,
         provisioning_state=__ret__.provisioning_state,
+        resource_guid=__ret__.resource_guid,
         source_port_ranges=__ret__.source_port_ranges,
         sources=__ret__.sources,
         system_data=__ret__.system_data,
@@ -293,7 +306,7 @@ def get_default_admin_rule_output(configuration_name: Optional[pulumi.Input[str]
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultAdminRuleResult]:
     """
     Gets a network manager security configuration admin rule.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.

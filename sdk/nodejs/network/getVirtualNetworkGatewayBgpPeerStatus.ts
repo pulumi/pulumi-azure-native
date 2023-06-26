@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The GetBgpPeerStatus operation retrieves the status of all BGP peers.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualNetworkGatewayBgpPeerStatus(args: GetVirtualNetworkGatewayBgpPeerStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayBgpPeerStatusResult> {
 
@@ -47,7 +47,7 @@ export interface GetVirtualNetworkGatewayBgpPeerStatusResult {
 }
 /**
  * The GetBgpPeerStatus operation retrieves the status of all BGP peers.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualNetworkGatewayBgpPeerStatusOutput(args: GetVirtualNetworkGatewayBgpPeerStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayBgpPeerStatusResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayBgpPeerStatus(a, opts))

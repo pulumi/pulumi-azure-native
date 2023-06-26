@@ -15,9 +15,11 @@ __all__ = [
     'ManagedServiceIdentityType',
     'NetworkRuleIPAction',
     'PrivateLinkConnectionStatus',
+    'PublicNetworkAccess',
     'PublicNetworkAccessFlag',
     'SkuName',
     'SkuTier',
+    'TlsVersion',
 ]
 
 
@@ -112,6 +114,15 @@ class PrivateLinkConnectionStatus(str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+class PublicNetworkAccess(str, Enum):
+    """
+    This determines if traffic is allowed over public network. By default it is enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
+
+
 class PublicNetworkAccessFlag(str, Enum):
     """
     This determines if traffic is allowed over public network. By default it is enabled.
@@ -136,3 +147,12 @@ class SkuTier(str, Enum):
     BASIC = "Basic"
     STANDARD = "Standard"
     PREMIUM = "Premium"
+
+
+class TlsVersion(str, Enum):
+    """
+    The minimum TLS version for the cluster to support, e.g. '1.2'
+    """
+    TLS_VERSION_1_0 = "1.0"
+    TLS_VERSION_1_1 = "1.1"
+    TLS_VERSION_1_2 = "1.2"

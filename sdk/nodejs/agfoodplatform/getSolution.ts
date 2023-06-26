@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 
 /**
  * Get installed Solution details by Solution id.
- * Azure REST API version: 2021-09-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:agfoodplatform:getSolution", {
-        "farmBeatsResourceName": args.farmBeatsResourceName,
+        "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,
         "resourceGroupName": args.resourceGroupName,
         "solutionId": args.solutionId,
     }, opts);
@@ -23,15 +23,15 @@ export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetSolutionArgs {
     /**
-     * FarmBeats resource name.
+     * DataManagerForAgriculture resource name.
      */
-    farmBeatsResourceName: string;
+    dataManagerForAgricultureResourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
-     * Solution Id of the solution.
+     * SolutionId for Data Manager For Agriculture Resource.
      */
     solutionId: string;
 }
@@ -67,7 +67,7 @@ export interface GetSolutionResult {
 }
 /**
  * Get installed Solution details by Solution id.
- * Azure REST API version: 2021-09-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
     return pulumi.output(args).apply((a: any) => getSolution(a, opts))
@@ -75,15 +75,15 @@ export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.Inv
 
 export interface GetSolutionOutputArgs {
     /**
-     * FarmBeats resource name.
+     * DataManagerForAgriculture resource name.
      */
-    farmBeatsResourceName: pulumi.Input<string>;
+    dataManagerForAgricultureResourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Solution Id of the solution.
+     * SolutionId for Data Manager For Agriculture Resource.
      */
     solutionId: pulumi.Input<string>;
 }

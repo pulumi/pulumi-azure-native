@@ -165,6 +165,37 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+    /// </summary>
+    [EnumType]
+    public readonly struct AdminState : IEquatable<AdminState>
+    {
+        private readonly string _value;
+
+        private AdminState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AdminState Enabled { get; } = new AdminState("Enabled");
+        public static AdminState Disabled { get; } = new AdminState("Disabled");
+
+        public static bool operator ==(AdminState left, AdminState right) => left.Equals(right);
+        public static bool operator !=(AdminState left, AdminState right) => !left.Equals(right);
+
+        public static explicit operator string(AdminState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdminState other && Equals(other);
+        public bool Equals(AdminState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The allowed type DNS record types for this profile.
     /// </summary>
     [EnumType]
@@ -308,7 +339,6 @@ namespace Pulumi.AzureNative.Network
         public static ApplicationGatewayCustomErrorStatusCode HttpStatus404 { get; } = new ApplicationGatewayCustomErrorStatusCode("HttpStatus404");
         public static ApplicationGatewayCustomErrorStatusCode HttpStatus405 { get; } = new ApplicationGatewayCustomErrorStatusCode("HttpStatus405");
         public static ApplicationGatewayCustomErrorStatusCode HttpStatus408 { get; } = new ApplicationGatewayCustomErrorStatusCode("HttpStatus408");
-        public static ApplicationGatewayCustomErrorStatusCode HttpStatus499 { get; } = new ApplicationGatewayCustomErrorStatusCode("HttpStatus499");
         public static ApplicationGatewayCustomErrorStatusCode HttpStatus500 { get; } = new ApplicationGatewayCustomErrorStatusCode("HttpStatus500");
         public static ApplicationGatewayCustomErrorStatusCode HttpStatus502 { get; } = new ApplicationGatewayCustomErrorStatusCode("HttpStatus502");
         public static ApplicationGatewayCustomErrorStatusCode HttpStatus503 { get; } = new ApplicationGatewayCustomErrorStatusCode("HttpStatus503");

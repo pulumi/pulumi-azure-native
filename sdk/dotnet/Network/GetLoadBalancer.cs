@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified load balancer.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-native:network:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified load balancer.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:network:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());

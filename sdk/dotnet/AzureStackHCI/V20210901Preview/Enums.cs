@@ -357,38 +357,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     }
 
     /// <summary>
-    /// The guest agent provisioning action.
-    /// </summary>
-    [EnumType]
-    public readonly struct ProvisioningAction : IEquatable<ProvisioningAction>
-    {
-        private readonly string _value;
-
-        private ProvisioningAction(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ProvisioningAction Install { get; } = new ProvisioningAction("install");
-        public static ProvisioningAction Uninstall { get; } = new ProvisioningAction("uninstall");
-        public static ProvisioningAction Repair { get; } = new ProvisioningAction("repair");
-
-        public static bool operator ==(ProvisioningAction left, ProvisioningAction right) => left.Equals(right);
-        public static bool operator !=(ProvisioningAction left, ProvisioningAction right) => !left.Equals(right);
-
-        public static explicit operator string(ProvisioningAction value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ProvisioningAction other && Equals(other);
-        public bool Equals(ProvisioningAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The identity type.
     /// </summary>
     [EnumType]

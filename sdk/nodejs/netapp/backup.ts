@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Backup of a Volume
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+ * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class Backup extends pulumi.CustomResource {
     /**
@@ -147,7 +147,7 @@ export class Backup extends pulumi.CustomResource {
             resourceInputs["volumeName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20200501:Backup" }, { type: "azure-native:netapp/v20200601:Backup" }, { type: "azure-native:netapp/v20200701:Backup" }, { type: "azure-native:netapp/v20200801:Backup" }, { type: "azure-native:netapp/v20200901:Backup" }, { type: "azure-native:netapp/v20201101:Backup" }, { type: "azure-native:netapp/v20201201:Backup" }, { type: "azure-native:netapp/v20210201:Backup" }, { type: "azure-native:netapp/v20210401:Backup" }, { type: "azure-native:netapp/v20210401preview:Backup" }, { type: "azure-native:netapp/v20210601:Backup" }, { type: "azure-native:netapp/v20210801:Backup" }, { type: "azure-native:netapp/v20211001:Backup" }, { type: "azure-native:netapp/v20220101:Backup" }, { type: "azure-native:netapp/v20220301:Backup" }, { type: "azure-native:netapp/v20220501:Backup" }, { type: "azure-native:netapp/v20220901:Backup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20200501:Backup" }, { type: "azure-native:netapp/v20200601:Backup" }, { type: "azure-native:netapp/v20200701:Backup" }, { type: "azure-native:netapp/v20200801:Backup" }, { type: "azure-native:netapp/v20200901:Backup" }, { type: "azure-native:netapp/v20201101:Backup" }, { type: "azure-native:netapp/v20201201:Backup" }, { type: "azure-native:netapp/v20210201:Backup" }, { type: "azure-native:netapp/v20210401:Backup" }, { type: "azure-native:netapp/v20210401preview:Backup" }, { type: "azure-native:netapp/v20210601:Backup" }, { type: "azure-native:netapp/v20210801:Backup" }, { type: "azure-native:netapp/v20211001:Backup" }, { type: "azure-native:netapp/v20220101:Backup" }, { type: "azure-native:netapp/v20220301:Backup" }, { type: "azure-native:netapp/v20220501:Backup" }, { type: "azure-native:netapp/v20220901:Backup" }, { type: "azure-native:netapp/v20221101:Backup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Backup.__pulumiType, name, resourceInputs, opts);
     }

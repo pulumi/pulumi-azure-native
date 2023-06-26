@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Extension resource.
- * Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-05-12-preview
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2020-05-12-preview
  */
 export class Extension extends pulumi.CustomResource {
     /**
@@ -39,7 +39,7 @@ export class Extension extends pulumi.CustomResource {
     }
 
     /**
-     * Additional api properties.
+     * Additional Api Properties.
      */
     public readonly additionalApiProperties!: pulumi.Output<{[key: string]: outputs.agfoodplatform.ApiPropertiesResponse}>;
     /**
@@ -90,16 +90,16 @@ export class Extension extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.farmBeatsResourceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'farmBeatsResourceName'");
+            if ((!args || args.dataManagerForAgricultureResourceName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataManagerForAgricultureResourceName'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["additionalApiProperties"] = args ? args.additionalApiProperties : undefined;
+            resourceInputs["dataManagerForAgricultureResourceName"] = args ? args.dataManagerForAgricultureResourceName : undefined;
             resourceInputs["extensionId"] = args ? args.extensionId : undefined;
             resourceInputs["extensionVersion"] = args ? args.extensionVersion : undefined;
-            resourceInputs["farmBeatsResourceName"] = args ? args.farmBeatsResourceName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["extensionApiDocsLink"] = undefined /*out*/;
@@ -122,7 +122,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20200512preview:Extension" }, { type: "azure-native:agfoodplatform/v20210901preview:Extension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20200512preview:Extension" }, { type: "azure-native:agfoodplatform/v20210901preview:Extension" }, { type: "azure-native:agfoodplatform/v20230601preview:Extension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Extension.__pulumiType, name, resourceInputs, opts);
     }
@@ -137,6 +137,10 @@ export interface ExtensionArgs {
      */
     additionalApiProperties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.agfoodplatform.ApiPropertiesArgs>}>;
     /**
+     * DataManagerForAgriculture resource name.
+     */
+    dataManagerForAgricultureResourceName: pulumi.Input<string>;
+    /**
      * Id of extension resource.
      */
     extensionId?: pulumi.Input<string>;
@@ -144,10 +148,6 @@ export interface ExtensionArgs {
      * Extension Version.
      */
     extensionVersion?: pulumi.Input<string>;
-    /**
-     * FarmBeats resource name.
-     */
-    farmBeatsResourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

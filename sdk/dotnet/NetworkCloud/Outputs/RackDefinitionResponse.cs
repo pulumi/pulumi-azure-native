@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
     public sealed class RackDefinitionResponse
     {
         /// <summary>
-        /// The zone name used for this rack when created.
+        /// The zone name used for this rack when created. Availability zones are used for workload placement.
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>

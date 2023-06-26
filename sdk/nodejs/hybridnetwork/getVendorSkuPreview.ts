@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the preview information of a vendor sku.
- * Azure REST API version: 2021-05-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getVendorSkuPreview(args: GetVendorSkuPreviewArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkuPreviewResult> {
 
@@ -63,7 +63,7 @@ export interface GetVendorSkuPreviewResult {
 }
 /**
  * Gets the preview information of a vendor sku.
- * Azure REST API version: 2021-05-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getVendorSkuPreviewOutput(args: GetVendorSkuPreviewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkuPreviewResult> {
     return pulumi.output(args).apply((a: any) => getVendorSkuPreview(a, opts))

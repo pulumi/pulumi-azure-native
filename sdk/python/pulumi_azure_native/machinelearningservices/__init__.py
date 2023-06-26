@@ -111,8 +111,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.machinelearningservices.v20200301 as __v20200301
-    v20200301 = __v20200301
     import pulumi_azure_native.machinelearningservices.v20200501preview as __v20200501preview
     v20200501preview = __v20200501preview
     import pulumi_azure_native.machinelearningservices.v20200515preview as __v20200515preview
@@ -121,8 +119,6 @@ if typing.TYPE_CHECKING:
     v20200801 = __v20200801
     import pulumi_azure_native.machinelearningservices.v20200901preview as __v20200901preview
     v20200901preview = __v20200901preview
-    import pulumi_azure_native.machinelearningservices.v20210101 as __v20210101
-    v20210101 = __v20210101
     import pulumi_azure_native.machinelearningservices.v20210301preview as __v20210301preview
     v20210301preview = __v20210301preview
     import pulumi_azure_native.machinelearningservices.v20210401 as __v20210401
@@ -131,8 +127,6 @@ if typing.TYPE_CHECKING:
     v20220101preview = __v20220101preview
     import pulumi_azure_native.machinelearningservices.v20220201preview as __v20220201preview
     v20220201preview = __v20220201preview
-    import pulumi_azure_native.machinelearningservices.v20221201preview as __v20221201preview
-    v20221201preview = __v20221201preview
     import pulumi_azure_native.machinelearningservices.v20230201preview as __v20230201preview
     v20230201preview = __v20230201preview
     import pulumi_azure_native.machinelearningservices.v20230401 as __v20230401
@@ -140,17 +134,14 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.machinelearningservices.v20230401preview as __v20230401preview
     v20230401preview = __v20230401preview
 else:
-    v20200301 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200301')
     v20200501preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200501preview')
     v20200515preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200515preview')
     v20200801 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200801')
     v20200901preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200901preview')
-    v20210101 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20210101')
     v20210301preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20210301preview')
     v20210401 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20210401')
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20220101preview')
     v20220201preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20220201preview')
-    v20221201preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20221201preview')
     v20230201preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230201preview')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230401')
     v20230401preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230401preview')

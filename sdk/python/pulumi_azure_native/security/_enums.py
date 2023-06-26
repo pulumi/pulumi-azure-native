@@ -35,6 +35,8 @@ __all__ = [
     'RuleState',
     'ScanningMode',
     'SecuritySolutionStatus',
+    'ServerVulnerabilityAssessmentsAzureSettingSelectedProvider',
+    'ServerVulnerabilityAssessmentsSettingKind',
     'Severity',
     'SeverityEnum',
     'Source',
@@ -496,6 +498,23 @@ class SecuritySolutionStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class ServerVulnerabilityAssessmentsAzureSettingSelectedProvider(str, Enum):
+    """
+    The selected vulnerability assessments provider on Azure servers in the defined scope.
+    """
+    MDE_TVM = "MdeTvm"
+    """
+    Microsoft Defender for Endpoints threat and vulnerability management.
+    """
+
+
+class ServerVulnerabilityAssessmentsSettingKind(str, Enum):
+    """
+    The kind of the server vulnerability assessments setting.
+    """
+    AZURE_SERVERS_SETTING = "AzureServersSetting"
 
 
 class Severity(str, Enum):

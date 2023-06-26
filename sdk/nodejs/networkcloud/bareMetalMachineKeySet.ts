@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2022-12-12-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
  */
 export class BareMetalMachineKeySet extends pulumi.CustomResource {
     /**
@@ -181,7 +181,7 @@ export class BareMetalMachineKeySet extends pulumi.CustomResource {
             resourceInputs["userListStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:BareMetalMachineKeySet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20230501preview:BareMetalMachineKeySet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BareMetalMachineKeySet.__pulumiType, name, resourceInputs, opts);
     }

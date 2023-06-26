@@ -122,7 +122,7 @@ def get_alert_processing_rule_by_name(alert_processing_rule_name: Optional[str] 
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertProcessingRuleByNameResult:
     """
     Get an alert processing rule by name.
-    Azure REST API version: 2021-08-08.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str alert_processing_rule_name: The name of the alert processing rule that needs to be fetched.
@@ -150,7 +150,7 @@ def get_alert_processing_rule_by_name_output(alert_processing_rule_name: Optiona
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertProcessingRuleByNameResult]:
     """
     Get an alert processing rule by name.
-    Azure REST API version: 2021-08-08.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str alert_processing_rule_name: The name of the alert processing rule that needs to be fetched.

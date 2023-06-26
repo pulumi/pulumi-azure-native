@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The workspace manager configuration
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export class WorkspaceManagerConfiguration extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class WorkspaceManagerConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230501preview:WorkspaceManagerConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230501preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230601preview:WorkspaceManagerConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceManagerConfiguration.__pulumiType, name, resourceInputs, opts);
     }

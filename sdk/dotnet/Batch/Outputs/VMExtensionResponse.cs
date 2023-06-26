@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
+        /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+        /// </summary>
+        public readonly bool? EnableAutomaticUpgrade;
         public readonly string Name;
         /// <summary>
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all. 
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.Batch.Outputs
         private VMExtensionResponse(
             bool? autoUpgradeMinorVersion,
 
+            bool? enableAutomaticUpgrade,
+
             string name,
 
             object? protectedSettings,
@@ -50,6 +56,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
             string? typeHandlerVersion)
         {
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            EnableAutomaticUpgrade = enableAutomaticUpgrade;
             Name = name;
             ProtectedSettings = protectedSettings;
             ProvisionAfterExtensions = provisionAfterExtensions;

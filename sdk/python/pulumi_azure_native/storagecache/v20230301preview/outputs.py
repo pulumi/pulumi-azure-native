@@ -20,7 +20,6 @@ __all__ = [
     'AmlFilesystemIdentityResponse',
     'AmlFilesystemResponseHsm',
     'AmlFilesystemResponseMaintenanceWindow',
-    'BlobNfsTargetResponse',
     'CacheActiveDirectorySettingsResponse',
     'CacheActiveDirectorySettingsResponseCredentials',
     'CacheDirectorySettingsResponse',
@@ -35,19 +34,15 @@ __all__ = [
     'CacheUpgradeStatusResponse',
     'CacheUsernameDownloadSettingsResponse',
     'CacheUsernameDownloadSettingsResponseCredentials',
-    'ClfsTargetResponse',
     'ConditionResponse',
     'KeyVaultKeyReferenceResponse',
     'KeyVaultKeyReferenceResponseSourceVault',
-    'NamespaceJunctionResponse',
-    'Nfs3TargetResponse',
     'NfsAccessPolicyResponse',
     'NfsAccessRuleResponse',
     'PrimingJobResponse',
     'SkuNameResponse',
     'StorageTargetSpaceAllocationResponse',
     'SystemDataResponse',
-    'UnknownTargetResponse',
     'UserAssignedIdentitiesResponseUserAssignedIdentities',
 ]
 
@@ -556,86 +551,6 @@ class AmlFilesystemResponseMaintenanceWindow(dict):
         The time of day (in UTC) to start the maintenance window.
         """
         return pulumi.get(self, "time_of_day_utc")
-
-
-@pulumi.output_type
-class BlobNfsTargetResponse(dict):
-    """
-    Properties pertaining to the BlobNfsTarget.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "usageModel":
-            suggest = "usage_model"
-        elif key == "verificationTimer":
-            suggest = "verification_timer"
-        elif key == "writeBackTimer":
-            suggest = "write_back_timer"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BlobNfsTargetResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        BlobNfsTargetResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        BlobNfsTargetResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 target: Optional[str] = None,
-                 usage_model: Optional[str] = None,
-                 verification_timer: Optional[int] = None,
-                 write_back_timer: Optional[int] = None):
-        """
-        Properties pertaining to the BlobNfsTarget.
-        :param str target: Resource ID of the storage container.
-        :param str usage_model: Identifies the StorageCache usage model to be used for this storage target.
-        :param int verification_timer: Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
-        :param int write_back_timer: Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
-        """
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-        if usage_model is not None:
-            pulumi.set(__self__, "usage_model", usage_model)
-        if verification_timer is not None:
-            pulumi.set(__self__, "verification_timer", verification_timer)
-        if write_back_timer is not None:
-            pulumi.set(__self__, "write_back_timer", write_back_timer)
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional[str]:
-        """
-        Resource ID of the storage container.
-        """
-        return pulumi.get(self, "target")
-
-    @property
-    @pulumi.getter(name="usageModel")
-    def usage_model(self) -> Optional[str]:
-        """
-        Identifies the StorageCache usage model to be used for this storage target.
-        """
-        return pulumi.get(self, "usage_model")
-
-    @property
-    @pulumi.getter(name="verificationTimer")
-    def verification_timer(self) -> Optional[int]:
-        """
-        Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
-        """
-        return pulumi.get(self, "verification_timer")
-
-    @property
-    @pulumi.getter(name="writeBackTimer")
-    def write_back_timer(self) -> Optional[int]:
-        """
-        Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
-        """
-        return pulumi.get(self, "write_back_timer")
 
 
 @pulumi.output_type
@@ -1645,29 +1560,6 @@ class CacheUsernameDownloadSettingsResponseCredentials(dict):
 
 
 @pulumi.output_type
-class ClfsTargetResponse(dict):
-    """
-    Properties pertaining to the ClfsTarget
-    """
-    def __init__(__self__, *,
-                 target: Optional[str] = None):
-        """
-        Properties pertaining to the ClfsTarget
-        :param str target: Resource ID of storage container.
-        """
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional[str]:
-        """
-        Resource ID of storage container.
-        """
-        return pulumi.get(self, "target")
-
-
-@pulumi.output_type
 class ConditionResponse(dict):
     """
     Outstanding conditions that will need to be resolved.
@@ -1773,170 +1665,6 @@ class KeyVaultKeyReferenceResponseSourceVault(dict):
         Resource Id.
         """
         return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class NamespaceJunctionResponse(dict):
-    """
-    A namespace junction.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "namespacePath":
-            suggest = "namespace_path"
-        elif key == "nfsAccessPolicy":
-            suggest = "nfs_access_policy"
-        elif key == "nfsExport":
-            suggest = "nfs_export"
-        elif key == "targetPath":
-            suggest = "target_path"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NamespaceJunctionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NamespaceJunctionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NamespaceJunctionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 namespace_path: Optional[str] = None,
-                 nfs_access_policy: Optional[str] = None,
-                 nfs_export: Optional[str] = None,
-                 target_path: Optional[str] = None):
-        """
-        A namespace junction.
-        :param str namespace_path: Namespace path on a cache for a Storage Target.
-        :param str nfs_access_policy: Name of the access policy applied to this junction.
-        :param str nfs_export: NFS export where targetPath exists.
-        :param str target_path: Path in Storage Target to which namespacePath points.
-        """
-        if namespace_path is not None:
-            pulumi.set(__self__, "namespace_path", namespace_path)
-        if nfs_access_policy is None:
-            nfs_access_policy = 'default'
-        if nfs_access_policy is not None:
-            pulumi.set(__self__, "nfs_access_policy", nfs_access_policy)
-        if nfs_export is not None:
-            pulumi.set(__self__, "nfs_export", nfs_export)
-        if target_path is not None:
-            pulumi.set(__self__, "target_path", target_path)
-
-    @property
-    @pulumi.getter(name="namespacePath")
-    def namespace_path(self) -> Optional[str]:
-        """
-        Namespace path on a cache for a Storage Target.
-        """
-        return pulumi.get(self, "namespace_path")
-
-    @property
-    @pulumi.getter(name="nfsAccessPolicy")
-    def nfs_access_policy(self) -> Optional[str]:
-        """
-        Name of the access policy applied to this junction.
-        """
-        return pulumi.get(self, "nfs_access_policy")
-
-    @property
-    @pulumi.getter(name="nfsExport")
-    def nfs_export(self) -> Optional[str]:
-        """
-        NFS export where targetPath exists.
-        """
-        return pulumi.get(self, "nfs_export")
-
-    @property
-    @pulumi.getter(name="targetPath")
-    def target_path(self) -> Optional[str]:
-        """
-        Path in Storage Target to which namespacePath points.
-        """
-        return pulumi.get(self, "target_path")
-
-
-@pulumi.output_type
-class Nfs3TargetResponse(dict):
-    """
-    Properties pertaining to the Nfs3Target
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "usageModel":
-            suggest = "usage_model"
-        elif key == "verificationTimer":
-            suggest = "verification_timer"
-        elif key == "writeBackTimer":
-            suggest = "write_back_timer"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Nfs3TargetResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        Nfs3TargetResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        Nfs3TargetResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 target: Optional[str] = None,
-                 usage_model: Optional[str] = None,
-                 verification_timer: Optional[int] = None,
-                 write_back_timer: Optional[int] = None):
-        """
-        Properties pertaining to the Nfs3Target
-        :param str target: IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-        :param str usage_model: Identifies the StorageCache usage model to be used for this storage target.
-        :param int verification_timer: Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
-        :param int write_back_timer: Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
-        """
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-        if usage_model is not None:
-            pulumi.set(__self__, "usage_model", usage_model)
-        if verification_timer is not None:
-            pulumi.set(__self__, "verification_timer", verification_timer)
-        if write_back_timer is not None:
-            pulumi.set(__self__, "write_back_timer", write_back_timer)
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional[str]:
-        """
-        IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-        """
-        return pulumi.get(self, "target")
-
-    @property
-    @pulumi.getter(name="usageModel")
-    def usage_model(self) -> Optional[str]:
-        """
-        Identifies the StorageCache usage model to be used for this storage target.
-        """
-        return pulumi.get(self, "usage_model")
-
-    @property
-    @pulumi.getter(name="verificationTimer")
-    def verification_timer(self) -> Optional[int]:
-        """
-        Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
-        """
-        return pulumi.get(self, "verification_timer")
-
-    @property
-    @pulumi.getter(name="writeBackTimer")
-    def write_back_timer(self) -> Optional[int]:
-        """
-        Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
-        """
-        return pulumi.get(self, "write_back_timer")
 
 
 @pulumi.output_type
@@ -2404,29 +2132,6 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
-class UnknownTargetResponse(dict):
-    """
-    Properties pertaining to the UnknownTarget
-    """
-    def __init__(__self__, *,
-                 attributes: Optional[Mapping[str, str]] = None):
-        """
-        Properties pertaining to the UnknownTarget
-        :param Mapping[str, str] attributes: Dictionary of string->string pairs containing information about the Storage Target.
-        """
-        if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
-
-    @property
-    @pulumi.getter
-    def attributes(self) -> Optional[Mapping[str, str]]:
-        """
-        Dictionary of string->string pairs containing information about the Storage Target.
-        """
-        return pulumi.get(self, "attributes")
 
 
 @pulumi.output_type

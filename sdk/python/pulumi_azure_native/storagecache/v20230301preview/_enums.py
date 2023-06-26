@@ -10,8 +10,6 @@ __all__ = [
     'MaintenanceDayOfWeekType',
     'NfsAccessRuleAccess',
     'NfsAccessRuleScope',
-    'OperationalStateType',
-    'StorageTargetType',
     'UsernameSource',
 ]
 
@@ -63,26 +61,6 @@ class NfsAccessRuleScope(str, Enum):
     DEFAULT = "default"
     NETWORK = "network"
     HOST = "host"
-
-
-class OperationalStateType(str, Enum):
-    """
-    Storage target operational state.
-    """
-    READY = "Ready"
-    BUSY = "Busy"
-    SUSPENDED = "Suspended"
-    FLUSHING = "Flushing"
-
-
-class StorageTargetType(str, Enum):
-    """
-    Type of the Storage Target.
-    """
-    NFS3 = "nfs3"
-    CLFS = "clfs"
-    UNKNOWN = "unknown"
-    BLOB_NFS = "blobNfs"
 
 
 class UsernameSource(str, Enum):

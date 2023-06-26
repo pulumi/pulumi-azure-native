@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Fetches the details of a ExpressRoute gateway in a resource group.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getExpressRouteGateway(args: GetExpressRouteGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteGatewayResult> {
 
@@ -82,7 +82,7 @@ export interface GetExpressRouteGatewayResult {
 }
 /**
  * Fetches the details of a ExpressRoute gateway in a resource group.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getExpressRouteGatewayOutput(args: GetExpressRouteGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteGatewayResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteGateway(a, opts))

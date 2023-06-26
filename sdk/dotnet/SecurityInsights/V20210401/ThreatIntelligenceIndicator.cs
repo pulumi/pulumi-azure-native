@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:ThreatIntelligenceIndicator"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:ThreatIntelligenceIndicator"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:ThreatIntelligenceIndicator"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:ThreatIntelligenceIndicator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

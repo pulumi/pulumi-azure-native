@@ -197,7 +197,7 @@ class SnapshotPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Snapshot policy information
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,7 +220,7 @@ class SnapshotPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Snapshot policy information
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param SnapshotPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -275,7 +275,7 @@ class SnapshotPolicy(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20200501:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200601:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200701:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200801:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200901:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201101:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201201:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210201:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210601:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210801:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20211001:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220101:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220301:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220501:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220901:SnapshotPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20200501:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200601:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200701:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200801:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200901:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201101:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201201:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210201:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210601:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210801:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20211001:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220101:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220301:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220501:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220901:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20221101:SnapshotPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SnapshotPolicy, __self__).__init__(
             'azure-native:netapp:SnapshotPolicy',

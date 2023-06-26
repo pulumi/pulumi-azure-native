@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided storage appliance.
- * Azure REST API version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getStorageAppliance(args: GetStorageApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageApplianceResult> {
 
@@ -61,7 +61,7 @@ export interface GetStorageApplianceResult {
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -119,7 +119,7 @@ export interface GetStorageApplianceResult {
 }
 /**
  * Get properties of the provided storage appliance.
- * Azure REST API version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getStorageApplianceOutput(args: GetStorageApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageApplianceResult> {
     return pulumi.output(args).apply((a: any) => getStorageAppliance(a, opts))

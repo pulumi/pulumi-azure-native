@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Template resource definition.
-    /// Azure REST API version: 2023-05-01-preview.
+    /// Azure REST API version: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:ContentTemplate")]
     public partial class ContentTemplate : global::Pulumi.CustomResource
@@ -205,6 +205,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:ContentTemplate"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:ContentTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:ContentTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

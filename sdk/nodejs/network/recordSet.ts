@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a DNS record set (a collection of DNS records with the same name and type).
- * Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01
+ * Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2018-05-01
  */
 export class RecordSet extends pulumi.CustomResource {
     /**
@@ -55,6 +55,10 @@ export class RecordSet extends pulumi.CustomResource {
      */
     public readonly cnameRecord!: pulumi.Output<outputs.network.CnameRecordResponse | undefined>;
     /**
+     * The list of DS records in the record set.
+     */
+    public readonly dsRecords!: pulumi.Output<outputs.network.DsRecordResponse[] | undefined>;
+    /**
      * The etag of the record set.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
@@ -74,6 +78,10 @@ export class RecordSet extends pulumi.CustomResource {
      * The name of the record set.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The list of NAPTR records in the record set.
+     */
+    public readonly naptrRecords!: pulumi.Output<outputs.network.NaptrRecordResponse[] | undefined>;
     /**
      * The list of NS records in the record set.
      */
@@ -98,6 +106,10 @@ export class RecordSet extends pulumi.CustomResource {
      * A reference to an azure resource from where the dns resource value is taken.
      */
     public readonly targetResource!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    /**
+     * The list of TLSA records in the record set.
+     */
+    public readonly tlsaRecords!: pulumi.Output<outputs.network.TlsaRecordResponse[] | undefined>;
     /**
      * The TTL (time-to-live) of the records in the record set.
      */
@@ -135,8 +147,10 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["aaaaRecords"] = args ? args.aaaaRecords : undefined;
             resourceInputs["caaRecords"] = args ? args.caaRecords : undefined;
             resourceInputs["cnameRecord"] = args ? args.cnameRecord : undefined;
+            resourceInputs["dsRecords"] = args ? args.dsRecords : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["mxRecords"] = args ? args.mxRecords : undefined;
+            resourceInputs["naptrRecords"] = args ? args.naptrRecords : undefined;
             resourceInputs["nsRecords"] = args ? args.nsRecords : undefined;
             resourceInputs["ptrRecords"] = args ? args.ptrRecords : undefined;
             resourceInputs["recordType"] = args ? args.recordType : undefined;
@@ -145,6 +159,7 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["soaRecord"] = args ? args.soaRecord : undefined;
             resourceInputs["srvRecords"] = args ? args.srvRecords : undefined;
             resourceInputs["targetResource"] = args ? args.targetResource : undefined;
+            resourceInputs["tlsaRecords"] = args ? args.tlsaRecords : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["txtRecords"] = args ? args.txtRecords : undefined;
             resourceInputs["zoneName"] = args ? args.zoneName : undefined;
@@ -158,17 +173,20 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["aaaaRecords"] = undefined /*out*/;
             resourceInputs["caaRecords"] = undefined /*out*/;
             resourceInputs["cnameRecord"] = undefined /*out*/;
+            resourceInputs["dsRecords"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["mxRecords"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["naptrRecords"] = undefined /*out*/;
             resourceInputs["nsRecords"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["ptrRecords"] = undefined /*out*/;
             resourceInputs["soaRecord"] = undefined /*out*/;
             resourceInputs["srvRecords"] = undefined /*out*/;
             resourceInputs["targetResource"] = undefined /*out*/;
+            resourceInputs["tlsaRecords"] = undefined /*out*/;
             resourceInputs["ttl"] = undefined /*out*/;
             resourceInputs["txtRecords"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -201,6 +219,10 @@ export interface RecordSetArgs {
      */
     cnameRecord?: pulumi.Input<inputs.network.CnameRecordArgs>;
     /**
+     * The list of DS records in the record set.
+     */
+    dsRecords?: pulumi.Input<pulumi.Input<inputs.network.DsRecordArgs>[]>;
+    /**
      * The metadata attached to the record set.
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -208,6 +230,10 @@ export interface RecordSetArgs {
      * The list of MX records in the record set.
      */
     mxRecords?: pulumi.Input<pulumi.Input<inputs.network.MxRecordArgs>[]>;
+    /**
+     * The list of NAPTR records in the record set.
+     */
+    naptrRecords?: pulumi.Input<pulumi.Input<inputs.network.NaptrRecordArgs>[]>;
     /**
      * The list of NS records in the record set.
      */
@@ -217,7 +243,7 @@ export interface RecordSetArgs {
      */
     ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.PtrRecordArgs>[]>;
     /**
-     * The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
+     * The type of DNS record in this record set.
      */
     recordType: pulumi.Input<string>;
     /**
@@ -225,7 +251,7 @@ export interface RecordSetArgs {
      */
     relativeRecordSetName?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -240,6 +266,10 @@ export interface RecordSetArgs {
      * A reference to an azure resource from where the dns resource value is taken.
      */
     targetResource?: pulumi.Input<inputs.network.SubResourceArgs>;
+    /**
+     * The list of TLSA records in the record set.
+     */
+    tlsaRecords?: pulumi.Input<pulumi.Input<inputs.network.TlsaRecordArgs>[]>;
     /**
      * The TTL (time-to-live) of the records in the record set.
      */

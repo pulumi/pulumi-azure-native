@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Vendor resource.
- * Azure REST API version: 2021-05-01. Prior API version in Azure Native 1.x: 2020-01-01-preview
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
  */
 export class Vendor extends pulumi.CustomResource {
     /**

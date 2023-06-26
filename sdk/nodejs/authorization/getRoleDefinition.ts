@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get role definition by name (GUID).
- * Azure REST API version: 2022-04-01.
+ * Get role definition by ID (GUID).
+ * Azure REST API version: 2022-05-01-preview.
  */
 export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
 
@@ -26,7 +26,7 @@ export interface GetRoleDefinitionArgs {
      */
     roleDefinitionId: string;
     /**
-     * The scope of the role definition.
+     * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
     scope: string;
 }
@@ -85,8 +85,8 @@ export interface GetRoleDefinitionResult {
     readonly updatedOn: string;
 }
 /**
- * Get role definition by name (GUID).
- * Azure REST API version: 2022-04-01.
+ * Get role definition by ID (GUID).
+ * Azure REST API version: 2022-05-01-preview.
  */
 export function getRoleDefinitionOutput(args: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getRoleDefinition(a, opts))
@@ -98,7 +98,7 @@ export interface GetRoleDefinitionOutputArgs {
      */
     roleDefinitionId: pulumi.Input<string>;
     /**
-     * The scope of the role definition.
+     * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
     scope: pulumi.Input<string>;
 }

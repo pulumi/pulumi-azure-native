@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided virtual machine console.
-        /// Azure REST API version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetConsoleResult> InvokeAsync(GetConsoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-native:networkcloud:getConsole", args ?? new GetConsoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided virtual machine console.
-        /// Azure REST API version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetConsoleResult> Invoke(GetConsoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsoleResult>("azure-native:networkcloud:getConsole", args ?? new GetConsoleInvokeArgs(), options.WithDefaults());
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>

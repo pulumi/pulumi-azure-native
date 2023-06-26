@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class VirtualApplianceAdditionalNicPropertiesResponse
     {
         /// <summary>
-        /// Customer Intent for Public Ip on additional nic
+        /// Flag (true or false) for Intent for Public Ip on additional nic
         /// </summary>
         public readonly bool? HasPublicIp;
         /// <summary>
-        /// Customer Name for additional nic
+        /// Name of additional nic
         /// </summary>
         public readonly string? Name;
 

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified custom IP prefix in a specified resource group.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getCustomIPPrefix(args: GetCustomIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomIPPrefixResult> {
 
@@ -135,7 +135,7 @@ export interface GetCustomIPPrefixResult {
 }
 /**
  * Gets the specified custom IP prefix in a specified resource group.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getCustomIPPrefixOutput(args: GetCustomIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomIPPrefixResult> {
     return pulumi.output(args).apply((a: any) => getCustomIPPrefix(a, opts))

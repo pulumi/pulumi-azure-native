@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         /// <summary>
         /// The user assigned identities associated with the streaming job resource.
         /// </summary>
-        public readonly object? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, object>? UserAssignedIdentities;
 
         [OutputConstructor]
         private IdentityResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
             string? type,
 
-            object? userAssignedIdentities)
+            ImmutableDictionary<string, object>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

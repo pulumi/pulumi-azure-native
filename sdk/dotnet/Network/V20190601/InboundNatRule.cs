@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.Network.V20190601
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:InboundNatRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:InboundNatRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:InboundNatRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:InboundNatRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

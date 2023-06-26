@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ScVmm
     {
         /// <summary>
         /// Implements AvailabilitySet GET method.
-        /// Azure REST API version: 2020-06-05-preview.
+        /// Azure REST API version: 2022-05-21-preview.
         /// </summary>
         public static Task<GetAvailabilitySetResult> InvokeAsync(GetAvailabilitySetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure-native:scvmm:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements AvailabilitySet GET method.
-        /// Azure REST API version: 2020-06-05-preview.
+        /// Azure REST API version: 2022-05-21-preview.
         /// </summary>
         public static Output<GetAvailabilitySetResult> Invoke(GetAvailabilitySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilitySetResult>("azure-native:scvmm:getAvailabilitySet", args ?? new GetAvailabilitySetInvokeArgs(), options.WithDefaults());

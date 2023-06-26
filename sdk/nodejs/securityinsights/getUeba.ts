@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a setting.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getUeba(args: GetUebaArgs, opts?: pulumi.InvokeOptions): Promise<GetUebaResult> {
 
@@ -72,7 +72,7 @@ export interface GetUebaResult {
 }
 /**
  * Gets a setting.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getUebaOutput(args: GetUebaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUebaResult> {
     return pulumi.output(args).apply((a: any) => getUeba(a, opts))

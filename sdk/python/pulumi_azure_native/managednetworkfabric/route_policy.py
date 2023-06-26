@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RoutePolicyArgs', 'RoutePolicy']
@@ -17,29 +18,24 @@ __all__ = ['RoutePolicyArgs', 'RoutePolicy']
 class RoutePolicyArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 statements: pulumi.Input[Sequence[pulumi.Input['RoutePolicyStatementPropertiesArgs']]],
                  annotation: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['RoutePolicyPropertiesConditionsArgs']]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  route_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RoutePolicy resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutePolicyStatementPropertiesArgs']]] statements: Route Policy statements.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[Sequence[pulumi.Input['RoutePolicyPropertiesConditionsArgs']]] conditions: Route Policy conditions.
-        :param pulumi.Input[str] description: Route Policy description.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] route_policy_name: Name of the Route Policy
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "statements", statements)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
-        if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if route_policy_name is not None:
@@ -61,6 +57,18 @@ class RoutePolicyArgs:
 
     @property
     @pulumi.getter
+    def statements(self) -> pulumi.Input[Sequence[pulumi.Input['RoutePolicyStatementPropertiesArgs']]]:
+        """
+        Route Policy statements.
+        """
+        return pulumi.get(self, "statements")
+
+    @statements.setter
+    def statements(self, value: pulumi.Input[Sequence[pulumi.Input['RoutePolicyStatementPropertiesArgs']]]):
+        pulumi.set(self, "statements", value)
+
+    @property
+    @pulumi.getter
     def annotation(self) -> Optional[pulumi.Input[str]]:
         """
         Switch configuration description.
@@ -70,30 +78,6 @@ class RoutePolicyArgs:
     @annotation.setter
     def annotation(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "annotation", value)
-
-    @property
-    @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutePolicyPropertiesConditionsArgs']]]]:
-        """
-        Route Policy conditions.
-        """
-        return pulumi.get(self, "conditions")
-
-    @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutePolicyPropertiesConditionsArgs']]]]):
-        pulumi.set(self, "conditions", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Route Policy description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -138,11 +122,10 @@ class RoutePolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutePolicyPropertiesConditionsArgs']]]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_policy_name: Optional[pulumi.Input[str]] = None,
+                 statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutePolicyStatementPropertiesArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -152,11 +135,10 @@ class RoutePolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutePolicyPropertiesConditionsArgs']]]] conditions: Route Policy conditions.
-        :param pulumi.Input[str] description: Route Policy description.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] route_policy_name: Name of the Route Policy
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutePolicyStatementPropertiesArgs']]]] statements: Route Policy statements.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -185,11 +167,10 @@ class RoutePolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutePolicyPropertiesConditionsArgs']]]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_policy_name: Optional[pulumi.Input[str]] = None,
+                 statements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutePolicyStatementPropertiesArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -201,13 +182,14 @@ class RoutePolicy(pulumi.CustomResource):
             __props__ = RoutePolicyArgs.__new__(RoutePolicyArgs)
 
             __props__.__dict__["annotation"] = annotation
-            __props__.__dict__["conditions"] = conditions
-            __props__.__dict__["description"] = description
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["route_policy_name"] = route_policy_name
+            if statements is None and not opts.urn:
+                raise TypeError("Missing required property 'statements'")
+            __props__.__dict__["statements"] = statements
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -238,11 +220,10 @@ class RoutePolicy(pulumi.CustomResource):
         __props__ = RoutePolicyArgs.__new__(RoutePolicyArgs)
 
         __props__.__dict__["annotation"] = None
-        __props__.__dict__["conditions"] = None
-        __props__.__dict__["description"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["statements"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -255,22 +236,6 @@ class RoutePolicy(pulumi.CustomResource):
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
-
-    @property
-    @pulumi.getter
-    def conditions(self) -> pulumi.Output[Optional[Sequence['outputs.RoutePolicyPropertiesResponseConditions']]]:
-        """
-        Route Policy conditions.
-        """
-        return pulumi.get(self, "conditions")
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Route Policy description.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -295,6 +260,14 @@ class RoutePolicy(pulumi.CustomResource):
         Gets the provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def statements(self) -> pulumi.Output[Sequence['outputs.RoutePolicyStatementPropertiesResponse']]:
+        """
+        Route Policy statements.
+        """
+        return pulumi.get(self, "statements")
 
     @property
     @pulumi.getter(name="systemData")

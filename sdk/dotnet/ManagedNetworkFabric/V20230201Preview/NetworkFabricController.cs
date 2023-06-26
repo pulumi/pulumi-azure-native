@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// InfrastructureServices IP ranges.
         /// </summary>
         [Output("infrastructureServices")]
-        public Output<Outputs.NetworkFabricControllerPropertiesResponseInfrastructureServices> InfrastructureServices { get; private set; } = null!;
+        public Output<Outputs.InfrastructureServicesResponse> InfrastructureServices { get; private set; } = null!;
 
         /// <summary>
         /// IPv4 Network Fabric Controller Address Space.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// Managed Resource Group configuration properties.
         /// </summary>
         [Output("managedResourceGroupConfiguration")]
-        public Output<Outputs.NetworkFabricControllerPropertiesResponseManagedResourceGroupConfiguration?> ManagedResourceGroupConfiguration { get; private set; } = null!;
+        public Output<Outputs.ManagedResourceGroupConfigurationResponse?> ManagedResourceGroupConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// WorkloadServices IP ranges.
         /// </summary>
         [Output("workloadServices")]
-        public Output<Outputs.NetworkFabricControllerPropertiesResponseWorkloadServices> WorkloadServices { get; private set; } = null!;
+        public Output<Outputs.WorkloadServicesResponse> WorkloadServices { get; private set; } = null!;
 
 
         /// <summary>
@@ -206,7 +206,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// Managed Resource Group configuration properties.
         /// </summary>
         [Input("managedResourceGroupConfiguration")]
-        public Input<Inputs.NetworkFabricControllerPropertiesManagedResourceGroupConfigurationArgs>? ManagedResourceGroupConfiguration { get; set; }
+        public Input<Inputs.ManagedResourceGroupConfigurationArgs>? ManagedResourceGroupConfiguration { get; set; }
 
         /// <summary>
         /// Name of the Network Fabric Controller

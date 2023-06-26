@@ -11,27 +11,65 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AadConfigurationArgs',
     'AdministrativeCredentialsArgs',
+    'AdministratorConfigurationArgs',
+    'AgentOptionsArgs',
+    'AgentPoolUpgradeSettingsArgs',
+    'AttachedNetworkConfigurationArgs',
     'BareMetalMachineConfigurationDataArgs',
+    'BgpAdvertisementArgs',
     'BgpPeerArgs',
+    'BgpServiceLoadBalancerConfigurationArgs',
     'CniBgpConfigurationArgs',
     'CommunityAdvertisementArgs',
+    'ControlPlaneNodeConfigurationArgs',
     'EgressEndpointArgs',
     'EndpointDependencyArgs',
     'ExtendedLocationArgs',
     'ImageRepositoryCredentialsArgs',
+    'InitialAgentPoolConfigurationArgs',
+    'IpAddressPoolArgs',
     'KeySetUserArgs',
+    'KubernetesLabelArgs',
+    'L2NetworkAttachmentConfigurationArgs',
+    'L3NetworkAttachmentConfigurationArgs',
     'ManagedResourceGroupConfigurationArgs',
     'NetworkAttachmentArgs',
+    'NetworkConfigurationArgs',
     'OsDiskArgs',
     'RackDefinitionArgs',
+    'ServiceLoadBalancerBgpPeerArgs',
     'ServicePrincipalInformationArgs',
     'SshPublicKeyArgs',
     'StorageApplianceConfigurationDataArgs',
     'StorageProfileArgs',
+    'TrunkedNetworkAttachmentConfigurationArgs',
     'ValidationThresholdArgs',
     'VirtualMachinePlacementHintArgs',
 ]
+
+@pulumi.input_type
+class AadConfigurationArgs:
+    def __init__(__self__, *,
+                 admin_group_object_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_group_object_ids: The list of Azure Active Directory group object IDs that will have an administrative role on the Kubernetes cluster.
+        """
+        pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+
+    @property
+    @pulumi.getter(name="adminGroupObjectIds")
+    def admin_group_object_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of Azure Active Directory group object IDs that will have an administrative role on the Kubernetes cluster.
+        """
+        return pulumi.get(self, "admin_group_object_ids")
+
+    @admin_group_object_ids.setter
+    def admin_group_object_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "admin_group_object_ids", value)
+
 
 @pulumi.input_type
 class AdministrativeCredentialsArgs:
@@ -68,6 +106,165 @@ class AdministrativeCredentialsArgs:
     @username.setter
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class AdministratorConfigurationArgs:
+    def __init__(__self__, *,
+                 admin_username: Optional[pulumi.Input[str]] = None,
+                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None):
+        """
+        :param pulumi.Input[str] admin_username: The user name for the administrator that will be applied to the operating systems that run Kubernetes nodes. If not supplied, a user name will be chosen by the service.
+        :param pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]] ssh_public_keys: The SSH configuration for the operating systems that run the nodes in the Kubernetes cluster. In some cases, specification of public keys may be required to produce a working environment.
+        """
+        if admin_username is not None:
+            pulumi.set(__self__, "admin_username", admin_username)
+        if ssh_public_keys is not None:
+            pulumi.set(__self__, "ssh_public_keys", ssh_public_keys)
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user name for the administrator that will be applied to the operating systems that run Kubernetes nodes. If not supplied, a user name will be chosen by the service.
+        """
+        return pulumi.get(self, "admin_username")
+
+    @admin_username.setter
+    def admin_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_username", value)
+
+    @property
+    @pulumi.getter(name="sshPublicKeys")
+    def ssh_public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]:
+        """
+        The SSH configuration for the operating systems that run the nodes in the Kubernetes cluster. In some cases, specification of public keys may be required to produce a working environment.
+        """
+        return pulumi.get(self, "ssh_public_keys")
+
+    @ssh_public_keys.setter
+    def ssh_public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
+        pulumi.set(self, "ssh_public_keys", value)
+
+
+@pulumi.input_type
+class AgentOptionsArgs:
+    def __init__(__self__, *,
+                 hugepages_count: pulumi.Input[float],
+                 hugepages_size: Optional[pulumi.Input[Union[str, 'HugepagesSize']]] = None):
+        """
+        :param pulumi.Input[float] hugepages_count: The number of hugepages to allocate.
+        :param pulumi.Input[Union[str, 'HugepagesSize']] hugepages_size: The size of the hugepages to allocate.
+        """
+        pulumi.set(__self__, "hugepages_count", hugepages_count)
+        if hugepages_size is None:
+            hugepages_size = '2M'
+        if hugepages_size is not None:
+            pulumi.set(__self__, "hugepages_size", hugepages_size)
+
+    @property
+    @pulumi.getter(name="hugepagesCount")
+    def hugepages_count(self) -> pulumi.Input[float]:
+        """
+        The number of hugepages to allocate.
+        """
+        return pulumi.get(self, "hugepages_count")
+
+    @hugepages_count.setter
+    def hugepages_count(self, value: pulumi.Input[float]):
+        pulumi.set(self, "hugepages_count", value)
+
+    @property
+    @pulumi.getter(name="hugepagesSize")
+    def hugepages_size(self) -> Optional[pulumi.Input[Union[str, 'HugepagesSize']]]:
+        """
+        The size of the hugepages to allocate.
+        """
+        return pulumi.get(self, "hugepages_size")
+
+    @hugepages_size.setter
+    def hugepages_size(self, value: Optional[pulumi.Input[Union[str, 'HugepagesSize']]]):
+        pulumi.set(self, "hugepages_size", value)
+
+
+@pulumi.input_type
+class AgentPoolUpgradeSettingsArgs:
+    def __init__(__self__, *,
+                 max_surge: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] max_surge: The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1.
+        """
+        if max_surge is None:
+            max_surge = '1'
+        if max_surge is not None:
+            pulumi.set(__self__, "max_surge", max_surge)
+
+    @property
+    @pulumi.getter(name="maxSurge")
+    def max_surge(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1.
+        """
+        return pulumi.get(self, "max_surge")
+
+    @max_surge.setter
+    def max_surge(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_surge", value)
+
+
+@pulumi.input_type
+class AttachedNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 l2_networks: Optional[pulumi.Input[Sequence[pulumi.Input['L2NetworkAttachmentConfigurationArgs']]]] = None,
+                 l3_networks: Optional[pulumi.Input[Sequence[pulumi.Input['L3NetworkAttachmentConfigurationArgs']]]] = None,
+                 trunked_networks: Optional[pulumi.Input[Sequence[pulumi.Input['TrunkedNetworkAttachmentConfigurationArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['L2NetworkAttachmentConfigurationArgs']]] l2_networks: The list of Layer 2 Networks and related configuration for attachment.
+        :param pulumi.Input[Sequence[pulumi.Input['L3NetworkAttachmentConfigurationArgs']]] l3_networks: The list of Layer 3 Networks and related configuration for attachment.
+        :param pulumi.Input[Sequence[pulumi.Input['TrunkedNetworkAttachmentConfigurationArgs']]] trunked_networks: The list of Trunked Networks and related configuration for attachment.
+        """
+        if l2_networks is not None:
+            pulumi.set(__self__, "l2_networks", l2_networks)
+        if l3_networks is not None:
+            pulumi.set(__self__, "l3_networks", l3_networks)
+        if trunked_networks is not None:
+            pulumi.set(__self__, "trunked_networks", trunked_networks)
+
+    @property
+    @pulumi.getter(name="l2Networks")
+    def l2_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['L2NetworkAttachmentConfigurationArgs']]]]:
+        """
+        The list of Layer 2 Networks and related configuration for attachment.
+        """
+        return pulumi.get(self, "l2_networks")
+
+    @l2_networks.setter
+    def l2_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['L2NetworkAttachmentConfigurationArgs']]]]):
+        pulumi.set(self, "l2_networks", value)
+
+    @property
+    @pulumi.getter(name="l3Networks")
+    def l3_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['L3NetworkAttachmentConfigurationArgs']]]]:
+        """
+        The list of Layer 3 Networks and related configuration for attachment.
+        """
+        return pulumi.get(self, "l3_networks")
+
+    @l3_networks.setter
+    def l3_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['L3NetworkAttachmentConfigurationArgs']]]]):
+        pulumi.set(self, "l3_networks", value)
+
+    @property
+    @pulumi.getter(name="trunkedNetworks")
+    def trunked_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrunkedNetworkAttachmentConfigurationArgs']]]]:
+        """
+        The list of Trunked Networks and related configuration for attachment.
+        """
+        return pulumi.get(self, "trunked_networks")
+
+    @trunked_networks.setter
+    def trunked_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrunkedNetworkAttachmentConfigurationArgs']]]]):
+        pulumi.set(self, "trunked_networks", value)
 
 
 @pulumi.input_type
@@ -187,6 +384,78 @@ class BareMetalMachineConfigurationDataArgs:
 
 
 @pulumi.input_type
+class BgpAdvertisementArgs:
+    def __init__(__self__, *,
+                 ip_address_pools: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 advertise_to_fabric: Optional[pulumi.Input[Union[str, 'AdvertiseToFabric']]] = None,
+                 communities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 peers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_address_pools: The names of the IP address pools associated with this announcement.
+        :param pulumi.Input[Union[str, 'AdvertiseToFabric']] advertise_to_fabric: The indicator of if this advertisement is also made to the network fabric associated with the Network Cloud Cluster. This field is ignored if fabricPeeringEnabled is set to False.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] communities: The names of the BGP communities to be associated with the announcement, utilizing a BGP community string in 1234:1234 format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] peers: The names of the BGP peers to limit this advertisement to. If no values are specified, all BGP peers will receive this advertisement.
+        """
+        pulumi.set(__self__, "ip_address_pools", ip_address_pools)
+        if advertise_to_fabric is None:
+            advertise_to_fabric = 'True'
+        if advertise_to_fabric is not None:
+            pulumi.set(__self__, "advertise_to_fabric", advertise_to_fabric)
+        if communities is not None:
+            pulumi.set(__self__, "communities", communities)
+        if peers is not None:
+            pulumi.set(__self__, "peers", peers)
+
+    @property
+    @pulumi.getter(name="ipAddressPools")
+    def ip_address_pools(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The names of the IP address pools associated with this announcement.
+        """
+        return pulumi.get(self, "ip_address_pools")
+
+    @ip_address_pools.setter
+    def ip_address_pools(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "ip_address_pools", value)
+
+    @property
+    @pulumi.getter(name="advertiseToFabric")
+    def advertise_to_fabric(self) -> Optional[pulumi.Input[Union[str, 'AdvertiseToFabric']]]:
+        """
+        The indicator of if this advertisement is also made to the network fabric associated with the Network Cloud Cluster. This field is ignored if fabricPeeringEnabled is set to False.
+        """
+        return pulumi.get(self, "advertise_to_fabric")
+
+    @advertise_to_fabric.setter
+    def advertise_to_fabric(self, value: Optional[pulumi.Input[Union[str, 'AdvertiseToFabric']]]):
+        pulumi.set(self, "advertise_to_fabric", value)
+
+    @property
+    @pulumi.getter
+    def communities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The names of the BGP communities to be associated with the announcement, utilizing a BGP community string in 1234:1234 format.
+        """
+        return pulumi.get(self, "communities")
+
+    @communities.setter
+    def communities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "communities", value)
+
+    @property
+    @pulumi.getter
+    def peers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The names of the BGP peers to limit this advertisement to. If no values are specified, all BGP peers will receive this advertisement.
+        """
+        return pulumi.get(self, "peers")
+
+    @peers.setter
+    def peers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "peers", value)
+
+
+@pulumi.input_type
 class BgpPeerArgs:
     def __init__(__self__, *,
                  as_number: pulumi.Input[float],
@@ -237,6 +506,79 @@ class BgpPeerArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class BgpServiceLoadBalancerConfigurationArgs:
+    def __init__(__self__, *,
+                 bgp_advertisements: Optional[pulumi.Input[Sequence[pulumi.Input['BgpAdvertisementArgs']]]] = None,
+                 bgp_peers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerBgpPeerArgs']]]] = None,
+                 fabric_peering_enabled: Optional[pulumi.Input[Union[str, 'FabricPeeringEnabled']]] = None,
+                 ip_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['BgpAdvertisementArgs']]] bgp_advertisements: The association of IP address pools to the communities and peers, allowing for announcement of IPs.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerBgpPeerArgs']]] bgp_peers: The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined.
+        :param pulumi.Input[Union[str, 'FabricPeeringEnabled']] fabric_peering_enabled: The indicator to specify if the load balancer peers with the network fabric.
+        :param pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgs']]] ip_address_pools: The list of pools of IP addresses that can be allocated to Load Balancer services.
+        """
+        if bgp_advertisements is not None:
+            pulumi.set(__self__, "bgp_advertisements", bgp_advertisements)
+        if bgp_peers is not None:
+            pulumi.set(__self__, "bgp_peers", bgp_peers)
+        if fabric_peering_enabled is None:
+            fabric_peering_enabled = 'True'
+        if fabric_peering_enabled is not None:
+            pulumi.set(__self__, "fabric_peering_enabled", fabric_peering_enabled)
+        if ip_address_pools is not None:
+            pulumi.set(__self__, "ip_address_pools", ip_address_pools)
+
+    @property
+    @pulumi.getter(name="bgpAdvertisements")
+    def bgp_advertisements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BgpAdvertisementArgs']]]]:
+        """
+        The association of IP address pools to the communities and peers, allowing for announcement of IPs.
+        """
+        return pulumi.get(self, "bgp_advertisements")
+
+    @bgp_advertisements.setter
+    def bgp_advertisements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BgpAdvertisementArgs']]]]):
+        pulumi.set(self, "bgp_advertisements", value)
+
+    @property
+    @pulumi.getter(name="bgpPeers")
+    def bgp_peers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerBgpPeerArgs']]]]:
+        """
+        The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined.
+        """
+        return pulumi.get(self, "bgp_peers")
+
+    @bgp_peers.setter
+    def bgp_peers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerBgpPeerArgs']]]]):
+        pulumi.set(self, "bgp_peers", value)
+
+    @property
+    @pulumi.getter(name="fabricPeeringEnabled")
+    def fabric_peering_enabled(self) -> Optional[pulumi.Input[Union[str, 'FabricPeeringEnabled']]]:
+        """
+        The indicator to specify if the load balancer peers with the network fabric.
+        """
+        return pulumi.get(self, "fabric_peering_enabled")
+
+    @fabric_peering_enabled.setter
+    def fabric_peering_enabled(self, value: Optional[pulumi.Input[Union[str, 'FabricPeeringEnabled']]]):
+        pulumi.set(self, "fabric_peering_enabled", value)
+
+    @property
+    @pulumi.getter(name="ipAddressPools")
+    def ip_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgs']]]]:
+        """
+        The list of pools of IP addresses that can be allocated to Load Balancer services.
+        """
+        return pulumi.get(self, "ip_address_pools")
+
+    @ip_address_pools.setter
+    def ip_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgs']]]]):
+        pulumi.set(self, "ip_address_pools", value)
 
 
 @pulumi.input_type
@@ -365,6 +707,75 @@ class CommunityAdvertisementArgs:
     @subnet_prefix.setter
     def subnet_prefix(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_prefix", value)
+
+
+@pulumi.input_type
+class ControlPlaneNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[float],
+                 vm_sku_name: pulumi.Input[str],
+                 administrator_configuration: Optional[pulumi.Input['AdministratorConfigurationArgs']] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[float] count: The number of virtual machines that use this configuration.
+        :param pulumi.Input[str] vm_sku_name: The name of the VM SKU supplied during creation.
+        :param pulumi.Input['AdministratorConfigurationArgs'] administrator_configuration: The administrator credentials to be used for the nodes in the control plane.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The list of availability zones of the Network Cloud cluster to be used for the provisioning of nodes in the control plane. If not specified, all availability zones will be used.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "vm_sku_name", vm_sku_name)
+        if administrator_configuration is not None:
+            pulumi.set(__self__, "administrator_configuration", administrator_configuration)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[float]:
+        """
+        The number of virtual machines that use this configuration.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[float]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter(name="vmSkuName")
+    def vm_sku_name(self) -> pulumi.Input[str]:
+        """
+        The name of the VM SKU supplied during creation.
+        """
+        return pulumi.get(self, "vm_sku_name")
+
+    @vm_sku_name.setter
+    def vm_sku_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vm_sku_name", value)
+
+    @property
+    @pulumi.getter(name="administratorConfiguration")
+    def administrator_configuration(self) -> Optional[pulumi.Input['AdministratorConfigurationArgs']]:
+        """
+        The administrator credentials to be used for the nodes in the control plane.
+        """
+        return pulumi.get(self, "administrator_configuration")
+
+    @administrator_configuration.setter
+    def administrator_configuration(self, value: Optional[pulumi.Input['AdministratorConfigurationArgs']]):
+        pulumi.set(self, "administrator_configuration", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of availability zones of the Network Cloud cluster to be used for the provisioning of nodes in the control plane. If not specified, all availability zones will be used.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
 
 
 @pulumi.input_type
@@ -532,14 +943,266 @@ class ImageRepositoryCredentialsArgs:
 
 
 @pulumi.input_type
+class InitialAgentPoolConfigurationArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[float],
+                 mode: pulumi.Input[Union[str, 'AgentPoolMode']],
+                 name: pulumi.Input[str],
+                 vm_sku_name: pulumi.Input[str],
+                 administrator_configuration: Optional[pulumi.Input['AdministratorConfigurationArgs']] = None,
+                 agent_options: Optional[pulumi.Input['AgentOptionsArgs']] = None,
+                 attached_network_configuration: Optional[pulumi.Input['AttachedNetworkConfigurationArgs']] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]] = None,
+                 upgrade_settings: Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']] = None):
+        """
+        :param pulumi.Input[float] count: The number of virtual machines that use this configuration.
+        :param pulumi.Input[Union[str, 'AgentPoolMode']] mode: The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node.
+        :param pulumi.Input[str] name: The name that will be used for the agent pool resource representing this agent pool.
+        :param pulumi.Input[str] vm_sku_name: The name of the VM SKU that determines the size of resources allocated for node VMs.
+        :param pulumi.Input['AdministratorConfigurationArgs'] administrator_configuration: The administrator credentials to be used for the nodes in this agent pool.
+        :param pulumi.Input['AgentOptionsArgs'] agent_options: The configurations that will be applied to each agent in this agent pool.
+        :param pulumi.Input['AttachedNetworkConfigurationArgs'] attached_network_configuration: The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]] labels: The labels applied to the nodes in this agent pool.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]] taints: The taints applied to the nodes in this agent pool.
+        :param pulumi.Input['AgentPoolUpgradeSettingsArgs'] upgrade_settings: The configuration of the agent pool.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "vm_sku_name", vm_sku_name)
+        if administrator_configuration is not None:
+            pulumi.set(__self__, "administrator_configuration", administrator_configuration)
+        if agent_options is not None:
+            pulumi.set(__self__, "agent_options", agent_options)
+        if attached_network_configuration is not None:
+            pulumi.set(__self__, "attached_network_configuration", attached_network_configuration)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if taints is not None:
+            pulumi.set(__self__, "taints", taints)
+        if upgrade_settings is not None:
+            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[float]:
+        """
+        The number of virtual machines that use this configuration.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[float]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[Union[str, 'AgentPoolMode']]:
+        """
+        The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[Union[str, 'AgentPoolMode']]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name that will be used for the agent pool resource representing this agent pool.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="vmSkuName")
+    def vm_sku_name(self) -> pulumi.Input[str]:
+        """
+        The name of the VM SKU that determines the size of resources allocated for node VMs.
+        """
+        return pulumi.get(self, "vm_sku_name")
+
+    @vm_sku_name.setter
+    def vm_sku_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vm_sku_name", value)
+
+    @property
+    @pulumi.getter(name="administratorConfiguration")
+    def administrator_configuration(self) -> Optional[pulumi.Input['AdministratorConfigurationArgs']]:
+        """
+        The administrator credentials to be used for the nodes in this agent pool.
+        """
+        return pulumi.get(self, "administrator_configuration")
+
+    @administrator_configuration.setter
+    def administrator_configuration(self, value: Optional[pulumi.Input['AdministratorConfigurationArgs']]):
+        pulumi.set(self, "administrator_configuration", value)
+
+    @property
+    @pulumi.getter(name="agentOptions")
+    def agent_options(self) -> Optional[pulumi.Input['AgentOptionsArgs']]:
+        """
+        The configurations that will be applied to each agent in this agent pool.
+        """
+        return pulumi.get(self, "agent_options")
+
+    @agent_options.setter
+    def agent_options(self, value: Optional[pulumi.Input['AgentOptionsArgs']]):
+        pulumi.set(self, "agent_options", value)
+
+    @property
+    @pulumi.getter(name="attachedNetworkConfiguration")
+    def attached_network_configuration(self) -> Optional[pulumi.Input['AttachedNetworkConfigurationArgs']]:
+        """
+        The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.
+        """
+        return pulumi.get(self, "attached_network_configuration")
+
+    @attached_network_configuration.setter
+    def attached_network_configuration(self, value: Optional[pulumi.Input['AttachedNetworkConfigurationArgs']]):
+        pulumi.set(self, "attached_network_configuration", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]]:
+        """
+        The labels applied to the nodes in this agent pool.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter
+    def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]]:
+        """
+        The taints applied to the nodes in this agent pool.
+        """
+        return pulumi.get(self, "taints")
+
+    @taints.setter
+    def taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]]]):
+        pulumi.set(self, "taints", value)
+
+    @property
+    @pulumi.getter(name="upgradeSettings")
+    def upgrade_settings(self) -> Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']]:
+        """
+        The configuration of the agent pool.
+        """
+        return pulumi.get(self, "upgrade_settings")
+
+    @upgrade_settings.setter
+    def upgrade_settings(self, value: Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']]):
+        pulumi.set(self, "upgrade_settings", value)
+
+
+@pulumi.input_type
+class IpAddressPoolArgs:
+    def __init__(__self__, *,
+                 addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: pulumi.Input[str],
+                 auto_assign: Optional[pulumi.Input[Union[str, 'BfdEnabled']]] = None,
+                 only_use_host_ips: Optional[pulumi.Input[Union[str, 'BfdEnabled']]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses.
+        :param pulumi.Input[str] name: The name used to identify this IP address pool for association with a BGP advertisement.
+        :param pulumi.Input[Union[str, 'BfdEnabled']] auto_assign: The indicator to determine if automatic allocation from the pool should occur.
+        :param pulumi.Input[Union[str, 'BfdEnabled']] only_use_host_ips: The indicator to prevent the use of IP addresses ending with .0 and .255 for this pool. Enabling this option will only use IP addresses between .1 and .254 inclusive.
+        """
+        pulumi.set(__self__, "addresses", addresses)
+        pulumi.set(__self__, "name", name)
+        if auto_assign is None:
+            auto_assign = 'True'
+        if auto_assign is not None:
+            pulumi.set(__self__, "auto_assign", auto_assign)
+        if only_use_host_ips is None:
+            only_use_host_ips = 'True'
+        if only_use_host_ips is not None:
+            pulumi.set(__self__, "only_use_host_ips", only_use_host_ips)
+
+    @property
+    @pulumi.getter
+    def addresses(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses.
+        """
+        return pulumi.get(self, "addresses")
+
+    @addresses.setter
+    def addresses(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "addresses", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name used to identify this IP address pool for association with a BGP advertisement.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="autoAssign")
+    def auto_assign(self) -> Optional[pulumi.Input[Union[str, 'BfdEnabled']]]:
+        """
+        The indicator to determine if automatic allocation from the pool should occur.
+        """
+        return pulumi.get(self, "auto_assign")
+
+    @auto_assign.setter
+    def auto_assign(self, value: Optional[pulumi.Input[Union[str, 'BfdEnabled']]]):
+        pulumi.set(self, "auto_assign", value)
+
+    @property
+    @pulumi.getter(name="onlyUseHostIps")
+    def only_use_host_ips(self) -> Optional[pulumi.Input[Union[str, 'BfdEnabled']]]:
+        """
+        The indicator to prevent the use of IP addresses ending with .0 and .255 for this pool. Enabling this option will only use IP addresses between .1 and .254 inclusive.
+        """
+        return pulumi.get(self, "only_use_host_ips")
+
+    @only_use_host_ips.setter
+    def only_use_host_ips(self, value: Optional[pulumi.Input[Union[str, 'BfdEnabled']]]):
+        pulumi.set(self, "only_use_host_ips", value)
+
+
+@pulumi.input_type
 class KeySetUserArgs:
     def __init__(__self__, *,
                  azure_user_name: pulumi.Input[str],
                  ssh_public_key: pulumi.Input['SshPublicKeyArgs'],
                  description: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] azure_user_name: The Azure Active Directory user name (email name).
-        :param pulumi.Input['SshPublicKeyArgs'] ssh_public_key: The SSH public key for this user.
+        :param pulumi.Input[str] azure_user_name: The user name that will be used for access.
+        :param pulumi.Input['SshPublicKeyArgs'] ssh_public_key: The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         :param pulumi.Input[str] description: The free-form description for this user.
         """
         pulumi.set(__self__, "azure_user_name", azure_user_name)
@@ -551,7 +1214,7 @@ class KeySetUserArgs:
     @pulumi.getter(name="azureUserName")
     def azure_user_name(self) -> pulumi.Input[str]:
         """
-        The Azure Active Directory user name (email name).
+        The user name that will be used for access.
         """
         return pulumi.get(self, "azure_user_name")
 
@@ -563,7 +1226,7 @@ class KeySetUserArgs:
     @pulumi.getter(name="sshPublicKey")
     def ssh_public_key(self) -> pulumi.Input['SshPublicKeyArgs']:
         """
-        The SSH public key for this user.
+        The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         """
         return pulumi.get(self, "ssh_public_key")
 
@@ -582,6 +1245,141 @@ class KeySetUserArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class KubernetesLabelArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The name of the label or taint.
+        :param pulumi.Input[str] value: The value of the label or taint.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The name of the label or taint.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the label or taint.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class L2NetworkAttachmentConfigurationArgs:
+    def __init__(__self__, *,
+                 network_id: pulumi.Input[str],
+                 plugin_type: Optional[pulumi.Input[Union[str, 'KubernetesPluginType']]] = None):
+        """
+        :param pulumi.Input[str] network_id: The resource ID of the network that is being configured for attachment.
+        :param pulumi.Input[Union[str, 'KubernetesPluginType']] plugin_type: The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+        pulumi.set(__self__, "network_id", network_id)
+        if plugin_type is None:
+            plugin_type = 'SRIOV'
+        if plugin_type is not None:
+            pulumi.set(__self__, "plugin_type", plugin_type)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the network that is being configured for attachment.
+        """
+        return pulumi.get(self, "network_id")
+
+    @network_id.setter
+    def network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_id", value)
+
+    @property
+    @pulumi.getter(name="pluginType")
+    def plugin_type(self) -> Optional[pulumi.Input[Union[str, 'KubernetesPluginType']]]:
+        """
+        The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+        return pulumi.get(self, "plugin_type")
+
+    @plugin_type.setter
+    def plugin_type(self, value: Optional[pulumi.Input[Union[str, 'KubernetesPluginType']]]):
+        pulumi.set(self, "plugin_type", value)
+
+
+@pulumi.input_type
+class L3NetworkAttachmentConfigurationArgs:
+    def __init__(__self__, *,
+                 network_id: pulumi.Input[str],
+                 ipam_enabled: Optional[pulumi.Input[Union[str, 'L3NetworkConfigurationIpamEnabled']]] = None,
+                 plugin_type: Optional[pulumi.Input[Union[str, 'KubernetesPluginType']]] = None):
+        """
+        :param pulumi.Input[str] network_id: The resource ID of the network that is being configured for attachment.
+        :param pulumi.Input[Union[str, 'L3NetworkConfigurationIpamEnabled']] ipam_enabled: The indication of whether this network will or will not perform IP address management and allocate IP addresses when attached.
+        :param pulumi.Input[Union[str, 'KubernetesPluginType']] plugin_type: The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+        pulumi.set(__self__, "network_id", network_id)
+        if ipam_enabled is None:
+            ipam_enabled = 'False'
+        if ipam_enabled is not None:
+            pulumi.set(__self__, "ipam_enabled", ipam_enabled)
+        if plugin_type is None:
+            plugin_type = 'SRIOV'
+        if plugin_type is not None:
+            pulumi.set(__self__, "plugin_type", plugin_type)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the network that is being configured for attachment.
+        """
+        return pulumi.get(self, "network_id")
+
+    @network_id.setter
+    def network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_id", value)
+
+    @property
+    @pulumi.getter(name="ipamEnabled")
+    def ipam_enabled(self) -> Optional[pulumi.Input[Union[str, 'L3NetworkConfigurationIpamEnabled']]]:
+        """
+        The indication of whether this network will or will not perform IP address management and allocate IP addresses when attached.
+        """
+        return pulumi.get(self, "ipam_enabled")
+
+    @ipam_enabled.setter
+    def ipam_enabled(self, value: Optional[pulumi.Input[Union[str, 'L3NetworkConfigurationIpamEnabled']]]):
+        pulumi.set(self, "ipam_enabled", value)
+
+    @property
+    @pulumi.getter(name="pluginType")
+    def plugin_type(self) -> Optional[pulumi.Input[Union[str, 'KubernetesPluginType']]]:
+        """
+        The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+        return pulumi.get(self, "plugin_type")
+
+    @plugin_type.setter
+    def plugin_type(self, value: Optional[pulumi.Input[Union[str, 'KubernetesPluginType']]]):
+        pulumi.set(self, "plugin_type", value)
 
 
 @pulumi.input_type
@@ -767,6 +1565,123 @@ class NetworkAttachmentArgs:
 
 
 @pulumi.input_type
+class NetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 cloud_services_network_id: pulumi.Input[str],
+                 cni_network_id: pulumi.Input[str],
+                 attached_network_configuration: Optional[pulumi.Input['AttachedNetworkConfigurationArgs']] = None,
+                 bgp_service_load_balancer_configuration: Optional[pulumi.Input['BgpServiceLoadBalancerConfigurationArgs']] = None,
+                 dns_service_ip: Optional[pulumi.Input[str]] = None,
+                 pod_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 service_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] cloud_services_network_id: The resource ID of the associated Cloud Services network.
+        :param pulumi.Input[str] cni_network_id: The resource ID of the Layer 3 network that is used for creation of the Container Networking Interface network.
+        :param pulumi.Input['AttachedNetworkConfigurationArgs'] attached_network_configuration: The configuration of networks being attached to the cluster for use by the workloads that run on this Kubernetes cluster.
+        :param pulumi.Input['BgpServiceLoadBalancerConfigurationArgs'] bgp_service_load_balancer_configuration: The configuration of the BGP service load balancer for this Kubernetes cluster.
+        :param pulumi.Input[str] dns_service_ip: The IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in service CIDR.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] pod_cidrs: The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_cidrs: The CIDR notation IP ranges from which to assign service IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        """
+        pulumi.set(__self__, "cloud_services_network_id", cloud_services_network_id)
+        pulumi.set(__self__, "cni_network_id", cni_network_id)
+        if attached_network_configuration is not None:
+            pulumi.set(__self__, "attached_network_configuration", attached_network_configuration)
+        if bgp_service_load_balancer_configuration is not None:
+            pulumi.set(__self__, "bgp_service_load_balancer_configuration", bgp_service_load_balancer_configuration)
+        if dns_service_ip is not None:
+            pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+        if pod_cidrs is not None:
+            pulumi.set(__self__, "pod_cidrs", pod_cidrs)
+        if service_cidrs is not None:
+            pulumi.set(__self__, "service_cidrs", service_cidrs)
+
+    @property
+    @pulumi.getter(name="cloudServicesNetworkId")
+    def cloud_services_network_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the associated Cloud Services network.
+        """
+        return pulumi.get(self, "cloud_services_network_id")
+
+    @cloud_services_network_id.setter
+    def cloud_services_network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cloud_services_network_id", value)
+
+    @property
+    @pulumi.getter(name="cniNetworkId")
+    def cni_network_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Layer 3 network that is used for creation of the Container Networking Interface network.
+        """
+        return pulumi.get(self, "cni_network_id")
+
+    @cni_network_id.setter
+    def cni_network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cni_network_id", value)
+
+    @property
+    @pulumi.getter(name="attachedNetworkConfiguration")
+    def attached_network_configuration(self) -> Optional[pulumi.Input['AttachedNetworkConfigurationArgs']]:
+        """
+        The configuration of networks being attached to the cluster for use by the workloads that run on this Kubernetes cluster.
+        """
+        return pulumi.get(self, "attached_network_configuration")
+
+    @attached_network_configuration.setter
+    def attached_network_configuration(self, value: Optional[pulumi.Input['AttachedNetworkConfigurationArgs']]):
+        pulumi.set(self, "attached_network_configuration", value)
+
+    @property
+    @pulumi.getter(name="bgpServiceLoadBalancerConfiguration")
+    def bgp_service_load_balancer_configuration(self) -> Optional[pulumi.Input['BgpServiceLoadBalancerConfigurationArgs']]:
+        """
+        The configuration of the BGP service load balancer for this Kubernetes cluster.
+        """
+        return pulumi.get(self, "bgp_service_load_balancer_configuration")
+
+    @bgp_service_load_balancer_configuration.setter
+    def bgp_service_load_balancer_configuration(self, value: Optional[pulumi.Input['BgpServiceLoadBalancerConfigurationArgs']]):
+        pulumi.set(self, "bgp_service_load_balancer_configuration", value)
+
+    @property
+    @pulumi.getter(name="dnsServiceIp")
+    def dns_service_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in service CIDR.
+        """
+        return pulumi.get(self, "dns_service_ip")
+
+    @dns_service_ip.setter
+    def dns_service_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_service_ip", value)
+
+    @property
+    @pulumi.getter(name="podCidrs")
+    def pod_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        """
+        return pulumi.get(self, "pod_cidrs")
+
+    @pod_cidrs.setter
+    def pod_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "pod_cidrs", value)
+
+    @property
+    @pulumi.getter(name="serviceCidrs")
+    def service_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The CIDR notation IP ranges from which to assign service IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        """
+        return pulumi.get(self, "service_cidrs")
+
+    @service_cidrs.setter
+    def service_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "service_cidrs", value)
+
+
+@pulumi.input_type
 class OsDiskArgs:
     def __init__(__self__, *,
                  disk_size_gb: pulumi.Input[float],
@@ -838,7 +1753,7 @@ class RackDefinitionArgs:
         :param pulumi.Input[str] network_rack_id: The resource ID of the network rack that matches this rack definition.
         :param pulumi.Input[str] rack_serial_number: The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
         :param pulumi.Input[str] rack_sku_id: The resource ID of the sku for the rack being added.
-        :param pulumi.Input[str] availability_zone: The zone name used for this rack when created.
+        :param pulumi.Input[str] availability_zone: The zone name used for this rack when created. Availability zones are used for workload placement.
         :param pulumi.Input[Sequence[pulumi.Input['BareMetalMachineConfigurationDataArgs']]] bare_metal_machine_configuration_data: The unordered list of bare metal machine configuration.
         :param pulumi.Input[str] rack_location: The free-form description of the rack's location.
         :param pulumi.Input[Sequence[pulumi.Input['StorageApplianceConfigurationDataArgs']]] storage_appliance_configuration_data: The list of storage appliance configuration data for this rack.
@@ -895,7 +1810,7 @@ class RackDefinitionArgs:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The zone name used for this rack when created.
+        The zone name used for this rack when created. Availability zones are used for workload placement.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -938,6 +1853,176 @@ class RackDefinitionArgs:
     @storage_appliance_configuration_data.setter
     def storage_appliance_configuration_data(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageApplianceConfigurationDataArgs']]]]):
         pulumi.set(self, "storage_appliance_configuration_data", value)
+
+
+@pulumi.input_type
+class ServiceLoadBalancerBgpPeerArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 peer_address: pulumi.Input[str],
+                 peer_asn: pulumi.Input[float],
+                 bfd_enabled: Optional[pulumi.Input[Union[str, 'BfdEnabled']]] = None,
+                 bgp_multi_hop: Optional[pulumi.Input[Union[str, 'BgpMultiHop']]] = None,
+                 hold_time: Optional[pulumi.Input[str]] = None,
+                 keep_alive_time: Optional[pulumi.Input[str]] = None,
+                 my_asn: Optional[pulumi.Input[float]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 peer_port: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[str] name: The name used to identify this BGP peer for association with a BGP advertisement.
+        :param pulumi.Input[str] peer_address: The IPv4 or IPv6 address used to connect this BGP session.
+        :param pulumi.Input[float] peer_asn: The autonomous system number expected from the remote end of the BGP session.
+        :param pulumi.Input[Union[str, 'BfdEnabled']] bfd_enabled: The indicator of BFD enablement for this BgpPeer.
+        :param pulumi.Input[Union[str, 'BgpMultiHop']] bgp_multi_hop: The indicator to enable multi-hop peering support.
+        :param pulumi.Input[str] hold_time: The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
+        :param pulumi.Input[str] keep_alive_time: The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
+        :param pulumi.Input[float] my_asn: The autonomous system number used for the local end of the BGP session.
+        :param pulumi.Input[str] password: The authentication password for routers enforcing TCP MD5 authenticated sessions.
+        :param pulumi.Input[float] peer_port: The port used to connect this BGP session.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "peer_address", peer_address)
+        pulumi.set(__self__, "peer_asn", peer_asn)
+        if bfd_enabled is None:
+            bfd_enabled = 'False'
+        if bfd_enabled is not None:
+            pulumi.set(__self__, "bfd_enabled", bfd_enabled)
+        if bgp_multi_hop is None:
+            bgp_multi_hop = 'False'
+        if bgp_multi_hop is not None:
+            pulumi.set(__self__, "bgp_multi_hop", bgp_multi_hop)
+        if hold_time is not None:
+            pulumi.set(__self__, "hold_time", hold_time)
+        if keep_alive_time is not None:
+            pulumi.set(__self__, "keep_alive_time", keep_alive_time)
+        if my_asn is not None:
+            pulumi.set(__self__, "my_asn", my_asn)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if peer_port is None:
+            peer_port = 179
+        if peer_port is not None:
+            pulumi.set(__self__, "peer_port", peer_port)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name used to identify this BGP peer for association with a BGP advertisement.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="peerAddress")
+    def peer_address(self) -> pulumi.Input[str]:
+        """
+        The IPv4 or IPv6 address used to connect this BGP session.
+        """
+        return pulumi.get(self, "peer_address")
+
+    @peer_address.setter
+    def peer_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "peer_address", value)
+
+    @property
+    @pulumi.getter(name="peerAsn")
+    def peer_asn(self) -> pulumi.Input[float]:
+        """
+        The autonomous system number expected from the remote end of the BGP session.
+        """
+        return pulumi.get(self, "peer_asn")
+
+    @peer_asn.setter
+    def peer_asn(self, value: pulumi.Input[float]):
+        pulumi.set(self, "peer_asn", value)
+
+    @property
+    @pulumi.getter(name="bfdEnabled")
+    def bfd_enabled(self) -> Optional[pulumi.Input[Union[str, 'BfdEnabled']]]:
+        """
+        The indicator of BFD enablement for this BgpPeer.
+        """
+        return pulumi.get(self, "bfd_enabled")
+
+    @bfd_enabled.setter
+    def bfd_enabled(self, value: Optional[pulumi.Input[Union[str, 'BfdEnabled']]]):
+        pulumi.set(self, "bfd_enabled", value)
+
+    @property
+    @pulumi.getter(name="bgpMultiHop")
+    def bgp_multi_hop(self) -> Optional[pulumi.Input[Union[str, 'BgpMultiHop']]]:
+        """
+        The indicator to enable multi-hop peering support.
+        """
+        return pulumi.get(self, "bgp_multi_hop")
+
+    @bgp_multi_hop.setter
+    def bgp_multi_hop(self, value: Optional[pulumi.Input[Union[str, 'BgpMultiHop']]]):
+        pulumi.set(self, "bgp_multi_hop", value)
+
+    @property
+    @pulumi.getter(name="holdTime")
+    def hold_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
+        """
+        return pulumi.get(self, "hold_time")
+
+    @hold_time.setter
+    def hold_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hold_time", value)
+
+    @property
+    @pulumi.getter(name="keepAliveTime")
+    def keep_alive_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
+        """
+        return pulumi.get(self, "keep_alive_time")
+
+    @keep_alive_time.setter
+    def keep_alive_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "keep_alive_time", value)
+
+    @property
+    @pulumi.getter(name="myAsn")
+    def my_asn(self) -> Optional[pulumi.Input[float]]:
+        """
+        The autonomous system number used for the local end of the BGP session.
+        """
+        return pulumi.get(self, "my_asn")
+
+    @my_asn.setter
+    def my_asn(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "my_asn", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication password for routers enforcing TCP MD5 authenticated sessions.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="peerPort")
+    def peer_port(self) -> Optional[pulumi.Input[float]]:
+        """
+        The port used to connect this BGP session.
+        """
+        return pulumi.get(self, "peer_port")
+
+    @peer_port.setter
+    def peer_port(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "peer_port", value)
 
 
 @pulumi.input_type
@@ -1012,7 +2097,7 @@ class SshPublicKeyArgs:
     def __init__(__self__, *,
                  key_data: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key_data: The public ssh key of the user.
+        :param pulumi.Input[str] key_data: The SSH public key data.
         """
         pulumi.set(__self__, "key_data", key_data)
 
@@ -1020,7 +2105,7 @@ class SshPublicKeyArgs:
     @pulumi.getter(name="keyData")
     def key_data(self) -> pulumi.Input[str]:
         """
-        The public ssh key of the user.
+        The SSH public key data.
         """
         return pulumi.get(self, "key_data")
 
@@ -1133,6 +2218,46 @@ class StorageProfileArgs:
     @volume_attachments.setter
     def volume_attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "volume_attachments", value)
+
+
+@pulumi.input_type
+class TrunkedNetworkAttachmentConfigurationArgs:
+    def __init__(__self__, *,
+                 network_id: pulumi.Input[str],
+                 plugin_type: Optional[pulumi.Input[Union[str, 'KubernetesPluginType']]] = None):
+        """
+        :param pulumi.Input[str] network_id: The resource ID of the network that is being configured for attachment.
+        :param pulumi.Input[Union[str, 'KubernetesPluginType']] plugin_type: The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+        pulumi.set(__self__, "network_id", network_id)
+        if plugin_type is None:
+            plugin_type = 'SRIOV'
+        if plugin_type is not None:
+            pulumi.set(__self__, "plugin_type", plugin_type)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the network that is being configured for attachment.
+        """
+        return pulumi.get(self, "network_id")
+
+    @network_id.setter
+    def network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_id", value)
+
+    @property
+    @pulumi.getter(name="pluginType")
+    def plugin_type(self) -> Optional[pulumi.Input[Union[str, 'KubernetesPluginType']]]:
+        """
+        The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+        return pulumi.get(self, "plugin_type")
+
+    @plugin_type.setter
+    def plugin_type(self, value: Optional[pulumi.Input[Union[str, 'KubernetesPluginType']]]):
+        pulumi.set(self, "plugin_type", value)
 
 
 @pulumi.input_type

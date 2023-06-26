@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Authorization
     public static class GetRoleDefinition
     {
         /// <summary>
-        /// Get role definition by name (GUID).
-        /// Azure REST API version: 2022-04-01.
+        /// Get role definition by ID (GUID).
+        /// Azure REST API version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure-native:authorization:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get role definition by name (GUID).
-        /// Azure REST API version: 2022-04-01.
+        /// Get role definition by ID (GUID).
+        /// Azure REST API version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure-native:authorization:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Authorization
         public string RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the role definition.
+        /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the role definition.
+        /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

@@ -267,7 +267,7 @@ def get_public_ip_prefix(expand: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPPrefixResult:
     """
     Gets the specified public IP prefix in a specified resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -310,7 +310,7 @@ def get_public_ip_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIPPrefixResult]:
     """
     Gets the specified public IP prefix in a specified resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.

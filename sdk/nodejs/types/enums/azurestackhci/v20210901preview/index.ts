@@ -120,17 +120,6 @@ export const PrivateIPAllocationMethodEnum = {
  */
 export type PrivateIPAllocationMethodEnum = (typeof PrivateIPAllocationMethodEnum)[keyof typeof PrivateIPAllocationMethodEnum];
 
-export const ProvisioningAction = {
-    Install: "install",
-    Uninstall: "uninstall",
-    Repair: "repair",
-} as const;
-
-/**
- * The guest agent provisioning action.
- */
-export type ProvisioningAction = (typeof ProvisioningAction)[keyof typeof ProvisioningAction];
-
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
 } as const;

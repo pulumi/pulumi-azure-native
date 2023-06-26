@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetVirtualMachineResult:
-    def __init__(__self__, admin_username=None, bare_metal_machine_id=None, boot_method=None, cloud_services_network_attachment=None, cluster_id=None, cpu_cores=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, isolate_emulator_thread=None, location=None, memory_size_gb=None, name=None, network_attachments=None, network_data=None, placement_hints=None, power_state=None, provisioning_state=None, ssh_public_keys=None, storage_profile=None, system_data=None, tags=None, type=None, user_data=None, virtio_interface=None, vm_device_model=None, vm_image=None, vm_image_repository_credentials=None, volumes=None):
+    def __init__(__self__, admin_username=None, availability_zone=None, bare_metal_machine_id=None, boot_method=None, cloud_services_network_attachment=None, cluster_id=None, cpu_cores=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, isolate_emulator_thread=None, location=None, memory_size_gb=None, name=None, network_attachments=None, network_data=None, placement_hints=None, power_state=None, provisioning_state=None, ssh_public_keys=None, storage_profile=None, system_data=None, tags=None, type=None, user_data=None, virtio_interface=None, vm_device_model=None, vm_image=None, vm_image_repository_credentials=None, volumes=None):
         if admin_username and not isinstance(admin_username, str):
             raise TypeError("Expected argument 'admin_username' to be a str")
         pulumi.set(__self__, "admin_username", admin_username)
+        if availability_zone and not isinstance(availability_zone, str):
+            raise TypeError("Expected argument 'availability_zone' to be a str")
+        pulumi.set(__self__, "availability_zone", availability_zone)
         if bare_metal_machine_id and not isinstance(bare_metal_machine_id, str):
             raise TypeError("Expected argument 'bare_metal_machine_id' to be a str")
         pulumi.set(__self__, "bare_metal_machine_id", bare_metal_machine_id)
@@ -120,6 +123,14 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "admin_username")
 
     @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> str:
+        """
+        The cluster availability zone containing this virtual machine.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @property
     @pulumi.getter(name="bareMetalMachineId")
     def bare_metal_machine_id(self) -> str:
         """
@@ -187,7 +198,7 @@ class GetVirtualMachineResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -359,6 +370,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             yield self
         return GetVirtualMachineResult(
             admin_username=self.admin_username,
+            availability_zone=self.availability_zone,
             bare_metal_machine_id=self.bare_metal_machine_id,
             boot_method=self.boot_method,
             cloud_services_network_attachment=self.cloud_services_network_attachment,
@@ -395,7 +407,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
     Get properties of the provided virtual machine.
-    Azure REST API version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -409,6 +421,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
 
     return AwaitableGetVirtualMachineResult(
         admin_username=__ret__.admin_username,
+        availability_zone=__ret__.availability_zone,
         bare_metal_machine_id=__ret__.bare_metal_machine_id,
         boot_method=__ret__.boot_method,
         cloud_services_network_attachment=__ret__.cloud_services_network_attachment,
@@ -446,7 +459,7 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Get properties of the provided virtual machine.
-    Azure REST API version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified network group.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getNetworkGroup(args: GetNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkGroupResult> {
 
@@ -61,6 +61,10 @@ export interface GetNetworkGroupResult {
      */
     readonly provisioningState: string;
     /**
+     * Unique identifier for this resource.
+     */
+    readonly resourceGuid: string;
+    /**
      * The system metadata related to this resource.
      */
     readonly systemData: outputs.network.SystemDataResponse;
@@ -71,7 +75,7 @@ export interface GetNetworkGroupResult {
 }
 /**
  * Gets the specified network group.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getNetworkGroupOutput(args: GetNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkGroupResult> {
     return pulumi.output(args).apply((a: any) => getNetworkGroup(a, opts))

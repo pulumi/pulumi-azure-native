@@ -24,7 +24,9 @@ class VirtualMachineArgs:
                  checkpoints: Optional[pulumi.Input[Sequence[pulumi.Input['CheckpointArgs']]]] = None,
                  cloud_id: Optional[pulumi.Input[str]] = None,
                  generation: Optional[pulumi.Input[int]] = None,
+                 guest_agent_profile: Optional[pulumi.Input['GuestAgentProfileArgs']] = None,
                  hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  inventory_item_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
@@ -45,7 +47,9 @@ class VirtualMachineArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CheckpointArgs']]] checkpoints: Checkpoints in the vm.
         :param pulumi.Input[str] cloud_id: ARM Id of the cloud resource to use for deploying the vm.
         :param pulumi.Input[int] generation: Gets or sets the generation for the vm.
+        :param pulumi.Input['GuestAgentProfileArgs'] guest_agent_profile: Guest agent status properties.
         :param pulumi.Input['HardwareProfileArgs'] hardware_profile: Hardware properties.
+        :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the resource.
         :param pulumi.Input[str] location: Gets or sets the location.
         :param pulumi.Input['NetworkProfileArgs'] network_profile: Network properties.
@@ -70,8 +74,12 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "cloud_id", cloud_id)
         if generation is not None:
             pulumi.set(__self__, "generation", generation)
+        if guest_agent_profile is not None:
+            pulumi.set(__self__, "guest_agent_profile", guest_agent_profile)
         if hardware_profile is not None:
             pulumi.set(__self__, "hardware_profile", hardware_profile)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if inventory_item_id is not None:
             pulumi.set(__self__, "inventory_item_id", inventory_item_id)
         if location is not None:
@@ -180,6 +188,18 @@ class VirtualMachineArgs:
         pulumi.set(self, "generation", value)
 
     @property
+    @pulumi.getter(name="guestAgentProfile")
+    def guest_agent_profile(self) -> Optional[pulumi.Input['GuestAgentProfileArgs']]:
+        """
+        Guest agent status properties.
+        """
+        return pulumi.get(self, "guest_agent_profile")
+
+    @guest_agent_profile.setter
+    def guest_agent_profile(self, value: Optional[pulumi.Input['GuestAgentProfileArgs']]):
+        pulumi.set(self, "guest_agent_profile", value)
+
+    @property
     @pulumi.getter(name="hardwareProfile")
     def hardware_profile(self) -> Optional[pulumi.Input['HardwareProfileArgs']]:
         """
@@ -190,6 +210,18 @@ class VirtualMachineArgs:
     @hardware_profile.setter
     def hardware_profile(self, value: Optional[pulumi.Input['HardwareProfileArgs']]):
         pulumi.set(self, "hardware_profile", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="inventoryItemId")
@@ -335,7 +367,9 @@ class VirtualMachine(pulumi.CustomResource):
                  cloud_id: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  generation: Optional[pulumi.Input[int]] = None,
+                 guest_agent_profile: Optional[pulumi.Input[pulumi.InputType['GuestAgentProfileArgs']]] = None,
                  hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  inventory_item_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
@@ -351,7 +385,7 @@ class VirtualMachine(pulumi.CustomResource):
                  __props__=None):
         """
         The VirtualMachines resource definition.
-        Azure REST API version: 2020-06-05-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
+        Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -361,7 +395,9 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] cloud_id: ARM Id of the cloud resource to use for deploying the vm.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location.
         :param pulumi.Input[int] generation: Gets or sets the generation for the vm.
+        :param pulumi.Input[pulumi.InputType['GuestAgentProfileArgs']] guest_agent_profile: Guest agent status properties.
         :param pulumi.Input[pulumi.InputType['HardwareProfileArgs']] hardware_profile: Hardware properties.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the resource.
         :param pulumi.Input[str] location: Gets or sets the location.
         :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Network properties.
@@ -383,7 +419,7 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The VirtualMachines resource definition.
-        Azure REST API version: 2020-06-05-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
+        Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -406,7 +442,9 @@ class VirtualMachine(pulumi.CustomResource):
                  cloud_id: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  generation: Optional[pulumi.Input[int]] = None,
+                 guest_agent_profile: Optional[pulumi.Input[pulumi.InputType['GuestAgentProfileArgs']]] = None,
                  hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  inventory_item_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
@@ -436,7 +474,9 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["generation"] = generation
+            __props__.__dict__["guest_agent_profile"] = guest_agent_profile
             __props__.__dict__["hardware_profile"] = hardware_profile
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["inventory_item_id"] = inventory_item_id
             __props__.__dict__["location"] = location
             __props__.__dict__["network_profile"] = network_profile
@@ -451,6 +491,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["virtual_machine_name"] = virtual_machine_name
             __props__.__dict__["vm_name"] = vm_name
             __props__.__dict__["vmm_server_id"] = vmm_server_id
+            __props__.__dict__["last_restored_vm_checkpoint"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["power_state"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -486,8 +527,11 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["cloud_id"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["generation"] = None
+        __props__.__dict__["guest_agent_profile"] = None
         __props__.__dict__["hardware_profile"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["inventory_item_id"] = None
+        __props__.__dict__["last_restored_vm_checkpoint"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_profile"] = None
@@ -553,6 +597,14 @@ class VirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "generation")
 
     @property
+    @pulumi.getter(name="guestAgentProfile")
+    def guest_agent_profile(self) -> pulumi.Output[Optional['outputs.GuestAgentProfileResponse']]:
+        """
+        Guest agent status properties.
+        """
+        return pulumi.get(self, "guest_agent_profile")
+
+    @property
     @pulumi.getter(name="hardwareProfile")
     def hardware_profile(self) -> pulumi.Output[Optional['outputs.HardwareProfileResponse']]:
         """
@@ -561,12 +613,28 @@ class VirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "hardware_profile")
 
     @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
     @pulumi.getter(name="inventoryItemId")
     def inventory_item_id(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the inventory Item ID for the resource.
         """
         return pulumi.get(self, "inventory_item_id")
+
+    @property
+    @pulumi.getter(name="lastRestoredVMCheckpoint")
+    def last_restored_vm_checkpoint(self) -> pulumi.Output['outputs.CheckpointResponse']:
+        """
+        Last restored checkpoint in the vm.
+        """
+        return pulumi.get(self, "last_restored_vm_checkpoint")
 
     @property
     @pulumi.getter

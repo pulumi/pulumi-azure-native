@@ -110,7 +110,7 @@ class GetRackResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -215,7 +215,7 @@ def get_rack(rack_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRackResult:
     """
     Get properties of the provided rack.
-    Azure REST API version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str rack_name: The name of the rack.
@@ -251,7 +251,7 @@ def get_rack_output(rack_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRackResult]:
     """
     Get properties of the provided rack.
-    Azure REST API version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str rack_name: The name of the rack.

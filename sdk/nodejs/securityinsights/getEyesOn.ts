@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a setting.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getEyesOn(args: GetEyesOnArgs, opts?: pulumi.InvokeOptions): Promise<GetEyesOnResult> {
 
@@ -72,7 +72,7 @@ export interface GetEyesOnResult {
 }
 /**
  * Gets a setting.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getEyesOnOutput(args: GetEyesOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEyesOnResult> {
     return pulumi.output(args).apply((a: any) => getEyesOn(a, opts))

@@ -18,13 +18,13 @@ __all__ = ['NetworkFabricArgs', 'NetworkFabric']
 class NetworkFabricArgs:
     def __init__(__self__, *,
                  fabric_asn: pulumi.Input[int],
-                 management_network_configuration: pulumi.Input['NetworkFabricPropertiesManagementNetworkConfigurationArgs'],
+                 management_network_configuration: pulumi.Input['ManagementNetworkConfigurationArgs'],
                  network_fabric_controller_id: pulumi.Input[str],
                  network_fabric_sku: pulumi.Input[str],
                  rack_count: pulumi.Input[int],
                  resource_group_name: pulumi.Input[str],
                  server_count_per_rack: pulumi.Input[int],
-                 terminal_server_configuration: pulumi.Input['NetworkFabricPropertiesTerminalServerConfigurationArgs'],
+                 terminal_server_configuration: pulumi.Input['TerminalServerConfigurationArgs'],
                  annotation: Optional[pulumi.Input[str]] = None,
                  ipv4_prefix: Optional[pulumi.Input[str]] = None,
                  ipv6_prefix: Optional[pulumi.Input[str]] = None,
@@ -34,16 +34,16 @@ class NetworkFabricArgs:
         """
         The set of arguments for constructing a NetworkFabric resource.
         :param pulumi.Input[int] fabric_asn: ASN of CE devices for CE/PE connectivity.
-        :param pulumi.Input['NetworkFabricPropertiesManagementNetworkConfigurationArgs'] management_network_configuration: Configuration to be used to setup the management network.
+        :param pulumi.Input['ManagementNetworkConfigurationArgs'] management_network_configuration: Configuration to be used to setup the management network.
         :param pulumi.Input[str] network_fabric_controller_id: Azure resource ID for the NetworkFabricController the NetworkFabric belongs.
         :param pulumi.Input[str] network_fabric_sku: Supported Network Fabric SKU.Example: Compute / Aggregate racks. Once the user chooses a particular SKU, only supported racks can be added to the Network Fabric. The SKU determines whether it is a single / multi rack Network Fabric.
         :param pulumi.Input[int] rack_count: Number of racks associated to Network Fabric.Possible values are from 2-8.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] server_count_per_rack: Number of servers.Possible values are from 1-16.
-        :param pulumi.Input['NetworkFabricPropertiesTerminalServerConfigurationArgs'] terminal_server_configuration: Network and credentials configuration currently applied to terminal server.
+        :param pulumi.Input['TerminalServerConfigurationArgs'] terminal_server_configuration: Network and credentials configuration currently applied to terminal server.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[str] ipv4_prefix: IPv4Prefix for Management Network. Default value : 10.1.0.0/19.
-        :param pulumi.Input[str] ipv6_prefix: IPv6Prefix for Management Network. Default value 3FFE:FFFF:0:CD40::/59.
+        :param pulumi.Input[str] ipv4_prefix: IPv4Prefix for Management Network. Example: 10.1.0.0/19.
+        :param pulumi.Input[str] ipv6_prefix: IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] network_fabric_name: Name of the Network Fabric
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -58,12 +58,8 @@ class NetworkFabricArgs:
         pulumi.set(__self__, "terminal_server_configuration", terminal_server_configuration)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
-        if ipv4_prefix is None:
-            ipv4_prefix = '10.1.0.0/19'
         if ipv4_prefix is not None:
             pulumi.set(__self__, "ipv4_prefix", ipv4_prefix)
-        if ipv6_prefix is None:
-            ipv6_prefix = '3FFE:FFFF:0:CD40::/59'
         if ipv6_prefix is not None:
             pulumi.set(__self__, "ipv6_prefix", ipv6_prefix)
         if location is not None:
@@ -87,14 +83,14 @@ class NetworkFabricArgs:
 
     @property
     @pulumi.getter(name="managementNetworkConfiguration")
-    def management_network_configuration(self) -> pulumi.Input['NetworkFabricPropertiesManagementNetworkConfigurationArgs']:
+    def management_network_configuration(self) -> pulumi.Input['ManagementNetworkConfigurationArgs']:
         """
         Configuration to be used to setup the management network.
         """
         return pulumi.get(self, "management_network_configuration")
 
     @management_network_configuration.setter
-    def management_network_configuration(self, value: pulumi.Input['NetworkFabricPropertiesManagementNetworkConfigurationArgs']):
+    def management_network_configuration(self, value: pulumi.Input['ManagementNetworkConfigurationArgs']):
         pulumi.set(self, "management_network_configuration", value)
 
     @property
@@ -159,14 +155,14 @@ class NetworkFabricArgs:
 
     @property
     @pulumi.getter(name="terminalServerConfiguration")
-    def terminal_server_configuration(self) -> pulumi.Input['NetworkFabricPropertiesTerminalServerConfigurationArgs']:
+    def terminal_server_configuration(self) -> pulumi.Input['TerminalServerConfigurationArgs']:
         """
         Network and credentials configuration currently applied to terminal server.
         """
         return pulumi.get(self, "terminal_server_configuration")
 
     @terminal_server_configuration.setter
-    def terminal_server_configuration(self, value: pulumi.Input['NetworkFabricPropertiesTerminalServerConfigurationArgs']):
+    def terminal_server_configuration(self, value: pulumi.Input['TerminalServerConfigurationArgs']):
         pulumi.set(self, "terminal_server_configuration", value)
 
     @property
@@ -185,7 +181,7 @@ class NetworkFabricArgs:
     @pulumi.getter(name="ipv4Prefix")
     def ipv4_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        IPv4Prefix for Management Network. Default value : 10.1.0.0/19.
+        IPv4Prefix for Management Network. Example: 10.1.0.0/19.
         """
         return pulumi.get(self, "ipv4_prefix")
 
@@ -197,7 +193,7 @@ class NetworkFabricArgs:
     @pulumi.getter(name="ipv6Prefix")
     def ipv6_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        IPv6Prefix for Management Network. Default value 3FFE:FFFF:0:CD40::/59.
+        IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
         """
         return pulumi.get(self, "ipv6_prefix")
 
@@ -252,7 +248,7 @@ class NetworkFabric(pulumi.CustomResource):
                  ipv4_prefix: Optional[pulumi.Input[str]] = None,
                  ipv6_prefix: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_network_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkFabricPropertiesManagementNetworkConfigurationArgs']]] = None,
+                 management_network_configuration: Optional[pulumi.Input[pulumi.InputType['ManagementNetworkConfigurationArgs']]] = None,
                  network_fabric_controller_id: Optional[pulumi.Input[str]] = None,
                  network_fabric_name: Optional[pulumi.Input[str]] = None,
                  network_fabric_sku: Optional[pulumi.Input[str]] = None,
@@ -260,7 +256,7 @@ class NetworkFabric(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_count_per_rack: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 terminal_server_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkFabricPropertiesTerminalServerConfigurationArgs']]] = None,
+                 terminal_server_configuration: Optional[pulumi.Input[pulumi.InputType['TerminalServerConfigurationArgs']]] = None,
                  __props__=None):
         """
         The NetworkFabric resource definition.
@@ -269,10 +265,10 @@ class NetworkFabric(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
         :param pulumi.Input[int] fabric_asn: ASN of CE devices for CE/PE connectivity.
-        :param pulumi.Input[str] ipv4_prefix: IPv4Prefix for Management Network. Default value : 10.1.0.0/19.
-        :param pulumi.Input[str] ipv6_prefix: IPv6Prefix for Management Network. Default value 3FFE:FFFF:0:CD40::/59.
+        :param pulumi.Input[str] ipv4_prefix: IPv4Prefix for Management Network. Example: 10.1.0.0/19.
+        :param pulumi.Input[str] ipv6_prefix: IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['NetworkFabricPropertiesManagementNetworkConfigurationArgs']] management_network_configuration: Configuration to be used to setup the management network.
+        :param pulumi.Input[pulumi.InputType['ManagementNetworkConfigurationArgs']] management_network_configuration: Configuration to be used to setup the management network.
         :param pulumi.Input[str] network_fabric_controller_id: Azure resource ID for the NetworkFabricController the NetworkFabric belongs.
         :param pulumi.Input[str] network_fabric_name: Name of the Network Fabric
         :param pulumi.Input[str] network_fabric_sku: Supported Network Fabric SKU.Example: Compute / Aggregate racks. Once the user chooses a particular SKU, only supported racks can be added to the Network Fabric. The SKU determines whether it is a single / multi rack Network Fabric.
@@ -280,7 +276,7 @@ class NetworkFabric(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] server_count_per_rack: Number of servers.Possible values are from 1-16.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['NetworkFabricPropertiesTerminalServerConfigurationArgs']] terminal_server_configuration: Network and credentials configuration currently applied to terminal server.
+        :param pulumi.Input[pulumi.InputType['TerminalServerConfigurationArgs']] terminal_server_configuration: Network and credentials configuration currently applied to terminal server.
         """
         ...
     @overload
@@ -311,7 +307,7 @@ class NetworkFabric(pulumi.CustomResource):
                  ipv4_prefix: Optional[pulumi.Input[str]] = None,
                  ipv6_prefix: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_network_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkFabricPropertiesManagementNetworkConfigurationArgs']]] = None,
+                 management_network_configuration: Optional[pulumi.Input[pulumi.InputType['ManagementNetworkConfigurationArgs']]] = None,
                  network_fabric_controller_id: Optional[pulumi.Input[str]] = None,
                  network_fabric_name: Optional[pulumi.Input[str]] = None,
                  network_fabric_sku: Optional[pulumi.Input[str]] = None,
@@ -319,7 +315,7 @@ class NetworkFabric(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_count_per_rack: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 terminal_server_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkFabricPropertiesTerminalServerConfigurationArgs']]] = None,
+                 terminal_server_configuration: Optional[pulumi.Input[pulumi.InputType['TerminalServerConfigurationArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -333,11 +329,7 @@ class NetworkFabric(pulumi.CustomResource):
             if fabric_asn is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_asn'")
             __props__.__dict__["fabric_asn"] = fabric_asn
-            if ipv4_prefix is None:
-                ipv4_prefix = '10.1.0.0/19'
             __props__.__dict__["ipv4_prefix"] = ipv4_prefix
-            if ipv6_prefix is None:
-                ipv6_prefix = '3FFE:FFFF:0:CD40::/59'
             __props__.__dict__["ipv6_prefix"] = ipv6_prefix
             __props__.__dict__["location"] = location
             if management_network_configuration is None and not opts.urn:
@@ -439,7 +431,7 @@ class NetworkFabric(pulumi.CustomResource):
     @pulumi.getter(name="ipv4Prefix")
     def ipv4_prefix(self) -> pulumi.Output[Optional[str]]:
         """
-        IPv4Prefix for Management Network. Default value : 10.1.0.0/19.
+        IPv4Prefix for Management Network. Example: 10.1.0.0/19.
         """
         return pulumi.get(self, "ipv4_prefix")
 
@@ -447,7 +439,7 @@ class NetworkFabric(pulumi.CustomResource):
     @pulumi.getter(name="ipv6Prefix")
     def ipv6_prefix(self) -> pulumi.Output[Optional[str]]:
         """
-        IPv6Prefix for Management Network. Default value 3FFE:FFFF:0:CD40::/59.
+        IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
         """
         return pulumi.get(self, "ipv6_prefix")
 
@@ -477,7 +469,7 @@ class NetworkFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementNetworkConfiguration")
-    def management_network_configuration(self) -> pulumi.Output['outputs.NetworkFabricPropertiesResponseManagementNetworkConfiguration']:
+    def management_network_configuration(self) -> pulumi.Output['outputs.ManagementNetworkConfigurationResponse']:
         """
         Configuration to be used to setup the management network.
         """
@@ -573,7 +565,7 @@ class NetworkFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="terminalServerConfiguration")
-    def terminal_server_configuration(self) -> pulumi.Output['outputs.NetworkFabricPropertiesResponseTerminalServerConfiguration']:
+    def terminal_server_configuration(self) -> pulumi.Output['outputs.TerminalServerConfigurationResponse']:
         """
         Network and credentials configuration currently applied to terminal server.
         """

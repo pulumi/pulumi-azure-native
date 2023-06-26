@@ -111,7 +111,7 @@ def get_network_interface_tap_configuration(network_interface_name: Optional[str
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceTapConfigurationResult:
     """
     Get the specified tap configuration on a network interface.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_interface_name: The name of the network interface.
@@ -141,7 +141,7 @@ def get_network_interface_tap_configuration_output(network_interface_name: Optio
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceTapConfigurationResult]:
     """
     Get the specified tap configuration on a network interface.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_interface_name: The name of the network interface.

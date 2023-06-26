@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Lists active connectivity configurations in a network manager.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<ListActiveConnectivityConfigurationsResult> InvokeAsync(ListActiveConnectivityConfigurationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListActiveConnectivityConfigurationsResult>("azure-native:network:listActiveConnectivityConfigurations", args ?? new ListActiveConnectivityConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists active connectivity configurations in a network manager.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<ListActiveConnectivityConfigurationsResult> Invoke(ListActiveConnectivityConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListActiveConnectivityConfigurationsResult>("azure-native:network:listActiveConnectivityConfigurations", args ?? new ListActiveConnectivityConfigurationsInvokeArgs(), options.WithDefaults());

@@ -19,7 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetBareMetalMachineResult:
-    def __init__(__self__, bmc_connection_string=None, bmc_credentials=None, bmc_mac_address=None, boot_mac_address=None, cluster_id=None, cordon_status=None, detailed_status=None, detailed_status_message=None, extended_location=None, hardware_inventory=None, hardware_validation_status=None, hybrid_aks_clusters_associated_ids=None, id=None, kubernetes_node_name=None, kubernetes_version=None, location=None, machine_details=None, machine_name=None, machine_sku_id=None, name=None, oam_ipv4_address=None, oam_ipv6_address=None, os_image=None, power_state=None, provisioning_state=None, rack_id=None, rack_slot=None, ready_state=None, serial_number=None, service_tag=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None):
+    def __init__(__self__, associated_resource_ids=None, bmc_connection_string=None, bmc_credentials=None, bmc_mac_address=None, boot_mac_address=None, cluster_id=None, cordon_status=None, detailed_status=None, detailed_status_message=None, extended_location=None, hardware_inventory=None, hardware_validation_status=None, hybrid_aks_clusters_associated_ids=None, id=None, kubernetes_node_name=None, kubernetes_version=None, location=None, machine_details=None, machine_name=None, machine_sku_id=None, name=None, oam_ipv4_address=None, oam_ipv6_address=None, os_image=None, power_state=None, provisioning_state=None, rack_id=None, rack_slot=None, ready_state=None, serial_number=None, service_tag=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None):
+        if associated_resource_ids and not isinstance(associated_resource_ids, list):
+            raise TypeError("Expected argument 'associated_resource_ids' to be a list")
+        pulumi.set(__self__, "associated_resource_ids", associated_resource_ids)
         if bmc_connection_string and not isinstance(bmc_connection_string, str):
             raise TypeError("Expected argument 'bmc_connection_string' to be a str")
         pulumi.set(__self__, "bmc_connection_string", bmc_connection_string)
@@ -124,6 +127,14 @@ class GetBareMetalMachineResult:
         pulumi.set(__self__, "virtual_machines_associated_ids", virtual_machines_associated_ids)
 
     @property
+    @pulumi.getter(name="associatedResourceIds")
+    def associated_resource_ids(self) -> Sequence[str]:
+        """
+        The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        """
+        return pulumi.get(self, "associated_resource_ids")
+
+    @property
     @pulumi.getter(name="bmcConnectionString")
     def bmc_connection_string(self) -> str:
         """
@@ -215,7 +226,7 @@ class GetBareMetalMachineResult:
     @pulumi.getter(name="hybridAksClustersAssociatedIds")
     def hybrid_aks_clusters_associated_ids(self) -> Sequence[str]:
         """
-        The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
+        Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
         """
         return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
 
@@ -223,7 +234,7 @@ class GetBareMetalMachineResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -391,7 +402,7 @@ class GetBareMetalMachineResult:
     @pulumi.getter(name="virtualMachinesAssociatedIds")
     def virtual_machines_associated_ids(self) -> Sequence[str]:
         """
-        The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
+        Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
         """
         return pulumi.get(self, "virtual_machines_associated_ids")
 
@@ -402,6 +413,7 @@ class AwaitableGetBareMetalMachineResult(GetBareMetalMachineResult):
         if False:
             yield self
         return GetBareMetalMachineResult(
+            associated_resource_ids=self.associated_resource_ids,
             bmc_connection_string=self.bmc_connection_string,
             bmc_credentials=self.bmc_credentials,
             bmc_mac_address=self.bmc_mac_address,
@@ -443,7 +455,7 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBareMetalMachineResult:
     """
     Get properties of the provided bare metal machine.
-    Azure REST API version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str bare_metal_machine_name: The name of the bare metal machine.
@@ -456,6 +468,7 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud:getBareMetalMachine', __args__, opts=opts, typ=GetBareMetalMachineResult).value
 
     return AwaitableGetBareMetalMachineResult(
+        associated_resource_ids=__ret__.associated_resource_ids,
         bmc_connection_string=__ret__.bmc_connection_string,
         bmc_credentials=__ret__.bmc_credentials,
         bmc_mac_address=__ret__.bmc_mac_address,
@@ -498,7 +511,7 @@ def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBareMetalMachineResult]:
     """
     Get properties of the provided bare metal machine.
-    Azure REST API version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str bare_metal_machine_name: The name of the bare metal machine.

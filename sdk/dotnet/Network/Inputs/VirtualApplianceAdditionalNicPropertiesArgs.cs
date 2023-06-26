@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.Network.Inputs
     public sealed class VirtualApplianceAdditionalNicPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Customer Intent for Public Ip on additional nic
+        /// Flag (true or false) for Intent for Public Ip on additional nic
         /// </summary>
         [Input("hasPublicIp")]
         public Input<bool>? HasPublicIp { get; set; }
 
         /// <summary>
-        /// Customer Name for additional nic
+        /// Name of additional nic
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

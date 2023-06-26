@@ -64,16 +64,6 @@ export const ConnectivityTopology = {
  */
 export type ConnectivityTopology = (typeof ConnectivityTopology)[keyof typeof ConnectivityTopology];
 
-export const DeleteExistingNSGs = {
-    False: "False",
-    True: "True",
-} as const;
-
-/**
- * Flag if need to delete existing network security groups.
- */
-export type DeleteExistingNSGs = (typeof DeleteExistingNSGs)[keyof typeof DeleteExistingNSGs];
-
 export const DeleteExistingPeering = {
     False: "False",
     True: "True",
@@ -139,16 +129,6 @@ export const SecurityConfigurationRuleProtocol = {
  */
 export type SecurityConfigurationRuleProtocol = (typeof SecurityConfigurationRuleProtocol)[keyof typeof SecurityConfigurationRuleProtocol];
 
-export const SecurityType = {
-    AdminPolicy: "AdminPolicy",
-    UserPolicy: "UserPolicy",
-} as const;
-
-/**
- * Security Type.
- */
-export type SecurityType = (typeof SecurityType)[keyof typeof SecurityType];
-
 export const UseHubGateway = {
     False: "False",
     True: "True",
@@ -158,13 +138,3 @@ export const UseHubGateway = {
  * Flag if need to use hub gateway.
  */
 export type UseHubGateway = (typeof UseHubGateway)[keyof typeof UseHubGateway];
-
-export const UserRuleKind = {
-    Custom: "Custom",
-    Default: "Default",
-} as const;
-
-/**
- * Whether the rule is custom or default.
- */
-export type UserRuleKind = (typeof UserRuleKind)[keyof typeof UserRuleKind];

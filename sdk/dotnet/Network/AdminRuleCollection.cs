@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Defines the admin rule collection.
-    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:network:AdminRuleCollection")]
     public partial class AdminRuleCollection : global::Pulumi.CustomResource
@@ -45,6 +45,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata related to this resource.
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:AdminRuleCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:AdminRuleCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:AdminRuleCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:AdminRuleCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Solution resource.
- * Azure REST API version: 2021-09-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export class Solution extends pulumi.CustomResource {
     /**
@@ -70,13 +70,13 @@ export class Solution extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.farmBeatsResourceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'farmBeatsResourceName'");
+            if ((!args || args.dataManagerForAgricultureResourceName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataManagerForAgricultureResourceName'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["farmBeatsResourceName"] = args ? args.farmBeatsResourceName : undefined;
+            resourceInputs["dataManagerForAgricultureResourceName"] = args ? args.dataManagerForAgricultureResourceName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["solutionId"] = args ? args.solutionId : undefined;
@@ -92,7 +92,7 @@ export class Solution extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20210901preview:Solution" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20210901preview:Solution" }, { type: "azure-native:agfoodplatform/v20230601preview:Solution" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Solution.__pulumiType, name, resourceInputs, opts);
     }
@@ -103,9 +103,9 @@ export class Solution extends pulumi.CustomResource {
  */
 export interface SolutionArgs {
     /**
-     * FarmBeats resource name.
+     * DataManagerForAgriculture resource name.
      */
-    farmBeatsResourceName: pulumi.Input<string>;
+    dataManagerForAgricultureResourceName: pulumi.Input<string>;
     /**
      * Solution resource properties.
      */
@@ -115,7 +115,7 @@ export interface SolutionArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Solution Id of the solution.
+     * SolutionId for Data Manager For Agriculture Resource.
      */
     solutionId?: pulumi.Input<string>;
 }

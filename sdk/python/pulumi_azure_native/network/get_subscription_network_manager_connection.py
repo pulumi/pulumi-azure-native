@@ -121,7 +121,7 @@ def get_subscription_network_manager_connection(network_manager_connection_name:
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionNetworkManagerConnectionResult:
     """
     Get a specified connection created by this subscription.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_manager_connection_name: Name for the network manager connection.
@@ -146,7 +146,7 @@ def get_subscription_network_manager_connection_output(network_manager_connectio
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionNetworkManagerConnectionResult]:
     """
     Get a specified connection created by this subscription.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_manager_connection_name: Name for the network manager connection.

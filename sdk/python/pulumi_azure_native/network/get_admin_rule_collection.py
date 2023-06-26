@@ -22,7 +22,7 @@ class GetAdminRuleCollectionResult:
     """
     Defines the admin rule collection.
     """
-    def __init__(__self__, applies_to_groups=None, description=None, etag=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, applies_to_groups=None, description=None, etag=None, id=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
         if applies_to_groups and not isinstance(applies_to_groups, list):
             raise TypeError("Expected argument 'applies_to_groups' to be a list")
         pulumi.set(__self__, "applies_to_groups", applies_to_groups)
@@ -41,6 +41,9 @@ class GetAdminRuleCollectionResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -97,6 +100,14 @@ class GetAdminRuleCollectionResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -125,6 +136,7 @@ class AwaitableGetAdminRuleCollectionResult(GetAdminRuleCollectionResult):
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             system_data=self.system_data,
             type=self.type)
 
@@ -136,7 +148,7 @@ def get_admin_rule_collection(configuration_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdminRuleCollectionResult:
     """
     Gets a network manager security admin configuration rule collection.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -159,6 +171,7 @@ def get_admin_rule_collection(configuration_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        resource_guid=__ret__.resource_guid,
         system_data=__ret__.system_data,
         type=__ret__.type)
 
@@ -171,7 +184,7 @@ def get_admin_rule_collection_output(configuration_name: Optional[pulumi.Input[s
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdminRuleCollectionResult]:
     """
     Gets a network manager security admin configuration rule collection.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.

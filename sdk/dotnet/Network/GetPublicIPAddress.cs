@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified public IP address in a specified resource group.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetPublicIPAddressResult> InvokeAsync(GetPublicIPAddressArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPAddressResult>("azure-native:network:getPublicIPAddress", args ?? new GetPublicIPAddressArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified public IP address in a specified resource group.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetPublicIPAddressResult> Invoke(GetPublicIPAddressInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPAddressResult>("azure-native:network:getPublicIPAddress", args ?? new GetPublicIPAddressInvokeArgs(), options.WithDefaults());

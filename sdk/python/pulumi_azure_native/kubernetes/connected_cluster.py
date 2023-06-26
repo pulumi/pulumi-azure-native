@@ -24,6 +24,8 @@ class ConnectedClusterArgs:
                  distribution: Optional[pulumi.Input[str]] = None,
                  infrastructure: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
+                 private_link_state: Optional[pulumi.Input[Union[str, 'PrivateLinkState']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -35,6 +37,8 @@ class ConnectedClusterArgs:
         :param pulumi.Input[str] distribution: The Kubernetes distribution running on this connected cluster.
         :param pulumi.Input[str] infrastructure: The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] private_link_scope_resource_id: The resource id of the private link scope this connected cluster is assigned to, if any.
+        :param pulumi.Input[Union[str, 'PrivateLinkState']] private_link_state: Property which describes the state of private link on a connected cluster resource.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the connected cluster resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -49,6 +53,12 @@ class ConnectedClusterArgs:
             pulumi.set(__self__, "infrastructure", infrastructure)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if private_link_scope_resource_id is not None:
+            pulumi.set(__self__, "private_link_scope_resource_id", private_link_scope_resource_id)
+        if private_link_state is None:
+            private_link_state = 'Disabled'
+        if private_link_state is not None:
+            pulumi.set(__self__, "private_link_state", private_link_state)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if tags is not None:
@@ -139,6 +149,30 @@ class ConnectedClusterArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="privateLinkScopeResourceId")
+    def private_link_scope_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the private link scope this connected cluster is assigned to, if any.
+        """
+        return pulumi.get(self, "private_link_scope_resource_id")
+
+    @private_link_scope_resource_id.setter
+    def private_link_scope_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_scope_resource_id", value)
+
+    @property
+    @pulumi.getter(name="privateLinkState")
+    def private_link_state(self) -> Optional[pulumi.Input[Union[str, 'PrivateLinkState']]]:
+        """
+        Property which describes the state of private link on a connected cluster resource.
+        """
+        return pulumi.get(self, "private_link_state")
+
+    @private_link_state.setter
+    def private_link_state(self, value: Optional[pulumi.Input[Union[str, 'PrivateLinkState']]]):
+        pulumi.set(self, "private_link_state", value)
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
         """
@@ -174,13 +208,15 @@ class ConnectedCluster(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']]] = None,
                  infrastructure: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
+                 private_link_state: Optional[pulumi.Input[Union[str, 'PrivateLinkState']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Represents a connected cluster.
-        Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2021-03-01
+        Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,6 +226,8 @@ class ConnectedCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']] identity: The identity of the connected cluster.
         :param pulumi.Input[str] infrastructure: The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] private_link_scope_resource_id: The resource id of the private link scope this connected cluster is assigned to, if any.
+        :param pulumi.Input[Union[str, 'PrivateLinkState']] private_link_state: Property which describes the state of private link on a connected cluster resource.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the connected cluster resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -202,7 +240,7 @@ class ConnectedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a connected cluster.
-        Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2021-03-01
+        Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param ConnectedClusterArgs args: The arguments to use to populate this resource's properties.
@@ -225,6 +263,8 @@ class ConnectedCluster(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']]] = None,
                  infrastructure: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
+                 private_link_state: Optional[pulumi.Input[Union[str, 'PrivateLinkState']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -247,6 +287,10 @@ class ConnectedCluster(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["infrastructure"] = infrastructure
             __props__.__dict__["location"] = location
+            __props__.__dict__["private_link_scope_resource_id"] = private_link_scope_resource_id
+            if private_link_state is None:
+                private_link_state = 'Disabled'
+            __props__.__dict__["private_link_state"] = private_link_state
             __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -299,6 +343,8 @@ class ConnectedCluster(pulumi.CustomResource):
         __props__.__dict__["managed_identity_certificate_expiration_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["offering"] = None
+        __props__.__dict__["private_link_scope_resource_id"] = None
+        __props__.__dict__["private_link_state"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -402,6 +448,22 @@ class ConnectedCluster(pulumi.CustomResource):
         Connected cluster offering
         """
         return pulumi.get(self, "offering")
+
+    @property
+    @pulumi.getter(name="privateLinkScopeResourceId")
+    def private_link_scope_resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource id of the private link scope this connected cluster is assigned to, if any.
+        """
+        return pulumi.get(self, "private_link_scope_resource_id")
+
+    @property
+    @pulumi.getter(name="privateLinkState")
+    def private_link_state(self) -> pulumi.Output[Optional[str]]:
+        """
+        Property which describes the state of private link on a connected cluster resource.
+        """
+        return pulumi.get(self, "private_link_state")
 
     @property
     @pulumi.getter(name="provisioningState")

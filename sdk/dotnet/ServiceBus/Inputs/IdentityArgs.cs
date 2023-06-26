@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ServiceBus.Inputs
         /// Type of managed service identity.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNative.ServiceBus.ManagedServiceIdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ServiceBus.ManagedServiceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputList<string>? _userAssignedIdentities;

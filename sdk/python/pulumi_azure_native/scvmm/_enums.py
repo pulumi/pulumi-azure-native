@@ -8,6 +8,7 @@ __all__ = [
     'AllocationMethod',
     'CreateDiffDisk',
     'DynamicMemoryEnabled',
+    'IdentityType',
     'InventoryType',
     'LimitCpuForMigration',
     'ProvisioningAction',
@@ -36,6 +37,14 @@ class DynamicMemoryEnabled(str, Enum):
     """
     FALSE = "false"
     TRUE = "true"
+
+
+class IdentityType(str, Enum):
+    """
+    The type of managed service identity.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 class InventoryType(str, Enum):

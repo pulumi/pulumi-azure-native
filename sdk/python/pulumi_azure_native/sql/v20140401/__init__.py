@@ -6,22 +6,18 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .data_masking_policy import *
 from .database import *
 from .database_advisor import *
 from .database_threat_detection_policy import *
 from .disaster_recovery_configuration import *
 from .elastic_pool import *
 from .firewall_rule import *
-from .geo_backup_policy import *
-from .get_data_masking_policy import *
 from .get_database import *
 from .get_database_advisor import *
 from .get_database_threat_detection_policy import *
 from .get_disaster_recovery_configuration import *
 from .get_elastic_pool import *
 from .get_firewall_rule import *
-from .get_geo_backup_policy import *
 from .get_server import *
 from .get_server_advisor import *
 from .get_server_azure_ad_administrator import *

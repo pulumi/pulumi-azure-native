@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     [OutputType]
     public sealed class DefaultRolloutResponseProperties
     {
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
         public readonly string? ProvisioningState;
         public readonly Outputs.DefaultRolloutPropertiesResponseSpecification? Specification;
         public readonly Outputs.DefaultRolloutPropertiesResponseStatus? Status;

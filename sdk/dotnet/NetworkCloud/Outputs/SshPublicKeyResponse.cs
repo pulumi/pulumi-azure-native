@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
     public sealed class SshPublicKeyResponse
     {
         /// <summary>
-        /// The public ssh key of the user.
+        /// The SSH public key data.
         /// </summary>
         public readonly string KeyData;
 

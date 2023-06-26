@@ -299,12 +299,12 @@ class CorrelationFilterArgs:
 @pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
-                 key_source: Optional[pulumi.Input['KeySource']] = None,
+                 key_source: Optional[pulumi.Input[Union[str, 'KeySource']]] = None,
                  key_vault_properties: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]] = None,
                  require_infrastructure_encryption: Optional[pulumi.Input[bool]] = None):
         """
         Properties to configure Encryption
-        :param pulumi.Input['KeySource'] key_source: Enumerates the possible value of keySource for Encryption
+        :param pulumi.Input[Union[str, 'KeySource']] key_source: Enumerates the possible value of keySource for Encryption
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]] key_vault_properties: Properties of KeyVault
         :param pulumi.Input[bool] require_infrastructure_encryption: Enable Infrastructure Encryption (Double Encryption)
         """
@@ -319,14 +319,14 @@ class EncryptionArgs:
 
     @property
     @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[pulumi.Input['KeySource']]:
+    def key_source(self) -> Optional[pulumi.Input[Union[str, 'KeySource']]]:
         """
         Enumerates the possible value of keySource for Encryption
         """
         return pulumi.get(self, "key_source")
 
     @key_source.setter
-    def key_source(self, value: Optional[pulumi.Input['KeySource']]):
+    def key_source(self, value: Optional[pulumi.Input[Union[str, 'KeySource']]]):
         pulumi.set(self, "key_source", value)
 
     @property
@@ -357,11 +357,11 @@ class EncryptionArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ManagedServiceIdentityType']] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Properties to configure User Assigned Identities for Bring your Own Keys
-        :param pulumi.Input['ManagedServiceIdentityType'] type: Type of managed service identity.
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Properties for User Assigned Identities
         """
         if type is not None:
@@ -371,14 +371,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ManagedServiceIdentityType']]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]:
         """
         Type of managed service identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ManagedServiceIdentityType']]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]):
         pulumi.set(self, "type", value)
 
     @property
@@ -683,14 +683,14 @@ class SBClientAffinePropertiesArgs:
 @pulumi.input_type
 class SBSkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input['SkuName'],
+                 name: pulumi.Input[Union[str, 'SkuName']],
                  capacity: Optional[pulumi.Input[int]] = None,
-                 tier: Optional[pulumi.Input['SkuTier']] = None):
+                 tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None):
         """
         SKU of the namespace.
-        :param pulumi.Input['SkuName'] name: Name of this SKU.
+        :param pulumi.Input[Union[str, 'SkuName']] name: Name of this SKU.
         :param pulumi.Input[int] capacity: The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
-        :param pulumi.Input['SkuTier'] tier: The billing tier of this particular SKU.
+        :param pulumi.Input[Union[str, 'SkuTier']] tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -700,14 +700,14 @@ class SBSkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input['SkuName']:
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
         Name of this SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input['SkuName']):
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -724,14 +724,14 @@ class SBSkuArgs:
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'SkuTier']]]:
         """
         The billing tier of this particular SKU.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
 
 

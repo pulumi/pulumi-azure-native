@@ -16,8 +16,10 @@ utilities.lazyLoad(exports, ["listSecurityAdvisoryImpactedResourceByTenantIdAndE
 
 
 // Export sub-modules:
+import * as v20221001 from "./v20221001";
 import * as v20221001preview from "./v20221001preview";
 
 export {
+    v20221001,
     v20221001preview,
 };

@@ -55,6 +55,11 @@ export type Automation = import("./automation").Automation;
 export const Automation: typeof import("./automation").Automation = null as any;
 utilities.lazyLoad(exports, ["Automation"], () => require("./automation"));
 
+export { AzureServersSettingArgs } from "./azureServersSetting";
+export type AzureServersSetting = import("./azureServersSetting").AzureServersSetting;
+export const AzureServersSetting: typeof import("./azureServersSetting").AzureServersSetting = null as any;
+utilities.lazyLoad(exports, ["AzureServersSetting"], () => require("./azureServersSetting"));
+
 export { ConnectorArgs } from "./connector";
 export type Connector = import("./connector").Connector;
 export const Connector: typeof import("./connector").Connector = null as any;
@@ -124,6 +129,11 @@ export { GetAutomationArgs, GetAutomationResult, GetAutomationOutputArgs } from 
 export const getAutomation: typeof import("./getAutomation").getAutomation = null as any;
 export const getAutomationOutput: typeof import("./getAutomation").getAutomationOutput = null as any;
 utilities.lazyLoad(exports, ["getAutomation","getAutomationOutput"], () => require("./getAutomation"));
+
+export { GetAzureServersSettingArgs, GetAzureServersSettingResult, GetAzureServersSettingOutputArgs } from "./getAzureServersSetting";
+export const getAzureServersSetting: typeof import("./getAzureServersSetting").getAzureServersSetting = null as any;
+export const getAzureServersSettingOutput: typeof import("./getAzureServersSetting").getAzureServersSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getAzureServersSetting","getAzureServersSettingOutput"], () => require("./getAzureServersSetting"));
 
 export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
 export const getConnector: typeof import("./getConnector").getConnector = null as any;
@@ -296,18 +306,17 @@ import * as v20190101preview from "./v20190101preview";
 import * as v20190801 from "./v20190801";
 import * as v20200101 from "./v20200101";
 import * as v20200101preview from "./v20200101preview";
-import * as v20200701preview from "./v20200701preview";
 import * as v20210115preview from "./v20210115preview";
 import * as v20210601 from "./v20210601";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801preview from "./v20210801preview";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220701preview from "./v20220701preview";
-import * as v20220801preview from "./v20220801preview";
 import * as v20221120preview from "./v20221120preview";
 import * as v20230101preview from "./v20230101preview";
 import * as v20230201preview from "./v20230201preview";
 import * as v20230301preview from "./v20230301preview";
+import * as v20230501 from "./v20230501";
 
 export {
     v20170801preview,
@@ -316,18 +325,17 @@ export {
     v20190801,
     v20200101,
     v20200101preview,
-    v20200701preview,
     v20210115preview,
     v20210601,
     v20210701preview,
     v20210801preview,
     v20220101preview,
     v20220701preview,
-    v20220801preview,
     v20221120preview,
     v20230101preview,
     v20230201preview,
     v20230301preview,
+    v20230501,
 };
 
 const _module = {
@@ -354,6 +362,8 @@ const _module = {
                 return new Assignment(name, <any>undefined, { urn })
             case "azure-native:security:Automation":
                 return new Automation(name, <any>undefined, { urn })
+            case "azure-native:security:AzureServersSetting":
+                return new AzureServersSetting(name, <any>undefined, { urn })
             case "azure-native:security:Connector":
                 return new Connector(name, <any>undefined, { urn })
             case "azure-native:security:CustomAssessmentAutomation":

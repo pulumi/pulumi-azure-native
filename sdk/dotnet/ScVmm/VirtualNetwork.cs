@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ScVmm
 {
     /// <summary>
     /// The VirtualNetworks resource definition.
-    /// Azure REST API version: 2020-06-05-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
+    /// Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource

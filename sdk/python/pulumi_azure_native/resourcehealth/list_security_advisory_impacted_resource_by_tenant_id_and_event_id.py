@@ -62,7 +62,7 @@ def list_security_advisory_impacted_resource_by_tenant_id_and_event_id(event_tra
                                                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult:
     """
     Lists impacted resources in the tenant by an event (Security Advisory).
-    Azure REST API version: 2022-10-01-preview.
+    Azure REST API version: 2022-10-01.
 
 
     :param str event_tracking_id: Event Id which uniquely identifies ServiceHealth event.
@@ -85,7 +85,7 @@ def list_security_advisory_impacted_resource_by_tenant_id_and_event_id_output(ev
                                                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult]:
     """
     Lists impacted resources in the tenant by an event (Security Advisory).
-    Azure REST API version: 2022-10-01-preview.
+    Azure REST API version: 2022-10-01.
 
 
     :param str event_tracking_id: Event Id which uniquely identifies ServiceHealth event.

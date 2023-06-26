@@ -315,23 +315,13 @@ utilities.lazyLoad(exports, ["Storage"], () => require("./storage"));
 export * from "../types/enums/appplatform";
 
 // Export sub-modules:
-import * as v20200701 from "./v20200701";
 import * as v20210601preview from "./v20210601preview";
-import * as v20210901preview from "./v20210901preview";
-import * as v20220101preview from "./v20220101preview";
 import * as v20221201 from "./v20221201";
-import * as v20230101preview from "./v20230101preview";
-import * as v20230301preview from "./v20230301preview";
 import * as v20230501preview from "./v20230501preview";
 
 export {
-    v20200701,
     v20210601preview,
-    v20210901preview,
-    v20220101preview,
     v20221201,
-    v20230101preview,
-    v20230301preview,
     v20230501preview,
 };
 

@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// <summary>
         /// InfrastructureServices IP ranges.
         /// </summary>
-        public readonly Outputs.NetworkFabricControllerPropertiesResponseInfrastructureServices InfrastructureServices;
+        public readonly Outputs.InfrastructureServicesResponse InfrastructureServices;
         /// <summary>
         /// IPv4 Network Fabric Controller Address Space.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// <summary>
         /// Managed Resource Group configuration properties.
         /// </summary>
-        public readonly Outputs.NetworkFabricControllerPropertiesResponseManagedResourceGroupConfiguration? ManagedResourceGroupConfiguration;
+        public readonly Outputs.ManagedResourceGroupConfigurationResponse? ManagedResourceGroupConfiguration;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// <summary>
         /// WorkloadServices IP ranges.
         /// </summary>
-        public readonly Outputs.NetworkFabricControllerPropertiesResponseWorkloadServices WorkloadServices;
+        public readonly Outputs.WorkloadServicesResponse WorkloadServices;
 
         [OutputConstructor]
         private GetNetworkFabricControllerResult(
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 
             ImmutableArray<Outputs.ExpressRouteConnectionInformationResponse> infrastructureExpressRouteConnections,
 
-            Outputs.NetworkFabricControllerPropertiesResponseInfrastructureServices infrastructureServices,
+            Outputs.InfrastructureServicesResponse infrastructureServices,
 
             string? ipv4AddressSpace,
 
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 
             string location,
 
-            Outputs.NetworkFabricControllerPropertiesResponseManagedResourceGroupConfiguration? managedResourceGroupConfiguration,
+            Outputs.ManagedResourceGroupConfigurationResponse? managedResourceGroupConfiguration,
 
             string name,
 
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 
             bool workloadManagementNetwork,
 
-            Outputs.NetworkFabricControllerPropertiesResponseWorkloadServices workloadServices)
+            Outputs.WorkloadServicesResponse workloadServices)
         {
             Annotation = annotation;
             Id = id;

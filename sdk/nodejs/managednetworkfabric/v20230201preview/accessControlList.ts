@@ -48,7 +48,7 @@ export class AccessControlList extends pulumi.CustomResource {
     /**
      * Access Control List conditions.
      */
-    public readonly conditions!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.AccessControlListPropertiesResponseConditions[]>;
+    public readonly conditions!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.AccessControlListConditionPropertiesResponse[]>;
     /**
      * The geo-location where the resource lives
      */
@@ -142,7 +142,7 @@ export interface AccessControlListArgs {
     /**
      * Access Control List conditions.
      */
-    conditions: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.v20230201preview.AccessControlListPropertiesConditionsArgs>[]>;
+    conditions: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.v20230201preview.AccessControlListConditionPropertiesArgs>[]>;
     /**
      * The geo-location where the resource lives
      */

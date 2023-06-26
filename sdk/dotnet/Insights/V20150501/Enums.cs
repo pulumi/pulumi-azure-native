@@ -8,37 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Insights.V20150501
 {
     /// <summary>
-    /// Type of application being monitored.
-    /// </summary>
-    [EnumType]
-    public readonly struct ApplicationType : IEquatable<ApplicationType>
-    {
-        private readonly string _value;
-
-        private ApplicationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ApplicationType Web { get; } = new ApplicationType("web");
-        public static ApplicationType Other { get; } = new ApplicationType("other");
-
-        public static bool operator ==(ApplicationType left, ApplicationType right) => left.Equals(right);
-        public static bool operator !=(ApplicationType left, ApplicationType right) => !left.Equals(right);
-
-        public static explicit operator string(ApplicationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ApplicationType other && Equals(other);
-        public bool Equals(ApplicationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
     /// </summary>
     [EnumType]
@@ -62,68 +31,6 @@ namespace Pulumi.AzureNative.Insights.V20150501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FavoriteType other && Equals(other);
         public bool Equals(FavoriteType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
-    /// </summary>
-    [EnumType]
-    public readonly struct FlowType : IEquatable<FlowType>
-    {
-        private readonly string _value;
-
-        private FlowType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static FlowType Bluefield { get; } = new FlowType("Bluefield");
-
-        public static bool operator ==(FlowType left, FlowType right) => left.Equals(right);
-        public static bool operator !=(FlowType left, FlowType right) => !left.Equals(right);
-
-        public static explicit operator string(FlowType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FlowType other && Equals(other);
-        public bool Equals(FlowType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Indicates the flow of the ingestion.
-    /// </summary>
-    [EnumType]
-    public readonly struct IngestionMode : IEquatable<IngestionMode>
-    {
-        private readonly string _value;
-
-        private IngestionMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static IngestionMode ApplicationInsights { get; } = new IngestionMode("ApplicationInsights");
-        public static IngestionMode ApplicationInsightsWithDiagnosticSettings { get; } = new IngestionMode("ApplicationInsightsWithDiagnosticSettings");
-        public static IngestionMode LogAnalytics { get; } = new IngestionMode("LogAnalytics");
-
-        public static bool operator ==(IngestionMode left, IngestionMode right) => left.Equals(right);
-        public static bool operator !=(IngestionMode left, IngestionMode right) => !left.Equals(right);
-
-        public static explicit operator string(IngestionMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IngestionMode other && Equals(other);
-        public bool Equals(IngestionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -196,36 +103,6 @@ namespace Pulumi.AzureNative.Insights.V20150501
     }
 
     /// <summary>
-    /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-    /// </summary>
-    [EnumType]
-    public readonly struct RequestSource : IEquatable<RequestSource>
-    {
-        private readonly string _value;
-
-        private RequestSource(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RequestSource Rest { get; } = new RequestSource("rest");
-
-        public static bool operator ==(RequestSource left, RequestSource right) => left.Equals(right);
-        public static bool operator !=(RequestSource left, RequestSource right) => !left.Equals(right);
-
-        public static explicit operator string(RequestSource value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RequestSource other && Equals(other);
-        public bool Equals(RequestSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
     /// </summary>
     [EnumType]
@@ -249,37 +126,6 @@ namespace Pulumi.AzureNative.Insights.V20150501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SharedTypeKind other && Equals(other);
         public bool Equals(SharedTypeKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The kind of web test this is, valid choices are ping and multistep.
-    /// </summary>
-    [EnumType]
-    public readonly struct WebTestKind : IEquatable<WebTestKind>
-    {
-        private readonly string _value;
-
-        private WebTestKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static WebTestKind Ping { get; } = new WebTestKind("ping");
-        public static WebTestKind Multistep { get; } = new WebTestKind("multistep");
-
-        public static bool operator ==(WebTestKind left, WebTestKind right) => left.Equals(right);
-        public static bool operator !=(WebTestKind left, WebTestKind right) => !left.Equals(right);
-
-        public static explicit operator string(WebTestKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is WebTestKind other && Equals(other);
-        public bool Equals(WebTestKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

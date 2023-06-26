@@ -195,7 +195,7 @@ def get_service_endpoint_policy(expand: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEndpointPolicyResult:
     """
     Gets the specified service Endpoint Policies in a specified resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -232,7 +232,7 @@ def get_service_endpoint_policy_output(expand: Optional[pulumi.Input[Optional[st
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceEndpointPolicyResult]:
     """
     Gets the specified service Endpoint Policies in a specified resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.

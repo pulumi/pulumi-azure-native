@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Volume resource
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+ * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Volume extends pulumi.CustomResource {
         return obj['__pulumiType'] === Volume.__pulumiType;
     }
 
+    /**
+     * Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
+     */
+    public /*out*/ readonly actualThroughputMibps!: pulumi.Output<number>;
     /**
      * Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
      */
@@ -167,6 +171,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly networkSiblingSetId!: pulumi.Output<string>;
     /**
+     * Id of the snapshot or backup that the volume is restored from.
+     */
+    public /*out*/ readonly originatingResourceId!: pulumi.Output<string>;
+    /**
      * Application specific placement rules for the particular volume
      */
     public readonly placementRules!: pulumi.Output<outputs.netapp.PlacementKeyValuePairsResponse[] | undefined>;
@@ -211,7 +219,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly smbNonBrowsable!: pulumi.Output<string | undefined>;
     /**
-     * If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+     * If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
      */
     public readonly snapshotDirectoryVisible!: pulumi.Output<boolean | undefined>;
     /**
@@ -341,6 +349,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["volumeSpecName"] = args ? args.volumeSpecName : undefined;
             resourceInputs["volumeType"] = args ? args.volumeType : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["actualThroughputMibps"] = undefined /*out*/;
             resourceInputs["baremetalTenantId"] = undefined /*out*/;
             resourceInputs["cloneProgress"] = undefined /*out*/;
             resourceInputs["dataStoreResourceId"] = undefined /*out*/;
@@ -352,6 +361,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["mountTargets"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkSiblingSetId"] = undefined /*out*/;
+            resourceInputs["originatingResourceId"] = undefined /*out*/;
             resourceInputs["provisionedAvailabilityZone"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["storageToNetworkProximity"] = undefined /*out*/;
@@ -360,6 +370,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["volumeGroupName"] = undefined /*out*/;
         } else {
+            resourceInputs["actualThroughputMibps"] = undefined /*out*/;
             resourceInputs["avsDataStore"] = undefined /*out*/;
             resourceInputs["backupId"] = undefined /*out*/;
             resourceInputs["baremetalTenantId"] = undefined /*out*/;
@@ -392,6 +403,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkFeatures"] = undefined /*out*/;
             resourceInputs["networkSiblingSetId"] = undefined /*out*/;
+            resourceInputs["originatingResourceId"] = undefined /*out*/;
             resourceInputs["placementRules"] = undefined /*out*/;
             resourceInputs["protocolTypes"] = undefined /*out*/;
             resourceInputs["provisionedAvailabilityZone"] = undefined /*out*/;
@@ -420,7 +432,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20170815:Volume" }, { type: "azure-native:netapp/v20190501:Volume" }, { type: "azure-native:netapp/v20190601:Volume" }, { type: "azure-native:netapp/v20190701:Volume" }, { type: "azure-native:netapp/v20190801:Volume" }, { type: "azure-native:netapp/v20191001:Volume" }, { type: "azure-native:netapp/v20191101:Volume" }, { type: "azure-native:netapp/v20200201:Volume" }, { type: "azure-native:netapp/v20200301:Volume" }, { type: "azure-native:netapp/v20200501:Volume" }, { type: "azure-native:netapp/v20200601:Volume" }, { type: "azure-native:netapp/v20200701:Volume" }, { type: "azure-native:netapp/v20200801:Volume" }, { type: "azure-native:netapp/v20200901:Volume" }, { type: "azure-native:netapp/v20201101:Volume" }, { type: "azure-native:netapp/v20201201:Volume" }, { type: "azure-native:netapp/v20210201:Volume" }, { type: "azure-native:netapp/v20210401:Volume" }, { type: "azure-native:netapp/v20210401preview:Volume" }, { type: "azure-native:netapp/v20210601:Volume" }, { type: "azure-native:netapp/v20210801:Volume" }, { type: "azure-native:netapp/v20211001:Volume" }, { type: "azure-native:netapp/v20220101:Volume" }, { type: "azure-native:netapp/v20220301:Volume" }, { type: "azure-native:netapp/v20220501:Volume" }, { type: "azure-native:netapp/v20220901:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20170815:Volume" }, { type: "azure-native:netapp/v20190501:Volume" }, { type: "azure-native:netapp/v20190601:Volume" }, { type: "azure-native:netapp/v20190701:Volume" }, { type: "azure-native:netapp/v20190801:Volume" }, { type: "azure-native:netapp/v20191001:Volume" }, { type: "azure-native:netapp/v20191101:Volume" }, { type: "azure-native:netapp/v20200201:Volume" }, { type: "azure-native:netapp/v20200301:Volume" }, { type: "azure-native:netapp/v20200501:Volume" }, { type: "azure-native:netapp/v20200601:Volume" }, { type: "azure-native:netapp/v20200701:Volume" }, { type: "azure-native:netapp/v20200801:Volume" }, { type: "azure-native:netapp/v20200901:Volume" }, { type: "azure-native:netapp/v20201101:Volume" }, { type: "azure-native:netapp/v20201201:Volume" }, { type: "azure-native:netapp/v20210201:Volume" }, { type: "azure-native:netapp/v20210401:Volume" }, { type: "azure-native:netapp/v20210401preview:Volume" }, { type: "azure-native:netapp/v20210601:Volume" }, { type: "azure-native:netapp/v20210801:Volume" }, { type: "azure-native:netapp/v20211001:Volume" }, { type: "azure-native:netapp/v20220101:Volume" }, { type: "azure-native:netapp/v20220301:Volume" }, { type: "azure-native:netapp/v20220501:Volume" }, { type: "azure-native:netapp/v20220901:Volume" }, { type: "azure-native:netapp/v20221101:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }
@@ -563,7 +575,7 @@ export interface VolumeArgs {
      */
     smbNonBrowsable?: pulumi.Input<string | enums.netapp.SmbNonBrowsable>;
     /**
-     * If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+     * If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
      */
     snapshotDirectoryVisible?: pulumi.Input<boolean>;
     /**

@@ -13,9 +13,11 @@ from ._enums import *
 __all__ = [
     'CheckpointArgs',
     'ExtendedLocationArgs',
+    'GuestAgentProfileArgs',
     'GuestCredentialArgs',
     'HardwareProfileArgs',
     'HttpProxyConfigurationArgs',
+    'IdentityArgs',
     'NetworkInterfacesArgs',
     'NetworkProfileArgs',
     'OsProfileArgs',
@@ -136,6 +138,30 @@ class ExtendedLocationArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class GuestAgentProfileArgs:
+    def __init__(__self__, *,
+                 client_public_key: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the resource properties.
+        :param pulumi.Input[str] client_public_key: Gets or sets the Public Key provided by the client for enabling guest management.
+        """
+        if client_public_key is not None:
+            pulumi.set(__self__, "client_public_key", client_public_key)
+
+    @property
+    @pulumi.getter(name="clientPublicKey")
+    def client_public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the Public Key provided by the client for enabling guest management.
+        """
+        return pulumi.get(self, "client_public_key")
+
+    @client_public_key.setter
+    def client_public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_public_key", value)
 
 
 @pulumi.input_type
@@ -320,6 +346,29 @@ class HttpProxyConfigurationArgs:
     @https_proxy.setter
     def https_proxy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "https_proxy", value)
+
+
+@pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'IdentityType']]):
+        """
+        Managed service identity.
+        :param pulumi.Input[Union[str, 'IdentityType']] type: The type of managed service identity.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'IdentityType']]:
+        """
+        The type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'IdentityType']]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

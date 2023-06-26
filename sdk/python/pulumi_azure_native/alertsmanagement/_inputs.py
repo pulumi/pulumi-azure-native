@@ -17,6 +17,8 @@ __all__ = [
     'AlertProcessingRulePropertiesArgs',
     'ConditionsArgs',
     'ConditionArgs',
+    'CorrelateAlertsArgs',
+    'CorrelateByArgs',
     'DailyRecurrenceArgs',
     'DetectorArgs',
     'DiagnosticsArgs',
@@ -236,7 +238,7 @@ class AddActionGroupsArgs:
 @pulumi.input_type
 class AlertProcessingRulePropertiesArgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'RemoveAllActionGroupsArgs']]]],
+                 actions: pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'CorrelateAlertsArgs', 'RemoveAllActionGroupsArgs']]]],
                  scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -244,7 +246,7 @@ class AlertProcessingRulePropertiesArgs:
                  schedule: Optional[pulumi.Input['ScheduleArgs']] = None):
         """
         Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'RemoveAllActionGroupsArgs']]]] actions: Actions to be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'CorrelateAlertsArgs', 'RemoveAllActionGroupsArgs']]]] actions: Actions to be applied.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes on which alert processing rule will apply.
         :param pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]] conditions: Conditions on which alerts will be filtered.
         :param pulumi.Input[str] description: Description of alert processing rule.
@@ -266,14 +268,14 @@ class AlertProcessingRulePropertiesArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'RemoveAllActionGroupsArgs']]]]:
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'CorrelateAlertsArgs', 'RemoveAllActionGroupsArgs']]]]:
         """
         Actions to be applied.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'RemoveAllActionGroupsArgs']]]]):
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'CorrelateAlertsArgs', 'RemoveAllActionGroupsArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @property
@@ -527,6 +529,118 @@ class ConditionArgs:
     @values.setter
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class CorrelateAlertsArgs:
+    def __init__(__self__, *,
+                 action_type: pulumi.Input[str],
+                 correlate_by: pulumi.Input[Sequence[pulumi.Input['CorrelateByArgs']]],
+                 correlation_interval: pulumi.Input[str],
+                 priority: pulumi.Input[int],
+                 notifications_for_correlated_alerts: Optional[pulumi.Input[Union[str, 'NotificationsForCorrelatedAlerts']]] = None):
+        """
+        Add logic for alerts correlation.
+        :param pulumi.Input[str] action_type: Action that should be applied.
+               Expected value is 'CorrelateAlerts'.
+        :param pulumi.Input[Sequence[pulumi.Input['CorrelateByArgs']]] correlate_by: The list of conditions for the alerts correlations.
+        :param pulumi.Input[str] correlation_interval: The required duration (in ISO8601 format) for the alerts correlation.
+        :param pulumi.Input[int] priority: The priority of this correlation.
+        :param pulumi.Input[Union[str, 'NotificationsForCorrelatedAlerts']] notifications_for_correlated_alerts: Indicates how to handle child alerts notifications.
+        """
+        pulumi.set(__self__, "action_type", 'CorrelateAlerts')
+        pulumi.set(__self__, "correlate_by", correlate_by)
+        pulumi.set(__self__, "correlation_interval", correlation_interval)
+        pulumi.set(__self__, "priority", priority)
+        if notifications_for_correlated_alerts is None:
+            notifications_for_correlated_alerts = 'SuppressAlways'
+        if notifications_for_correlated_alerts is not None:
+            pulumi.set(__self__, "notifications_for_correlated_alerts", notifications_for_correlated_alerts)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> pulumi.Input[str]:
+        """
+        Action that should be applied.
+        Expected value is 'CorrelateAlerts'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter(name="correlateBy")
+    def correlate_by(self) -> pulumi.Input[Sequence[pulumi.Input['CorrelateByArgs']]]:
+        """
+        The list of conditions for the alerts correlations.
+        """
+        return pulumi.get(self, "correlate_by")
+
+    @correlate_by.setter
+    def correlate_by(self, value: pulumi.Input[Sequence[pulumi.Input['CorrelateByArgs']]]):
+        pulumi.set(self, "correlate_by", value)
+
+    @property
+    @pulumi.getter(name="correlationInterval")
+    def correlation_interval(self) -> pulumi.Input[str]:
+        """
+        The required duration (in ISO8601 format) for the alerts correlation.
+        """
+        return pulumi.get(self, "correlation_interval")
+
+    @correlation_interval.setter
+    def correlation_interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "correlation_interval", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The priority of this correlation.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="notificationsForCorrelatedAlerts")
+    def notifications_for_correlated_alerts(self) -> Optional[pulumi.Input[Union[str, 'NotificationsForCorrelatedAlerts']]]:
+        """
+        Indicates how to handle child alerts notifications.
+        """
+        return pulumi.get(self, "notifications_for_correlated_alerts")
+
+    @notifications_for_correlated_alerts.setter
+    def notifications_for_correlated_alerts(self, value: Optional[pulumi.Input[Union[str, 'NotificationsForCorrelatedAlerts']]]):
+        pulumi.set(self, "notifications_for_correlated_alerts", value)
+
+
+@pulumi.input_type
+class CorrelateByArgs:
+    def __init__(__self__, *,
+                 field: Optional[pulumi.Input[str]] = None):
+        """
+        The logic for the correlation.
+        :param pulumi.Input[str] field: The JPath of the property that the alerts should be correlated by.
+        """
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JPath of the property that the alerts should be correlated by.
+        """
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field", value)
 
 
 @pulumi.input_type

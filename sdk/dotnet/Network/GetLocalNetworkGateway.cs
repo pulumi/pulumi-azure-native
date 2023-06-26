@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified local network gateway in a resource group.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetLocalNetworkGatewayResult> InvokeAsync(GetLocalNetworkGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalNetworkGatewayResult>("azure-native:network:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified local network gateway in a resource group.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetLocalNetworkGatewayResult> Invoke(GetLocalNetworkGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalNetworkGatewayResult>("azure-native:network:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayInvokeArgs(), options.WithDefaults());

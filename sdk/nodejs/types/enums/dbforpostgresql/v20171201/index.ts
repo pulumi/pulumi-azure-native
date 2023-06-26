@@ -2,15 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AdministratorType = {
-    ActiveDirectory: "ActiveDirectory",
-} as const;
-
-/**
- * The type of administrator.
- */
-export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
-
 export const CreateMode = {
     Default: "Default",
     PointInTimeRestore: "PointInTimeRestore",
@@ -79,16 +70,6 @@ export const PublicNetworkAccessEnum = {
  * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
  */
 export type PublicNetworkAccessEnum = (typeof PublicNetworkAccessEnum)[keyof typeof PublicNetworkAccessEnum];
-
-export const ServerSecurityAlertPolicyState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Specifies the state of the policy, whether it is enabled or disabled.
- */
-export type ServerSecurityAlertPolicyState = (typeof ServerSecurityAlertPolicyState)[keyof typeof ServerSecurityAlertPolicyState];
 
 export const ServerVersion = {
     ServerVersion_9_5: "9.5",

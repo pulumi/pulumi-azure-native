@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an authorization rule for a queue by rule name.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getQueueAuthorizationRule(args: GetQueueAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueAuthorizationRuleResult> {
 
@@ -72,7 +72,7 @@ export interface GetQueueAuthorizationRuleResult {
 }
 /**
  * Gets an authorization rule for a queue by rule name.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getQueueAuthorizationRuleOutput(args: GetQueueAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getQueueAuthorizationRule(a, opts))

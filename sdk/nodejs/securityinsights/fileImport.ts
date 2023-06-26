@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a file import in Azure Security Insights.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export class FileImport extends pulumi.CustomResource {
     /**
@@ -170,7 +170,7 @@ export class FileImport extends pulumi.CustomResource {
             resourceInputs["validRecordCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20220801preview:FileImport" }, { type: "azure-native:securityinsights/v20220901preview:FileImport" }, { type: "azure-native:securityinsights/v20221001preview:FileImport" }, { type: "azure-native:securityinsights/v20221101preview:FileImport" }, { type: "azure-native:securityinsights/v20221201preview:FileImport" }, { type: "azure-native:securityinsights/v20230201preview:FileImport" }, { type: "azure-native:securityinsights/v20230301preview:FileImport" }, { type: "azure-native:securityinsights/v20230401preview:FileImport" }, { type: "azure-native:securityinsights/v20230501preview:FileImport" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20220801preview:FileImport" }, { type: "azure-native:securityinsights/v20220901preview:FileImport" }, { type: "azure-native:securityinsights/v20221001preview:FileImport" }, { type: "azure-native:securityinsights/v20221101preview:FileImport" }, { type: "azure-native:securityinsights/v20221201preview:FileImport" }, { type: "azure-native:securityinsights/v20230201preview:FileImport" }, { type: "azure-native:securityinsights/v20230301preview:FileImport" }, { type: "azure-native:securityinsights/v20230401preview:FileImport" }, { type: "azure-native:securityinsights/v20230501preview:FileImport" }, { type: "azure-native:securityinsights/v20230601preview:FileImport" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FileImport.__pulumiType, name, resourceInputs, opts);
     }

@@ -24,9 +24,15 @@ __all__ = [
     'ExtendedLocationArgs',
     'FailoverGroupPropertiesArgs',
     'FailoverGroupSpecArgs',
+    'K8sActiveDirectoryConnectorArgs',
+    'K8sActiveDirectoryArgs',
+    'K8sNetworkSettingsArgs',
     'K8sResourceRequirementsArgs',
     'K8sSchedulingOptionsArgs',
     'K8sSchedulingArgs',
+    'K8sSecurityArgs',
+    'K8sSettingsArgs',
+    'K8stransparentDataEncryptionArgs',
     'KeytabInformationArgs',
     'LogAnalyticsWorkspaceConfigArgs',
     'OnPremisePropertyArgs',
@@ -904,6 +910,169 @@ class FailoverGroupSpecArgs:
 
 
 @pulumi.input_type
+class K8sActiveDirectoryConnectorArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the connector
+        :param pulumi.Input[str] namespace: Name space of the connector
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the connector
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name space of the connector
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
+class K8sActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 connector: Optional[pulumi.Input['K8sActiveDirectoryConnectorArgs']] = None,
+                 encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 keytab_secret: Optional[pulumi.Input[str]] = None):
+        """
+        The kubernetes active directory information.
+        :param pulumi.Input[str] account_name: Account name for AAD
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] encryption_types: An array of encryption types
+        :param pulumi.Input[str] keytab_secret: Keytab secret used to authenticate with Active Directory.
+        """
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if connector is not None:
+            pulumi.set(__self__, "connector", connector)
+        if encryption_types is not None:
+            pulumi.set(__self__, "encryption_types", encryption_types)
+        if keytab_secret is not None:
+            pulumi.set(__self__, "keytab_secret", keytab_secret)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Account name for AAD
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def connector(self) -> Optional[pulumi.Input['K8sActiveDirectoryConnectorArgs']]:
+        return pulumi.get(self, "connector")
+
+    @connector.setter
+    def connector(self, value: Optional[pulumi.Input['K8sActiveDirectoryConnectorArgs']]):
+        pulumi.set(self, "connector", value)
+
+    @property
+    @pulumi.getter(name="encryptionTypes")
+    def encryption_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of encryption types
+        """
+        return pulumi.get(self, "encryption_types")
+
+    @encryption_types.setter
+    def encryption_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "encryption_types", value)
+
+    @property
+    @pulumi.getter(name="keytabSecret")
+    def keytab_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Keytab secret used to authenticate with Active Directory.
+        """
+        return pulumi.get(self, "keytab_secret")
+
+    @keytab_secret.setter
+    def keytab_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "keytab_secret", value)
+
+
+@pulumi.input_type
+class K8sNetworkSettingsArgs:
+    def __init__(__self__, *,
+                 forceencryption: Optional[pulumi.Input[int]] = None,
+                 tlsciphers: Optional[pulumi.Input[str]] = None,
+                 tlsprotocols: Optional[pulumi.Input[str]] = None):
+        """
+        The kubernetes network settings information.
+        :param pulumi.Input[int] forceencryption: If 1, then SQL Server forces all connections to be encrypted. By default, this option is 0
+        :param pulumi.Input[str] tlsciphers: Specifies which ciphers are allowed by SQL Server for TLS
+        :param pulumi.Input[str] tlsprotocols: A comma-separated list of which TLS protocols are allowed by SQL Server
+        """
+        if forceencryption is not None:
+            pulumi.set(__self__, "forceencryption", forceencryption)
+        if tlsciphers is not None:
+            pulumi.set(__self__, "tlsciphers", tlsciphers)
+        if tlsprotocols is not None:
+            pulumi.set(__self__, "tlsprotocols", tlsprotocols)
+
+    @property
+    @pulumi.getter
+    def forceencryption(self) -> Optional[pulumi.Input[int]]:
+        """
+        If 1, then SQL Server forces all connections to be encrypted. By default, this option is 0
+        """
+        return pulumi.get(self, "forceencryption")
+
+    @forceencryption.setter
+    def forceencryption(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "forceencryption", value)
+
+    @property
+    @pulumi.getter
+    def tlsciphers(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which ciphers are allowed by SQL Server for TLS
+        """
+        return pulumi.get(self, "tlsciphers")
+
+    @tlsciphers.setter
+    def tlsciphers(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tlsciphers", value)
+
+    @property
+    @pulumi.getter
+    def tlsprotocols(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comma-separated list of which TLS protocols are allowed by SQL Server
+        """
+        return pulumi.get(self, "tlsprotocols")
+
+    @tlsprotocols.setter
+    def tlsprotocols(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tlsprotocols", value)
+
+
+@pulumi.input_type
 class K8sResourceRequirementsArgs:
     def __init__(__self__, *,
                  limits: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -989,6 +1158,142 @@ class K8sSchedulingArgs:
     @default.setter
     def default(self, value: Optional[pulumi.Input['K8sSchedulingOptionsArgs']]):
         pulumi.set(self, "default", value)
+
+
+@pulumi.input_type
+class K8sSecurityArgs:
+    def __init__(__self__, *,
+                 active_directory: Optional[pulumi.Input['K8sActiveDirectoryArgs']] = None,
+                 admin_login_secret: Optional[pulumi.Input[str]] = None,
+                 service_certificate_secret: Optional[pulumi.Input[str]] = None,
+                 transparent_data_encryption: Optional[pulumi.Input['K8stransparentDataEncryptionArgs']] = None):
+        """
+        The kubernetes security information.
+        :param pulumi.Input['K8sActiveDirectoryArgs'] active_directory: The kubernetes active directory information.
+        :param pulumi.Input[str] admin_login_secret: Admin login secret key
+        :param pulumi.Input[str] service_certificate_secret: Service certificate secret used
+        :param pulumi.Input['K8stransparentDataEncryptionArgs'] transparent_data_encryption: Transparent data encryption information.
+        """
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if admin_login_secret is not None:
+            pulumi.set(__self__, "admin_login_secret", admin_login_secret)
+        if service_certificate_secret is not None:
+            pulumi.set(__self__, "service_certificate_secret", service_certificate_secret)
+        if transparent_data_encryption is not None:
+            pulumi.set(__self__, "transparent_data_encryption", transparent_data_encryption)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional[pulumi.Input['K8sActiveDirectoryArgs']]:
+        """
+        The kubernetes active directory information.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: Optional[pulumi.Input['K8sActiveDirectoryArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter(name="adminLoginSecret")
+    def admin_login_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin login secret key
+        """
+        return pulumi.get(self, "admin_login_secret")
+
+    @admin_login_secret.setter
+    def admin_login_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_login_secret", value)
+
+    @property
+    @pulumi.getter(name="serviceCertificateSecret")
+    def service_certificate_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Service certificate secret used
+        """
+        return pulumi.get(self, "service_certificate_secret")
+
+    @service_certificate_secret.setter
+    def service_certificate_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_certificate_secret", value)
+
+    @property
+    @pulumi.getter(name="transparentDataEncryption")
+    def transparent_data_encryption(self) -> Optional[pulumi.Input['K8stransparentDataEncryptionArgs']]:
+        """
+        Transparent data encryption information.
+        """
+        return pulumi.get(self, "transparent_data_encryption")
+
+    @transparent_data_encryption.setter
+    def transparent_data_encryption(self, value: Optional[pulumi.Input['K8stransparentDataEncryptionArgs']]):
+        pulumi.set(self, "transparent_data_encryption", value)
+
+
+@pulumi.input_type
+class K8sSettingsArgs:
+    def __init__(__self__, *,
+                 network: Optional[pulumi.Input['K8sNetworkSettingsArgs']] = None):
+        """
+        The kubernetes settings information.
+        :param pulumi.Input['K8sNetworkSettingsArgs'] network: The kubernetes network settings information.
+        """
+        if network is not None:
+            pulumi.set(__self__, "network", network)
+
+    @property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['K8sNetworkSettingsArgs']]:
+        """
+        The kubernetes network settings information.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['K8sNetworkSettingsArgs']]):
+        pulumi.set(self, "network", value)
+
+
+@pulumi.input_type
+class K8stransparentDataEncryptionArgs:
+    def __init__(__self__, *,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 protector_secret: Optional[pulumi.Input[str]] = None):
+        """
+        Transparent data encryption information.
+        :param pulumi.Input[str] mode: Transparent data encryption mode. Can be Service Managed, Customer managed or disabled
+        :param pulumi.Input[str] protector_secret: Protector secret for customer managed Transparent data encryption mode
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if protector_secret is not None:
+            pulumi.set(__self__, "protector_secret", protector_secret)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Transparent data encryption mode. Can be Service Managed, Customer managed or disabled
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="protectorSecret")
+    def protector_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protector secret for customer managed Transparent data encryption mode
+        """
+        return pulumi.get(self, "protector_secret")
+
+    @protector_secret.setter
+    def protector_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protector_secret", value)
 
 
 @pulumi.input_type
@@ -1332,16 +1637,24 @@ class SqlManagedInstanceK8sRawArgs:
 class SqlManagedInstanceK8sSpecArgs:
     def __init__(__self__, *,
                  replicas: Optional[pulumi.Input[int]] = None,
-                 scheduling: Optional[pulumi.Input['K8sSchedulingArgs']] = None):
+                 scheduling: Optional[pulumi.Input['K8sSchedulingArgs']] = None,
+                 security: Optional[pulumi.Input['K8sSecurityArgs']] = None,
+                 settings: Optional[pulumi.Input['K8sSettingsArgs']] = None):
         """
         The kubernetes spec information.
         :param pulumi.Input[int] replicas: This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
         :param pulumi.Input['K8sSchedulingArgs'] scheduling: The kubernetes scheduling information.
+        :param pulumi.Input['K8sSecurityArgs'] security: The kubernetes security information.
+        :param pulumi.Input['K8sSettingsArgs'] settings: The kubernetes settings information.
         """
         if replicas is not None:
             pulumi.set(__self__, "replicas", replicas)
         if scheduling is not None:
             pulumi.set(__self__, "scheduling", scheduling)
+        if security is not None:
+            pulumi.set(__self__, "security", security)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
 
     @property
     @pulumi.getter
@@ -1366,6 +1679,30 @@ class SqlManagedInstanceK8sSpecArgs:
     @scheduling.setter
     def scheduling(self, value: Optional[pulumi.Input['K8sSchedulingArgs']]):
         pulumi.set(self, "scheduling", value)
+
+    @property
+    @pulumi.getter
+    def security(self) -> Optional[pulumi.Input['K8sSecurityArgs']]:
+        """
+        The kubernetes security information.
+        """
+        return pulumi.get(self, "security")
+
+    @security.setter
+    def security(self, value: Optional[pulumi.Input['K8sSecurityArgs']]):
+        pulumi.set(self, "security", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input['K8sSettingsArgs']]:
+        """
+        The kubernetes settings information.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input['K8sSettingsArgs']]):
+        pulumi.set(self, "settings", value)
 
 
 @pulumi.input_type

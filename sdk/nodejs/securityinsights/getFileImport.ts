@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a file import.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getFileImport(args: GetFileImportArgs, opts?: pulumi.InvokeOptions): Promise<GetFileImportResult> {
 
@@ -111,7 +111,7 @@ export interface GetFileImportResult {
 }
 /**
  * Gets a file import.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getFileImportOutput(args: GetFileImportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileImportResult> {
     return pulumi.output(args).apply((a: any) => getFileImport(a, opts))

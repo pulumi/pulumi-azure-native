@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// Common properties for Layer2Configuration.
         /// </summary>
         [Output("layer2Configuration")]
-        public Output<Outputs.NetworkToNetworkInterconnectPropertiesResponseLayer2Configuration?> Layer2Configuration { get; private set; } = null!;
+        public Output<Outputs.Layer2ConfigurationResponse?> Layer2Configuration { get; private set; } = null!;
 
         /// <summary>
         /// Common properties for Layer3Configuration.
@@ -44,6 +44,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of NNI used. Example: CE | NPB
+        /// </summary>
+        [Output("nniType")]
+        public Output<string?> NniType { get; private set; } = null!;
 
         /// <summary>
         /// Gets the provisioning state of the resource.
@@ -128,7 +134,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// Common properties for Layer2Configuration.
         /// </summary>
         [Input("layer2Configuration")]
-        public Input<Inputs.NetworkToNetworkInterconnectPropertiesLayer2ConfigurationArgs>? Layer2Configuration { get; set; }
+        public Input<Inputs.Layer2ConfigurationArgs>? Layer2Configuration { get; set; }
 
         /// <summary>
         /// Common properties for Layer3Configuration.
@@ -149,6 +155,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         public Input<string>? NetworkToNetworkInterconnectName { get; set; }
 
         /// <summary>
+        /// Type of NNI used. Example: CE | NPB
+        /// </summary>
+        [Input("nniType")]
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview.NniType>? NniType { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -162,6 +174,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 
         public NetworkToNetworkInterconnectArgs()
         {
+            NniType = "CE";
         }
         public static new NetworkToNetworkInterconnectArgs Empty => new NetworkToNetworkInterconnectArgs();
     }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Describes a DNS zone.
-    /// Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01
+    /// Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2018-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Zone")]
     public partial class Zone : global::Pulumi.CustomResource
@@ -69,6 +69,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("resolutionVirtualNetworks")]
         public Output<ImmutableArray<Outputs.SubResourceResponse>> ResolutionVirtualNetworks { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of signing keys.
+        /// </summary>
+        [Output("signingKeys")]
+        public Output<ImmutableArray<Outputs.SigningKeyResponse>> SigningKeys { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -174,7 +186,7 @@ namespace Pulumi.AzureNative.Network
         }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

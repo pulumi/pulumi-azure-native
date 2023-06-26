@@ -112,7 +112,7 @@ class Device(pulumi.CustomResource):
                  __props__=None):
         """
         Device resource.
-        Azure REST API version: 2021-05-01. Prior API version in Azure Native 1.x: 2020-01-01-preview
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Device resource.
-        Azure REST API version: 2021-05-01. Prior API version in Azure Native 1.x: 2020-01-01-preview
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.

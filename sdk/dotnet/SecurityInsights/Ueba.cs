@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Settings with single toggle.
-    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
+    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Ueba")]
     public partial class Ueba : global::Pulumi.CustomResource
@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:Ueba"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:Ueba"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:Ueba"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:Ueba"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

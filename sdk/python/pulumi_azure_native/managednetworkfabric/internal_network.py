@@ -21,28 +21,28 @@ class InternalNetworkArgs:
                  resource_group_name: pulumi.Input[str],
                  vlan_id: pulumi.Input[int],
                  annotation: Optional[pulumi.Input[str]] = None,
-                 bgp_configuration: Optional[pulumi.Input['InternalNetworkPatchablePropertiesBgpConfigurationArgs']] = None,
-                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input['InternalNetworkPatchablePropertiesConnectedIPv4SubnetsArgs']]]] = None,
-                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input['InternalNetworkPatchablePropertiesConnectedIPv6SubnetsArgs']]]] = None,
+                 bgp_configuration: Optional[pulumi.Input['BgpConfigurationArgs']] = None,
+                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectedSubnetArgs']]]] = None,
+                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectedSubnetArgs']]]] = None,
                  export_route_policy_id: Optional[pulumi.Input[str]] = None,
                  import_route_policy_id: Optional[pulumi.Input[str]] = None,
                  internal_network_name: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
-                 static_route_configuration: Optional[pulumi.Input['InternalNetworkPatchablePropertiesStaticRouteConfigurationArgs']] = None):
+                 static_route_configuration: Optional[pulumi.Input['StaticRouteConfigurationArgs']] = None):
         """
         The set of arguments for constructing a InternalNetwork resource.
         :param pulumi.Input[str] l3_isolation_domain_name: Name of the L3IsolationDomain
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] vlan_id: Vlan identifier. Example: 1001.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input['InternalNetworkPatchablePropertiesBgpConfigurationArgs'] bgp_configuration: BGP configuration properties
-        :param pulumi.Input[Sequence[pulumi.Input['InternalNetworkPatchablePropertiesConnectedIPv4SubnetsArgs']]] connected_i_pv4_subnets: List with object connectedIPv4Subnets.
-        :param pulumi.Input[Sequence[pulumi.Input['InternalNetworkPatchablePropertiesConnectedIPv6SubnetsArgs']]] connected_i_pv6_subnets: List with object connectedIPv6Subnets.
+        :param pulumi.Input['BgpConfigurationArgs'] bgp_configuration: BGP configuration properties
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectedSubnetArgs']]] connected_i_pv4_subnets: List with object connected IPv4 Subnets.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectedSubnetArgs']]] connected_i_pv6_subnets: List with object connected IPv6 Subnets.
         :param pulumi.Input[str] export_route_policy_id: ARM resource ID of importRoutePolicy.
         :param pulumi.Input[str] import_route_policy_id: ARM resource ID of importRoutePolicy.
         :param pulumi.Input[str] internal_network_name: Name of the InternalNetwork
         :param pulumi.Input[int] mtu: Maximum transmission unit. Default value is 1500.
-        :param pulumi.Input['InternalNetworkPatchablePropertiesStaticRouteConfigurationArgs'] static_route_configuration: staticRouteConfiguration model.
+        :param pulumi.Input['StaticRouteConfigurationArgs'] static_route_configuration: Static Route Configuration properties.
         """
         pulumi.set(__self__, "l3_isolation_domain_name", l3_isolation_domain_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -118,38 +118,38 @@ class InternalNetworkArgs:
 
     @property
     @pulumi.getter(name="bgpConfiguration")
-    def bgp_configuration(self) -> Optional[pulumi.Input['InternalNetworkPatchablePropertiesBgpConfigurationArgs']]:
+    def bgp_configuration(self) -> Optional[pulumi.Input['BgpConfigurationArgs']]:
         """
         BGP configuration properties
         """
         return pulumi.get(self, "bgp_configuration")
 
     @bgp_configuration.setter
-    def bgp_configuration(self, value: Optional[pulumi.Input['InternalNetworkPatchablePropertiesBgpConfigurationArgs']]):
+    def bgp_configuration(self, value: Optional[pulumi.Input['BgpConfigurationArgs']]):
         pulumi.set(self, "bgp_configuration", value)
 
     @property
     @pulumi.getter(name="connectedIPv4Subnets")
-    def connected_i_pv4_subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InternalNetworkPatchablePropertiesConnectedIPv4SubnetsArgs']]]]:
+    def connected_i_pv4_subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectedSubnetArgs']]]]:
         """
-        List with object connectedIPv4Subnets.
+        List with object connected IPv4 Subnets.
         """
         return pulumi.get(self, "connected_i_pv4_subnets")
 
     @connected_i_pv4_subnets.setter
-    def connected_i_pv4_subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InternalNetworkPatchablePropertiesConnectedIPv4SubnetsArgs']]]]):
+    def connected_i_pv4_subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectedSubnetArgs']]]]):
         pulumi.set(self, "connected_i_pv4_subnets", value)
 
     @property
     @pulumi.getter(name="connectedIPv6Subnets")
-    def connected_i_pv6_subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InternalNetworkPatchablePropertiesConnectedIPv6SubnetsArgs']]]]:
+    def connected_i_pv6_subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectedSubnetArgs']]]]:
         """
-        List with object connectedIPv6Subnets.
+        List with object connected IPv6 Subnets.
         """
         return pulumi.get(self, "connected_i_pv6_subnets")
 
     @connected_i_pv6_subnets.setter
-    def connected_i_pv6_subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InternalNetworkPatchablePropertiesConnectedIPv6SubnetsArgs']]]]):
+    def connected_i_pv6_subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectedSubnetArgs']]]]):
         pulumi.set(self, "connected_i_pv6_subnets", value)
 
     @property
@@ -202,14 +202,14 @@ class InternalNetworkArgs:
 
     @property
     @pulumi.getter(name="staticRouteConfiguration")
-    def static_route_configuration(self) -> Optional[pulumi.Input['InternalNetworkPatchablePropertiesStaticRouteConfigurationArgs']]:
+    def static_route_configuration(self) -> Optional[pulumi.Input['StaticRouteConfigurationArgs']]:
         """
-        staticRouteConfiguration model.
+        Static Route Configuration properties.
         """
         return pulumi.get(self, "static_route_configuration")
 
     @static_route_configuration.setter
-    def static_route_configuration(self, value: Optional[pulumi.Input['InternalNetworkPatchablePropertiesStaticRouteConfigurationArgs']]):
+    def static_route_configuration(self, value: Optional[pulumi.Input['StaticRouteConfigurationArgs']]):
         pulumi.set(self, "static_route_configuration", value)
 
 
@@ -219,16 +219,16 @@ class InternalNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 bgp_configuration: Optional[pulumi.Input[pulumi.InputType['InternalNetworkPatchablePropertiesBgpConfigurationArgs']]] = None,
-                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InternalNetworkPatchablePropertiesConnectedIPv4SubnetsArgs']]]]] = None,
-                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InternalNetworkPatchablePropertiesConnectedIPv6SubnetsArgs']]]]] = None,
+                 bgp_configuration: Optional[pulumi.Input[pulumi.InputType['BgpConfigurationArgs']]] = None,
+                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]]] = None,
+                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]]] = None,
                  export_route_policy_id: Optional[pulumi.Input[str]] = None,
                  import_route_policy_id: Optional[pulumi.Input[str]] = None,
                  internal_network_name: Optional[pulumi.Input[str]] = None,
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 static_route_configuration: Optional[pulumi.Input[pulumi.InputType['InternalNetworkPatchablePropertiesStaticRouteConfigurationArgs']]] = None,
+                 static_route_configuration: Optional[pulumi.Input[pulumi.InputType['StaticRouteConfigurationArgs']]] = None,
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -238,16 +238,16 @@ class InternalNetwork(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[pulumi.InputType['InternalNetworkPatchablePropertiesBgpConfigurationArgs']] bgp_configuration: BGP configuration properties
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InternalNetworkPatchablePropertiesConnectedIPv4SubnetsArgs']]]] connected_i_pv4_subnets: List with object connectedIPv4Subnets.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InternalNetworkPatchablePropertiesConnectedIPv6SubnetsArgs']]]] connected_i_pv6_subnets: List with object connectedIPv6Subnets.
+        :param pulumi.Input[pulumi.InputType['BgpConfigurationArgs']] bgp_configuration: BGP configuration properties
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]] connected_i_pv4_subnets: List with object connected IPv4 Subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]] connected_i_pv6_subnets: List with object connected IPv6 Subnets.
         :param pulumi.Input[str] export_route_policy_id: ARM resource ID of importRoutePolicy.
         :param pulumi.Input[str] import_route_policy_id: ARM resource ID of importRoutePolicy.
         :param pulumi.Input[str] internal_network_name: Name of the InternalNetwork
         :param pulumi.Input[str] l3_isolation_domain_name: Name of the L3IsolationDomain
         :param pulumi.Input[int] mtu: Maximum transmission unit. Default value is 1500.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['InternalNetworkPatchablePropertiesStaticRouteConfigurationArgs']] static_route_configuration: staticRouteConfiguration model.
+        :param pulumi.Input[pulumi.InputType['StaticRouteConfigurationArgs']] static_route_configuration: Static Route Configuration properties.
         :param pulumi.Input[int] vlan_id: Vlan identifier. Example: 1001.
         """
         ...
@@ -276,16 +276,16 @@ class InternalNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
-                 bgp_configuration: Optional[pulumi.Input[pulumi.InputType['InternalNetworkPatchablePropertiesBgpConfigurationArgs']]] = None,
-                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InternalNetworkPatchablePropertiesConnectedIPv4SubnetsArgs']]]]] = None,
-                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InternalNetworkPatchablePropertiesConnectedIPv6SubnetsArgs']]]]] = None,
+                 bgp_configuration: Optional[pulumi.Input[pulumi.InputType['BgpConfigurationArgs']]] = None,
+                 connected_i_pv4_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]]] = None,
+                 connected_i_pv6_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedSubnetArgs']]]]] = None,
                  export_route_policy_id: Optional[pulumi.Input[str]] = None,
                  import_route_policy_id: Optional[pulumi.Input[str]] = None,
                  internal_network_name: Optional[pulumi.Input[str]] = None,
                  l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 static_route_configuration: Optional[pulumi.Input[pulumi.InputType['InternalNetworkPatchablePropertiesStaticRouteConfigurationArgs']]] = None,
+                 static_route_configuration: Optional[pulumi.Input[pulumi.InputType['StaticRouteConfigurationArgs']]] = None,
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -403,7 +403,7 @@ class InternalNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpConfiguration")
-    def bgp_configuration(self) -> pulumi.Output[Optional['outputs.InternalNetworkPatchablePropertiesResponseBgpConfiguration']]:
+    def bgp_configuration(self) -> pulumi.Output[Optional['outputs.BgpConfigurationResponse']]:
         """
         BGP configuration properties
         """
@@ -419,17 +419,17 @@ class InternalNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectedIPv4Subnets")
-    def connected_i_pv4_subnets(self) -> pulumi.Output[Optional[Sequence['outputs.InternalNetworkPatchablePropertiesResponseConnectedIPv4Subnets']]]:
+    def connected_i_pv4_subnets(self) -> pulumi.Output[Optional[Sequence['outputs.ConnectedSubnetResponse']]]:
         """
-        List with object connectedIPv4Subnets.
+        List with object connected IPv4 Subnets.
         """
         return pulumi.get(self, "connected_i_pv4_subnets")
 
     @property
     @pulumi.getter(name="connectedIPv6Subnets")
-    def connected_i_pv6_subnets(self) -> pulumi.Output[Optional[Sequence['outputs.InternalNetworkPatchablePropertiesResponseConnectedIPv6Subnets']]]:
+    def connected_i_pv6_subnets(self) -> pulumi.Output[Optional[Sequence['outputs.ConnectedSubnetResponse']]]:
         """
-        List with object connectedIPv6Subnets.
+        List with object connected IPv6 Subnets.
         """
         return pulumi.get(self, "connected_i_pv6_subnets")
 
@@ -483,9 +483,9 @@ class InternalNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="staticRouteConfiguration")
-    def static_route_configuration(self) -> pulumi.Output[Optional['outputs.InternalNetworkPatchablePropertiesResponseStaticRouteConfiguration']]:
+    def static_route_configuration(self) -> pulumi.Output[Optional['outputs.StaticRouteConfigurationResponse']]:
         """
-        staticRouteConfiguration model.
+        Static Route Configuration properties.
         """
         return pulumi.get(self, "static_route_configuration")
 

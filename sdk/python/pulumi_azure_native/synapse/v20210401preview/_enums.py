@@ -7,7 +7,6 @@ from enum import Enum
 __all__ = [
     'AzureSkuName',
     'AzureSkuTier',
-    'ClusterPrincipalRole',
     'DatabasePrincipalRole',
     'EngineType',
     'PrincipalType',
@@ -51,14 +50,6 @@ class AzureSkuTier(str, Enum):
     """
     BASIC = "Basic"
     STANDARD = "Standard"
-
-
-class ClusterPrincipalRole(str, Enum):
-    """
-    Cluster principal role.
-    """
-    ALL_DATABASES_ADMIN = "AllDatabasesAdmin"
-    ALL_DATABASES_VIEWER = "AllDatabasesViewer"
 
 
 class DatabasePrincipalRole(str, Enum):

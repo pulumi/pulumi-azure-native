@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
+        /// Type of authentication (Required to specify MSI) used to connect to AzureML. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("authentication")]
+        public Input<object>? Authentication { get; set; }
+
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]

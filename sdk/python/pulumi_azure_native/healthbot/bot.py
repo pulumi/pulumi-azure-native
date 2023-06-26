@@ -147,7 +147,7 @@ class Bot(pulumi.CustomResource):
                  __props__=None):
         """
         Azure Health Bot resource definition
-        Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2020-12-08
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-12-08
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,7 +167,7 @@ class Bot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Health Bot resource definition
-        Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2020-12-08
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-12-08
 
         :param str resource_name: The name of the resource.
         :param BotArgs args: The arguments to use to populate this resource's properties.
@@ -214,7 +214,7 @@ class Bot(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthbot/v20201020:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20201020preview:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20201208:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20201208preview:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20210610:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20210824:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20220808:Bot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthbot/v20201020:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20201020preview:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20201208:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20201208preview:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20210610:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20210824:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20220808:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20230501:Bot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Bot, __self__).__init__(
             'azure-native:healthbot:Bot',

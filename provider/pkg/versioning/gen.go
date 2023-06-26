@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 	"path"
 	"path/filepath"
@@ -83,7 +84,13 @@ func calculateVersionMetadata(versionSources VersionSources, providers openapi.A
 
 	v2Lock, err := DefaultConfigToDefaultVersionLock(allResourcesByVersionWithoutDeprecations, spec)
 	if err != nil {
-		return VersionMetadata{}, err
+		// Format updated spec to YAML and print for context
+		specYaml, yamlErr := yaml.Marshal(spec)
+		if yamlErr != nil {
+			log.Printf("error marshalling spec to YAML: %v", err)
+		}
+		wrapped := fmt.Errorf("generating default version lock from spec\n%s\n%w", string(specYaml), err)
+		return VersionMetadata{}, wrapped
 	}
 
 	// provider->resource->[]version
@@ -167,7 +174,7 @@ func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error
 		return VersionSources{}, err
 	}
 
-	resourcesToRemovePath := path.Join(rootDir, "versions", filePrefix+"removed-resources.yaml")
+	resourcesToRemovePath := path.Join(rootDir, "versions", filePrefix+"removed-resources.json")
 	resourcesToRemove, err := ReadResourceRemovals(resourcesToRemovePath)
 	if err != nil {
 		return VersionSources{}, fmt.Errorf("could not read %s: %v", resourcesToRemovePath, err)

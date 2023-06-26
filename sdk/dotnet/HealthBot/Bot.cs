@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HealthBot
 {
     /// <summary>
     /// Azure Health Bot resource definition
-    /// Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2020-12-08
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-12-08
     /// </summary>
     [AzureNativeResourceType("azure-native:healthbot:Bot")]
     public partial class Bot : global::Pulumi.CustomResource
@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.HealthBot
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210610:Bot"},
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210824:Bot"},
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20220808:Bot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20230501:Bot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

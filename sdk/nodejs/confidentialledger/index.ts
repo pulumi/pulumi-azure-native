@@ -30,12 +30,10 @@ utilities.lazyLoad(exports, ["ManagedCCF"], () => require("./managedCCF"));
 export * from "../types/enums/confidentialledger";
 
 // Export sub-modules:
-import * as v20201201preview from "./v20201201preview";
 import * as v20220513 from "./v20220513";
 import * as v20230126preview from "./v20230126preview";
 
 export {
-    v20201201preview,
     v20220513,
     v20230126preview,
 };

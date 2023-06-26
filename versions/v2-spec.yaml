@@ -15,12 +15,14 @@ Addons:
 Advisor:
     tracking: "2023-01-01"
 AgFoodPlatform:
-    tracking: 2021-09-01-preview
+    tracking: 2023-06-01-preview
+    additions:
+        FarmBeatsModel: 2021-09-01-preview
 AlertsManagement:
     tracking: "2023-03-01"
     additions:
         ActionRuleByName: 2019-05-05-preview
-        AlertProcessingRuleByName: "2021-08-08"
+        AlertProcessingRuleByName: 2023-05-01-preview
         SmartDetectorAlertRule: "2021-04-01"
 AnalysisServices:
     tracking: "2017-08-01"
@@ -106,7 +108,7 @@ Authorization:
         PrivateLinkAssociation: "2020-05-01"
         ResourceManagementPrivateLink: "2020-05-01"
         RoleAssignment: "2022-04-01"
-        RoleDefinition: "2022-04-01"
+        RoleDefinition: 2022-05-01-preview
         RoleManagementPolicyAssignment: "2020-10-01"
         ScopeAccessReviewHistoryDefinitionById: 2021-12-01-preview
         ScopeAccessReviewScheduleDefinitionById: 2021-12-01-preview
@@ -161,7 +163,7 @@ AzureStackHCI:
 BareMetalInfrastructure:
     tracking: "2023-04-06"
 Batch:
-    tracking: "2022-10-01"
+    tracking: "2023-05-01"
 Billing:
     tracking: "2020-05-01"
     additions:
@@ -192,7 +194,7 @@ CertificateRegistration:
 ChangeAnalysis:
     tracking: 2020-04-01-preview
 Chaos:
-    tracking: 2022-10-01-preview
+    tracking: 2023-04-15-preview
 CognitiveServices:
     tracking: "2023-05-01"
 Commerce: {}
@@ -240,7 +242,7 @@ Confluent:
 ConnectedVMwarevSphere:
     tracking: 2022-07-15-preview
 Consumption:
-    tracking: "2023-03-01"
+    tracking: "2023-05-01"
 ContainerInstance:
     tracking: "2023-05-01"
 ContainerRegistry:
@@ -271,9 +273,9 @@ ContainerService:
     additions:
         Fleet: 2023-03-15-preview
         FleetMember: 2023-03-15-preview
-        ManagedClusterSnapshot: 2023-04-02-preview
+        ManagedClusterSnapshot: 2023-05-02-preview
         OpenShiftManagedCluster: 2019-10-27-preview
-        TrustedAccessRoleBinding: 2023-04-02-preview
+        TrustedAccessRoleBinding: 2023-05-02-preview
         UpdateRun: 2023-03-15-preview
         listFleetCredentials: 2023-03-15-preview
         listManagedClusterAccessProfile: "2020-03-01"
@@ -371,16 +373,16 @@ DevSpaces:
 DevTestLab:
     tracking: "2018-09-15"
 DeviceUpdate:
-    tracking: "2022-10-01"
+    tracking: "2023-07-01"
 Devices:
     tracking: "2022-12-12"
     additions:
-        Certificate: "2021-07-02"
-        IotHubResource: "2021-07-02"
-        IotHubResourceEventHubConsumerGroup: "2021-07-02"
-        PrivateEndpointConnection: "2021-07-02"
-        listIotHubResourceKeys: "2021-07-02"
-        listIotHubResourceKeysForKeyName: "2021-07-02"
+        Certificate: 2022-11-15-preview
+        IotHubResource: 2022-11-15-preview
+        IotHubResourceEventHubConsumerGroup: 2022-11-15-preview
+        PrivateEndpointConnection: 2022-11-15-preview
+        listIotHubResourceKeys: 2022-11-15-preview
+        listIotHubResourceKeysForKeyName: 2022-11-15-preview
 DigitalTwins:
     tracking: "2023-01-31"
 DocumentDB:
@@ -399,17 +401,19 @@ DynamicsTelemetry: {}
 Easm:
     tracking: 2023-04-01-preview
 EdgeOrder:
-    tracking: "2021-12-01"
+    tracking: 2022-05-01-preview
     additions:
-        Address: 2022-05-01-preview
-        OrderItem: 2022-05-01-preview
-        listProductsAndConfigurationProductFamilies: 2022-05-01-preview
-        listProductsAndConfigurations: 2022-05-01-preview
+        AddressByName: "2021-12-01"
+        OrderItemByName: "2021-12-01"
+        listConfigurations: "2021-12-01"
+        listProductFamilies: "2021-12-01"
 EdgeOrderPartner: {}
 Education:
     tracking: 2021-12-01-preview
 Elastic:
     tracking: "2023-06-01"
+    additions:
+        getOrganizationElasticToAzureSubscriptionMapping: 2023-06-15-preview
 ElasticSan:
     tracking: 2021-11-20-preview
 EngagementFabric:
@@ -450,13 +454,16 @@ GraphServices:
 GuestConfiguration:
     tracking: "2022-01-25"
 HDInsight:
-    tracking: "2021-06-01"
+    tracking: 2023-04-15-preview
 HanaOnAzure:
     tracking: 2020-02-07-preview
 HardwareSecurityModules:
     tracking: "2021-11-30"
+    additions:
+        CloudHsmCluster: 2022-08-31-preview
+        CloudHsmClusterPrivateEndpointConnection: 2022-08-31-preview
 HealthBot:
-    tracking: "2022-08-08"
+    tracking: "2023-05-01"
 HealthcareApis:
     tracking: "2023-02-28"
     additions:
@@ -476,15 +483,13 @@ HybridContainerService:
 HybridData:
     tracking: "2019-06-01"
 HybridNetwork:
-    tracking: "2021-05-01"
-    additions:
-        listVendorSkusCredential: 2022-01-01-preview
+    tracking: 2022-01-01-preview
 ImportExport:
     tracking: "2021-01-01"
 Insights:
     additions:
         ActionGroup: "2023-01-01"
-        ActivityLogAlert: "2020-10-01"
+        ActivityLogAlert: 2023-01-01-preview
         AlertRule: "2016-03-01"
         AnalyticsItem: "2015-05-01"
         AutoscaleSetting: "2022-10-01"
@@ -505,8 +510,8 @@ Insights:
         PrivateEndpointConnection: 2021-07-01-preview
         PrivateLinkScope: 2021-07-01-preview
         PrivateLinkScopedResource: 2021-07-01-preview
-        ProactiveDetectionConfiguration: "2015-05-01"
-        ScheduledQueryRule: "2022-06-15"
+        ProactiveDetectionConfiguration: 2018-05-01-preview
+        ScheduledQueryRule: 2023-03-15-preview
         SubscriptionDiagnosticSetting: 2021-05-01-preview
         TenantActionGroup: 2023-05-01-preview
         WebTest: "2022-06-15"
@@ -531,7 +536,7 @@ IoTSecurity:
 KeyVault:
     tracking: "2023-02-01"
 Kubernetes:
-    tracking: "2021-10-01"
+    tracking: 2022-05-01-preview
     additions:
         listConnectedClusterUserCredentials: 2021-04-01-preview
 KubernetesConfiguration:
@@ -684,146 +689,146 @@ MobileNetwork:
 Monitor:
     tracking: "2023-04-03"
 NetApp:
-    tracking: "2022-09-01"
+    tracking: "2022-11-01"
 Network:
     additions:
-        AdminRule: "2022-11-01"
-        AdminRuleCollection: "2022-11-01"
-        ApplicationGateway: "2022-11-01"
-        ApplicationGatewayPrivateEndpointConnection: "2022-11-01"
-        ApplicationSecurityGroup: "2022-11-01"
-        AzureFirewall: "2022-11-01"
-        BastionHost: "2022-11-01"
-        ConfigurationPolicyGroup: "2022-11-01"
-        ConnectionMonitor: "2022-11-01"
-        ConnectivityConfiguration: "2022-11-01"
-        CustomIPPrefix: "2022-11-01"
-        DdosCustomPolicy: "2022-11-01"
-        DdosProtectionPlan: "2022-11-01"
+        AdminRule: "2023-02-01"
+        AdminRuleCollection: "2023-02-01"
+        ApplicationGateway: "2023-02-01"
+        ApplicationGatewayPrivateEndpointConnection: "2023-02-01"
+        ApplicationSecurityGroup: "2023-02-01"
+        AzureFirewall: "2023-02-01"
+        BastionHost: "2023-02-01"
+        ConfigurationPolicyGroup: "2023-02-01"
+        ConnectionMonitor: "2023-02-01"
+        ConnectivityConfiguration: "2023-02-01"
+        CustomIPPrefix: "2023-02-01"
+        DdosCustomPolicy: "2023-02-01"
+        DdosProtectionPlan: "2023-02-01"
         DnsForwardingRuleset: "2022-07-01"
         DnsResolver: "2022-07-01"
         DnssecConfig: 2023-07-01-preview
-        DscpConfiguration: "2022-11-01"
+        DscpConfiguration: "2023-02-01"
         Endpoint: "2022-04-01"
         Experiment: "2019-11-01"
-        ExpressRouteCircuit: "2022-11-01"
-        ExpressRouteCircuitAuthorization: "2022-11-01"
-        ExpressRouteCircuitConnection: "2022-11-01"
-        ExpressRouteCircuitPeering: "2022-11-01"
-        ExpressRouteConnection: "2022-11-01"
-        ExpressRouteCrossConnectionPeering: "2022-11-01"
-        ExpressRouteGateway: "2022-11-01"
-        ExpressRoutePort: "2022-11-01"
-        ExpressRoutePortAuthorization: "2022-11-01"
-        FirewallPolicy: "2022-11-01"
-        FirewallPolicyRuleCollectionGroup: "2022-11-01"
+        ExpressRouteCircuit: "2023-02-01"
+        ExpressRouteCircuitAuthorization: "2023-02-01"
+        ExpressRouteCircuitConnection: "2023-02-01"
+        ExpressRouteCircuitPeering: "2023-02-01"
+        ExpressRouteConnection: "2023-02-01"
+        ExpressRouteCrossConnectionPeering: "2023-02-01"
+        ExpressRouteGateway: "2023-02-01"
+        ExpressRoutePort: "2023-02-01"
+        ExpressRoutePortAuthorization: "2023-02-01"
+        FirewallPolicy: "2023-02-01"
+        FirewallPolicyRuleCollectionGroup: "2023-02-01"
         FirewallPolicyRuleGroup: "2020-04-01"
-        FlowLog: "2022-11-01"
+        FlowLog: "2023-02-01"
         ForwardingRule: "2022-07-01"
         FrontDoor: "2021-06-01"
-        HubRouteTable: "2022-11-01"
-        HubVirtualNetworkConnection: "2022-11-01"
+        HubRouteTable: "2023-02-01"
+        HubVirtualNetworkConnection: "2023-02-01"
         InboundEndpoint: "2022-07-01"
-        InboundNatRule: "2022-11-01"
+        InboundNatRule: "2023-02-01"
         InterfaceEndpoint: "2019-02-01"
-        IpAllocation: "2022-11-01"
-        IpGroup: "2022-11-01"
-        LoadBalancer: "2022-11-01"
-        LoadBalancerBackendAddressPool: "2022-11-01"
-        LocalNetworkGateway: "2022-11-01"
-        ManagementGroupNetworkManagerConnection: "2022-11-01"
-        NatGateway: "2022-11-01"
-        NatRule: "2022-11-01"
+        IpAllocation: "2023-02-01"
+        IpGroup: "2023-02-01"
+        LoadBalancer: "2023-02-01"
+        LoadBalancerBackendAddressPool: "2023-02-01"
+        LocalNetworkGateway: "2023-02-01"
+        ManagementGroupNetworkManagerConnection: "2023-02-01"
+        NatGateway: "2023-02-01"
+        NatRule: "2023-02-01"
         NetworkExperimentProfile: "2019-11-01"
-        NetworkGroup: "2022-11-01"
-        NetworkInterface: "2022-11-01"
-        NetworkInterfaceTapConfiguration: "2022-11-01"
-        NetworkManager: "2022-11-01"
-        NetworkProfile: "2022-11-01"
-        NetworkSecurityGroup: "2022-11-01"
+        NetworkGroup: "2023-02-01"
+        NetworkInterface: "2023-02-01"
+        NetworkInterfaceTapConfiguration: "2023-02-01"
+        NetworkManager: "2023-02-01"
+        NetworkProfile: "2023-02-01"
+        NetworkSecurityGroup: "2023-02-01"
         NetworkSecurityPerimeter: 2021-03-01-preview
-        NetworkVirtualAppliance: "2022-11-01"
-        NetworkVirtualApplianceConnection: "2022-11-01"
-        NetworkWatcher: "2022-11-01"
+        NetworkVirtualAppliance: "2023-02-01"
+        NetworkVirtualApplianceConnection: "2023-02-01"
+        NetworkWatcher: "2023-02-01"
         NspAccessRule: 2021-02-01-preview
         NspAssociation: 2021-02-01-preview
         NspLink: 2021-02-01-preview
         NspProfile: 2021-02-01-preview
         OutboundEndpoint: "2022-07-01"
-        P2sVpnGateway: "2022-11-01"
+        P2sVpnGateway: "2023-02-01"
         P2sVpnServerConfiguration: "2019-07-01"
-        PacketCapture: "2022-11-01"
+        PacketCapture: "2023-02-01"
         Policy: "2022-05-01"
-        PrivateDnsZoneGroup: "2022-11-01"
-        PrivateEndpoint: "2022-11-01"
-        PrivateLinkService: "2022-11-01"
-        PrivateLinkServicePrivateEndpointConnection: "2022-11-01"
+        PrivateDnsZoneGroup: "2023-02-01"
+        PrivateEndpoint: "2023-02-01"
+        PrivateLinkService: "2023-02-01"
+        PrivateLinkServicePrivateEndpointConnection: "2023-02-01"
         PrivateRecordSet: "2020-06-01"
         PrivateResolverVirtualNetworkLink: "2022-07-01"
         PrivateZone: "2020-06-01"
         Profile: "2022-04-01"
-        PublicIPAddress: "2022-11-01"
-        PublicIPPrefix: "2022-11-01"
-        RecordSet: "2018-05-01"
-        Route: "2022-11-01"
-        RouteFilter: "2022-11-01"
-        RouteFilterRule: "2022-11-01"
-        RouteMap: "2022-11-01"
-        RouteTable: "2022-11-01"
-        RoutingIntent: "2022-11-01"
+        PublicIPAddress: "2023-02-01"
+        PublicIPPrefix: "2023-02-01"
+        RecordSet: 2023-07-01-preview
+        Route: "2023-02-01"
+        RouteFilter: "2023-02-01"
+        RouteFilterRule: "2023-02-01"
+        RouteMap: "2023-02-01"
+        RouteTable: "2023-02-01"
+        RoutingIntent: "2023-02-01"
         RulesEngine: "2021-06-01"
-        ScopeConnection: "2022-11-01"
-        SecurityAdminConfiguration: "2022-11-01"
-        SecurityPartnerProvider: "2022-11-01"
-        SecurityRule: "2022-11-01"
+        ScopeConnection: "2023-02-01"
+        SecurityAdminConfiguration: "2023-02-01"
+        SecurityPartnerProvider: "2023-02-01"
+        SecurityRule: "2023-02-01"
         SecurityUserConfiguration: 2022-04-01-preview
-        ServiceEndpointPolicy: "2022-11-01"
-        ServiceEndpointPolicyDefinition: "2022-11-01"
-        StaticMember: "2022-11-01"
-        Subnet: "2022-11-01"
-        SubscriptionNetworkManagerConnection: "2022-11-01"
+        ServiceEndpointPolicy: "2023-02-01"
+        ServiceEndpointPolicyDefinition: "2023-02-01"
+        StaticMember: "2023-02-01"
+        Subnet: "2023-02-01"
+        SubscriptionNetworkManagerConnection: "2023-02-01"
         TrafficManagerUserMetricsKey: "2022-04-01"
         UserRule: 2022-04-01-preview
         UserRuleCollection: 2022-04-01-preview
-        VirtualApplianceSite: "2022-11-01"
-        VirtualHub: "2022-11-01"
-        VirtualHubBgpConnection: "2022-11-01"
-        VirtualHubIpConfiguration: "2022-11-01"
-        VirtualHubRouteTableV2: "2022-11-01"
-        VirtualNetwork: "2022-11-01"
-        VirtualNetworkGateway: "2022-11-01"
-        VirtualNetworkGatewayConnection: "2022-11-01"
-        VirtualNetworkGatewayNatRule: "2022-11-01"
+        VirtualApplianceSite: "2023-02-01"
+        VirtualHub: "2023-02-01"
+        VirtualHubBgpConnection: "2023-02-01"
+        VirtualHubIpConfiguration: "2023-02-01"
+        VirtualHubRouteTableV2: "2023-02-01"
+        VirtualNetwork: "2023-02-01"
+        VirtualNetworkGateway: "2023-02-01"
+        VirtualNetworkGatewayConnection: "2023-02-01"
+        VirtualNetworkGatewayNatRule: "2023-02-01"
         VirtualNetworkLink: "2020-06-01"
-        VirtualNetworkPeering: "2022-11-01"
-        VirtualNetworkTap: "2022-11-01"
-        VirtualRouter: "2022-11-01"
-        VirtualRouterPeering: "2022-11-01"
-        VirtualWan: "2022-11-01"
-        VpnConnection: "2022-11-01"
-        VpnGateway: "2022-11-01"
-        VpnServerConfiguration: "2022-11-01"
-        VpnSite: "2022-11-01"
-        WebApplicationFirewallPolicy: "2022-11-01"
-        Zone: "2018-05-01"
-        getActiveSessions: "2022-11-01"
-        getApplicationGatewayBackendHealthOnDemand: "2022-11-01"
-        getBastionShareableLink: "2022-11-01"
-        getDnsResourceReferenceByTarResources: "2018-05-01"
-        getP2sVpnGatewayP2sVpnConnectionHealth: "2022-11-01"
-        getP2sVpnGatewayP2sVpnConnectionHealthDetailed: "2022-11-01"
-        getVirtualNetworkGatewayAdvertisedRoutes: "2022-11-01"
-        getVirtualNetworkGatewayBgpPeerStatus: "2022-11-01"
-        getVirtualNetworkGatewayConnectionIkeSas: "2022-11-01"
-        getVirtualNetworkGatewayLearnedRoutes: "2022-11-01"
-        getVirtualNetworkGatewayVpnProfilePackageUrl: "2022-11-01"
-        getVirtualNetworkGatewayVpnclientConnectionHealth: "2022-11-01"
-        getVirtualNetworkGatewayVpnclientIpsecParameters: "2022-11-01"
-        getVpnLinkConnectionIkeSas: "2022-11-01"
+        VirtualNetworkPeering: "2023-02-01"
+        VirtualNetworkTap: "2023-02-01"
+        VirtualRouter: "2023-02-01"
+        VirtualRouterPeering: "2023-02-01"
+        VirtualWan: "2023-02-01"
+        VpnConnection: "2023-02-01"
+        VpnGateway: "2023-02-01"
+        VpnServerConfiguration: "2023-02-01"
+        VpnSite: "2023-02-01"
+        WebApplicationFirewallPolicy: "2023-02-01"
+        Zone: 2023-07-01-preview
+        getActiveSessions: "2023-02-01"
+        getApplicationGatewayBackendHealthOnDemand: "2023-02-01"
+        getBastionShareableLink: "2023-02-01"
+        getDnsResourceReferenceByTarResources: 2023-07-01-preview
+        getP2sVpnGatewayP2sVpnConnectionHealth: "2023-02-01"
+        getP2sVpnGatewayP2sVpnConnectionHealthDetailed: "2023-02-01"
+        getVirtualNetworkGatewayAdvertisedRoutes: "2023-02-01"
+        getVirtualNetworkGatewayBgpPeerStatus: "2023-02-01"
+        getVirtualNetworkGatewayConnectionIkeSas: "2023-02-01"
+        getVirtualNetworkGatewayLearnedRoutes: "2023-02-01"
+        getVirtualNetworkGatewayVpnProfilePackageUrl: "2023-02-01"
+        getVirtualNetworkGatewayVpnclientConnectionHealth: "2023-02-01"
+        getVirtualNetworkGatewayVpnclientIpsecParameters: "2023-02-01"
+        getVpnLinkConnectionIkeSas: "2023-02-01"
         listActiveConnectivityConfiguration: 2021-02-01-preview
-        listActiveConnectivityConfigurations: "2022-11-01"
+        listActiveConnectivityConfigurations: "2023-02-01"
         listActiveSecurityAdminRule: 2021-02-01-preview
-        listActiveSecurityAdminRules: "2022-11-01"
+        listActiveSecurityAdminRules: "2023-02-01"
         listActiveSecurityUserRule: 2021-02-01-preview
         listActiveSecurityUserRules: 2022-04-01-preview
         listDnsForwardingRulesetByVirtualNetwork: "2022-07-01"
@@ -831,15 +836,18 @@ Network:
         listEffectiveConnectivityConfiguration: 2021-02-01-preview
         listEffectiveVirtualNetworkByNetworkGroup: 2021-02-01-preview
         listEffectiveVirtualNetworkByNetworkManager: 2022-04-01-preview
-        listFirewallPolicyIdpsSignature: "2022-11-01"
-        listFirewallPolicyIdpsSignaturesFilterValue: "2022-11-01"
+        listFirewallPolicyIdpsSignature: "2023-02-01"
+        listFirewallPolicyIdpsSignaturesFilterValue: "2023-02-01"
         listListEffectiveVirtualNetworkByNetworkGroup: 2022-04-01-preview
-        listNetworkManagerDeploymentStatus: "2022-11-01"
-        listNetworkManagerEffectiveConnectivityConfigurations: "2022-11-01"
+        listNetworkManagerDeploymentStatus: "2023-02-01"
+        listNetworkManagerEffectiveConnectivityConfigurations: "2023-02-01"
         listNetworkManagerEffectiveSecurityAdminRule: 2021-02-01-preview
-        listNetworkManagerEffectiveSecurityAdminRules: "2022-11-01"
+        listNetworkManagerEffectiveSecurityAdminRules: "2023-02-01"
 NetworkCloud:
-    tracking: 2022-12-12-preview
+    tracking: 2023-05-01-preview
+    additions:
+        DefaultCniNetwork: 2022-12-12-preview
+        HybridAksCluster: 2022-12-12-preview
 NetworkFunction:
     tracking: "2022-11-01"
 NotificationHubs:
@@ -904,7 +912,7 @@ PowerPlatform:
 ProfessionalService:
     tracking: 2023-07-01-preview
 ProviderHub:
-    tracking: "2020-11-20"
+    tracking: 2021-09-01-preview
 Purview:
     tracking: "2021-07-01"
 Quantum:
@@ -915,12 +923,6 @@ RecommendationsService:
 RecoveryServices:
     tracking: "2023-04-01"
     additions:
-        PrivateEndpointConnection: "2023-02-01"
-        ProtectedItem: "2023-02-01"
-        ProtectionContainer: "2023-02-01"
-        ProtectionIntent: "2023-02-01"
-        ProtectionPolicy: "2023-02-01"
-        ResourceGuardProxy: "2023-02-01"
         getRecoveryPointAccessToken: "2023-01-15"
 RedHatOpenShift:
     tracking: "2022-09-04"
@@ -933,7 +935,7 @@ ResourceConnector:
 ResourceGraph:
     tracking: 2020-04-01-preview
 ResourceHealth:
-    tracking: 2022-10-01-preview
+    tracking: "2022-10-01"
 Resources:
     additions:
         Deployment: "2022-09-01"
@@ -953,11 +955,7 @@ Resources:
 SaaS:
     tracking: 2018-03-01-beta
 ScVmm:
-    tracking: 2020-06-05-preview
-    additions:
-        GuestAgent: 2022-05-21-preview
-        HybridIdentityMetadata: 2022-05-21-preview
-        MachineExtension: 2022-05-21-preview
+    tracking: 2022-05-21-preview
 Scheduler:
     tracking: "2016-03-01"
 Search:
@@ -988,6 +986,7 @@ Security:
         SecurityContact: 2020-01-01-preview
         SecurityOperator: 2023-01-01-preview
         ServerVulnerabilityAssessment: "2020-01-01"
+        ServerVulnerabilityAssessmentsSetting: "2023-05-01"
         SqlVulnerabilityAssessmentBaselineRule: 2023-02-01-preview
         Standard: 2021-08-01-preview
         WorkspaceSetting: 2017-08-01-preview
@@ -1000,28 +999,28 @@ SecurityDevOps:
 SecurityInsights:
     tracking: "2023-02-01"
     additions:
-        BookmarkRelation: 2023-05-01-preview
-        ContentPackage: 2023-05-01-preview
-        ContentTemplate: 2023-05-01-preview
-        EntityQuery: 2023-05-01-preview
-        FileImport: 2023-05-01-preview
-        Hunt: 2023-05-01-preview
-        HuntComment: 2023-05-01-preview
-        HuntRelation: 2023-05-01-preview
-        IncidentTask: 2023-05-01-preview
-        ProductSetting: 2023-05-01-preview
+        BookmarkRelation: 2023-06-01-preview
+        ContentPackage: 2023-06-01-preview
+        ContentTemplate: 2023-06-01-preview
+        EntityQuery: 2023-06-01-preview
+        FileImport: 2023-06-01-preview
+        Hunt: 2023-06-01-preview
+        HuntComment: 2023-06-01-preview
+        HuntRelation: 2023-06-01-preview
+        IncidentTask: 2023-06-01-preview
+        ProductSetting: 2023-06-01-preview
         SourceControl: 2023-05-01-preview
-        WorkspaceManagerAssignment: 2023-05-01-preview
-        WorkspaceManagerConfiguration: 2023-05-01-preview
-        WorkspaceManagerGroup: 2023-05-01-preview
-        WorkspaceManagerMember: 2023-05-01-preview
-        getEntitiesGetTimeline: 2023-05-01-preview
-        getEntityInsights: 2023-05-01-preview
-        listSourceControlRepositories: 2023-05-01-preview
+        WorkspaceManagerAssignment: 2023-06-01-preview
+        WorkspaceManagerConfiguration: 2023-06-01-preview
+        WorkspaceManagerGroup: 2023-06-01-preview
+        WorkspaceManagerMember: 2023-06-01-preview
+        getEntitiesGetTimeline: 2023-06-01-preview
+        getEntityInsights: 2023-06-01-preview
+        listSourceControlRepositories: 2023-06-01-preview
 SerialConsole:
     tracking: "2018-05-01"
 ServiceBus:
-    tracking: "2021-11-01"
+    tracking: 2022-01-01-preview
     additions:
         NamespaceIpFilterRule: 2018-01-01-preview
         NamespaceVirtualNetworkRule: 2018-01-01-preview
@@ -1182,7 +1181,6 @@ Web:
         listAppServicePlanHybridConnectionKeys: "2022-09-01"
         listConnectionConsentLinks: "2016-06-01"
         listConnectionKeys: 2015-08-01-preview
-        listContainerAppSecrets: "2022-09-01"
         listCustomApiWsdlInterfaces: "2016-06-01"
         listSiteIdentifiersAssignedToHostName: "2022-09-01"
         listStaticSiteAppSettings: "2022-09-01"

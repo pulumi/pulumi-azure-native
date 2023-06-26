@@ -18,7 +18,6 @@ __all__ = [
     'ResourceModelWithAllowedPropertySetIdentityArgs',
     'ResourceModelWithAllowedPropertySetPlanArgs',
     'ResourceModelWithAllowedPropertySetSkuArgs',
-    'TimeArgs',
 ]
 
 @pulumi.input_type
@@ -420,43 +419,5 @@ class ResourceModelWithAllowedPropertySetSkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input['SkuTier']]):
         pulumi.set(self, "tier", value)
-
-
-@pulumi.input_type
-class TimeArgs:
-    def __init__(__self__, *,
-                 hour: pulumi.Input[int],
-                 minute: pulumi.Input[int]):
-        """
-        The time for a scaling action to occur.
-        :param pulumi.Input[int] hour: The hour.
-        :param pulumi.Input[int] minute: The minute.
-        """
-        pulumi.set(__self__, "hour", hour)
-        pulumi.set(__self__, "minute", minute)
-
-    @property
-    @pulumi.getter
-    def hour(self) -> pulumi.Input[int]:
-        """
-        The hour.
-        """
-        return pulumi.get(self, "hour")
-
-    @hour.setter
-    def hour(self, value: pulumi.Input[int]):
-        pulumi.set(self, "hour", value)
-
-    @property
-    @pulumi.getter
-    def minute(self) -> pulumi.Input[int]:
-        """
-        The minute.
-        """
-        return pulumi.get(self, "minute")
-
-    @minute.setter
-    def minute(self, value: pulumi.Input[int]):
-        pulumi.set(self, "minute", value)
 
 

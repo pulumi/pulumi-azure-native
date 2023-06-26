@@ -686,7 +686,7 @@ class ComputeNodeIdentityReferenceArgs:
 @pulumi.input_type
 class ContainerConfigurationArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input['ContainerType'],
+                 type: pulumi.Input[Union[str, 'ContainerType']],
                  container_image_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRegistryArgs']]]] = None):
         """
@@ -701,11 +701,11 @@ class ContainerConfigurationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['ContainerType']:
+    def type(self) -> pulumi.Input[Union[str, 'ContainerType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['ContainerType']):
+    def type(self, value: pulumi.Input[Union[str, 'ContainerType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -1369,7 +1369,7 @@ class KeyVaultPropertiesArgs:
                  key_identifier: Optional[pulumi.Input[str]] = None):
         """
         KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
-        :param pulumi.Input[str] key_identifier: Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
+        :param pulumi.Input[str] key_identifier: Full path to the secret with or without version. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. or https://mykeyvault.vault.azure.net/keys/testkey. To be usable the following prerequisites must be met:
                
                 The Batch Account has a System Assigned identity
                 The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
@@ -1382,7 +1382,7 @@ class KeyVaultPropertiesArgs:
     @pulumi.getter(name="keyIdentifier")
     def key_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
+        Full path to the secret with or without version. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. or https://mykeyvault.vault.azure.net/keys/testkey. To be usable the following prerequisites must be met:
 
          The Batch Account has a System Assigned identity
          The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
@@ -1642,17 +1642,21 @@ class NFSMountConfigurationArgs:
 class NetworkConfigurationArgs:
     def __init__(__self__, *,
                  dynamic_vnet_assignment_scope: Optional[pulumi.Input['DynamicVNetAssignmentScope']] = None,
+                 enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  endpoint_configuration: Optional[pulumi.Input['PoolEndpointConfigurationArgs']] = None,
                  public_ip_address_configuration: Optional[pulumi.Input['PublicIPAddressConfigurationArgs']] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         The network configuration for a pool.
+        :param pulumi.Input[bool] enable_accelerated_networking: Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
         :param pulumi.Input['PoolEndpointConfigurationArgs'] endpoint_configuration: Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
         :param pulumi.Input['PublicIPAddressConfigurationArgs'] public_ip_address_configuration: This property is only supported on Pools with the virtualMachineConfiguration property.
         :param pulumi.Input[str] subnet_id: The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Also enable outbound connections to Azure Storage on port 443. For cloudServiceConfiguration pools, only 'classic' VNETs are supported. For more details see: https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
         """
         if dynamic_vnet_assignment_scope is not None:
             pulumi.set(__self__, "dynamic_vnet_assignment_scope", dynamic_vnet_assignment_scope)
+        if enable_accelerated_networking is not None:
+            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
         if endpoint_configuration is not None:
             pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         if public_ip_address_configuration is not None:
@@ -1668,6 +1672,18 @@ class NetworkConfigurationArgs:
     @dynamic_vnet_assignment_scope.setter
     def dynamic_vnet_assignment_scope(self, value: Optional[pulumi.Input['DynamicVNetAssignmentScope']]):
         pulumi.set(self, "dynamic_vnet_assignment_scope", value)
+
+    @property
+    @pulumi.getter(name="enableAcceleratedNetworking")
+    def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
+        """
+        return pulumi.get(self, "enable_accelerated_networking")
+
+    @enable_accelerated_networking.setter
+    def enable_accelerated_networking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_accelerated_networking", value)
 
     @property
     @pulumi.getter(name="endpointConfiguration")
@@ -2390,12 +2406,14 @@ class VMExtensionArgs:
                  publisher: pulumi.Input[str],
                  type: pulumi.Input[str],
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
                  protected_settings: Optional[Any] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  settings: Optional[Any] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param pulumi.Input[bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all. 
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         """
@@ -2404,6 +2422,8 @@ class VMExtensionArgs:
         pulumi.set(__self__, "type", type)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if enable_automatic_upgrade is not None:
+            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
         if protected_settings is not None:
             pulumi.set(__self__, "protected_settings", protected_settings)
         if provision_after_extensions is not None:
@@ -2451,6 +2471,18 @@ class VMExtensionArgs:
     @auto_upgrade_minor_version.setter
     def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_upgrade_minor_version", value)
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
+
+    @enable_automatic_upgrade.setter
+    def enable_automatic_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_upgrade", value)
 
     @property
     @pulumi.getter(name="protectedSettings")

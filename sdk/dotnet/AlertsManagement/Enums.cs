@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.AlertsManagement
 
         public static ActionType AddActionGroups { get; } = new ActionType("AddActionGroups");
         public static ActionType RemoveAllActionGroups { get; } = new ActionType("RemoveAllActionGroups");
+        public static ActionType CorrelateAlerts { get; } = new ActionType("CorrelateAlerts");
 
         public static bool operator ==(ActionType left, ActionType right) => left.Equals(right);
         public static bool operator !=(ActionType left, ActionType right) => !left.Equals(right);
@@ -201,6 +202,37 @@ namespace Pulumi.AzureNative.AlertsManagement
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Field other && Equals(other);
         public bool Equals(Field other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates how to handle child alerts notifications.
+    /// </summary>
+    [EnumType]
+    public readonly struct NotificationsForCorrelatedAlerts : IEquatable<NotificationsForCorrelatedAlerts>
+    {
+        private readonly string _value;
+
+        private NotificationsForCorrelatedAlerts(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotificationsForCorrelatedAlerts NotifyAlways { get; } = new NotificationsForCorrelatedAlerts("NotifyAlways");
+        public static NotificationsForCorrelatedAlerts SuppressAlways { get; } = new NotificationsForCorrelatedAlerts("SuppressAlways");
+
+        public static bool operator ==(NotificationsForCorrelatedAlerts left, NotificationsForCorrelatedAlerts right) => left.Equals(right);
+        public static bool operator !=(NotificationsForCorrelatedAlerts left, NotificationsForCorrelatedAlerts right) => !left.Equals(right);
+
+        public static explicit operator string(NotificationsForCorrelatedAlerts value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotificationsForCorrelatedAlerts other && Equals(other);
+        public bool Equals(NotificationsForCorrelatedAlerts other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

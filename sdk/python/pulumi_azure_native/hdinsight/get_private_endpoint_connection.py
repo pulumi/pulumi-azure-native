@@ -135,7 +135,7 @@ def get_private_endpoint_connection(cluster_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the specific private endpoint connection.
-    Azure REST API version: 2021-06-01.
+    Azure REST API version: 2023-04-15-preview.
 
 
     :param str cluster_name: The name of the cluster.
@@ -167,7 +167,7 @@ def get_private_endpoint_connection_output(cluster_name: Optional[pulumi.Input[s
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specific private endpoint connection.
-    Azure REST API version: 2021-06-01.
+    Azure REST API version: 2023-04-15-preview.
 
 
     :param str cluster_name: The name of the cluster.

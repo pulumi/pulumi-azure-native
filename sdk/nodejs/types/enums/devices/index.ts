@@ -2,21 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20200301 from "./v20200301";
-import * as v20200831 from "./v20200831";
 import * as v20200901preview from "./v20200901preview";
-import * as v20210702 from "./v20210702";
-import * as v20220430preview from "./v20220430preview";
 import * as v20221115preview from "./v20221115preview";
 import * as v20221212 from "./v20221212";
 import * as v20230301preview from "./v20230301preview";
 
 export {
-    v20200301,
-    v20200831,
     v20200901preview,
-    v20210702,
-    v20220430preview,
     v20221115preview,
     v20221212,
     v20230301preview,
@@ -145,6 +137,17 @@ export const IpFilterTargetType = {
  */
 export type IpFilterTargetType = (typeof IpFilterTargetType)[keyof typeof IpFilterTargetType];
 
+export const IpVersion = {
+    Ipv4: "ipv4",
+    Ipv6: "ipv6",
+    Ipv4ipv6: "ipv4ipv6",
+} as const;
+
+/**
+ * This property specifies the IP Version the hub is currently utilizing.
+ */
+export type IpVersion = (typeof IpVersion)[keyof typeof IpVersion];
+
 export const NetworkRuleIPAction = {
     Allow: "Allow",
 } as const;
@@ -184,7 +187,7 @@ export const ResourceIdentityType = {
 } as const;
 
 /**
- * The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+ * The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
@@ -194,7 +197,9 @@ export const RoutingSource = {
     TwinChangeEvents: "TwinChangeEvents",
     DeviceLifecycleEvents: "DeviceLifecycleEvents",
     DeviceJobLifecycleEvents: "DeviceJobLifecycleEvents",
+    DigitalTwinChangeEvents: "DigitalTwinChangeEvents",
     DeviceConnectionStateEvents: "DeviceConnectionStateEvents",
+    MqttBrokerMessages: "MqttBrokerMessages",
 } as const;
 
 /**

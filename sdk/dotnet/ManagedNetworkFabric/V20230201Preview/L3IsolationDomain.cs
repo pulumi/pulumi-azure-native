@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// List of Ipv4 and Ipv6 route configurations.
         /// </summary>
         [Output("aggregateRouteConfiguration")]
-        public Output<Outputs.L3IsolationDomainPatchPropertiesResponseAggregateRouteConfiguration?> AggregateRouteConfiguration { get; private set; } = null!;
+        public Output<Outputs.AggregateRouteConfigurationResponse?> AggregateRouteConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Switch configuration description.
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// List of Ipv4 and Ipv6 route configurations.
         /// </summary>
         [Input("aggregateRouteConfiguration")]
-        public Input<Inputs.L3IsolationDomainPatchPropertiesAggregateRouteConfigurationArgs>? AggregateRouteConfiguration { get; set; }
+        public Input<Inputs.AggregateRouteConfigurationArgs>? AggregateRouteConfiguration { get; set; }
 
         /// <summary>
         /// Switch configuration description.

@@ -3,7 +3,6 @@
 
 // Export sub-modules:
 import * as v20190101preview from "./v20190101preview";
-import * as v20200101 from "./v20200101";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210401 from "./v20210401";
 import * as v20210901preview from "./v20210901preview";
@@ -23,10 +22,10 @@ import * as v20230201preview from "./v20230201preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230401preview from "./v20230401preview";
 import * as v20230501preview from "./v20230501preview";
+import * as v20230601preview from "./v20230601preview";
 
 export {
     v20190101preview,
-    v20200101,
     v20210301preview,
     v20210401,
     v20210901preview,
@@ -46,6 +45,7 @@ export {
     v20230301preview,
     v20230401preview,
     v20230501preview,
+    v20230601preview,
 };
 
 export const ActionType = {

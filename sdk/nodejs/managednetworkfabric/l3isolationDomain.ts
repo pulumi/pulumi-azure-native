@@ -45,7 +45,7 @@ export class L3IsolationDomain extends pulumi.CustomResource {
     /**
      * List of Ipv4 and Ipv6 route configurations.
      */
-    public readonly aggregateRouteConfiguration!: pulumi.Output<outputs.managednetworkfabric.L3IsolationDomainPatchPropertiesResponseAggregateRouteConfiguration | undefined>;
+    public readonly aggregateRouteConfiguration!: pulumi.Output<outputs.managednetworkfabric.AggregateRouteConfigurationResponse | undefined>;
     /**
      * Switch configuration description.
      */
@@ -170,7 +170,7 @@ export interface L3IsolationDomainArgs {
     /**
      * List of Ipv4 and Ipv6 route configurations.
      */
-    aggregateRouteConfiguration?: pulumi.Input<inputs.managednetworkfabric.L3IsolationDomainPatchPropertiesAggregateRouteConfigurationArgs>;
+    aggregateRouteConfiguration?: pulumi.Input<inputs.managednetworkfabric.AggregateRouteConfigurationArgs>;
     /**
      * Switch configuration description.
      */

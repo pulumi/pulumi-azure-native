@@ -113,7 +113,7 @@ class Ueba(pulumi.CustomResource):
                  __props__=None):
         """
         Settings with single toggle.
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,7 +132,7 @@ class Ueba(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Settings with single toggle.
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param UebaArgs args: The arguments to use to populate this resource's properties.
@@ -178,7 +178,7 @@ class Ueba(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:Ueba")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:Ueba")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Ueba, __self__).__init__(
             'azure-native:securityinsights:Ueba',

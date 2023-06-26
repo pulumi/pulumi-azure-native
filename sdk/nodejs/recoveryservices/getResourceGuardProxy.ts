@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns ResourceGuardProxy under vault and with the name referenced in request
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getResourceGuardProxy(args: GetResourceGuardProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGuardProxyResult> {
 
@@ -65,7 +65,7 @@ export interface GetResourceGuardProxyResult {
 }
 /**
  * Returns ResourceGuardProxy under vault and with the name referenced in request
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getResourceGuardProxyOutput(args: GetResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardProxyResult> {
     return pulumi.output(args).apply((a: any) => getResourceGuardProxy(a, opts))

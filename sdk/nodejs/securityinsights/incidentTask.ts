@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export class IncidentTask extends pulumi.CustomResource {
     /**
@@ -134,7 +134,7 @@ export class IncidentTask extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20221201preview:IncidentTask" }, { type: "azure-native:securityinsights/v20230201preview:IncidentTask" }, { type: "azure-native:securityinsights/v20230301preview:IncidentTask" }, { type: "azure-native:securityinsights/v20230401preview:IncidentTask" }, { type: "azure-native:securityinsights/v20230501preview:IncidentTask" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20221201preview:IncidentTask" }, { type: "azure-native:securityinsights/v20230201preview:IncidentTask" }, { type: "azure-native:securityinsights/v20230301preview:IncidentTask" }, { type: "azure-native:securityinsights/v20230401preview:IncidentTask" }, { type: "azure-native:securityinsights/v20230501preview:IncidentTask" }, { type: "azure-native:securityinsights/v20230601preview:IncidentTask" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IncidentTask.__pulumiType, name, resourceInputs, opts);
     }

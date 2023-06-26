@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve an scheduled query rule definition.
- * Azure REST API version: 2022-06-15.
+ * Azure REST API version: 2023-03-15-preview.
  */
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
 
@@ -80,6 +80,10 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly id: string;
     /**
+     * The identity of the resource.
+     */
+    readonly identity?: outputs.insights.IdentityResponse;
+    /**
      * True if alert rule is legacy Log Analytic rule
      */
     readonly isLegacyLogAnalyticsRule: boolean;
@@ -107,6 +111,10 @@ export interface GetScheduledQueryRuleResult {
      * If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
      */
     readonly overrideQueryTimeRange?: string;
+    /**
+     * Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+     */
+    readonly ruleResolveConfiguration?: outputs.insights.RuleResolveConfigurationResponse;
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
@@ -142,7 +150,7 @@ export interface GetScheduledQueryRuleResult {
 }
 /**
  * Retrieve an scheduled query rule definition.
- * Azure REST API version: 2022-06-15.
+ * Azure REST API version: 2023-03-15-preview.
  */
 export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRuleResult> {
     return pulumi.output(args).apply((a: any) => getScheduledQueryRule(a, opts))

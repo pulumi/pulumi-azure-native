@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The description of the IoT hub.
-    /// Azure REST API version: 2021-07-02. Prior API version in Azure Native 1.x: 2020-08-31
+    /// Azure REST API version: 2022-11-15-preview. Prior API version in Azure Native 1.x: 2020-08-31
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:IotHubResource")]
     public partial class IotHubResource : global::Pulumi.CustomResource

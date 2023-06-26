@@ -15,6 +15,10 @@ export const getOrganizationApiKey: typeof import("./getOrganizationApiKey").get
 export const getOrganizationApiKeyOutput: typeof import("./getOrganizationApiKey").getOrganizationApiKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getOrganizationApiKey","getOrganizationApiKeyOutput"], () => require("./getOrganizationApiKey"));
 
+export { GetOrganizationElasticToAzureSubscriptionMappingArgs, GetOrganizationElasticToAzureSubscriptionMappingResult } from "./getOrganizationElasticToAzureSubscriptionMapping";
+export const getOrganizationElasticToAzureSubscriptionMapping: typeof import("./getOrganizationElasticToAzureSubscriptionMapping").getOrganizationElasticToAzureSubscriptionMapping = null as any;
+utilities.lazyLoad(exports, ["getOrganizationElasticToAzureSubscriptionMapping"], () => require("./getOrganizationElasticToAzureSubscriptionMapping"));
+
 export { GetTagRuleArgs, GetTagRuleResult, GetTagRuleOutputArgs } from "./getTagRule";
 export const getTagRule: typeof import("./getTagRule").getTagRule = null as any;
 export const getTagRuleOutput: typeof import("./getTagRule").getTagRuleOutput = null as any;
@@ -65,18 +69,16 @@ utilities.lazyLoad(exports, ["TagRule"], () => require("./tagRule"));
 export * from "../types/enums/elastic";
 
 // Export sub-modules:
-import * as v20200701 from "./v20200701";
-import * as v20220901preview from "./v20220901preview";
 import * as v20230201preview from "./v20230201preview";
 import * as v20230501preview from "./v20230501preview";
 import * as v20230601 from "./v20230601";
+import * as v20230615preview from "./v20230615preview";
 
 export {
-    v20200701,
-    v20220901preview,
     v20230201preview,
     v20230501preview,
     v20230601,
+    v20230615preview,
 };
 
 const _module = {

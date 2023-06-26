@@ -39,37 +39,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
     }
 
     /// <summary>
-    /// noAdvertise. Example: true | false.
-    /// </summary>
-    [EnumType]
-    public readonly struct AdvertiseBoolean : IEquatable<AdvertiseBoolean>
-    {
-        private readonly string _value;
-
-        private AdvertiseBoolean(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AdvertiseBoolean @True { get; } = new AdvertiseBoolean("true");
-        public static AdvertiseBoolean @False { get; } = new AdvertiseBoolean("false");
-
-        public static bool operator ==(AdvertiseBoolean left, AdvertiseBoolean right) => left.Equals(right);
-        public static bool operator !=(AdvertiseBoolean left, AdvertiseBoolean right) => !left.Equals(right);
-
-        public static explicit operator string(AdvertiseBoolean value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AdvertiseBoolean other && Equals(other);
-        public bool Equals(AdvertiseBoolean other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Enable Or Disable state.
     /// </summary>
     [EnumType]
@@ -132,29 +101,61 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
     }
 
     /// <summary>
-    /// action. Example: allow | deny.
+    /// action. Example: Permit | Deny.
     /// </summary>
     [EnumType]
-    public readonly struct CommunityActionType : IEquatable<CommunityActionType>
+    public readonly struct CommunityActionTypes : IEquatable<CommunityActionTypes>
     {
         private readonly string _value;
 
-        private CommunityActionType(string value)
+        private CommunityActionTypes(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static CommunityActionType Allow { get; } = new CommunityActionType("allow");
-        public static CommunityActionType Deny { get; } = new CommunityActionType("deny");
+        public static CommunityActionTypes Permit { get; } = new CommunityActionTypes("Permit");
+        public static CommunityActionTypes Deny { get; } = new CommunityActionTypes("Deny");
 
-        public static bool operator ==(CommunityActionType left, CommunityActionType right) => left.Equals(right);
-        public static bool operator !=(CommunityActionType left, CommunityActionType right) => !left.Equals(right);
+        public static bool operator ==(CommunityActionTypes left, CommunityActionTypes right) => left.Equals(right);
+        public static bool operator !=(CommunityActionTypes left, CommunityActionTypes right) => !left.Equals(right);
 
-        public static explicit operator string(CommunityActionType value) => value._value;
+        public static explicit operator string(CommunityActionTypes value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CommunityActionType other && Equals(other);
-        public bool Equals(CommunityActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is CommunityActionTypes other && Equals(other);
+        public bool Equals(CommunityActionTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specify prefix-list bounds.
+    /// </summary>
+    [EnumType]
+    public readonly struct Condition : IEquatable<Condition>
+    {
+        private readonly string _value;
+
+        private Condition(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Condition EqualTo { get; } = new Condition("EqualTo");
+        public static Condition GreaterThanOrEqualTo { get; } = new Condition("GreaterThanOrEqualTo");
+        public static Condition LesserThanOrEqualTo { get; } = new Condition("LesserThanOrEqualTo");
+
+        public static bool operator ==(Condition left, Condition right) => left.Equals(right);
+        public static bool operator !=(Condition left, Condition right) => !left.Equals(right);
+
+        public static explicit operator string(Condition value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Condition other && Equals(other);
+        public bool Equals(Condition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -186,130 +187,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConditionActionType other && Equals(other);
         public bool Equals(ConditionActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// noExport. Example: true | false.
-    /// </summary>
-    [EnumType]
-    public readonly struct ExportBoolean : IEquatable<ExportBoolean>
-    {
-        private readonly string _value;
-
-        private ExportBoolean(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ExportBoolean @True { get; } = new ExportBoolean("true");
-        public static ExportBoolean @False { get; } = new ExportBoolean("false");
-
-        public static bool operator ==(ExportBoolean left, ExportBoolean right) => left.Equals(right);
-        public static bool operator !=(ExportBoolean left, ExportBoolean right) => !left.Equals(right);
-
-        public static explicit operator string(ExportBoolean value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ExportBoolean other && Equals(other);
-        public bool Equals(ExportBoolean other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    ///  Graceful Shutdown (GSHUT). Example: true | false.
-    /// </summary>
-    [EnumType]
-    public readonly struct GshutBoolean : IEquatable<GshutBoolean>
-    {
-        private readonly string _value;
-
-        private GshutBoolean(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static GshutBoolean @True { get; } = new GshutBoolean("true");
-        public static GshutBoolean @False { get; } = new GshutBoolean("false");
-
-        public static bool operator ==(GshutBoolean left, GshutBoolean right) => left.Equals(right);
-        public static bool operator !=(GshutBoolean left, GshutBoolean right) => !left.Equals(right);
-
-        public static explicit operator string(GshutBoolean value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is GshutBoolean other && Equals(other);
-        public bool Equals(GshutBoolean other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Internet access. Example: true | false.
-    /// </summary>
-    [EnumType]
-    public readonly struct InternetBoolean : IEquatable<InternetBoolean>
-    {
-        private readonly string _value;
-
-        private InternetBoolean(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static InternetBoolean @True { get; } = new InternetBoolean("true");
-        public static InternetBoolean @False { get; } = new InternetBoolean("false");
-
-        public static bool operator ==(InternetBoolean left, InternetBoolean right) => left.Equals(right);
-        public static bool operator !=(InternetBoolean left, InternetBoolean right) => !left.Equals(right);
-
-        public static explicit operator string(InternetBoolean value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is InternetBoolean other && Equals(other);
-        public bool Equals(InternetBoolean other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Local Autonomous System. Example: true | false.
-    /// </summary>
-    [EnumType]
-    public readonly struct LocalASBoolean : IEquatable<LocalASBoolean>
-    {
-        private readonly string _value;
-
-        private LocalASBoolean(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static LocalASBoolean @True { get; } = new LocalASBoolean("true");
-        public static LocalASBoolean @False { get; } = new LocalASBoolean("false");
-
-        public static bool operator ==(LocalASBoolean left, LocalASBoolean right) => left.Equals(right);
-        public static bool operator !=(LocalASBoolean left, LocalASBoolean right) => !left.Equals(right);
-
-        public static explicit operator string(LocalASBoolean value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LocalASBoolean other && Equals(other);
-        public bool Equals(LocalASBoolean other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -352,6 +229,37 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
     }
 
     /// <summary>
+    /// Type of NNI used. Example: CE | NPB
+    /// </summary>
+    [EnumType]
+    public readonly struct NniType : IEquatable<NniType>
+    {
+        private readonly string _value;
+
+        private NniType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NniType CE { get; } = new NniType("CE");
+        public static NniType NPB { get; } = new NniType("NPB");
+
+        public static bool operator ==(NniType left, NniType right) => left.Equals(right);
+        public static bool operator !=(NniType left, NniType right) => !left.Equals(right);
+
+        public static explicit operator string(NniType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NniType other && Equals(other);
+        public bool Equals(NniType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Peering option list.
     /// </summary>
     [EnumType]
@@ -375,37 +283,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PeeringOption other && Equals(other);
         public bool Equals(PeeringOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// action. Example: allow | deny.
-    /// </summary>
-    [EnumType]
-    public readonly struct PrefixActionType : IEquatable<PrefixActionType>
-    {
-        private readonly string _value;
-
-        private PrefixActionType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PrefixActionType Allow { get; } = new PrefixActionType("allow");
-        public static PrefixActionType Deny { get; } = new PrefixActionType("deny");
-
-        public static bool operator ==(PrefixActionType left, PrefixActionType right) => left.Equals(right);
-        public static bool operator !=(PrefixActionType left, PrefixActionType right) => !left.Equals(right);
-
-        public static explicit operator string(PrefixActionType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PrefixActionType other && Equals(other);
-        public bool Equals(PrefixActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -468,6 +345,45 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RedistributeStaticRoutes other && Equals(other);
         public bool Equals(RedistributeStaticRoutes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// 
+    /// `Internet` - Advertise routes to internet community.
+    ///  `LocalAS` - Advertise routes to only localAS peers.
+    ///  `NoAdvertise` - Don't advertise routes to any peer.
+    /// `NoExport` - Don't export to next AS.
+    /// `GShut` - Graceful Shutdown (GSHUT) withdraw routes before terminating BGP connection.
+    /// </summary>
+    [EnumType]
+    public readonly struct WellKnownCommunities : IEquatable<WellKnownCommunities>
+    {
+        private readonly string _value;
+
+        private WellKnownCommunities(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WellKnownCommunities Internet { get; } = new WellKnownCommunities("Internet");
+        public static WellKnownCommunities LocalAS { get; } = new WellKnownCommunities("LocalAS");
+        public static WellKnownCommunities NoAdvertise { get; } = new WellKnownCommunities("NoAdvertise");
+        public static WellKnownCommunities NoExport { get; } = new WellKnownCommunities("NoExport");
+        public static WellKnownCommunities GShut { get; } = new WellKnownCommunities("GShut");
+
+        public static bool operator ==(WellKnownCommunities left, WellKnownCommunities right) => left.Equals(right);
+        public static bool operator !=(WellKnownCommunities left, WellKnownCommunities right) => !left.Equals(right);
+
+        public static explicit operator string(WellKnownCommunities value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WellKnownCommunities other && Equals(other);
+        public bool Equals(WellKnownCommunities other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

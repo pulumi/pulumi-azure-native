@@ -72,7 +72,7 @@ class GetAccessControlListResult:
 
     @property
     @pulumi.getter
-    def conditions(self) -> Sequence['outputs.AccessControlListPropertiesResponseConditions']:
+    def conditions(self) -> Sequence['outputs.AccessControlListConditionPropertiesResponse']:
         """
         Access Control List conditions.
         """

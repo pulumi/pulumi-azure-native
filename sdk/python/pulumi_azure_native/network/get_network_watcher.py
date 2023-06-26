@@ -121,7 +121,7 @@ def get_network_watcher(network_watcher_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkWatcherResult:
     """
     Gets the specified network watcher by resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_watcher_name: The name of the network watcher.
@@ -149,7 +149,7 @@ def get_network_watcher_output(network_watcher_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkWatcherResult]:
     """
     Gets the specified network watcher by resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_watcher_name: The name of the network watcher.

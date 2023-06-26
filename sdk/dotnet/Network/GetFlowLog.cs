@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a flow log resource by name.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetFlowLogResult> InvokeAsync(GetFlowLogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowLogResult>("azure-native:network:getFlowLog", args ?? new GetFlowLogArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a flow log resource by name.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetFlowLogResult> Invoke(GetFlowLogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowLogResult>("azure-native:network:getFlowLog", args ?? new GetFlowLogInvokeArgs(), options.WithDefaults());

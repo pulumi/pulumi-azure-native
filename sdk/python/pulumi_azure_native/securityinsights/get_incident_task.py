@@ -178,7 +178,7 @@ def get_incident_task(incident_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentTaskResult:
     """
     Gets an incident task.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str incident_id: Incident ID
@@ -217,7 +217,7 @@ def get_incident_task_output(incident_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentTaskResult]:
     """
     Gets an incident task.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str incident_id: Incident ID

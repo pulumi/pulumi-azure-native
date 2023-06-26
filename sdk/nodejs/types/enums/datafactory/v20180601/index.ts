@@ -573,16 +573,6 @@ export const SalesforceSinkWriteBehavior = {
  */
 export type SalesforceSinkWriteBehavior = (typeof SalesforceSinkWriteBehavior)[keyof typeof SalesforceSinkWriteBehavior];
 
-export const SalesforceSourceReadBehavior = {
-    Query: "Query",
-    QueryAll: "QueryAll",
-} as const;
-
-/**
- * The read behavior for the operation. Default is Query.
- */
-export type SalesforceSourceReadBehavior = (typeof SalesforceSourceReadBehavior)[keyof typeof SalesforceSourceReadBehavior];
-
 export const SapCloudForCustomerSinkWriteBehavior = {
     Insert: "Insert",
     Update: "Update",

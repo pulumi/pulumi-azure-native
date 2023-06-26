@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Volume group resource for create
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-10-01
+ * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01
  */
 export class VolumeGroup extends pulumi.CustomResource {
     /**
@@ -98,7 +98,7 @@ export class VolumeGroup extends pulumi.CustomResource {
             resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20210801:VolumeGroup" }, { type: "azure-native:netapp/v20211001:VolumeGroup" }, { type: "azure-native:netapp/v20220101:VolumeGroup" }, { type: "azure-native:netapp/v20220301:VolumeGroup" }, { type: "azure-native:netapp/v20220501:VolumeGroup" }, { type: "azure-native:netapp/v20220901:VolumeGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20210801:VolumeGroup" }, { type: "azure-native:netapp/v20211001:VolumeGroup" }, { type: "azure-native:netapp/v20220101:VolumeGroup" }, { type: "azure-native:netapp/v20220301:VolumeGroup" }, { type: "azure-native:netapp/v20220501:VolumeGroup" }, { type: "azure-native:netapp/v20220901:VolumeGroup" }, { type: "azure-native:netapp/v20221101:VolumeGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VolumeGroup.__pulumiType, name, resourceInputs, opts);
     }

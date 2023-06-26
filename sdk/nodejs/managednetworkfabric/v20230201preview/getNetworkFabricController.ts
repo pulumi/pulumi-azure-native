@@ -49,7 +49,7 @@ export interface GetNetworkFabricControllerResult {
     /**
      * InfrastructureServices IP ranges.
      */
-    readonly infrastructureServices: outputs.managednetworkfabric.v20230201preview.NetworkFabricControllerPropertiesResponseInfrastructureServices;
+    readonly infrastructureServices: outputs.managednetworkfabric.v20230201preview.InfrastructureServicesResponse;
     /**
      * IPv4 Network Fabric Controller Address Space.
      */
@@ -65,7 +65,7 @@ export interface GetNetworkFabricControllerResult {
     /**
      * Managed Resource Group configuration properties.
      */
-    readonly managedResourceGroupConfiguration?: outputs.managednetworkfabric.v20230201preview.NetworkFabricControllerPropertiesResponseManagedResourceGroupConfiguration;
+    readonly managedResourceGroupConfiguration?: outputs.managednetworkfabric.v20230201preview.ManagedResourceGroupConfigurationResponse;
     /**
      * The name of the resource
      */
@@ -105,7 +105,7 @@ export interface GetNetworkFabricControllerResult {
     /**
      * WorkloadServices IP ranges.
      */
-    readonly workloadServices: outputs.managednetworkfabric.v20230201preview.NetworkFabricControllerPropertiesResponseWorkloadServices;
+    readonly workloadServices: outputs.managednetworkfabric.v20230201preview.WorkloadServicesResponse;
 }
 /**
  * Shows the provisioning status of Network Fabric Controller.

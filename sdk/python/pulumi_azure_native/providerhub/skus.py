@@ -91,7 +91,7 @@ class Skus(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2020-11-20. Prior API version in Azure Native 1.x: 2020-11-20
+        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,7 +106,7 @@ class Skus(pulumi.CustomResource):
                  args: SkusArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2020-11-20. Prior API version in Azure Native 1.x: 2020-11-20
+        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20
 
         :param str resource_name: The name of the resource.
         :param SkusArgs args: The arguments to use to populate this resource's properties.
@@ -145,6 +145,7 @@ class Skus(pulumi.CustomResource):
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["sku"] = sku
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210901preview:Skus")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -172,6 +173,7 @@ class Skus(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Skus(resource_name, opts=opts, __props__=__props__)
 
@@ -187,6 +189,14 @@ class Skus(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.SkuResourceResponseProperties']:
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

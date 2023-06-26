@@ -25,16 +25,15 @@ class ResourceIdentityType(str, Enum):
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
 
 
 class SelectorType(str, Enum):
     """
     Enum of the selector type.
     """
-    PERCENT = "Percent"
-    RANDOM = "Random"
-    TAG = "Tag"
     LIST = "List"
+    QUERY = "Query"
 
 
 class TargetReferenceType(str, Enum):

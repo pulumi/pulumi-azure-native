@@ -61,7 +61,7 @@ class GetExtensionResult:
     @pulumi.getter(name="additionalApiProperties")
     def additional_api_properties(self) -> Mapping[str, 'outputs.ApiPropertiesResponse']:
         """
-        Additional api properties.
+        Additional Api Properties.
         """
         return pulumi.get(self, "additional_api_properties")
 
@@ -165,22 +165,22 @@ class AwaitableGetExtensionResult(GetExtensionResult):
             type=self.type)
 
 
-def get_extension(extension_id: Optional[str] = None,
-                  farm_beats_resource_name: Optional[str] = None,
+def get_extension(data_manager_for_agriculture_resource_name: Optional[str] = None,
+                  extension_id: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
     Get installed extension details by extension id.
-    Azure REST API version: 2021-09-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
+    :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str extension_id: Id of extension resource.
-    :param str farm_beats_resource_name: FarmBeats resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
+    __args__['dataManagerForAgricultureResourceName'] = data_manager_for_agriculture_resource_name
     __args__['extensionId'] = extension_id
-    __args__['farmBeatsResourceName'] = farm_beats_resource_name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:agfoodplatform:getExtension', __args__, opts=opts, typ=GetExtensionResult).value
@@ -200,17 +200,17 @@ def get_extension(extension_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_extension)
-def get_extension_output(extension_id: Optional[pulumi.Input[str]] = None,
-                         farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
+def get_extension_output(data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
+                         extension_id: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Get installed extension details by extension id.
-    Azure REST API version: 2021-09-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
+    :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str extension_id: Id of extension resource.
-    :param str farm_beats_resource_name: FarmBeats resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

@@ -386,7 +386,7 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubResult:
     """
     Retrieves the details of a VirtualHub.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHub.
@@ -436,7 +436,7 @@ def get_virtual_hub_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubResult]:
     """
     Retrieves the details of a VirtualHub.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHub.

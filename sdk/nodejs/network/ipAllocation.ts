@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * IpAllocation resource.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
  */
 export class IpAllocation extends pulumi.CustomResource {
     /**
@@ -131,7 +131,7 @@ export class IpAllocation extends pulumi.CustomResource {
             resourceInputs["virtualNetwork"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200301:IpAllocation" }, { type: "azure-native:network/v20200401:IpAllocation" }, { type: "azure-native:network/v20200501:IpAllocation" }, { type: "azure-native:network/v20200601:IpAllocation" }, { type: "azure-native:network/v20200701:IpAllocation" }, { type: "azure-native:network/v20200801:IpAllocation" }, { type: "azure-native:network/v20201101:IpAllocation" }, { type: "azure-native:network/v20210201:IpAllocation" }, { type: "azure-native:network/v20210301:IpAllocation" }, { type: "azure-native:network/v20210501:IpAllocation" }, { type: "azure-native:network/v20210801:IpAllocation" }, { type: "azure-native:network/v20220101:IpAllocation" }, { type: "azure-native:network/v20220501:IpAllocation" }, { type: "azure-native:network/v20220701:IpAllocation" }, { type: "azure-native:network/v20220901:IpAllocation" }, { type: "azure-native:network/v20221101:IpAllocation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200301:IpAllocation" }, { type: "azure-native:network/v20200401:IpAllocation" }, { type: "azure-native:network/v20200501:IpAllocation" }, { type: "azure-native:network/v20200601:IpAllocation" }, { type: "azure-native:network/v20200701:IpAllocation" }, { type: "azure-native:network/v20200801:IpAllocation" }, { type: "azure-native:network/v20201101:IpAllocation" }, { type: "azure-native:network/v20210201:IpAllocation" }, { type: "azure-native:network/v20210301:IpAllocation" }, { type: "azure-native:network/v20210501:IpAllocation" }, { type: "azure-native:network/v20210801:IpAllocation" }, { type: "azure-native:network/v20220101:IpAllocation" }, { type: "azure-native:network/v20220501:IpAllocation" }, { type: "azure-native:network/v20220701:IpAllocation" }, { type: "azure-native:network/v20220901:IpAllocation" }, { type: "azure-native:network/v20221101:IpAllocation" }, { type: "azure-native:network/v20230201:IpAllocation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IpAllocation.__pulumiType, name, resourceInputs, opts);
     }

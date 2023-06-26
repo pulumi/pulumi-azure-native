@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ProviderHub
     {
         /// <summary>
         /// Gets a resource type details in the given subscription and provider.
-        /// Azure REST API version: 2020-11-20.
+        /// Azure REST API version: 2021-09-01-preview.
         /// </summary>
         public static Task<GetResourceTypeRegistrationResult> InvokeAsync(GetResourceTypeRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a resource type details in the given subscription and provider.
-        /// Azure REST API version: 2020-11-20.
+        /// Azure REST API version: 2021-09-01-preview.
         /// </summary>
         public static Output<GetResourceTypeRegistrationResult> Invoke(GetResourceTypeRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationInvokeArgs(), options.WithDefaults());
@@ -81,6 +81,10 @@ namespace Pulumi.AzureNative.ProviderHub
         public readonly string Name;
         public readonly Outputs.ResourceTypeRegistrationResponseProperties Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -93,11 +97,14 @@ namespace Pulumi.AzureNative.ProviderHub
 
             Outputs.ResourceTypeRegistrationResponseProperties properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

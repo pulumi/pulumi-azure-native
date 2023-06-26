@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a network manager security configuration admin rule.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetAdminRuleResult> InvokeAsync(GetAdminRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleResult>("azure-native:network:getAdminRule", args ?? new GetAdminRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager security configuration admin rule.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetAdminRuleResult> Invoke(GetAdminRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdminRuleResult>("azure-native:network:getAdminRule", args ?? new GetAdminRuleInvokeArgs(), options.WithDefaults());
@@ -157,6 +157,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
         /// The source port ranges.
         /// </summary>
         public readonly ImmutableArray<string> SourcePortRanges;
@@ -199,6 +203,8 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            string resourceGuid,
+
             ImmutableArray<string> sourcePortRanges,
 
             ImmutableArray<Outputs.AddressPrefixItemResponse> sources,
@@ -219,6 +225,7 @@ namespace Pulumi.AzureNative.Network
             Priority = priority;
             Protocol = protocol;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             SourcePortRanges = sourcePortRanges;
             Sources = sources;
             SystemData = systemData;

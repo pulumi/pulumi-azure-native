@@ -37,18 +37,6 @@ if typing.TYPE_CHECKING:
     v20200601 = __v20200601
     import pulumi_azure_native.cache.v20201001preview as __v20201001preview
     v20201001preview = __v20201001preview
-    import pulumi_azure_native.cache.v20210201preview as __v20210201preview
-    v20210201preview = __v20210201preview
-    import pulumi_azure_native.cache.v20210301 as __v20210301
-    v20210301 = __v20210301
-    import pulumi_azure_native.cache.v20210801 as __v20210801
-    v20210801 = __v20210801
-    import pulumi_azure_native.cache.v20220101 as __v20220101
-    v20220101 = __v20220101
-    import pulumi_azure_native.cache.v20220601 as __v20220601
-    v20220601 = __v20220601
-    import pulumi_azure_native.cache.v20221101preview as __v20221101preview
-    v20221101preview = __v20221101preview
     import pulumi_azure_native.cache.v20230301preview as __v20230301preview
     v20230301preview = __v20230301preview
     import pulumi_azure_native.cache.v20230401 as __v20230401
@@ -58,12 +46,6 @@ if typing.TYPE_CHECKING:
 else:
     v20200601 = _utilities.lazy_import('pulumi_azure_native.cache.v20200601')
     v20201001preview = _utilities.lazy_import('pulumi_azure_native.cache.v20201001preview')
-    v20210201preview = _utilities.lazy_import('pulumi_azure_native.cache.v20210201preview')
-    v20210301 = _utilities.lazy_import('pulumi_azure_native.cache.v20210301')
-    v20210801 = _utilities.lazy_import('pulumi_azure_native.cache.v20210801')
-    v20220101 = _utilities.lazy_import('pulumi_azure_native.cache.v20220101')
-    v20220601 = _utilities.lazy_import('pulumi_azure_native.cache.v20220601')
-    v20221101preview = _utilities.lazy_import('pulumi_azure_native.cache.v20221101preview')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.cache.v20230301preview')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.cache.v20230401')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.cache.v20230501preview')

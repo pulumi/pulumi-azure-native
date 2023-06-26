@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AgentPoolArgs } from "./agentPool";
+export type AgentPool = import("./agentPool").AgentPool;
+export const AgentPool: typeof import("./agentPool").AgentPool = null as any;
+utilities.lazyLoad(exports, ["AgentPool"], () => require("./agentPool"));
+
 export { BareMetalMachineArgs } from "./bareMetalMachine";
 export type BareMetalMachine = import("./bareMetalMachine").BareMetalMachine;
 export const BareMetalMachine: typeof import("./bareMetalMachine").BareMetalMachine = null as any;
@@ -44,6 +49,11 @@ export { DefaultCniNetworkArgs } from "./defaultCniNetwork";
 export type DefaultCniNetwork = import("./defaultCniNetwork").DefaultCniNetwork;
 export const DefaultCniNetwork: typeof import("./defaultCniNetwork").DefaultCniNetwork = null as any;
 utilities.lazyLoad(exports, ["DefaultCniNetwork"], () => require("./defaultCniNetwork"));
+
+export { GetAgentPoolArgs, GetAgentPoolResult, GetAgentPoolOutputArgs } from "./getAgentPool";
+export const getAgentPool: typeof import("./getAgentPool").getAgentPool = null as any;
+export const getAgentPoolOutput: typeof import("./getAgentPool").getAgentPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentPool","getAgentPoolOutput"], () => require("./getAgentPool"));
 
 export { GetBareMetalMachineArgs, GetBareMetalMachineResult, GetBareMetalMachineOutputArgs } from "./getBareMetalMachine";
 export const getBareMetalMachine: typeof import("./getBareMetalMachine").getBareMetalMachine = null as any;
@@ -90,6 +100,11 @@ export const getHybridAksCluster: typeof import("./getHybridAksCluster").getHybr
 export const getHybridAksClusterOutput: typeof import("./getHybridAksCluster").getHybridAksClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getHybridAksCluster","getHybridAksClusterOutput"], () => require("./getHybridAksCluster"));
 
+export { GetKubernetesClusterArgs, GetKubernetesClusterResult, GetKubernetesClusterOutputArgs } from "./getKubernetesCluster";
+export const getKubernetesCluster: typeof import("./getKubernetesCluster").getKubernetesCluster = null as any;
+export const getKubernetesClusterOutput: typeof import("./getKubernetesCluster").getKubernetesClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getKubernetesCluster","getKubernetesClusterOutput"], () => require("./getKubernetesCluster"));
+
 export { GetL2NetworkArgs, GetL2NetworkResult, GetL2NetworkOutputArgs } from "./getL2Network";
 export const getL2Network: typeof import("./getL2Network").getL2Network = null as any;
 export const getL2NetworkOutput: typeof import("./getL2Network").getL2NetworkOutput = null as any;
@@ -134,6 +149,11 @@ export { HybridAksClusterArgs } from "./hybridAksCluster";
 export type HybridAksCluster = import("./hybridAksCluster").HybridAksCluster;
 export const HybridAksCluster: typeof import("./hybridAksCluster").HybridAksCluster = null as any;
 utilities.lazyLoad(exports, ["HybridAksCluster"], () => require("./hybridAksCluster"));
+
+export { KubernetesClusterArgs } from "./kubernetesCluster";
+export type KubernetesCluster = import("./kubernetesCluster").KubernetesCluster;
+export const KubernetesCluster: typeof import("./kubernetesCluster").KubernetesCluster = null as any;
+utilities.lazyLoad(exports, ["KubernetesCluster"], () => require("./kubernetesCluster"));
 
 export { L2NetworkArgs } from "./l2network";
 export type L2Network = import("./l2network").L2Network;
@@ -181,15 +201,19 @@ export * from "../types/enums/networkcloud";
 
 // Export sub-modules:
 import * as v20221212preview from "./v20221212preview";
+import * as v20230501preview from "./v20230501preview";
 
 export {
     v20221212preview,
+    v20230501preview,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:networkcloud:AgentPool":
+                return new AgentPool(name, <any>undefined, { urn })
             case "azure-native:networkcloud:BareMetalMachine":
                 return new BareMetalMachine(name, <any>undefined, { urn })
             case "azure-native:networkcloud:BareMetalMachineKeySet":
@@ -208,6 +232,8 @@ const _module = {
                 return new DefaultCniNetwork(name, <any>undefined, { urn })
             case "azure-native:networkcloud:HybridAksCluster":
                 return new HybridAksCluster(name, <any>undefined, { urn })
+            case "azure-native:networkcloud:KubernetesCluster":
+                return new KubernetesCluster(name, <any>undefined, { urn })
             case "azure-native:networkcloud:L2Network":
                 return new L2Network(name, <any>undefined, { urn })
             case "azure-native:networkcloud:L3Network":

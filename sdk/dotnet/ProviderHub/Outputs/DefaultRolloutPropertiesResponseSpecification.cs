@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     public sealed class DefaultRolloutPropertiesResponseSpecification
     {
         public readonly Outputs.DefaultRolloutSpecificationResponseCanary? Canary;
+        public readonly Outputs.DefaultRolloutSpecificationResponseExpeditedRollout? ExpeditedRollout;
         public readonly Outputs.DefaultRolloutSpecificationResponseHighTraffic? HighTraffic;
         public readonly Outputs.DefaultRolloutSpecificationResponseLowTraffic? LowTraffic;
         public readonly Outputs.DefaultRolloutSpecificationResponseMediumTraffic? MediumTraffic;
@@ -25,6 +26,8 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         [OutputConstructor]
         private DefaultRolloutPropertiesResponseSpecification(
             Outputs.DefaultRolloutSpecificationResponseCanary? canary,
+
+            Outputs.DefaultRolloutSpecificationResponseExpeditedRollout? expeditedRollout,
 
             Outputs.DefaultRolloutSpecificationResponseHighTraffic? highTraffic,
 
@@ -41,6 +44,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
             Outputs.DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo? restOfTheWorldGroupTwo)
         {
             Canary = canary;
+            ExpeditedRollout = expeditedRollout;
             HighTraffic = highTraffic;
             LowTraffic = lowTraffic;
             MediumTraffic = mediumTraffic;

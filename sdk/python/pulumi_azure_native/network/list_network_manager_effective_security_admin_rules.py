@@ -64,7 +64,7 @@ def list_network_manager_effective_security_admin_rules(resource_group_name: Opt
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNetworkManagerEffectiveSecurityAdminRulesResult:
     """
     List all effective security admin rules applied on a virtual network.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -93,7 +93,7 @@ def list_network_manager_effective_security_admin_rules_output(resource_group_na
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNetworkManagerEffectiveSecurityAdminRulesResult]:
     """
     List all effective security admin rules applied on a virtual network.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided layer 3 (L3) network.
-        /// Azure REST API version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetL3NetworkResult> InvokeAsync(GetL3NetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetL3NetworkResult>("azure-native:networkcloud:getL3Network", args ?? new GetL3NetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided layer 3 (L3) network.
-        /// Azure REST API version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetL3NetworkResult> Invoke(GetL3NetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL3NetworkResult>("azure-native:networkcloud:getL3Network", args ?? new GetL3NetworkInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class GetL3NetworkResult
     {
         /// <summary>
+        /// The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        /// </summary>
+        public readonly ImmutableArray<string> AssociatedResourceIds;
+        /// <summary>
         /// The resource ID of the Network Cloud cluster this L3 network is associated with.
         /// </summary>
         public readonly string ClusterId;
@@ -88,19 +92,19 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
-        /// The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
+        /// Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
         /// </summary>
         public readonly ImmutableArray<string> HybridAksClustersAssociatedIds;
         /// <summary>
-        /// The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+        /// Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
         /// </summary>
         public readonly string? HybridAksIpamEnabled;
         /// <summary>
-        /// The network plugin type for Hybrid AKS.
+        /// Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         /// </summary>
         public readonly string? HybridAksPluginType;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -150,7 +154,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
+        /// Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
         /// </summary>
         public readonly ImmutableArray<string> VirtualMachinesAssociatedIds;
         /// <summary>
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
         [OutputConstructor]
         private GetL3NetworkResult(
+            ImmutableArray<string> associatedResourceIds,
+
             string clusterId,
 
             string detailedStatus,
@@ -202,6 +208,7 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             double vlan)
         {
+            AssociatedResourceIds = associatedResourceIds;
             ClusterId = clusterId;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;

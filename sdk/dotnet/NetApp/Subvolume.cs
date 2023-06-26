@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Subvolume Information properties
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-10-01
+    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Subvolume")]
     public partial class Subvolume : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Subvolume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Subvolume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Subvolume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Subvolume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

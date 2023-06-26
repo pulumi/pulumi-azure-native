@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Gets a description for the specified namespace.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:servicebus:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a description for the specified namespace.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:servicebus:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string MetricId;
         /// <summary>
+        /// The minimum TLS version for the cluster to support, e.g. '1.2'
+        /// </summary>
+        public readonly string? MinimumTlsVersion;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -115,6 +119,10 @@ namespace Pulumi.AzureNative.ServiceBus
         /// Provisioning state of the namespace.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// Endpoint you can use to perform Service Bus operations.
         /// </summary>
@@ -166,11 +174,15 @@ namespace Pulumi.AzureNative.ServiceBus
 
             string metricId,
 
+            string? minimumTlsVersion,
+
             string name,
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             string serviceBusEndpoint,
 
@@ -196,9 +208,11 @@ namespace Pulumi.AzureNative.ServiceBus
             Identity = identity;
             Location = location;
             MetricId = metricId;
+            MinimumTlsVersion = minimumTlsVersion;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
             Status = status;

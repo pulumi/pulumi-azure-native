@@ -290,28 +290,16 @@ utilities.lazyLoad(exports, ["TableResourceTable"], () => require("./tableResour
 export * from "../types/enums/documentdb";
 
 // Export sub-modules:
-import * as v20210301preview from "./v20210301preview";
-import * as v20210315 from "./v20210315";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210701preview from "./v20210701preview";
-import * as v20211015preview from "./v20211015preview";
-import * as v20220815preview from "./v20220815preview";
-import * as v20221115preview from "./v20221115preview";
 import * as v20230301preview from "./v20230301preview";
-import * as v20230315 from "./v20230315";
 import * as v20230315preview from "./v20230315preview";
 import * as v20230415 from "./v20230415";
 
 export {
-    v20210301preview,
-    v20210315,
     v20210401preview,
     v20210701preview,
-    v20211015preview,
-    v20220815preview,
-    v20221115preview,
     v20230301preview,
-    v20230315,
     v20230315preview,
     v20230415,
 };

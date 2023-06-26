@@ -22,7 +22,7 @@ class GetNetworkManagerResult:
     """
     The Managed Network resource
     """
-    def __init__(__self__, description=None, etag=None, id=None, location=None, name=None, network_manager_scope_accesses=None, network_manager_scopes=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, description=None, etag=None, id=None, location=None, name=None, network_manager_scope_accesses=None, network_manager_scopes=None, provisioning_state=None, resource_guid=None, system_data=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -47,6 +47,9 @@ class GetNetworkManagerResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -122,6 +125,14 @@ class GetNetworkManagerResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -160,6 +171,7 @@ class AwaitableGetNetworkManagerResult(GetNetworkManagerResult):
             network_manager_scope_accesses=self.network_manager_scope_accesses,
             network_manager_scopes=self.network_manager_scopes,
             provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -170,7 +182,7 @@ def get_network_manager(network_manager_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkManagerResult:
     """
     Gets the specified Network Manager.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -191,6 +203,7 @@ def get_network_manager(network_manager_name: Optional[str] = None,
         network_manager_scope_accesses=__ret__.network_manager_scope_accesses,
         network_manager_scopes=__ret__.network_manager_scopes,
         provisioning_state=__ret__.provisioning_state,
+        resource_guid=__ret__.resource_guid,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -202,7 +215,7 @@ def get_network_manager_output(network_manager_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkManagerResult]:
     """
     Gets the specified Network Manager.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_manager_name: The name of the network manager.

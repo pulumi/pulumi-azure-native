@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualNetworkGatewayVpnclientConnectionHealth(args: GetVirtualNetworkGatewayVpnclientConnectionHealthArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> {
 
@@ -42,7 +42,7 @@ export interface GetVirtualNetworkGatewayVpnclientConnectionHealthResult {
 }
 /**
  * Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualNetworkGatewayVpnclientConnectionHealthOutput(args: GetVirtualNetworkGatewayVpnclientConnectionHealthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayVpnclientConnectionHealth(a, opts))

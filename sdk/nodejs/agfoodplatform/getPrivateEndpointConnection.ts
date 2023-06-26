@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 
 /**
  * Get Private endpoint connection object.
- * Azure REST API version: 2021-09-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:agfoodplatform:getPrivateEndpointConnection", {
-        "farmBeatsResourceName": args.farmBeatsResourceName,
+        "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -23,9 +23,9 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
 
 export interface GetPrivateEndpointConnectionArgs {
     /**
-     * FarmBeats resource name.
+     * DataManagerForAgriculture resource name.
      */
-    farmBeatsResourceName: string;
+    dataManagerForAgricultureResourceName: string;
     /**
      * Private endpoint connection name.
      */
@@ -75,7 +75,7 @@ export interface GetPrivateEndpointConnectionResult {
 }
 /**
  * Get Private endpoint connection object.
- * Azure REST API version: 2021-09-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
@@ -83,9 +83,9 @@ export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConne
 
 export interface GetPrivateEndpointConnectionOutputArgs {
     /**
-     * FarmBeats resource name.
+     * DataManagerForAgriculture resource name.
      */
-    farmBeatsResourceName: pulumi.Input<string>;
+    dataManagerForAgricultureResourceName: pulumi.Input<string>;
     /**
      * Private endpoint connection name.
      */

@@ -231,7 +231,7 @@ def get_private_endpoint(expand: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointResult:
     """
     Gets the specified private endpoint by resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -271,7 +271,7 @@ def get_private_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointResult]:
     """
     Gets the specified private endpoint by resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.

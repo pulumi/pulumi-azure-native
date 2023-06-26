@@ -126,7 +126,7 @@ class Snapshot(pulumi.CustomResource):
                  __props__=None):
         """
         Snapshot of a Volume
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +145,7 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Snapshot of a Volume
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.
@@ -197,7 +197,7 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["snapshot_id"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20170815:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20190501:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20190601:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20190701:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20190801:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20191001:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20191101:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200201:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200301:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200501:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200601:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200701:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200801:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200901:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20201101:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20201201:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210201:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210401:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210601:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210801:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20211001:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220101:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220301:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220501:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220901:Snapshot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20170815:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20190501:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20190601:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20190701:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20190801:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20191001:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20191101:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200201:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200301:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200501:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200601:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200701:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200801:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20200901:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20201101:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20201201:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210201:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210401:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210601:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20210801:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20211001:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220101:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220301:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220501:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20220901:Snapshot"), pulumi.Alias(type_="azure-native:netapp/v20221101:Snapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Snapshot, __self__).__init__(
             'azure-native:netapp:Snapshot',

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Network Manager.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getNetworkManager(args: GetNetworkManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkManagerResult> {
 
@@ -68,6 +68,10 @@ export interface GetNetworkManagerResult {
      */
     readonly provisioningState: string;
     /**
+     * Unique identifier for this resource.
+     */
+    readonly resourceGuid: string;
+    /**
      * The system metadata related to this resource.
      */
     readonly systemData: outputs.network.SystemDataResponse;
@@ -82,7 +86,7 @@ export interface GetNetworkManagerResult {
 }
 /**
  * Gets the specified Network Manager.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getNetworkManagerOutput(args: GetNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerResult> {
     return pulumi.output(args).apply((a: any) => getNetworkManager(a, opts))

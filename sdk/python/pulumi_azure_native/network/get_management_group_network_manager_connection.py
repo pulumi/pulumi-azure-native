@@ -122,7 +122,7 @@ def get_management_group_network_manager_connection(management_group_id: Optiona
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupNetworkManagerConnectionResult:
     """
     Get a specified connection created by this management group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str management_group_id: The management group Id which uniquely identify the Microsoft Azure management group.
@@ -150,7 +150,7 @@ def get_management_group_network_manager_connection_output(management_group_id: 
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupNetworkManagerConnectionResult]:
     """
     Get a specified connection created by this management group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str management_group_id: The management group Id which uniquely identify the Microsoft Azure management group.

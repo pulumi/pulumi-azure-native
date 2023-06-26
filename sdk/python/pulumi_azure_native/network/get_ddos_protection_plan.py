@@ -158,7 +158,7 @@ def get_ddos_protection_plan(ddos_protection_plan_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDdosProtectionPlanResult:
     """
     Gets information about the specified DDoS protection plan.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str ddos_protection_plan_name: The name of the DDoS protection plan.
@@ -189,7 +189,7 @@ def get_ddos_protection_plan_output(ddos_protection_plan_name: Optional[pulumi.I
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDdosProtectionPlanResult]:
     """
     Gets information about the specified DDoS protection plan.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str ddos_protection_plan_name: The name of the DDoS protection plan.

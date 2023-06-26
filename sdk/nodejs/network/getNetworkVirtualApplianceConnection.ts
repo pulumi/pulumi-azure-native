@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of specified NVA connection.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getNetworkVirtualApplianceConnection(args: GetNetworkVirtualApplianceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceConnectionResult> {
 
@@ -75,7 +75,7 @@ export interface GetNetworkVirtualApplianceConnectionResult {
 }
 /**
  * Retrieves the details of specified NVA connection.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getNetworkVirtualApplianceConnectionOutput(args: GetNetworkVirtualApplianceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkVirtualApplianceConnectionResult> {
     return pulumi.output(args).apply((a: any) => getNetworkVirtualApplianceConnection(a, opts))

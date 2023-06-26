@@ -22,7 +22,7 @@ class GetNetworkToNetworkInterconnectResult:
     """
     The NetworkToNetworkInterconnect resource definition.
     """
-    def __init__(__self__, administrative_state=None, id=None, is_management_type=None, layer2_configuration=None, layer3_configuration=None, name=None, provisioning_state=None, system_data=None, type=None, use_option_b=None):
+    def __init__(__self__, administrative_state=None, id=None, is_management_type=None, layer2_configuration=None, layer3_configuration=None, name=None, nni_type=None, provisioning_state=None, system_data=None, type=None, use_option_b=None):
         if administrative_state and not isinstance(administrative_state, str):
             raise TypeError("Expected argument 'administrative_state' to be a str")
         pulumi.set(__self__, "administrative_state", administrative_state)
@@ -41,6 +41,9 @@ class GetNetworkToNetworkInterconnectResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if nni_type and not isinstance(nni_type, str):
+            raise TypeError("Expected argument 'nni_type' to be a str")
+        pulumi.set(__self__, "nni_type", nni_type)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -80,7 +83,7 @@ class GetNetworkToNetworkInterconnectResult:
 
     @property
     @pulumi.getter(name="layer2Configuration")
-    def layer2_configuration(self) -> Optional['outputs.NetworkToNetworkInterconnectPropertiesResponseLayer2Configuration']:
+    def layer2_configuration(self) -> Optional['outputs.Layer2ConfigurationResponse']:
         """
         Common properties for Layer2Configuration.
         """
@@ -101,6 +104,14 @@ class GetNetworkToNetworkInterconnectResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nniType")
+    def nni_type(self) -> Optional[str]:
+        """
+        Type of NNI used. Example: CE | NPB
+        """
+        return pulumi.get(self, "nni_type")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -147,6 +158,7 @@ class AwaitableGetNetworkToNetworkInterconnectResult(GetNetworkToNetworkIntercon
             layer2_configuration=self.layer2_configuration,
             layer3_configuration=self.layer3_configuration,
             name=self.name,
+            nni_type=self.nni_type,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             type=self.type,
@@ -179,6 +191,7 @@ def get_network_to_network_interconnect(network_fabric_name: Optional[str] = Non
         layer2_configuration=__ret__.layer2_configuration,
         layer3_configuration=__ret__.layer3_configuration,
         name=__ret__.name,
+        nni_type=__ret__.nni_type,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         type=__ret__.type,

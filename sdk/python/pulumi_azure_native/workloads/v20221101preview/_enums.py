@@ -5,22 +5,58 @@
 from enum import Enum
 
 __all__ = [
-    'ManagedServiceIdentityType',
-    'RoutingPreference',
+    'SAPDatabaseScaleMethod',
+    'SAPDatabaseType',
+    'SAPDeploymentType',
+    'SAPEnvironmentType',
+    'SAPHighAvailabilityType',
+    'SAPProductType',
 ]
 
 
-class ManagedServiceIdentityType(str, Enum):
+class SAPDatabaseScaleMethod(str, Enum):
     """
-    Type of manage identity
+    The DB scale method.
     """
-    NONE = "None"
-    USER_ASSIGNED = "UserAssigned"
+    SCALE_UP = "ScaleUp"
 
 
-class RoutingPreference(str, Enum):
+class SAPDatabaseType(str, Enum):
     """
-    Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
+    The database type. Eg: HANA, DB2, etc
     """
-    DEFAULT = "Default"
-    ROUTE_ALL = "RouteAll"
+    HANA = "HANA"
+    DB2 = "DB2"
+
+
+class SAPDeploymentType(str, Enum):
+    """
+    The deployment type. Eg: SingleServer/ThreeTier
+    """
+    SINGLE_SERVER = "SingleServer"
+    THREE_TIER = "ThreeTier"
+
+
+class SAPEnvironmentType(str, Enum):
+    """
+    Defines the environment type - Production/Non Production.
+    """
+    NON_PROD = "NonProd"
+    PROD = "Prod"
+
+
+class SAPHighAvailabilityType(str, Enum):
+    """
+    The high availability type.
+    """
+    AVAILABILITY_SET = "AvailabilitySet"
+    AVAILABILITY_ZONE = "AvailabilityZone"
+
+
+class SAPProductType(str, Enum):
+    """
+    Defines the SAP Product type.
+    """
+    ECC = "ECC"
+    S4_HANA = "S4HANA"
+    OTHER = "Other"

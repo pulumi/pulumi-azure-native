@@ -24,7 +24,6 @@ __all__ = [
     'SubResourceResponse',
     'VirtualHubIdResponse',
     'VnetRouteResponse',
-    'VpnNatRuleMappingResponse',
 ]
 
 @pulumi.output_type
@@ -808,45 +807,5 @@ class VnetRouteResponse(dict):
         List of all Static Routes.
         """
         return pulumi.get(self, "static_routes")
-
-
-@pulumi.output_type
-class VpnNatRuleMappingResponse(dict):
-    """
-    Vpn NatRule mapping.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "addressSpace":
-            suggest = "address_space"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VpnNatRuleMappingResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VpnNatRuleMappingResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VpnNatRuleMappingResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 address_space: Optional[str] = None):
-        """
-        Vpn NatRule mapping.
-        :param str address_space: Address space for Vpn NatRule mapping.
-        """
-        if address_space is not None:
-            pulumi.set(__self__, "address_space", address_space)
-
-    @property
-    @pulumi.getter(name="addressSpace")
-    def address_space(self) -> Optional[str]:
-        """
-        Address space for Vpn NatRule mapping.
-        """
-        return pulumi.get(self, "address_space")
 
 

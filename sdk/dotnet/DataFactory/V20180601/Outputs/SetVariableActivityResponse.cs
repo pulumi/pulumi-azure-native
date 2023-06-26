@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? OnInactiveMarkAs;
         /// <summary>
+        /// Activity policy.
+        /// </summary>
+        public readonly Outputs.SecureInputOutputPolicyResponse? Policy;
+        /// <summary>
         /// If set to true, it sets the pipeline run return value.
         /// </summary>
         public readonly bool? SetSystemVariable;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? onInactiveMarkAs,
 
+            Outputs.SecureInputOutputPolicyResponse? policy,
+
             bool? setSystemVariable,
 
             string? state,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Description = description;
             Name = name;
             OnInactiveMarkAs = onInactiveMarkAs;
+            Policy = policy;
             SetSystemVariable = setSystemVariable;
             State = state;
             Type = type;

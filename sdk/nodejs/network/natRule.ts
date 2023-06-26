@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnGatewayNatRule Resource.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
  */
 export class NatRule extends pulumi.CustomResource {
     /**
@@ -123,7 +123,7 @@ export class NatRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200801:NatRule" }, { type: "azure-native:network/v20201101:NatRule" }, { type: "azure-native:network/v20210201:NatRule" }, { type: "azure-native:network/v20210301:NatRule" }, { type: "azure-native:network/v20210501:NatRule" }, { type: "azure-native:network/v20210801:NatRule" }, { type: "azure-native:network/v20220101:NatRule" }, { type: "azure-native:network/v20220501:NatRule" }, { type: "azure-native:network/v20220701:NatRule" }, { type: "azure-native:network/v20220901:NatRule" }, { type: "azure-native:network/v20221101:NatRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200801:NatRule" }, { type: "azure-native:network/v20201101:NatRule" }, { type: "azure-native:network/v20210201:NatRule" }, { type: "azure-native:network/v20210301:NatRule" }, { type: "azure-native:network/v20210501:NatRule" }, { type: "azure-native:network/v20210801:NatRule" }, { type: "azure-native:network/v20220101:NatRule" }, { type: "azure-native:network/v20220501:NatRule" }, { type: "azure-native:network/v20220701:NatRule" }, { type: "azure-native:network/v20220901:NatRule" }, { type: "azure-native:network/v20221101:NatRule" }, { type: "azure-native:network/v20230201:NatRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NatRule.__pulumiType, name, resourceInputs, opts);
     }

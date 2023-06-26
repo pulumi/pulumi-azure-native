@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Batch.Inputs
         }
 
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNative.Batch.ContainerType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Batch.ContainerType> Type { get; set; } = null!;
 
         public ContainerConfigurationArgs()
         {

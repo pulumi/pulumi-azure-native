@@ -10,30 +10,10 @@ export type DnsForwardingRuleset = import("./dnsForwardingRuleset").DnsForwardin
 export const DnsForwardingRuleset: typeof import("./dnsForwardingRuleset").DnsForwardingRuleset = null as any;
 utilities.lazyLoad(exports, ["DnsForwardingRuleset"], () => require("./dnsForwardingRuleset"));
 
-export { DnsResolverArgs } from "./dnsResolver";
-export type DnsResolver = import("./dnsResolver").DnsResolver;
-export const DnsResolver: typeof import("./dnsResolver").DnsResolver = null as any;
-utilities.lazyLoad(exports, ["DnsResolver"], () => require("./dnsResolver"));
-
-export { ForwardingRuleArgs } from "./forwardingRule";
-export type ForwardingRule = import("./forwardingRule").ForwardingRule;
-export const ForwardingRule: typeof import("./forwardingRule").ForwardingRule = null as any;
-utilities.lazyLoad(exports, ["ForwardingRule"], () => require("./forwardingRule"));
-
 export { GetDnsForwardingRulesetArgs, GetDnsForwardingRulesetResult, GetDnsForwardingRulesetOutputArgs } from "./getDnsForwardingRuleset";
 export const getDnsForwardingRuleset: typeof import("./getDnsForwardingRuleset").getDnsForwardingRuleset = null as any;
 export const getDnsForwardingRulesetOutput: typeof import("./getDnsForwardingRuleset").getDnsForwardingRulesetOutput = null as any;
 utilities.lazyLoad(exports, ["getDnsForwardingRuleset","getDnsForwardingRulesetOutput"], () => require("./getDnsForwardingRuleset"));
-
-export { GetDnsResolverArgs, GetDnsResolverResult, GetDnsResolverOutputArgs } from "./getDnsResolver";
-export const getDnsResolver: typeof import("./getDnsResolver").getDnsResolver = null as any;
-export const getDnsResolverOutput: typeof import("./getDnsResolver").getDnsResolverOutput = null as any;
-utilities.lazyLoad(exports, ["getDnsResolver","getDnsResolverOutput"], () => require("./getDnsResolver"));
-
-export { GetForwardingRuleArgs, GetForwardingRuleResult, GetForwardingRuleOutputArgs } from "./getForwardingRule";
-export const getForwardingRule: typeof import("./getForwardingRule").getForwardingRule = null as any;
-export const getForwardingRuleOutput: typeof import("./getForwardingRule").getForwardingRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getForwardingRule","getForwardingRuleOutput"], () => require("./getForwardingRule"));
 
 export { GetInboundEndpointArgs, GetInboundEndpointResult, GetInboundEndpointOutputArgs } from "./getInboundEndpoint";
 export const getInboundEndpoint: typeof import("./getInboundEndpoint").getInboundEndpoint = null as any;
@@ -85,10 +65,6 @@ const _module = {
         switch (type) {
             case "azure-native:network/v20200401preview:DnsForwardingRuleset":
                 return new DnsForwardingRuleset(name, <any>undefined, { urn })
-            case "azure-native:network/v20200401preview:DnsResolver":
-                return new DnsResolver(name, <any>undefined, { urn })
-            case "azure-native:network/v20200401preview:ForwardingRule":
-                return new ForwardingRule(name, <any>undefined, { urn })
             case "azure-native:network/v20200401preview:InboundEndpoint":
                 return new InboundEndpoint(name, <any>undefined, { urn })
             case "azure-native:network/v20200401preview:OutboundEndpoint":

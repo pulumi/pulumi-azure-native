@@ -50,7 +50,7 @@ def list_bot_secrets(bot_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBotSecretsResult:
     """
     List all secrets of a HealthBot.
-    Azure REST API version: 2022-08-08.
+    Azure REST API version: 2023-05-01.
 
 
     :param str bot_name: The name of the Bot resource.
@@ -72,7 +72,7 @@ def list_bot_secrets_output(bot_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBotSecretsResult]:
     """
     List all secrets of a HealthBot.
-    Azure REST API version: 2022-08-08.
+    Azure REST API version: 2023-05-01.
 
 
     :param str bot_name: The name of the Bot resource.

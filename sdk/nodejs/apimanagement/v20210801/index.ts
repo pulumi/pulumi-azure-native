@@ -4,6 +4,10 @@
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetApiManagementServiceDomainOwnershipIdentifierArgs, GetApiManagementServiceDomainOwnershipIdentifierResult } from "./getApiManagementServiceDomainOwnershipIdentifier";
+export const getApiManagementServiceDomainOwnershipIdentifier: typeof import("./getApiManagementServiceDomainOwnershipIdentifier").getApiManagementServiceDomainOwnershipIdentifier = null as any;
+utilities.lazyLoad(exports, ["getApiManagementServiceDomainOwnershipIdentifier"], () => require("./getApiManagementServiceDomainOwnershipIdentifier"));
+
 export { ListDelegationSettingSecretsArgs, ListDelegationSettingSecretsResult, ListDelegationSettingSecretsOutputArgs } from "./listDelegationSettingSecrets";
 export const listDelegationSettingSecrets: typeof import("./listDelegationSettingSecrets").listDelegationSettingSecrets = null as any;
 export const listDelegationSettingSecretsOutput: typeof import("./listDelegationSettingSecrets").listDelegationSettingSecretsOutput = null as any;

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Chaos.Inputs
     public sealed class ExperimentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("selectors", required: true)]
-        private InputList<Inputs.SelectorArgs>? _selectors;
+        private InputList<Union<Inputs.ListSelectorArgs, Inputs.QuerySelectorArgs>>? _selectors;
 
         /// <summary>
         /// List of selectors.
         /// </summary>
-        public InputList<Inputs.SelectorArgs> Selectors
+        public InputList<Union<Inputs.ListSelectorArgs, Inputs.QuerySelectorArgs>> Selectors
         {
-            get => _selectors ?? (_selectors = new InputList<Inputs.SelectorArgs>());
+            get => _selectors ?? (_selectors = new InputList<Union<Inputs.ListSelectorArgs, Inputs.QuerySelectorArgs>>());
             set => _selectors = value;
         }
 

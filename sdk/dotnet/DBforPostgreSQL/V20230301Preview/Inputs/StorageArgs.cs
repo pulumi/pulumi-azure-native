@@ -22,16 +22,16 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230301Preview.Inputs
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20230301Preview.StorageAutoGrow>? AutoGrow { get; set; }
 
         /// <summary>
-        /// Name of storage tier for IOPS.
-        /// </summary>
-        [Input("iopsTier")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20230301Preview.AzureManagedDiskPerformanceTiers>? IopsTier { get; set; }
-
-        /// <summary>
         /// Max storage allowed for a server.
         /// </summary>
         [Input("storageSizeGB")]
         public Input<int>? StorageSizeGB { get; set; }
+
+        /// <summary>
+        /// Name of storage tier for IOPS.
+        /// </summary>
+        [Input("tier")]
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20230301Preview.AzureManagedDiskPerformanceTiers>? Tier { get; set; }
 
         public StorageArgs()
         {

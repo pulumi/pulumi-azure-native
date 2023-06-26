@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<bool>? ActiveActive { get; set; }
 
         /// <summary>
+        /// Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+        /// </summary>
+        [Input("adminState")]
+        public InputUnion<string, Pulumi.AzureNative.Network.AdminState>? AdminState { get; set; }
+
+        /// <summary>
         /// Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
         /// </summary>
         [Input("allowRemoteVnetTraffic")]

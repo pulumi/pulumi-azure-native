@@ -23,18 +23,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string?> Annotation { get; private set; } = null!;
 
         /// <summary>
-        /// Route Policy conditions.
-        /// </summary>
-        [Output("conditions")]
-        public Output<ImmutableArray<Outputs.RoutePolicyPropertiesResponseConditions>> Conditions { get; private set; } = null!;
-
-        /// <summary>
-        /// Route Policy description.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -51,6 +39,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Route Policy statements.
+        /// </summary>
+        [Output("statements")]
+        public Output<ImmutableArray<Outputs.RoutePolicyStatementPropertiesResponse>> Statements { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -125,24 +119,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         [Input("annotation")]
         public Input<string>? Annotation { get; set; }
 
-        [Input("conditions")]
-        private InputList<Inputs.RoutePolicyPropertiesConditionsArgs>? _conditions;
-
-        /// <summary>
-        /// Route Policy conditions.
-        /// </summary>
-        public InputList<Inputs.RoutePolicyPropertiesConditionsArgs> Conditions
-        {
-            get => _conditions ?? (_conditions = new InputList<Inputs.RoutePolicyPropertiesConditionsArgs>());
-            set => _conditions = value;
-        }
-
-        /// <summary>
-        /// Route Policy description.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -160,6 +136,18 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         [Input("routePolicyName")]
         public Input<string>? RoutePolicyName { get; set; }
+
+        [Input("statements", required: true)]
+        private InputList<Inputs.RoutePolicyStatementPropertiesArgs>? _statements;
+
+        /// <summary>
+        /// Route Policy statements.
+        /// </summary>
+        public InputList<Inputs.RoutePolicyStatementPropertiesArgs> Statements
+        {
+            get => _statements ?? (_statements = new InputList<Inputs.RoutePolicyStatementPropertiesArgs>());
+            set => _statements = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

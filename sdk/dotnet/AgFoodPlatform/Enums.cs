@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.AgFoodPlatform
 {
     /// <summary>
+    /// Enum for different types of AuthCredentials supported.
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthCredentialsKind : IEquatable<AuthCredentialsKind>
+    {
+        private readonly string _value;
+
+        private AuthCredentialsKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AuthCredentialsKind OAuthClientCredentials { get; } = new AuthCredentialsKind("OAuthClientCredentials");
+        public static AuthCredentialsKind ApiKeyAuthCredentials { get; } = new AuthCredentialsKind("ApiKeyAuthCredentials");
+
+        public static bool operator ==(AuthCredentialsKind left, AuthCredentialsKind right) => left.Equals(right);
+        public static bool operator !=(AuthCredentialsKind left, AuthCredentialsKind right) => !left.Equals(right);
+
+        public static explicit operator string(AuthCredentialsKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthCredentialsKind other && Equals(other);
+        public bool Equals(AuthCredentialsKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     /// </summary>
     [EnumType]

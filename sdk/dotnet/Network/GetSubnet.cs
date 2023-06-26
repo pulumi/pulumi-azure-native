@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified subnet by virtual network and resource group.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure-native:network:getSubnet", args ?? new GetSubnetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified subnet by virtual network and resource group.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("azure-native:network:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());

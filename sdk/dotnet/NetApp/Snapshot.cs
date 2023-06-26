@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Snapshot of a Volume
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Snapshot")]
     public partial class Snapshot : global::Pulumi.CustomResource
@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

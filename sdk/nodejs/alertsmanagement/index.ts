@@ -51,21 +51,17 @@ export * from "../types/enums/alertsmanagement";
 
 // Export sub-modules:
 import * as v20190505preview from "./v20190505preview";
-import * as v20190601 from "./v20190601";
 import * as v20210401 from "./v20210401";
-import * as v20210808 from "./v20210808";
-import * as v20210808preview from "./v20210808preview";
 import * as v20230301 from "./v20230301";
 import * as v20230401preview from "./v20230401preview";
+import * as v20230501preview from "./v20230501preview";
 
 export {
     v20190505preview,
-    v20190601,
     v20210401,
-    v20210808,
-    v20210808preview,
     v20230301,
     v20230401preview,
+    v20230501preview,
 };
 
 const _module = {

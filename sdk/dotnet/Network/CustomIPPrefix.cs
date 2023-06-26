@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Custom IP prefix resource.
-    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:CustomIPPrefix")]
     public partial class CustomIPPrefix : global::Pulumi.CustomResource
@@ -186,6 +186,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:CustomIPPrefix"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:CustomIPPrefix"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:CustomIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:CustomIPPrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

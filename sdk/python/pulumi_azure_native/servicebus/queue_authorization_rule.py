@@ -19,14 +19,14 @@ class QueueAuthorizationRuleArgs:
                  namespace_name: pulumi.Input[str],
                  queue_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 rights: pulumi.Input[Sequence[pulumi.Input['AccessRights']]],
+                 rights: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]],
                  authorization_rule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a QueueAuthorizationRule resource.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] queue_name: The queue name.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: The rights associated with the rule.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -74,14 +74,14 @@ class QueueAuthorizationRuleArgs:
 
     @property
     @pulumi.getter
-    def rights(self) -> pulumi.Input[Sequence[pulumi.Input['AccessRights']]]:
+    def rights(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]:
         """
         The rights associated with the rule.
         """
         return pulumi.get(self, "rights")
 
     @rights.setter
-    def rights(self, value: pulumi.Input[Sequence[pulumi.Input['AccessRights']]]):
+    def rights(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]):
         pulumi.set(self, "rights", value)
 
     @property
@@ -106,11 +106,11 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]] = None,
                  __props__=None):
         """
         Description of a namespace authorization rule.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +118,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] queue_name: The queue name.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: The rights associated with the rule.
         """
         ...
     @overload
@@ -128,7 +128,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of a namespace authorization rule.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param QueueAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
@@ -149,7 +149,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

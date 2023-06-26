@@ -50,7 +50,7 @@ class ClusterArgs:
         :param pulumi.Input[int] coordinator_storage_quota_in_mb: The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         :param pulumi.Input[int] coordinator_v_cores: The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         :param pulumi.Input[bool] enable_ha: If high availability (HA) is enabled or not for the cluster.
-        :param pulumi.Input[bool] enable_shards_on_coordinator: If shards on coordinator is enabled or not for the cluster.
+        :param pulumi.Input[bool] enable_shards_on_coordinator: If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window of a cluster.
         :param pulumi.Input[int] node_count: Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
@@ -223,7 +223,7 @@ class ClusterArgs:
     @pulumi.getter(name="enableShardsOnCoordinator")
     def enable_shards_on_coordinator(self) -> Optional[pulumi.Input[bool]]:
         """
-        If shards on coordinator is enabled or not for the cluster.
+        If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
         """
         return pulumi.get(self, "enable_shards_on_coordinator")
 
@@ -431,7 +431,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[int] coordinator_storage_quota_in_mb: The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         :param pulumi.Input[int] coordinator_v_cores: The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         :param pulumi.Input[bool] enable_ha: If high availability (HA) is enabled or not for the cluster.
-        :param pulumi.Input[bool] enable_shards_on_coordinator: If shards on coordinator is enabled or not for the cluster.
+        :param pulumi.Input[bool] enable_shards_on_coordinator: If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a cluster.
         :param pulumi.Input[int] node_count: Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
@@ -663,7 +663,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="enableShardsOnCoordinator")
     def enable_shards_on_coordinator(self) -> pulumi.Output[Optional[bool]]:
         """
-        If shards on coordinator is enabled or not for the cluster.
+        If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
         """
         return pulumi.get(self, "enable_shards_on_coordinator")
 

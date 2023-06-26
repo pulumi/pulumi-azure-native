@@ -123,7 +123,7 @@ def get_workspace_manager_member(resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceManagerMemberResult:
     """
     Gets a workspace manager member
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -154,7 +154,7 @@ def get_workspace_manager_member_output(resource_group_name: Optional[pulumi.Inp
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceManagerMemberResult]:
     """
     Gets a workspace manager member
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

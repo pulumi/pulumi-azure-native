@@ -134,7 +134,7 @@ def get_experiment(experiment_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentResult:
     """
     Get a Experiment resource.
-    Azure REST API version: 2022-10-01-preview.
+    Azure REST API version: 2023-04-15-preview.
 
 
     :param str experiment_name: String that represents a Experiment resource name.
@@ -163,7 +163,7 @@ def get_experiment_output(experiment_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperimentResult]:
     """
     Get a Experiment resource.
-    Azure REST API version: 2022-10-01-preview.
+    Azure REST API version: 2023-04-15-preview.
 
 
     :param str experiment_name: String that represents a Experiment resource name.

@@ -50,7 +50,7 @@ def get_virtual_network_gateway_vpnclient_connection_health(resource_group_name:
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayVpnclientConnectionHealthResult:
     """
     Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -72,7 +72,7 @@ def get_virtual_network_gateway_vpnclient_connection_health_output(resource_grou
                                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnclientConnectionHealthResult]:
     """
     Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.

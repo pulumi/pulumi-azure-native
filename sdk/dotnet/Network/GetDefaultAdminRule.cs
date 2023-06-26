@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a network manager security configuration admin rule.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetDefaultAdminRuleResult> InvokeAsync(GetDefaultAdminRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultAdminRuleResult>("azure-native:network:getDefaultAdminRule", args ?? new GetDefaultAdminRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager security configuration admin rule.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetDefaultAdminRuleResult> Invoke(GetDefaultAdminRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultAdminRuleResult>("azure-native:network:getDefaultAdminRule", args ?? new GetDefaultAdminRuleInvokeArgs(), options.WithDefaults());
@@ -161,6 +161,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
         /// The source port ranges.
         /// </summary>
         public readonly ImmutableArray<string> SourcePortRanges;
@@ -205,6 +209,8 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            string resourceGuid,
+
             ImmutableArray<string> sourcePortRanges,
 
             ImmutableArray<Outputs.AddressPrefixItemResponse> sources,
@@ -226,6 +232,7 @@ namespace Pulumi.AzureNative.Network
             Priority = priority;
             Protocol = protocol;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             SourcePortRanges = sourcePortRanges;
             Sources = sources;
             SystemData = systemData;

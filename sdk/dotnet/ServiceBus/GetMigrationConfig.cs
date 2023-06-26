@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Retrieves Migration Config
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetMigrationConfigResult> InvokeAsync(GetMigrationConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azure-native:servicebus:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves Migration Config
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetMigrationConfigResult> Invoke(GetMigrationConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrationConfigResult>("azure-native:servicebus:getMigrationConfig", args ?? new GetMigrationConfigInvokeArgs(), options.WithDefaults());

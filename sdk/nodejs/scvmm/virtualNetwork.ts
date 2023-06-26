@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The VirtualNetworks resource definition.
- * Azure REST API version: 2020-06-05-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
+ * Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**

@@ -28,13 +28,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         public Output<int> FabricASN { get; private set; } = null!;
 
         /// <summary>
-        /// IPv4Prefix for Management Network. Default value : 10.1.0.0/19.
+        /// IPv4Prefix for Management Network. Example: 10.1.0.0/19.
         /// </summary>
         [Output("ipv4Prefix")]
         public Output<string?> Ipv4Prefix { get; private set; } = null!;
 
         /// <summary>
-        /// IPv6Prefix for Management Network. Default value 3FFE:FFFF:0:CD40::/59.
+        /// IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
         /// </summary>
         [Output("ipv6Prefix")]
         public Output<string?> Ipv6Prefix { get; private set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// Configuration to be used to setup the management network.
         /// </summary>
         [Output("managementNetworkConfiguration")]
-        public Output<Outputs.NetworkFabricPropertiesResponseManagementNetworkConfiguration> ManagementNetworkConfiguration { get; private set; } = null!;
+        public Output<Outputs.ManagementNetworkConfigurationResponse> ManagementNetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// Network and credentials configuration currently applied to terminal server.
         /// </summary>
         [Output("terminalServerConfiguration")]
-        public Output<Outputs.NetworkFabricPropertiesResponseTerminalServerConfiguration> TerminalServerConfiguration { get; private set; } = null!;
+        public Output<Outputs.TerminalServerConfigurationResponse> TerminalServerConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -203,13 +203,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         public Input<int> FabricASN { get; set; } = null!;
 
         /// <summary>
-        /// IPv4Prefix for Management Network. Default value : 10.1.0.0/19.
+        /// IPv4Prefix for Management Network. Example: 10.1.0.0/19.
         /// </summary>
         [Input("ipv4Prefix")]
         public Input<string>? Ipv4Prefix { get; set; }
 
         /// <summary>
-        /// IPv6Prefix for Management Network. Default value 3FFE:FFFF:0:CD40::/59.
+        /// IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
         /// </summary>
         [Input("ipv6Prefix")]
         public Input<string>? Ipv6Prefix { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// Configuration to be used to setup the management network.
         /// </summary>
         [Input("managementNetworkConfiguration", required: true)]
-        public Input<Inputs.NetworkFabricPropertiesManagementNetworkConfigurationArgs> ManagementNetworkConfiguration { get; set; } = null!;
+        public Input<Inputs.ManagementNetworkConfigurationArgs> ManagementNetworkConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Azure resource ID for the NetworkFabricController the NetworkFabric belongs.
@@ -278,12 +278,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// Network and credentials configuration currently applied to terminal server.
         /// </summary>
         [Input("terminalServerConfiguration", required: true)]
-        public Input<Inputs.NetworkFabricPropertiesTerminalServerConfigurationArgs> TerminalServerConfiguration { get; set; } = null!;
+        public Input<Inputs.TerminalServerConfigurationArgs> TerminalServerConfiguration { get; set; } = null!;
 
         public NetworkFabricArgs()
         {
-            Ipv4Prefix = "10.1.0.0/19";
-            Ipv6Prefix = "3FFE:FFFF:0:CD40::/59";
         }
         public static new NetworkFabricArgs Empty => new NetworkFabricArgs();
     }

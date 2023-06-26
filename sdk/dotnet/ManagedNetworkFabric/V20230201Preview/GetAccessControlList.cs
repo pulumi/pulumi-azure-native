@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// <summary>
         /// Access Control List conditions.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AccessControlListPropertiesResponseConditions> Conditions;
+        public readonly ImmutableArray<Outputs.AccessControlListConditionPropertiesResponse> Conditions;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 
             string? annotation,
 
-            ImmutableArray<Outputs.AccessControlListPropertiesResponseConditions> conditions,
+            ImmutableArray<Outputs.AccessControlListConditionPropertiesResponse> conditions,
 
             string id,
 

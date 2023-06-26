@@ -27,6 +27,7 @@ type BuildSchemaArgs struct {
 	Specs                   ReadSpecsArgs
 	RootDir                 string
 	ExcludeExplicitVersions bool
+	OnlyExplicitVersions    bool
 	ExampleLanguages        []string
 	Version                 string
 }
@@ -52,12 +53,19 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		return nil, err
 	}
 
-	versionMetadata, err := LoadVersionMetadata(args.RootDir, providers, int(majorVersion))
-	if err != nil {
-		return nil, err
+	var versionMetadata VersionMetadata
+	if args.OnlyExplicitVersions {
+		versionMetadata = VersionMetadata{}
+	} else {
+		versionMetadata, err = LoadVersionMetadata(args.RootDir, providers, int(majorVersion))
+		if err != nil {
+			return nil, err
+		}
 	}
 
-	providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.Lock, versionMetadata.PreviousLock, nil, nil)
+	if !args.OnlyExplicitVersions {
+		providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.Lock, versionMetadata.PreviousLock, nil, nil)
+	}
 
 	pathChanges := findPathChanges(providers, versionMetadata.Lock, versionMetadata.PreviousLock, versionMetadata.Config)
 	printPathChanges(pathChanges)

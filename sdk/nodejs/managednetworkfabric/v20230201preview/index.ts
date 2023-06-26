@@ -30,15 +30,20 @@ export const getInternalNetwork: typeof import("./getInternalNetwork").getIntern
 export const getInternalNetworkOutput: typeof import("./getInternalNetwork").getInternalNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["getInternalNetwork","getInternalNetworkOutput"], () => require("./getInternalNetwork"));
 
-export { GetIpCommunityListArgs, GetIpCommunityListResult, GetIpCommunityListOutputArgs } from "./getIpCommunityList";
-export const getIpCommunityList: typeof import("./getIpCommunityList").getIpCommunityList = null as any;
-export const getIpCommunityListOutput: typeof import("./getIpCommunityList").getIpCommunityListOutput = null as any;
-utilities.lazyLoad(exports, ["getIpCommunityList","getIpCommunityListOutput"], () => require("./getIpCommunityList"));
+export { GetIpCommunityArgs, GetIpCommunityResult, GetIpCommunityOutputArgs } from "./getIpCommunity";
+export const getIpCommunity: typeof import("./getIpCommunity").getIpCommunity = null as any;
+export const getIpCommunityOutput: typeof import("./getIpCommunity").getIpCommunityOutput = null as any;
+utilities.lazyLoad(exports, ["getIpCommunity","getIpCommunityOutput"], () => require("./getIpCommunity"));
 
-export { GetIpPrefixListArgs, GetIpPrefixListResult, GetIpPrefixListOutputArgs } from "./getIpPrefixList";
-export const getIpPrefixList: typeof import("./getIpPrefixList").getIpPrefixList = null as any;
-export const getIpPrefixListOutput: typeof import("./getIpPrefixList").getIpPrefixListOutput = null as any;
-utilities.lazyLoad(exports, ["getIpPrefixList","getIpPrefixListOutput"], () => require("./getIpPrefixList"));
+export { GetIpExtendedCommunityArgs, GetIpExtendedCommunityResult, GetIpExtendedCommunityOutputArgs } from "./getIpExtendedCommunity";
+export const getIpExtendedCommunity: typeof import("./getIpExtendedCommunity").getIpExtendedCommunity = null as any;
+export const getIpExtendedCommunityOutput: typeof import("./getIpExtendedCommunity").getIpExtendedCommunityOutput = null as any;
+utilities.lazyLoad(exports, ["getIpExtendedCommunity","getIpExtendedCommunityOutput"], () => require("./getIpExtendedCommunity"));
+
+export { GetIpPrefixArgs, GetIpPrefixResult, GetIpPrefixOutputArgs } from "./getIpPrefix";
+export const getIpPrefix: typeof import("./getIpPrefix").getIpPrefix = null as any;
+export const getIpPrefixOutput: typeof import("./getIpPrefix").getIpPrefixOutput = null as any;
+utilities.lazyLoad(exports, ["getIpPrefix","getIpPrefixOutput"], () => require("./getIpPrefix"));
 
 export { GetL2IsolationDomainArgs, GetL2IsolationDomainResult, GetL2IsolationDomainOutputArgs } from "./getL2IsolationDomain";
 export const getL2IsolationDomain: typeof import("./getL2IsolationDomain").getL2IsolationDomain = null as any;
@@ -100,15 +105,20 @@ export type InternalNetwork = import("./internalNetwork").InternalNetwork;
 export const InternalNetwork: typeof import("./internalNetwork").InternalNetwork = null as any;
 utilities.lazyLoad(exports, ["InternalNetwork"], () => require("./internalNetwork"));
 
-export { IpCommunityListArgs } from "./ipCommunityList";
-export type IpCommunityList = import("./ipCommunityList").IpCommunityList;
-export const IpCommunityList: typeof import("./ipCommunityList").IpCommunityList = null as any;
-utilities.lazyLoad(exports, ["IpCommunityList"], () => require("./ipCommunityList"));
+export { IpCommunityArgs } from "./ipCommunity";
+export type IpCommunity = import("./ipCommunity").IpCommunity;
+export const IpCommunity: typeof import("./ipCommunity").IpCommunity = null as any;
+utilities.lazyLoad(exports, ["IpCommunity"], () => require("./ipCommunity"));
 
-export { IpPrefixListArgs } from "./ipPrefixList";
-export type IpPrefixList = import("./ipPrefixList").IpPrefixList;
-export const IpPrefixList: typeof import("./ipPrefixList").IpPrefixList = null as any;
-utilities.lazyLoad(exports, ["IpPrefixList"], () => require("./ipPrefixList"));
+export { IpExtendedCommunityArgs } from "./ipExtendedCommunity";
+export type IpExtendedCommunity = import("./ipExtendedCommunity").IpExtendedCommunity;
+export const IpExtendedCommunity: typeof import("./ipExtendedCommunity").IpExtendedCommunity = null as any;
+utilities.lazyLoad(exports, ["IpExtendedCommunity"], () => require("./ipExtendedCommunity"));
+
+export { IpPrefixArgs } from "./ipPrefix";
+export type IpPrefix = import("./ipPrefix").IpPrefix;
+export const IpPrefix: typeof import("./ipPrefix").IpPrefix = null as any;
+utilities.lazyLoad(exports, ["IpPrefix"], () => require("./ipPrefix"));
 
 export { L2IsolationDomainArgs } from "./l2isolationDomain";
 export type L2IsolationDomain = import("./l2isolationDomain").L2IsolationDomain;
@@ -169,10 +179,12 @@ const _module = {
                 return new ExternalNetwork(name, <any>undefined, { urn })
             case "azure-native:managednetworkfabric/v20230201preview:InternalNetwork":
                 return new InternalNetwork(name, <any>undefined, { urn })
-            case "azure-native:managednetworkfabric/v20230201preview:IpCommunityList":
-                return new IpCommunityList(name, <any>undefined, { urn })
-            case "azure-native:managednetworkfabric/v20230201preview:IpPrefixList":
-                return new IpPrefixList(name, <any>undefined, { urn })
+            case "azure-native:managednetworkfabric/v20230201preview:IpCommunity":
+                return new IpCommunity(name, <any>undefined, { urn })
+            case "azure-native:managednetworkfabric/v20230201preview:IpExtendedCommunity":
+                return new IpExtendedCommunity(name, <any>undefined, { urn })
+            case "azure-native:managednetworkfabric/v20230201preview:IpPrefix":
+                return new IpPrefix(name, <any>undefined, { urn })
             case "azure-native:managednetworkfabric/v20230201preview:L2IsolationDomain":
                 return new L2IsolationDomain(name, <any>undefined, { urn })
             case "azure-native:managednetworkfabric/v20230201preview:L3IsolationDomain":

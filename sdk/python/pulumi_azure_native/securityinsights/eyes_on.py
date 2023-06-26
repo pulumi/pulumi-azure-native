@@ -95,7 +95,7 @@ class EyesOn(pulumi.CustomResource):
                  __props__=None):
         """
         Settings with single toggle.
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,7 +113,7 @@ class EyesOn(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Settings with single toggle.
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param EyesOnArgs args: The arguments to use to populate this resource's properties.
@@ -158,7 +158,7 @@ class EyesOn(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:EyesOn")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:EyesOn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EyesOn, __self__).__init__(
             'azure-native:securityinsights:EyesOn',

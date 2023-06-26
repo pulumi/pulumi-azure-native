@@ -8,29 +8,28 @@ using Pulumi;
 namespace Pulumi.AzureNative.Workloads.V20221101Preview
 {
     /// <summary>
-    /// Type of manage identity
+    /// The DB scale method.
     /// </summary>
     [EnumType]
-    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    public readonly struct SAPDatabaseScaleMethod : IEquatable<SAPDatabaseScaleMethod>
     {
         private readonly string _value;
 
-        private ManagedServiceIdentityType(string value)
+        private SAPDatabaseScaleMethod(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
-        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static SAPDatabaseScaleMethod ScaleUp { get; } = new SAPDatabaseScaleMethod("ScaleUp");
 
-        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
-        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+        public static bool operator ==(SAPDatabaseScaleMethod left, SAPDatabaseScaleMethod right) => left.Equals(right);
+        public static bool operator !=(SAPDatabaseScaleMethod left, SAPDatabaseScaleMethod right) => !left.Equals(right);
 
-        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+        public static explicit operator string(SAPDatabaseScaleMethod value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
-        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is SAPDatabaseScaleMethod other && Equals(other);
+        public bool Equals(SAPDatabaseScaleMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -39,29 +38,154 @@ namespace Pulumi.AzureNative.Workloads.V20221101Preview
     }
 
     /// <summary>
-    /// Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
+    /// The database type. Eg: HANA, DB2, etc
     /// </summary>
     [EnumType]
-    public readonly struct RoutingPreference : IEquatable<RoutingPreference>
+    public readonly struct SAPDatabaseType : IEquatable<SAPDatabaseType>
     {
         private readonly string _value;
 
-        private RoutingPreference(string value)
+        private SAPDatabaseType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static RoutingPreference Default { get; } = new RoutingPreference("Default");
-        public static RoutingPreference RouteAll { get; } = new RoutingPreference("RouteAll");
+        public static SAPDatabaseType HANA { get; } = new SAPDatabaseType("HANA");
+        public static SAPDatabaseType DB2 { get; } = new SAPDatabaseType("DB2");
 
-        public static bool operator ==(RoutingPreference left, RoutingPreference right) => left.Equals(right);
-        public static bool operator !=(RoutingPreference left, RoutingPreference right) => !left.Equals(right);
+        public static bool operator ==(SAPDatabaseType left, SAPDatabaseType right) => left.Equals(right);
+        public static bool operator !=(SAPDatabaseType left, SAPDatabaseType right) => !left.Equals(right);
 
-        public static explicit operator string(RoutingPreference value) => value._value;
+        public static explicit operator string(SAPDatabaseType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RoutingPreference other && Equals(other);
-        public bool Equals(RoutingPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is SAPDatabaseType other && Equals(other);
+        public bool Equals(SAPDatabaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The deployment type. Eg: SingleServer/ThreeTier
+    /// </summary>
+    [EnumType]
+    public readonly struct SAPDeploymentType : IEquatable<SAPDeploymentType>
+    {
+        private readonly string _value;
+
+        private SAPDeploymentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SAPDeploymentType SingleServer { get; } = new SAPDeploymentType("SingleServer");
+        public static SAPDeploymentType ThreeTier { get; } = new SAPDeploymentType("ThreeTier");
+
+        public static bool operator ==(SAPDeploymentType left, SAPDeploymentType right) => left.Equals(right);
+        public static bool operator !=(SAPDeploymentType left, SAPDeploymentType right) => !left.Equals(right);
+
+        public static explicit operator string(SAPDeploymentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SAPDeploymentType other && Equals(other);
+        public bool Equals(SAPDeploymentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the environment type - Production/Non Production.
+    /// </summary>
+    [EnumType]
+    public readonly struct SAPEnvironmentType : IEquatable<SAPEnvironmentType>
+    {
+        private readonly string _value;
+
+        private SAPEnvironmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SAPEnvironmentType NonProd { get; } = new SAPEnvironmentType("NonProd");
+        public static SAPEnvironmentType Prod { get; } = new SAPEnvironmentType("Prod");
+
+        public static bool operator ==(SAPEnvironmentType left, SAPEnvironmentType right) => left.Equals(right);
+        public static bool operator !=(SAPEnvironmentType left, SAPEnvironmentType right) => !left.Equals(right);
+
+        public static explicit operator string(SAPEnvironmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SAPEnvironmentType other && Equals(other);
+        public bool Equals(SAPEnvironmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The high availability type.
+    /// </summary>
+    [EnumType]
+    public readonly struct SAPHighAvailabilityType : IEquatable<SAPHighAvailabilityType>
+    {
+        private readonly string _value;
+
+        private SAPHighAvailabilityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SAPHighAvailabilityType AvailabilitySet { get; } = new SAPHighAvailabilityType("AvailabilitySet");
+        public static SAPHighAvailabilityType AvailabilityZone { get; } = new SAPHighAvailabilityType("AvailabilityZone");
+
+        public static bool operator ==(SAPHighAvailabilityType left, SAPHighAvailabilityType right) => left.Equals(right);
+        public static bool operator !=(SAPHighAvailabilityType left, SAPHighAvailabilityType right) => !left.Equals(right);
+
+        public static explicit operator string(SAPHighAvailabilityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SAPHighAvailabilityType other && Equals(other);
+        public bool Equals(SAPHighAvailabilityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the SAP Product type.
+    /// </summary>
+    [EnumType]
+    public readonly struct SAPProductType : IEquatable<SAPProductType>
+    {
+        private readonly string _value;
+
+        private SAPProductType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SAPProductType ECC { get; } = new SAPProductType("ECC");
+        public static SAPProductType S4HANA { get; } = new SAPProductType("S4HANA");
+        public static SAPProductType Other { get; } = new SAPProductType("Other");
+
+        public static bool operator ==(SAPProductType left, SAPProductType right) => left.Equals(right);
+        public static bool operator !=(SAPProductType left, SAPProductType right) => !left.Equals(right);
+
+        public static explicit operator string(SAPProductType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SAPProductType other && Equals(other);
+        public bool Equals(SAPProductType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -22,16 +22,10 @@ class GetRoutePolicyResult:
     """
     The RoutePolicy resource definition.
     """
-    def __init__(__self__, annotation=None, conditions=None, description=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, annotation=None, id=None, location=None, name=None, provisioning_state=None, statements=None, system_data=None, tags=None, type=None):
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
-        if conditions and not isinstance(conditions, list):
-            raise TypeError("Expected argument 'conditions' to be a list")
-        pulumi.set(__self__, "conditions", conditions)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -44,6 +38,9 @@ class GetRoutePolicyResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if statements and not isinstance(statements, list):
+            raise TypeError("Expected argument 'statements' to be a list")
+        pulumi.set(__self__, "statements", statements)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -61,22 +58,6 @@ class GetRoutePolicyResult:
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
-
-    @property
-    @pulumi.getter
-    def conditions(self) -> Optional[Sequence['outputs.RoutePolicyPropertiesResponseConditions']]:
-        """
-        Route Policy conditions.
-        """
-        return pulumi.get(self, "conditions")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Route Policy description.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -111,6 +92,14 @@ class GetRoutePolicyResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter
+    def statements(self) -> Sequence['outputs.RoutePolicyStatementPropertiesResponse']:
+        """
+        Route Policy statements.
+        """
+        return pulumi.get(self, "statements")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -142,12 +131,11 @@ class AwaitableGetRoutePolicyResult(GetRoutePolicyResult):
             yield self
         return GetRoutePolicyResult(
             annotation=self.annotation,
-            conditions=self.conditions,
-            description=self.description,
             id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            statements=self.statements,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -171,12 +159,11 @@ def get_route_policy(resource_group_name: Optional[str] = None,
 
     return AwaitableGetRoutePolicyResult(
         annotation=__ret__.annotation,
-        conditions=__ret__.conditions,
-        description=__ret__.description,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        statements=__ret__.statements,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

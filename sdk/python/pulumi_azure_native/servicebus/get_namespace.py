@@ -22,7 +22,7 @@ class GetNamespaceResult:
     """
     Description of a namespace resource.
     """
-    def __init__(__self__, alternate_name=None, created_at=None, disable_local_auth=None, encryption=None, id=None, identity=None, location=None, metric_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, service_bus_endpoint=None, sku=None, status=None, system_data=None, tags=None, type=None, updated_at=None, zone_redundant=None):
+    def __init__(__self__, alternate_name=None, created_at=None, disable_local_auth=None, encryption=None, id=None, identity=None, location=None, metric_id=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_bus_endpoint=None, sku=None, status=None, system_data=None, tags=None, type=None, updated_at=None, zone_redundant=None):
         if alternate_name and not isinstance(alternate_name, str):
             raise TypeError("Expected argument 'alternate_name' to be a str")
         pulumi.set(__self__, "alternate_name", alternate_name)
@@ -47,6 +47,9 @@ class GetNamespaceResult:
         if metric_id and not isinstance(metric_id, str):
             raise TypeError("Expected argument 'metric_id' to be a str")
         pulumi.set(__self__, "metric_id", metric_id)
+        if minimum_tls_version and not isinstance(minimum_tls_version, str):
+            raise TypeError("Expected argument 'minimum_tls_version' to be a str")
+        pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -56,6 +59,9 @@ class GetNamespaceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if service_bus_endpoint and not isinstance(service_bus_endpoint, str):
             raise TypeError("Expected argument 'service_bus_endpoint' to be a str")
         pulumi.set(__self__, "service_bus_endpoint", service_bus_endpoint)
@@ -146,6 +152,14 @@ class GetNamespaceResult:
         return pulumi.get(self, "metric_id")
 
     @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[str]:
+        """
+        The minimum TLS version for the cluster to support, e.g. '1.2'
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -168,6 +182,14 @@ class GetNamespaceResult:
         Provisioning state of the namespace.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        This determines if traffic is allowed over public network. By default it is enabled.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="serviceBusEndpoint")
@@ -248,9 +270,11 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             identity=self.identity,
             location=self.location,
             metric_id=self.metric_id,
+            minimum_tls_version=self.minimum_tls_version,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             service_bus_endpoint=self.service_bus_endpoint,
             sku=self.sku,
             status=self.status,
@@ -266,7 +290,7 @@ def get_namespace(namespace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceResult:
     """
     Gets a description for the specified namespace.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str namespace_name: The namespace name
@@ -287,9 +311,11 @@ def get_namespace(namespace_name: Optional[str] = None,
         identity=__ret__.identity,
         location=__ret__.location,
         metric_id=__ret__.metric_id,
+        minimum_tls_version=__ret__.minimum_tls_version,
         name=__ret__.name,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         service_bus_endpoint=__ret__.service_bus_endpoint,
         sku=__ret__.sku,
         status=__ret__.status,
@@ -306,7 +332,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Gets a description for the specified namespace.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str namespace_name: The namespace name

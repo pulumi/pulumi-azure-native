@@ -11,6 +11,7 @@ __all__ = [
     'AlertRuleState',
     'DaysOfWeek',
     'Field',
+    'NotificationsForCorrelatedAlerts',
     'Operator',
     'RecurrenceType',
     'ScopeType',
@@ -42,6 +43,7 @@ class ActionType(str, Enum):
     """
     ADD_ACTION_GROUPS = "AddActionGroups"
     REMOVE_ALL_ACTION_GROUPS = "RemoveAllActionGroups"
+    CORRELATE_ALERTS = "CorrelateAlerts"
 
 
 class AlertRuleState(str, Enum):
@@ -80,6 +82,14 @@ class Field(str, Enum):
     ALERT_RULE_NAME = "AlertRuleName"
     DESCRIPTION = "Description"
     ALERT_CONTEXT = "AlertContext"
+
+
+class NotificationsForCorrelatedAlerts(str, Enum):
+    """
+    Indicates how to handle child alerts notifications.
+    """
+    NOTIFY_ALWAYS = "NotifyAlways"
+    SUPPRESS_ALWAYS = "SuppressAlways"
 
 
 class Operator(str, Enum):

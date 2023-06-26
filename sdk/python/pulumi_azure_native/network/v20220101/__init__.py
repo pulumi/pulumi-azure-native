@@ -6,17 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .configuration_policy_group import *
 from .ddos_custom_policy import *
-from .express_route_port_authorization import *
-from .get_configuration_policy_group import *
 from .get_ddos_custom_policy import *
-from .get_express_route_port_authorization import *
-from .get_routing_intent import *
-from .get_virtual_router import *
-from .get_virtual_router_peering import *
-from .routing_intent import *
-from .virtual_router import *
-from .virtual_router_peering import *
 from ._inputs import *
 from . import outputs

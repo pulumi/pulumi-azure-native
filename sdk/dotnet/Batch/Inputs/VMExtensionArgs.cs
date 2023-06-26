@@ -18,6 +18,12 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("autoUpgradeMinorVersion")]
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
 
+        /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+        /// </summary>
+        [Input("enableAutomaticUpgrade")]
+        public Input<bool>? EnableAutomaticUpgrade { get; set; }
+
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

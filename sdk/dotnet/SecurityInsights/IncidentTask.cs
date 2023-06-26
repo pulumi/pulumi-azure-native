@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
-    /// Azure REST API version: 2023-05-01-preview.
+    /// Azure REST API version: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:IncidentTask")]
     public partial class IncidentTask : global::Pulumi.CustomResource
@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:IncidentTask"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:IncidentTask"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:IncidentTask"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:IncidentTask"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

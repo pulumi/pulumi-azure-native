@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns account details for the given account name.
- * Azure REST API version: 2022-10-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -35,6 +35,10 @@ export interface GetAccountArgs {
  * Device Update account details.
  */
 export interface GetAccountResult {
+    /**
+     * CMK encryption at rest properties
+     */
+    readonly encryption?: outputs.deviceupdate.EncryptionResponse;
     /**
      * API host name.
      */
@@ -90,7 +94,7 @@ export interface GetAccountResult {
 }
 /**
  * Returns account details for the given account name.
- * Azure REST API version: 2022-10-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

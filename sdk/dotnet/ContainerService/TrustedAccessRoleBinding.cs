@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// Defines binding between a resource and role
-    /// Azure REST API version: 2023-04-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview
+    /// Azure REST API version: 2023-05-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:TrustedAccessRoleBinding")]
     public partial class TrustedAccessRoleBinding : global::Pulumi.CustomResource
@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230202preview:TrustedAccessRoleBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230302preview:TrustedAccessRoleBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230402preview:TrustedAccessRoleBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230502preview:TrustedAccessRoleBinding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DataConnectorArgs } from "./dataConnector";
+export type DataConnector = import("./dataConnector").DataConnector;
+export const DataConnector: typeof import("./dataConnector").DataConnector = null as any;
+utilities.lazyLoad(exports, ["DataConnector"], () => require("./dataConnector"));
+
+export { DataManagerForAgricultureResourceArgs } from "./dataManagerForAgricultureResource";
+export type DataManagerForAgricultureResource = import("./dataManagerForAgricultureResource").DataManagerForAgricultureResource;
+export const DataManagerForAgricultureResource: typeof import("./dataManagerForAgricultureResource").DataManagerForAgricultureResource = null as any;
+utilities.lazyLoad(exports, ["DataManagerForAgricultureResource"], () => require("./dataManagerForAgricultureResource"));
+
 export { ExtensionArgs } from "./extension";
 export type Extension = import("./extension").Extension;
 export const Extension: typeof import("./extension").Extension = null as any;
@@ -14,6 +24,16 @@ export { FarmBeatsModelArgs } from "./farmBeatsModel";
 export type FarmBeatsModel = import("./farmBeatsModel").FarmBeatsModel;
 export const FarmBeatsModel: typeof import("./farmBeatsModel").FarmBeatsModel = null as any;
 utilities.lazyLoad(exports, ["FarmBeatsModel"], () => require("./farmBeatsModel"));
+
+export { GetDataConnectorArgs, GetDataConnectorResult, GetDataConnectorOutputArgs } from "./getDataConnector";
+export const getDataConnector: typeof import("./getDataConnector").getDataConnector = null as any;
+export const getDataConnectorOutput: typeof import("./getDataConnector").getDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getDataConnector","getDataConnectorOutput"], () => require("./getDataConnector"));
+
+export { GetDataManagerForAgricultureResourceArgs, GetDataManagerForAgricultureResourceResult, GetDataManagerForAgricultureResourceOutputArgs } from "./getDataManagerForAgricultureResource";
+export const getDataManagerForAgricultureResource: typeof import("./getDataManagerForAgricultureResource").getDataManagerForAgricultureResource = null as any;
+export const getDataManagerForAgricultureResourceOutput: typeof import("./getDataManagerForAgricultureResource").getDataManagerForAgricultureResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getDataManagerForAgricultureResource","getDataManagerForAgricultureResourceOutput"], () => require("./getDataManagerForAgricultureResource"));
 
 export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
 export const getExtension: typeof import("./getExtension").getExtension = null as any;
@@ -52,16 +72,22 @@ export * from "../types/enums/agfoodplatform";
 // Export sub-modules:
 import * as v20200512preview from "./v20200512preview";
 import * as v20210901preview from "./v20210901preview";
+import * as v20230601preview from "./v20230601preview";
 
 export {
     v20200512preview,
     v20210901preview,
+    v20230601preview,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:agfoodplatform:DataConnector":
+                return new DataConnector(name, <any>undefined, { urn })
+            case "azure-native:agfoodplatform:DataManagerForAgricultureResource":
+                return new DataManagerForAgricultureResource(name, <any>undefined, { urn })
             case "azure-native:agfoodplatform:Extension":
                 return new Extension(name, <any>undefined, { urn })
             case "azure-native:agfoodplatform:FarmBeatsModel":

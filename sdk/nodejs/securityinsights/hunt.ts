@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Hunt in Azure Security Insights.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export class Hunt extends pulumi.CustomResource {
     /**
@@ -140,7 +140,7 @@ export class Hunt extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:Hunt" }, { type: "azure-native:securityinsights/v20230501preview:Hunt" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:Hunt" }, { type: "azure-native:securityinsights/v20230501preview:Hunt" }, { type: "azure-native:securityinsights/v20230601preview:Hunt" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Hunt.__pulumiType, name, resourceInputs, opts);
     }

@@ -59,7 +59,7 @@ class ProviderRegistration(pulumi.CustomResource):
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2020-11-20. Prior API version in Azure Native 1.x: 2020-11-20
+        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -72,7 +72,7 @@ class ProviderRegistration(pulumi.CustomResource):
                  args: Optional[ProviderRegistrationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2020-11-20. Prior API version in Azure Native 1.x: 2020-11-20
+        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20
 
         :param str resource_name: The name of the resource.
         :param ProviderRegistrationArgs args: The arguments to use to populate this resource's properties.
@@ -103,6 +103,7 @@ class ProviderRegistration(pulumi.CustomResource):
             __props__.__dict__["properties"] = properties
             __props__.__dict__["provider_namespace"] = provider_namespace
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:ProviderRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:ProviderRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:ProviderRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210901preview:ProviderRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -130,6 +131,7 @@ class ProviderRegistration(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ProviderRegistration(resource_name, opts=opts, __props__=__props__)
 
@@ -145,6 +147,14 @@ class ProviderRegistration(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.ProviderRegistrationResponseProperties']:
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

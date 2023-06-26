@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Hunt Comment in Azure Security Insights
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export class HuntComment extends pulumi.CustomResource {
     /**
@@ -99,7 +99,7 @@ export class HuntComment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:HuntComment" }, { type: "azure-native:securityinsights/v20230501preview:HuntComment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:HuntComment" }, { type: "azure-native:securityinsights/v20230501preview:HuntComment" }, { type: "azure-native:securityinsights/v20230601preview:HuntComment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HuntComment.__pulumiType, name, resourceInputs, opts);
     }

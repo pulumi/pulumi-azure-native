@@ -74,14 +74,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
-        /// Route Policy conditions.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.RoutePolicyPropertiesResponseConditions> Conditions;
-        /// <summary>
-        /// Route Policy description.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -97,6 +89,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// Gets the provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Route Policy statements.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RoutePolicyStatementPropertiesResponse> Statements;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -114,10 +110,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         private GetRoutePolicyResult(
             string? annotation,
 
-            ImmutableArray<Outputs.RoutePolicyPropertiesResponseConditions> conditions,
-
-            string? description,
-
             string id,
 
             string location,
@@ -126,6 +118,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 
             string provisioningState,
 
+            ImmutableArray<Outputs.RoutePolicyStatementPropertiesResponse> statements,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -133,12 +127,11 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
             string type)
         {
             Annotation = annotation;
-            Conditions = conditions;
-            Description = description;
             Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            Statements = statements;
             SystemData = systemData;
             Tags = tags;
             Type = type;

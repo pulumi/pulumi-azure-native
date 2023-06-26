@@ -105,6 +105,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("lastRecoveryPoint")]
         public Input<string>? LastRecoveryPoint { get; set; }
 
+        [Input("nodesList")]
+        private InputList<Inputs.DistributedNodesInfoArgs>? _nodesList;
+
+        /// <summary>
+        /// List of the nodes in case of distributed container.
+        /// </summary>
+        public InputList<Inputs.DistributedNodesInfoArgs> NodesList
+        {
+            get => _nodesList ?? (_nodesList = new InputList<Inputs.DistributedNodesInfoArgs>());
+            set => _nodesList = value;
+        }
+
         /// <summary>
         /// Parent name of the DB such as Instance or Availability Group.
         /// </summary>

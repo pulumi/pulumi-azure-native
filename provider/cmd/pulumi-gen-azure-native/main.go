@@ -123,6 +123,21 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
+
+	case "raw-schema":
+		buildSchemaArgs.OnlyExplicitVersions = true
+		buildSchemaResult, err := versioning.BuildSchema(buildSchemaArgs)
+		if err != nil {
+			panic(err)
+		}
+		if codegenSchemaOutputPath == "" {
+			codegenSchemaOutputPath = path.Join(".", "bin", "raw-schema.json")
+		}
+		err = emitDocsSchema(&buildSchemaResult.PackageSpec, codegenSchemaOutputPath)
+		if err != nil {
+			panic(err)
+		}
+
 	case "go":
 		// Just read existing schema if we're not re-generating
 		schemaBytes, err := os.ReadFile(schemaPath)

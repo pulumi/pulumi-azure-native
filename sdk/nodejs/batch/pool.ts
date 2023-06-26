@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contains information about a pool.
- * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-01-01
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01
  */
 export class Pool extends pulumi.CustomResource {
     /**
@@ -223,7 +223,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["vmSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20170901:Pool" }, { type: "azure-native:batch/v20181201:Pool" }, { type: "azure-native:batch/v20190401:Pool" }, { type: "azure-native:batch/v20190801:Pool" }, { type: "azure-native:batch/v20200301:Pool" }, { type: "azure-native:batch/v20200501:Pool" }, { type: "azure-native:batch/v20200901:Pool" }, { type: "azure-native:batch/v20210101:Pool" }, { type: "azure-native:batch/v20210601:Pool" }, { type: "azure-native:batch/v20220101:Pool" }, { type: "azure-native:batch/v20220601:Pool" }, { type: "azure-native:batch/v20221001:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20170901:Pool" }, { type: "azure-native:batch/v20181201:Pool" }, { type: "azure-native:batch/v20190401:Pool" }, { type: "azure-native:batch/v20190801:Pool" }, { type: "azure-native:batch/v20200301:Pool" }, { type: "azure-native:batch/v20200501:Pool" }, { type: "azure-native:batch/v20200901:Pool" }, { type: "azure-native:batch/v20210101:Pool" }, { type: "azure-native:batch/v20210601:Pool" }, { type: "azure-native:batch/v20220101:Pool" }, { type: "azure-native:batch/v20220601:Pool" }, { type: "azure-native:batch/v20221001:Pool" }, { type: "azure-native:batch/v20230501:Pool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pool.__pulumiType, name, resourceInputs, opts);
     }

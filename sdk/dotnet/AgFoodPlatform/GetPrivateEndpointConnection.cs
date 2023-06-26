@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     {
         /// <summary>
         /// Get Private endpoint connection object.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:agfoodplatform:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Private endpoint connection object.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:agfoodplatform:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -30,10 +30,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public sealed class GetPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// FarmBeats resource name.
+        /// DataManagerForAgriculture resource name.
         /// </summary>
-        [Input("farmBeatsResourceName", required: true)]
-        public string FarmBeatsResourceName { get; set; } = null!;
+        [Input("dataManagerForAgricultureResourceName", required: true)]
+        public string DataManagerForAgricultureResourceName { get; set; } = null!;
 
         /// <summary>
         /// Private endpoint connection name.
@@ -56,10 +56,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public sealed class GetPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// FarmBeats resource name.
+        /// DataManagerForAgriculture resource name.
         /// </summary>
-        [Input("farmBeatsResourceName", required: true)]
-        public Input<string> FarmBeatsResourceName { get; set; } = null!;
+        [Input("dataManagerForAgricultureResourceName", required: true)]
+        public Input<string> DataManagerForAgricultureResourceName { get; set; } = null!;
 
         /// <summary>
         /// Private endpoint connection name.

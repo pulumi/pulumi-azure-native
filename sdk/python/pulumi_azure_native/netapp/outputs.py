@@ -1890,7 +1890,9 @@ class VolumeGroupVolumePropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "baremetalTenantId":
+        if key == "actualThroughputMibps":
+            suggest = "actual_throughput_mibps"
+        elif key == "baremetalTenantId":
             suggest = "baremetal_tenant_id"
         elif key == "cloneProgress":
             suggest = "clone_progress"
@@ -1908,6 +1910,8 @@ class VolumeGroupVolumePropertiesResponse(dict):
             suggest = "mount_targets"
         elif key == "networkSiblingSetId":
             suggest = "network_sibling_set_id"
+        elif key == "originatingResourceId":
+            suggest = "originating_resource_id"
         elif key == "provisionedAvailabilityZone":
             suggest = "provisioned_availability_zone"
         elif key == "provisioningState":
@@ -2003,6 +2007,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 actual_throughput_mibps: float,
                  baremetal_tenant_id: str,
                  clone_progress: int,
                  creation_token: str,
@@ -2014,6 +2019,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  maximum_number_of_files: float,
                  mount_targets: Sequence['outputs.MountTargetPropertiesResponse'],
                  network_sibling_set_id: str,
+                 originating_resource_id: str,
                  provisioned_availability_zone: str,
                  provisioning_state: str,
                  storage_to_network_proximity: str,
@@ -2060,6 +2066,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  volume_type: Optional[str] = None):
         """
         Volume resource
+        :param float actual_throughput_mibps: Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
         :param str baremetal_tenant_id: Unique Baremetal Tenant Identifier.
         :param int clone_progress: When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.
         :param str creation_token: A unique file path for the volume. Used when creating mount targets
@@ -2071,6 +2078,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param float maximum_number_of_files: Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB.
         :param Sequence['MountTargetPropertiesResponse'] mount_targets: List of mount targets
         :param str network_sibling_set_id: Network Sibling Set ID for the the group of volumes sharing networking resources.
+        :param str originating_resource_id: Id of the snapshot or backup that the volume is restored from.
         :param str provisioned_availability_zone: The availability zone where the volume is provisioned. This refers to the logical availability zone where the volume resides.
         :param str provisioning_state: Azure lifecycle management
         :param str storage_to_network_proximity: Provides storage to network proximity information for the volume.
@@ -2108,13 +2116,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
         :param bool smb_continuously_available: Enables continuously available share property for smb volume. Only applicable for SMB volume
         :param bool smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
         :param str smb_non_browsable: Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
-        :param bool snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        :param bool snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         :param str snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
         :param Mapping[str, str] tags: Resource tags
         :param str unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
         :param str volume_spec_name: Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
         :param str volume_type: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         """
+        pulumi.set(__self__, "actual_throughput_mibps", actual_throughput_mibps)
         pulumi.set(__self__, "baremetal_tenant_id", baremetal_tenant_id)
         pulumi.set(__self__, "clone_progress", clone_progress)
         pulumi.set(__self__, "creation_token", creation_token)
@@ -2128,6 +2137,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
         pulumi.set(__self__, "maximum_number_of_files", maximum_number_of_files)
         pulumi.set(__self__, "mount_targets", mount_targets)
         pulumi.set(__self__, "network_sibling_set_id", network_sibling_set_id)
+        pulumi.set(__self__, "originating_resource_id", originating_resource_id)
         pulumi.set(__self__, "provisioned_availability_zone", provisioned_availability_zone)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "storage_to_network_proximity", storage_to_network_proximity)
@@ -2244,6 +2254,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
             pulumi.set(__self__, "volume_type", volume_type)
 
     @property
+    @pulumi.getter(name="actualThroughputMibps")
+    def actual_throughput_mibps(self) -> float:
+        """
+        Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
+        """
+        return pulumi.get(self, "actual_throughput_mibps")
+
+    @property
     @pulumi.getter(name="baremetalTenantId")
     def baremetal_tenant_id(self) -> str:
         """
@@ -2330,6 +2348,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
         Network Sibling Set ID for the the group of volumes sharing networking resources.
         """
         return pulumi.get(self, "network_sibling_set_id")
+
+    @property
+    @pulumi.getter(name="originatingResourceId")
+    def originating_resource_id(self) -> str:
+        """
+        Id of the snapshot or backup that the volume is restored from.
+        """
+        return pulumi.get(self, "originating_resource_id")
 
     @property
     @pulumi.getter(name="provisionedAvailabilityZone")
@@ -2631,7 +2657,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
     @pulumi.getter(name="snapshotDirectoryVisible")
     def snapshot_directory_visible(self) -> Optional[bool]:
         """
-        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         """
         return pulumi.get(self, "snapshot_directory_visible")
 

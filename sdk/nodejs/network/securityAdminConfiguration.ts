@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the security admin configuration
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class SecurityAdminConfiguration extends pulumi.CustomResource {
     /**
@@ -59,6 +59,10 @@ export class SecurityAdminConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Unique identifier for this resource.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    /**
      * The system metadata related to this resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.network.SystemDataResponse>;
@@ -92,6 +96,7 @@ export class SecurityAdminConfiguration extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -100,11 +105,12 @@ export class SecurityAdminConfiguration extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:SecurityAdminConfiguration" }, { type: "azure-native:network/v20210501preview:SecurityAdminConfiguration" }, { type: "azure-native:network/v20220101:SecurityAdminConfiguration" }, { type: "azure-native:network/v20220201preview:SecurityAdminConfiguration" }, { type: "azure-native:network/v20220401preview:SecurityAdminConfiguration" }, { type: "azure-native:network/v20220501:SecurityAdminConfiguration" }, { type: "azure-native:network/v20220701:SecurityAdminConfiguration" }, { type: "azure-native:network/v20220901:SecurityAdminConfiguration" }, { type: "azure-native:network/v20221101:SecurityAdminConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:SecurityAdminConfiguration" }, { type: "azure-native:network/v20210501preview:SecurityAdminConfiguration" }, { type: "azure-native:network/v20220101:SecurityAdminConfiguration" }, { type: "azure-native:network/v20220201preview:SecurityAdminConfiguration" }, { type: "azure-native:network/v20220401preview:SecurityAdminConfiguration" }, { type: "azure-native:network/v20220501:SecurityAdminConfiguration" }, { type: "azure-native:network/v20220701:SecurityAdminConfiguration" }, { type: "azure-native:network/v20220901:SecurityAdminConfiguration" }, { type: "azure-native:network/v20221101:SecurityAdminConfiguration" }, { type: "azure-native:network/v20230201:SecurityAdminConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityAdminConfiguration.__pulumiType, name, resourceInputs, opts);
     }

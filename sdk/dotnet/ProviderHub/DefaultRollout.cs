@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ProviderHub
 {
     /// <summary>
     /// Default rollout definition.
-    /// Azure REST API version: 2020-11-20. Prior API version in Azure Native 1.x: 2020-11-20
+    /// Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:DefaultRollout")]
     public partial class DefaultRollout : global::Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.ProviderHub
         /// </summary>
         [Output("properties")]
         public Output<Outputs.DefaultRolloutResponseProperties> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

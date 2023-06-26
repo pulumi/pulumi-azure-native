@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Network Manager.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetNetworkManagerResult> InvokeAsync(GetNetworkManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkManagerResult>("azure-native:network:getNetworkManager", args ?? new GetNetworkManagerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Network Manager.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetNetworkManagerResult> Invoke(GetNetworkManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerResult>("azure-native:network:getNetworkManager", args ?? new GetNetworkManagerInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            string resourceGuid,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNative.Network
             NetworkManagerScopeAccesses = networkManagerScopeAccesses;
             NetworkManagerScopes = networkManagerScopes;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             SystemData = systemData;
             Tags = tags;
             Type = type;

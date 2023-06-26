@@ -194,7 +194,7 @@ def get_virtual_wan(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualWanResult:
     """
     Retrieves the details of a VirtualWAN.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualWan.
@@ -228,7 +228,7 @@ def get_virtual_wan_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualWanResult]:
     """
     Retrieves the details of a VirtualWAN.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualWan.

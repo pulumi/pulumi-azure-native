@@ -493,6 +493,7 @@ __all__ = [
     'ScriptActivityScriptBlockArgs',
     'ScriptActivityTypePropertiesLogSettingsArgs',
     'ScriptActivityArgs',
+    'SecureInputOutputPolicyArgs',
     'SecureStringArgs',
     'SelfDependencyTumblingWindowTriggerReferenceArgs',
     'SelfHostedIntegrationRuntimeArgs',
@@ -12547,6 +12548,7 @@ class AzureMLServiceLinkedServiceArgs:
                  subscription_id: Any,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 authentication: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[str]] = None,
@@ -12562,6 +12564,7 @@ class AzureMLServiceLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'AzureMLService'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Any authentication: Type of authentication (Required to specify MSI) used to connect to AzureML. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
@@ -12576,6 +12579,8 @@ class AzureMLServiceLinkedServiceArgs:
         pulumi.set(__self__, "type", 'AzureMLService')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
@@ -12651,6 +12656,18 @@ class AzureMLServiceLinkedServiceArgs:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[Any]:
+        """
+        Type of authentication (Required to specify MSI) used to connect to AzureML. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[Any]):
+        pulumi.set(self, "authentication", value)
 
     @property
     @pulumi.getter(name="connectVia")
@@ -64299,7 +64316,7 @@ class SalesforceServiceCloudSourceArgs:
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
-                 read_behavior: Optional[pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']]] = None,
+                 read_behavior: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None):
         """
@@ -64310,7 +64327,7 @@ class SalesforceServiceCloudSourceArgs:
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']] read_behavior: The read behavior for the operation. Default is Query.
+        :param Any read_behavior: The read behavior for the operation. Default is Query. Allowed values: Query/QueryAll. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -64393,14 +64410,14 @@ class SalesforceServiceCloudSourceArgs:
 
     @property
     @pulumi.getter(name="readBehavior")
-    def read_behavior(self) -> Optional[pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']]]:
+    def read_behavior(self) -> Optional[Any]:
         """
-        The read behavior for the operation. Default is Query.
+        The read behavior for the operation. Default is Query. Allowed values: Query/QueryAll. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "read_behavior")
 
     @read_behavior.setter
-    def read_behavior(self, value: Optional[pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']]]):
+    def read_behavior(self, value: Optional[Any]):
         pulumi.set(self, "read_behavior", value)
 
     @property
@@ -64606,7 +64623,7 @@ class SalesforceSourceArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
-                 read_behavior: Optional[pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']]] = None,
+                 read_behavior: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None):
         """
@@ -64618,7 +64635,7 @@ class SalesforceSourceArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']] read_behavior: The read behavior for the operation. Default is Query.
+        :param Any read_behavior: The read behavior for the operation. Default is Query. Allowed values: Query/QueryAll. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -64715,14 +64732,14 @@ class SalesforceSourceArgs:
 
     @property
     @pulumi.getter(name="readBehavior")
-    def read_behavior(self) -> Optional[pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']]]:
+    def read_behavior(self) -> Optional[Any]:
         """
-        The read behavior for the operation. Default is Query.
+        The read behavior for the operation. Default is Query. Allowed values: Query/QueryAll. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "read_behavior")
 
     @read_behavior.setter
-    def read_behavior(self, value: Optional[pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']]]):
+    def read_behavior(self, value: Optional[Any]):
         pulumi.set(self, "read_behavior", value)
 
     @property
@@ -69652,6 +69669,46 @@ class ScriptActivityArgs:
 
 
 @pulumi.input_type
+class SecureInputOutputPolicyArgs:
+    def __init__(__self__, *,
+                 secure_input: Optional[pulumi.Input[bool]] = None,
+                 secure_output: Optional[pulumi.Input[bool]] = None):
+        """
+        Execution policy for an activity that supports secure input and output.
+        :param pulumi.Input[bool] secure_input: When set to true, Input from activity is considered as secure and will not be logged to monitoring.
+        :param pulumi.Input[bool] secure_output: When set to true, Output from activity is considered as secure and will not be logged to monitoring.
+        """
+        if secure_input is not None:
+            pulumi.set(__self__, "secure_input", secure_input)
+        if secure_output is not None:
+            pulumi.set(__self__, "secure_output", secure_output)
+
+    @property
+    @pulumi.getter(name="secureInput")
+    def secure_input(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to true, Input from activity is considered as secure and will not be logged to monitoring.
+        """
+        return pulumi.get(self, "secure_input")
+
+    @secure_input.setter
+    def secure_input(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure_input", value)
+
+    @property
+    @pulumi.getter(name="secureOutput")
+    def secure_output(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to true, Output from activity is considered as secure and will not be logged to monitoring.
+        """
+        return pulumi.get(self, "secure_output")
+
+    @secure_output.setter
+    def secure_output(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure_output", value)
+
+
+@pulumi.input_type
 class SecureStringArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -70348,6 +70405,7 @@ class SetVariableActivityArgs:
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']]] = None,
+                 policy: Optional[pulumi.Input['SecureInputOutputPolicyArgs']] = None,
                  set_system_variable: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input[Union[str, 'ActivityState']]] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None,
@@ -70361,6 +70419,7 @@ class SetVariableActivityArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param pulumi.Input['SecureInputOutputPolicyArgs'] policy: Activity policy.
         :param pulumi.Input[bool] set_system_variable: If set to true, it sets the pipeline run return value.
         :param pulumi.Input[Union[str, 'ActivityState']] state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
@@ -70375,6 +70434,8 @@ class SetVariableActivityArgs:
             pulumi.set(__self__, "description", description)
         if on_inactive_mark_as is not None:
             pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if set_system_variable is not None:
             pulumi.set(__self__, "set_system_variable", set_system_variable)
         if state is not None:
@@ -70446,6 +70507,18 @@ class SetVariableActivityArgs:
     @on_inactive_mark_as.setter
     def on_inactive_mark_as(self, value: Optional[pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']]]):
         pulumi.set(self, "on_inactive_mark_as", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['SecureInputOutputPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['SecureInputOutputPolicyArgs']]):
+        pulumi.set(self, "policy", value)
 
     @property
     @pulumi.getter(name="setSystemVariable")

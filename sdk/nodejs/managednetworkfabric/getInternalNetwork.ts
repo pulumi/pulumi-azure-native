@@ -59,19 +59,19 @@ export interface GetInternalNetworkResult {
     /**
      * BGP configuration properties
      */
-    readonly bgpConfiguration?: outputs.managednetworkfabric.InternalNetworkPatchablePropertiesResponseBgpConfiguration;
+    readonly bgpConfiguration?: outputs.managednetworkfabric.BgpConfigurationResponse;
     /**
      * List of resources the BGP is disabled on. Can be either entire NetworkFabric or NetworkRack.
      */
     readonly bgpDisabledOnResources: string[];
     /**
-     * List with object connectedIPv4Subnets.
+     * List with object connected IPv4 Subnets.
      */
-    readonly connectedIPv4Subnets?: outputs.managednetworkfabric.InternalNetworkPatchablePropertiesResponseConnectedIPv4Subnets[];
+    readonly connectedIPv4Subnets?: outputs.managednetworkfabric.ConnectedSubnetResponse[];
     /**
-     * List with object connectedIPv6Subnets.
+     * List with object connected IPv6 Subnets.
      */
-    readonly connectedIPv6Subnets?: outputs.managednetworkfabric.InternalNetworkPatchablePropertiesResponseConnectedIPv6Subnets[];
+    readonly connectedIPv6Subnets?: outputs.managednetworkfabric.ConnectedSubnetResponse[];
     /**
      * List of resources the InternalNetwork is disabled on. Can be either entire NetworkFabric or NetworkRack.
      */
@@ -101,9 +101,9 @@ export interface GetInternalNetworkResult {
      */
     readonly provisioningState: string;
     /**
-     * staticRouteConfiguration model.
+     * Static Route Configuration properties.
      */
-    readonly staticRouteConfiguration?: outputs.managednetworkfabric.InternalNetworkPatchablePropertiesResponseStaticRouteConfiguration;
+    readonly staticRouteConfiguration?: outputs.managednetworkfabric.StaticRouteConfigurationResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

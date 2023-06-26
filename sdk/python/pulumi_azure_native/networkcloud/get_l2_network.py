@@ -19,7 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetL2NetworkResult:
-    def __init__(__self__, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, hybrid_aks_plugin_type=None, id=None, interface_name=None, l2_isolation_domain_id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None):
+    def __init__(__self__, associated_resource_ids=None, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, hybrid_aks_plugin_type=None, id=None, interface_name=None, l2_isolation_domain_id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None):
+        if associated_resource_ids and not isinstance(associated_resource_ids, list):
+            raise TypeError("Expected argument 'associated_resource_ids' to be a list")
+        pulumi.set(__self__, "associated_resource_ids", associated_resource_ids)
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -70,6 +73,14 @@ class GetL2NetworkResult:
         pulumi.set(__self__, "virtual_machines_associated_ids", virtual_machines_associated_ids)
 
     @property
+    @pulumi.getter(name="associatedResourceIds")
+    def associated_resource_ids(self) -> Sequence[str]:
+        """
+        The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        """
+        return pulumi.get(self, "associated_resource_ids")
+
+    @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> str:
         """
@@ -105,7 +116,7 @@ class GetL2NetworkResult:
     @pulumi.getter(name="hybridAksClustersAssociatedIds")
     def hybrid_aks_clusters_associated_ids(self) -> Sequence[str]:
         """
-        The list of Hybrid AKS cluster resource ID(s) that are associated with this L2 network.
+        Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource ID(s) that are associated with this L2 network.
         """
         return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
 
@@ -113,7 +124,7 @@ class GetL2NetworkResult:
     @pulumi.getter(name="hybridAksPluginType")
     def hybrid_aks_plugin_type(self) -> Optional[str]:
         """
-        The network plugin type for Hybrid AKS.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         """
         return pulumi.get(self, "hybrid_aks_plugin_type")
 
@@ -121,7 +132,7 @@ class GetL2NetworkResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -193,7 +204,7 @@ class GetL2NetworkResult:
     @pulumi.getter(name="virtualMachinesAssociatedIds")
     def virtual_machines_associated_ids(self) -> Sequence[str]:
         """
-        The list of virtual machine resource ID(s), excluding any Hybrid AKS virtual machines, that are currently using this L2 network.
+        Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource ID(s), excluding any Hybrid AKS virtual machines, that are currently using this L2 network.
         """
         return pulumi.get(self, "virtual_machines_associated_ids")
 
@@ -204,6 +215,7 @@ class AwaitableGetL2NetworkResult(GetL2NetworkResult):
         if False:
             yield self
         return GetL2NetworkResult(
+            associated_resource_ids=self.associated_resource_ids,
             cluster_id=self.cluster_id,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
@@ -227,7 +239,7 @@ def get_l2_network(l2_network_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetL2NetworkResult:
     """
     Get properties of the provided layer 2 (L2) network.
-    Azure REST API version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str l2_network_name: The name of the L2 network.
@@ -240,6 +252,7 @@ def get_l2_network(l2_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud:getL2Network', __args__, opts=opts, typ=GetL2NetworkResult).value
 
     return AwaitableGetL2NetworkResult(
+        associated_resource_ids=__ret__.associated_resource_ids,
         cluster_id=__ret__.cluster_id,
         detailed_status=__ret__.detailed_status,
         detailed_status_message=__ret__.detailed_status_message,
@@ -264,7 +277,7 @@ def get_l2_network_output(l2_network_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL2NetworkResult]:
     """
     Get properties of the provided layer 2 (L2) network.
-    Azure REST API version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str l2_network_name: The name of the L2 network.
