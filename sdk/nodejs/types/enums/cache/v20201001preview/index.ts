@@ -2,17 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const PrivateEndpointServiceConnectionStatus = {
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-} as const;
-
-/**
- * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
- */
-export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
-
 export const SkuName = {
     Enterprise_E10: "Enterprise_E10",
     Enterprise_E20: "Enterprise_E20",

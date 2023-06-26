@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The network manager connectivity configuration resource
-    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ConnectivityConfiguration")]
     public partial class ConnectivityConfiguration : global::Pulumi.CustomResource
@@ -71,6 +71,12 @@ namespace Pulumi.AzureNative.Network
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
         [Output("systemData")]
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ConnectivityConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ConnectivityConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ConnectivityConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ConnectivityConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

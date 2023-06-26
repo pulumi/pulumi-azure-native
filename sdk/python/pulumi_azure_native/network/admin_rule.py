@@ -278,7 +278,7 @@ class AdminRule(pulumi.CustomResource):
                  __props__=None):
         """
         Network admin rule.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,7 +307,7 @@ class AdminRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network admin rule.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param AdminRuleArgs args: The arguments to use to populate this resource's properties.
@@ -384,9 +384,10 @@ class AdminRule(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220101:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220501:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220701:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220901:AdminRule"), pulumi.Alias(type_="azure-native:network/v20221101:AdminRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220101:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220501:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220701:AdminRule"), pulumi.Alias(type_="azure-native:network/v20220901:AdminRule"), pulumi.Alias(type_="azure-native:network/v20221101:AdminRule"), pulumi.Alias(type_="azure-native:network/v20230201:AdminRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AdminRule, __self__).__init__(
             'azure-native:network:AdminRule',
@@ -421,6 +422,7 @@ class AdminRule(pulumi.CustomResource):
         __props__.__dict__["priority"] = None
         __props__.__dict__["protocol"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
         __props__.__dict__["source_port_ranges"] = None
         __props__.__dict__["sources"] = None
         __props__.__dict__["system_data"] = None
@@ -515,6 +517,14 @@ class AdminRule(pulumi.CustomResource):
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[str]:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="sourcePortRanges")

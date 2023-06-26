@@ -126,7 +126,7 @@ class WorkspaceManagerGroup(pulumi.CustomResource):
                  __props__=None):
         """
         The workspace manager group
-        Azure REST API version: 2023-05-01-preview.
+        Azure REST API version: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +145,7 @@ class WorkspaceManagerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The workspace manager group
-        Azure REST API version: 2023-05-01-preview.
+        Azure REST API version: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceManagerGroupArgs args: The arguments to use to populate this resource's properties.
@@ -195,7 +195,7 @@ class WorkspaceManagerGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:WorkspaceManagerGroup"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:WorkspaceManagerGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:WorkspaceManagerGroup"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:WorkspaceManagerGroup"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:WorkspaceManagerGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceManagerGroup, __self__).__init__(
             'azure-native:securityinsights:WorkspaceManagerGroup',

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements AvailabilitySet GET method.
- * Azure REST API version: 2020-06-05-preview.
+ * Azure REST API version: 2022-05-21-preview.
  */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
 
@@ -78,7 +78,7 @@ export interface GetAvailabilitySetResult {
 }
 /**
  * Implements AvailabilitySet GET method.
- * Azure REST API version: 2020-06-05-preview.
+ * Azure REST API version: 2022-05-21-preview.
  */
 export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
     return pulumi.output(args).apply((a: any) => getAvailabilitySet(a, opts))

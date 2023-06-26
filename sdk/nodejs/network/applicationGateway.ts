@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Application gateway resource.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
  */
 export class ApplicationGateway extends pulumi.CustomResource {
     /**
@@ -62,6 +62,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * Custom error configurations of the application gateway resource.
      */
     public readonly customErrorConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayCustomErrorResponse[] | undefined>;
+    /**
+     * The default predefined SSL Policy applied on the application gateway resource.
+     */
+    public /*out*/ readonly defaultPredefinedSslPolicy!: pulumi.Output<string>;
     /**
      * Whether FIPS is enabled on the application gateway resource.
      */
@@ -259,6 +263,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
             resourceInputs["webApplicationFirewallConfiguration"] = args ? args.webApplicationFirewallConfiguration : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["defaultPredefinedSslPolicy"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operationalState"] = undefined /*out*/;
@@ -273,6 +278,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["backendHttpSettingsCollection"] = undefined /*out*/;
             resourceInputs["backendSettingsCollection"] = undefined /*out*/;
             resourceInputs["customErrorConfigurations"] = undefined /*out*/;
+            resourceInputs["defaultPredefinedSslPolicy"] = undefined /*out*/;
             resourceInputs["enableFips"] = undefined /*out*/;
             resourceInputs["enableHttp2"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -311,7 +317,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20150501preview:ApplicationGateway" }, { type: "azure-native:network/v20150615:ApplicationGateway" }, { type: "azure-native:network/v20160330:ApplicationGateway" }, { type: "azure-native:network/v20160601:ApplicationGateway" }, { type: "azure-native:network/v20160901:ApplicationGateway" }, { type: "azure-native:network/v20161201:ApplicationGateway" }, { type: "azure-native:network/v20170301:ApplicationGateway" }, { type: "azure-native:network/v20170601:ApplicationGateway" }, { type: "azure-native:network/v20170801:ApplicationGateway" }, { type: "azure-native:network/v20170901:ApplicationGateway" }, { type: "azure-native:network/v20171001:ApplicationGateway" }, { type: "azure-native:network/v20171101:ApplicationGateway" }, { type: "azure-native:network/v20180101:ApplicationGateway" }, { type: "azure-native:network/v20180201:ApplicationGateway" }, { type: "azure-native:network/v20180401:ApplicationGateway" }, { type: "azure-native:network/v20180601:ApplicationGateway" }, { type: "azure-native:network/v20180701:ApplicationGateway" }, { type: "azure-native:network/v20180801:ApplicationGateway" }, { type: "azure-native:network/v20181001:ApplicationGateway" }, { type: "azure-native:network/v20181101:ApplicationGateway" }, { type: "azure-native:network/v20181201:ApplicationGateway" }, { type: "azure-native:network/v20190201:ApplicationGateway" }, { type: "azure-native:network/v20190401:ApplicationGateway" }, { type: "azure-native:network/v20190601:ApplicationGateway" }, { type: "azure-native:network/v20190701:ApplicationGateway" }, { type: "azure-native:network/v20190801:ApplicationGateway" }, { type: "azure-native:network/v20190901:ApplicationGateway" }, { type: "azure-native:network/v20191101:ApplicationGateway" }, { type: "azure-native:network/v20191201:ApplicationGateway" }, { type: "azure-native:network/v20200301:ApplicationGateway" }, { type: "azure-native:network/v20200401:ApplicationGateway" }, { type: "azure-native:network/v20200501:ApplicationGateway" }, { type: "azure-native:network/v20200601:ApplicationGateway" }, { type: "azure-native:network/v20200701:ApplicationGateway" }, { type: "azure-native:network/v20200801:ApplicationGateway" }, { type: "azure-native:network/v20201101:ApplicationGateway" }, { type: "azure-native:network/v20210201:ApplicationGateway" }, { type: "azure-native:network/v20210301:ApplicationGateway" }, { type: "azure-native:network/v20210501:ApplicationGateway" }, { type: "azure-native:network/v20210801:ApplicationGateway" }, { type: "azure-native:network/v20220101:ApplicationGateway" }, { type: "azure-native:network/v20220501:ApplicationGateway" }, { type: "azure-native:network/v20220701:ApplicationGateway" }, { type: "azure-native:network/v20220901:ApplicationGateway" }, { type: "azure-native:network/v20221101:ApplicationGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20150501preview:ApplicationGateway" }, { type: "azure-native:network/v20150615:ApplicationGateway" }, { type: "azure-native:network/v20160330:ApplicationGateway" }, { type: "azure-native:network/v20160601:ApplicationGateway" }, { type: "azure-native:network/v20160901:ApplicationGateway" }, { type: "azure-native:network/v20161201:ApplicationGateway" }, { type: "azure-native:network/v20170301:ApplicationGateway" }, { type: "azure-native:network/v20170601:ApplicationGateway" }, { type: "azure-native:network/v20170801:ApplicationGateway" }, { type: "azure-native:network/v20170901:ApplicationGateway" }, { type: "azure-native:network/v20171001:ApplicationGateway" }, { type: "azure-native:network/v20171101:ApplicationGateway" }, { type: "azure-native:network/v20180101:ApplicationGateway" }, { type: "azure-native:network/v20180201:ApplicationGateway" }, { type: "azure-native:network/v20180401:ApplicationGateway" }, { type: "azure-native:network/v20180601:ApplicationGateway" }, { type: "azure-native:network/v20180701:ApplicationGateway" }, { type: "azure-native:network/v20180801:ApplicationGateway" }, { type: "azure-native:network/v20181001:ApplicationGateway" }, { type: "azure-native:network/v20181101:ApplicationGateway" }, { type: "azure-native:network/v20181201:ApplicationGateway" }, { type: "azure-native:network/v20190201:ApplicationGateway" }, { type: "azure-native:network/v20190401:ApplicationGateway" }, { type: "azure-native:network/v20190601:ApplicationGateway" }, { type: "azure-native:network/v20190701:ApplicationGateway" }, { type: "azure-native:network/v20190801:ApplicationGateway" }, { type: "azure-native:network/v20190901:ApplicationGateway" }, { type: "azure-native:network/v20191101:ApplicationGateway" }, { type: "azure-native:network/v20191201:ApplicationGateway" }, { type: "azure-native:network/v20200301:ApplicationGateway" }, { type: "azure-native:network/v20200401:ApplicationGateway" }, { type: "azure-native:network/v20200501:ApplicationGateway" }, { type: "azure-native:network/v20200601:ApplicationGateway" }, { type: "azure-native:network/v20200701:ApplicationGateway" }, { type: "azure-native:network/v20200801:ApplicationGateway" }, { type: "azure-native:network/v20201101:ApplicationGateway" }, { type: "azure-native:network/v20210201:ApplicationGateway" }, { type: "azure-native:network/v20210301:ApplicationGateway" }, { type: "azure-native:network/v20210501:ApplicationGateway" }, { type: "azure-native:network/v20210801:ApplicationGateway" }, { type: "azure-native:network/v20220101:ApplicationGateway" }, { type: "azure-native:network/v20220501:ApplicationGateway" }, { type: "azure-native:network/v20220701:ApplicationGateway" }, { type: "azure-native:network/v20220901:ApplicationGateway" }, { type: "azure-native:network/v20221101:ApplicationGateway" }, { type: "azure-native:network/v20230201:ApplicationGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationGateway.__pulumiType, name, resourceInputs, opts);
     }

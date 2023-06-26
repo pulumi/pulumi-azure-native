@@ -144,7 +144,7 @@ class DefaultAdminRule(pulumi.CustomResource):
                  __props__=None):
         """
         Network default admin rule.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +165,7 @@ class DefaultAdminRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network default admin rule.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param DefaultAdminRuleArgs args: The arguments to use to populate this resource's properties.
@@ -225,11 +225,12 @@ class DefaultAdminRule(pulumi.CustomResource):
             __props__.__dict__["priority"] = None
             __props__.__dict__["protocol"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
             __props__.__dict__["source_port_ranges"] = None
             __props__.__dict__["sources"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220101:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220501:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220701:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220901:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20221101:DefaultAdminRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220101:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220501:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220701:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220901:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20221101:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20230201:DefaultAdminRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefaultAdminRule, __self__).__init__(
             'azure-native:network:DefaultAdminRule',
@@ -265,6 +266,7 @@ class DefaultAdminRule(pulumi.CustomResource):
         __props__.__dict__["priority"] = None
         __props__.__dict__["protocol"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
         __props__.__dict__["source_port_ranges"] = None
         __props__.__dict__["sources"] = None
         __props__.__dict__["system_data"] = None
@@ -367,6 +369,14 @@ class DefaultAdminRule(pulumi.CustomResource):
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[str]:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="sourcePortRanges")

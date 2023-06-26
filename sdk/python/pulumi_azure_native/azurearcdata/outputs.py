@@ -24,9 +24,15 @@ __all__ = [
     'ExtendedLocationResponse',
     'FailoverGroupPropertiesResponse',
     'FailoverGroupSpecResponse',
+    'K8sActiveDirectoryResponse',
+    'K8sActiveDirectoryResponseConnector',
+    'K8sNetworkSettingsResponse',
     'K8sResourceRequirementsResponse',
     'K8sSchedulingOptionsResponse',
     'K8sSchedulingResponse',
+    'K8sSecurityResponse',
+    'K8sSettingsResponse',
+    'K8stransparentDataEncryptionResponse',
     'LogAnalyticsWorkspaceConfigResponse',
     'OnPremisePropertyResponse',
     'PostgresInstancePropertiesResponse',
@@ -956,6 +962,160 @@ class FailoverGroupSpecResponse(dict):
 
 
 @pulumi.output_type
+class K8sActiveDirectoryResponse(dict):
+    """
+    The kubernetes active directory information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "encryptionTypes":
+            suggest = "encryption_types"
+        elif key == "keytabSecret":
+            suggest = "keytab_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in K8sActiveDirectoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        K8sActiveDirectoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        K8sActiveDirectoryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_name: Optional[str] = None,
+                 connector: Optional['outputs.K8sActiveDirectoryResponseConnector'] = None,
+                 encryption_types: Optional[Sequence[str]] = None,
+                 keytab_secret: Optional[str] = None):
+        """
+        The kubernetes active directory information.
+        :param str account_name: Account name for AAD
+        :param Sequence[str] encryption_types: An array of encryption types
+        :param str keytab_secret: Keytab secret used to authenticate with Active Directory.
+        """
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if connector is not None:
+            pulumi.set(__self__, "connector", connector)
+        if encryption_types is not None:
+            pulumi.set(__self__, "encryption_types", encryption_types)
+        if keytab_secret is not None:
+            pulumi.set(__self__, "keytab_secret", keytab_secret)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[str]:
+        """
+        Account name for AAD
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter
+    def connector(self) -> Optional['outputs.K8sActiveDirectoryResponseConnector']:
+        return pulumi.get(self, "connector")
+
+    @property
+    @pulumi.getter(name="encryptionTypes")
+    def encryption_types(self) -> Optional[Sequence[str]]:
+        """
+        An array of encryption types
+        """
+        return pulumi.get(self, "encryption_types")
+
+    @property
+    @pulumi.getter(name="keytabSecret")
+    def keytab_secret(self) -> Optional[str]:
+        """
+        Keytab secret used to authenticate with Active Directory.
+        """
+        return pulumi.get(self, "keytab_secret")
+
+
+@pulumi.output_type
+class K8sActiveDirectoryResponseConnector(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 namespace: Optional[str] = None):
+        """
+        :param str name: Name of the connector
+        :param str namespace: Name space of the connector
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the connector
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        Name space of the connector
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class K8sNetworkSettingsResponse(dict):
+    """
+    The kubernetes network settings information.
+    """
+    def __init__(__self__, *,
+                 forceencryption: Optional[int] = None,
+                 tlsciphers: Optional[str] = None,
+                 tlsprotocols: Optional[str] = None):
+        """
+        The kubernetes network settings information.
+        :param int forceencryption: If 1, then SQL Server forces all connections to be encrypted. By default, this option is 0
+        :param str tlsciphers: Specifies which ciphers are allowed by SQL Server for TLS
+        :param str tlsprotocols: A comma-separated list of which TLS protocols are allowed by SQL Server
+        """
+        if forceencryption is not None:
+            pulumi.set(__self__, "forceencryption", forceencryption)
+        if tlsciphers is not None:
+            pulumi.set(__self__, "tlsciphers", tlsciphers)
+        if tlsprotocols is not None:
+            pulumi.set(__self__, "tlsprotocols", tlsprotocols)
+
+    @property
+    @pulumi.getter
+    def forceencryption(self) -> Optional[int]:
+        """
+        If 1, then SQL Server forces all connections to be encrypted. By default, this option is 0
+        """
+        return pulumi.get(self, "forceencryption")
+
+    @property
+    @pulumi.getter
+    def tlsciphers(self) -> Optional[str]:
+        """
+        Specifies which ciphers are allowed by SQL Server for TLS
+        """
+        return pulumi.get(self, "tlsciphers")
+
+    @property
+    @pulumi.getter
+    def tlsprotocols(self) -> Optional[str]:
+        """
+        A comma-separated list of which TLS protocols are allowed by SQL Server
+        """
+        return pulumi.get(self, "tlsprotocols")
+
+
+@pulumi.output_type
 class K8sResourceRequirementsResponse(dict):
     """
     The kubernetes resource limits and requests used to restrict or reserve resource usage.
@@ -1034,6 +1194,163 @@ class K8sSchedulingResponse(dict):
         The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
         """
         return pulumi.get(self, "default")
+
+
+@pulumi.output_type
+class K8sSecurityResponse(dict):
+    """
+    The kubernetes security information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectory":
+            suggest = "active_directory"
+        elif key == "adminLoginSecret":
+            suggest = "admin_login_secret"
+        elif key == "serviceCertificateSecret":
+            suggest = "service_certificate_secret"
+        elif key == "transparentDataEncryption":
+            suggest = "transparent_data_encryption"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in K8sSecurityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        K8sSecurityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        K8sSecurityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active_directory: Optional['outputs.K8sActiveDirectoryResponse'] = None,
+                 admin_login_secret: Optional[str] = None,
+                 service_certificate_secret: Optional[str] = None,
+                 transparent_data_encryption: Optional['outputs.K8stransparentDataEncryptionResponse'] = None):
+        """
+        The kubernetes security information.
+        :param 'K8sActiveDirectoryResponse' active_directory: The kubernetes active directory information.
+        :param str admin_login_secret: Admin login secret key
+        :param str service_certificate_secret: Service certificate secret used
+        :param 'K8stransparentDataEncryptionResponse' transparent_data_encryption: Transparent data encryption information.
+        """
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if admin_login_secret is not None:
+            pulumi.set(__self__, "admin_login_secret", admin_login_secret)
+        if service_certificate_secret is not None:
+            pulumi.set(__self__, "service_certificate_secret", service_certificate_secret)
+        if transparent_data_encryption is not None:
+            pulumi.set(__self__, "transparent_data_encryption", transparent_data_encryption)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional['outputs.K8sActiveDirectoryResponse']:
+        """
+        The kubernetes active directory information.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @property
+    @pulumi.getter(name="adminLoginSecret")
+    def admin_login_secret(self) -> Optional[str]:
+        """
+        Admin login secret key
+        """
+        return pulumi.get(self, "admin_login_secret")
+
+    @property
+    @pulumi.getter(name="serviceCertificateSecret")
+    def service_certificate_secret(self) -> Optional[str]:
+        """
+        Service certificate secret used
+        """
+        return pulumi.get(self, "service_certificate_secret")
+
+    @property
+    @pulumi.getter(name="transparentDataEncryption")
+    def transparent_data_encryption(self) -> Optional['outputs.K8stransparentDataEncryptionResponse']:
+        """
+        Transparent data encryption information.
+        """
+        return pulumi.get(self, "transparent_data_encryption")
+
+
+@pulumi.output_type
+class K8sSettingsResponse(dict):
+    """
+    The kubernetes settings information.
+    """
+    def __init__(__self__, *,
+                 network: Optional['outputs.K8sNetworkSettingsResponse'] = None):
+        """
+        The kubernetes settings information.
+        :param 'K8sNetworkSettingsResponse' network: The kubernetes network settings information.
+        """
+        if network is not None:
+            pulumi.set(__self__, "network", network)
+
+    @property
+    @pulumi.getter
+    def network(self) -> Optional['outputs.K8sNetworkSettingsResponse']:
+        """
+        The kubernetes network settings information.
+        """
+        return pulumi.get(self, "network")
+
+
+@pulumi.output_type
+class K8stransparentDataEncryptionResponse(dict):
+    """
+    Transparent data encryption information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectorSecret":
+            suggest = "protector_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in K8stransparentDataEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        K8stransparentDataEncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        K8stransparentDataEncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: Optional[str] = None,
+                 protector_secret: Optional[str] = None):
+        """
+        Transparent data encryption information.
+        :param str mode: Transparent data encryption mode. Can be Service Managed, Customer managed or disabled
+        :param str protector_secret: Protector secret for customer managed Transparent data encryption mode
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if protector_secret is not None:
+            pulumi.set(__self__, "protector_secret", protector_secret)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Transparent data encryption mode. Can be Service Managed, Customer managed or disabled
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="protectorSecret")
+    def protector_secret(self) -> Optional[str]:
+        """
+        Protector secret for customer managed Transparent data encryption mode
+        """
+        return pulumi.get(self, "protector_secret")
 
 
 @pulumi.output_type
@@ -1363,16 +1680,24 @@ class SqlManagedInstanceK8sSpecResponse(dict):
     """
     def __init__(__self__, *,
                  replicas: Optional[int] = None,
-                 scheduling: Optional['outputs.K8sSchedulingResponse'] = None):
+                 scheduling: Optional['outputs.K8sSchedulingResponse'] = None,
+                 security: Optional['outputs.K8sSecurityResponse'] = None,
+                 settings: Optional['outputs.K8sSettingsResponse'] = None):
         """
         The kubernetes spec information.
         :param int replicas: This option specifies the number of SQL Managed Instance replicas that will be deployed in your Kubernetes cluster for high availability purposes. If sku.tier is BusinessCritical, allowed values are '2' or '3' with default of '3'. If sku.tier is GeneralPurpose, replicas must be '1'.
         :param 'K8sSchedulingResponse' scheduling: The kubernetes scheduling information.
+        :param 'K8sSecurityResponse' security: The kubernetes security information.
+        :param 'K8sSettingsResponse' settings: The kubernetes settings information.
         """
         if replicas is not None:
             pulumi.set(__self__, "replicas", replicas)
         if scheduling is not None:
             pulumi.set(__self__, "scheduling", scheduling)
+        if security is not None:
+            pulumi.set(__self__, "security", security)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
 
     @property
     @pulumi.getter
@@ -1389,6 +1714,22 @@ class SqlManagedInstanceK8sSpecResponse(dict):
         The kubernetes scheduling information.
         """
         return pulumi.get(self, "scheduling")
+
+    @property
+    @pulumi.getter
+    def security(self) -> Optional['outputs.K8sSecurityResponse']:
+        """
+        The kubernetes security information.
+        """
+        return pulumi.get(self, "security")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional['outputs.K8sSettingsResponse']:
+        """
+        The kubernetes settings information.
+        """
+        return pulumi.get(self, "settings")
 
 
 @pulumi.output_type

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a HubVirtualNetworkConnection.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetHubVirtualNetworkConnectionResult> InvokeAsync(GetHubVirtualNetworkConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHubVirtualNetworkConnectionResult>("azure-native:network:getHubVirtualNetworkConnection", args ?? new GetHubVirtualNetworkConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a HubVirtualNetworkConnection.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetHubVirtualNetworkConnectionResult> Invoke(GetHubVirtualNetworkConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHubVirtualNetworkConnectionResult>("azure-native:network:getHubVirtualNetworkConnection", args ?? new GetHubVirtualNetworkConnectionInvokeArgs(), options.WithDefaults());

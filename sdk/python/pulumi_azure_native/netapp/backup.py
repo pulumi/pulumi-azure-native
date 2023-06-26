@@ -162,7 +162,7 @@ class Backup(pulumi.CustomResource):
                  __props__=None):
         """
         Backup of a Volume
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +183,7 @@ class Backup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Backup of a Volume
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param BackupArgs args: The arguments to use to populate this resource's properties.
@@ -244,7 +244,7 @@ class Backup(pulumi.CustomResource):
             __props__.__dict__["size"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20211001:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220301:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220901:Backup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20211001:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220301:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220901:Backup"), pulumi.Alias(type_="azure-native:netapp/v20221101:Backup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backup, __self__).__init__(
             'azure-native:netapp:Backup',

@@ -14,14 +14,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.healthbot.v20201208 as __v20201208
-    v20201208 = __v20201208
     import pulumi_azure_native.healthbot.v20201208preview as __v20201208preview
     v20201208preview = __v20201208preview
-    import pulumi_azure_native.healthbot.v20220808 as __v20220808
-    v20220808 = __v20220808
+    import pulumi_azure_native.healthbot.v20230501 as __v20230501
+    v20230501 = __v20230501
 else:
-    v20201208 = _utilities.lazy_import('pulumi_azure_native.healthbot.v20201208')
     v20201208preview = _utilities.lazy_import('pulumi_azure_native.healthbot.v20201208preview')
-    v20220808 = _utilities.lazy_import('pulumi_azure_native.healthbot.v20220808')
+    v20230501 = _utilities.lazy_import('pulumi_azure_native.healthbot.v20230501')
 

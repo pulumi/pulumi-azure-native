@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a packet capture session by name.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
 
@@ -91,7 +91,7 @@ export interface GetPacketCaptureResult {
 }
 /**
  * Gets a packet capture session by name.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
     return pulumi.output(args).apply((a: any) => getPacketCapture(a, opts))

@@ -15,11 +15,6 @@ export const getNamespaceVirtualNetworkRule: typeof import("./getNamespaceVirtua
 export const getNamespaceVirtualNetworkRuleOutput: typeof import("./getNamespaceVirtualNetworkRule").getNamespaceVirtualNetworkRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getNamespaceVirtualNetworkRule","getNamespaceVirtualNetworkRuleOutput"], () => require("./getNamespaceVirtualNetworkRule"));
 
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
 export { NamespaceIpFilterRuleArgs } from "./namespaceIpFilterRule";
 export type NamespaceIpFilterRule = import("./namespaceIpFilterRule").NamespaceIpFilterRule;
 export const NamespaceIpFilterRule: typeof import("./namespaceIpFilterRule").NamespaceIpFilterRule = null as any;
@@ -29,11 +24,6 @@ export { NamespaceVirtualNetworkRuleArgs } from "./namespaceVirtualNetworkRule";
 export type NamespaceVirtualNetworkRule = import("./namespaceVirtualNetworkRule").NamespaceVirtualNetworkRule;
 export const NamespaceVirtualNetworkRule: typeof import("./namespaceVirtualNetworkRule").NamespaceVirtualNetworkRule = null as any;
 utilities.lazyLoad(exports, ["NamespaceVirtualNetworkRule"], () => require("./namespaceVirtualNetworkRule"));
-
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 
 // Export enums:
@@ -47,8 +37,6 @@ const _module = {
                 return new NamespaceIpFilterRule(name, <any>undefined, { urn })
             case "azure-native:servicebus/v20180101preview:NamespaceVirtualNetworkRule":
                 return new NamespaceVirtualNetworkRule(name, <any>undefined, { urn })
-            case "azure-native:servicebus/v20180101preview:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

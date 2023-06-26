@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     {
         /// <summary>
         /// Get installed extension details by extension id.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:agfoodplatform:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get installed extension details by extension id.
-        /// Azure REST API version: 2021-09-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:agfoodplatform:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
@@ -30,16 +30,16 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public sealed class GetExtensionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// DataManagerForAgriculture resource name.
+        /// </summary>
+        [Input("dataManagerForAgricultureResourceName", required: true)]
+        public string DataManagerForAgricultureResourceName { get; set; } = null!;
+
+        /// <summary>
         /// Id of extension resource.
         /// </summary>
         [Input("extensionId", required: true)]
         public string ExtensionId { get; set; } = null!;
-
-        /// <summary>
-        /// FarmBeats resource name.
-        /// </summary>
-        [Input("farmBeatsResourceName", required: true)]
-        public string FarmBeatsResourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -56,16 +56,16 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public sealed class GetExtensionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// DataManagerForAgriculture resource name.
+        /// </summary>
+        [Input("dataManagerForAgricultureResourceName", required: true)]
+        public Input<string> DataManagerForAgricultureResourceName { get; set; } = null!;
+
+        /// <summary>
         /// Id of extension resource.
         /// </summary>
         [Input("extensionId", required: true)]
         public Input<string> ExtensionId { get; set; } = null!;
-
-        /// <summary>
-        /// FarmBeats resource name.
-        /// </summary>
-        [Input("farmBeatsResourceName", required: true)]
-        public Input<string> FarmBeatsResourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public sealed class GetExtensionResult
     {
         /// <summary>
-        /// Additional api properties.
+        /// Additional Api Properties.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ApiPropertiesResponse> AdditionalApiProperties;
         /// <summary>

@@ -48,7 +48,7 @@ export class NetworkToNetworkInterconnect extends pulumi.CustomResource {
     /**
      * Common properties for Layer2Configuration.
      */
-    public readonly layer2Configuration!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.NetworkToNetworkInterconnectPropertiesResponseLayer2Configuration | undefined>;
+    public readonly layer2Configuration!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.Layer2ConfigurationResponse | undefined>;
     /**
      * Common properties for Layer3Configuration.
      */
@@ -57,6 +57,10 @@ export class NetworkToNetworkInterconnect extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Type of NNI used. Example: CE | NPB
+     */
+    public readonly nniType!: pulumi.Output<string | undefined>;
     /**
      * Gets the provisioning state of the resource.
      */
@@ -98,10 +102,11 @@ export class NetworkToNetworkInterconnect extends pulumi.CustomResource {
                 throw new Error("Missing required property 'useOptionB'");
             }
             resourceInputs["isManagementType"] = args ? args.isManagementType : undefined;
-            resourceInputs["layer2Configuration"] = args ? (args.layer2Configuration ? pulumi.output(args.layer2Configuration).apply(inputs.managednetworkfabric.v20230201preview.networkToNetworkInterconnectPropertiesLayer2ConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["layer3Configuration"] = args ? (args.layer3Configuration ? pulumi.output(args.layer3Configuration).apply(inputs.managednetworkfabric.v20230201preview.layer3ConfigurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["layer2Configuration"] = args ? (args.layer2Configuration ? pulumi.output(args.layer2Configuration).apply(inputs.managednetworkfabric.v20230201preview.layer2ConfigurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["layer3Configuration"] = args ? args.layer3Configuration : undefined;
             resourceInputs["networkFabricName"] = args ? args.networkFabricName : undefined;
             resourceInputs["networkToNetworkInterconnectName"] = args ? args.networkToNetworkInterconnectName : undefined;
+            resourceInputs["nniType"] = (args ? args.nniType : undefined) ?? "CE";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["useOptionB"] = args ? args.useOptionB : undefined;
             resourceInputs["administrativeState"] = undefined /*out*/;
@@ -115,6 +120,7 @@ export class NetworkToNetworkInterconnect extends pulumi.CustomResource {
             resourceInputs["layer2Configuration"] = undefined /*out*/;
             resourceInputs["layer3Configuration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nniType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -138,7 +144,7 @@ export interface NetworkToNetworkInterconnectArgs {
     /**
      * Common properties for Layer2Configuration.
      */
-    layer2Configuration?: pulumi.Input<inputs.managednetworkfabric.v20230201preview.NetworkToNetworkInterconnectPropertiesLayer2ConfigurationArgs>;
+    layer2Configuration?: pulumi.Input<inputs.managednetworkfabric.v20230201preview.Layer2ConfigurationArgs>;
     /**
      * Common properties for Layer3Configuration.
      */
@@ -151,6 +157,10 @@ export interface NetworkToNetworkInterconnectArgs {
      * Name of the NetworkToNetworkInterconnectName
      */
     networkToNetworkInterconnectName?: pulumi.Input<string>;
+    /**
+     * Type of NNI used. Example: CE | NPB
+     */
+    nniType?: pulumi.Input<string | enums.managednetworkfabric.v20230201preview.NniType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

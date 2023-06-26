@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Get details of the specified snapshot
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:netapp:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get details of the specified snapshot
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:netapp:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());

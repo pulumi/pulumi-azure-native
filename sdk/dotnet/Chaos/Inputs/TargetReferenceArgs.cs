@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Chaos.Inputs
         /// Enum of the Target reference type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNative.Chaos.TargetReferenceType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Chaos.TargetReferenceType> Type { get; set; } = null!;
 
         public TargetReferenceArgs()
         {

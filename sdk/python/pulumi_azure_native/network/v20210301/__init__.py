@@ -10,7 +10,5 @@ from .custom_ip_prefix import *
 from .express_route_gateway import *
 from .get_custom_ip_prefix import *
 from .get_express_route_gateway import *
-from .get_virtual_network_gateway_nat_rule import *
-from .virtual_network_gateway_nat_rule import *
 from ._inputs import *
 from . import outputs

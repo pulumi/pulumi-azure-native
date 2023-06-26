@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
- * Azure REST API version: 2018-05-01.
+ * Azure REST API version: 2023-07-01-preview.
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
 
@@ -22,7 +22,7 @@ export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise
 
 export interface GetZoneArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -76,6 +76,14 @@ export interface GetZoneResult {
      */
     readonly resolutionVirtualNetworks?: outputs.network.SubResourceResponse[];
     /**
+     * The list of signing keys.
+     */
+    readonly signingKeys: outputs.network.SigningKeyResponse[];
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.network.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -90,7 +98,7 @@ export interface GetZoneResult {
 }
 /**
  * Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
- * Azure REST API version: 2018-05-01.
+ * Azure REST API version: 2023-07-01-preview.
  */
 export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
     return pulumi.output(args).apply((a: any) => getZone(a, opts))
@@ -98,7 +106,7 @@ export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptio
 
 export interface GetZoneOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

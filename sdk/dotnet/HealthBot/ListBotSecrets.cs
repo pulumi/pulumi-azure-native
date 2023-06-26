@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HealthBot
     {
         /// <summary>
         /// List all secrets of a HealthBot.
-        /// Azure REST API version: 2022-08-08.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Task<ListBotSecretsResult> InvokeAsync(ListBotSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBotSecretsResult>("azure-native:healthbot:listBotSecrets", args ?? new ListBotSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List all secrets of a HealthBot.
-        /// Azure REST API version: 2022-08-08.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Output<ListBotSecretsResult> Invoke(ListBotSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBotSecretsResult>("azure-native:healthbot:listBotSecrets", args ?? new ListBotSecretsInvokeArgs(), options.WithDefaults());

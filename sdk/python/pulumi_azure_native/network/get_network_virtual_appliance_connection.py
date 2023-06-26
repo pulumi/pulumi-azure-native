@@ -135,7 +135,7 @@ def get_network_virtual_appliance_connection(connection_name: Optional[str] = No
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkVirtualApplianceConnectionResult:
     """
     Retrieves the details of specified NVA connection.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str connection_name: The name of the NVA connection.
@@ -167,7 +167,7 @@ def get_network_virtual_appliance_connection_output(connection_name: Optional[pu
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkVirtualApplianceConnectionResult]:
     """
     Retrieves the details of specified NVA connection.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str connection_name: The name of the NVA connection.

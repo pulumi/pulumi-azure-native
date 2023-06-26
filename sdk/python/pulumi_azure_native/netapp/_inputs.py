@@ -1434,7 +1434,7 @@ class VolumeGroupVolumePropertiesArgs:
         :param pulumi.Input[bool] smb_continuously_available: Enables continuously available share property for smb volume. Only applicable for SMB volume
         :param pulumi.Input[bool] smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
         :param pulumi.Input[Union[str, 'SmbNonBrowsable']] smb_non_browsable: Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
-        :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
@@ -1939,7 +1939,7 @@ class VolumeGroupVolumePropertiesArgs:
     @pulumi.getter(name="snapshotDirectoryVisible")
     def snapshot_directory_visible(self) -> Optional[pulumi.Input[bool]]:
         """
-        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         """
         return pulumi.get(self, "snapshot_directory_visible")
 

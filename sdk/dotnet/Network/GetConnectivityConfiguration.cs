@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetConnectivityConfigurationResult> InvokeAsync(GetConnectivityConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectivityConfigurationResult>("azure-native:network:getConnectivityConfiguration", args ?? new GetConnectivityConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetConnectivityConfigurationResult> Invoke(GetConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectivityConfigurationResult>("azure-native:network:getConnectivityConfiguration", args ?? new GetConnectivityConfigurationInvokeArgs(), options.WithDefaults());
@@ -124,6 +124,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            string resourceGuid,
+
             Outputs.SystemDataResponse systemData,
 
             string type)
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNative.Network
             IsGlobal = isGlobal;
             Name = name;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             SystemData = systemData;
             Type = type;
         }

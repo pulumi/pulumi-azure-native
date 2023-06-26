@@ -22,7 +22,7 @@ class NetworkFabricControllerArgs:
                  ipv4_address_space: Optional[pulumi.Input[str]] = None,
                  ipv6_address_space: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input['NetworkFabricControllerPropertiesManagedResourceGroupConfigurationArgs']] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
                  network_fabric_controller_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workload_express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionInformationArgs']]]] = None):
@@ -34,7 +34,7 @@ class NetworkFabricControllerArgs:
         :param pulumi.Input[str] ipv4_address_space: IPv4 Network Fabric Controller Address Space.
         :param pulumi.Input[str] ipv6_address_space: IPv6 Network Fabric Controller Address Space.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['NetworkFabricControllerPropertiesManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: Managed Resource Group configuration properties.
+        :param pulumi.Input['ManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: Managed Resource Group configuration properties.
         :param pulumi.Input[str] network_fabric_controller_name: Name of the Network Fabric Controller
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionInformationArgs']]] workload_express_route_connections: As part of an update, the workload ExpressRoute CircuitID should be provided to create and Provision a NFC. This Express route is dedicated for Workload services. (This is a Mandatory attribute).
@@ -133,14 +133,14 @@ class NetworkFabricControllerArgs:
 
     @property
     @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['NetworkFabricControllerPropertiesManagedResourceGroupConfigurationArgs']]:
+    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]:
         """
         Managed Resource Group configuration properties.
         """
         return pulumi.get(self, "managed_resource_group_configuration")
 
     @managed_resource_group_configuration.setter
-    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['NetworkFabricControllerPropertiesManagedResourceGroupConfigurationArgs']]):
+    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]):
         pulumi.set(self, "managed_resource_group_configuration", value)
 
     @property
@@ -190,7 +190,7 @@ class NetworkFabricController(pulumi.CustomResource):
                  ipv4_address_space: Optional[pulumi.Input[str]] = None,
                  ipv6_address_space: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkFabricControllerPropertiesManagedResourceGroupConfigurationArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
                  network_fabric_controller_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -207,7 +207,7 @@ class NetworkFabricController(pulumi.CustomResource):
         :param pulumi.Input[str] ipv4_address_space: IPv4 Network Fabric Controller Address Space.
         :param pulumi.Input[str] ipv6_address_space: IPv6 Network Fabric Controller Address Space.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['NetworkFabricControllerPropertiesManagedResourceGroupConfigurationArgs']] managed_resource_group_configuration: Managed Resource Group configuration properties.
+        :param pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']] managed_resource_group_configuration: Managed Resource Group configuration properties.
         :param pulumi.Input[str] network_fabric_controller_name: Name of the Network Fabric Controller
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -243,7 +243,7 @@ class NetworkFabricController(pulumi.CustomResource):
                  ipv4_address_space: Optional[pulumi.Input[str]] = None,
                  ipv6_address_space: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkFabricControllerPropertiesManagedResourceGroupConfigurationArgs']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[pulumi.InputType['ManagedResourceGroupConfigurationArgs']]] = None,
                  network_fabric_controller_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -339,7 +339,7 @@ class NetworkFabricController(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="infrastructureServices")
-    def infrastructure_services(self) -> pulumi.Output['outputs.NetworkFabricControllerPropertiesResponseInfrastructureServices']:
+    def infrastructure_services(self) -> pulumi.Output['outputs.InfrastructureServicesResponse']:
         """
         InfrastructureServices IP ranges.
         """
@@ -371,7 +371,7 @@ class NetworkFabricController(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> pulumi.Output[Optional['outputs.NetworkFabricControllerPropertiesResponseManagedResourceGroupConfiguration']]:
+    def managed_resource_group_configuration(self) -> pulumi.Output[Optional['outputs.ManagedResourceGroupConfigurationResponse']]:
         """
         Managed Resource Group configuration properties.
         """
@@ -451,7 +451,7 @@ class NetworkFabricController(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workloadServices")
-    def workload_services(self) -> pulumi.Output['outputs.NetworkFabricControllerPropertiesResponseWorkloadServices']:
+    def workload_services(self) -> pulumi.Output['outputs.WorkloadServicesResponse']:
         """
         WorkloadServices IP ranges.
         """

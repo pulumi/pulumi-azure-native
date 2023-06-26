@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Consumption
 {
     /// <summary>
     /// A budget resource.
-    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-10-01
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2019-10-01
     /// </summary>
     [AzureNativeResourceType("azure-native:consumption:Budget")]
     public partial class Budget : global::Pulumi.CustomResource
@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.Consumption
                     new global::Pulumi.Alias { Type = "azure-native:consumption/v20211001:Budget"},
                     new global::Pulumi.Alias { Type = "azure-native:consumption/v20220901:Budget"},
                     new global::Pulumi.Alias { Type = "azure-native:consumption/v20230301:Budget"},
+                    new global::Pulumi.Alias { Type = "azure-native:consumption/v20230501:Budget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

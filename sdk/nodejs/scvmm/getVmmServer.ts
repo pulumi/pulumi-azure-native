@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements VMMServer GET method.
- * Azure REST API version: 2020-06-05-preview.
+ * Azure REST API version: 2022-05-21-preview.
  */
 export function getVmmServer(args: GetVmmServerArgs, opts?: pulumi.InvokeOptions): Promise<GetVmmServerResult> {
 
@@ -98,7 +98,7 @@ export interface GetVmmServerResult {
 }
 /**
  * Implements VMMServer GET method.
- * Azure REST API version: 2020-06-05-preview.
+ * Azure REST API version: 2022-05-21-preview.
  */
 export function getVmmServerOutput(args: GetVmmServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVmmServerResult> {
     return pulumi.output(args).apply((a: any) => getVmmServer(a, opts))

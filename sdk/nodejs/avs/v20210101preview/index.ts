@@ -10,20 +10,10 @@ export type Addon = import("./addon").Addon;
 export const Addon: typeof import("./addon").Addon = null as any;
 utilities.lazyLoad(exports, ["Addon"], () => require("./addon"));
 
-export { DatastoreArgs } from "./datastore";
-export type Datastore = import("./datastore").Datastore;
-export const Datastore: typeof import("./datastore").Datastore = null as any;
-utilities.lazyLoad(exports, ["Datastore"], () => require("./datastore"));
-
 export { GetAddonArgs, GetAddonResult, GetAddonOutputArgs } from "./getAddon";
 export const getAddon: typeof import("./getAddon").getAddon = null as any;
 export const getAddonOutput: typeof import("./getAddon").getAddonOutput = null as any;
 utilities.lazyLoad(exports, ["getAddon","getAddonOutput"], () => require("./getAddon"));
-
-export { GetDatastoreArgs, GetDatastoreResult, GetDatastoreOutputArgs } from "./getDatastore";
-export const getDatastore: typeof import("./getDatastore").getDatastore = null as any;
-export const getDatastoreOutput: typeof import("./getDatastore").getDatastoreOutput = null as any;
-utilities.lazyLoad(exports, ["getDatastore","getDatastoreOutput"], () => require("./getDatastore"));
 
 export { GetWorkloadNetworkDhcpArgs, GetWorkloadNetworkDhcpResult, GetWorkloadNetworkDhcpOutputArgs } from "./getWorkloadNetworkDhcp";
 export const getWorkloadNetworkDhcp: typeof import("./getWorkloadNetworkDhcp").getWorkloadNetworkDhcp = null as any;
@@ -45,8 +35,6 @@ const _module = {
         switch (type) {
             case "azure-native:avs/v20210101preview:Addon":
                 return new Addon(name, <any>undefined, { urn })
-            case "azure-native:avs/v20210101preview:Datastore":
-                return new Datastore(name, <any>undefined, { urn })
             case "azure-native:avs/v20210101preview:WorkloadNetworkDhcp":
                 return new WorkloadNetworkDhcp(name, <any>undefined, { urn })
             default:

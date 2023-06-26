@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines binding between a resource and role
- * Azure REST API version: 2023-04-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview
+ * Azure REST API version: 2023-05-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview
  */
 export class TrustedAccessRoleBinding extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class TrustedAccessRoleBinding extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20220502preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20220602preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20220802preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20220803preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20220902preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20221002preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20221102preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20230202preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20230302preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20230402preview:TrustedAccessRoleBinding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20220502preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20220602preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20220802preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20220803preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20220902preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20221002preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20221102preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20230202preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20230302preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20230402preview:TrustedAccessRoleBinding" }, { type: "azure-native:containerservice/v20230502preview:TrustedAccessRoleBinding" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrustedAccessRoleBinding.__pulumiType, name, resourceInputs, opts);
     }

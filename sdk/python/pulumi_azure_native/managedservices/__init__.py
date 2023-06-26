@@ -15,11 +15,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.managedservices.v20190901 as __v20190901
-    v20190901 = __v20190901
     import pulumi_azure_native.managedservices.v20221001 as __v20221001
     v20221001 = __v20221001
 else:
-    v20190901 = _utilities.lazy_import('pulumi_azure_native.managedservices.v20190901')
     v20221001 = _utilities.lazy_import('pulumi_azure_native.managedservices.v20221001')
 

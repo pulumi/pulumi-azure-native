@@ -62,7 +62,7 @@ def list_source_control_repositories(resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSourceControlRepositoriesResult:
     """
     Gets a list of repositories metadata.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -85,7 +85,7 @@ def list_source_control_repositories_output(resource_group_name: Optional[pulumi
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSourceControlRepositoriesResult]:
     """
     Gets a list of repositories metadata.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

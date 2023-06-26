@@ -161,7 +161,7 @@ def get_volume_quota_rule(account_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeQuotaRuleResult:
     """
     Get details of the specified quota rule
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -201,7 +201,7 @@ def get_volume_quota_rule_output(account_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeQuotaRuleResult]:
     """
     Get details of the specified quota rule
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account

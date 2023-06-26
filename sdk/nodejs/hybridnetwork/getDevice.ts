@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified device.
- * Azure REST API version: 2021-05-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
 
@@ -78,7 +78,7 @@ export interface GetDeviceResult {
 }
 /**
  * Gets information about the specified device.
- * Azure REST API version: 2021-05-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
     return pulumi.output(args).apply((a: any) => getDevice(a, opts))

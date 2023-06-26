@@ -7,10 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .addon import *
-from .datastore import *
 from .get_addon import *
-from .get_datastore import *
 from .get_workload_network_dhcp import *
 from .workload_network_dhcp import *
-from ._inputs import *
-from . import outputs

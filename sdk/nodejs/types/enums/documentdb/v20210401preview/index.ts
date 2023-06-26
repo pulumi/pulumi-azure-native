@@ -126,24 +126,3 @@ export const ServerVersion = {
  * Describes the ServerVersion of an a MongoDB account.
  */
 export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
-
-export const ServiceSize = {
-    Cosmos_D4s: "Cosmos.D4s",
-    Cosmos_D8s: "Cosmos.D8s",
-    Cosmos_D16s: "Cosmos.D16s",
-} as const;
-
-/**
- * Instance type for the service.
- */
-export type ServiceSize = (typeof ServiceSize)[keyof typeof ServiceSize];
-
-export const ServiceType = {
-    SqlDedicatedGateway: "SqlDedicatedGateway",
-    DataTransfer: "DataTransfer",
-} as const;
-
-/**
- * ServiceType for the service.
- */
-export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];

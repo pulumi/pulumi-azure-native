@@ -181,12 +181,12 @@ def get_role_definition(role_definition_id: Optional[str] = None,
                         scope: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleDefinitionResult:
     """
-    Get role definition by name (GUID).
-    Azure REST API version: 2022-04-01.
+    Get role definition by ID (GUID).
+    Azure REST API version: 2022-05-01-preview.
 
 
     :param str role_definition_id: The ID of the role definition.
-    :param str scope: The scope of the role definition.
+    :param str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     """
     __args__ = dict()
     __args__['roleDefinitionId'] = role_definition_id
@@ -214,11 +214,11 @@ def get_role_definition_output(role_definition_id: Optional[pulumi.Input[str]] =
                                scope: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleDefinitionResult]:
     """
-    Get role definition by name (GUID).
-    Azure REST API version: 2022-04-01.
+    Get role definition by ID (GUID).
+    Azure REST API version: 2022-05-01-preview.
 
 
     :param str role_definition_id: The ID of the role definition.
-    :param str scope: The scope of the role definition.
+    :param str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     """
     ...

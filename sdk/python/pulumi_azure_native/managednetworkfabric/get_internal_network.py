@@ -115,7 +115,7 @@ class GetInternalNetworkResult:
 
     @property
     @pulumi.getter(name="bgpConfiguration")
-    def bgp_configuration(self) -> Optional['outputs.InternalNetworkPatchablePropertiesResponseBgpConfiguration']:
+    def bgp_configuration(self) -> Optional['outputs.BgpConfigurationResponse']:
         """
         BGP configuration properties
         """
@@ -131,17 +131,17 @@ class GetInternalNetworkResult:
 
     @property
     @pulumi.getter(name="connectedIPv4Subnets")
-    def connected_i_pv4_subnets(self) -> Optional[Sequence['outputs.InternalNetworkPatchablePropertiesResponseConnectedIPv4Subnets']]:
+    def connected_i_pv4_subnets(self) -> Optional[Sequence['outputs.ConnectedSubnetResponse']]:
         """
-        List with object connectedIPv4Subnets.
+        List with object connected IPv4 Subnets.
         """
         return pulumi.get(self, "connected_i_pv4_subnets")
 
     @property
     @pulumi.getter(name="connectedIPv6Subnets")
-    def connected_i_pv6_subnets(self) -> Optional[Sequence['outputs.InternalNetworkPatchablePropertiesResponseConnectedIPv6Subnets']]:
+    def connected_i_pv6_subnets(self) -> Optional[Sequence['outputs.ConnectedSubnetResponse']]:
         """
-        List with object connectedIPv6Subnets.
+        List with object connected IPv6 Subnets.
         """
         return pulumi.get(self, "connected_i_pv6_subnets")
 
@@ -203,9 +203,9 @@ class GetInternalNetworkResult:
 
     @property
     @pulumi.getter(name="staticRouteConfiguration")
-    def static_route_configuration(self) -> Optional['outputs.InternalNetworkPatchablePropertiesResponseStaticRouteConfiguration']:
+    def static_route_configuration(self) -> Optional['outputs.StaticRouteConfigurationResponse']:
         """
-        staticRouteConfiguration model.
+        Static Route Configuration properties.
         """
         return pulumi.get(self, "static_route_configuration")
 

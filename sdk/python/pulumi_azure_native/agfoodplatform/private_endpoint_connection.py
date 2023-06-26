@@ -17,34 +17,34 @@ __all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
-                 farm_beats_resource_name: pulumi.Input[str],
+                 data_manager_for_agriculture_resource_name: pulumi.Input[str],
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
                  resource_group_name: pulumi.Input[str],
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
-        :param pulumi.Input[str] farm_beats_resource_name: FarmBeats resource name.
+        :param pulumi.Input[str] data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] private_endpoint_connection_name: Private endpoint connection name.
         """
-        pulumi.set(__self__, "farm_beats_resource_name", farm_beats_resource_name)
+        pulumi.set(__self__, "data_manager_for_agriculture_resource_name", data_manager_for_agriculture_resource_name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if private_endpoint_connection_name is not None:
             pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
 
     @property
-    @pulumi.getter(name="farmBeatsResourceName")
-    def farm_beats_resource_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="dataManagerForAgricultureResourceName")
+    def data_manager_for_agriculture_resource_name(self) -> pulumi.Input[str]:
         """
-        FarmBeats resource name.
+        DataManagerForAgriculture resource name.
         """
-        return pulumi.get(self, "farm_beats_resource_name")
+        return pulumi.get(self, "data_manager_for_agriculture_resource_name")
 
-    @farm_beats_resource_name.setter
-    def farm_beats_resource_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "farm_beats_resource_name", value)
+    @data_manager_for_agriculture_resource_name.setter
+    def data_manager_for_agriculture_resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_manager_for_agriculture_resource_name", value)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -88,18 +88,18 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
+                 data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The private endpoint connection resource.
-        Azure REST API version: 2021-09-01-preview.
+        Azure REST API version: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] farm_beats_resource_name: FarmBeats resource name.
+        :param pulumi.Input[str] data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
         :param pulumi.Input[str] private_endpoint_connection_name: Private endpoint connection name.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -112,7 +112,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection resource.
-        Azure REST API version: 2021-09-01-preview.
+        Azure REST API version: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -129,7 +129,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
+                 data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -142,9 +142,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateEndpointConnectionArgs.__new__(PrivateEndpointConnectionArgs)
 
-            if farm_beats_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'farm_beats_resource_name'")
-            __props__.__dict__["farm_beats_resource_name"] = farm_beats_resource_name
+            if data_manager_for_agriculture_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_manager_for_agriculture_resource_name'")
+            __props__.__dict__["data_manager_for_agriculture_resource_name"] = data_manager_for_agriculture_resource_name
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
             if private_link_service_connection_state is None and not opts.urn:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")
@@ -158,7 +158,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:agfoodplatform/v20210901preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:agfoodplatform/v20210901preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:agfoodplatform/v20230601preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:agfoodplatform:PrivateEndpointConnection',

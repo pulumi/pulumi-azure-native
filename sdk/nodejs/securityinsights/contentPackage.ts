@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Package in Azure Security Insights.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export class ContentPackage extends pulumi.CustomResource {
     /**
@@ -224,7 +224,7 @@ export class ContentPackage extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:ContentPackage" }, { type: "azure-native:securityinsights/v20230501preview:ContentPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:ContentPackage" }, { type: "azure-native:securityinsights/v20230501preview:ContentPackage" }, { type: "azure-native:securityinsights/v20230601preview:ContentPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContentPackage.__pulumiType, name, resourceInputs, opts);
     }

@@ -148,7 +148,7 @@ class Account(pulumi.CustomResource):
                  __props__=None):
         """
         NetApp account resource
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +168,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NetApp account resource
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -216,7 +216,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20170815:Account"), pulumi.Alias(type_="azure-native:netapp/v20190501:Account"), pulumi.Alias(type_="azure-native:netapp/v20190601:Account"), pulumi.Alias(type_="azure-native:netapp/v20190701:Account"), pulumi.Alias(type_="azure-native:netapp/v20190801:Account"), pulumi.Alias(type_="azure-native:netapp/v20191001:Account"), pulumi.Alias(type_="azure-native:netapp/v20191101:Account"), pulumi.Alias(type_="azure-native:netapp/v20200201:Account"), pulumi.Alias(type_="azure-native:netapp/v20200301:Account"), pulumi.Alias(type_="azure-native:netapp/v20200501:Account"), pulumi.Alias(type_="azure-native:netapp/v20200601:Account"), pulumi.Alias(type_="azure-native:netapp/v20200701:Account"), pulumi.Alias(type_="azure-native:netapp/v20200801:Account"), pulumi.Alias(type_="azure-native:netapp/v20200901:Account"), pulumi.Alias(type_="azure-native:netapp/v20201101:Account"), pulumi.Alias(type_="azure-native:netapp/v20201201:Account"), pulumi.Alias(type_="azure-native:netapp/v20210201:Account"), pulumi.Alias(type_="azure-native:netapp/v20210401:Account"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Account"), pulumi.Alias(type_="azure-native:netapp/v20210601:Account"), pulumi.Alias(type_="azure-native:netapp/v20210801:Account"), pulumi.Alias(type_="azure-native:netapp/v20211001:Account"), pulumi.Alias(type_="azure-native:netapp/v20220101:Account"), pulumi.Alias(type_="azure-native:netapp/v20220301:Account"), pulumi.Alias(type_="azure-native:netapp/v20220501:Account"), pulumi.Alias(type_="azure-native:netapp/v20220901:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20170815:Account"), pulumi.Alias(type_="azure-native:netapp/v20190501:Account"), pulumi.Alias(type_="azure-native:netapp/v20190601:Account"), pulumi.Alias(type_="azure-native:netapp/v20190701:Account"), pulumi.Alias(type_="azure-native:netapp/v20190801:Account"), pulumi.Alias(type_="azure-native:netapp/v20191001:Account"), pulumi.Alias(type_="azure-native:netapp/v20191101:Account"), pulumi.Alias(type_="azure-native:netapp/v20200201:Account"), pulumi.Alias(type_="azure-native:netapp/v20200301:Account"), pulumi.Alias(type_="azure-native:netapp/v20200501:Account"), pulumi.Alias(type_="azure-native:netapp/v20200601:Account"), pulumi.Alias(type_="azure-native:netapp/v20200701:Account"), pulumi.Alias(type_="azure-native:netapp/v20200801:Account"), pulumi.Alias(type_="azure-native:netapp/v20200901:Account"), pulumi.Alias(type_="azure-native:netapp/v20201101:Account"), pulumi.Alias(type_="azure-native:netapp/v20201201:Account"), pulumi.Alias(type_="azure-native:netapp/v20210201:Account"), pulumi.Alias(type_="azure-native:netapp/v20210401:Account"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Account"), pulumi.Alias(type_="azure-native:netapp/v20210601:Account"), pulumi.Alias(type_="azure-native:netapp/v20210801:Account"), pulumi.Alias(type_="azure-native:netapp/v20211001:Account"), pulumi.Alias(type_="azure-native:netapp/v20220101:Account"), pulumi.Alias(type_="azure-native:netapp/v20220301:Account"), pulumi.Alias(type_="azure-native:netapp/v20220501:Account"), pulumi.Alias(type_="azure-native:netapp/v20220901:Account"), pulumi.Alias(type_="azure-native:netapp/v20221101:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:netapp:Account',

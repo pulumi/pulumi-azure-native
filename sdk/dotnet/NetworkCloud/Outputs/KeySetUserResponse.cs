@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
     public sealed class KeySetUserResponse
     {
         /// <summary>
-        /// The Azure Active Directory user name (email name).
+        /// The user name that will be used for access.
         /// </summary>
         public readonly string AzureUserName;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The SSH public key for this user.
+        /// The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         /// </summary>
         public readonly Outputs.SshPublicKeyResponse SshPublicKey;
 

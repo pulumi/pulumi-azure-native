@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.Insights.Inputs
             set => _actionGroups = value;
         }
 
+        [Input("actionProperties")]
+        private InputMap<string>? _actionProperties;
+
+        /// <summary>
+        /// The properties of an action properties.
+        /// </summary>
+        public InputMap<string> ActionProperties
+        {
+            get => _actionProperties ?? (_actionProperties = new InputMap<string>());
+            set => _actionProperties = value;
+        }
+
         [Input("customProperties")]
         private InputMap<string>? _customProperties;
 

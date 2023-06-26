@@ -206,7 +206,7 @@ def get_p2s_vpn_gateway(gateway_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnGatewayResult:
     """
     Retrieves the details of a virtual wan p2s vpn gateway.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str gateway_name: The name of the gateway.
@@ -241,7 +241,7 @@ def get_p2s_vpn_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetP2sVpnGatewayResult]:
     """
     Retrieves the details of a virtual wan p2s vpn gateway.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str gateway_name: The name of the gateway.

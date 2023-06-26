@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The scheduled query rule resource.
- * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2018-04-16
+ * Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2018-04-16
  */
 export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
@@ -79,6 +79,10 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      */
     public readonly evaluationFrequency!: pulumi.Output<string | undefined>;
     /**
+     * The identity of the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.insights.IdentityResponse | undefined>;
+    /**
      * True if alert rule is legacy Log Analytic rule
      */
     public /*out*/ readonly isLegacyLogAnalyticsRule!: pulumi.Output<boolean>;
@@ -106,6 +110,10 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      * If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
      */
     public readonly overrideQueryTimeRange!: pulumi.Output<string | undefined>;
+    /**
+     * Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+     */
+    public readonly ruleResolveConfiguration!: pulumi.Output<outputs.insights.RuleResolveConfigurationResponse | undefined>;
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
@@ -170,12 +178,14 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["muteActionsDuration"] = args ? args.muteActionsDuration : undefined;
             resourceInputs["overrideQueryTimeRange"] = args ? args.overrideQueryTimeRange : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["ruleResolveConfiguration"] = args ? args.ruleResolveConfiguration : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["severity"] = args ? args.severity : undefined;
             resourceInputs["skipQueryValidation"] = args ? args.skipQueryValidation : undefined;
@@ -200,6 +210,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["evaluationFrequency"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
             resourceInputs["isWorkspaceAlertsStorageConfigured"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -207,6 +218,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             resourceInputs["muteActionsDuration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["overrideQueryTimeRange"] = undefined /*out*/;
+            resourceInputs["ruleResolveConfiguration"] = undefined /*out*/;
             resourceInputs["scopes"] = undefined /*out*/;
             resourceInputs["severity"] = undefined /*out*/;
             resourceInputs["skipQueryValidation"] = undefined /*out*/;
@@ -260,6 +272,10 @@ export interface ScheduledQueryRuleArgs {
      */
     evaluationFrequency?: pulumi.Input<string>;
     /**
+     * The identity of the resource.
+     */
+    identity?: pulumi.Input<inputs.insights.IdentityArgs>;
+    /**
      * Indicates the type of scheduled query rule. The default is LogAlert.
      */
     kind?: pulumi.Input<string | enums.insights.Kind>;
@@ -283,6 +299,10 @@ export interface ScheduledQueryRuleArgs {
      * The name of the rule.
      */
     ruleName?: pulumi.Input<string>;
+    /**
+     * Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+     */
+    ruleResolveConfiguration?: pulumi.Input<inputs.insights.RuleResolveConfigurationArgs>;
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */

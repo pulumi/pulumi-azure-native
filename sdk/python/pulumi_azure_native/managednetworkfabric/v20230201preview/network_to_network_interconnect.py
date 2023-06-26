@@ -21,18 +21,20 @@ class NetworkToNetworkInterconnectArgs:
                  network_fabric_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  use_option_b: pulumi.Input[Union[str, 'BooleanEnumProperty']],
-                 layer2_configuration: Optional[pulumi.Input['NetworkToNetworkInterconnectPropertiesLayer2ConfigurationArgs']] = None,
+                 layer2_configuration: Optional[pulumi.Input['Layer2ConfigurationArgs']] = None,
                  layer3_configuration: Optional[pulumi.Input['Layer3ConfigurationArgs']] = None,
-                 network_to_network_interconnect_name: Optional[pulumi.Input[str]] = None):
+                 network_to_network_interconnect_name: Optional[pulumi.Input[str]] = None,
+                 nni_type: Optional[pulumi.Input[Union[str, 'NniType']]] = None):
         """
         The set of arguments for constructing a NetworkToNetworkInterconnect resource.
         :param pulumi.Input[Union[str, 'BooleanEnumProperty']] is_management_type: Configuration to use NNI for Infrastructure Management. Example: True/False.
         :param pulumi.Input[str] network_fabric_name: Name of the NetworkFabric.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'BooleanEnumProperty']] use_option_b: Based on this parameter the layer2/layer3 is made as mandatory. Example: True/False
-        :param pulumi.Input['NetworkToNetworkInterconnectPropertiesLayer2ConfigurationArgs'] layer2_configuration: Common properties for Layer2Configuration.
+        :param pulumi.Input['Layer2ConfigurationArgs'] layer2_configuration: Common properties for Layer2Configuration.
         :param pulumi.Input['Layer3ConfigurationArgs'] layer3_configuration: Common properties for Layer3Configuration.
         :param pulumi.Input[str] network_to_network_interconnect_name: Name of the NetworkToNetworkInterconnectName
+        :param pulumi.Input[Union[str, 'NniType']] nni_type: Type of NNI used. Example: CE | NPB
         """
         pulumi.set(__self__, "is_management_type", is_management_type)
         pulumi.set(__self__, "network_fabric_name", network_fabric_name)
@@ -44,6 +46,10 @@ class NetworkToNetworkInterconnectArgs:
             pulumi.set(__self__, "layer3_configuration", layer3_configuration)
         if network_to_network_interconnect_name is not None:
             pulumi.set(__self__, "network_to_network_interconnect_name", network_to_network_interconnect_name)
+        if nni_type is None:
+            nni_type = 'CE'
+        if nni_type is not None:
+            pulumi.set(__self__, "nni_type", nni_type)
 
     @property
     @pulumi.getter(name="isManagementType")
@@ -95,14 +101,14 @@ class NetworkToNetworkInterconnectArgs:
 
     @property
     @pulumi.getter(name="layer2Configuration")
-    def layer2_configuration(self) -> Optional[pulumi.Input['NetworkToNetworkInterconnectPropertiesLayer2ConfigurationArgs']]:
+    def layer2_configuration(self) -> Optional[pulumi.Input['Layer2ConfigurationArgs']]:
         """
         Common properties for Layer2Configuration.
         """
         return pulumi.get(self, "layer2_configuration")
 
     @layer2_configuration.setter
-    def layer2_configuration(self, value: Optional[pulumi.Input['NetworkToNetworkInterconnectPropertiesLayer2ConfigurationArgs']]):
+    def layer2_configuration(self, value: Optional[pulumi.Input['Layer2ConfigurationArgs']]):
         pulumi.set(self, "layer2_configuration", value)
 
     @property
@@ -129,6 +135,18 @@ class NetworkToNetworkInterconnectArgs:
     def network_to_network_interconnect_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_to_network_interconnect_name", value)
 
+    @property
+    @pulumi.getter(name="nniType")
+    def nni_type(self) -> Optional[pulumi.Input[Union[str, 'NniType']]]:
+        """
+        Type of NNI used. Example: CE | NPB
+        """
+        return pulumi.get(self, "nni_type")
+
+    @nni_type.setter
+    def nni_type(self, value: Optional[pulumi.Input[Union[str, 'NniType']]]):
+        pulumi.set(self, "nni_type", value)
+
 
 class NetworkToNetworkInterconnect(pulumi.CustomResource):
     @overload
@@ -136,10 +154,11 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_management_type: Optional[pulumi.Input[Union[str, 'BooleanEnumProperty']]] = None,
-                 layer2_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkToNetworkInterconnectPropertiesLayer2ConfigurationArgs']]] = None,
+                 layer2_configuration: Optional[pulumi.Input[pulumi.InputType['Layer2ConfigurationArgs']]] = None,
                  layer3_configuration: Optional[pulumi.Input[pulumi.InputType['Layer3ConfigurationArgs']]] = None,
                  network_fabric_name: Optional[pulumi.Input[str]] = None,
                  network_to_network_interconnect_name: Optional[pulumi.Input[str]] = None,
+                 nni_type: Optional[pulumi.Input[Union[str, 'NniType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  use_option_b: Optional[pulumi.Input[Union[str, 'BooleanEnumProperty']]] = None,
                  __props__=None):
@@ -149,10 +168,11 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'BooleanEnumProperty']] is_management_type: Configuration to use NNI for Infrastructure Management. Example: True/False.
-        :param pulumi.Input[pulumi.InputType['NetworkToNetworkInterconnectPropertiesLayer2ConfigurationArgs']] layer2_configuration: Common properties for Layer2Configuration.
+        :param pulumi.Input[pulumi.InputType['Layer2ConfigurationArgs']] layer2_configuration: Common properties for Layer2Configuration.
         :param pulumi.Input[pulumi.InputType['Layer3ConfigurationArgs']] layer3_configuration: Common properties for Layer3Configuration.
         :param pulumi.Input[str] network_fabric_name: Name of the NetworkFabric.
         :param pulumi.Input[str] network_to_network_interconnect_name: Name of the NetworkToNetworkInterconnectName
+        :param pulumi.Input[Union[str, 'NniType']] nni_type: Type of NNI used. Example: CE | NPB
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'BooleanEnumProperty']] use_option_b: Based on this parameter the layer2/layer3 is made as mandatory. Example: True/False
         """
@@ -181,10 +201,11 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_management_type: Optional[pulumi.Input[Union[str, 'BooleanEnumProperty']]] = None,
-                 layer2_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkToNetworkInterconnectPropertiesLayer2ConfigurationArgs']]] = None,
+                 layer2_configuration: Optional[pulumi.Input[pulumi.InputType['Layer2ConfigurationArgs']]] = None,
                  layer3_configuration: Optional[pulumi.Input[pulumi.InputType['Layer3ConfigurationArgs']]] = None,
                  network_fabric_name: Optional[pulumi.Input[str]] = None,
                  network_to_network_interconnect_name: Optional[pulumi.Input[str]] = None,
+                 nni_type: Optional[pulumi.Input[Union[str, 'NniType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  use_option_b: Optional[pulumi.Input[Union[str, 'BooleanEnumProperty']]] = None,
                  __props__=None):
@@ -205,6 +226,9 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
                 raise TypeError("Missing required property 'network_fabric_name'")
             __props__.__dict__["network_fabric_name"] = network_fabric_name
             __props__.__dict__["network_to_network_interconnect_name"] = network_to_network_interconnect_name
+            if nni_type is None:
+                nni_type = 'CE'
+            __props__.__dict__["nni_type"] = nni_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -245,6 +269,7 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
         __props__.__dict__["layer2_configuration"] = None
         __props__.__dict__["layer3_configuration"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["nni_type"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
@@ -269,7 +294,7 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="layer2Configuration")
-    def layer2_configuration(self) -> pulumi.Output[Optional['outputs.NetworkToNetworkInterconnectPropertiesResponseLayer2Configuration']]:
+    def layer2_configuration(self) -> pulumi.Output[Optional['outputs.Layer2ConfigurationResponse']]:
         """
         Common properties for Layer2Configuration.
         """
@@ -290,6 +315,14 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nniType")
+    def nni_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of NNI used. Example: CE | NPB
+        """
+        return pulumi.get(self, "nni_type")
 
     @property
     @pulumi.getter(name="provisioningState")

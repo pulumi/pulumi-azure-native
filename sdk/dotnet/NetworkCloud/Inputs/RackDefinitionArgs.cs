@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Inputs
     public sealed class RackDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The zone name used for this rack when created.
+        /// The zone name used for this rack when created. Availability zones are used for workload placement.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }

@@ -118,7 +118,7 @@ class GetNetworkFabricResult:
     @pulumi.getter(name="ipv4Prefix")
     def ipv4_prefix(self) -> Optional[str]:
         """
-        IPv4Prefix for Management Network. Default value : 10.1.0.0/19.
+        IPv4Prefix for Management Network. Example: 10.1.0.0/19.
         """
         return pulumi.get(self, "ipv4_prefix")
 
@@ -126,7 +126,7 @@ class GetNetworkFabricResult:
     @pulumi.getter(name="ipv6Prefix")
     def ipv6_prefix(self) -> Optional[str]:
         """
-        IPv6Prefix for Management Network. Default value 3FFE:FFFF:0:CD40::/59.
+        IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
         """
         return pulumi.get(self, "ipv6_prefix")
 
@@ -156,7 +156,7 @@ class GetNetworkFabricResult:
 
     @property
     @pulumi.getter(name="managementNetworkConfiguration")
-    def management_network_configuration(self) -> 'outputs.NetworkFabricPropertiesResponseManagementNetworkConfiguration':
+    def management_network_configuration(self) -> 'outputs.ManagementNetworkConfigurationResponse':
         """
         Configuration to be used to setup the management network.
         """
@@ -252,7 +252,7 @@ class GetNetworkFabricResult:
 
     @property
     @pulumi.getter(name="terminalServerConfiguration")
-    def terminal_server_configuration(self) -> 'outputs.NetworkFabricPropertiesResponseTerminalServerConfiguration':
+    def terminal_server_configuration(self) -> 'outputs.TerminalServerConfigurationResponse':
         """
         Network and credentials configuration currently applied to terminal server.
         """

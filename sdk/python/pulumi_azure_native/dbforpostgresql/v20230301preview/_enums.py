@@ -174,6 +174,7 @@ class ServerVersion(str, Enum):
     """
     PostgreSQL Server version.
     """
+    SERVER_VERSION_15 = "15"
     SERVER_VERSION_14 = "14"
     SERVER_VERSION_13 = "13"
     SERVER_VERSION_12 = "12"

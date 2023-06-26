@@ -11,8 +11,9 @@ from .external_network import *
 from .get_access_control_list import *
 from .get_external_network import *
 from .get_internal_network import *
-from .get_ip_community_list import *
-from .get_ip_prefix_list import *
+from .get_ip_community import *
+from .get_ip_extended_community import *
+from .get_ip_prefix import *
 from .get_l2_isolation_domain import *
 from .get_l3_isolation_domain import *
 from .get_network_device import *
@@ -25,8 +26,9 @@ from .get_network_rack import *
 from .get_network_to_network_interconnect import *
 from .get_route_policy import *
 from .internal_network import *
-from .ip_community_list import *
-from .ip_prefix_list import *
+from .ip_community import *
+from .ip_extended_community import *
+from .ip_prefix import *
 from .l2_isolation_domain import *
 from .l3_isolation_domain import *
 from .network_device import *

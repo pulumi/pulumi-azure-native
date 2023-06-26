@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines binding between a resource and role
- * Azure REST API version: 2023-04-02-preview.
+ * Azure REST API version: 2023-05-02-preview.
  */
 export function getTrustedAccessRoleBinding(args: GetTrustedAccessRoleBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustedAccessRoleBindingResult> {
 
@@ -71,7 +71,7 @@ export interface GetTrustedAccessRoleBindingResult {
 }
 /**
  * Defines binding between a resource and role
- * Azure REST API version: 2023-04-02-preview.
+ * Azure REST API version: 2023-05-02-preview.
  */
 export function getTrustedAccessRoleBindingOutput(args: GetTrustedAccessRoleBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedAccessRoleBindingResult> {
     return pulumi.output(args).apply((a: any) => getTrustedAccessRoleBinding(a, opts))

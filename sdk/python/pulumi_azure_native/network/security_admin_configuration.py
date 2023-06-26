@@ -112,7 +112,7 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         Defines the security admin configuration
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the security admin configuration
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param SecurityAdminConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -173,9 +173,10 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20210501preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220101:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220201preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220401preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220501:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220701:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220901:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20221101:SecurityAdminConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20210501preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220101:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220201preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220401preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220501:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220701:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220901:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20221101:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20230201:SecurityAdminConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityAdminConfiguration, __self__).__init__(
             'azure-native:network:SecurityAdminConfiguration',
@@ -204,6 +205,7 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SecurityAdminConfiguration(resource_name, opts=opts, __props__=__props__)
@@ -247,6 +249,14 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[str]:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="systemData")

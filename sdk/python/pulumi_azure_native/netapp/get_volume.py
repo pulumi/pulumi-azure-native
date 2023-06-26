@@ -22,7 +22,10 @@ class GetVolumeResult:
     """
     Volume resource
     """
-    def __init__(__self__, avs_data_store=None, backup_id=None, baremetal_tenant_id=None, capacity_pool_resource_id=None, clone_progress=None, cool_access=None, coolness_period=None, creation_token=None, data_protection=None, data_store_resource_id=None, default_group_quota_in_ki_bs=None, default_user_quota_in_ki_bs=None, delete_base_snapshot=None, enable_subvolumes=None, encrypted=None, encryption_key_source=None, etag=None, export_policy=None, file_access_logs=None, file_system_id=None, id=None, is_default_quota_enabled=None, is_large_volume=None, is_restoring=None, kerberos_enabled=None, key_vault_private_endpoint_resource_id=None, ldap_enabled=None, location=None, maximum_number_of_files=None, mount_targets=None, name=None, network_features=None, network_sibling_set_id=None, placement_rules=None, protocol_types=None, provisioned_availability_zone=None, provisioning_state=None, proximity_placement_group=None, security_style=None, service_level=None, smb_access_based_enumeration=None, smb_continuously_available=None, smb_encryption=None, smb_non_browsable=None, snapshot_directory_visible=None, snapshot_id=None, storage_to_network_proximity=None, subnet_id=None, system_data=None, t2_network=None, tags=None, throughput_mibps=None, type=None, unix_permissions=None, usage_threshold=None, volume_group_name=None, volume_spec_name=None, volume_type=None, zones=None):
+    def __init__(__self__, actual_throughput_mibps=None, avs_data_store=None, backup_id=None, baremetal_tenant_id=None, capacity_pool_resource_id=None, clone_progress=None, cool_access=None, coolness_period=None, creation_token=None, data_protection=None, data_store_resource_id=None, default_group_quota_in_ki_bs=None, default_user_quota_in_ki_bs=None, delete_base_snapshot=None, enable_subvolumes=None, encrypted=None, encryption_key_source=None, etag=None, export_policy=None, file_access_logs=None, file_system_id=None, id=None, is_default_quota_enabled=None, is_large_volume=None, is_restoring=None, kerberos_enabled=None, key_vault_private_endpoint_resource_id=None, ldap_enabled=None, location=None, maximum_number_of_files=None, mount_targets=None, name=None, network_features=None, network_sibling_set_id=None, originating_resource_id=None, placement_rules=None, protocol_types=None, provisioned_availability_zone=None, provisioning_state=None, proximity_placement_group=None, security_style=None, service_level=None, smb_access_based_enumeration=None, smb_continuously_available=None, smb_encryption=None, smb_non_browsable=None, snapshot_directory_visible=None, snapshot_id=None, storage_to_network_proximity=None, subnet_id=None, system_data=None, t2_network=None, tags=None, throughput_mibps=None, type=None, unix_permissions=None, usage_threshold=None, volume_group_name=None, volume_spec_name=None, volume_type=None, zones=None):
+        if actual_throughput_mibps and not isinstance(actual_throughput_mibps, float):
+            raise TypeError("Expected argument 'actual_throughput_mibps' to be a float")
+        pulumi.set(__self__, "actual_throughput_mibps", actual_throughput_mibps)
         if avs_data_store and not isinstance(avs_data_store, str):
             raise TypeError("Expected argument 'avs_data_store' to be a str")
         pulumi.set(__self__, "avs_data_store", avs_data_store)
@@ -122,6 +125,9 @@ class GetVolumeResult:
         if network_sibling_set_id and not isinstance(network_sibling_set_id, str):
             raise TypeError("Expected argument 'network_sibling_set_id' to be a str")
         pulumi.set(__self__, "network_sibling_set_id", network_sibling_set_id)
+        if originating_resource_id and not isinstance(originating_resource_id, str):
+            raise TypeError("Expected argument 'originating_resource_id' to be a str")
+        pulumi.set(__self__, "originating_resource_id", originating_resource_id)
         if placement_rules and not isinstance(placement_rules, list):
             raise TypeError("Expected argument 'placement_rules' to be a list")
         pulumi.set(__self__, "placement_rules", placement_rules)
@@ -200,6 +206,14 @@ class GetVolumeResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="actualThroughputMibps")
+    def actual_throughput_mibps(self) -> float:
+        """
+        Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
+        """
+        return pulumi.get(self, "actual_throughput_mibps")
 
     @property
     @pulumi.getter(name="avsDataStore")
@@ -466,6 +480,14 @@ class GetVolumeResult:
         return pulumi.get(self, "network_sibling_set_id")
 
     @property
+    @pulumi.getter(name="originatingResourceId")
+    def originating_resource_id(self) -> str:
+        """
+        Id of the snapshot or backup that the volume is restored from.
+        """
+        return pulumi.get(self, "originating_resource_id")
+
+    @property
     @pulumi.getter(name="placementRules")
     def placement_rules(self) -> Optional[Sequence['outputs.PlacementKeyValuePairsResponse']]:
         """
@@ -557,7 +579,7 @@ class GetVolumeResult:
     @pulumi.getter(name="snapshotDirectoryVisible")
     def snapshot_directory_visible(self) -> Optional[bool]:
         """
-        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         """
         return pulumi.get(self, "snapshot_directory_visible")
 
@@ -677,6 +699,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         if False:
             yield self
         return GetVolumeResult(
+            actual_throughput_mibps=self.actual_throughput_mibps,
             avs_data_store=self.avs_data_store,
             backup_id=self.backup_id,
             baremetal_tenant_id=self.baremetal_tenant_id,
@@ -710,6 +733,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             name=self.name,
             network_features=self.network_features,
             network_sibling_set_id=self.network_sibling_set_id,
+            originating_resource_id=self.originating_resource_id,
             placement_rules=self.placement_rules,
             protocol_types=self.protocol_types,
             provisioned_availability_zone=self.provisioned_availability_zone,
@@ -745,7 +769,7 @@ def get_volume(account_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
     Get the details of the specified volume
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -762,6 +786,7 @@ def get_volume(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
+        actual_throughput_mibps=__ret__.actual_throughput_mibps,
         avs_data_store=__ret__.avs_data_store,
         backup_id=__ret__.backup_id,
         baremetal_tenant_id=__ret__.baremetal_tenant_id,
@@ -795,6 +820,7 @@ def get_volume(account_name: Optional[str] = None,
         name=__ret__.name,
         network_features=__ret__.network_features,
         network_sibling_set_id=__ret__.network_sibling_set_id,
+        originating_resource_id=__ret__.originating_resource_id,
         placement_rules=__ret__.placement_rules,
         protocol_types=__ret__.protocol_types,
         provisioned_availability_zone=__ret__.provisioned_availability_zone,
@@ -831,7 +857,7 @@ def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Get the details of the specified volume
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account

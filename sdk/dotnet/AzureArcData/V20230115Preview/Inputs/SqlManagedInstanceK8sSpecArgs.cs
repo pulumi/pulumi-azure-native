@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.AzureArcData.V20230115Preview.Inputs
         [Input("scheduling")]
         public Input<Inputs.K8sSchedulingArgs>? Scheduling { get; set; }
 
+        /// <summary>
+        /// The kubernetes security information.
+        /// </summary>
+        [Input("security")]
+        public Input<Inputs.K8sSecurityArgs>? Security { get; set; }
+
+        /// <summary>
+        /// The kubernetes settings information.
+        /// </summary>
+        [Input("settings")]
+        public Input<Inputs.K8sSettingsArgs>? Settings { get; set; }
+
         public SqlManagedInstanceK8sSpecArgs()
         {
         }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Inputs
     public sealed class SshPublicKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The public ssh key of the user.
+        /// The SSH public key data.
         /// </summary>
         [Input("keyData", required: true)]
         public Input<string> KeyData { get; set; } = null!;

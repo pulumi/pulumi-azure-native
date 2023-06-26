@@ -8,19 +8,12 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
     'AccessConnectorPropertiesResponse',
-    'AddressSpaceResponse',
     'IdentityDataResponse',
-    'PrivateEndpointConnectionPropertiesResponse',
-    'PrivateEndpointResponse',
-    'PrivateLinkServiceConnectionStateResponse',
     'SystemDataResponse',
-    'VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork',
-    'VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork',
 ]
 
 @pulumi.output_type
@@ -56,46 +49,6 @@ class AccessConnectorPropertiesResponse(dict):
         Provisioning status of the accessConnector.
         """
         return pulumi.get(self, "provisioning_state")
-
-
-@pulumi.output_type
-class AddressSpaceResponse(dict):
-    """
-    AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "addressPrefixes":
-            suggest = "address_prefixes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AddressSpaceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AddressSpaceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AddressSpaceResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 address_prefixes: Optional[Sequence[str]] = None):
-        """
-        AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
-        :param Sequence[str] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
-        """
-        if address_prefixes is not None:
-            pulumi.set(__self__, "address_prefixes", address_prefixes)
-
-    @property
-    @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Optional[Sequence[str]]:
-        """
-        A list of address blocks reserved for this virtual network in CIDR notation.
-        """
-        return pulumi.get(self, "address_prefixes")
 
 
 @pulumi.output_type
@@ -159,171 +112,6 @@ class IdentityDataResponse(dict):
         The identity type.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class PrivateEndpointConnectionPropertiesResponse(dict):
-    """
-    The properties of a private endpoint connection
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "privateLinkServiceConnectionState":
-            suggest = "private_link_service_connection_state"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "groupIds":
-            suggest = "group_ids"
-        elif key == "privateEndpoint":
-            suggest = "private_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
-                 provisioning_state: str,
-                 group_ids: Optional[Sequence[str]] = None,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
-        """
-        The properties of a private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Private endpoint connection state
-        :param str provisioning_state: Provisioning state of the private endpoint connection.
-        :param Sequence[str] group_ids: GroupIds from the private link service resource.
-        :param 'PrivateEndpointResponse' private_endpoint: Private endpoint
-        """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
-        """
-        Private endpoint connection state
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Provisioning state of the private endpoint connection.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[Sequence[str]]:
-        """
-        GroupIds from the private link service resource.
-        """
-        return pulumi.get(self, "group_ids")
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
-        """
-        Private endpoint
-        """
-        return pulumi.get(self, "private_endpoint")
-
-
-@pulumi.output_type
-class PrivateEndpointResponse(dict):
-    """
-    The private endpoint property of a private endpoint connection
-    """
-    def __init__(__self__, *,
-                 id: str):
-        """
-        The private endpoint property of a private endpoint connection
-        :param str id: The resource identifier.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The resource identifier.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class PrivateLinkServiceConnectionStateResponse(dict):
-    """
-    The current state of a private endpoint connection
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "actionsRequired":
-            suggest = "actions_required"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 status: str,
-                 actions_required: Optional[str] = None,
-                 description: Optional[str] = None):
-        """
-        The current state of a private endpoint connection
-        :param str status: The status of a private endpoint connection
-        :param str actions_required: Actions required for a private endpoint connection
-        :param str description: The description for the current state of a private endpoint connection
-        """
-        pulumi.set(__self__, "status", status)
-        if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        The status of a private endpoint connection
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[str]:
-        """
-        Actions required for a private endpoint connection
-        """
-        return pulumi.get(self, "actions_required")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description for the current state of a private endpoint connection
-        """
-        return pulumi.get(self, "description")
 
 
 @pulumi.output_type
@@ -434,51 +222,5 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
-class VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork(dict):
-    """
-     The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-    """
-    def __init__(__self__, *,
-                 id: Optional[str] = None):
-        """
-         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-        :param str id: The Id of the databricks virtual network.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The Id of the databricks virtual network.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork(dict):
-    """
-     The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-    """
-    def __init__(__self__, *,
-                 id: Optional[str] = None):
-        """
-         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-        :param str id: The Id of the remote virtual network.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The Id of the remote virtual network.
-        """
-        return pulumi.get(self, "id")
 
 

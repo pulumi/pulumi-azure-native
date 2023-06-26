@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetSubvolumeArgs, GetSubvolumeResult, GetSubvolumeOutputArgs } from "./getSubvolume";
-export const getSubvolume: typeof import("./getSubvolume").getSubvolume = null as any;
-export const getSubvolumeOutput: typeof import("./getSubvolume").getSubvolumeOutput = null as any;
-utilities.lazyLoad(exports, ["getSubvolume","getSubvolumeOutput"], () => require("./getSubvolume"));
-
 export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
@@ -19,11 +14,6 @@ export { GetVolumeGroupArgs, GetVolumeGroupResult, GetVolumeGroupOutputArgs } fr
 export const getVolumeGroup: typeof import("./getVolumeGroup").getVolumeGroup = null as any;
 export const getVolumeGroupOutput: typeof import("./getVolumeGroup").getVolumeGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getVolumeGroup","getVolumeGroupOutput"], () => require("./getVolumeGroup"));
-
-export { SubvolumeArgs } from "./subvolume";
-export type Subvolume = import("./subvolume").Subvolume;
-export const Subvolume: typeof import("./subvolume").Subvolume = null as any;
-utilities.lazyLoad(exports, ["Subvolume"], () => require("./subvolume"));
 
 export { VolumeArgs } from "./volume";
 export type Volume = import("./volume").Volume;
@@ -43,8 +33,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:netapp/v20211001:Subvolume":
-                return new Subvolume(name, <any>undefined, { urn })
             case "azure-native:netapp/v20211001:Volume":
                 return new Volume(name, <any>undefined, { urn })
             case "azure-native:netapp/v20211001:VolumeGroup":

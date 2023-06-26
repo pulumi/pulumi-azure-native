@@ -21,6 +21,14 @@ namespace Pulumi.AzureNative.Authorization.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Actions;
         /// <summary>
+        /// The conditions on the role definition. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+        /// </summary>
+        public readonly string Condition;
+        /// <summary>
+        /// Version of the condition. Currently the only accepted value is '2.0'
+        /// </summary>
+        public readonly string ConditionVersion;
+        /// <summary>
         /// Allowed Data actions.
         /// </summary>
         public readonly ImmutableArray<string> DataActions;
@@ -37,6 +45,10 @@ namespace Pulumi.AzureNative.Authorization.Outputs
         private PermissionResponse(
             ImmutableArray<string> actions,
 
+            string condition,
+
+            string conditionVersion,
+
             ImmutableArray<string> dataActions,
 
             ImmutableArray<string> notActions,
@@ -44,6 +56,8 @@ namespace Pulumi.AzureNative.Authorization.Outputs
             ImmutableArray<string> notDataActions)
         {
             Actions = actions;
+            Condition = condition;
+            ConditionVersion = conditionVersion;
             DataActions = dataActions;
             NotActions = notActions;
             NotDataActions = notDataActions;

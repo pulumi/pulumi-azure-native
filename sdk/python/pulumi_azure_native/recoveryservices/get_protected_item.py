@@ -127,7 +127,7 @@ def get_protected_item(container_name: Optional[str] = None,
     """
     Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
     call the GetItemOperationResult API.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str container_name: Container name associated with the backed up item.
@@ -168,7 +168,7 @@ def get_protected_item_output(container_name: Optional[pulumi.Input[str]] = None
     """
     Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
     call the GetItemOperationResult API.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str container_name: Container name associated with the backed up item.

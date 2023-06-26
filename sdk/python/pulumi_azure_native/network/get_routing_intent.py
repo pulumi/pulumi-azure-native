@@ -111,7 +111,7 @@ def get_routing_intent(resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoutingIntentResult:
     """
     Retrieves the details of a RoutingIntent.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The resource group name of the RoutingIntent.
@@ -141,7 +141,7 @@ def get_routing_intent_output(resource_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoutingIntentResult]:
     """
     Retrieves the details of a RoutingIntent.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The resource group name of the RoutingIntent.

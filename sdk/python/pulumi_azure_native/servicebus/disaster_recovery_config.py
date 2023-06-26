@@ -111,7 +111,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param DisasterRecoveryConfigArgs args: The arguments to use to populate this resource's properties.

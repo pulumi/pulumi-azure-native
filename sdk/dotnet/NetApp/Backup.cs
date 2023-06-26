@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Backup of a Volume
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Backup")]
     public partial class Backup : global::Pulumi.CustomResource
@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Backup"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Backup"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Backup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

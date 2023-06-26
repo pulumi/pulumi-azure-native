@@ -49,7 +49,7 @@ def list_device_registration_key(device_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeviceRegistrationKeyResult:
     """
     List the registration key for the device.
-    Azure REST API version: 2021-05-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str device_name: The name of the device resource.
@@ -71,7 +71,7 @@ def list_device_registration_key_output(device_name: Optional[pulumi.Input[str]]
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeviceRegistrationKeyResult]:
     """
     List the registration key for the device.
-    Azure REST API version: 2021-05-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str device_name: The name of the device resource.

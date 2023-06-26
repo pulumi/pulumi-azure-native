@@ -47,11 +47,11 @@ export interface GetNetworkFabricResult {
      */
     readonly id: string;
     /**
-     * IPv4Prefix for Management Network. Default value : 10.1.0.0/19.
+     * IPv4Prefix for Management Network. Example: 10.1.0.0/19.
      */
     readonly ipv4Prefix?: string;
     /**
-     * IPv6Prefix for Management Network. Default value 3FFE:FFFF:0:CD40::/59.
+     * IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
      */
     readonly ipv6Prefix?: string;
     /**
@@ -69,7 +69,7 @@ export interface GetNetworkFabricResult {
     /**
      * Configuration to be used to setup the management network.
      */
-    readonly managementNetworkConfiguration: outputs.managednetworkfabric.v20230201preview.NetworkFabricPropertiesResponseManagementNetworkConfiguration;
+    readonly managementNetworkConfiguration: outputs.managednetworkfabric.v20230201preview.ManagementNetworkConfigurationResponse;
     /**
      * The name of the resource
      */
@@ -117,7 +117,7 @@ export interface GetNetworkFabricResult {
     /**
      * Network and credentials configuration currently applied to terminal server.
      */
-    readonly terminalServerConfiguration: outputs.managednetworkfabric.v20230201preview.NetworkFabricPropertiesResponseTerminalServerConfiguration;
+    readonly terminalServerConfiguration: outputs.managednetworkfabric.v20230201preview.TerminalServerConfigurationResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

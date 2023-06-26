@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * HubVirtualNetworkConnection Resource.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
  */
 export class HubVirtualNetworkConnection extends pulumi.CustomResource {
     /**
@@ -111,7 +111,7 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
             resourceInputs["routingConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200501:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200601:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200701:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200801:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20201101:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20210201:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20210301:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20210501:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20210801:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20220101:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20220501:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20220701:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20220901:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20221101:HubVirtualNetworkConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200501:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200601:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200701:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200801:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20201101:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20210201:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20210301:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20210501:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20210801:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20220101:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20220501:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20220701:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20220901:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20221101:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20230201:HubVirtualNetworkConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HubVirtualNetworkConnection.__pulumiType, name, resourceInputs, opts);
     }

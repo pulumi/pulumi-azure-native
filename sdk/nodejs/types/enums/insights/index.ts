@@ -2,21 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20150401 from "./v20150401";
 import * as v20150501 from "./v20150501";
 import * as v20160301 from "./v20160301";
 import * as v20180301 from "./v20180301";
 import * as v20180416 from "./v20180416";
-import * as v20191101preview from "./v20191101preview";
 import * as v20200202 from "./v20200202";
 import * as v20200202preview from "./v20200202preview";
 import * as v20200501preview from "./v20200501preview";
 import * as v20201005preview from "./v20201005preview";
-import * as v20201020 from "./v20201020";
 import * as v20210308 from "./v20210308";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801 from "./v20210801";
-import * as v20210901preview from "./v20210901preview";
 import * as v20220401 from "./v20220401";
 import * as v20220601 from "./v20220601";
 import * as v20220615 from "./v20220615";
@@ -25,21 +21,17 @@ import * as v20221001 from "./v20221001";
 import * as v20230315preview from "./v20230315preview";
 
 export {
-    v20150401,
     v20150501,
     v20160301,
     v20180301,
     v20180416,
-    v20191101preview,
     v20200202,
     v20200202preview,
     v20200501preview,
     v20201005preview,
-    v20201020,
     v20210308,
     v20210701preview,
     v20210801,
-    v20210901preview,
     v20220401,
     v20220601,
     v20220615,
@@ -168,6 +160,17 @@ export const FlowType = {
  * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
  */
 export type FlowType = (typeof FlowType)[keyof typeof FlowType];
+
+export const IdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * Type of managed service identity.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const IngestionMode = {
     ApplicationInsights: "ApplicationInsights",

@@ -37,35 +37,20 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.azurestackhci.v20201001 as __v20201001
-    v20201001 = __v20201001
-    import pulumi_azure_native.azurestackhci.v20210101preview as __v20210101preview
-    v20210101preview = __v20210101preview
-    import pulumi_azure_native.azurestackhci.v20210701preview as __v20210701preview
-    v20210701preview = __v20210701preview
     import pulumi_azure_native.azurestackhci.v20210901preview as __v20210901preview
     v20210901preview = __v20210901preview
     import pulumi_azure_native.azurestackhci.v20220101 as __v20220101
     v20220101 = __v20220101
     import pulumi_azure_native.azurestackhci.v20220901 as __v20220901
     v20220901 = __v20220901
-    import pulumi_azure_native.azurestackhci.v20221001 as __v20221001
-    v20221001 = __v20221001
     import pulumi_azure_native.azurestackhci.v20221215preview as __v20221215preview
     v20221215preview = __v20221215preview
-    import pulumi_azure_native.azurestackhci.v20230201 as __v20230201
-    v20230201 = __v20230201
     import pulumi_azure_native.azurestackhci.v20230301 as __v20230301
     v20230301 = __v20230301
 else:
-    v20201001 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20201001')
-    v20210101preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20210101preview')
-    v20210701preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20210701preview')
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20210901preview')
     v20220101 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20220101')
     v20220901 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20220901')
-    v20221001 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20221001')
     v20221215preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20221215preview')
-    v20230201 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20230201')
     v20230301 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20230301')
 

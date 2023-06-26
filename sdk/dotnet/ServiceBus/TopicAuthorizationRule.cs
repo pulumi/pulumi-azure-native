@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Description of a namespace authorization rule.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:TopicAuthorizationRule")]
     public partial class TopicAuthorizationRule : global::Pulumi.CustomResource
@@ -122,14 +122,14 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("rights", required: true)]
-        private InputList<Pulumi.AzureNative.ServiceBus.AccessRights>? _rights;
+        private InputList<Union<string, Pulumi.AzureNative.ServiceBus.AccessRights>>? _rights;
 
         /// <summary>
         /// The rights associated with the rule.
         /// </summary>
-        public InputList<Pulumi.AzureNative.ServiceBus.AccessRights> Rights
+        public InputList<Union<string, Pulumi.AzureNative.ServiceBus.AccessRights>> Rights
         {
-            get => _rights ?? (_rights = new InputList<Pulumi.AzureNative.ServiceBus.AccessRights>());
+            get => _rights ?? (_rights = new InputList<Union<string, Pulumi.AzureNative.ServiceBus.AccessRights>>());
             set => _rights = value;
         }
 

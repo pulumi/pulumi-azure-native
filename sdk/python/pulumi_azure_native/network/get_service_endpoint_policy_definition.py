@@ -134,7 +134,7 @@ def get_service_endpoint_policy_definition(resource_group_name: Optional[str] = 
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEndpointPolicyDefinitionResult:
     """
     Get the specified service endpoint policy definitions from service endpoint policy.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -166,7 +166,7 @@ def get_service_endpoint_policy_definition_output(resource_group_name: Optional[
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceEndpointPolicyDefinitionResult]:
     """
     Get the specified service endpoint policy definitions from service endpoint policy.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.

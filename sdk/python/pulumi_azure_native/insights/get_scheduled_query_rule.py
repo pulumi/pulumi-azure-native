@@ -22,7 +22,7 @@ class GetScheduledQueryRuleResult:
     """
     The scheduled query rule resource.
     """
-    def __init__(__self__, actions=None, auto_mitigate=None, check_workspace_alerts_storage_configured=None, created_with_api_version=None, criteria=None, description=None, display_name=None, enabled=None, etag=None, evaluation_frequency=None, id=None, is_legacy_log_analytics_rule=None, is_workspace_alerts_storage_configured=None, kind=None, location=None, mute_actions_duration=None, name=None, override_query_time_range=None, scopes=None, severity=None, skip_query_validation=None, system_data=None, tags=None, target_resource_types=None, type=None, window_size=None):
+    def __init__(__self__, actions=None, auto_mitigate=None, check_workspace_alerts_storage_configured=None, created_with_api_version=None, criteria=None, description=None, display_name=None, enabled=None, etag=None, evaluation_frequency=None, id=None, identity=None, is_legacy_log_analytics_rule=None, is_workspace_alerts_storage_configured=None, kind=None, location=None, mute_actions_duration=None, name=None, override_query_time_range=None, rule_resolve_configuration=None, scopes=None, severity=None, skip_query_validation=None, system_data=None, tags=None, target_resource_types=None, type=None, window_size=None):
         if actions and not isinstance(actions, dict):
             raise TypeError("Expected argument 'actions' to be a dict")
         pulumi.set(__self__, "actions", actions)
@@ -56,6 +56,9 @@ class GetScheduledQueryRuleResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if is_legacy_log_analytics_rule and not isinstance(is_legacy_log_analytics_rule, bool):
             raise TypeError("Expected argument 'is_legacy_log_analytics_rule' to be a bool")
         pulumi.set(__self__, "is_legacy_log_analytics_rule", is_legacy_log_analytics_rule)
@@ -77,6 +80,9 @@ class GetScheduledQueryRuleResult:
         if override_query_time_range and not isinstance(override_query_time_range, str):
             raise TypeError("Expected argument 'override_query_time_range' to be a str")
         pulumi.set(__self__, "override_query_time_range", override_query_time_range)
+        if rule_resolve_configuration and not isinstance(rule_resolve_configuration, dict):
+            raise TypeError("Expected argument 'rule_resolve_configuration' to be a dict")
+        pulumi.set(__self__, "rule_resolve_configuration", rule_resolve_configuration)
         if scopes and not isinstance(scopes, list):
             raise TypeError("Expected argument 'scopes' to be a list")
         pulumi.set(__self__, "scopes", scopes)
@@ -191,6 +197,14 @@ class GetScheduledQueryRuleResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
     @pulumi.getter(name="isLegacyLogAnalyticsRule")
     def is_legacy_log_analytics_rule(self) -> bool:
         """
@@ -245,6 +259,14 @@ class GetScheduledQueryRuleResult:
         If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
         """
         return pulumi.get(self, "override_query_time_range")
+
+    @property
+    @pulumi.getter(name="ruleResolveConfiguration")
+    def rule_resolve_configuration(self) -> Optional['outputs.RuleResolveConfigurationResponse']:
+        """
+        Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "rule_resolve_configuration")
 
     @property
     @pulumi.getter
@@ -328,6 +350,7 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
             etag=self.etag,
             evaluation_frequency=self.evaluation_frequency,
             id=self.id,
+            identity=self.identity,
             is_legacy_log_analytics_rule=self.is_legacy_log_analytics_rule,
             is_workspace_alerts_storage_configured=self.is_workspace_alerts_storage_configured,
             kind=self.kind,
@@ -335,6 +358,7 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
             mute_actions_duration=self.mute_actions_duration,
             name=self.name,
             override_query_time_range=self.override_query_time_range,
+            rule_resolve_configuration=self.rule_resolve_configuration,
             scopes=self.scopes,
             severity=self.severity,
             skip_query_validation=self.skip_query_validation,
@@ -350,7 +374,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledQueryRuleResult:
     """
     Retrieve an scheduled query rule definition.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2023-03-15-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -374,6 +398,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
         etag=__ret__.etag,
         evaluation_frequency=__ret__.evaluation_frequency,
         id=__ret__.id,
+        identity=__ret__.identity,
         is_legacy_log_analytics_rule=__ret__.is_legacy_log_analytics_rule,
         is_workspace_alerts_storage_configured=__ret__.is_workspace_alerts_storage_configured,
         kind=__ret__.kind,
@@ -381,6 +406,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
         mute_actions_duration=__ret__.mute_actions_duration,
         name=__ret__.name,
         override_query_time_range=__ret__.override_query_time_range,
+        rule_resolve_configuration=__ret__.rule_resolve_configuration,
         scopes=__ret__.scopes,
         severity=__ret__.severity,
         skip_query_validation=__ret__.skip_query_validation,
@@ -397,7 +423,7 @@ def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryRuleResult]:
     """
     Retrieve an scheduled query rule definition.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2023-03-15-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

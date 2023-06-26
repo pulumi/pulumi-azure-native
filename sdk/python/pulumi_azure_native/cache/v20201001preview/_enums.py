@@ -5,18 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'PrivateEndpointServiceConnectionStatus',
     'SkuName',
 ]
-
-
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 class SkuName(str, Enum):

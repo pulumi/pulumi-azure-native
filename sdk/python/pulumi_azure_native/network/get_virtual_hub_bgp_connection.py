@@ -147,7 +147,7 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubBgpConnectionResult:
     """
     Retrieves the details of a Virtual Hub Bgp Connection.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str connection_name: The name of the connection.
@@ -180,7 +180,7 @@ def get_virtual_hub_bgp_connection_output(connection_name: Optional[pulumi.Input
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubBgpConnectionResult]:
     """
     Retrieves the details of a Virtual Hub Bgp Connection.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str connection_name: The name of the connection.

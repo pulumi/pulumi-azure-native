@@ -12,148 +12,119 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ErrorResponse',
-    'ErrorResponseInnerError',
-    'ManagedRGConfigurationResponse',
-    'MonitorPropertiesResponseErrors',
-    'SystemDataResponse',
-    'UserAssignedIdentityResponse',
-    'UserAssignedServiceIdentityResponse',
+    'DiskDetailsResponse',
+    'DiskSkuResponse',
+    'DiskVolumeConfigurationResponse',
+    'SAPAvailabilityZonePairResponse',
+    'SAPDiskConfigurationResponse',
+    'SAPSupportedSkuResponse',
 ]
 
 @pulumi.output_type
-class ErrorResponse(dict):
+class DiskDetailsResponse(dict):
     """
-    Standard error object.
+    The supported disk size details for a disk type.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "innerError":
-            suggest = "inner_error"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ErrorResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ErrorResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ErrorResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 code: str,
-                 details: Sequence['outputs.ErrorResponse'],
-                 inner_error: 'outputs.ErrorResponseInnerError',
-                 message: str,
-                 target: str):
+                 disk_tier: Optional[str] = None,
+                 iops_read_write: Optional[float] = None,
+                 maximum_supported_disk_count: Optional[float] = None,
+                 mbps_read_write: Optional[float] = None,
+                 minimum_supported_disk_count: Optional[float] = None,
+                 size_gb: Optional[float] = None,
+                 sku: Optional['outputs.DiskSkuResponse'] = None):
         """
-        Standard error object.
-        :param str code: Server-defined set of error codes.
-        :param Sequence['ErrorResponse'] details: Array of details about specific errors that led to this reported error.
-        :param 'ErrorResponseInnerError' inner_error: Object containing more specific information than  the current object about the error.
-        :param str message: Human-readable representation of the error.
-        :param str target: Target of the error.
+        The supported disk size details for a disk type.
+        :param str disk_tier: The disk tier, e.g. P10, E10.
+        :param float iops_read_write: The disk Iops.
+        :param float maximum_supported_disk_count: The maximum supported disk count.
+        :param float mbps_read_write: The disk provisioned throughput in MBps.
+        :param float minimum_supported_disk_count: The minimum supported disk count.
+        :param float size_gb: The disk size in GB.
+        :param 'DiskSkuResponse' sku: The disk sku.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "inner_error", inner_error)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        if disk_tier is not None:
+            pulumi.set(__self__, "disk_tier", disk_tier)
+        if iops_read_write is not None:
+            pulumi.set(__self__, "iops_read_write", iops_read_write)
+        if maximum_supported_disk_count is not None:
+            pulumi.set(__self__, "maximum_supported_disk_count", maximum_supported_disk_count)
+        if mbps_read_write is not None:
+            pulumi.set(__self__, "mbps_read_write", mbps_read_write)
+        if minimum_supported_disk_count is not None:
+            pulumi.set(__self__, "minimum_supported_disk_count", minimum_supported_disk_count)
+        if size_gb is not None:
+            pulumi.set(__self__, "size_gb", size_gb)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter(name="diskTier")
+    def disk_tier(self) -> Optional[str]:
+        """
+        The disk tier, e.g. P10, E10.
+        """
+        return pulumi.get(self, "disk_tier")
+
+    @property
+    @pulumi.getter(name="iopsReadWrite")
+    def iops_read_write(self) -> Optional[float]:
+        """
+        The disk Iops.
+        """
+        return pulumi.get(self, "iops_read_write")
+
+    @property
+    @pulumi.getter(name="maximumSupportedDiskCount")
+    def maximum_supported_disk_count(self) -> Optional[float]:
+        """
+        The maximum supported disk count.
+        """
+        return pulumi.get(self, "maximum_supported_disk_count")
+
+    @property
+    @pulumi.getter(name="mbpsReadWrite")
+    def mbps_read_write(self) -> Optional[float]:
+        """
+        The disk provisioned throughput in MBps.
+        """
+        return pulumi.get(self, "mbps_read_write")
+
+    @property
+    @pulumi.getter(name="minimumSupportedDiskCount")
+    def minimum_supported_disk_count(self) -> Optional[float]:
+        """
+        The minimum supported disk count.
+        """
+        return pulumi.get(self, "minimum_supported_disk_count")
+
+    @property
+    @pulumi.getter(name="sizeGB")
+    def size_gb(self) -> Optional[float]:
+        """
+        The disk size in GB.
+        """
+        return pulumi.get(self, "size_gb")
 
     @property
     @pulumi.getter
-    def code(self) -> str:
+    def sku(self) -> Optional['outputs.DiskSkuResponse']:
         """
-        Server-defined set of error codes.
+        The disk sku.
         """
-        return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter
-    def details(self) -> Sequence['outputs.ErrorResponse']:
-        """
-        Array of details about specific errors that led to this reported error.
-        """
-        return pulumi.get(self, "details")
-
-    @property
-    @pulumi.getter(name="innerError")
-    def inner_error(self) -> 'outputs.ErrorResponseInnerError':
-        """
-        Object containing more specific information than  the current object about the error.
-        """
-        return pulumi.get(self, "inner_error")
-
-    @property
-    @pulumi.getter
-    def message(self) -> str:
-        """
-        Human-readable representation of the error.
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def target(self) -> str:
-        """
-        Target of the error.
-        """
-        return pulumi.get(self, "target")
+        return pulumi.get(self, "sku")
 
 
 @pulumi.output_type
-class ErrorResponseInnerError(dict):
+class DiskSkuResponse(dict):
     """
-    Object containing more specific information than  the current object about the error.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "innerError":
-            suggest = "inner_error"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ErrorResponseInnerError. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ErrorResponseInnerError.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ErrorResponseInnerError.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 inner_error: Optional['outputs.ErrorResponse'] = None):
-        """
-        Object containing more specific information than  the current object about the error.
-        :param 'ErrorResponse' inner_error: Standard error object.
-        """
-        if inner_error is not None:
-            pulumi.set(__self__, "inner_error", inner_error)
-
-    @property
-    @pulumi.getter(name="innerError")
-    def inner_error(self) -> Optional['outputs.ErrorResponse']:
-        """
-        Standard error object.
-        """
-        return pulumi.get(self, "inner_error")
-
-
-@pulumi.output_type
-class ManagedRGConfigurationResponse(dict):
-    """
-    Managed resource group configuration
+    The disk sku.
     """
     def __init__(__self__, *,
                  name: Optional[str] = None):
         """
-        Managed resource group configuration
-        :param str name: Managed resource group name
+        The disk sku.
+        :param str name: Defines the disk sku name.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -162,304 +133,172 @@ class ManagedRGConfigurationResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Managed resource group name
+        Defines the disk sku name.
         """
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
-class MonitorPropertiesResponseErrors(dict):
+class DiskVolumeConfigurationResponse(dict):
     """
-    Defines the SAP monitor errors.
+    The disk configuration required for the selected volume.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "innerError":
-            suggest = "inner_error"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MonitorPropertiesResponseErrors. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MonitorPropertiesResponseErrors.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MonitorPropertiesResponseErrors.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 code: str,
-                 details: Sequence['outputs.ErrorResponse'],
-                 inner_error: 'outputs.ErrorResponseInnerError',
-                 message: str,
-                 target: str):
+                 count: Optional[float] = None,
+                 size_gb: Optional[float] = None,
+                 sku: Optional['outputs.DiskSkuResponse'] = None):
         """
-        Defines the SAP monitor errors.
-        :param str code: Server-defined set of error codes.
-        :param Sequence['ErrorResponse'] details: Array of details about specific errors that led to this reported error.
-        :param 'ErrorResponseInnerError' inner_error: Object containing more specific information than  the current object about the error.
-        :param str message: Human-readable representation of the error.
-        :param str target: Target of the error.
+        The disk configuration required for the selected volume.
+        :param float count: The total number of disks required for the concerned volume.
+        :param float size_gb: The disk size in GB.
+        :param 'DiskSkuResponse' sku: The disk SKU details.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "inner_error", inner_error)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if size_gb is not None:
+            pulumi.set(__self__, "size_gb", size_gb)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
 
     @property
     @pulumi.getter
-    def code(self) -> str:
+    def count(self) -> Optional[float]:
         """
-        Server-defined set of error codes.
+        The total number of disks required for the concerned volume.
         """
-        return pulumi.get(self, "code")
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="sizeGB")
+    def size_gb(self) -> Optional[float]:
+        """
+        The disk size in GB.
+        """
+        return pulumi.get(self, "size_gb")
 
     @property
     @pulumi.getter
-    def details(self) -> Sequence['outputs.ErrorResponse']:
+    def sku(self) -> Optional['outputs.DiskSkuResponse']:
         """
-        Array of details about specific errors that led to this reported error.
+        The disk SKU details.
         """
-        return pulumi.get(self, "details")
-
-    @property
-    @pulumi.getter(name="innerError")
-    def inner_error(self) -> 'outputs.ErrorResponseInnerError':
-        """
-        Object containing more specific information than  the current object about the error.
-        """
-        return pulumi.get(self, "inner_error")
-
-    @property
-    @pulumi.getter
-    def message(self) -> str:
-        """
-        Human-readable representation of the error.
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def target(self) -> str:
-        """
-        Target of the error.
-        """
-        return pulumi.get(self, "target")
+        return pulumi.get(self, "sku")
 
 
 @pulumi.output_type
-class SystemDataResponse(dict):
+class SAPAvailabilityZonePairResponse(dict):
     """
-    Metadata pertaining to creation and last modification of the resource.
+    The SAP Availability Zone Pair.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 created_at: Optional[str] = None,
-                 created_by: Optional[str] = None,
-                 created_by_type: Optional[str] = None,
-                 last_modified_at: Optional[str] = None,
-                 last_modified_by: Optional[str] = None,
-                 last_modified_by_type: Optional[str] = None):
+                 zone_a: Optional[float] = None,
+                 zone_b: Optional[float] = None):
         """
-        Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The timestamp of resource creation (UTC).
-        :param str created_by: The identity that created the resource.
-        :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC)
-        :param str last_modified_by: The identity that last modified the resource.
-        :param str last_modified_by_type: The type of identity that last modified the resource.
+        The SAP Availability Zone Pair.
+        :param float zone_a: The zone A.
+        :param float zone_b: The zone B.
         """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+        if zone_a is not None:
+            pulumi.set(__self__, "zone_a", zone_a)
+        if zone_b is not None:
+            pulumi.set(__self__, "zone_b", zone_b)
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
+    @pulumi.getter(name="zoneA")
+    def zone_a(self) -> Optional[float]:
         """
-        The timestamp of resource creation (UTC).
+        The zone A.
         """
-        return pulumi.get(self, "created_at")
+        return pulumi.get(self, "zone_a")
 
     @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
+    @pulumi.getter(name="zoneB")
+    def zone_b(self) -> Optional[float]:
         """
-        The identity that created the resource.
+        The zone B.
         """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
+        return pulumi.get(self, "zone_b")
 
 
 @pulumi.output_type
-class UserAssignedIdentityResponse(dict):
+class SAPDiskConfigurationResponse(dict):
     """
-    User assigned identity properties
+    The SAP Disk Configuration contains 'recommended disk' details and list of supported disks detail for a volume type.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
+                 recommended_configuration: Optional['outputs.DiskVolumeConfigurationResponse'] = None,
+                 supported_configurations: Optional[Sequence['outputs.DiskDetailsResponse']] = None):
         """
-        User assigned identity properties
-        :param str client_id: The client ID of the assigned identity.
-        :param str principal_id: The principal ID of the assigned identity.
+        The SAP Disk Configuration contains 'recommended disk' details and list of supported disks detail for a volume type.
+        :param 'DiskVolumeConfigurationResponse' recommended_configuration: The recommended disk details for a given VM Sku.
+        :param Sequence['DiskDetailsResponse'] supported_configurations: The list of supported disks for a given VM Sku.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        if recommended_configuration is not None:
+            pulumi.set(__self__, "recommended_configuration", recommended_configuration)
+        if supported_configurations is not None:
+            pulumi.set(__self__, "supported_configurations", supported_configurations)
 
     @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    @pulumi.getter(name="recommendedConfiguration")
+    def recommended_configuration(self) -> Optional['outputs.DiskVolumeConfigurationResponse']:
         """
-        The client ID of the assigned identity.
+        The recommended disk details for a given VM Sku.
         """
-        return pulumi.get(self, "client_id")
+        return pulumi.get(self, "recommended_configuration")
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
+    @pulumi.getter(name="supportedConfigurations")
+    def supported_configurations(self) -> Optional[Sequence['outputs.DiskDetailsResponse']]:
         """
-        The principal ID of the assigned identity.
+        The list of supported disks for a given VM Sku.
         """
-        return pulumi.get(self, "principal_id")
+        return pulumi.get(self, "supported_configurations")
 
 
 @pulumi.output_type
-class UserAssignedServiceIdentityResponse(dict):
+class SAPSupportedSkuResponse(dict):
     """
-    Managed service identity (user assigned identities)
+    The SAP supported SKU.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "userAssignedIdentities":
-            suggest = "user_assigned_identities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAssignedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserAssignedServiceIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserAssignedServiceIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 type: str,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+                 is_app_server_certified: Optional[bool] = None,
+                 is_database_certified: Optional[bool] = None,
+                 vm_sku: Optional[str] = None):
         """
-        Managed service identity (user assigned identities)
-        :param str type: Type of manage identity
-        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: User assigned identities dictionary
+        The SAP supported SKU.
+        :param bool is_app_server_certified: True if the Sku is certified for App server in the SAP system.
+        :param bool is_database_certified: True if the Sku is certified for Database server in the SAP system.
+        :param str vm_sku: The VM Sku.
         """
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+        if is_app_server_certified is not None:
+            pulumi.set(__self__, "is_app_server_certified", is_app_server_certified)
+        if is_database_certified is not None:
+            pulumi.set(__self__, "is_database_certified", is_database_certified)
+        if vm_sku is not None:
+            pulumi.set(__self__, "vm_sku", vm_sku)
 
     @property
-    @pulumi.getter
-    def type(self) -> str:
+    @pulumi.getter(name="isAppServerCertified")
+    def is_app_server_certified(self) -> Optional[bool]:
         """
-        Type of manage identity
+        True if the Sku is certified for App server in the SAP system.
         """
-        return pulumi.get(self, "type")
+        return pulumi.get(self, "is_app_server_certified")
 
     @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+    @pulumi.getter(name="isDatabaseCertified")
+    def is_database_certified(self) -> Optional[bool]:
         """
-        User assigned identities dictionary
+        True if the Sku is certified for Database server in the SAP system.
         """
-        return pulumi.get(self, "user_assigned_identities")
+        return pulumi.get(self, "is_database_certified")
+
+    @property
+    @pulumi.getter(name="vmSku")
+    def vm_sku(self) -> Optional[str]:
+        """
+        The VM Sku.
+        """
+        return pulumi.get(self, "vm_sku")
 
 

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A common class for general resource information.
-    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkGateway")]
     public partial class VirtualNetworkGateway : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("activeActive")]
         public Output<bool?> ActiveActive { get; private set; } = null!;
+
+        /// <summary>
+        /// Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+        /// </summary>
+        [Output("adminState")]
+        public Output<string?> AdminState { get; private set; } = null!;
 
         /// <summary>
         /// Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
@@ -259,6 +265,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualNetworkGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualNetworkGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualNetworkGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:VirtualNetworkGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -287,6 +294,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("activeActive")]
         public Input<bool>? ActiveActive { get; set; }
+
+        /// <summary>
+        /// Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+        /// </summary>
+        [Input("adminState")]
+        public InputUnion<string, Pulumi.AzureNative.Network.AdminState>? AdminState { get; set; }
 
         /// <summary>
         /// Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.

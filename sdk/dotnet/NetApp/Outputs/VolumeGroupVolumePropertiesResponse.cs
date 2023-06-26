@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
     public sealed class VolumeGroupVolumePropertiesResponse
     {
         /// <summary>
+        /// Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
+        /// </summary>
+        public readonly double ActualThroughputMibps;
+        /// <summary>
         /// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         /// </summary>
         public readonly string? AvsDataStore;
@@ -141,6 +145,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string NetworkSiblingSetId;
         /// <summary>
+        /// Id of the snapshot or backup that the volume is restored from.
+        /// </summary>
+        public readonly string OriginatingResourceId;
+        /// <summary>
         /// Application specific placement rules for the particular volume
         /// </summary>
         public readonly ImmutableArray<Outputs.PlacementKeyValuePairsResponse> PlacementRules;
@@ -185,7 +193,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string? SmbNonBrowsable;
         /// <summary>
-        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         /// </summary>
         public readonly bool? SnapshotDirectoryVisible;
         /// <summary>
@@ -236,6 +244,8 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
         [OutputConstructor]
         private VolumeGroupVolumePropertiesResponse(
+            double actualThroughputMibps,
+
             string? avsDataStore,
 
             string? backupId,
@@ -298,6 +308,8 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string networkSiblingSetId,
 
+            string originatingResourceId,
+
             ImmutableArray<Outputs.PlacementKeyValuePairsResponse> placementRules,
 
             ImmutableArray<string> protocolTypes,
@@ -346,6 +358,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string? volumeType)
         {
+            ActualThroughputMibps = actualThroughputMibps;
             AvsDataStore = avsDataStore;
             BackupId = backupId;
             BaremetalTenantId = baremetalTenantId;
@@ -377,6 +390,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
             Name = name;
             NetworkFeatures = networkFeatures;
             NetworkSiblingSetId = networkSiblingSetId;
+            OriginatingResourceId = originatingResourceId;
             PlacementRules = placementRules;
             ProtocolTypes = protocolTypes;
             ProvisionedAvailabilityZone = provisionedAvailabilityZone;

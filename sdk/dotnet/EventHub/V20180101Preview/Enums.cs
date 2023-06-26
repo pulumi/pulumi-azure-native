@@ -8,71 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.EventHub.V20180101Preview
 {
     /// <summary>
-    /// Name of this SKU.
-    /// </summary>
-    [EnumType]
-    public readonly struct ClusterSkuName : IEquatable<ClusterSkuName>
-    {
-        private readonly string _value;
-
-        private ClusterSkuName(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ClusterSkuName Dedicated { get; } = new ClusterSkuName("Dedicated");
-
-        public static bool operator ==(ClusterSkuName left, ClusterSkuName right) => left.Equals(right);
-        public static bool operator !=(ClusterSkuName left, ClusterSkuName right) => !left.Equals(right);
-
-        public static explicit operator string(ClusterSkuName value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ClusterSkuName other && Equals(other);
-        public bool Equals(ClusterSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Provisioning state of the Private Endpoint Connection.
-    /// </summary>
-    [EnumType]
-    public readonly struct EndPointProvisioningState : IEquatable<EndPointProvisioningState>
-    {
-        private readonly string _value;
-
-        private EndPointProvisioningState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static EndPointProvisioningState Creating { get; } = new EndPointProvisioningState("Creating");
-        public static EndPointProvisioningState Updating { get; } = new EndPointProvisioningState("Updating");
-        public static EndPointProvisioningState Deleting { get; } = new EndPointProvisioningState("Deleting");
-        public static EndPointProvisioningState Succeeded { get; } = new EndPointProvisioningState("Succeeded");
-        public static EndPointProvisioningState Canceled { get; } = new EndPointProvisioningState("Canceled");
-        public static EndPointProvisioningState Failed { get; } = new EndPointProvisioningState("Failed");
-
-        public static bool operator ==(EndPointProvisioningState left, EndPointProvisioningState right) => left.Equals(right);
-        public static bool operator !=(EndPointProvisioningState left, EndPointProvisioningState right) => !left.Equals(right);
-
-        public static explicit operator string(EndPointProvisioningState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EndPointProvisioningState other && Equals(other);
-        public bool Equals(EndPointProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The IP Filter Action
     /// </summary>
     [EnumType]
@@ -96,39 +31,6 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IPAction other && Equals(other);
         public bool Equals(IPAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Status of the connection.
-    /// </summary>
-    [EnumType]
-    public readonly struct PrivateLinkConnectionStatus : IEquatable<PrivateLinkConnectionStatus>
-    {
-        private readonly string _value;
-
-        private PrivateLinkConnectionStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PrivateLinkConnectionStatus Pending { get; } = new PrivateLinkConnectionStatus("Pending");
-        public static PrivateLinkConnectionStatus Approved { get; } = new PrivateLinkConnectionStatus("Approved");
-        public static PrivateLinkConnectionStatus Rejected { get; } = new PrivateLinkConnectionStatus("Rejected");
-        public static PrivateLinkConnectionStatus Disconnected { get; } = new PrivateLinkConnectionStatus("Disconnected");
-
-        public static bool operator ==(PrivateLinkConnectionStatus left, PrivateLinkConnectionStatus right) => left.Equals(right);
-        public static bool operator !=(PrivateLinkConnectionStatus left, PrivateLinkConnectionStatus right) => !left.Equals(right);
-
-        public static explicit operator string(PrivateLinkConnectionStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PrivateLinkConnectionStatus other && Equals(other);
-        public bool Equals(PrivateLinkConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

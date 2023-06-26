@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * RouteTable resource in a virtual hub.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
  */
 export class HubRouteTable extends pulumi.CustomResource {
     /**
@@ -111,7 +111,7 @@ export class HubRouteTable extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401:HubRouteTable" }, { type: "azure-native:network/v20200501:HubRouteTable" }, { type: "azure-native:network/v20200601:HubRouteTable" }, { type: "azure-native:network/v20200701:HubRouteTable" }, { type: "azure-native:network/v20200801:HubRouteTable" }, { type: "azure-native:network/v20201101:HubRouteTable" }, { type: "azure-native:network/v20210201:HubRouteTable" }, { type: "azure-native:network/v20210301:HubRouteTable" }, { type: "azure-native:network/v20210501:HubRouteTable" }, { type: "azure-native:network/v20210801:HubRouteTable" }, { type: "azure-native:network/v20220101:HubRouteTable" }, { type: "azure-native:network/v20220501:HubRouteTable" }, { type: "azure-native:network/v20220701:HubRouteTable" }, { type: "azure-native:network/v20220901:HubRouteTable" }, { type: "azure-native:network/v20221101:HubRouteTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401:HubRouteTable" }, { type: "azure-native:network/v20200501:HubRouteTable" }, { type: "azure-native:network/v20200601:HubRouteTable" }, { type: "azure-native:network/v20200701:HubRouteTable" }, { type: "azure-native:network/v20200801:HubRouteTable" }, { type: "azure-native:network/v20201101:HubRouteTable" }, { type: "azure-native:network/v20210201:HubRouteTable" }, { type: "azure-native:network/v20210301:HubRouteTable" }, { type: "azure-native:network/v20210501:HubRouteTable" }, { type: "azure-native:network/v20210801:HubRouteTable" }, { type: "azure-native:network/v20220101:HubRouteTable" }, { type: "azure-native:network/v20220501:HubRouteTable" }, { type: "azure-native:network/v20220701:HubRouteTable" }, { type: "azure-native:network/v20220901:HubRouteTable" }, { type: "azure-native:network/v20221101:HubRouteTable" }, { type: "azure-native:network/v20230201:HubRouteTable" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HubRouteTable.__pulumiType, name, resourceInputs, opts);
     }

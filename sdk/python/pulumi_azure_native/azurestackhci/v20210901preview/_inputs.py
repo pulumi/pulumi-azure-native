@@ -14,8 +14,6 @@ __all__ = [
     'ExtendedLocationArgs',
     'GalleryImageIdentifierArgs',
     'GalleryImageVersionArgs',
-    'GuestCredentialArgs',
-    'HttpProxyConfigurationArgs',
     'IPPoolArgs',
     'IdentityArgs',
     'InterfaceDNSSettingsArgs',
@@ -161,70 +159,6 @@ class GalleryImageVersionArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class GuestCredentialArgs:
-    def __init__(__self__, *,
-                 password: Optional[pulumi.Input[str]] = None,
-                 username: Optional[pulumi.Input[str]] = None):
-        """
-        Username / Password Credentials to connect to guest.
-        :param pulumi.Input[str] password: The password to connect with the guest.
-        :param pulumi.Input[str] username: The username to connect with the guest.
-        """
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        The password to connect with the guest.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[str]]:
-        """
-        The username to connect with the guest.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "username", value)
-
-
-@pulumi.input_type
-class HttpProxyConfigurationArgs:
-    def __init__(__self__, *,
-                 https_proxy: Optional[pulumi.Input[str]] = None):
-        """
-        HTTP Proxy configuration for the VM.
-        :param pulumi.Input[str] https_proxy: The httpsProxy url.
-        """
-        if https_proxy is not None:
-            pulumi.set(__self__, "https_proxy", https_proxy)
-
-    @property
-    @pulumi.getter(name="httpsProxy")
-    def https_proxy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The httpsProxy url.
-        """
-        return pulumi.get(self, "https_proxy")
-
-    @https_proxy.setter
-    def https_proxy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "https_proxy", value)
 
 
 @pulumi.input_type

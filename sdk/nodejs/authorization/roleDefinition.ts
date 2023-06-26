@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role definition.
- * Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2018-01-01-preview
+ * Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview
  */
 export class RoleDefinition extends pulumi.CustomResource {
     /**
@@ -124,7 +124,7 @@ export class RoleDefinition extends pulumi.CustomResource {
             resourceInputs["updatedOn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20150701:RoleDefinition" }, { type: "azure-native:authorization/v20180101preview:RoleDefinition" }, { type: "azure-native:authorization/v20220401:RoleDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20150701:RoleDefinition" }, { type: "azure-native:authorization/v20180101preview:RoleDefinition" }, { type: "azure-native:authorization/v20220401:RoleDefinition" }, { type: "azure-native:authorization/v20220501preview:RoleDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -159,7 +159,7 @@ export interface RoleDefinitionArgs {
      */
     roleType?: pulumi.Input<string>;
     /**
-     * The scope of the role definition.
+     * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
     scope: pulumi.Input<string>;
 }

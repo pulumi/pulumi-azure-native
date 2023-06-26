@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified application gateway.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetApplicationGatewayResult> InvokeAsync(GetApplicationGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayResult>("azure-native:network:getApplicationGateway", args ?? new GetApplicationGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified application gateway.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetApplicationGatewayResult> Invoke(GetApplicationGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGatewayResult>("azure-native:network:getApplicationGateway", args ?? new GetApplicationGatewayInvokeArgs(), options.WithDefaults());
@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.Network
         /// Custom error configurations of the application gateway resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayCustomErrorResponse> CustomErrorConfigurations;
+        /// <summary>
+        /// The default predefined SSL Policy applied on the application gateway resource.
+        /// </summary>
+        public readonly string DefaultPredefinedSslPolicy;
         /// <summary>
         /// Whether FIPS is enabled on the application gateway resource.
         /// </summary>
@@ -258,6 +262,8 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.ApplicationGatewayCustomErrorResponse> customErrorConfigurations,
 
+            string defaultPredefinedSslPolicy,
+
             bool? enableFips,
 
             bool? enableHttp2,
@@ -338,6 +344,7 @@ namespace Pulumi.AzureNative.Network
             BackendHttpSettingsCollection = backendHttpSettingsCollection;
             BackendSettingsCollection = backendSettingsCollection;
             CustomErrorConfigurations = customErrorConfigurations;
+            DefaultPredefinedSslPolicy = defaultPredefinedSslPolicy;
             EnableFips = enableFips;
             EnableHttp2 = enableHttp2;
             Etag = etag;

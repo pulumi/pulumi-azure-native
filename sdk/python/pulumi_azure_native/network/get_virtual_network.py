@@ -291,7 +291,7 @@ def get_virtual_network(expand: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
     Gets the specified virtual network by resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -336,7 +336,7 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkResult]:
     """
     Gets the specified virtual network by resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.

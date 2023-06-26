@@ -175,6 +175,7 @@ export const ReplicationRole = {
 export type ReplicationRole = (typeof ReplicationRole)[keyof typeof ReplicationRole];
 
 export const ServerVersion = {
+    ServerVersion_15: "15",
     ServerVersion_14: "14",
     ServerVersion_13: "13",
     ServerVersion_12: "12",

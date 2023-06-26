@@ -22,7 +22,7 @@ __all__ = [
     'AlertRuleLeafConditionResponse',
     'ApplicationInsightsComponentAnalyticsItemPropertiesResponse',
     'ApplicationInsightsComponentDataVolumeCapResponse',
-    'ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions',
+    'ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions',
     'ArmRoleReceiverResponse',
     'AutomationRunbookReceiverResponse',
     'AutoscaleNotificationResponse',
@@ -66,6 +66,7 @@ __all__ = [
     'EventLogConfigurationResponse',
     'ExtensionDataSourceResponse',
     'HeaderFieldResponse',
+    'IdentityResponse',
     'IisLogsDataSourceResponse',
     'ItsmReceiverResponse',
     'LocationSpecResponse',
@@ -105,6 +106,7 @@ __all__ = [
     'RuleManagementEventClaimsDataSourceResponse',
     'RuleManagementEventDataSourceResponse',
     'RuleMetricDataSourceResponse',
+    'RuleResolveConfigurationResponse',
     'RuleWebhookActionResponse',
     'ScaleActionResponse',
     'ScaleCapacityResponse',
@@ -122,6 +124,7 @@ __all__ = [
     'ThresholdRuleConditionResponse',
     'TimeWindowResponse',
     'UserAssignedIdentityResponse',
+    'UserIdentityPropertiesResponse',
     'VoiceReceiverResponse',
     'WebTestGeolocationResponse',
     'WebTestPropertiesResponseConfiguration',
@@ -280,6 +283,8 @@ class ActionGroupResponse(dict):
         suggest = None
         if key == "actionGroupId":
             suggest = "action_group_id"
+        elif key == "actionProperties":
+            suggest = "action_properties"
         elif key == "webhookProperties":
             suggest = "webhook_properties"
 
@@ -296,13 +301,17 @@ class ActionGroupResponse(dict):
 
     def __init__(__self__, *,
                  action_group_id: str,
+                 action_properties: Optional[Mapping[str, str]] = None,
                  webhook_properties: Optional[Mapping[str, str]] = None):
         """
         A pointer to an Azure Action Group.
         :param str action_group_id: The resource ID of the Action Group. This cannot be null or empty.
+        :param Mapping[str, str] action_properties: Predefined list of properties and configuration items for the action group.
         :param Mapping[str, str] webhook_properties: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         """
         pulumi.set(__self__, "action_group_id", action_group_id)
+        if action_properties is not None:
+            pulumi.set(__self__, "action_properties", action_properties)
         if webhook_properties is not None:
             pulumi.set(__self__, "webhook_properties", webhook_properties)
 
@@ -313,6 +322,14 @@ class ActionGroupResponse(dict):
         The resource ID of the Action Group. This cannot be null or empty.
         """
         return pulumi.get(self, "action_group_id")
+
+    @property
+    @pulumi.getter(name="actionProperties")
+    def action_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Predefined list of properties and configuration items for the action group.
+        """
+        return pulumi.get(self, "action_properties")
 
     @property
     @pulumi.getter(name="webhookProperties")
@@ -373,6 +390,8 @@ class ActionsResponse(dict):
         suggest = None
         if key == "actionGroups":
             suggest = "action_groups"
+        elif key == "actionProperties":
+            suggest = "action_properties"
         elif key == "customProperties":
             suggest = "custom_properties"
 
@@ -389,14 +408,18 @@ class ActionsResponse(dict):
 
     def __init__(__self__, *,
                  action_groups: Optional[Sequence[str]] = None,
+                 action_properties: Optional[Mapping[str, str]] = None,
                  custom_properties: Optional[Mapping[str, str]] = None):
         """
         Actions to invoke when the alert fires.
         :param Sequence[str] action_groups: Action Group resource Ids to invoke when the alert fires.
+        :param Mapping[str, str] action_properties: The properties of an action properties.
         :param Mapping[str, str] custom_properties: The properties of an alert payload.
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
+        if action_properties is not None:
+            pulumi.set(__self__, "action_properties", action_properties)
         if custom_properties is not None:
             pulumi.set(__self__, "custom_properties", custom_properties)
 
@@ -407,6 +430,14 @@ class ActionsResponse(dict):
         Action Group resource Ids to invoke when the alert fires.
         """
         return pulumi.get(self, "action_groups")
+
+    @property
+    @pulumi.getter(name="actionProperties")
+    def action_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The properties of an action properties.
+        """
+        return pulumi.get(self, "action_properties")
 
     @property
     @pulumi.getter(name="customProperties")
@@ -764,7 +795,7 @@ class ApplicationInsightsComponentDataVolumeCapResponse(dict):
 
 
 @pulumi.output_type
-class ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions(dict):
+class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions(dict):
     """
     Static definitions of the ProactiveDetection configuration rule (same values for all components).
     """
@@ -785,14 +816,14 @@ class ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDef
             suggest = "supports_email_notifications"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions.__key_warning(key)
+        ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions.__key_warning(key)
+        ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3869,6 +3900,83 @@ class HeaderFieldResponse(dict):
 
 
 @pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: Type of managed service identity.
+        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
 class IisLogsDataSourceResponse(dict):
     """
     Enables IIS logs to be collected by this data collection rule.
@@ -6594,6 +6702,60 @@ class RuleMetricDataSourceResponse(dict):
 
 
 @pulumi.output_type
+class RuleResolveConfigurationResponse(dict):
+    """
+    TBD. Relevant only for rules of the kind LogAlert.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoResolved":
+            suggest = "auto_resolved"
+        elif key == "timeToResolve":
+            suggest = "time_to_resolve"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleResolveConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleResolveConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleResolveConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_resolved: Optional[bool] = None,
+                 time_to_resolve: Optional[str] = None):
+        """
+        TBD. Relevant only for rules of the kind LogAlert.
+        :param bool auto_resolved: The flag that indicates whether or not to auto resolve a fired alert.
+        :param str time_to_resolve: The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
+        """
+        if auto_resolved is not None:
+            pulumi.set(__self__, "auto_resolved", auto_resolved)
+        if time_to_resolve is not None:
+            pulumi.set(__self__, "time_to_resolve", time_to_resolve)
+
+    @property
+    @pulumi.getter(name="autoResolved")
+    def auto_resolved(self) -> Optional[bool]:
+        """
+        The flag that indicates whether or not to auto resolve a fired alert.
+        """
+        return pulumi.get(self, "auto_resolved")
+
+    @property
+    @pulumi.getter(name="timeToResolve")
+    def time_to_resolve(self) -> Optional[str]:
+        """
+        The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "time_to_resolve")
+
+
+@pulumi.output_type
 class RuleWebhookActionResponse(dict):
     """
     Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
@@ -7624,6 +7786,58 @@ class UserAssignedIdentityResponse(dict):
     def principal_id(self) -> str:
         """
         The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class UserIdentityPropertiesResponse(dict):
+    """
+    User assigned identity properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserIdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserIdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties.
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
 

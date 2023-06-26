@@ -8,32 +8,18 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._enums import *
-from ._inputs import *
 
 __all__ = ['OperationByProviderRegistrationArgs', 'OperationByProviderRegistration']
 
 @pulumi.input_type
 class OperationByProviderRegistrationArgs:
     def __init__(__self__, *,
-                 contents: pulumi.Input[Sequence[pulumi.Input['OperationsDefinitionArgs']]],
                  provider_namespace: pulumi.Input[str]):
         """
         The set of arguments for constructing a OperationByProviderRegistration resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
-        pulumi.set(__self__, "contents", contents)
         pulumi.set(__self__, "provider_namespace", provider_namespace)
-
-    @property
-    @pulumi.getter
-    def contents(self) -> pulumi.Input[Sequence[pulumi.Input['OperationsDefinitionArgs']]]:
-        return pulumi.get(self, "contents")
-
-    @contents.setter
-    def contents(self, value: pulumi.Input[Sequence[pulumi.Input['OperationsDefinitionArgs']]]):
-        pulumi.set(self, "contents", value)
 
     @property
     @pulumi.getter(name="providerNamespace")
@@ -53,11 +39,10 @@ class OperationByProviderRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contents: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OperationsDefinitionArgs']]]]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2020-11-20. Prior API version in Azure Native 1.x: 2020-11-20
+        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -70,7 +55,7 @@ class OperationByProviderRegistration(pulumi.CustomResource):
                  args: OperationByProviderRegistrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2020-11-20. Prior API version in Azure Native 1.x: 2020-11-20
+        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20
 
         :param str resource_name: The name of the resource.
         :param OperationByProviderRegistrationArgs args: The arguments to use to populate this resource's properties.
@@ -87,7 +72,6 @@ class OperationByProviderRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contents: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OperationsDefinitionArgs']]]]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -98,18 +82,10 @@ class OperationByProviderRegistration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OperationByProviderRegistrationArgs.__new__(OperationByProviderRegistrationArgs)
 
-            if contents is None and not opts.urn:
-                raise TypeError("Missing required property 'contents'")
-            __props__.__dict__["contents"] = contents
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__.__dict__["provider_namespace"] = provider_namespace
-            __props__.__dict__["action_type"] = None
-            __props__.__dict__["display"] = None
-            __props__.__dict__["is_data_action"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["origin"] = None
-            __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:OperationByProviderRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:OperationByProviderRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:OperationByProviderRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210901preview:OperationByProviderRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -135,35 +111,9 @@ class OperationByProviderRegistration(pulumi.CustomResource):
 
         __props__ = OperationByProviderRegistrationArgs.__new__(OperationByProviderRegistrationArgs)
 
-        __props__.__dict__["action_type"] = None
-        __props__.__dict__["display"] = None
-        __props__.__dict__["is_data_action"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["origin"] = None
-        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return OperationByProviderRegistration(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="actionType")
-    def action_type(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "action_type")
-
-    @property
-    @pulumi.getter
-    def display(self) -> pulumi.Output['outputs.OperationsDefinitionResponseDisplay']:
-        """
-        Display information of the operation.
-        """
-        return pulumi.get(self, "display")
-
-    @property
-    @pulumi.getter(name="isDataAction")
-    def is_data_action(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether the operation applies to data-plane.
-        """
-        return pulumi.get(self, "is_data_action")
 
     @property
     @pulumi.getter
@@ -172,16 +122,6 @@ class OperationByProviderRegistration(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def origin(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "origin")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output[Any]:
-        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

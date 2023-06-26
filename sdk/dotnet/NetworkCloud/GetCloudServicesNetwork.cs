@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided cloud services network.
-        /// Azure REST API version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetCloudServicesNetworkResult> InvokeAsync(GetCloudServicesNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudServicesNetworkResult>("azure-native:networkcloud:getCloudServicesNetwork", args ?? new GetCloudServicesNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided cloud services network.
-        /// Azure REST API version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetCloudServicesNetworkResult> Invoke(GetCloudServicesNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServicesNetworkResult>("azure-native:networkcloud:getCloudServicesNetwork", args ?? new GetCloudServicesNetworkInvokeArgs(), options.WithDefaults());
@@ -76,6 +76,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.EgressEndpointResponse> AdditionalEgressEndpoints;
         /// <summary>
+        /// The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        /// </summary>
+        public readonly ImmutableArray<string> AssociatedResourceIds;
+        /// <summary>
         /// The resource ID of the Network Cloud cluster this cloud services network is associated with.
         /// </summary>
         public readonly string ClusterId;
@@ -100,11 +104,11 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
-        /// The list of Hybrid AKS cluster resource IDs that are associated with this cloud services network.
+        /// Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this cloud services network.
         /// </summary>
         public readonly ImmutableArray<string> HybridAksClustersAssociatedIds;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -136,13 +140,15 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this cloud services network.
+        /// Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this cloud services network.
         /// </summary>
         public readonly ImmutableArray<string> VirtualMachinesAssociatedIds;
 
         [OutputConstructor]
         private GetCloudServicesNetworkResult(
             ImmutableArray<Outputs.EgressEndpointResponse> additionalEgressEndpoints,
+
+            ImmutableArray<string> associatedResourceIds,
 
             string clusterId,
 
@@ -177,6 +183,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             ImmutableArray<string> virtualMachinesAssociatedIds)
         {
             AdditionalEgressEndpoints = additionalEgressEndpoints;
+            AssociatedResourceIds = associatedResourceIds;
             ClusterId = clusterId;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;

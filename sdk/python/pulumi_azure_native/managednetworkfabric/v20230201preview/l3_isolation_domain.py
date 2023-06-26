@@ -19,7 +19,7 @@ class L3IsolationDomainArgs:
     def __init__(__self__, *,
                  network_fabric_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 aggregate_route_configuration: Optional[pulumi.Input['L3IsolationDomainPatchPropertiesAggregateRouteConfigurationArgs']] = None,
+                 aggregate_route_configuration: Optional[pulumi.Input['AggregateRouteConfigurationArgs']] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
                  connected_subnet_route_policy: Optional[pulumi.Input['L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class L3IsolationDomainArgs:
         The set of arguments for constructing a L3IsolationDomain resource.
         :param pulumi.Input[str] network_fabric_id: Network Fabric ARM resource id.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['L3IsolationDomainPatchPropertiesAggregateRouteConfigurationArgs'] aggregate_route_configuration: List of Ipv4 and Ipv6 route configurations.
+        :param pulumi.Input['AggregateRouteConfigurationArgs'] aggregate_route_configuration: List of Ipv4 and Ipv6 route configurations.
         :param pulumi.Input[str] annotation: Switch configuration description.
         :param pulumi.Input['L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs'] connected_subnet_route_policy: Connected Subnet RoutePolicy
         :param pulumi.Input[str] description: L3 Isolation Domain description.
@@ -93,14 +93,14 @@ class L3IsolationDomainArgs:
 
     @property
     @pulumi.getter(name="aggregateRouteConfiguration")
-    def aggregate_route_configuration(self) -> Optional[pulumi.Input['L3IsolationDomainPatchPropertiesAggregateRouteConfigurationArgs']]:
+    def aggregate_route_configuration(self) -> Optional[pulumi.Input['AggregateRouteConfigurationArgs']]:
         """
         List of Ipv4 and Ipv6 route configurations.
         """
         return pulumi.get(self, "aggregate_route_configuration")
 
     @aggregate_route_configuration.setter
-    def aggregate_route_configuration(self, value: Optional[pulumi.Input['L3IsolationDomainPatchPropertiesAggregateRouteConfigurationArgs']]):
+    def aggregate_route_configuration(self, value: Optional[pulumi.Input['AggregateRouteConfigurationArgs']]):
         pulumi.set(self, "aggregate_route_configuration", value)
 
     @property
@@ -205,7 +205,7 @@ class L3IsolationDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregate_route_configuration: Optional[pulumi.Input[pulumi.InputType['L3IsolationDomainPatchPropertiesAggregateRouteConfigurationArgs']]] = None,
+                 aggregate_route_configuration: Optional[pulumi.Input[pulumi.InputType['AggregateRouteConfigurationArgs']]] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
                  connected_subnet_route_policy: Optional[pulumi.Input[pulumi.InputType['L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -222,7 +222,7 @@ class L3IsolationDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['L3IsolationDomainPatchPropertiesAggregateRouteConfigurationArgs']] aggregate_route_configuration: List of Ipv4 and Ipv6 route configurations.
+        :param pulumi.Input[pulumi.InputType['AggregateRouteConfigurationArgs']] aggregate_route_configuration: List of Ipv4 and Ipv6 route configurations.
         :param pulumi.Input[str] annotation: Switch configuration description.
         :param pulumi.Input[pulumi.InputType['L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs']] connected_subnet_route_policy: Connected Subnet RoutePolicy
         :param pulumi.Input[str] description: L3 Isolation Domain description.
@@ -258,7 +258,7 @@ class L3IsolationDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregate_route_configuration: Optional[pulumi.Input[pulumi.InputType['L3IsolationDomainPatchPropertiesAggregateRouteConfigurationArgs']]] = None,
+                 aggregate_route_configuration: Optional[pulumi.Input[pulumi.InputType['AggregateRouteConfigurationArgs']]] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
                  connected_subnet_route_policy: Optional[pulumi.Input[pulumi.InputType['L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -356,7 +356,7 @@ class L3IsolationDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aggregateRouteConfiguration")
-    def aggregate_route_configuration(self) -> pulumi.Output[Optional['outputs.L3IsolationDomainPatchPropertiesResponseAggregateRouteConfiguration']]:
+    def aggregate_route_configuration(self) -> pulumi.Output[Optional['outputs.AggregateRouteConfigurationResponse']]:
         """
         List of Ipv4 and Ipv6 route configurations.
         """

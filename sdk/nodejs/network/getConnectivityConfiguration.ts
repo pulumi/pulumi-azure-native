@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getConnectivityConfiguration(args: GetConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectivityConfigurationResult> {
 
@@ -81,6 +81,10 @@ export interface GetConnectivityConfigurationResult {
      */
     readonly provisioningState: string;
     /**
+     * Unique identifier for this resource.
+     */
+    readonly resourceGuid: string;
+    /**
      * The system metadata related to this resource.
      */
     readonly systemData: outputs.network.SystemDataResponse;
@@ -91,7 +95,7 @@ export interface GetConnectivityConfigurationResult {
 }
 /**
  * Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getConnectivityConfigurationOutput(args: GetConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectivityConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConnectivityConfiguration(a, opts))

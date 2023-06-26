@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a description for the specified namespace.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
 
@@ -68,6 +68,10 @@ export interface GetNamespaceResult {
      */
     readonly metricId: string;
     /**
+     * The minimum TLS version for the cluster to support, e.g. '1.2'
+     */
+    readonly minimumTlsVersion?: string;
+    /**
      * Resource name
      */
     readonly name: string;
@@ -79,6 +83,10 @@ export interface GetNamespaceResult {
      * Provisioning state of the namespace.
      */
     readonly provisioningState: string;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * Endpoint you can use to perform Service Bus operations.
      */
@@ -114,7 +122,7 @@ export interface GetNamespaceResult {
 }
 /**
  * Gets a description for the specified namespace.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))

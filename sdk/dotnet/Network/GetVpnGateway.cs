@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a virtual wan vpn gateway.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetVpnGatewayResult> InvokeAsync(GetVpnGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnGatewayResult>("azure-native:network:getVpnGateway", args ?? new GetVpnGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a virtual wan vpn gateway.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetVpnGatewayResult> Invoke(GetVpnGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnGatewayResult>("azure-native:network:getVpnGateway", args ?? new GetVpnGatewayInvokeArgs(), options.WithDefaults());

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? NodeName { get; set; }
 
         /// <summary>
+        /// ARM resource id of the node
+        /// </summary>
+        [Input("sourceResourceId")]
+        public Input<string>? SourceResourceId { get; set; }
+
+        /// <summary>
         /// Status of this Node.
         /// Failed | Succeeded
         /// </summary>

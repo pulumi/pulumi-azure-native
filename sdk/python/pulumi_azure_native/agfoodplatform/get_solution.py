@@ -105,21 +105,21 @@ class AwaitableGetSolutionResult(GetSolutionResult):
             type=self.type)
 
 
-def get_solution(farm_beats_resource_name: Optional[str] = None,
+def get_solution(data_manager_for_agriculture_resource_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  solution_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionResult:
     """
     Get installed Solution details by Solution id.
-    Azure REST API version: 2021-09-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
-    :param str farm_beats_resource_name: FarmBeats resource name.
+    :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str solution_id: Solution Id of the solution.
+    :param str solution_id: SolutionId for Data Manager For Agriculture Resource.
     """
     __args__ = dict()
-    __args__['farmBeatsResourceName'] = farm_beats_resource_name
+    __args__['dataManagerForAgricultureResourceName'] = data_manager_for_agriculture_resource_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['solutionId'] = solution_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -135,17 +135,17 @@ def get_solution(farm_beats_resource_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_solution)
-def get_solution_output(farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
+def get_solution_output(data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         solution_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionResult]:
     """
     Get installed Solution details by Solution id.
-    Azure REST API version: 2021-09-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
-    :param str farm_beats_resource_name: FarmBeats resource name.
+    :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str solution_id: Solution Id of the solution.
+    :param str solution_id: SolutionId for Data Manager For Agriculture Resource.
     """
     ...

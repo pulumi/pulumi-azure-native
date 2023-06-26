@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified virtual network gateway by resource group.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayResult> InvokeAsync(GetVirtualNetworkGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayResult>("azure-native:network:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified virtual network gateway by resource group.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayResult> Invoke(GetVirtualNetworkGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayResult>("azure-native:network:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayInvokeArgs(), options.WithDefaults());
@@ -75,6 +75,10 @@ namespace Pulumi.AzureNative.Network
         /// ActiveActive flag.
         /// </summary>
         public readonly bool? ActiveActive;
+        /// <summary>
+        /// Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+        /// </summary>
+        public readonly string? AdminState;
         /// <summary>
         /// Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
         /// </summary>
@@ -196,6 +200,8 @@ namespace Pulumi.AzureNative.Network
         private GetVirtualNetworkGatewayResult(
             bool? activeActive,
 
+            string? adminState,
+
             bool? allowRemoteVnetTraffic,
 
             bool? allowVirtualWanTraffic,
@@ -255,6 +261,7 @@ namespace Pulumi.AzureNative.Network
             string? vpnType)
         {
             ActiveActive = activeActive;
+            AdminState = adminState;
             AllowRemoteVnetTraffic = allowRemoteVnetTraffic;
             AllowVirtualWanTraffic = allowVirtualWanTraffic;
             BgpSettings = bgpSettings;

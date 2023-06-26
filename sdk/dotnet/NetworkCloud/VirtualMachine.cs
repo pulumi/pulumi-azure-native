@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Azure REST API version: 2022-12-12-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
@@ -20,6 +20,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("adminUsername")]
         public Output<string> AdminUsername { get; private set; } = null!;
+
+        /// <summary>
+        /// The cluster availability zone containing this virtual machine.
+        /// </summary>
+        [Output("availabilityZone")]
+        public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// The resource ID of the bare metal machine the virtual machine has landed to.
@@ -215,6 +221,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20221212preview:VirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -19,6 +19,7 @@ class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  account_name: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
@@ -29,6 +30,7 @@ class AccountArgs:
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] account_name: Account name.
+        :param pulumi.Input['EncryptionArgs'] encryption: CMK encryption at rest properties
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The type of identity used for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: List of private endpoint connections associated with the account.
@@ -39,6 +41,8 @@ class AccountArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -79,6 +83,18 @@ class AccountArgs:
     @account_name.setter
     def account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
+        """
+        CMK encryption at rest properties
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter
@@ -159,6 +175,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
@@ -169,11 +186,12 @@ class Account(pulumi.CustomResource):
                  __props__=None):
         """
         Device Update account details.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Account name.
+        :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: CMK encryption at rest properties
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The type of identity used for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: List of private endpoint connections associated with the account.
@@ -190,7 +208,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Device Update account details.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -208,6 +226,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
@@ -225,6 +244,7 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
@@ -244,7 +264,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate/v20200301preview:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20220401preview:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20221001:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20221201preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate/v20200301preview:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20220401preview:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20221001:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20221201preview:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20230701:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:deviceupdate:Account',
@@ -268,6 +288,7 @@ class Account(pulumi.CustomResource):
 
         __props__ = AccountArgs.__new__(AccountArgs)
 
+        __props__.__dict__["encryption"] = None
         __props__.__dict__["host_name"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
@@ -281,6 +302,14 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionResponse']]:
+        """
+        CMK encryption at rest properties
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="hostName")

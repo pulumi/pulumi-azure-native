@@ -55,16 +55,14 @@ utilities.lazyLoad(exports, ["Pool"], () => require("./pool"));
 export * from "../types/enums/batch";
 
 // Export sub-modules:
-import * as v20210101 from "./v20210101";
 import * as v20220101 from "./v20220101";
 import * as v20220601 from "./v20220601";
-import * as v20221001 from "./v20221001";
+import * as v20230501 from "./v20230501";
 
 export {
-    v20210101,
     v20220101,
     v20220601,
-    v20221001,
+    v20230501,
 };
 
 const _module = {

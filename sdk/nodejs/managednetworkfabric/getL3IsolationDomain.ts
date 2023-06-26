@@ -42,7 +42,7 @@ export interface GetL3IsolationDomainResult {
     /**
      * List of Ipv4 and Ipv6 route configurations.
      */
-    readonly aggregateRouteConfiguration?: outputs.managednetworkfabric.L3IsolationDomainPatchPropertiesResponseAggregateRouteConfiguration;
+    readonly aggregateRouteConfiguration?: outputs.managednetworkfabric.AggregateRouteConfigurationResponse;
     /**
      * Switch configuration description.
      */

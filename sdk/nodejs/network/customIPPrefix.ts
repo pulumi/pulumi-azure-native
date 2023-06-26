@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom IP prefix resource.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
  */
 export class CustomIPPrefix extends pulumi.CustomResource {
     /**
@@ -191,7 +191,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200601:CustomIPPrefix" }, { type: "azure-native:network/v20200701:CustomIPPrefix" }, { type: "azure-native:network/v20200801:CustomIPPrefix" }, { type: "azure-native:network/v20201101:CustomIPPrefix" }, { type: "azure-native:network/v20210201:CustomIPPrefix" }, { type: "azure-native:network/v20210301:CustomIPPrefix" }, { type: "azure-native:network/v20210501:CustomIPPrefix" }, { type: "azure-native:network/v20210801:CustomIPPrefix" }, { type: "azure-native:network/v20220101:CustomIPPrefix" }, { type: "azure-native:network/v20220501:CustomIPPrefix" }, { type: "azure-native:network/v20220701:CustomIPPrefix" }, { type: "azure-native:network/v20220901:CustomIPPrefix" }, { type: "azure-native:network/v20221101:CustomIPPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200601:CustomIPPrefix" }, { type: "azure-native:network/v20200701:CustomIPPrefix" }, { type: "azure-native:network/v20200801:CustomIPPrefix" }, { type: "azure-native:network/v20201101:CustomIPPrefix" }, { type: "azure-native:network/v20210201:CustomIPPrefix" }, { type: "azure-native:network/v20210301:CustomIPPrefix" }, { type: "azure-native:network/v20210501:CustomIPPrefix" }, { type: "azure-native:network/v20210801:CustomIPPrefix" }, { type: "azure-native:network/v20220101:CustomIPPrefix" }, { type: "azure-native:network/v20220501:CustomIPPrefix" }, { type: "azure-native:network/v20220701:CustomIPPrefix" }, { type: "azure-native:network/v20220901:CustomIPPrefix" }, { type: "azure-native:network/v20221101:CustomIPPrefix" }, { type: "azure-native:network/v20230201:CustomIPPrefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomIPPrefix.__pulumiType, name, resourceInputs, opts);
     }

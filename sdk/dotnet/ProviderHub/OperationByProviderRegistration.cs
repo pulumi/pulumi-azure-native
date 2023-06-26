@@ -10,37 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub
 {
     /// <summary>
-    /// Azure REST API version: 2020-11-20. Prior API version in Azure Native 1.x: 2020-11-20
+    /// Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:OperationByProviderRegistration")]
     public partial class OperationByProviderRegistration : global::Pulumi.CustomResource
     {
-        [Output("actionType")]
-        public Output<string?> ActionType { get; private set; } = null!;
-
-        /// <summary>
-        /// Display information of the operation.
-        /// </summary>
-        [Output("display")]
-        public Output<Outputs.OperationsDefinitionResponseDisplay> Display { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates whether the operation applies to data-plane.
-        /// </summary>
-        [Output("isDataAction")]
-        public Output<bool?> IsDataAction { get; private set; } = null!;
-
         /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        [Output("origin")]
-        public Output<string?> Origin { get; private set; } = null!;
-
-        [Output("properties")]
-        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -100,14 +79,6 @@ namespace Pulumi.AzureNative.ProviderHub
 
     public sealed class OperationByProviderRegistrationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("contents", required: true)]
-        private InputList<Inputs.OperationsDefinitionArgs>? _contents;
-        public InputList<Inputs.OperationsDefinitionArgs> Contents
-        {
-            get => _contents ?? (_contents = new InputList<Inputs.OperationsDefinitionArgs>());
-            set => _contents = value;
-        }
-
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
         /// </summary>

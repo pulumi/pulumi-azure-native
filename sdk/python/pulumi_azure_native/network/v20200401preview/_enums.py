@@ -5,17 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'ForwardingRuleState',
     'IpAllocationMethod',
 ]
-
-
-class ForwardingRuleState(str, Enum):
-    """
-    The state of forwarding rule.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class IpAllocationMethod(str, Enum):

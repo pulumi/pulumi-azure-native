@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// List the registration key for the device.
-        /// Azure REST API version: 2021-05-01.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Task<ListDeviceRegistrationKeyResult> InvokeAsync(ListDeviceRegistrationKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDeviceRegistrationKeyResult>("azure-native:hybridnetwork:listDeviceRegistrationKey", args ?? new ListDeviceRegistrationKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// List the registration key for the device.
-        /// Azure REST API version: 2021-05-01.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Output<ListDeviceRegistrationKeyResult> Invoke(ListDeviceRegistrationKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDeviceRegistrationKeyResult>("azure-native:hybridnetwork:listDeviceRegistrationKey", args ?? new ListDeviceRegistrationKeyInvokeArgs(), options.WithDefaults());

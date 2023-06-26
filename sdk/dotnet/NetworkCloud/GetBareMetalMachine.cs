@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided bare metal machine.
-        /// Azure REST API version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetBareMetalMachineResult> InvokeAsync(GetBareMetalMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBareMetalMachineResult>("azure-native:networkcloud:getBareMetalMachine", args ?? new GetBareMetalMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided bare metal machine.
-        /// Azure REST API version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetBareMetalMachineResult> Invoke(GetBareMetalMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineResult>("azure-native:networkcloud:getBareMetalMachine", args ?? new GetBareMetalMachineInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.NetworkCloud
     public sealed class GetBareMetalMachineResult
     {
         /// <summary>
+        /// The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        /// </summary>
+        public readonly ImmutableArray<string> AssociatedResourceIds;
+        /// <summary>
         /// The connection string for the baseboard management controller including IP address and protocol.
         /// </summary>
         public readonly string BmcConnectionString;
@@ -116,11 +120,11 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly Outputs.HardwareValidationStatusResponse HardwareValidationStatus;
         /// <summary>
-        /// The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
+        /// Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
         /// </summary>
         public readonly ImmutableArray<string> HybridAksClustersAssociatedIds;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -204,12 +208,14 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
+        /// Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
         /// </summary>
         public readonly ImmutableArray<string> VirtualMachinesAssociatedIds;
 
         [OutputConstructor]
         private GetBareMetalMachineResult(
+            ImmutableArray<string> associatedResourceIds,
+
             string bmcConnectionString,
 
             Outputs.AdministrativeCredentialsResponse bmcCredentials,
@@ -278,6 +284,7 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             ImmutableArray<string> virtualMachinesAssociatedIds)
         {
+            AssociatedResourceIds = associatedResourceIds;
             BmcConnectionString = bmcConnectionString;
             BmcCredentials = bmcCredentials;
             BmcMacAddress = bmcMacAddress;

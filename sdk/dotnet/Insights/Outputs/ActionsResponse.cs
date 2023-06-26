@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ActionGroups;
         /// <summary>
+        /// The properties of an action properties.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ActionProperties;
+        /// <summary>
         /// The properties of an alert payload.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? CustomProperties;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.Insights.Outputs
         private ActionsResponse(
             ImmutableArray<string> actionGroups,
 
+            ImmutableDictionary<string, string>? actionProperties,
+
             ImmutableDictionary<string, string>? customProperties)
         {
             ActionGroups = actionGroups;
+            ActionProperties = actionProperties;
             CustomProperties = customProperties;
         }
     }

@@ -12,9 +12,7 @@ from ._enums import *
 
 __all__ = [
     'ProtocolCustomSettingsFormatResponse',
-    'RoutingPolicyResponse',
     'SubResourceResponse',
-    'VpnServerConfigurationPolicyGroupMemberResponse',
 ]
 
 @pulumi.output_type
@@ -98,67 +96,6 @@ class ProtocolCustomSettingsFormatResponse(dict):
 
 
 @pulumi.output_type
-class RoutingPolicyResponse(dict):
-    """
-    The routing policy object used in a RoutingIntent resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "nextHop":
-            suggest = "next_hop"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoutingPolicyResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoutingPolicyResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoutingPolicyResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 destinations: Sequence[str],
-                 name: str,
-                 next_hop: str):
-        """
-        The routing policy object used in a RoutingIntent resource.
-        :param Sequence[str] destinations: List of all destinations which this routing policy is applicable to (for example: Internet, PrivateTraffic).
-        :param str name: The unique name for the routing policy.
-        :param str next_hop: The next hop resource id on which this routing policy is applicable to.
-        """
-        pulumi.set(__self__, "destinations", destinations)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_hop", next_hop)
-
-    @property
-    @pulumi.getter
-    def destinations(self) -> Sequence[str]:
-        """
-        List of all destinations which this routing policy is applicable to (for example: Internet, PrivateTraffic).
-        """
-        return pulumi.get(self, "destinations")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The unique name for the routing policy.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="nextHop")
-    def next_hop(self) -> str:
-        """
-        The next hop resource id on which this routing policy is applicable to.
-        """
-        return pulumi.get(self, "next_hop")
-
-
-@pulumi.output_type
 class SubResourceResponse(dict):
     """
     Reference to another subresource.
@@ -179,71 +116,5 @@ class SubResourceResponse(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class VpnServerConfigurationPolicyGroupMemberResponse(dict):
-    """
-    VpnServerConfiguration PolicyGroup member
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "attributeType":
-            suggest = "attribute_type"
-        elif key == "attributeValue":
-            suggest = "attribute_value"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VpnServerConfigurationPolicyGroupMemberResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VpnServerConfigurationPolicyGroupMemberResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VpnServerConfigurationPolicyGroupMemberResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 attribute_type: Optional[str] = None,
-                 attribute_value: Optional[str] = None,
-                 name: Optional[str] = None):
-        """
-        VpnServerConfiguration PolicyGroup member
-        :param str attribute_type: The Vpn Policy member attribute type.
-        :param str attribute_value: The value of Attribute used for this VpnServerConfigurationPolicyGroupMember.
-        :param str name: Name of the VpnServerConfigurationPolicyGroupMember.
-        """
-        if attribute_type is not None:
-            pulumi.set(__self__, "attribute_type", attribute_type)
-        if attribute_value is not None:
-            pulumi.set(__self__, "attribute_value", attribute_value)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="attributeType")
-    def attribute_type(self) -> Optional[str]:
-        """
-        The Vpn Policy member attribute type.
-        """
-        return pulumi.get(self, "attribute_type")
-
-    @property
-    @pulumi.getter(name="attributeValue")
-    def attribute_value(self) -> Optional[str]:
-        """
-        The value of Attribute used for this VpnServerConfigurationPolicyGroupMember.
-        """
-        return pulumi.get(self, "attribute_value")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Name of the VpnServerConfigurationPolicyGroupMember.
-        """
-        return pulumi.get(self, "name")
 
 

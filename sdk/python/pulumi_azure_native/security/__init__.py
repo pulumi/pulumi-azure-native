@@ -16,6 +16,7 @@ from .assessment_metadata_in_subscription import *
 from .assessments_metadata_subscription import *
 from .assignment import *
 from .automation import *
+from .azure_servers_setting import *
 from .connector import *
 from .custom_assessment_automation import *
 from .custom_entity_store_assignment import *
@@ -30,6 +31,7 @@ from .get_assessment_metadata_in_subscription import *
 from .get_assessments_metadata_subscription import *
 from .get_assignment import *
 from .get_automation import *
+from .get_azure_servers_setting import *
 from .get_connector import *
 from .get_custom_assessment_automation import *
 from .get_custom_entity_store_assignment import *
@@ -79,8 +81,6 @@ if typing.TYPE_CHECKING:
     v20200101 = __v20200101
     import pulumi_azure_native.security.v20200101preview as __v20200101preview
     v20200101preview = __v20200101preview
-    import pulumi_azure_native.security.v20200701preview as __v20200701preview
-    v20200701preview = __v20200701preview
     import pulumi_azure_native.security.v20210115preview as __v20210115preview
     v20210115preview = __v20210115preview
     import pulumi_azure_native.security.v20210601 as __v20210601
@@ -93,8 +93,6 @@ if typing.TYPE_CHECKING:
     v20220101preview = __v20220101preview
     import pulumi_azure_native.security.v20220701preview as __v20220701preview
     v20220701preview = __v20220701preview
-    import pulumi_azure_native.security.v20220801preview as __v20220801preview
-    v20220801preview = __v20220801preview
     import pulumi_azure_native.security.v20221120preview as __v20221120preview
     v20221120preview = __v20221120preview
     import pulumi_azure_native.security.v20230101preview as __v20230101preview
@@ -103,6 +101,8 @@ if typing.TYPE_CHECKING:
     v20230201preview = __v20230201preview
     import pulumi_azure_native.security.v20230301preview as __v20230301preview
     v20230301preview = __v20230301preview
+    import pulumi_azure_native.security.v20230501 as __v20230501
+    v20230501 = __v20230501
 else:
     v20170801preview = _utilities.lazy_import('pulumi_azure_native.security.v20170801preview')
     v20190101 = _utilities.lazy_import('pulumi_azure_native.security.v20190101')
@@ -110,16 +110,15 @@ else:
     v20190801 = _utilities.lazy_import('pulumi_azure_native.security.v20190801')
     v20200101 = _utilities.lazy_import('pulumi_azure_native.security.v20200101')
     v20200101preview = _utilities.lazy_import('pulumi_azure_native.security.v20200101preview')
-    v20200701preview = _utilities.lazy_import('pulumi_azure_native.security.v20200701preview')
     v20210115preview = _utilities.lazy_import('pulumi_azure_native.security.v20210115preview')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.security.v20210601')
     v20210701preview = _utilities.lazy_import('pulumi_azure_native.security.v20210701preview')
     v20210801preview = _utilities.lazy_import('pulumi_azure_native.security.v20210801preview')
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.security.v20220101preview')
     v20220701preview = _utilities.lazy_import('pulumi_azure_native.security.v20220701preview')
-    v20220801preview = _utilities.lazy_import('pulumi_azure_native.security.v20220801preview')
     v20221120preview = _utilities.lazy_import('pulumi_azure_native.security.v20221120preview')
     v20230101preview = _utilities.lazy_import('pulumi_azure_native.security.v20230101preview')
     v20230201preview = _utilities.lazy_import('pulumi_azure_native.security.v20230201preview')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.security.v20230301preview')
+    v20230501 = _utilities.lazy_import('pulumi_azure_native.security.v20230501')
 

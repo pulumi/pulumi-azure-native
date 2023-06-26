@@ -123,7 +123,7 @@ def get_trusted_access_role_binding(resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrustedAccessRoleBindingResult:
     """
     Defines binding between a resource and role
-    Azure REST API version: 2023-04-02-preview.
+    Azure REST API version: 2023-05-02-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -154,7 +154,7 @@ def get_trusted_access_role_binding_output(resource_group_name: Optional[pulumi.
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustedAccessRoleBindingResult]:
     """
     Defines binding between a resource and role
-    Azure REST API version: 2023-04-02-preview.
+    Azure REST API version: 2023-05-02-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

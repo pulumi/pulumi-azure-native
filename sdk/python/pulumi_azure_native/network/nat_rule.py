@@ -198,7 +198,7 @@ class NatRule(pulumi.CustomResource):
                  __props__=None):
         """
         VpnGatewayNatRule Resource.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,7 +221,7 @@ class NatRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpnGatewayNatRule Resource.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param NatRuleInitArgs args: The arguments to use to populate this resource's properties.
@@ -275,7 +275,7 @@ class NatRule(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["ingress_vpn_site_link_connections"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200801:NatRule"), pulumi.Alias(type_="azure-native:network/v20201101:NatRule"), pulumi.Alias(type_="azure-native:network/v20210201:NatRule"), pulumi.Alias(type_="azure-native:network/v20210301:NatRule"), pulumi.Alias(type_="azure-native:network/v20210501:NatRule"), pulumi.Alias(type_="azure-native:network/v20210801:NatRule"), pulumi.Alias(type_="azure-native:network/v20220101:NatRule"), pulumi.Alias(type_="azure-native:network/v20220501:NatRule"), pulumi.Alias(type_="azure-native:network/v20220701:NatRule"), pulumi.Alias(type_="azure-native:network/v20220901:NatRule"), pulumi.Alias(type_="azure-native:network/v20221101:NatRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200801:NatRule"), pulumi.Alias(type_="azure-native:network/v20201101:NatRule"), pulumi.Alias(type_="azure-native:network/v20210201:NatRule"), pulumi.Alias(type_="azure-native:network/v20210301:NatRule"), pulumi.Alias(type_="azure-native:network/v20210501:NatRule"), pulumi.Alias(type_="azure-native:network/v20210801:NatRule"), pulumi.Alias(type_="azure-native:network/v20220101:NatRule"), pulumi.Alias(type_="azure-native:network/v20220501:NatRule"), pulumi.Alias(type_="azure-native:network/v20220701:NatRule"), pulumi.Alias(type_="azure-native:network/v20220901:NatRule"), pulumi.Alias(type_="azure-native:network/v20221101:NatRule"), pulumi.Alias(type_="azure-native:network/v20230201:NatRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NatRule, __self__).__init__(
             'azure-native:network:NatRule',

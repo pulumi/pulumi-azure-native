@@ -104,7 +104,7 @@ class GetNetworkFabricControllerResult:
 
     @property
     @pulumi.getter(name="infrastructureServices")
-    def infrastructure_services(self) -> 'outputs.NetworkFabricControllerPropertiesResponseInfrastructureServices':
+    def infrastructure_services(self) -> 'outputs.InfrastructureServicesResponse':
         """
         InfrastructureServices IP ranges.
         """
@@ -136,7 +136,7 @@ class GetNetworkFabricControllerResult:
 
     @property
     @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> Optional['outputs.NetworkFabricControllerPropertiesResponseManagedResourceGroupConfiguration']:
+    def managed_resource_group_configuration(self) -> Optional['outputs.ManagedResourceGroupConfigurationResponse']:
         """
         Managed Resource Group configuration properties.
         """
@@ -216,7 +216,7 @@ class GetNetworkFabricControllerResult:
 
     @property
     @pulumi.getter(name="workloadServices")
-    def workload_services(self) -> 'outputs.NetworkFabricControllerPropertiesResponseWorkloadServices':
+    def workload_services(self) -> 'outputs.WorkloadServicesResponse':
         """
         WorkloadServices IP ranges.
         """

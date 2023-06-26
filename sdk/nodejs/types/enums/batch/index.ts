@@ -2,16 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20210101 from "./v20210101";
 import * as v20220101 from "./v20220101";
 import * as v20220601 from "./v20220601";
-import * as v20221001 from "./v20221001";
+import * as v20230501 from "./v20230501";
 
 export {
-    v20210101,
     v20220101,
     v20220601,
-    v20221001,
+    v20230501,
 };
 
 export const AuthenticationMode = {
@@ -167,6 +165,10 @@ export const ContainerType = {
      * A Docker compatible container technology will be used to launch the containers.
      */
     DockerCompatible: "DockerCompatible",
+    /**
+     * A CRI based technology will be used to launch the containers.
+     */
+    CriCompatible: "CriCompatible",
 } as const;
 
 export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];

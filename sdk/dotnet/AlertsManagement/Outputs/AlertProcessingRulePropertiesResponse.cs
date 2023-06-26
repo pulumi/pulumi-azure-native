@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AlertsManagement.Outputs
         /// <summary>
         /// Actions to be applied.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.AddActionGroupsResponse, Outputs.RemoveAllActionGroupsResponse>> Actions;
+        public readonly ImmutableArray<object> Actions;
         /// <summary>
         /// Conditions on which alerts will be filtered.
         /// </summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.AlertsManagement.Outputs
 
         [OutputConstructor]
         private AlertProcessingRulePropertiesResponse(
-            ImmutableArray<Union<Outputs.AddActionGroupsResponse, Outputs.RemoveAllActionGroupsResponse>> actions,
+            ImmutableArray<object> actions,
 
             ImmutableArray<Outputs.ConditionResponse> conditions,
 

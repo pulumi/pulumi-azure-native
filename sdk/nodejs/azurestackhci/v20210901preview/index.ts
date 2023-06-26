@@ -25,21 +25,6 @@ export const getGalleryimageRetrieve: typeof import("./getGalleryimageRetrieve")
 export const getGalleryimageRetrieveOutput: typeof import("./getGalleryimageRetrieve").getGalleryimageRetrieveOutput = null as any;
 utilities.lazyLoad(exports, ["getGalleryimageRetrieve","getGalleryimageRetrieveOutput"], () => require("./getGalleryimageRetrieve"));
 
-export { GetGuestAgentArgs, GetGuestAgentResult, GetGuestAgentOutputArgs } from "./getGuestAgent";
-export const getGuestAgent: typeof import("./getGuestAgent").getGuestAgent = null as any;
-export const getGuestAgentOutput: typeof import("./getGuestAgent").getGuestAgentOutput = null as any;
-utilities.lazyLoad(exports, ["getGuestAgent","getGuestAgentOutput"], () => require("./getGuestAgent"));
-
-export { GetHybridIdentityMetadatumArgs, GetHybridIdentityMetadatumResult, GetHybridIdentityMetadatumOutputArgs } from "./getHybridIdentityMetadatum";
-export const getHybridIdentityMetadatum: typeof import("./getHybridIdentityMetadatum").getHybridIdentityMetadatum = null as any;
-export const getHybridIdentityMetadatumOutput: typeof import("./getHybridIdentityMetadatum").getHybridIdentityMetadatumOutput = null as any;
-utilities.lazyLoad(exports, ["getHybridIdentityMetadatum","getHybridIdentityMetadatumOutput"], () => require("./getHybridIdentityMetadatum"));
-
-export { GetMachineExtensionArgs, GetMachineExtensionResult, GetMachineExtensionOutputArgs } from "./getMachineExtension";
-export const getMachineExtension: typeof import("./getMachineExtension").getMachineExtension = null as any;
-export const getMachineExtensionOutput: typeof import("./getMachineExtension").getMachineExtensionOutput = null as any;
-utilities.lazyLoad(exports, ["getMachineExtension","getMachineExtensionOutput"], () => require("./getMachineExtension"));
-
 export { GetMarketplacegalleryimageArgs, GetMarketplacegalleryimageResult, GetMarketplacegalleryimageOutputArgs } from "./getMarketplacegalleryimage";
 export const getMarketplacegalleryimage: typeof import("./getMarketplacegalleryimage").getMarketplacegalleryimage = null as any;
 export const getMarketplacegalleryimageOutput: typeof import("./getMarketplacegalleryimage").getMarketplacegalleryimageOutput = null as any;
@@ -69,21 +54,6 @@ export { GetVirtualnetworkRetrieveArgs, GetVirtualnetworkRetrieveResult, GetVirt
 export const getVirtualnetworkRetrieve: typeof import("./getVirtualnetworkRetrieve").getVirtualnetworkRetrieve = null as any;
 export const getVirtualnetworkRetrieveOutput: typeof import("./getVirtualnetworkRetrieve").getVirtualnetworkRetrieveOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualnetworkRetrieve","getVirtualnetworkRetrieveOutput"], () => require("./getVirtualnetworkRetrieve"));
-
-export { GuestAgentArgs } from "./guestAgent";
-export type GuestAgent = import("./guestAgent").GuestAgent;
-export const GuestAgent: typeof import("./guestAgent").GuestAgent = null as any;
-utilities.lazyLoad(exports, ["GuestAgent"], () => require("./guestAgent"));
-
-export { HybridIdentityMetadatumArgs } from "./hybridIdentityMetadatum";
-export type HybridIdentityMetadatum = import("./hybridIdentityMetadatum").HybridIdentityMetadatum;
-export const HybridIdentityMetadatum: typeof import("./hybridIdentityMetadatum").HybridIdentityMetadatum = null as any;
-utilities.lazyLoad(exports, ["HybridIdentityMetadatum"], () => require("./hybridIdentityMetadatum"));
-
-export { MachineExtensionArgs } from "./machineExtension";
-export type MachineExtension = import("./machineExtension").MachineExtension;
-export const MachineExtension: typeof import("./machineExtension").MachineExtension = null as any;
-utilities.lazyLoad(exports, ["MachineExtension"], () => require("./machineExtension"));
 
 export { MarketplacegalleryimageArgs } from "./marketplacegalleryimage";
 export type Marketplacegalleryimage = import("./marketplacegalleryimage").Marketplacegalleryimage;
@@ -127,12 +97,6 @@ const _module = {
                 return new ArcSetting(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20210901preview:GalleryimageRetrieve":
                 return new GalleryimageRetrieve(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci/v20210901preview:GuestAgent":
-                return new GuestAgent(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci/v20210901preview:HybridIdentityMetadatum":
-                return new HybridIdentityMetadatum(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci/v20210901preview:MachineExtension":
-                return new MachineExtension(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20210901preview:Marketplacegalleryimage":
                 return new Marketplacegalleryimage(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve":

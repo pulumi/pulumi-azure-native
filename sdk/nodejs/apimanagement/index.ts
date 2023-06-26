@@ -910,10 +910,13 @@ import * as v20180101 from "./v20180101";
 import * as v20180601preview from "./v20180601preview";
 import * as v20190101 from "./v20190101";
 import * as v20191201preview from "./v20191201preview";
+import * as v20200601preview from "./v20200601preview";
 import * as v20201201 from "./v20201201";
+import * as v20210101preview from "./v20210101preview";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210801 from "./v20210801";
 import * as v20211201preview from "./v20211201preview";
+import * as v20220401preview from "./v20220401preview";
 import * as v20220801 from "./v20220801";
 import * as v20220901preview from "./v20220901preview";
 
@@ -924,10 +927,13 @@ export {
     v20180601preview,
     v20190101,
     v20191201preview,
+    v20200601preview,
     v20201201,
+    v20210101preview,
     v20210401preview,
     v20210801,
     v20211201preview,
+    v20220401preview,
     v20220801,
     v20220901preview,
 };

@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221108
         /// </summary>
         public readonly bool? EnableHa;
         /// <summary>
-        /// If shards on coordinator is enabled or not for the cluster.
+        /// If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
         /// </summary>
         public readonly bool? EnableShardsOnCoordinator;
         /// <summary>

@@ -196,7 +196,7 @@ def get_subvolume_metadata(account_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubvolumeMetadataResult:
     """
     Get details of the specified subvolume
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -239,7 +239,7 @@ def get_subvolume_metadata_output(account_name: Optional[pulumi.Input[str]] = No
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubvolumeMetadataResult]:
     """
     Get details of the specified subvolume
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account

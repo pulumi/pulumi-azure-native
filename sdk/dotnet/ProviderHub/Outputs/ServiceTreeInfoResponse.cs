@@ -14,15 +14,19 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
     public sealed class ServiceTreeInfoResponse
     {
         public readonly string? ComponentId;
+        public readonly string? Readiness;
         public readonly string? ServiceId;
 
         [OutputConstructor]
         private ServiceTreeInfoResponse(
             string? componentId,
 
+            string? readiness,
+
             string? serviceId)
         {
             ComponentId = componentId;
+            Readiness = readiness;
             ServiceId = serviceId;
         }
     }

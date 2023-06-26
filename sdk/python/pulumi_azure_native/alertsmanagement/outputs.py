@@ -18,6 +18,8 @@ __all__ = [
     'AlertProcessingRulePropertiesResponse',
     'ConditionResponse',
     'ConditionsResponse',
+    'CorrelateAlertsResponse',
+    'CorrelateByResponse',
     'DailyRecurrenceResponse',
     'DetectorParameterDefinitionResponse',
     'DetectorResponse',
@@ -324,7 +326,7 @@ class AlertProcessingRulePropertiesResponse(dict):
                  schedule: Optional['outputs.ScheduleResponse'] = None):
         """
         Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule.
-        :param Sequence[Union['AddActionGroupsResponse', 'RemoveAllActionGroupsResponse']] actions: Actions to be applied.
+        :param Sequence[Union['AddActionGroupsResponse', 'CorrelateAlertsResponse', 'RemoveAllActionGroupsResponse']] actions: Actions to be applied.
         :param Sequence[str] scopes: Scopes on which alert processing rule will apply.
         :param Sequence['ConditionResponse'] conditions: Conditions on which alerts will be filtered.
         :param str description: Description of alert processing rule.
@@ -572,6 +574,123 @@ class ConditionsResponse(dict):
         filter alerts by target resource type
         """
         return pulumi.get(self, "target_resource_type")
+
+
+@pulumi.output_type
+class CorrelateAlertsResponse(dict):
+    """
+    Add logic for alerts correlation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionType":
+            suggest = "action_type"
+        elif key == "correlateBy":
+            suggest = "correlate_by"
+        elif key == "correlationInterval":
+            suggest = "correlation_interval"
+        elif key == "notificationsForCorrelatedAlerts":
+            suggest = "notifications_for_correlated_alerts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CorrelateAlertsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CorrelateAlertsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CorrelateAlertsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_type: str,
+                 correlate_by: Sequence['outputs.CorrelateByResponse'],
+                 correlation_interval: str,
+                 priority: int,
+                 notifications_for_correlated_alerts: Optional[str] = None):
+        """
+        Add logic for alerts correlation.
+        :param str action_type: Action that should be applied.
+               Expected value is 'CorrelateAlerts'.
+        :param Sequence['CorrelateByResponse'] correlate_by: The list of conditions for the alerts correlations.
+        :param str correlation_interval: The required duration (in ISO8601 format) for the alerts correlation.
+        :param int priority: The priority of this correlation.
+        :param str notifications_for_correlated_alerts: Indicates how to handle child alerts notifications.
+        """
+        pulumi.set(__self__, "action_type", 'CorrelateAlerts')
+        pulumi.set(__self__, "correlate_by", correlate_by)
+        pulumi.set(__self__, "correlation_interval", correlation_interval)
+        pulumi.set(__self__, "priority", priority)
+        if notifications_for_correlated_alerts is None:
+            notifications_for_correlated_alerts = 'SuppressAlways'
+        if notifications_for_correlated_alerts is not None:
+            pulumi.set(__self__, "notifications_for_correlated_alerts", notifications_for_correlated_alerts)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        Action that should be applied.
+        Expected value is 'CorrelateAlerts'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter(name="correlateBy")
+    def correlate_by(self) -> Sequence['outputs.CorrelateByResponse']:
+        """
+        The list of conditions for the alerts correlations.
+        """
+        return pulumi.get(self, "correlate_by")
+
+    @property
+    @pulumi.getter(name="correlationInterval")
+    def correlation_interval(self) -> str:
+        """
+        The required duration (in ISO8601 format) for the alerts correlation.
+        """
+        return pulumi.get(self, "correlation_interval")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        The priority of this correlation.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="notificationsForCorrelatedAlerts")
+    def notifications_for_correlated_alerts(self) -> Optional[str]:
+        """
+        Indicates how to handle child alerts notifications.
+        """
+        return pulumi.get(self, "notifications_for_correlated_alerts")
+
+
+@pulumi.output_type
+class CorrelateByResponse(dict):
+    """
+    The logic for the correlation.
+    """
+    def __init__(__self__, *,
+                 field: Optional[str] = None):
+        """
+        The logic for the correlation.
+        :param str field: The JPath of the property that the alerts should be correlated by.
+        """
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[str]:
+        """
+        The JPath of the property that the alerts should be correlated by.
+        """
+        return pulumi.get(self, "field")
 
 
 @pulumi.output_type

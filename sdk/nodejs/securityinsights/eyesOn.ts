@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Settings with single toggle.
- * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
  */
 export class EyesOn extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class EyesOn extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:EyesOn" }, { type: "azure-native:securityinsights/v20210301preview:EyesOn" }, { type: "azure-native:securityinsights/v20210901preview:EyesOn" }, { type: "azure-native:securityinsights/v20211001preview:EyesOn" }, { type: "azure-native:securityinsights/v20220101preview:EyesOn" }, { type: "azure-native:securityinsights/v20220401preview:EyesOn" }, { type: "azure-native:securityinsights/v20220501preview:EyesOn" }, { type: "azure-native:securityinsights/v20220601preview:EyesOn" }, { type: "azure-native:securityinsights/v20220701preview:EyesOn" }, { type: "azure-native:securityinsights/v20220801preview:EyesOn" }, { type: "azure-native:securityinsights/v20220901preview:EyesOn" }, { type: "azure-native:securityinsights/v20221001preview:EyesOn" }, { type: "azure-native:securityinsights/v20221101preview:EyesOn" }, { type: "azure-native:securityinsights/v20221201preview:EyesOn" }, { type: "azure-native:securityinsights/v20230201preview:EyesOn" }, { type: "azure-native:securityinsights/v20230301preview:EyesOn" }, { type: "azure-native:securityinsights/v20230401preview:EyesOn" }, { type: "azure-native:securityinsights/v20230501preview:EyesOn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:EyesOn" }, { type: "azure-native:securityinsights/v20210301preview:EyesOn" }, { type: "azure-native:securityinsights/v20210901preview:EyesOn" }, { type: "azure-native:securityinsights/v20211001preview:EyesOn" }, { type: "azure-native:securityinsights/v20220101preview:EyesOn" }, { type: "azure-native:securityinsights/v20220401preview:EyesOn" }, { type: "azure-native:securityinsights/v20220501preview:EyesOn" }, { type: "azure-native:securityinsights/v20220601preview:EyesOn" }, { type: "azure-native:securityinsights/v20220701preview:EyesOn" }, { type: "azure-native:securityinsights/v20220801preview:EyesOn" }, { type: "azure-native:securityinsights/v20220901preview:EyesOn" }, { type: "azure-native:securityinsights/v20221001preview:EyesOn" }, { type: "azure-native:securityinsights/v20221101preview:EyesOn" }, { type: "azure-native:securityinsights/v20221201preview:EyesOn" }, { type: "azure-native:securityinsights/v20230201preview:EyesOn" }, { type: "azure-native:securityinsights/v20230301preview:EyesOn" }, { type: "azure-native:securityinsights/v20230401preview:EyesOn" }, { type: "azure-native:securityinsights/v20230501preview:EyesOn" }, { type: "azure-native:securityinsights/v20230601preview:EyesOn" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EyesOn.__pulumiType, name, resourceInputs, opts);
     }

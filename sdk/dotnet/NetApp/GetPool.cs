@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Get details of the specified capacity pool
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:netapp:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get details of the specified capacity pool
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:netapp:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());

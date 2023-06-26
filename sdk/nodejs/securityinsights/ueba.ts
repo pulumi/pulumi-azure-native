@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Settings with single toggle.
- * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
  */
 export class Ueba extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class Ueba extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Ueba" }, { type: "azure-native:securityinsights/v20210301preview:Ueba" }, { type: "azure-native:securityinsights/v20210901preview:Ueba" }, { type: "azure-native:securityinsights/v20211001preview:Ueba" }, { type: "azure-native:securityinsights/v20220101preview:Ueba" }, { type: "azure-native:securityinsights/v20220401preview:Ueba" }, { type: "azure-native:securityinsights/v20220501preview:Ueba" }, { type: "azure-native:securityinsights/v20220601preview:Ueba" }, { type: "azure-native:securityinsights/v20220701preview:Ueba" }, { type: "azure-native:securityinsights/v20220801preview:Ueba" }, { type: "azure-native:securityinsights/v20220901preview:Ueba" }, { type: "azure-native:securityinsights/v20221001preview:Ueba" }, { type: "azure-native:securityinsights/v20221101preview:Ueba" }, { type: "azure-native:securityinsights/v20221201preview:Ueba" }, { type: "azure-native:securityinsights/v20230201preview:Ueba" }, { type: "azure-native:securityinsights/v20230301preview:Ueba" }, { type: "azure-native:securityinsights/v20230401preview:Ueba" }, { type: "azure-native:securityinsights/v20230501preview:Ueba" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Ueba" }, { type: "azure-native:securityinsights/v20210301preview:Ueba" }, { type: "azure-native:securityinsights/v20210901preview:Ueba" }, { type: "azure-native:securityinsights/v20211001preview:Ueba" }, { type: "azure-native:securityinsights/v20220101preview:Ueba" }, { type: "azure-native:securityinsights/v20220401preview:Ueba" }, { type: "azure-native:securityinsights/v20220501preview:Ueba" }, { type: "azure-native:securityinsights/v20220601preview:Ueba" }, { type: "azure-native:securityinsights/v20220701preview:Ueba" }, { type: "azure-native:securityinsights/v20220801preview:Ueba" }, { type: "azure-native:securityinsights/v20220901preview:Ueba" }, { type: "azure-native:securityinsights/v20221001preview:Ueba" }, { type: "azure-native:securityinsights/v20221101preview:Ueba" }, { type: "azure-native:securityinsights/v20221201preview:Ueba" }, { type: "azure-native:securityinsights/v20230201preview:Ueba" }, { type: "azure-native:securityinsights/v20230301preview:Ueba" }, { type: "azure-native:securityinsights/v20230401preview:Ueba" }, { type: "azure-native:securityinsights/v20230501preview:Ueba" }, { type: "azure-native:securityinsights/v20230601preview:Ueba" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ueba.__pulumiType, name, resourceInputs, opts);
     }

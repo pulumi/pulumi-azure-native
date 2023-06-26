@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? QueryTimeout { get; set; }
 
         /// <summary>
-        /// The read behavior for the operation. Default is Query.
+        /// The read behavior for the operation. Default is Query. Allowed values: Query/QueryAll. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("readBehavior")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.SalesforceSourceReadBehavior>? ReadBehavior { get; set; }
+        public Input<object>? ReadBehavior { get; set; }
 
         /// <summary>
         /// Source retry count. Type: integer (or Expression with resultType integer).

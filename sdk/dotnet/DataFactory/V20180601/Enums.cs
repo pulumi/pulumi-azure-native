@@ -1671,37 +1671,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
     /// <summary>
-    /// The read behavior for the operation. Default is Query.
-    /// </summary>
-    [EnumType]
-    public readonly struct SalesforceSourceReadBehavior : IEquatable<SalesforceSourceReadBehavior>
-    {
-        private readonly string _value;
-
-        private SalesforceSourceReadBehavior(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SalesforceSourceReadBehavior Query { get; } = new SalesforceSourceReadBehavior("Query");
-        public static SalesforceSourceReadBehavior QueryAll { get; } = new SalesforceSourceReadBehavior("QueryAll");
-
-        public static bool operator ==(SalesforceSourceReadBehavior left, SalesforceSourceReadBehavior right) => left.Equals(right);
-        public static bool operator !=(SalesforceSourceReadBehavior left, SalesforceSourceReadBehavior right) => !left.Equals(right);
-
-        public static explicit operator string(SalesforceSourceReadBehavior value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SalesforceSourceReadBehavior other && Equals(other);
-        public bool Equals(SalesforceSourceReadBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The write behavior for the operation. Default is 'Insert'.
     /// </summary>
     [EnumType]

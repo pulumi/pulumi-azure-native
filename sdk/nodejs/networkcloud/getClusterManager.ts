@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the properties of the provided cluster manager.
- * Azure REST API version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getClusterManager(args: GetClusterManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterManagerResult> {
 
@@ -57,7 +57,7 @@ export interface GetClusterManagerResult {
      */
     readonly fabricControllerId: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -99,7 +99,7 @@ export interface GetClusterManagerResult {
 }
 /**
  * Get the properties of the provided cluster manager.
- * Azure REST API version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getClusterManagerOutput(args: GetClusterManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterManagerResult> {
     return pulumi.output(args).apply((a: any) => getClusterManager(a, opts))

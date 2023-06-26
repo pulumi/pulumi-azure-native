@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Base class for backup items.
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ProtectedItem")]
     public partial class ProtectedItem : global::Pulumi.CustomResource
@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.RecoveryServices
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20221001:ProtectedItem"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230101:ProtectedItem"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230201:ProtectedItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230401:ProtectedItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

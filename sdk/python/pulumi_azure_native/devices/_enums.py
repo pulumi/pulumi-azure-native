@@ -15,6 +15,7 @@ __all__ = [
     'IotHubSku',
     'IpFilterActionType',
     'IpFilterTargetType',
+    'IpVersion',
     'NetworkRuleIPAction',
     'PrivateLinkServiceConnectionStatus',
     'PublicNetworkAccess',
@@ -127,6 +128,15 @@ class IpFilterTargetType(str, Enum):
     DEVICE_API = "deviceApi"
 
 
+class IpVersion(str, Enum):
+    """
+    This property specifies the IP Version the hub is currently utilizing.
+    """
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"
+    IPV4IPV6 = "ipv4ipv6"
+
+
 class NetworkRuleIPAction(str, Enum):
     """
     IP Filter Action
@@ -154,7 +164,7 @@ class PublicNetworkAccess(str, Enum):
 
 class ResourceIdentityType(str, Enum):
     """
-    The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+    The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
@@ -171,7 +181,9 @@ class RoutingSource(str, Enum):
     TWIN_CHANGE_EVENTS = "TwinChangeEvents"
     DEVICE_LIFECYCLE_EVENTS = "DeviceLifecycleEvents"
     DEVICE_JOB_LIFECYCLE_EVENTS = "DeviceJobLifecycleEvents"
+    DIGITAL_TWIN_CHANGE_EVENTS = "DigitalTwinChangeEvents"
     DEVICE_CONNECTION_STATE_EVENTS = "DeviceConnectionStateEvents"
+    MQTT_BROKER_MESSAGES = "MqttBrokerMessages"
 
 
 class State(str, Enum):

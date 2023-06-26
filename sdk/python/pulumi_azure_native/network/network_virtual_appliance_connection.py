@@ -197,7 +197,7 @@ class NetworkVirtualApplianceConnection(pulumi.CustomResource):
                  __props__=None):
         """
         NetworkVirtualApplianceConnection resource.
-        Azure REST API version: 2022-11-01.
+        Azure REST API version: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,7 +220,7 @@ class NetworkVirtualApplianceConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NetworkVirtualApplianceConnection resource.
-        Azure REST API version: 2022-11-01.
+        Azure REST API version: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param NetworkVirtualApplianceConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -271,7 +271,7 @@ class NetworkVirtualApplianceConnection(pulumi.CustomResource):
             __props__.__dict__["routing_configuration"] = routing_configuration
             __props__.__dict__["tunnel_identifier"] = tunnel_identifier
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20221101:NetworkVirtualApplianceConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20221101:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20230201:NetworkVirtualApplianceConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkVirtualApplianceConnection, __self__).__init__(
             'azure-native:network:NetworkVirtualApplianceConnection',

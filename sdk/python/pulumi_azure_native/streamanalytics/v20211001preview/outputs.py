@@ -14,6 +14,7 @@ from ._enums import *
 __all__ = [
     'AggregateFunctionPropertiesResponse',
     'AvroSerializationResponse',
+    'AzureDataExplorerOutputDataSourceResponse',
     'AzureDataLakeStoreOutputDataSourceResponse',
     'AzureFunctionOutputDataSourceResponse',
     'AzureMachineLearningServiceFunctionBindingResponse',
@@ -167,6 +168,95 @@ class AvroSerializationResponse(dict):
         Expected value is 'Avro'.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AzureDataExplorerOutputDataSourceResponse(dict):
+    """
+    Describes an Azure Data Explorer output data source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationMode":
+            suggest = "authentication_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureDataExplorerOutputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureDataExplorerOutputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureDataExplorerOutputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 authentication_mode: Optional[str] = None,
+                 cluster: Optional[str] = None,
+                 database: Optional[str] = None,
+                 table: Optional[str] = None):
+        """
+        Describes an Azure Data Explorer output data source.
+        :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Kusto/clusters/databases'.
+        :param str authentication_mode: Authentication Mode.
+        :param str cluster: The name of the Azure Data Explorer cluster. Required on PUT (CreateOrReplace) requests.
+        :param str database: The name of the Azure Data Explorer database. Required on PUT (CreateOrReplace) requests.
+        :param str table: The name of the Azure Table. Required on PUT (CreateOrReplace) requests.
+        """
+        pulumi.set(__self__, "type", 'Microsoft.Kusto/clusters/databases')
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if cluster is not None:
+            pulumi.set(__self__, "cluster", cluster)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Kusto/clusters/databases'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[str]:
+        """
+        Authentication Mode.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @property
+    @pulumi.getter
+    def cluster(self) -> Optional[str]:
+        """
+        The name of the Azure Data Explorer cluster. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "cluster")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        The name of the Azure Data Explorer database. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def table(self) -> Optional[str]:
+        """
+        The name of the Azure Table. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "table")
 
 
 @pulumi.output_type
@@ -3613,13 +3703,13 @@ class IdentityResponse(dict):
                  principal_id: str,
                  tenant_id: str,
                  type: Optional[str] = None,
-                 user_assigned_identities: Optional[Any] = None):
+                 user_assigned_identities: Optional[Mapping[str, Any]] = None):
         """
         Describes how identity is verified
         :param str principal_id: The principalId of the identity.
         :param str tenant_id: The tenantId of the identity.
         :param str type: The type of identity, can be SystemAssigned or UserAssigned.
-        :param Any user_assigned_identities: The user assigned identities associated with the streaming job resource.
+        :param Mapping[str, Any] user_assigned_identities: The user assigned identities associated with the streaming job resource.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -3654,7 +3744,7 @@ class IdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Any]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, Any]]:
         """
         The user assigned identities associated with the streaming job resource.
         """
@@ -4118,7 +4208,7 @@ class OutputResponse(dict):
         :param str id: Resource Id
         :param Sequence['LastOutputEventTimestampResponse'] last_output_event_timestamps: A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
         :param str type: Resource type
-        :param Union['AzureDataLakeStoreOutputDataSourceResponse', 'AzureFunctionOutputDataSourceResponse', 'AzureSqlDatabaseOutputDataSourceResponse', 'AzureSynapseOutputDataSourceResponse', 'AzureTableOutputDataSourceResponse', 'BlobOutputDataSourceResponse', 'DocumentDbOutputDataSourceResponse', 'EventHubOutputDataSourceResponse', 'EventHubV2OutputDataSourceResponse', 'GatewayMessageBusOutputDataSourceResponse', 'PostgreSQLOutputDataSourceResponse', 'PowerBIOutputDataSourceResponse', 'RawOutputDatasourceResponse', 'ServiceBusQueueOutputDataSourceResponse', 'ServiceBusTopicOutputDataSourceResponse'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param Union['AzureDataExplorerOutputDataSourceResponse', 'AzureDataLakeStoreOutputDataSourceResponse', 'AzureFunctionOutputDataSourceResponse', 'AzureSqlDatabaseOutputDataSourceResponse', 'AzureSynapseOutputDataSourceResponse', 'AzureTableOutputDataSourceResponse', 'BlobOutputDataSourceResponse', 'DocumentDbOutputDataSourceResponse', 'EventHubOutputDataSourceResponse', 'EventHubV2OutputDataSourceResponse', 'GatewayMessageBusOutputDataSourceResponse', 'PostgreSQLOutputDataSourceResponse', 'PowerBIOutputDataSourceResponse', 'RawOutputDatasourceResponse', 'ServiceBusQueueOutputDataSourceResponse', 'ServiceBusTopicOutputDataSourceResponse'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param str name: Resource name
         :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'DeltaSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param int size_window: The size window to constrain a Stream Analytics output to.

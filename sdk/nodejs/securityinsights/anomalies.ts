@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Settings with single toggle.
- * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
  */
 export class Anomalies extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class Anomalies extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Anomalies" }, { type: "azure-native:securityinsights/v20210301preview:Anomalies" }, { type: "azure-native:securityinsights/v20210901preview:Anomalies" }, { type: "azure-native:securityinsights/v20211001preview:Anomalies" }, { type: "azure-native:securityinsights/v20220101preview:Anomalies" }, { type: "azure-native:securityinsights/v20220401preview:Anomalies" }, { type: "azure-native:securityinsights/v20220501preview:Anomalies" }, { type: "azure-native:securityinsights/v20220601preview:Anomalies" }, { type: "azure-native:securityinsights/v20220701preview:Anomalies" }, { type: "azure-native:securityinsights/v20220801preview:Anomalies" }, { type: "azure-native:securityinsights/v20220901preview:Anomalies" }, { type: "azure-native:securityinsights/v20221001preview:Anomalies" }, { type: "azure-native:securityinsights/v20221101preview:Anomalies" }, { type: "azure-native:securityinsights/v20221201preview:Anomalies" }, { type: "azure-native:securityinsights/v20230201preview:Anomalies" }, { type: "azure-native:securityinsights/v20230301preview:Anomalies" }, { type: "azure-native:securityinsights/v20230401preview:Anomalies" }, { type: "azure-native:securityinsights/v20230501preview:Anomalies" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Anomalies" }, { type: "azure-native:securityinsights/v20210301preview:Anomalies" }, { type: "azure-native:securityinsights/v20210901preview:Anomalies" }, { type: "azure-native:securityinsights/v20211001preview:Anomalies" }, { type: "azure-native:securityinsights/v20220101preview:Anomalies" }, { type: "azure-native:securityinsights/v20220401preview:Anomalies" }, { type: "azure-native:securityinsights/v20220501preview:Anomalies" }, { type: "azure-native:securityinsights/v20220601preview:Anomalies" }, { type: "azure-native:securityinsights/v20220701preview:Anomalies" }, { type: "azure-native:securityinsights/v20220801preview:Anomalies" }, { type: "azure-native:securityinsights/v20220901preview:Anomalies" }, { type: "azure-native:securityinsights/v20221001preview:Anomalies" }, { type: "azure-native:securityinsights/v20221101preview:Anomalies" }, { type: "azure-native:securityinsights/v20221201preview:Anomalies" }, { type: "azure-native:securityinsights/v20230201preview:Anomalies" }, { type: "azure-native:securityinsights/v20230301preview:Anomalies" }, { type: "azure-native:securityinsights/v20230401preview:Anomalies" }, { type: "azure-native:securityinsights/v20230501preview:Anomalies" }, { type: "azure-native:securityinsights/v20230601preview:Anomalies" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Anomalies.__pulumiType, name, resourceInputs, opts);
     }

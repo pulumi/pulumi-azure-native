@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Retrieve an scheduled query rule definition.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2023-03-15-preview.
         /// </summary>
         public static Task<GetScheduledQueryRuleResult> InvokeAsync(GetScheduledQueryRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRuleResult>("azure-native:insights:getScheduledQueryRule", args ?? new GetScheduledQueryRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve an scheduled query rule definition.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2023-03-15-preview.
         /// </summary>
         public static Output<GetScheduledQueryRuleResult> Invoke(GetScheduledQueryRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRuleResult>("azure-native:insights:getScheduledQueryRule", args ?? new GetScheduledQueryRuleInvokeArgs(), options.WithDefaults());
@@ -116,6 +116,10 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
+        /// <summary>
         /// True if alert rule is legacy Log Analytic rule
         /// </summary>
         public readonly bool IsLegacyLogAnalyticsRule;
@@ -143,6 +147,10 @@ namespace Pulumi.AzureNative.Insights
         /// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
         /// </summary>
         public readonly string? OverrideQueryTimeRange;
+        /// <summary>
+        /// Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+        /// </summary>
+        public readonly Outputs.RuleResolveConfigurationResponse? RuleResolveConfiguration;
         /// <summary>
         /// The list of resource id's that this scheduled query rule is scoped to.
         /// </summary>
@@ -200,6 +208,8 @@ namespace Pulumi.AzureNative.Insights
 
             string id,
 
+            Outputs.IdentityResponse? identity,
+
             bool isLegacyLogAnalyticsRule,
 
             bool isWorkspaceAlertsStorageConfigured,
@@ -213,6 +223,8 @@ namespace Pulumi.AzureNative.Insights
             string name,
 
             string? overrideQueryTimeRange,
+
+            Outputs.RuleResolveConfigurationResponse? ruleResolveConfiguration,
 
             ImmutableArray<string> scopes,
 
@@ -241,6 +253,7 @@ namespace Pulumi.AzureNative.Insights
             Etag = etag;
             EvaluationFrequency = evaluationFrequency;
             Id = id;
+            Identity = identity;
             IsLegacyLogAnalyticsRule = isLegacyLogAnalyticsRule;
             IsWorkspaceAlertsStorageConfigured = isWorkspaceAlertsStorageConfigured;
             Kind = kind;
@@ -248,6 +261,7 @@ namespace Pulumi.AzureNative.Insights
             MuteActionsDuration = muteActionsDuration;
             Name = name;
             OverrideQueryTimeRange = overrideQueryTimeRange;
+            RuleResolveConfiguration = ruleResolveConfiguration;
             Scopes = scopes;
             Severity = severity;
             SkipQueryValidation = skipQueryValidation;

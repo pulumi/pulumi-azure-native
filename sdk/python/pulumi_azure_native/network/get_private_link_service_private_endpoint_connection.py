@@ -148,7 +148,7 @@ def get_private_link_service_private_endpoint_connection(expand: Optional[str] =
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServicePrivateEndpointConnectionResult:
     """
     Get the specific private end point connection by specific private link service in the resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -184,7 +184,7 @@ def get_private_link_service_private_endpoint_connection_output(expand: Optional
                                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServicePrivateEndpointConnectionResult]:
     """
     Get the specific private end point connection by specific private link service in the resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.

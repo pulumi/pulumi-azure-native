@@ -6,8 +6,12 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .data_connector import *
+from .data_manager_for_agriculture_resource import *
 from .extension import *
 from .farm_beats_model import *
+from .get_data_connector import *
+from .get_data_manager_for_agriculture_resource import *
 from .get_extension import *
 from .get_farm_beats_model import *
 from .get_private_endpoint_connection import *
@@ -23,7 +27,10 @@ if typing.TYPE_CHECKING:
     v20200512preview = __v20200512preview
     import pulumi_azure_native.agfoodplatform.v20210901preview as __v20210901preview
     v20210901preview = __v20210901preview
+    import pulumi_azure_native.agfoodplatform.v20230601preview as __v20230601preview
+    v20230601preview = __v20230601preview
 else:
     v20200512preview = _utilities.lazy_import('pulumi_azure_native.agfoodplatform.v20200512preview')
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.agfoodplatform.v20210901preview')
+    v20230601preview = _utilities.lazy_import('pulumi_azure_native.agfoodplatform.v20230601preview')
 

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Properties that define a ProactiveDetection configuration.
- * Azure REST API version: 2015-05-01. Prior API version in Azure Native 1.x: 2015-05-01
+ * A ProactiveDetection configuration definition.
+ * Azure REST API version: 2018-05-01-preview. Prior API version in Azure Native 1.x: 2015-05-01
  */
 export class ProactiveDetectionConfiguration extends pulumi.CustomResource {
     /**
@@ -49,19 +49,27 @@ export class ProactiveDetectionConfiguration extends pulumi.CustomResource {
     /**
      * The last time this rule was updated
      */
-    public readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    /**
+     * Resource location
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The rule name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Static definitions of the ProactiveDetection configuration rule (same values for all components).
      */
-    public readonly ruleDefinitions!: pulumi.Output<outputs.insights.ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions | undefined>;
+    public readonly ruleDefinitions!: pulumi.Output<outputs.insights.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions | undefined>;
     /**
      * A flag that indicated whether notifications on this rule should be sent to subscription owners
      */
     public readonly sendEmailsToSubscriptionOwners!: pulumi.Output<boolean | undefined>;
+    /**
+     * Azure resource type
+     */
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a ProactiveDetectionConfiguration resource with the given unique name, arguments, and options.
@@ -83,19 +91,23 @@ export class ProactiveDetectionConfiguration extends pulumi.CustomResource {
             resourceInputs["configurationId"] = args ? args.configurationId : undefined;
             resourceInputs["customEmails"] = args ? args.customEmails : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["lastUpdatedTime"] = args ? args.lastUpdatedTime : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["ruleDefinitions"] = args ? args.ruleDefinitions : undefined;
             resourceInputs["sendEmailsToSubscriptionOwners"] = args ? args.sendEmailsToSubscriptionOwners : undefined;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["customEmails"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["ruleDefinitions"] = undefined /*out*/;
             resourceInputs["sendEmailsToSubscriptionOwners"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:insights/v20150501:ProactiveDetectionConfiguration" }, { type: "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration" }] };
@@ -121,11 +133,11 @@ export interface ProactiveDetectionConfigurationArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The last time this rule was updated
+     * Resource location
      */
-    lastUpdatedTime?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
-     * The rule name
+     * Azure resource name
      */
     name?: pulumi.Input<string>;
     /**
@@ -139,7 +151,7 @@ export interface ProactiveDetectionConfigurationArgs {
     /**
      * Static definitions of the ProactiveDetection configuration rule (same values for all components).
      */
-    ruleDefinitions?: pulumi.Input<inputs.insights.ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs>;
+    ruleDefinitions?: pulumi.Input<inputs.insights.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs>;
     /**
      * A flag that indicated whether notifications on this rule should be sent to subscription owners
      */

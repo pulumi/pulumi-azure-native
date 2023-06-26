@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
-export const getServer: typeof import("./getServer").getServer = null as any;
-export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
-utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
-
 export { GetServerAdministratorArgs, GetServerAdministratorResult, GetServerAdministratorOutputArgs } from "./getServerAdministrator";
 export const getServerAdministrator: typeof import("./getServerAdministrator").getServerAdministrator = null as any;
 export const getServerAdministratorOutput: typeof import("./getServerAdministrator").getServerAdministratorOutput = null as any;
@@ -19,11 +14,6 @@ export { GetVirtualNetworkRuleArgs, GetVirtualNetworkRuleResult, GetVirtualNetwo
 export const getVirtualNetworkRule: typeof import("./getVirtualNetworkRule").getVirtualNetworkRule = null as any;
 export const getVirtualNetworkRuleOutput: typeof import("./getVirtualNetworkRule").getVirtualNetworkRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNetworkRule","getVirtualNetworkRuleOutput"], () => require("./getVirtualNetworkRule"));
-
-export { ServerArgs } from "./server";
-export type Server = import("./server").Server;
-export const Server: typeof import("./server").Server = null as any;
-utilities.lazyLoad(exports, ["Server"], () => require("./server"));
 
 export { ServerAdministratorArgs } from "./serverAdministrator";
 export type ServerAdministrator = import("./serverAdministrator").ServerAdministrator;
@@ -43,8 +33,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:dbformysql/v20171201preview:Server":
-                return new Server(name, <any>undefined, { urn })
             case "azure-native:dbformysql/v20171201preview:ServerAdministrator":
                 return new ServerAdministrator(name, <any>undefined, { urn })
             case "azure-native:dbformysql/v20171201preview:VirtualNetworkRule":

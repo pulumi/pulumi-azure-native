@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an installed packages by its id.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getContentPackage(args: GetContentPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetContentPackageResult> {
 
@@ -147,7 +147,7 @@ export interface GetContentPackageResult {
 }
 /**
  * Gets an installed packages by its id.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getContentPackageOutput(args: GetContentPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentPackageResult> {
     return pulumi.output(args).apply((a: any) => getContentPackage(a, opts))

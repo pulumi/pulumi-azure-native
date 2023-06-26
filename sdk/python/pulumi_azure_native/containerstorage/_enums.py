@@ -15,7 +15,13 @@ class ReclaimPolicy(str, Enum):
     Reclaim Policy, Delete or Retain
     """
     DELETE = "Delete"
+    """
+    Delete resource
+    """
     RETAIN = "Retain"
+    """
+    Retain resource
+    """
 
 
 class VolumeMode(str, Enum):
@@ -23,4 +29,10 @@ class VolumeMode(str, Enum):
     Indicates how the volumes created from the snapshot should be attached
     """
     FILESYSTEM = "Filesystem"
+    """
+    FileSystem volume mode
+    """
     RAW = "Raw"
+    """
+    Raw volume mode
+    """

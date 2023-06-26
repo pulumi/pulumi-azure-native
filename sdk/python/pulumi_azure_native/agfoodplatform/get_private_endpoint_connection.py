@@ -129,21 +129,21 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             type=self.type)
 
 
-def get_private_endpoint_connection(farm_beats_resource_name: Optional[str] = None,
+def get_private_endpoint_connection(data_manager_for_agriculture_resource_name: Optional[str] = None,
                                     private_endpoint_connection_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Get Private endpoint connection object.
-    Azure REST API version: 2021-09-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
-    :param str farm_beats_resource_name: FarmBeats resource name.
+    :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str private_endpoint_connection_name: Private endpoint connection name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['farmBeatsResourceName'] = farm_beats_resource_name
+    __args__['dataManagerForAgricultureResourceName'] = data_manager_for_agriculture_resource_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -161,16 +161,16 @@ def get_private_endpoint_connection(farm_beats_resource_name: Optional[str] = No
 
 
 @_utilities.lift_output_func(get_private_endpoint_connection)
-def get_private_endpoint_connection_output(farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
+def get_private_endpoint_connection_output(data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
                                            private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get Private endpoint connection object.
-    Azure REST API version: 2021-09-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
-    :param str farm_beats_resource_name: FarmBeats resource name.
+    :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str private_endpoint_connection_name: Private endpoint connection name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """

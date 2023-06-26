@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Quota Rule of a Volume
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2022-01-01
+ * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-01-01
  */
 export class VolumeQuotaRule extends pulumi.CustomResource {
     /**
@@ -124,7 +124,7 @@ export class VolumeQuotaRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20220101:VolumeQuotaRule" }, { type: "azure-native:netapp/v20220301:VolumeQuotaRule" }, { type: "azure-native:netapp/v20220501:VolumeQuotaRule" }, { type: "azure-native:netapp/v20220901:VolumeQuotaRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20220101:VolumeQuotaRule" }, { type: "azure-native:netapp/v20220301:VolumeQuotaRule" }, { type: "azure-native:netapp/v20220501:VolumeQuotaRule" }, { type: "azure-native:netapp/v20220901:VolumeQuotaRule" }, { type: "azure-native:netapp/v20221101:VolumeQuotaRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VolumeQuotaRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of a namespace resource.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -67,6 +67,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly metricId!: pulumi.Output<string>;
     /**
+     * The minimum TLS version for the cluster to support, e.g. '1.2'
+     */
+    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -78,6 +82,10 @@ export class Namespace extends pulumi.CustomResource {
      * Provisioning state of the namespace.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * Endpoint you can use to perform Service Bus operations.
      */
@@ -130,8 +138,10 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.servicebus.encryptionArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -153,9 +163,11 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;
+            resourceInputs["minimumTlsVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["serviceBusEndpoint"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -197,6 +209,10 @@ export interface NamespaceArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * The minimum TLS version for the cluster to support, e.g. '1.2'
+     */
+    minimumTlsVersion?: pulumi.Input<string | enums.servicebus.TlsVersion>;
+    /**
      * The namespace name.
      */
     namespaceName?: pulumi.Input<string>;
@@ -204,6 +220,10 @@ export interface NamespaceArgs {
      * List of private endpoint connections.
      */
     privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.servicebus.PrivateEndpointConnectionArgs>[]>;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.servicebus.PublicNetworkAccess>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

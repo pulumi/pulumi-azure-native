@@ -242,7 +242,7 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBastionHostResult:
     """
     Gets the specified Bastion Host.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.
@@ -280,7 +280,7 @@ def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBastionHostResult]:
     """
     Gets the specified Bastion Host.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.

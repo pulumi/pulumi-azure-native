@@ -769,8 +769,6 @@ class StorageResponse(dict):
         suggest = None
         if key == "autoGrow":
             suggest = "auto_grow"
-        elif key == "iopsTier":
-            suggest = "iops_tier"
         elif key == "storageSizeGB":
             suggest = "storage_size_gb"
 
@@ -788,22 +786,22 @@ class StorageResponse(dict):
     def __init__(__self__, *,
                  iops: int,
                  auto_grow: Optional[str] = None,
-                 iops_tier: Optional[str] = None,
-                 storage_size_gb: Optional[int] = None):
+                 storage_size_gb: Optional[int] = None,
+                 tier: Optional[str] = None):
         """
         Storage properties of a server
         :param int iops: Storage tier IOPS quantity.
         :param str auto_grow: Flag to enable / disable Storage Auto grow for flexible server.
-        :param str iops_tier: Name of storage tier for IOPS.
         :param int storage_size_gb: Max storage allowed for a server.
+        :param str tier: Name of storage tier for IOPS.
         """
         pulumi.set(__self__, "iops", iops)
         if auto_grow is not None:
             pulumi.set(__self__, "auto_grow", auto_grow)
-        if iops_tier is not None:
-            pulumi.set(__self__, "iops_tier", iops_tier)
         if storage_size_gb is not None:
             pulumi.set(__self__, "storage_size_gb", storage_size_gb)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
@@ -822,20 +820,20 @@ class StorageResponse(dict):
         return pulumi.get(self, "auto_grow")
 
     @property
-    @pulumi.getter(name="iopsTier")
-    def iops_tier(self) -> Optional[str]:
-        """
-        Name of storage tier for IOPS.
-        """
-        return pulumi.get(self, "iops_tier")
-
-    @property
     @pulumi.getter(name="storageSizeGB")
     def storage_size_gb(self) -> Optional[int]:
         """
         Max storage allowed for a server.
         """
         return pulumi.get(self, "storage_size_gb")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        Name of storage tier for IOPS.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

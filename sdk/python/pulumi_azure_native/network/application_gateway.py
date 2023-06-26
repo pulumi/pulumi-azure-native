@@ -675,7 +675,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  __props__=None):
         """
         Application gateway resource.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -726,7 +726,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Application gateway resource.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param ApplicationGatewayArgs args: The arguments to use to populate this resource's properties.
@@ -830,6 +830,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__.__dict__["url_path_maps"] = url_path_maps
             __props__.__dict__["web_application_firewall_configuration"] = web_application_firewall_configuration
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["default_predefined_ssl_policy"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["operational_state"] = None
@@ -837,7 +838,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20150615:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160330:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20161201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20171001:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20171101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181001:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20191101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20191201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200501:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20201101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210501:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220501:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20221101:ApplicationGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20150615:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160330:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20161201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20171001:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20171101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181001:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20191101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20191201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200501:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20201101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210501:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220501:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20221101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20230201:ApplicationGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationGateway, __self__).__init__(
             'azure-native:network:ApplicationGateway',
@@ -867,6 +868,7 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__.__dict__["backend_http_settings_collection"] = None
         __props__.__dict__["backend_settings_collection"] = None
         __props__.__dict__["custom_error_configurations"] = None
+        __props__.__dict__["default_predefined_ssl_policy"] = None
         __props__.__dict__["enable_fips"] = None
         __props__.__dict__["enable_http2"] = None
         __props__.__dict__["etag"] = None
@@ -952,6 +954,14 @@ class ApplicationGateway(pulumi.CustomResource):
         Custom error configurations of the application gateway resource.
         """
         return pulumi.get(self, "custom_error_configurations")
+
+    @property
+    @pulumi.getter(name="defaultPredefinedSslPolicy")
+    def default_predefined_ssl_policy(self) -> pulumi.Output[str]:
+        """
+        The default predefined SSL Policy applied on the application gateway resource.
+        """
+        return pulumi.get(self, "default_predefined_ssl_policy")
 
     @property
     @pulumi.getter(name="enableFips")

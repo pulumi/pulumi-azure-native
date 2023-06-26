@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 {
     /// <summary>
     /// Solution resource.
-    /// Azure REST API version: 2021-09-01-preview.
+    /// Azure REST API version: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:Solution")]
     public partial class Solution : global::Pulumi.CustomResource
@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20210901preview:Solution"},
+                    new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20230601preview:Solution"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -96,10 +97,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public sealed class SolutionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// FarmBeats resource name.
+        /// DataManagerForAgriculture resource name.
         /// </summary>
-        [Input("farmBeatsResourceName", required: true)]
-        public Input<string> FarmBeatsResourceName { get; set; } = null!;
+        [Input("dataManagerForAgricultureResourceName", required: true)]
+        public Input<string> DataManagerForAgricultureResourceName { get; set; } = null!;
 
         /// <summary>
         /// Solution resource properties.
@@ -114,7 +115,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Solution Id of the solution.
+        /// SolutionId for Data Manager For Agriculture Resource.
         /// </summary>
         [Input("solutionId")]
         public Input<string>? SolutionId { get; set; }

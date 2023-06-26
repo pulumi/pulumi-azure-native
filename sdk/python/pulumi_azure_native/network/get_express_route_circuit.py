@@ -314,7 +314,7 @@ def get_express_route_circuit(circuit_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitResult:
     """
     Gets information about the specified express route circuit.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str circuit_name: The name of express route circuit.
@@ -358,7 +358,7 @@ def get_express_route_circuit_output(circuit_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitResult]:
     """
     Gets information about the specified express route circuit.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str circuit_name: The name of express route circuit.

@@ -243,7 +243,7 @@ def get_file_import(file_import_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileImportResult:
     """
     Gets a file import.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str file_import_id: File import ID
@@ -284,7 +284,7 @@ def get_file_import_output(file_import_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileImportResult]:
     """
     Gets a file import.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str file_import_id: File import ID

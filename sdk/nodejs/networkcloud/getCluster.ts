@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided cluster.
- * Azure REST API version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -39,7 +39,7 @@ export interface GetClusterResult {
     /**
      * The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
      */
-    readonly analyticsWorkspaceId: string;
+    readonly analyticsWorkspaceId?: string;
     /**
      * The list of cluster runtime version upgrades available for this cluster.
      */
@@ -102,11 +102,11 @@ export interface GetClusterResult {
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
-     * The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
+     * Field Deprecated. This field will not be populated in an upcoming version. The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
      */
     readonly hybridAksExtendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -156,7 +156,7 @@ export interface GetClusterResult {
 }
 /**
  * Get properties of the provided cluster.
- * Azure REST API version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

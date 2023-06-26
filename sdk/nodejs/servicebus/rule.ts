@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of Rule Resource.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class Rule extends pulumi.CustomResource {
     /**
@@ -139,7 +139,7 @@ export interface RuleArgs {
     /**
      * Filter type that is evaluated against a BrokeredMessage.
      */
-    filterType?: pulumi.Input<enums.servicebus.FilterType>;
+    filterType?: pulumi.Input<string | enums.servicebus.FilterType>;
     /**
      * The namespace name
      */

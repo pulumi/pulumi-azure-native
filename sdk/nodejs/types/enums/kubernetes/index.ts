@@ -2,15 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20210301 from "./v20210301";
 import * as v20210401preview from "./v20210401preview";
-import * as v20211001 from "./v20211001";
+import * as v20220501preview from "./v20220501preview";
 import * as v20221001preview from "./v20221001preview";
 
 export {
-    v20210301,
     v20210401preview,
-    v20211001,
+    v20220501preview,
     v20221001preview,
 };
 
@@ -23,6 +21,16 @@ export const AuthenticationMethod = {
  * The mode of client authentication.
  */
 export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
+
+export const PrivateLinkState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Property which describes the state of private link on a connected cluster resource.
+ */
+export type PrivateLinkState = (typeof PrivateLinkState)[keyof typeof PrivateLinkState];
 
 export const ProvisioningState = {
     Succeeded: "Succeeded",

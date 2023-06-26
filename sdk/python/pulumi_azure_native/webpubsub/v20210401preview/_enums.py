@@ -8,7 +8,6 @@ __all__ = [
     'ACLAction',
     'FeatureFlags',
     'ManagedIdentityType',
-    'PrivateLinkServiceConnectionStatus',
     'UpstreamAuthType',
     'WebPubSubRequestType',
     'WebPubSubSkuTier',
@@ -43,16 +42,6 @@ class ManagedIdentityType(str, Enum):
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
-
-
-class PrivateLinkServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
 
 
 class UpstreamAuthType(str, Enum):

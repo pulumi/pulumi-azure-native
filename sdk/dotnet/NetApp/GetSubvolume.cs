@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Returns the path associated with the subvolumeName provided
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetSubvolumeResult> InvokeAsync(GetSubvolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubvolumeResult>("azure-native:netapp:getSubvolume", args ?? new GetSubvolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the path associated with the subvolumeName provided
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetSubvolumeResult> Invoke(GetSubvolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubvolumeResult>("azure-native:netapp:getSubvolume", args ?? new GetSubvolumeInvokeArgs(), options.WithDefaults());

@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'DiagnosticStoragePropertiesArgs',
+    'EncryptionArgs',
     'GroupConnectivityInformationArgs',
     'IotHubSettingsArgs',
     'ManagedServiceIdentityArgs',
@@ -74,6 +75,46 @@ class DiagnosticStoragePropertiesArgs:
     @connection_string.setter
     def connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_string", value)
+
+
+@pulumi.input_type
+class EncryptionArgs:
+    def __init__(__self__, *,
+                 key_vault_key_uri: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        The CMK encryption settings on the Device Update account.
+        :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
+        :param pulumi.Input[str] user_assigned_identity: The full resourceId of the user assigned identity to be used for key vault access. Identity has to be also assigned to the Account
+        """
+        if key_vault_key_uri is not None:
+            pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUri")
+    def key_vault_key_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the key vault
+        """
+        return pulumi.get(self, "key_vault_key_uri")
+
+    @key_vault_key_uri.setter
+    def key_vault_key_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_uri", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full resourceId of the user assigned identity to be used for key vault access. Identity has to be also assigned to the Account
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
 
 
 @pulumi.input_type

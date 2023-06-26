@@ -18,16 +18,6 @@ export const AddressFamily = {
  */
 export type AddressFamily = (typeof AddressFamily)[keyof typeof AddressFamily];
 
-export const AdvertiseBoolean = {
-    True: "true",
-    False: "false",
-} as const;
-
-/**
- * noAdvertise. Example: true | false.
- */
-export type AdvertiseBoolean = (typeof AdvertiseBoolean)[keyof typeof AdvertiseBoolean];
-
 export const AllowASOverride = {
     Enable: "Enable",
     Disable: "Disable",
@@ -48,15 +38,26 @@ export const BooleanEnumProperty = {
  */
 export type BooleanEnumProperty = (typeof BooleanEnumProperty)[keyof typeof BooleanEnumProperty];
 
-export const CommunityActionType = {
-    Allow: "allow",
-    Deny: "deny",
+export const CommunityActionTypes = {
+    Permit: "Permit",
+    Deny: "Deny",
 } as const;
 
 /**
- * action. Example: allow | deny.
+ * action. Example: Permit | Deny.
  */
-export type CommunityActionType = (typeof CommunityActionType)[keyof typeof CommunityActionType];
+export type CommunityActionTypes = (typeof CommunityActionTypes)[keyof typeof CommunityActionTypes];
+
+export const Condition = {
+    EqualTo: "EqualTo",
+    GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
+    LesserThanOrEqualTo: "LesserThanOrEqualTo",
+} as const;
+
+/**
+ * Specify prefix-list bounds.
+ */
+export type Condition = (typeof Condition)[keyof typeof Condition];
 
 export const ConditionActionType = {
     Allow: "allow",
@@ -67,46 +68,6 @@ export const ConditionActionType = {
  * action. Example: allow | deny.
  */
 export type ConditionActionType = (typeof ConditionActionType)[keyof typeof ConditionActionType];
-
-export const ExportBoolean = {
-    True: "true",
-    False: "false",
-} as const;
-
-/**
- * noExport. Example: true | false.
- */
-export type ExportBoolean = (typeof ExportBoolean)[keyof typeof ExportBoolean];
-
-export const GshutBoolean = {
-    True: "true",
-    False: "false",
-} as const;
-
-/**
- *  Graceful Shutdown (GSHUT). Example: true | false.
- */
-export type GshutBoolean = (typeof GshutBoolean)[keyof typeof GshutBoolean];
-
-export const InternetBoolean = {
-    True: "true",
-    False: "false",
-} as const;
-
-/**
- * Internet access. Example: true | false.
- */
-export type InternetBoolean = (typeof InternetBoolean)[keyof typeof InternetBoolean];
-
-export const LocalASBoolean = {
-    True: "true",
-    False: "false",
-} as const;
-
-/**
- * Local Autonomous System. Example: true | false.
- */
-export type LocalASBoolean = (typeof LocalASBoolean)[keyof typeof LocalASBoolean];
 
 export const NetworkDeviceRoleTypes = {
     CE: "CE",
@@ -121,6 +82,16 @@ export const NetworkDeviceRoleTypes = {
  */
 export type NetworkDeviceRoleTypes = (typeof NetworkDeviceRoleTypes)[keyof typeof NetworkDeviceRoleTypes];
 
+export const NniType = {
+    CE: "CE",
+    NPB: "NPB",
+} as const;
+
+/**
+ * Type of NNI used. Example: CE | NPB
+ */
+export type NniType = (typeof NniType)[keyof typeof NniType];
+
 export const PeeringOption = {
     OptionA: "OptionA",
     OptionB: "OptionB",
@@ -130,16 +101,6 @@ export const PeeringOption = {
  * Peering option list.
  */
 export type PeeringOption = (typeof PeeringOption)[keyof typeof PeeringOption];
-
-export const PrefixActionType = {
-    Allow: "allow",
-    Deny: "deny",
-} as const;
-
-/**
- * action. Example: allow | deny.
- */
-export type PrefixActionType = (typeof PrefixActionType)[keyof typeof PrefixActionType];
 
 export const RedistributeConnectedSubnets = {
     True: "True",
@@ -160,3 +121,21 @@ export const RedistributeStaticRoutes = {
  * Advertise Static Routes. Ex: "True" | "False".
  */
 export type RedistributeStaticRoutes = (typeof RedistributeStaticRoutes)[keyof typeof RedistributeStaticRoutes];
+
+export const WellKnownCommunities = {
+    Internet: "Internet",
+    LocalAS: "LocalAS",
+    NoAdvertise: "NoAdvertise",
+    NoExport: "NoExport",
+    GShut: "GShut",
+} as const;
+
+/**
+ *
+ * `Internet` - Advertise routes to internet community.
+ *  `LocalAS` - Advertise routes to only localAS peers.
+ *  `NoAdvertise` - Don't advertise routes to any peer.
+ * `NoExport` - Don't export to next AS.
+ * `GShut` - Graceful Shutdown (GSHUT) withdraw routes before terminating BGP connection.
+ */
+export type WellKnownCommunities = (typeof WellKnownCommunities)[keyof typeof WellKnownCommunities];

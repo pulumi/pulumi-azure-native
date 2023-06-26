@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly bool? ActiveActive;
         /// <summary>
+        /// Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+        /// </summary>
+        public readonly string? AdminState;
+        /// <summary>
         /// Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
         /// </summary>
         public readonly bool? AllowRemoteVnetTraffic;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.Network.Outputs
         private VirtualNetworkGatewayResponse(
             bool? activeActive,
 
+            string? adminState,
+
             bool? allowRemoteVnetTraffic,
 
             bool? allowVirtualWanTraffic,
@@ -200,6 +206,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             string? vpnType)
         {
             ActiveActive = activeActive;
+            AdminState = adminState;
             AllowRemoteVnetTraffic = allowRemoteVnetTraffic;
             AllowVirtualWanTraffic = allowVirtualWanTraffic;
             BgpSettings = bgpSettings;

@@ -7,11 +7,7 @@ import typing
 # Export this package's modules as members:
 from .get_private_endpoint_connection import *
 from .get_private_link_scope import *
-from .get_private_link_scoped_resource import *
-from .get_workbook_template import *
 from .private_endpoint_connection import *
 from .private_link_scope import *
-from .private_link_scoped_resource import *
-from .workbook_template import *
 from ._inputs import *
 from . import outputs

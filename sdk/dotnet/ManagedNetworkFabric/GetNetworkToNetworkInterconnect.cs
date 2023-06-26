@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Common properties for Layer2Configuration.
         /// </summary>
-        public readonly Outputs.NetworkToNetworkInterconnectPropertiesResponseLayer2Configuration? Layer2Configuration;
+        public readonly Outputs.Layer2ConfigurationResponse? Layer2Configuration;
         /// <summary>
         /// Common properties for Layer3Configuration.
         /// </summary>
@@ -107,6 +107,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Type of NNI used. Example: CE | NPB
+        /// </summary>
+        public readonly string? NniType;
         /// <summary>
         /// Gets the provisioning state of the resource.
         /// </summary>
@@ -132,11 +136,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string isManagementType,
 
-            Outputs.NetworkToNetworkInterconnectPropertiesResponseLayer2Configuration? layer2Configuration,
+            Outputs.Layer2ConfigurationResponse? layer2Configuration,
 
             Outputs.Layer3ConfigurationResponse? layer3Configuration,
 
             string name,
+
+            string? nniType,
 
             string provisioningState,
 
@@ -152,6 +158,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
             Layer2Configuration = layer2Configuration;
             Layer3Configuration = layer3Configuration;
             Name = name;
+            NniType = nniType;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Type = type;

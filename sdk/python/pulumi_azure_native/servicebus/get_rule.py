@@ -149,7 +149,7 @@ def get_rule(namespace_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
     Retrieves the description for the specified rule.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str namespace_name: The namespace name
@@ -188,7 +188,7 @@ def get_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
     Retrieves the description for the specified rule.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str namespace_name: The namespace name

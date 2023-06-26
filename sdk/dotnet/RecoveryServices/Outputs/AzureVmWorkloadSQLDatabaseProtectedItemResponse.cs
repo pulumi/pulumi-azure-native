@@ -85,6 +85,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? LastRecoveryPoint;
         /// <summary>
+        /// List of the nodes in case of distributed container.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DistributedNodesInfoResponse> NodesList;
+        /// <summary>
         /// Parent name of the DB such as Instance or Availability Group.
         /// </summary>
         public readonly string? ParentName;
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? lastRecoveryPoint,
 
+            ImmutableArray<Outputs.DistributedNodesInfoResponse> nodesList,
+
             string? parentName,
 
             string? parentType,
@@ -223,6 +229,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             LastBackupStatus = lastBackupStatus;
             LastBackupTime = lastBackupTime;
             LastRecoveryPoint = lastRecoveryPoint;
+            NodesList = nodesList;
             ParentName = parentName;
             ParentType = parentType;
             PolicyId = policyId;

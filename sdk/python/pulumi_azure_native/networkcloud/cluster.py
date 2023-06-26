@@ -18,12 +18,12 @@ __all__ = ['ClusterArgs', 'Cluster']
 class ClusterArgs:
     def __init__(__self__, *,
                  aggregator_or_single_rack_definition: pulumi.Input['RackDefinitionArgs'],
-                 analytics_workspace_id: pulumi.Input[str],
                  cluster_type: pulumi.Input[Union[str, 'ClusterType']],
                  cluster_version: pulumi.Input[str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  network_fabric_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  cluster_location: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_service_principal: Optional[pulumi.Input['ServicePrincipalInformationArgs']] = None,
@@ -35,12 +35,12 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input['RackDefinitionArgs'] aggregator_or_single_rack_definition: The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
-        :param pulumi.Input[str] analytics_workspace_id: The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         :param pulumi.Input[Union[str, 'ClusterType']] cluster_type: The type of rack configuration for the cluster.
         :param pulumi.Input[str] cluster_version: The current runtime version of the cluster.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster manager associated with the cluster.
         :param pulumi.Input[str] network_fabric_id: The resource ID of the Network Fabric associated with the cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] analytics_workspace_id: The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         :param pulumi.Input[str] cluster_location: The customer-provided location information to identify where the cluster resides.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input['ServicePrincipalInformationArgs'] cluster_service_principal: The service principal to be used by the cluster during Arc Appliance installation.
@@ -52,12 +52,13 @@ class ClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "aggregator_or_single_rack_definition", aggregator_or_single_rack_definition)
-        pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
         pulumi.set(__self__, "cluster_type", cluster_type)
         pulumi.set(__self__, "cluster_version", cluster_version)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "network_fabric_id", network_fabric_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if analytics_workspace_id is not None:
+            pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
         if cluster_location is not None:
             pulumi.set(__self__, "cluster_location", cluster_location)
         if cluster_name is not None:
@@ -86,18 +87,6 @@ class ClusterArgs:
     @aggregator_or_single_rack_definition.setter
     def aggregator_or_single_rack_definition(self, value: pulumi.Input['RackDefinitionArgs']):
         pulumi.set(self, "aggregator_or_single_rack_definition", value)
-
-    @property
-    @pulumi.getter(name="analyticsWorkspaceId")
-    def analytics_workspace_id(self) -> pulumi.Input[str]:
-        """
-        The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
-        """
-        return pulumi.get(self, "analytics_workspace_id")
-
-    @analytics_workspace_id.setter
-    def analytics_workspace_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "analytics_workspace_id", value)
 
     @property
     @pulumi.getter(name="clusterType")
@@ -158,6 +147,18 @@ class ClusterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="analyticsWorkspaceId")
+    def analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
+        """
+        return pulumi.get(self, "analytics_workspace_id")
+
+    @analytics_workspace_id.setter
+    def analytics_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "analytics_workspace_id", value)
 
     @property
     @pulumi.getter(name="clusterLocation")
@@ -279,7 +280,7 @@ class Cluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2022-12-12-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,7 +308,7 @@ class Cluster(pulumi.CustomResource):
                  args: ClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2022-12-12-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -351,8 +352,6 @@ class Cluster(pulumi.CustomResource):
             if aggregator_or_single_rack_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'aggregator_or_single_rack_definition'")
             __props__.__dict__["aggregator_or_single_rack_definition"] = aggregator_or_single_rack_definition
-            if analytics_workspace_id is None and not opts.urn:
-                raise TypeError("Missing required property 'analytics_workspace_id'")
             __props__.__dict__["analytics_workspace_id"] = analytics_workspace_id
             __props__.__dict__["cluster_location"] = cluster_location
             __props__.__dict__["cluster_name"] = cluster_name
@@ -393,7 +392,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["workload_resource_ids"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:Cluster"), pulumi.Alias(type_="azure-native:networkcloud/v20230501preview:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:networkcloud:Cluster',
@@ -458,7 +457,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="analyticsWorkspaceId")
-    def analytics_workspace_id(self) -> pulumi.Output[str]:
+    def analytics_workspace_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         """
@@ -589,7 +588,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="hybridAksExtendedLocation")
     def hybrid_aks_extended_location(self) -> pulumi.Output['outputs.ExtendedLocationResponse']:
         """
-        The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
+        Field Deprecated. This field will not be populated in an upcoming version. The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
         """
         return pulumi.get(self, "hybrid_aks_extended_location")
 

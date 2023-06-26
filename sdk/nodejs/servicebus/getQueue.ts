@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a description for the specified queue.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
 
@@ -151,7 +151,7 @@ export interface GetQueueResult {
 }
 /**
  * Returns a description for the specified queue.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
     return pulumi.output(args).apply((a: any) => getQueue(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * StaticMember Item.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-02-01-preview
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01-preview
  */
 export class StaticMember extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class StaticMember extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:StaticMember" }, { type: "azure-native:network/v20220101:StaticMember" }, { type: "azure-native:network/v20220201preview:StaticMember" }, { type: "azure-native:network/v20220401preview:StaticMember" }, { type: "azure-native:network/v20220501:StaticMember" }, { type: "azure-native:network/v20220701:StaticMember" }, { type: "azure-native:network/v20220901:StaticMember" }, { type: "azure-native:network/v20221101:StaticMember" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:StaticMember" }, { type: "azure-native:network/v20220101:StaticMember" }, { type: "azure-native:network/v20220201preview:StaticMember" }, { type: "azure-native:network/v20220401preview:StaticMember" }, { type: "azure-native:network/v20220501:StaticMember" }, { type: "azure-native:network/v20220701:StaticMember" }, { type: "azure-native:network/v20220901:StaticMember" }, { type: "azure-native:network/v20221101:StaticMember" }, { type: "azure-native:network/v20230201:StaticMember" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticMember.__pulumiType, name, resourceInputs, opts);
     }

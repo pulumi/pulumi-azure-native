@@ -9,20 +9,10 @@ export { GetApiManagementServiceDomainOwnershipIdentifierArgs, GetApiManagementS
 export const getApiManagementServiceDomainOwnershipIdentifier: typeof import("./getApiManagementServiceDomainOwnershipIdentifier").getApiManagementServiceDomainOwnershipIdentifier = null as any;
 utilities.lazyLoad(exports, ["getApiManagementServiceDomainOwnershipIdentifier"], () => require("./getApiManagementServiceDomainOwnershipIdentifier"));
 
-export { GetPrivateEndpointConnectionByNameArgs, GetPrivateEndpointConnectionByNameResult, GetPrivateEndpointConnectionByNameOutputArgs } from "./getPrivateEndpointConnectionByName";
-export const getPrivateEndpointConnectionByName: typeof import("./getPrivateEndpointConnectionByName").getPrivateEndpointConnectionByName = null as any;
-export const getPrivateEndpointConnectionByNameOutput: typeof import("./getPrivateEndpointConnectionByName").getPrivateEndpointConnectionByNameOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnectionByName","getPrivateEndpointConnectionByNameOutput"], () => require("./getPrivateEndpointConnectionByName"));
-
 export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
 export const getSchema: typeof import("./getSchema").getSchema = null as any;
 export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
 utilities.lazyLoad(exports, ["getSchema","getSchemaOutput"], () => require("./getSchema"));
-
-export { PrivateEndpointConnectionByNameArgs } from "./privateEndpointConnectionByName";
-export type PrivateEndpointConnectionByName = import("./privateEndpointConnectionByName").PrivateEndpointConnectionByName;
-export const PrivateEndpointConnectionByName: typeof import("./privateEndpointConnectionByName").PrivateEndpointConnectionByName = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnectionByName"], () => require("./privateEndpointConnectionByName"));
 
 export { SchemaArgs } from "./schema";
 export type Schema = import("./schema").Schema;
@@ -37,8 +27,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName":
-                return new PrivateEndpointConnectionByName(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20210401preview:Schema":
                 return new Schema(name, <any>undefined, { urn })
             default:

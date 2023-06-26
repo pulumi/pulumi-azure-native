@@ -46,7 +46,7 @@ export interface GetAccessControlListResult {
     /**
      * Access Control List conditions.
      */
-    readonly conditions: outputs.managednetworkfabric.AccessControlListPropertiesResponseConditions[];
+    readonly conditions: outputs.managednetworkfabric.AccessControlListConditionPropertiesResponse[];
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */

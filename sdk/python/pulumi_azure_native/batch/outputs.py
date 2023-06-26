@@ -1623,7 +1623,7 @@ class KeyVaultPropertiesResponse(dict):
                  key_identifier: Optional[str] = None):
         """
         KeyVault configuration when using an encryption KeySource of Microsoft.KeyVault.
-        :param str key_identifier: Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
+        :param str key_identifier: Full path to the secret with or without version. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. or https://mykeyvault.vault.azure.net/keys/testkey. To be usable the following prerequisites must be met:
                
                 The Batch Account has a System Assigned identity
                 The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
@@ -1636,7 +1636,7 @@ class KeyVaultPropertiesResponse(dict):
     @pulumi.getter(name="keyIdentifier")
     def key_identifier(self) -> Optional[str]:
         """
-        Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
+        Full path to the secret with or without version. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. or https://mykeyvault.vault.azure.net/keys/testkey. To be usable the following prerequisites must be met:
 
          The Batch Account has a System Assigned identity
          The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
@@ -1907,6 +1907,8 @@ class NetworkConfigurationResponse(dict):
         suggest = None
         if key == "dynamicVnetAssignmentScope":
             suggest = "dynamic_vnet_assignment_scope"
+        elif key == "enableAcceleratedNetworking":
+            suggest = "enable_accelerated_networking"
         elif key == "endpointConfiguration":
             suggest = "endpoint_configuration"
         elif key == "publicIPAddressConfiguration":
@@ -1927,17 +1929,21 @@ class NetworkConfigurationResponse(dict):
 
     def __init__(__self__, *,
                  dynamic_vnet_assignment_scope: Optional[str] = None,
+                 enable_accelerated_networking: Optional[bool] = None,
                  endpoint_configuration: Optional['outputs.PoolEndpointConfigurationResponse'] = None,
                  public_ip_address_configuration: Optional['outputs.PublicIPAddressConfigurationResponse'] = None,
                  subnet_id: Optional[str] = None):
         """
         The network configuration for a pool.
+        :param bool enable_accelerated_networking: Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
         :param 'PoolEndpointConfigurationResponse' endpoint_configuration: Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
         :param 'PublicIPAddressConfigurationResponse' public_ip_address_configuration: This property is only supported on Pools with the virtualMachineConfiguration property.
         :param str subnet_id: The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Also enable outbound connections to Azure Storage on port 443. For cloudServiceConfiguration pools, only 'classic' VNETs are supported. For more details see: https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
         """
         if dynamic_vnet_assignment_scope is not None:
             pulumi.set(__self__, "dynamic_vnet_assignment_scope", dynamic_vnet_assignment_scope)
+        if enable_accelerated_networking is not None:
+            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
         if endpoint_configuration is not None:
             pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         if public_ip_address_configuration is not None:
@@ -1949,6 +1955,14 @@ class NetworkConfigurationResponse(dict):
     @pulumi.getter(name="dynamicVnetAssignmentScope")
     def dynamic_vnet_assignment_scope(self) -> Optional[str]:
         return pulumi.get(self, "dynamic_vnet_assignment_scope")
+
+    @property
+    @pulumi.getter(name="enableAcceleratedNetworking")
+    def enable_accelerated_networking(self) -> Optional[bool]:
+        """
+        Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
+        """
+        return pulumi.get(self, "enable_accelerated_networking")
 
     @property
     @pulumi.getter(name="endpointConfiguration")
@@ -3137,6 +3151,8 @@ class VMExtensionResponse(dict):
         suggest = None
         if key == "autoUpgradeMinorVersion":
             suggest = "auto_upgrade_minor_version"
+        elif key == "enableAutomaticUpgrade":
+            suggest = "enable_automatic_upgrade"
         elif key == "protectedSettings":
             suggest = "protected_settings"
         elif key == "provisionAfterExtensions":
@@ -3160,12 +3176,14 @@ class VMExtensionResponse(dict):
                  publisher: str,
                  type: str,
                  auto_upgrade_minor_version: Optional[bool] = None,
+                 enable_automatic_upgrade: Optional[bool] = None,
                  protected_settings: Optional[Any] = None,
                  provision_after_extensions: Optional[Sequence[str]] = None,
                  settings: Optional[Any] = None,
                  type_handler_version: Optional[str] = None):
         """
         :param bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param bool enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all. 
         :param Sequence[str] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         """
@@ -3174,6 +3192,8 @@ class VMExtensionResponse(dict):
         pulumi.set(__self__, "type", type)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if enable_automatic_upgrade is not None:
+            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
         if protected_settings is not None:
             pulumi.set(__self__, "protected_settings", protected_settings)
         if provision_after_extensions is not None:
@@ -3205,6 +3225,14 @@ class VMExtensionResponse(dict):
         Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[bool]:
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
 
     @property
     @pulumi.getter(name="protectedSettings")

@@ -5,4 +5,5 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from .get_api_management_service_domain_ownership_identifier import *
 from .list_delegation_setting_secrets import *

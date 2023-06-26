@@ -255,7 +255,7 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkPeeringResult:
     """
     Gets the specified virtual network peering.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -297,7 +297,7 @@ def get_virtual_network_peering_output(resource_group_name: Optional[pulumi.Inpu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkPeeringResult]:
     """
     Gets the specified virtual network peering.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.

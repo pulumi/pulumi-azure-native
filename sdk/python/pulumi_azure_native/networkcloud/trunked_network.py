@@ -32,7 +32,7 @@ class TrunkedNetworkArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] isolation_domain_ids: The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[float]]] vlans: The list of vlans that are selected from the isolation domains for trunking.
-        :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: The network plugin type for Hybrid AKS.
+        :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         :param pulumi.Input[str] interface_name: The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -107,7 +107,7 @@ class TrunkedNetworkArgs:
     @pulumi.getter(name="hybridAksPluginType")
     def hybrid_aks_plugin_type(self) -> Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]]:
         """
-        The network plugin type for Hybrid AKS.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         """
         return pulumi.get(self, "hybrid_aks_plugin_type")
 
@@ -180,12 +180,12 @@ class TrunkedNetwork(pulumi.CustomResource):
                  vlans: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2022-12-12-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
-        :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: The network plugin type for Hybrid AKS.
+        :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         :param pulumi.Input[str] interface_name: The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] isolation_domain_ids: The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -201,7 +201,7 @@ class TrunkedNetwork(pulumi.CustomResource):
                  args: TrunkedNetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2022-12-12-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param TrunkedNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -255,6 +255,7 @@ class TrunkedNetwork(pulumi.CustomResource):
             if vlans is None and not opts.urn:
                 raise TypeError("Missing required property 'vlans'")
             __props__.__dict__["vlans"] = vlans
+            __props__.__dict__["associated_resource_ids"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["detailed_status"] = None
             __props__.__dict__["detailed_status_message"] = None
@@ -264,7 +265,7 @@ class TrunkedNetwork(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated_ids"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:TrunkedNetwork")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:TrunkedNetwork"), pulumi.Alias(type_="azure-native:networkcloud/v20230501preview:TrunkedNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TrunkedNetwork, __self__).__init__(
             'azure-native:networkcloud:TrunkedNetwork',
@@ -288,6 +289,7 @@ class TrunkedNetwork(pulumi.CustomResource):
 
         __props__ = TrunkedNetworkArgs.__new__(TrunkedNetworkArgs)
 
+        __props__.__dict__["associated_resource_ids"] = None
         __props__.__dict__["cluster_id"] = None
         __props__.__dict__["detailed_status"] = None
         __props__.__dict__["detailed_status_message"] = None
@@ -305,6 +307,14 @@ class TrunkedNetwork(pulumi.CustomResource):
         __props__.__dict__["virtual_machines_associated_ids"] = None
         __props__.__dict__["vlans"] = None
         return TrunkedNetwork(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="associatedResourceIds")
+    def associated_resource_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        """
+        return pulumi.get(self, "associated_resource_ids")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -342,7 +352,7 @@ class TrunkedNetwork(pulumi.CustomResource):
     @pulumi.getter(name="hybridAksClustersAssociatedIds")
     def hybrid_aks_clusters_associated_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of Hybrid AKS cluster resource IDs that are associated with this trunked network.
+        Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this trunked network.
         """
         return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
 
@@ -350,7 +360,7 @@ class TrunkedNetwork(pulumi.CustomResource):
     @pulumi.getter(name="hybridAksPluginType")
     def hybrid_aks_plugin_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The network plugin type for Hybrid AKS.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         """
         return pulumi.get(self, "hybrid_aks_plugin_type")
 
@@ -422,7 +432,7 @@ class TrunkedNetwork(pulumi.CustomResource):
     @pulumi.getter(name="virtualMachinesAssociatedIds")
     def virtual_machines_associated_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network.
+        Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network.
         """
         return pulumi.get(self, "virtual_machines_associated_ids")
 

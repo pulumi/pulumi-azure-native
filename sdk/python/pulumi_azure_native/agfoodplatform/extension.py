@@ -16,20 +16,20 @@ __all__ = ['ExtensionArgs', 'Extension']
 @pulumi.input_type
 class ExtensionArgs:
     def __init__(__self__, *,
-                 farm_beats_resource_name: pulumi.Input[str],
+                 data_manager_for_agriculture_resource_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]] = None,
                  extension_id: Optional[pulumi.Input[str]] = None,
                  extension_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Extension resource.
-        :param pulumi.Input[str] farm_beats_resource_name: FarmBeats resource name.
+        :param pulumi.Input[str] data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input['ApiPropertiesArgs']]] additional_api_properties: Additional Api Properties.
         :param pulumi.Input[str] extension_id: Id of extension resource.
         :param pulumi.Input[str] extension_version: Extension Version.
         """
-        pulumi.set(__self__, "farm_beats_resource_name", farm_beats_resource_name)
+        pulumi.set(__self__, "data_manager_for_agriculture_resource_name", data_manager_for_agriculture_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_api_properties is not None:
             pulumi.set(__self__, "additional_api_properties", additional_api_properties)
@@ -39,16 +39,16 @@ class ExtensionArgs:
             pulumi.set(__self__, "extension_version", extension_version)
 
     @property
-    @pulumi.getter(name="farmBeatsResourceName")
-    def farm_beats_resource_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="dataManagerForAgricultureResourceName")
+    def data_manager_for_agriculture_resource_name(self) -> pulumi.Input[str]:
         """
-        FarmBeats resource name.
+        DataManagerForAgriculture resource name.
         """
-        return pulumi.get(self, "farm_beats_resource_name")
+        return pulumi.get(self, "data_manager_for_agriculture_resource_name")
 
-    @farm_beats_resource_name.setter
-    def farm_beats_resource_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "farm_beats_resource_name", value)
+    @data_manager_for_agriculture_resource_name.setter
+    def data_manager_for_agriculture_resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_manager_for_agriculture_resource_name", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -105,21 +105,21 @@ class Extension(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]]]] = None,
+                 data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
                  extension_id: Optional[pulumi.Input[str]] = None,
                  extension_version: Optional[pulumi.Input[str]] = None,
-                 farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Extension resource.
-        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-05-12-preview
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2020-05-12-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]]] additional_api_properties: Additional Api Properties.
+        :param pulumi.Input[str] data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
         :param pulumi.Input[str] extension_id: Id of extension resource.
         :param pulumi.Input[str] extension_version: Extension Version.
-        :param pulumi.Input[str] farm_beats_resource_name: FarmBeats resource name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -130,7 +130,7 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Extension resource.
-        Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-05-12-preview
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2020-05-12-preview
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.
@@ -148,9 +148,9 @@ class Extension(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]]]] = None,
+                 data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
                  extension_id: Optional[pulumi.Input[str]] = None,
                  extension_version: Optional[pulumi.Input[str]] = None,
-                 farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -162,11 +162,11 @@ class Extension(pulumi.CustomResource):
             __props__ = ExtensionArgs.__new__(ExtensionArgs)
 
             __props__.__dict__["additional_api_properties"] = additional_api_properties
+            if data_manager_for_agriculture_resource_name is None and not opts.urn:
+                raise TypeError("Missing required property 'data_manager_for_agriculture_resource_name'")
+            __props__.__dict__["data_manager_for_agriculture_resource_name"] = data_manager_for_agriculture_resource_name
             __props__.__dict__["extension_id"] = extension_id
             __props__.__dict__["extension_version"] = extension_version
-            if farm_beats_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'farm_beats_resource_name'")
-            __props__.__dict__["farm_beats_resource_name"] = farm_beats_resource_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -178,7 +178,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:agfoodplatform/v20200512preview:Extension"), pulumi.Alias(type_="azure-native:agfoodplatform/v20210901preview:Extension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:agfoodplatform/v20200512preview:Extension"), pulumi.Alias(type_="azure-native:agfoodplatform/v20210901preview:Extension"), pulumi.Alias(type_="azure-native:agfoodplatform/v20230601preview:Extension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Extension, __self__).__init__(
             'azure-native:agfoodplatform:Extension',
@@ -218,7 +218,7 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter(name="additionalApiProperties")
     def additional_api_properties(self) -> pulumi.Output[Mapping[str, 'outputs.ApiPropertiesResponse']]:
         """
-        Additional api properties.
+        Additional Api Properties.
         """
         return pulumi.get(self, "additional_api_properties")
 

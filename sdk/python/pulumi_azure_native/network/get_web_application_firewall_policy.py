@@ -206,7 +206,7 @@ def get_web_application_firewall_policy(policy_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebApplicationFirewallPolicyResult:
     """
     Retrieve protection policy with specified name within a resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str policy_name: The name of the policy.
@@ -241,7 +241,7 @@ def get_web_application_firewall_policy_output(policy_name: Optional[pulumi.Inpu
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebApplicationFirewallPolicyResult]:
     """
     Retrieve protection policy with specified name within a resource group.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str policy_name: The name of the policy.

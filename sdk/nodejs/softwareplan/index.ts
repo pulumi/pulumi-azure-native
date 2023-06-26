@@ -17,11 +17,9 @@ utilities.lazyLoad(exports, ["HybridUseBenefit"], () => require("./hybridUseBene
 
 
 // Export sub-modules:
-import * as v20190601preview from "./v20190601preview";
 import * as v20191201 from "./v20191201";
 
 export {
-    v20190601preview,
     v20191201,
 };
 

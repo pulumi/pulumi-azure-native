@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a file import.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetFileImportResult> InvokeAsync(GetFileImportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileImportResult>("azure-native:securityinsights:getFileImport", args ?? new GetFileImportArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a file import.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetFileImportResult> Invoke(GetFileImportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileImportResult>("azure-native:securityinsights:getFileImport", args ?? new GetFileImportInvokeArgs(), options.WithDefaults());

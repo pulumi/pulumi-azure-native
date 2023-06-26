@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves a network manager security admin configuration.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetSecurityAdminConfigurationResult> InvokeAsync(GetSecurityAdminConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityAdminConfigurationResult>("azure-native:network:getSecurityAdminConfiguration", args ?? new GetSecurityAdminConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a network manager security admin configuration.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetSecurityAdminConfigurationResult> Invoke(GetSecurityAdminConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityAdminConfigurationResult>("azure-native:network:getSecurityAdminConfiguration", args ?? new GetSecurityAdminConfigurationInvokeArgs(), options.WithDefaults());
@@ -108,6 +108,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            string resourceGuid,
+
             Outputs.SystemDataResponse systemData,
 
             string type)
@@ -140,6 +146,7 @@ namespace Pulumi.AzureNative.Network
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             SystemData = systemData;
             Type = type;
         }

@@ -19,13 +19,15 @@ __all__ = [
     'DiscreteActionResponse',
     'ExperimentPropertiesResponse',
     'KeyValuePairResponse',
+    'ListSelectorResponse',
+    'QuerySelectorResponse',
     'ResourceIdentityResponse',
-    'SelectorResponse',
     'SimpleFilterParametersResponse',
     'SimpleFilterResponse',
     'StepResponse',
     'SystemDataResponse',
     'TargetReferenceResponse',
+    'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
@@ -374,12 +376,12 @@ class ExperimentPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 selectors: Sequence['outputs.SelectorResponse'],
+                 selectors: Sequence[Any],
                  steps: Sequence['outputs.StepResponse'],
                  start_on_creation: Optional[bool] = None):
         """
         Model that represents the Experiment properties model.
-        :param Sequence['SelectorResponse'] selectors: List of selectors.
+        :param Sequence[Union['ListSelectorResponse', 'QuerySelectorResponse']] selectors: List of selectors.
         :param Sequence['StepResponse'] steps: List of steps.
         :param bool start_on_creation: A boolean value that indicates if experiment should be started on creation or not.
         """
@@ -390,7 +392,7 @@ class ExperimentPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def selectors(self) -> Sequence['outputs.SelectorResponse']:
+    def selectors(self) -> Sequence[Any]:
         """
         List of selectors.
         """
@@ -447,9 +449,155 @@ class KeyValuePairResponse(dict):
 
 
 @pulumi.output_type
+class ListSelectorResponse(dict):
+    """
+    Model that represents a list selector.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 targets: Sequence['outputs.TargetReferenceResponse'],
+                 type: str,
+                 filter: Optional['outputs.SimpleFilterResponse'] = None):
+        """
+        Model that represents a list selector.
+        :param str id: String of the selector ID.
+        :param Sequence['TargetReferenceResponse'] targets: List of Target references.
+        :param str type: Enum of the selector type.
+               Expected value is 'List'.
+        :param 'SimpleFilterResponse' filter: Model that represents available filter types that can be applied to a targets list.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "targets", targets)
+        pulumi.set(__self__, "type", 'List')
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        String of the selector ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Sequence['outputs.TargetReferenceResponse']:
+        """
+        List of Target references.
+        """
+        return pulumi.get(self, "targets")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Enum of the selector type.
+        Expected value is 'List'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.SimpleFilterResponse']:
+        """
+        Model that represents available filter types that can be applied to a targets list.
+        """
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class QuerySelectorResponse(dict):
+    """
+    Model that represents a query selector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryString":
+            suggest = "query_string"
+        elif key == "subscriptionIds":
+            suggest = "subscription_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuerySelectorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuerySelectorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuerySelectorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 query_string: str,
+                 subscription_ids: Sequence[str],
+                 type: str,
+                 filter: Optional['outputs.SimpleFilterResponse'] = None):
+        """
+        Model that represents a query selector.
+        :param str id: String of the selector ID.
+        :param str query_string: Azure Resource Graph (ARG) Query Language query for target resources.
+        :param Sequence[str] subscription_ids: Subscription id list to scope resource query.
+        :param str type: Enum of the selector type.
+               Expected value is 'Query'.
+        :param 'SimpleFilterResponse' filter: Model that represents available filter types that can be applied to a targets list.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "query_string", query_string)
+        pulumi.set(__self__, "subscription_ids", subscription_ids)
+        pulumi.set(__self__, "type", 'Query')
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        String of the selector ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> str:
+        """
+        Azure Resource Graph (ARG) Query Language query for target resources.
+        """
+        return pulumi.get(self, "query_string")
+
+    @property
+    @pulumi.getter(name="subscriptionIds")
+    def subscription_ids(self) -> Sequence[str]:
+        """
+        Subscription id list to scope resource query.
+        """
+        return pulumi.get(self, "subscription_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Enum of the selector type.
+        Expected value is 'Query'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.SimpleFilterResponse']:
+        """
+        Model that represents available filter types that can be applied to a targets list.
+        """
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
 class ResourceIdentityResponse(dict):
     """
-    The managed identity of a resource.
+    The identity of a resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -458,6 +606,8 @@ class ResourceIdentityResponse(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ResourceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -473,16 +623,20 @@ class ResourceIdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: str):
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
-        The managed identity of a resource.
+        The identity of a resource.
         :param str principal_id: GUID that represents the principal ID of this resource identity.
         :param str tenant_id: GUID that represents the tenant ID of this resource identity.
         :param str type: String of the resource identity type.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -508,61 +662,13 @@ class ResourceIdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-
-@pulumi.output_type
-class SelectorResponse(dict):
-    """
-    Model that represents a selector in the Experiment resource.
-    """
-    def __init__(__self__, *,
-                 id: str,
-                 targets: Sequence['outputs.TargetReferenceResponse'],
-                 type: str,
-                 filter: Optional['outputs.SimpleFilterResponse'] = None):
-        """
-        Model that represents a selector in the Experiment resource.
-        :param str id: String of the selector ID.
-        :param Sequence['TargetReferenceResponse'] targets: List of Target references.
-        :param str type: Enum of the selector type.
-        :param 'SimpleFilterResponse' filter: Model that represents available filter types that can be applied to a targets list.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "targets", targets)
-        pulumi.set(__self__, "type", type)
-        if filter is not None:
-            pulumi.set(__self__, "filter", filter)
-
     @property
-    @pulumi.getter
-    def id(self) -> str:
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
         """
-        String of the selector ID.
+        The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def targets(self) -> Sequence['outputs.TargetReferenceResponse']:
-        """
-        List of Target references.
-        """
-        return pulumi.get(self, "targets")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Enum of the selector type.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def filter(self) -> Optional['outputs.SimpleFilterResponse']:
-        """
-        Model that represents available filter types that can be applied to a targets list.
-        """
-        return pulumi.get(self, "filter")
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -798,5 +904,57 @@ class TargetReferenceResponse(dict):
         Enum of the Target reference type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 

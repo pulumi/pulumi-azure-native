@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 {
     /// <summary>
     /// The private endpoint connection resource.
-    /// Azure REST API version: 2021-09-01-preview.
+    /// Azure REST API version: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20210901preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20230601preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,10 +109,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// FarmBeats resource name.
+        /// DataManagerForAgriculture resource name.
         /// </summary>
-        [Input("farmBeatsResourceName", required: true)]
-        public Input<string> FarmBeatsResourceName { get; set; } = null!;
+        [Input("dataManagerForAgricultureResourceName", required: true)]
+        public Input<string> DataManagerForAgricultureResourceName { get; set; } = null!;
 
         /// <summary>
         /// Private endpoint connection name.

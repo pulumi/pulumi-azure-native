@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DeviceUpdate
     {
         /// <summary>
         /// (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
-        /// Azure REST API version: 2022-10-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionProxyResult> InvokeAsync(GetPrivateEndpointConnectionProxyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionProxyResult>("azure-native:deviceupdate:getPrivateEndpointConnectionProxy", args ?? new GetPrivateEndpointConnectionProxyArgs(), options.WithDefaults());
 
         /// <summary>
         /// (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
-        /// Azure REST API version: 2022-10-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionProxyResult> Invoke(GetPrivateEndpointConnectionProxyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionProxyResult>("azure-native:deviceupdate:getPrivateEndpointConnectionProxy", args ?? new GetPrivateEndpointConnectionProxyInvokeArgs(), options.WithDefaults());

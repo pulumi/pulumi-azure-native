@@ -111,7 +111,7 @@ class InventoryItem(pulumi.CustomResource):
                  __props__=None):
         """
         Defines the inventory item.
-        Azure REST API version: 2020-06-05-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
+        Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class InventoryItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the inventory item.
-        Azure REST API version: 2020-06-05-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
+        Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
 
         :param str resource_name: The name of the resource.
         :param InventoryItemArgs args: The arguments to use to populate this resource's properties.
@@ -264,7 +264,7 @@ class InventoryItem(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system data.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

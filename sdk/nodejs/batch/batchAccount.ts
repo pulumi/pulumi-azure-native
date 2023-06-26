@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contains information about an Azure Batch account.
- * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-01-01
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01
  */
 export class BatchAccount extends pulumi.CustomResource {
     /**
@@ -184,7 +184,7 @@ export class BatchAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20151201:BatchAccount" }, { type: "azure-native:batch/v20170101:BatchAccount" }, { type: "azure-native:batch/v20170501:BatchAccount" }, { type: "azure-native:batch/v20170901:BatchAccount" }, { type: "azure-native:batch/v20181201:BatchAccount" }, { type: "azure-native:batch/v20190401:BatchAccount" }, { type: "azure-native:batch/v20190801:BatchAccount" }, { type: "azure-native:batch/v20200301:BatchAccount" }, { type: "azure-native:batch/v20200501:BatchAccount" }, { type: "azure-native:batch/v20200901:BatchAccount" }, { type: "azure-native:batch/v20210101:BatchAccount" }, { type: "azure-native:batch/v20210601:BatchAccount" }, { type: "azure-native:batch/v20220101:BatchAccount" }, { type: "azure-native:batch/v20220601:BatchAccount" }, { type: "azure-native:batch/v20221001:BatchAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20151201:BatchAccount" }, { type: "azure-native:batch/v20170101:BatchAccount" }, { type: "azure-native:batch/v20170501:BatchAccount" }, { type: "azure-native:batch/v20170901:BatchAccount" }, { type: "azure-native:batch/v20181201:BatchAccount" }, { type: "azure-native:batch/v20190401:BatchAccount" }, { type: "azure-native:batch/v20190801:BatchAccount" }, { type: "azure-native:batch/v20200301:BatchAccount" }, { type: "azure-native:batch/v20200501:BatchAccount" }, { type: "azure-native:batch/v20200901:BatchAccount" }, { type: "azure-native:batch/v20210101:BatchAccount" }, { type: "azure-native:batch/v20210601:BatchAccount" }, { type: "azure-native:batch/v20220101:BatchAccount" }, { type: "azure-native:batch/v20220601:BatchAccount" }, { type: "azure-native:batch/v20221001:BatchAccount" }, { type: "azure-native:batch/v20230501:BatchAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BatchAccount.__pulumiType, name, resourceInputs, opts);
     }

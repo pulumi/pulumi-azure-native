@@ -110,11 +110,9 @@ utilities.lazyLoad(exports, ["VmmServer"], () => require("./vmmServer"));
 export * from "../types/enums/scvmm";
 
 // Export sub-modules:
-import * as v20200605preview from "./v20200605preview";
 import * as v20220521preview from "./v20220521preview";
 
 export {
-    v20200605preview,
     v20220521preview,
 };
 

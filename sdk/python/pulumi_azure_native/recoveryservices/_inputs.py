@@ -5201,6 +5201,7 @@ class AzureVmWorkloadProtectedItemArgs:
                  last_backup_status: Optional[pulumi.Input[Union[str, 'LastBackupStatus']]] = None,
                  last_backup_time: Optional[pulumi.Input[str]] = None,
                  last_recovery_point: Optional[pulumi.Input[str]] = None,
+                 nodes_list: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]] = None,
                  parent_name: Optional[pulumi.Input[str]] = None,
                  parent_type: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
@@ -5230,6 +5231,7 @@ class AzureVmWorkloadProtectedItemArgs:
         :param pulumi.Input[Union[str, 'LastBackupStatus']] last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param pulumi.Input[str] last_backup_time: Timestamp of the last backup operation on this backup item.
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]] nodes_list: List of the nodes in case of distributed container.
         :param pulumi.Input[str] parent_name: Parent name of the DB such as Instance or Availability Group.
         :param pulumi.Input[str] parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
@@ -5271,6 +5273,8 @@ class AzureVmWorkloadProtectedItemArgs:
             pulumi.set(__self__, "last_backup_time", last_backup_time)
         if last_recovery_point is not None:
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if nodes_list is not None:
+            pulumi.set(__self__, "nodes_list", nodes_list)
         if parent_name is not None:
             pulumi.set(__self__, "parent_name", parent_name)
         if parent_type is not None:
@@ -5474,6 +5478,18 @@ class AzureVmWorkloadProtectedItemArgs:
     @last_recovery_point.setter
     def last_recovery_point(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="nodesList")
+    def nodes_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]:
+        """
+        List of the nodes in case of distributed container.
+        """
+        return pulumi.get(self, "nodes_list")
+
+    @nodes_list.setter
+    def nodes_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]):
+        pulumi.set(self, "nodes_list", value)
 
     @property
     @pulumi.getter(name="parentName")
@@ -5747,6 +5763,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
                  last_backup_status: Optional[pulumi.Input[Union[str, 'LastBackupStatus']]] = None,
                  last_backup_time: Optional[pulumi.Input[str]] = None,
                  last_recovery_point: Optional[pulumi.Input[str]] = None,
+                 nodes_list: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]] = None,
                  parent_name: Optional[pulumi.Input[str]] = None,
                  parent_type: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
@@ -5776,6 +5793,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
         :param pulumi.Input[Union[str, 'LastBackupStatus']] last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param pulumi.Input[str] last_backup_time: Timestamp of the last backup operation on this backup item.
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]] nodes_list: List of the nodes in case of distributed container.
         :param pulumi.Input[str] parent_name: Parent name of the DB such as Instance or Availability Group.
         :param pulumi.Input[str] parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
@@ -5817,6 +5835,8 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
             pulumi.set(__self__, "last_backup_time", last_backup_time)
         if last_recovery_point is not None:
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if nodes_list is not None:
+            pulumi.set(__self__, "nodes_list", nodes_list)
         if parent_name is not None:
             pulumi.set(__self__, "parent_name", parent_name)
         if parent_type is not None:
@@ -6022,6 +6042,18 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
         pulumi.set(self, "last_recovery_point", value)
 
     @property
+    @pulumi.getter(name="nodesList")
+    def nodes_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]:
+        """
+        List of the nodes in case of distributed container.
+        """
+        return pulumi.get(self, "nodes_list")
+
+    @nodes_list.setter
+    def nodes_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]):
+        pulumi.set(self, "nodes_list", value)
+
+    @property
     @pulumi.getter(name="parentName")
     def parent_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -6172,6 +6204,7 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs:
                  last_backup_status: Optional[pulumi.Input[Union[str, 'LastBackupStatus']]] = None,
                  last_backup_time: Optional[pulumi.Input[str]] = None,
                  last_recovery_point: Optional[pulumi.Input[str]] = None,
+                 nodes_list: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]] = None,
                  parent_name: Optional[pulumi.Input[str]] = None,
                  parent_type: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
@@ -6201,6 +6234,7 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs:
         :param pulumi.Input[Union[str, 'LastBackupStatus']] last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param pulumi.Input[str] last_backup_time: Timestamp of the last backup operation on this backup item.
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]] nodes_list: List of the nodes in case of distributed container.
         :param pulumi.Input[str] parent_name: Parent name of the DB such as Instance or Availability Group.
         :param pulumi.Input[str] parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
@@ -6242,6 +6276,8 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs:
             pulumi.set(__self__, "last_backup_time", last_backup_time)
         if last_recovery_point is not None:
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if nodes_list is not None:
+            pulumi.set(__self__, "nodes_list", nodes_list)
         if parent_name is not None:
             pulumi.set(__self__, "parent_name", parent_name)
         if parent_type is not None:
@@ -6447,6 +6483,18 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs:
         pulumi.set(self, "last_recovery_point", value)
 
     @property
+    @pulumi.getter(name="nodesList")
+    def nodes_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]:
+        """
+        List of the nodes in case of distributed container.
+        """
+        return pulumi.get(self, "nodes_list")
+
+    @nodes_list.setter
+    def nodes_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]):
+        pulumi.set(self, "nodes_list", value)
+
+    @property
     @pulumi.getter(name="parentName")
     def parent_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -6597,6 +6645,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
                  last_backup_status: Optional[pulumi.Input[Union[str, 'LastBackupStatus']]] = None,
                  last_backup_time: Optional[pulumi.Input[str]] = None,
                  last_recovery_point: Optional[pulumi.Input[str]] = None,
+                 nodes_list: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]] = None,
                  parent_name: Optional[pulumi.Input[str]] = None,
                  parent_type: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
@@ -6626,6 +6675,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
         :param pulumi.Input[Union[str, 'LastBackupStatus']] last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param pulumi.Input[str] last_backup_time: Timestamp of the last backup operation on this backup item.
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]] nodes_list: List of the nodes in case of distributed container.
         :param pulumi.Input[str] parent_name: Parent name of the DB such as Instance or Availability Group.
         :param pulumi.Input[str] parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
@@ -6667,6 +6717,8 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
             pulumi.set(__self__, "last_backup_time", last_backup_time)
         if last_recovery_point is not None:
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if nodes_list is not None:
+            pulumi.set(__self__, "nodes_list", nodes_list)
         if parent_name is not None:
             pulumi.set(__self__, "parent_name", parent_name)
         if parent_type is not None:
@@ -6872,6 +6924,18 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
         pulumi.set(self, "last_recovery_point", value)
 
     @property
+    @pulumi.getter(name="nodesList")
+    def nodes_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]:
+        """
+        List of the nodes in case of distributed container.
+        """
+        return pulumi.get(self, "nodes_list")
+
+    @nodes_list.setter
+    def nodes_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]):
+        pulumi.set(self, "nodes_list", value)
+
+    @property
     @pulumi.getter(name="parentName")
     def parent_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -7022,6 +7086,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
                  last_backup_status: Optional[pulumi.Input[Union[str, 'LastBackupStatus']]] = None,
                  last_backup_time: Optional[pulumi.Input[str]] = None,
                  last_recovery_point: Optional[pulumi.Input[str]] = None,
+                 nodes_list: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]] = None,
                  parent_name: Optional[pulumi.Input[str]] = None,
                  parent_type: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
@@ -7051,6 +7116,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
         :param pulumi.Input[Union[str, 'LastBackupStatus']] last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param pulumi.Input[str] last_backup_time: Timestamp of the last backup operation on this backup item.
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]] nodes_list: List of the nodes in case of distributed container.
         :param pulumi.Input[str] parent_name: Parent name of the DB such as Instance or Availability Group.
         :param pulumi.Input[str] parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
@@ -7092,6 +7158,8 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
             pulumi.set(__self__, "last_backup_time", last_backup_time)
         if last_recovery_point is not None:
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if nodes_list is not None:
+            pulumi.set(__self__, "nodes_list", nodes_list)
         if parent_name is not None:
             pulumi.set(__self__, "parent_name", parent_name)
         if parent_type is not None:
@@ -7295,6 +7363,18 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
     @last_recovery_point.setter
     def last_recovery_point(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="nodesList")
+    def nodes_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]:
+        """
+        List of the nodes in case of distributed container.
+        """
+        return pulumi.get(self, "nodes_list")
+
+    @nodes_list.setter
+    def nodes_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]):
+        pulumi.set(self, "nodes_list", value)
 
     @property
     @pulumi.getter(name="parentName")
@@ -9238,15 +9318,19 @@ class DiskExclusionPropertiesArgs:
 class DistributedNodesInfoArgs:
     def __init__(__self__, *,
                  node_name: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         This is used to represent the various nodes of the distributed container.
         :param pulumi.Input[str] node_name: Name of the node under a distributed container.
+        :param pulumi.Input[str] source_resource_id: ARM resource id of the node
         :param pulumi.Input[str] status: Status of this Node.
                Failed | Succeeded
         """
         if node_name is not None:
             pulumi.set(__self__, "node_name", node_name)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -9261,6 +9345,18 @@ class DistributedNodesInfoArgs:
     @node_name.setter
     def node_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "node_name", value)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the node
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
 
     @property
     @pulumi.getter

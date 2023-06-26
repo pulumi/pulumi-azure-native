@@ -102,19 +102,19 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// BGP configuration properties
         /// </summary>
-        public readonly Outputs.InternalNetworkPatchablePropertiesResponseBgpConfiguration? BgpConfiguration;
+        public readonly Outputs.BgpConfigurationResponse? BgpConfiguration;
         /// <summary>
         /// List of resources the BGP is disabled on. Can be either entire NetworkFabric or NetworkRack.
         /// </summary>
         public readonly ImmutableArray<string> BgpDisabledOnResources;
         /// <summary>
-        /// List with object connectedIPv4Subnets.
+        /// List with object connected IPv4 Subnets.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InternalNetworkPatchablePropertiesResponseConnectedIPv4Subnets> ConnectedIPv4Subnets;
+        public readonly ImmutableArray<Outputs.ConnectedSubnetResponse> ConnectedIPv4Subnets;
         /// <summary>
-        /// List with object connectedIPv6Subnets.
+        /// List with object connected IPv6 Subnets.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InternalNetworkPatchablePropertiesResponseConnectedIPv6Subnets> ConnectedIPv6Subnets;
+        public readonly ImmutableArray<Outputs.ConnectedSubnetResponse> ConnectedIPv6Subnets;
         /// <summary>
         /// List of resources the InternalNetwork is disabled on. Can be either entire NetworkFabric or NetworkRack.
         /// </summary>
@@ -144,9 +144,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// staticRouteConfiguration model.
+        /// Static Route Configuration properties.
         /// </summary>
-        public readonly Outputs.InternalNetworkPatchablePropertiesResponseStaticRouteConfiguration? StaticRouteConfiguration;
+        public readonly Outputs.StaticRouteConfigurationResponse? StaticRouteConfiguration;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -170,13 +170,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             ImmutableArray<string> bfdForStaticRoutesDisabledOnResources,
 
-            Outputs.InternalNetworkPatchablePropertiesResponseBgpConfiguration? bgpConfiguration,
+            Outputs.BgpConfigurationResponse? bgpConfiguration,
 
             ImmutableArray<string> bgpDisabledOnResources,
 
-            ImmutableArray<Outputs.InternalNetworkPatchablePropertiesResponseConnectedIPv4Subnets> connectedIPv4Subnets,
+            ImmutableArray<Outputs.ConnectedSubnetResponse> connectedIPv4Subnets,
 
-            ImmutableArray<Outputs.InternalNetworkPatchablePropertiesResponseConnectedIPv6Subnets> connectedIPv6Subnets,
+            ImmutableArray<Outputs.ConnectedSubnetResponse> connectedIPv6Subnets,
 
             ImmutableArray<string> disabledOnResources,
 
@@ -192,7 +192,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string provisioningState,
 
-            Outputs.InternalNetworkPatchablePropertiesResponseStaticRouteConfiguration? staticRouteConfiguration,
+            Outputs.StaticRouteConfigurationResponse? staticRouteConfiguration,
 
             Outputs.SystemDataResponse systemData,
 

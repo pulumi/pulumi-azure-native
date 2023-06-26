@@ -21,7 +21,7 @@ __all__ = [
     'AlertRuleLeafConditionArgs',
     'ApplicationInsightsComponentAnalyticsItemPropertiesArgs',
     'ApplicationInsightsComponentDataVolumeCapArgs',
-    'ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs',
+    'ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs',
     'ArmRoleReceiverArgs',
     'AutomationRunbookReceiverArgs',
     'AutoscaleNotificationArgs',
@@ -55,6 +55,7 @@ __all__ = [
     'EventLogConfigurationArgs',
     'ExtensionDataSourceArgs',
     'HeaderFieldArgs',
+    'IdentityArgs',
     'IisLogsDataSourceArgs',
     'ItsmReceiverArgs',
     'LocationThresholdRuleConditionArgs',
@@ -89,6 +90,7 @@ __all__ = [
     'RuleManagementEventClaimsDataSourceArgs',
     'RuleManagementEventDataSourceArgs',
     'RuleMetricDataSourceArgs',
+    'RuleResolveConfigurationArgs',
     'RuleWebhookActionArgs',
     'ScaleActionArgs',
     'ScaleCapacityArgs',
@@ -234,13 +236,17 @@ class AccessModeSettingsArgs:
 class ActionGroupArgs:
     def __init__(__self__, *,
                  action_group_id: pulumi.Input[str],
+                 action_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  webhook_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         A pointer to an Azure Action Group.
         :param pulumi.Input[str] action_group_id: The resource ID of the Action Group. This cannot be null or empty.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] action_properties: Predefined list of properties and configuration items for the action group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] webhook_properties: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         """
         pulumi.set(__self__, "action_group_id", action_group_id)
+        if action_properties is not None:
+            pulumi.set(__self__, "action_properties", action_properties)
         if webhook_properties is not None:
             pulumi.set(__self__, "webhook_properties", webhook_properties)
 
@@ -255,6 +261,18 @@ class ActionGroupArgs:
     @action_group_id.setter
     def action_group_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "action_group_id", value)
+
+    @property
+    @pulumi.getter(name="actionProperties")
+    def action_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Predefined list of properties and configuration items for the action group.
+        """
+        return pulumi.get(self, "action_properties")
+
+    @action_properties.setter
+    def action_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "action_properties", value)
 
     @property
     @pulumi.getter(name="webhookProperties")
@@ -297,14 +315,18 @@ class ActionListArgs:
 class ActionsArgs:
     def __init__(__self__, *,
                  action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 action_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Actions to invoke when the alert fires.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] action_groups: Action Group resource Ids to invoke when the alert fires.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] action_properties: The properties of an action properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: The properties of an alert payload.
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
+        if action_properties is not None:
+            pulumi.set(__self__, "action_properties", action_properties)
         if custom_properties is not None:
             pulumi.set(__self__, "custom_properties", custom_properties)
 
@@ -319,6 +341,18 @@ class ActionsArgs:
     @action_groups.setter
     def action_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "action_groups", value)
+
+    @property
+    @pulumi.getter(name="actionProperties")
+    def action_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The properties of an action properties.
+        """
+        return pulumi.get(self, "action_properties")
+
+    @action_properties.setter
+    def action_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "action_properties", value)
 
     @property
     @pulumi.getter(name="customProperties")
@@ -593,7 +627,7 @@ class ApplicationInsightsComponentDataVolumeCapArgs:
 
 
 @pulumi.input_type
-class ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs:
+class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -2902,6 +2936,45 @@ class HeaderFieldArgs:
 
 
 @pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['IdentityType'],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Identity for the resource.
+        :param pulumi.Input['IdentityType'] type: Type of managed service identity.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['IdentityType']:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['IdentityType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
 class IisLogsDataSourceArgs:
     def __init__(__self__, *,
                  streams: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -5132,6 +5205,46 @@ class RuleMetricDataSourceArgs:
     @resource_uri.setter
     def resource_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_uri", value)
+
+
+@pulumi.input_type
+class RuleResolveConfigurationArgs:
+    def __init__(__self__, *,
+                 auto_resolved: Optional[pulumi.Input[bool]] = None,
+                 time_to_resolve: Optional[pulumi.Input[str]] = None):
+        """
+        TBD. Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input[bool] auto_resolved: The flag that indicates whether or not to auto resolve a fired alert.
+        :param pulumi.Input[str] time_to_resolve: The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
+        """
+        if auto_resolved is not None:
+            pulumi.set(__self__, "auto_resolved", auto_resolved)
+        if time_to_resolve is not None:
+            pulumi.set(__self__, "time_to_resolve", time_to_resolve)
+
+    @property
+    @pulumi.getter(name="autoResolved")
+    def auto_resolved(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag that indicates whether or not to auto resolve a fired alert.
+        """
+        return pulumi.get(self, "auto_resolved")
+
+    @auto_resolved.setter
+    def auto_resolved(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_resolved", value)
+
+    @property
+    @pulumi.getter(name="timeToResolve")
+    def time_to_resolve(self) -> Optional[pulumi.Input[str]]:
+        """
+        The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "time_to_resolve")
+
+    @time_to_resolve.setter
+    def time_to_resolve(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_to_resolve", value)
 
 
 @pulumi.input_type

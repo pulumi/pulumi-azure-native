@@ -98,7 +98,7 @@ class VolumeArgs:
         :param pulumi.Input[bool] smb_continuously_available: Enables continuously available share property for smb volume. Only applicable for SMB volume
         :param pulumi.Input[bool] smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
         :param pulumi.Input[Union[str, 'SmbNonBrowsable']] smb_non_browsable: Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
-        :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
@@ -648,7 +648,7 @@ class VolumeArgs:
     @pulumi.getter(name="snapshotDirectoryVisible")
     def snapshot_directory_visible(self) -> Optional[pulumi.Input[bool]]:
         """
-        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         """
         return pulumi.get(self, "snapshot_directory_visible")
 
@@ -802,7 +802,7 @@ class Volume(pulumi.CustomResource):
                  __props__=None):
         """
         Volume resource
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -839,7 +839,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[bool] smb_continuously_available: Enables continuously available share property for smb volume. Only applicable for SMB volume
         :param pulumi.Input[bool] smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
         :param pulumi.Input[Union[str, 'SmbNonBrowsable']] smb_non_browsable: Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
-        :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -858,7 +858,7 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Volume resource
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.
@@ -1018,6 +1018,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["volume_spec_name"] = volume_spec_name
             __props__.__dict__["volume_type"] = volume_type
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["actual_throughput_mibps"] = None
             __props__.__dict__["baremetal_tenant_id"] = None
             __props__.__dict__["clone_progress"] = None
             __props__.__dict__["data_store_resource_id"] = None
@@ -1029,6 +1030,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["mount_targets"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["network_sibling_set_id"] = None
+            __props__.__dict__["originating_resource_id"] = None
             __props__.__dict__["provisioned_availability_zone"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["storage_to_network_proximity"] = None
@@ -1036,7 +1038,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["t2_network"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["volume_group_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200901:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20211001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220901:Volume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200901:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20211001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220901:Volume"), pulumi.Alias(type_="azure-native:netapp/v20221101:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
             'azure-native:netapp:Volume',
@@ -1060,6 +1062,7 @@ class Volume(pulumi.CustomResource):
 
         __props__ = VolumeArgs.__new__(VolumeArgs)
 
+        __props__.__dict__["actual_throughput_mibps"] = None
         __props__.__dict__["avs_data_store"] = None
         __props__.__dict__["backup_id"] = None
         __props__.__dict__["baremetal_tenant_id"] = None
@@ -1092,6 +1095,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["network_features"] = None
         __props__.__dict__["network_sibling_set_id"] = None
+        __props__.__dict__["originating_resource_id"] = None
         __props__.__dict__["placement_rules"] = None
         __props__.__dict__["protocol_types"] = None
         __props__.__dict__["provisioned_availability_zone"] = None
@@ -1119,6 +1123,14 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["volume_type"] = None
         __props__.__dict__["zones"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="actualThroughputMibps")
+    def actual_throughput_mibps(self) -> pulumi.Output[float]:
+        """
+        Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
+        """
+        return pulumi.get(self, "actual_throughput_mibps")
 
     @property
     @pulumi.getter(name="avsDataStore")
@@ -1377,6 +1389,14 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "network_sibling_set_id")
 
     @property
+    @pulumi.getter(name="originatingResourceId")
+    def originating_resource_id(self) -> pulumi.Output[str]:
+        """
+        Id of the snapshot or backup that the volume is restored from.
+        """
+        return pulumi.get(self, "originating_resource_id")
+
+    @property
     @pulumi.getter(name="placementRules")
     def placement_rules(self) -> pulumi.Output[Optional[Sequence['outputs.PlacementKeyValuePairsResponse']]]:
         """
@@ -1468,7 +1488,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="snapshotDirectoryVisible")
     def snapshot_directory_visible(self) -> pulumi.Output[Optional[bool]]:
         """
-        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         """
         return pulumi.get(self, "snapshot_directory_visible")
 

@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSkusNestedResourceTypeThirdResult:
-    def __init__(__self__, id=None, name=None, properties=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -29,6 +29,9 @@ class GetSkusNestedResourceTypeThirdResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -55,6 +58,14 @@ class GetSkusNestedResourceTypeThirdResult:
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -72,6 +83,7 @@ class AwaitableGetSkusNestedResourceTypeThirdResult(GetSkusNestedResourceTypeThi
             id=self.id,
             name=self.name,
             properties=self.properties,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -84,7 +96,7 @@ def get_skus_nested_resource_type_third(nested_resource_type_first: Optional[str
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSkusNestedResourceTypeThirdResult:
     """
     Gets the sku details for the given resource type and sku name.
-    Azure REST API version: 2020-11-20.
+    Azure REST API version: 2021-09-01-preview.
 
 
     :param str nested_resource_type_first: The first child resource type.
@@ -108,6 +120,7 @@ def get_skus_nested_resource_type_third(nested_resource_type_first: Optional[str
         id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -121,7 +134,7 @@ def get_skus_nested_resource_type_third_output(nested_resource_type_first: Optio
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSkusNestedResourceTypeThirdResult]:
     """
     Gets the sku details for the given resource type and sku name.
-    Azure REST API version: 2020-11-20.
+    Azure REST API version: 2021-09-01-preview.
 
 
     :param str nested_resource_type_first: The first child resource type.

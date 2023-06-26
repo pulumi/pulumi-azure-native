@@ -160,7 +160,7 @@ def get_hunt_relation(hunt_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHuntRelationResult:
     """
     Gets a hunt relation
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str hunt_id: The hunt id (GUID)
@@ -197,7 +197,7 @@ def get_hunt_relation_output(hunt_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHuntRelationResult]:
     """
     Gets a hunt relation
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str hunt_id: The hunt id (GUID)

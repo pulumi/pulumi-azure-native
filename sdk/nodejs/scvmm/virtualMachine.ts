@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The VirtualMachines resource definition.
- * Azure REST API version: 2020-06-05-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
+ * Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -63,13 +63,25 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly generation!: pulumi.Output<number | undefined>;
     /**
+     * Guest agent status properties.
+     */
+    public readonly guestAgentProfile!: pulumi.Output<outputs.scvmm.GuestAgentProfileResponse | undefined>;
+    /**
      * Hardware properties.
      */
     public readonly hardwareProfile!: pulumi.Output<outputs.scvmm.HardwareProfileResponse | undefined>;
     /**
+     * The identity of the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.scvmm.IdentityResponse | undefined>;
+    /**
      * Gets or sets the inventory Item ID for the resource.
      */
     public readonly inventoryItemId!: pulumi.Output<string | undefined>;
+    /**
+     * Last restored checkpoint in the vm.
+     */
+    public /*out*/ readonly lastRestoredVMCheckpoint!: pulumi.Output<outputs.scvmm.CheckpointResponse>;
     /**
      * Gets or sets the location.
      */
@@ -150,7 +162,9 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["cloudId"] = args ? args.cloudId : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["generation"] = args ? args.generation : undefined;
+            resourceInputs["guestAgentProfile"] = args ? args.guestAgentProfile : undefined;
             resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
@@ -163,6 +177,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
             resourceInputs["vmName"] = args ? args.vmName : undefined;
             resourceInputs["vmmServerId"] = args ? args.vmmServerId : undefined;
+            resourceInputs["lastRestoredVMCheckpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["powerState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -175,8 +190,11 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["cloudId"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["generation"] = undefined /*out*/;
+            resourceInputs["guestAgentProfile"] = undefined /*out*/;
             resourceInputs["hardwareProfile"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["inventoryItemId"] = undefined /*out*/;
+            resourceInputs["lastRestoredVMCheckpoint"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkProfile"] = undefined /*out*/;
@@ -228,9 +246,17 @@ export interface VirtualMachineArgs {
      */
     generation?: pulumi.Input<number>;
     /**
+     * Guest agent status properties.
+     */
+    guestAgentProfile?: pulumi.Input<inputs.scvmm.GuestAgentProfileArgs>;
+    /**
      * Hardware properties.
      */
     hardwareProfile?: pulumi.Input<inputs.scvmm.HardwareProfileArgs>;
+    /**
+     * The identity of the resource.
+     */
+    identity?: pulumi.Input<inputs.scvmm.IdentityArgs>;
     /**
      * Gets or sets the inventory Item ID for the resource.
      */

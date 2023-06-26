@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// An Activity Log Alert rule resource.
-    /// Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-10-01
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ActivityLogAlert")]
     public partial class ActivityLogAlert : global::Pulumi.CustomResource
@@ -63,6 +63,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The tenant GUID. Must be provided for tenant-level and management group events rules.
+        /// </summary>
+        [Output("tenantScope")]
+        public Output<string?> TenantScope { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
@@ -163,7 +169,7 @@ namespace Pulumi.AzureNative.Insights
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("scopes", required: true)]
+        [Input("scopes")]
         private InputList<string>? _scopes;
 
         /// <summary>
@@ -186,6 +192,12 @@ namespace Pulumi.AzureNative.Insights
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The tenant GUID. Must be provided for tenant-level and management group events rules.
+        /// </summary>
+        [Input("tenantScope")]
+        public Input<string>? TenantScope { get; set; }
 
         public ActivityLogAlertArgs()
         {

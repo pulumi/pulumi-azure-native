@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Template resource definition.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export class ContentTemplate extends pulumi.CustomResource {
     /**
@@ -242,7 +242,7 @@ export class ContentTemplate extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20230501preview:ContentTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20230501preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20230601preview:ContentTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContentTemplate.__pulumiType, name, resourceInputs, opts);
     }

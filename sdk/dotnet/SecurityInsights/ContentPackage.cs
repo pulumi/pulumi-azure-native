@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents a Package in Azure Security Insights.
-    /// Azure REST API version: 2023-05-01-preview.
+    /// Azure REST API version: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:ContentPackage")]
     public partial class ContentPackage : global::Pulumi.CustomResource
@@ -193,6 +193,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:ContentPackage"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:ContentPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:ContentPackage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

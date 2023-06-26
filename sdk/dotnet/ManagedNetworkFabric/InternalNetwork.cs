@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// BGP configuration properties
         /// </summary>
         [Output("bgpConfiguration")]
-        public Output<Outputs.InternalNetworkPatchablePropertiesResponseBgpConfiguration?> BgpConfiguration { get; private set; } = null!;
+        public Output<Outputs.BgpConfigurationResponse?> BgpConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// List of resources the BGP is disabled on. Can be either entire NetworkFabric or NetworkRack.
@@ -53,16 +53,16 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<ImmutableArray<string>> BgpDisabledOnResources { get; private set; } = null!;
 
         /// <summary>
-        /// List with object connectedIPv4Subnets.
+        /// List with object connected IPv4 Subnets.
         /// </summary>
         [Output("connectedIPv4Subnets")]
-        public Output<ImmutableArray<Outputs.InternalNetworkPatchablePropertiesResponseConnectedIPv4Subnets>> ConnectedIPv4Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ConnectedSubnetResponse>> ConnectedIPv4Subnets { get; private set; } = null!;
 
         /// <summary>
-        /// List with object connectedIPv6Subnets.
+        /// List with object connected IPv6 Subnets.
         /// </summary>
         [Output("connectedIPv6Subnets")]
-        public Output<ImmutableArray<Outputs.InternalNetworkPatchablePropertiesResponseConnectedIPv6Subnets>> ConnectedIPv6Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ConnectedSubnetResponse>> ConnectedIPv6Subnets { get; private set; } = null!;
 
         /// <summary>
         /// List of resources the InternalNetwork is disabled on. Can be either entire NetworkFabric or NetworkRack.
@@ -101,10 +101,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// staticRouteConfiguration model.
+        /// Static Route Configuration properties.
         /// </summary>
         [Output("staticRouteConfiguration")]
-        public Output<Outputs.InternalNetworkPatchablePropertiesResponseStaticRouteConfiguration?> StaticRouteConfiguration { get; private set; } = null!;
+        public Output<Outputs.StaticRouteConfigurationResponse?> StaticRouteConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -183,29 +183,29 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// BGP configuration properties
         /// </summary>
         [Input("bgpConfiguration")]
-        public Input<Inputs.InternalNetworkPatchablePropertiesBgpConfigurationArgs>? BgpConfiguration { get; set; }
+        public Input<Inputs.BgpConfigurationArgs>? BgpConfiguration { get; set; }
 
         [Input("connectedIPv4Subnets")]
-        private InputList<Inputs.InternalNetworkPatchablePropertiesConnectedIPv4SubnetsArgs>? _connectedIPv4Subnets;
+        private InputList<Inputs.ConnectedSubnetArgs>? _connectedIPv4Subnets;
 
         /// <summary>
-        /// List with object connectedIPv4Subnets.
+        /// List with object connected IPv4 Subnets.
         /// </summary>
-        public InputList<Inputs.InternalNetworkPatchablePropertiesConnectedIPv4SubnetsArgs> ConnectedIPv4Subnets
+        public InputList<Inputs.ConnectedSubnetArgs> ConnectedIPv4Subnets
         {
-            get => _connectedIPv4Subnets ?? (_connectedIPv4Subnets = new InputList<Inputs.InternalNetworkPatchablePropertiesConnectedIPv4SubnetsArgs>());
+            get => _connectedIPv4Subnets ?? (_connectedIPv4Subnets = new InputList<Inputs.ConnectedSubnetArgs>());
             set => _connectedIPv4Subnets = value;
         }
 
         [Input("connectedIPv6Subnets")]
-        private InputList<Inputs.InternalNetworkPatchablePropertiesConnectedIPv6SubnetsArgs>? _connectedIPv6Subnets;
+        private InputList<Inputs.ConnectedSubnetArgs>? _connectedIPv6Subnets;
 
         /// <summary>
-        /// List with object connectedIPv6Subnets.
+        /// List with object connected IPv6 Subnets.
         /// </summary>
-        public InputList<Inputs.InternalNetworkPatchablePropertiesConnectedIPv6SubnetsArgs> ConnectedIPv6Subnets
+        public InputList<Inputs.ConnectedSubnetArgs> ConnectedIPv6Subnets
         {
-            get => _connectedIPv6Subnets ?? (_connectedIPv6Subnets = new InputList<Inputs.InternalNetworkPatchablePropertiesConnectedIPv6SubnetsArgs>());
+            get => _connectedIPv6Subnets ?? (_connectedIPv6Subnets = new InputList<Inputs.ConnectedSubnetArgs>());
             set => _connectedIPv6Subnets = value;
         }
 
@@ -246,10 +246,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// staticRouteConfiguration model.
+        /// Static Route Configuration properties.
         /// </summary>
         [Input("staticRouteConfiguration")]
-        public Input<Inputs.InternalNetworkPatchablePropertiesStaticRouteConfigurationArgs>? StaticRouteConfiguration { get; set; }
+        public Input<Inputs.StaticRouteConfigurationArgs>? StaticRouteConfiguration { get; set; }
 
         /// <summary>
         /// Vlan identifier. Example: 1001.

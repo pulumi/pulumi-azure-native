@@ -337,6 +337,10 @@ namespace Pulumi.AzureNative.Batch
         /// A Docker compatible container technology will be used to launch the containers.
         /// </summary>
         public static ContainerType DockerCompatible { get; } = new ContainerType("DockerCompatible");
+        /// <summary>
+        /// A CRI based technology will be used to launch the containers.
+        /// </summary>
+        public static ContainerType CriCompatible { get; } = new ContainerType("CriCompatible");
 
         public static bool operator ==(ContainerType left, ContainerType right) => left.Equals(right);
         public static bool operator !=(ContainerType left, ContainerType right) => !left.Equals(right);

@@ -59,12 +59,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.authorization.v20170401 as __v20170401
-    v20170401 = __v20170401
     import pulumi_azure_native.authorization.v20171001preview as __v20171001preview
     v20171001preview = __v20171001preview
-    import pulumi_azure_native.authorization.v20180101preview as __v20180101preview
-    v20180101preview = __v20180101preview
     import pulumi_azure_native.authorization.v20180501 as __v20180501
     v20180501 = __v20180501
     import pulumi_azure_native.authorization.v20190601 as __v20190601
@@ -77,24 +73,18 @@ if typing.TYPE_CHECKING:
     v20200401preview = __v20200401preview
     import pulumi_azure_native.authorization.v20200501 as __v20200501
     v20200501 = __v20200501
-    import pulumi_azure_native.authorization.v20200701preview as __v20200701preview
-    v20200701preview = __v20200701preview
-    import pulumi_azure_native.authorization.v20200901 as __v20200901
-    v20200901 = __v20200901
     import pulumi_azure_native.authorization.v20201001 as __v20201001
     v20201001 = __v20201001
     import pulumi_azure_native.authorization.v20201001preview as __v20201001preview
     v20201001preview = __v20201001preview
-    import pulumi_azure_native.authorization.v20210301preview as __v20210301preview
-    v20210301preview = __v20210301preview
     import pulumi_azure_native.authorization.v20210601 as __v20210601
     v20210601 = __v20210601
-    import pulumi_azure_native.authorization.v20211116preview as __v20211116preview
-    v20211116preview = __v20211116preview
     import pulumi_azure_native.authorization.v20211201preview as __v20211201preview
     v20211201preview = __v20211201preview
     import pulumi_azure_native.authorization.v20220401 as __v20220401
     v20220401 = __v20220401
+    import pulumi_azure_native.authorization.v20220501preview as __v20220501preview
+    v20220501preview = __v20220501preview
     import pulumi_azure_native.authorization.v20220601 as __v20220601
     v20220601 = __v20220601
     import pulumi_azure_native.authorization.v20220701preview as __v20220701preview
@@ -102,24 +92,19 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.authorization.v20220801preview as __v20220801preview
     v20220801preview = __v20220801preview
 else:
-    v20170401 = _utilities.lazy_import('pulumi_azure_native.authorization.v20170401')
     v20171001preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20171001preview')
-    v20180101preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20180101preview')
     v20180501 = _utilities.lazy_import('pulumi_azure_native.authorization.v20180501')
     v20190601 = _utilities.lazy_import('pulumi_azure_native.authorization.v20190601')
     v20200301 = _utilities.lazy_import('pulumi_azure_native.authorization.v20200301')
     v20200301preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20200301preview')
     v20200401preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20200401preview')
     v20200501 = _utilities.lazy_import('pulumi_azure_native.authorization.v20200501')
-    v20200701preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20200701preview')
-    v20200901 = _utilities.lazy_import('pulumi_azure_native.authorization.v20200901')
     v20201001 = _utilities.lazy_import('pulumi_azure_native.authorization.v20201001')
     v20201001preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20201001preview')
-    v20210301preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20210301preview')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.authorization.v20210601')
-    v20211116preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20211116preview')
     v20211201preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20211201preview')
     v20220401 = _utilities.lazy_import('pulumi_azure_native.authorization.v20220401')
+    v20220501preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20220501preview')
     v20220601 = _utilities.lazy_import('pulumi_azure_native.authorization.v20220601')
     v20220701preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20220701preview')
     v20220801preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20220801preview')

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// Role definition.
-    /// Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2018-01-01-preview
+    /// Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleDefinition")]
     public partial class RoleDefinition : global::Pulumi.CustomResource
@@ -110,6 +110,7 @@ namespace Pulumi.AzureNative.Authorization
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20180101preview:RoleDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20220401:RoleDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20220501preview:RoleDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -182,7 +183,7 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string>? RoleType { get; set; }
 
         /// <summary>
-        /// The scope of the role definition.
+        /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

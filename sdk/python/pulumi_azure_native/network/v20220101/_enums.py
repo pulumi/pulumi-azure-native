@@ -7,7 +7,6 @@ from enum import Enum
 __all__ = [
     'DdosCustomPolicyProtocol',
     'DdosCustomPolicyTriggerSensitivityOverride',
-    'VpnPolicyMemberAttributeType',
 ]
 
 
@@ -28,12 +27,3 @@ class DdosCustomPolicyTriggerSensitivityOverride(str, Enum):
     LOW = "Low"
     DEFAULT = "Default"
     HIGH = "High"
-
-
-class VpnPolicyMemberAttributeType(str, Enum):
-    """
-    The Vpn Policy member attribute type.
-    """
-    CERTIFICATE_GROUP_ID = "CertificateGroupId"
-    AAD_GROUP_ID = "AADGroupId"
-    RADIUS_AZURE_GROUP_ID = "RadiusAzureGroupId"

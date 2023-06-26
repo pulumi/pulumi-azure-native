@@ -158,7 +158,7 @@ def get_security_partner_provider(resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityPartnerProviderResult:
     """
     Gets the specified Security Partner Provider.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -189,7 +189,7 @@ def get_security_partner_provider_output(resource_group_name: Optional[pulumi.In
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityPartnerProviderResult]:
     """
     Gets the specified Security Partner Provider.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.

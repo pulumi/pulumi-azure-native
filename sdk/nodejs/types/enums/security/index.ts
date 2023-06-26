@@ -12,8 +12,8 @@ import * as v20210701preview from "./v20210701preview";
 import * as v20210801preview from "./v20210801preview";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220701preview from "./v20220701preview";
-import * as v20220801preview from "./v20220801preview";
 import * as v20230301preview from "./v20230301preview";
+import * as v20230501 from "./v20230501";
 
 export {
     v20170801preview,
@@ -26,8 +26,8 @@ export {
     v20210801preview,
     v20220101preview,
     v20220701preview,
-    v20220801preview,
     v20230301preview,
+    v20230501,
 };
 
 export const ActionType = {
@@ -534,6 +534,27 @@ export const SecuritySolutionStatus = {
  * Status of the IoT Security solution.
  */
 export type SecuritySolutionStatus = (typeof SecuritySolutionStatus)[keyof typeof SecuritySolutionStatus];
+
+export const ServerVulnerabilityAssessmentsAzureSettingSelectedProvider = {
+    /**
+     * Microsoft Defender for Endpoints threat and vulnerability management.
+     */
+    MdeTvm: "MdeTvm",
+} as const;
+
+/**
+ * The selected vulnerability assessments provider on Azure servers in the defined scope.
+ */
+export type ServerVulnerabilityAssessmentsAzureSettingSelectedProvider = (typeof ServerVulnerabilityAssessmentsAzureSettingSelectedProvider)[keyof typeof ServerVulnerabilityAssessmentsAzureSettingSelectedProvider];
+
+export const ServerVulnerabilityAssessmentsSettingKind = {
+    AzureServersSetting: "AzureServersSetting",
+} as const;
+
+/**
+ * The kind of the server vulnerability assessments setting.
+ */
+export type ServerVulnerabilityAssessmentsSettingKind = (typeof ServerVulnerabilityAssessmentsSettingKind)[keyof typeof ServerVulnerabilityAssessmentsSettingKind];
 
 export const Severity = {
     Low: "Low",

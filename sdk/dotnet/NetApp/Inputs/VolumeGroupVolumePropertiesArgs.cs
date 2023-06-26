@@ -208,7 +208,7 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public InputUnion<string, Pulumi.AzureNative.NetApp.SmbNonBrowsable>? SmbNonBrowsable { get; set; }
 
         /// <summary>
-        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         /// </summary>
         [Input("snapshotDirectoryVisible")]
         public Input<bool>? SnapshotDirectoryVisible { get; set; }

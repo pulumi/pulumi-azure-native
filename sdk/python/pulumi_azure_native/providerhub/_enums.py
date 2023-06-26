@@ -5,23 +5,21 @@
 from enum import Enum
 
 __all__ = [
-    'ExtendedLocationType',
+    'EndpointType',
     'ExtensionCategory',
     'ExtensionOptionType',
     'FeaturesPolicy',
     'IdentityManagementTypes',
     'LoggingDetails',
     'LoggingDirections',
-    'MarketplaceType',
     'MessageScope',
     'NotificationMode',
-    'OperationActionType',
-    'OperationOrigins',
     'OptInHeaderType',
+    'Policy',
     'PreflightOption',
     'ProvisioningState',
+    'Readiness',
     'Regionality',
-    'ResourceAccessPolicy',
     'ResourceDeletionPolicy',
     'ResourceProviderCapabilitiesEffect',
     'ResourceProviderType',
@@ -36,10 +34,11 @@ __all__ = [
 ]
 
 
-class ExtendedLocationType(str, Enum):
+class EndpointType(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
-    EDGE_ZONE = "EdgeZone"
-    ARC_ZONE = "ArcZone"
+    CANARY = "Canary"
+    PRODUCTION = "Production"
+    TEST_IN_PRODUCTION = "TestInProduction"
 
 
 class ExtensionCategory(str, Enum):
@@ -91,13 +90,6 @@ class LoggingDirections(str, Enum):
     RESPONSE = "Response"
 
 
-class MarketplaceType(str, Enum):
-    NOT_SPECIFIED = "NotSpecified"
-    ADD_ON = "AddOn"
-    BYPASS = "Bypass"
-    STORE = "Store"
-
-
 class MessageScope(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     REGISTERED_SUBSCRIPTIONS = "RegisteredSubscriptions"
@@ -109,23 +101,17 @@ class NotificationMode(str, Enum):
     WEB_HOOK = "WebHook"
 
 
-class OperationActionType(str, Enum):
-    NOT_SPECIFIED = "NotSpecified"
-    INTERNAL = "Internal"
-
-
-class OperationOrigins(str, Enum):
-    NOT_SPECIFIED = "NotSpecified"
-    USER = "User"
-    SYSTEM = "System"
-
-
 class OptInHeaderType(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     SIGNED_USER_TOKEN = "SignedUserToken"
     CLIENT_GROUP_MEMBERSHIP = "ClientGroupMembership"
     SIGNED_AUXILIARY_TOKENS = "SignedAuxiliaryTokens"
     UNBOUNDED_CLIENT_GROUP_MEMBERSHIP = "UnboundedClientGroupMembership"
+
+
+class Policy(str, Enum):
+    NOT_SPECIFIED = "NotSpecified"
+    SYNCHRONIZE_BEGIN_EXTENSION = "SynchronizeBeginExtension"
 
 
 class PreflightOption(str, Enum):
@@ -135,6 +121,9 @@ class PreflightOption(str, Enum):
 
 
 class ProvisioningState(str, Enum):
+    """
+    The provisioned state of the resource.
+    """
     NOT_SPECIFIED = "NotSpecified"
     ACCEPTED = "Accepted"
     RUNNING = "Running"
@@ -150,16 +139,22 @@ class ProvisioningState(str, Enum):
     ROLLOUT_IN_PROGRESS = "RolloutInProgress"
 
 
+class Readiness(str, Enum):
+    CLOSING_DOWN = "ClosingDown"
+    DEPRECATED = "Deprecated"
+    GA = "GA"
+    IN_DEVELOPMENT = "InDevelopment"
+    INTERNAL_ONLY = "InternalOnly"
+    PRIVATE_PREVIEW = "PrivatePreview"
+    PUBLIC_PREVIEW = "PublicPreview"
+    REMOVED_FROM_ARM = "RemovedFromARM"
+    RETIRED = "Retired"
+
+
 class Regionality(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     GLOBAL_ = "Global"
     REGIONAL = "Regional"
-
-
-class ResourceAccessPolicy(str, Enum):
-    NOT_SPECIFIED = "NotSpecified"
-    ACIS_READ_ALLOWED = "AcisReadAllowed"
-    ACIS_ACTION_ALLOWED = "AcisActionAllowed"
 
 
 class ResourceDeletionPolicy(str, Enum):

@@ -82,11 +82,11 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// IPv4Prefix for Management Network. Default value : 10.1.0.0/19.
+        /// IPv4Prefix for Management Network. Example: 10.1.0.0/19.
         /// </summary>
         public readonly string? Ipv4Prefix;
         /// <summary>
-        /// IPv6Prefix for Management Network. Default value 3FFE:FFFF:0:CD40::/59.
+        /// IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
         /// </summary>
         public readonly string? Ipv6Prefix;
         /// <summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// <summary>
         /// Configuration to be used to setup the management network.
         /// </summary>
-        public readonly Outputs.NetworkFabricPropertiesResponseManagementNetworkConfiguration ManagementNetworkConfiguration;
+        public readonly Outputs.ManagementNetworkConfigurationResponse ManagementNetworkConfiguration;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// <summary>
         /// Network and credentials configuration currently applied to terminal server.
         /// </summary>
-        public readonly Outputs.NetworkFabricPropertiesResponseTerminalServerConfiguration TerminalServerConfiguration;
+        public readonly Outputs.TerminalServerConfigurationResponse TerminalServerConfiguration;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 
             string location,
 
-            Outputs.NetworkFabricPropertiesResponseManagementNetworkConfiguration managementNetworkConfiguration,
+            Outputs.ManagementNetworkConfigurationResponse managementNetworkConfiguration,
 
             string name,
 
@@ -200,7 +200,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            Outputs.NetworkFabricPropertiesResponseTerminalServerConfiguration terminalServerConfiguration,
+            Outputs.TerminalServerConfigurationResponse terminalServerConfiguration,
 
             string type)
         {

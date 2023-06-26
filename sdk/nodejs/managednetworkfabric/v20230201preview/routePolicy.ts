@@ -42,14 +42,6 @@ export class RoutePolicy extends pulumi.CustomResource {
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
     /**
-     * Route Policy conditions.
-     */
-    public readonly conditions!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.RoutePolicyPropertiesResponseConditions[] | undefined>;
-    /**
-     * Route Policy description.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -61,6 +53,10 @@ export class RoutePolicy extends pulumi.CustomResource {
      * Gets the provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Route Policy statements.
+     */
+    public readonly statements!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.RoutePolicyStatementPropertiesResponse[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -88,12 +84,14 @@ export class RoutePolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.statements === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'statements'");
+            }
             resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routePolicyName"] = args ? args.routePolicyName : undefined;
+            resourceInputs["statements"] = args ? args.statements : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -101,11 +99,10 @@ export class RoutePolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["annotation"] = undefined /*out*/;
-            resourceInputs["conditions"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["statements"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -126,14 +123,6 @@ export interface RoutePolicyArgs {
      */
     annotation?: pulumi.Input<string>;
     /**
-     * Route Policy conditions.
-     */
-    conditions?: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.v20230201preview.RoutePolicyPropertiesConditionsArgs>[]>;
-    /**
-     * Route Policy description.
-     */
-    description?: pulumi.Input<string>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
@@ -145,6 +134,10 @@ export interface RoutePolicyArgs {
      * Name of the Route Policy
      */
     routePolicyName?: pulumi.Input<string>;
+    /**
+     * Route Policy statements.
+     */
+    statements: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.v20230201preview.RoutePolicyStatementPropertiesArgs>[]>;
     /**
      * Resource tags.
      */

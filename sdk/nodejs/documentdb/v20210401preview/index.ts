@@ -15,11 +15,6 @@ export const getDatabaseAccount: typeof import("./getDatabaseAccount").getDataba
 export const getDatabaseAccountOutput: typeof import("./getDatabaseAccount").getDatabaseAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
 
-export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
-export const getService: typeof import("./getService").getService = null as any;
-export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
-
 export { ListDatabaseAccountConnectionStringsArgs, ListDatabaseAccountConnectionStringsResult, ListDatabaseAccountConnectionStringsOutputArgs } from "./listDatabaseAccountConnectionStrings";
 export const listDatabaseAccountConnectionStrings: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStrings = null as any;
 export const listDatabaseAccountConnectionStringsOutput: typeof import("./listDatabaseAccountConnectionStrings").listDatabaseAccountConnectionStringsOutput = null as any;
@@ -29,11 +24,6 @@ export { ListDatabaseAccountKeysArgs, ListDatabaseAccountKeysResult, ListDatabas
 export const listDatabaseAccountKeys: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeys = null as any;
 export const listDatabaseAccountKeysOutput: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabaseAccountKeys","listDatabaseAccountKeysOutput"], () => require("./listDatabaseAccountKeys"));
-
-export { ServiceArgs } from "./service";
-export type Service = import("./service").Service;
-export const Service: typeof import("./service").Service = null as any;
-utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
 
 // Export enums:
@@ -45,8 +35,6 @@ const _module = {
         switch (type) {
             case "azure-native:documentdb/v20210401preview:DatabaseAccount":
                 return new DatabaseAccount(name, <any>undefined, { urn })
-            case "azure-native:documentdb/v20210401preview:Service":
-                return new Service(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

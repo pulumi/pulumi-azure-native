@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Volume resource
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
+    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Volume")]
     public partial class Volume : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
+        /// </summary>
+        [Output("actualThroughputMibps")]
+        public Output<double> ActualThroughputMibps { get; private set; } = null!;
+
         /// <summary>
         /// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         /// </summary>
@@ -209,6 +215,12 @@ namespace Pulumi.AzureNative.NetApp
         public Output<string> NetworkSiblingSetId { get; private set; } = null!;
 
         /// <summary>
+        /// Id of the snapshot or backup that the volume is restored from.
+        /// </summary>
+        [Output("originatingResourceId")]
+        public Output<string> OriginatingResourceId { get; private set; } = null!;
+
+        /// <summary>
         /// Application specific placement rules for the particular volume
         /// </summary>
         [Output("placementRules")]
@@ -275,7 +287,7 @@ namespace Pulumi.AzureNative.NetApp
         public Output<string?> SmbNonBrowsable { get; private set; } = null!;
 
         /// <summary>
-        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         /// </summary>
         [Output("snapshotDirectoryVisible")]
         public Output<bool?> SnapshotDirectoryVisible { get; private set; } = null!;
@@ -412,6 +424,7 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Volume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Volume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Volume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -646,7 +659,7 @@ namespace Pulumi.AzureNative.NetApp
         public InputUnion<string, Pulumi.AzureNative.NetApp.SmbNonBrowsable>? SmbNonBrowsable { get; set; }
 
         /// <summary>
-        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         /// </summary>
         [Input("snapshotDirectoryVisible")]
         public Input<bool>? SnapshotDirectoryVisible { get; set; }

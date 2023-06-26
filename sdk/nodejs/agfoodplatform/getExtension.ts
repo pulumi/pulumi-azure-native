@@ -9,27 +9,27 @@ import * as utilities from "../utilities";
 
 /**
  * Get installed extension details by extension id.
- * Azure REST API version: 2021-09-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:agfoodplatform:getExtension", {
+        "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,
         "extensionId": args.extensionId,
-        "farmBeatsResourceName": args.farmBeatsResourceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetExtensionArgs {
     /**
+     * DataManagerForAgriculture resource name.
+     */
+    dataManagerForAgricultureResourceName: string;
+    /**
      * Id of extension resource.
      */
     extensionId: string;
-    /**
-     * FarmBeats resource name.
-     */
-    farmBeatsResourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -41,7 +41,7 @@ export interface GetExtensionArgs {
  */
 export interface GetExtensionResult {
     /**
-     * Additional api properties.
+     * Additional Api Properties.
      */
     readonly additionalApiProperties: {[key: string]: outputs.agfoodplatform.ApiPropertiesResponse};
     /**
@@ -87,7 +87,7 @@ export interface GetExtensionResult {
 }
 /**
  * Get installed extension details by extension id.
- * Azure REST API version: 2021-09-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))
@@ -95,13 +95,13 @@ export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.I
 
 export interface GetExtensionOutputArgs {
     /**
+     * DataManagerForAgriculture resource name.
+     */
+    dataManagerForAgricultureResourceName: pulumi.Input<string>;
+    /**
      * Id of extension resource.
      */
     extensionId: pulumi.Input<string>;
-    /**
-     * FarmBeats resource name.
-     */
-    farmBeatsResourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a network manager security admin configuration rule collection.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getAdminRuleCollection(args: GetAdminRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminRuleCollectionResult> {
 
@@ -70,6 +70,10 @@ export interface GetAdminRuleCollectionResult {
      */
     readonly provisioningState: string;
     /**
+     * Unique identifier for this resource.
+     */
+    readonly resourceGuid: string;
+    /**
      * The system metadata related to this resource.
      */
     readonly systemData: outputs.network.SystemDataResponse;
@@ -80,7 +84,7 @@ export interface GetAdminRuleCollectionResult {
 }
 /**
  * Gets a network manager security admin configuration rule collection.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getAdminRuleCollectionOutput(args: GetAdminRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminRuleCollectionResult> {
     return pulumi.output(args).apply((a: any) => getAdminRuleCollection(a, opts))

@@ -20,14 +20,10 @@ utilities.lazyLoad(exports, ["getBudget","getBudgetOutput"], () => require("./ge
 export * from "../types/enums/consumption";
 
 // Export sub-modules:
-import * as v20191001 from "./v20191001";
-import * as v20220901 from "./v20220901";
-import * as v20230301 from "./v20230301";
+import * as v20230501 from "./v20230501";
 
 export {
-    v20191001,
-    v20220901,
-    v20230301,
+    v20230501,
 };
 
 const _module = {

@@ -231,7 +231,7 @@ def get_pool(account_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Get details of the specified capacity pool
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -271,7 +271,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
     Get details of the specified capacity pool
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account

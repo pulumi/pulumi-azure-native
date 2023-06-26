@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified ipGroups.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetIpGroupResult> InvokeAsync(GetIpGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpGroupResult>("azure-native:network:getIpGroup", args ?? new GetIpGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified ipGroups.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetIpGroupResult> Invoke(GetIpGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpGroupResult>("azure-native:network:getIpGroup", args ?? new GetIpGroupInvokeArgs(), options.WithDefaults());

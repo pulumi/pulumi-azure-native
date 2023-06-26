@@ -19,6 +19,7 @@ class VirtualNetworkGatewayInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  active_active: Optional[pulumi.Input[bool]] = None,
+                 admin_state: Optional[pulumi.Input[Union[str, 'AdminState']]] = None,
                  allow_remote_vnet_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  bgp_settings: Optional[pulumi.Input['BgpSettingsArgs']] = None,
@@ -47,6 +48,7 @@ class VirtualNetworkGatewayInitArgs:
         The set of arguments for constructing a VirtualNetworkGateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] active_active: ActiveActive flag.
+        :param pulumi.Input[Union[str, 'AdminState']] admin_state: Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
         :param pulumi.Input[bool] allow_remote_vnet_traffic: Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
         :param pulumi.Input[bool] allow_virtual_wan_traffic: Configures this gateway to accept traffic from remote Virtual WAN networks.
         :param pulumi.Input['BgpSettingsArgs'] bgp_settings: Virtual network gateway's BGP speaker settings.
@@ -75,6 +77,8 @@ class VirtualNetworkGatewayInitArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if active_active is not None:
             pulumi.set(__self__, "active_active", active_active)
+        if admin_state is not None:
+            pulumi.set(__self__, "admin_state", admin_state)
         if allow_remote_vnet_traffic is not None:
             pulumi.set(__self__, "allow_remote_vnet_traffic", allow_remote_vnet_traffic)
         if allow_virtual_wan_traffic is not None:
@@ -147,6 +151,18 @@ class VirtualNetworkGatewayInitArgs:
     @active_active.setter
     def active_active(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "active_active", value)
+
+    @property
+    @pulumi.getter(name="adminState")
+    def admin_state(self) -> Optional[pulumi.Input[Union[str, 'AdminState']]]:
+        """
+        Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+        """
+        return pulumi.get(self, "admin_state")
+
+    @admin_state.setter
+    def admin_state(self, value: Optional[pulumi.Input[Union[str, 'AdminState']]]):
+        pulumi.set(self, "admin_state", value)
 
     @property
     @pulumi.getter(name="allowRemoteVnetTraffic")
@@ -443,6 +459,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active_active: Optional[pulumi.Input[bool]] = None,
+                 admin_state: Optional[pulumi.Input[Union[str, 'AdminState']]] = None,
                  allow_remote_vnet_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
@@ -471,11 +488,12 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  __props__=None):
         """
         A common class for general resource information.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active_active: ActiveActive flag.
+        :param pulumi.Input[Union[str, 'AdminState']] admin_state: Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
         :param pulumi.Input[bool] allow_remote_vnet_traffic: Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
         :param pulumi.Input[bool] allow_virtual_wan_traffic: Configures this gateway to accept traffic from remote Virtual WAN networks.
         :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Virtual network gateway's BGP speaker settings.
@@ -510,7 +528,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A common class for general resource information.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-11-01
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayInitArgs args: The arguments to use to populate this resource's properties.
@@ -528,6 +546,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active_active: Optional[pulumi.Input[bool]] = None,
+                 admin_state: Optional[pulumi.Input[Union[str, 'AdminState']]] = None,
                  allow_remote_vnet_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
@@ -563,6 +582,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__ = VirtualNetworkGatewayInitArgs.__new__(VirtualNetworkGatewayInitArgs)
 
             __props__.__dict__["active_active"] = active_active
+            __props__.__dict__["admin_state"] = admin_state
             __props__.__dict__["allow_remote_vnet_traffic"] = allow_remote_vnet_traffic
             __props__.__dict__["allow_virtual_wan_traffic"] = allow_virtual_wan_traffic
             __props__.__dict__["bgp_settings"] = bgp_settings
@@ -596,7 +616,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150615:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160330:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160901:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20161201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170301:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170901:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171001:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualNetworkGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150615:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160330:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20160901:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20161201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170301:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20170901:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171001:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20171101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualNetworkGateway"), pulumi.Alias(type_="azure-native:network/v20230201:VirtualNetworkGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkGateway, __self__).__init__(
             'azure-native:network:VirtualNetworkGateway',
@@ -621,6 +641,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         __props__ = VirtualNetworkGatewayInitArgs.__new__(VirtualNetworkGatewayInitArgs)
 
         __props__.__dict__["active_active"] = None
+        __props__.__dict__["admin_state"] = None
         __props__.__dict__["allow_remote_vnet_traffic"] = None
         __props__.__dict__["allow_virtual_wan_traffic"] = None
         __props__.__dict__["bgp_settings"] = None
@@ -658,6 +679,14 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         ActiveActive flag.
         """
         return pulumi.get(self, "active_active")
+
+    @property
+    @pulumi.getter(name="adminState")
+    def admin_state(self) -> pulumi.Output[Optional[str]]:
+        """
+        Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+        """
+        return pulumi.get(self, "admin_state")
 
     @property
     @pulumi.getter(name="allowRemoteVnetTraffic")

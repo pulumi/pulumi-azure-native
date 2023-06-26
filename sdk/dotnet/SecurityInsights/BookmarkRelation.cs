@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents a relation between two resources
-    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview
+    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:BookmarkRelation")]
     public partial class BookmarkRelation : global::Pulumi.CustomResource
@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:BookmarkRelation"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:BookmarkRelation"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:BookmarkRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:BookmarkRelation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

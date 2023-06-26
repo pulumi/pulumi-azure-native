@@ -148,7 +148,7 @@ def get_bookmark_relation(bookmark_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBookmarkRelationResult:
     """
     Gets a bookmark relation.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str bookmark_id: Bookmark ID
@@ -184,7 +184,7 @@ def get_bookmark_relation_output(bookmark_id: Optional[pulumi.Input[str]] = None
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBookmarkRelationResult]:
     """
     Gets a bookmark relation.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str bookmark_id: Bookmark ID

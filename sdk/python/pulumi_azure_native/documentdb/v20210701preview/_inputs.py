@@ -11,76 +11,11 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'AutoscaleSettingsArgs',
-    'CassandraViewResourceArgs',
     'CertificateArgs',
     'ClusterResourcePropertiesArgs',
-    'CreateUpdateOptionsArgs',
-    'GraphResourceArgs',
     'ManagedServiceIdentityArgs',
     'SeedNodeArgs',
 ]
-
-@pulumi.input_type
-class AutoscaleSettingsArgs:
-    def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] max_throughput: Represents maximum throughput, the resource can scale up to.
-        """
-        if max_throughput is not None:
-            pulumi.set(__self__, "max_throughput", max_throughput)
-
-    @property
-    @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[int]]:
-        """
-        Represents maximum throughput, the resource can scale up to.
-        """
-        return pulumi.get(self, "max_throughput")
-
-    @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "max_throughput", value)
-
-
-@pulumi.input_type
-class CassandraViewResourceArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str],
-                 view_definition: pulumi.Input[str]):
-        """
-        Cosmos DB Cassandra view resource object
-        :param pulumi.Input[str] id: Name of the Cosmos DB Cassandra view
-        :param pulumi.Input[str] view_definition: View Definition of the Cosmos DB Cassandra view
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "view_definition", view_definition)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        Name of the Cosmos DB Cassandra view
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter(name="viewDefinition")
-    def view_definition(self) -> pulumi.Input[str]:
-        """
-        View Definition of the Cosmos DB Cassandra view
-        """
-        return pulumi.get(self, "view_definition")
-
-    @view_definition.setter
-    def view_definition(self, value: pulumi.Input[str]):
-        pulumi.set(self, "view_definition", value)
-
 
 @pulumi.input_type
 class CertificateArgs:
@@ -319,69 +254,6 @@ class ClusterResourcePropertiesArgs:
     @restore_from_backup_id.setter
     def restore_from_backup_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "restore_from_backup_id", value)
-
-
-@pulumi.input_type
-class CreateUpdateOptionsArgs:
-    def __init__(__self__, *,
-                 autoscale_settings: Optional[pulumi.Input['AutoscaleSettingsArgs']] = None,
-                 throughput: Optional[pulumi.Input[int]] = None):
-        """
-        CreateUpdateOptions are a list of key-value pairs that describe the resource. Supported keys are "If-Match", "If-None-Match", "Session-Token" and "Throughput"
-        :param pulumi.Input['AutoscaleSettingsArgs'] autoscale_settings: Specifies the Autoscale settings.
-        :param pulumi.Input[int] throughput: Request Units per second. For example, "throughput": 10000.
-        """
-        if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
-        if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
-
-    @property
-    @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['AutoscaleSettingsArgs']]:
-        """
-        Specifies the Autoscale settings.
-        """
-        return pulumi.get(self, "autoscale_settings")
-
-    @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['AutoscaleSettingsArgs']]):
-        pulumi.set(self, "autoscale_settings", value)
-
-    @property
-    @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[int]]:
-        """
-        Request Units per second. For example, "throughput": 10000.
-        """
-        return pulumi.get(self, "throughput")
-
-    @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "throughput", value)
-
-
-@pulumi.input_type
-class GraphResourceArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str]):
-        """
-        Cosmos DB Graph resource object
-        :param pulumi.Input[str] id: Name of the Cosmos DB Graph
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        Name of the Cosmos DB Graph
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

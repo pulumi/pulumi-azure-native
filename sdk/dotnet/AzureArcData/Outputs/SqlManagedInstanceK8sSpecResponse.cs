@@ -24,15 +24,29 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// The kubernetes scheduling information.
         /// </summary>
         public readonly Outputs.K8sSchedulingResponse? Scheduling;
+        /// <summary>
+        /// The kubernetes security information.
+        /// </summary>
+        public readonly Outputs.K8sSecurityResponse? Security;
+        /// <summary>
+        /// The kubernetes settings information.
+        /// </summary>
+        public readonly Outputs.K8sSettingsResponse? Settings;
 
         [OutputConstructor]
         private SqlManagedInstanceK8sSpecResponse(
             int? replicas,
 
-            Outputs.K8sSchedulingResponse? scheduling)
+            Outputs.K8sSchedulingResponse? scheduling,
+
+            Outputs.K8sSecurityResponse? security,
+
+            Outputs.K8sSettingsResponse? settings)
         {
             Replicas = replicas;
             Scheduling = scheduling;
+            Security = security;
+            Settings = settings;
         }
     }
 }

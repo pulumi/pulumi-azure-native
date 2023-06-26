@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         [Input("componentId")]
         public Input<string>? ComponentId { get; set; }
 
+        [Input("readiness")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.Readiness>? Readiness { get; set; }
+
         [Input("serviceId")]
         public Input<string>? ServiceId { get; set; }
 

@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 {
     /// <summary>
     /// Extension resource.
-    /// Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-05-12-preview
+    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2020-05-12-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:Extension")]
     public partial class Extension : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Additional api properties.
+        /// Additional Api Properties.
         /// </summary>
         [Output("additionalApiProperties")]
         public Output<ImmutableDictionary<string, Outputs.ApiPropertiesResponse>> AdditionalApiProperties { get; private set; } = null!;
@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
                 {
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20200512preview:Extension"},
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20210901preview:Extension"},
+                    new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20230601preview:Extension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -139,6 +140,12 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         }
 
         /// <summary>
+        /// DataManagerForAgriculture resource name.
+        /// </summary>
+        [Input("dataManagerForAgricultureResourceName", required: true)]
+        public Input<string> DataManagerForAgricultureResourceName { get; set; } = null!;
+
+        /// <summary>
         /// Id of extension resource.
         /// </summary>
         [Input("extensionId")]
@@ -149,12 +156,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// </summary>
         [Input("extensionVersion")]
         public Input<string>? ExtensionVersion { get; set; }
-
-        /// <summary>
-        /// FarmBeats resource name.
-        /// </summary>
-        [Input("farmBeatsResourceName", required: true)]
-        public Input<string> FarmBeatsResourceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

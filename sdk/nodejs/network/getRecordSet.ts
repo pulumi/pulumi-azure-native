@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a record set.
- * Azure REST API version: 2018-05-01.
+ * Azure REST API version: 2023-07-01-preview.
  */
 export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetResult> {
 
@@ -32,7 +32,7 @@ export interface GetRecordSetArgs {
      */
     relativeRecordSetName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -62,6 +62,10 @@ export interface GetRecordSetResult {
      */
     readonly cnameRecord?: outputs.network.CnameRecordResponse;
     /**
+     * The list of DS records in the record set.
+     */
+    readonly dsRecords?: outputs.network.DsRecordResponse[];
+    /**
      * The etag of the record set.
      */
     readonly etag?: string;
@@ -85,6 +89,10 @@ export interface GetRecordSetResult {
      * The name of the record set.
      */
     readonly name: string;
+    /**
+     * The list of NAPTR records in the record set.
+     */
+    readonly naptrRecords?: outputs.network.NaptrRecordResponse[];
     /**
      * The list of NS records in the record set.
      */
@@ -110,6 +118,10 @@ export interface GetRecordSetResult {
      */
     readonly targetResource?: outputs.network.SubResourceResponse;
     /**
+     * The list of TLSA records in the record set.
+     */
+    readonly tlsaRecords?: outputs.network.TlsaRecordResponse[];
+    /**
      * The TTL (time-to-live) of the records in the record set.
      */
     readonly ttl?: number;
@@ -124,7 +136,7 @@ export interface GetRecordSetResult {
 }
 /**
  * Gets a record set.
- * Azure REST API version: 2018-05-01.
+ * Azure REST API version: 2023-07-01-preview.
  */
 export function getRecordSetOutput(args: GetRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordSetResult> {
     return pulumi.output(args).apply((a: any) => getRecordSet(a, opts))
@@ -140,7 +152,7 @@ export interface GetRecordSetOutputArgs {
      */
     relativeRecordSetName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

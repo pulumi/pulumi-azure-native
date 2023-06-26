@@ -143,7 +143,7 @@ class FileImport(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a file import in Azure Security Insights.
-        Azure REST API version: 2023-05-01-preview.
+        Azure REST API version: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +163,7 @@ class FileImport(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a file import in Azure Security Insights.
-        Azure REST API version: 2023-05-01-preview.
+        Azure REST API version: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param FileImportArgs args: The arguments to use to populate this resource's properties.
@@ -227,7 +227,7 @@ class FileImport(pulumi.CustomResource):
             __props__.__dict__["total_record_count"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["valid_record_count"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:FileImport")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:FileImport"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:FileImport")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileImport, __self__).__init__(
             'azure-native:securityinsights:FileImport',

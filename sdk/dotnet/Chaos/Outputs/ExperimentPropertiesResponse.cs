@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Chaos.Outputs
         /// <summary>
         /// List of selectors.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SelectorResponse> Selectors;
+        public readonly ImmutableArray<Union<Outputs.ListSelectorResponse, Outputs.QuerySelectorResponse>> Selectors;
         /// <summary>
         /// A boolean value that indicates if experiment should be started on creation or not.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Chaos.Outputs
 
         [OutputConstructor]
         private ExperimentPropertiesResponse(
-            ImmutableArray<Outputs.SelectorResponse> selectors,
+            ImmutableArray<Union<Outputs.ListSelectorResponse, Outputs.QuerySelectorResponse>> selectors,
 
             bool? startOnCreation,
 

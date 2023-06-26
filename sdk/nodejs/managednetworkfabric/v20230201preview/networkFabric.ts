@@ -46,11 +46,11 @@ export class NetworkFabric extends pulumi.CustomResource {
      */
     public readonly fabricASN!: pulumi.Output<number>;
     /**
-     * IPv4Prefix for Management Network. Default value : 10.1.0.0/19.
+     * IPv4Prefix for Management Network. Example: 10.1.0.0/19.
      */
     public readonly ipv4Prefix!: pulumi.Output<string | undefined>;
     /**
-     * IPv6Prefix for Management Network. Default value 3FFE:FFFF:0:CD40::/59.
+     * IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
      */
     public readonly ipv6Prefix!: pulumi.Output<string | undefined>;
     /**
@@ -68,7 +68,7 @@ export class NetworkFabric extends pulumi.CustomResource {
     /**
      * Configuration to be used to setup the management network.
      */
-    public readonly managementNetworkConfiguration!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.NetworkFabricPropertiesResponseManagementNetworkConfiguration>;
+    public readonly managementNetworkConfiguration!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.ManagementNetworkConfigurationResponse>;
     /**
      * The name of the resource
      */
@@ -116,7 +116,7 @@ export class NetworkFabric extends pulumi.CustomResource {
     /**
      * Network and credentials configuration currently applied to terminal server.
      */
-    public readonly terminalServerConfiguration!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.NetworkFabricPropertiesResponseTerminalServerConfiguration>;
+    public readonly terminalServerConfiguration!: pulumi.Output<outputs.managednetworkfabric.v20230201preview.TerminalServerConfigurationResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -159,10 +159,10 @@ export class NetworkFabric extends pulumi.CustomResource {
             }
             resourceInputs["annotation"] = args ? args.annotation : undefined;
             resourceInputs["fabricASN"] = args ? args.fabricASN : undefined;
-            resourceInputs["ipv4Prefix"] = (args ? args.ipv4Prefix : undefined) ?? "10.1.0.0/19";
-            resourceInputs["ipv6Prefix"] = (args ? args.ipv6Prefix : undefined) ?? "3FFE:FFFF:0:CD40::/59";
+            resourceInputs["ipv4Prefix"] = args ? args.ipv4Prefix : undefined;
+            resourceInputs["ipv6Prefix"] = args ? args.ipv6Prefix : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementNetworkConfiguration"] = args ? (args.managementNetworkConfiguration ? pulumi.output(args.managementNetworkConfiguration).apply(inputs.managednetworkfabric.v20230201preview.networkFabricPropertiesManagementNetworkConfigurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["managementNetworkConfiguration"] = args ? (args.managementNetworkConfiguration ? pulumi.output(args.managementNetworkConfiguration).apply(inputs.managednetworkfabric.v20230201preview.managementNetworkConfigurationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["networkFabricControllerId"] = args ? args.networkFabricControllerId : undefined;
             resourceInputs["networkFabricName"] = args ? args.networkFabricName : undefined;
             resourceInputs["networkFabricSku"] = args ? args.networkFabricSku : undefined;
@@ -170,7 +170,7 @@ export class NetworkFabric extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverCountPerRack"] = args ? args.serverCountPerRack : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["terminalServerConfiguration"] = args ? (args.terminalServerConfiguration ? pulumi.output(args.terminalServerConfiguration).apply(inputs.managednetworkfabric.v20230201preview.networkFabricPropertiesTerminalServerConfigurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["terminalServerConfiguration"] = args ? args.terminalServerConfiguration : undefined;
             resourceInputs["l2IsolationDomains"] = undefined /*out*/;
             resourceInputs["l3IsolationDomains"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -223,11 +223,11 @@ export interface NetworkFabricArgs {
      */
     fabricASN: pulumi.Input<number>;
     /**
-     * IPv4Prefix for Management Network. Default value : 10.1.0.0/19.
+     * IPv4Prefix for Management Network. Example: 10.1.0.0/19.
      */
     ipv4Prefix?: pulumi.Input<string>;
     /**
-     * IPv6Prefix for Management Network. Default value 3FFE:FFFF:0:CD40::/59.
+     * IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
      */
     ipv6Prefix?: pulumi.Input<string>;
     /**
@@ -237,7 +237,7 @@ export interface NetworkFabricArgs {
     /**
      * Configuration to be used to setup the management network.
      */
-    managementNetworkConfiguration: pulumi.Input<inputs.managednetworkfabric.v20230201preview.NetworkFabricPropertiesManagementNetworkConfigurationArgs>;
+    managementNetworkConfiguration: pulumi.Input<inputs.managednetworkfabric.v20230201preview.ManagementNetworkConfigurationArgs>;
     /**
      * Azure resource ID for the NetworkFabricController the NetworkFabric belongs.
      */
@@ -269,5 +269,5 @@ export interface NetworkFabricArgs {
     /**
      * Network and credentials configuration currently applied to terminal server.
      */
-    terminalServerConfiguration: pulumi.Input<inputs.managednetworkfabric.v20230201preview.NetworkFabricPropertiesTerminalServerConfigurationArgs>;
+    terminalServerConfiguration: pulumi.Input<inputs.managednetworkfabric.v20230201preview.TerminalServerConfigurationArgs>;
 }

@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public InputUnion<string, Pulumi.AzureNative.DataFactory.ActivityOnInactiveMarkAs>? OnInactiveMarkAs { get; set; }
 
         /// <summary>
+        /// Activity policy.
+        /// </summary>
+        [Input("policy")]
+        public Input<Inputs.SecureInputOutputPolicyArgs>? Policy { get; set; }
+
+        /// <summary>
         /// If set to true, it sets the pipeline run return value.
         /// </summary>
         [Input("setSystemVariable")]

@@ -22,7 +22,7 @@ class GetZoneResult:
     """
     Describes a DNS zone.
     """
-    def __init__(__self__, etag=None, id=None, location=None, max_number_of_record_sets=None, max_number_of_records_per_record_set=None, name=None, name_servers=None, number_of_record_sets=None, registration_virtual_networks=None, resolution_virtual_networks=None, tags=None, type=None, zone_type=None):
+    def __init__(__self__, etag=None, id=None, location=None, max_number_of_record_sets=None, max_number_of_records_per_record_set=None, name=None, name_servers=None, number_of_record_sets=None, registration_virtual_networks=None, resolution_virtual_networks=None, signing_keys=None, system_data=None, tags=None, type=None, zone_type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -53,6 +53,12 @@ class GetZoneResult:
         if resolution_virtual_networks and not isinstance(resolution_virtual_networks, list):
             raise TypeError("Expected argument 'resolution_virtual_networks' to be a list")
         pulumi.set(__self__, "resolution_virtual_networks", resolution_virtual_networks)
+        if signing_keys and not isinstance(signing_keys, list):
+            raise TypeError("Expected argument 'signing_keys' to be a list")
+        pulumi.set(__self__, "signing_keys", signing_keys)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -144,6 +150,22 @@ class GetZoneResult:
         return pulumi.get(self, "resolution_virtual_networks")
 
     @property
+    @pulumi.getter(name="signingKeys")
+    def signing_keys(self) -> Sequence['outputs.SigningKeyResponse']:
+        """
+        The list of signing keys.
+        """
+        return pulumi.get(self, "signing_keys")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -184,6 +206,8 @@ class AwaitableGetZoneResult(GetZoneResult):
             number_of_record_sets=self.number_of_record_sets,
             registration_virtual_networks=self.registration_virtual_networks,
             resolution_virtual_networks=self.resolution_virtual_networks,
+            signing_keys=self.signing_keys,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             zone_type=self.zone_type)
@@ -194,10 +218,10 @@ def get_zone(resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetZoneResult:
     """
     Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
-    Azure REST API version: 2018-05-01.
+    Azure REST API version: 2023-07-01-preview.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
     __args__ = dict()
@@ -217,6 +241,8 @@ def get_zone(resource_group_name: Optional[str] = None,
         number_of_record_sets=__ret__.number_of_record_sets,
         registration_virtual_networks=__ret__.registration_virtual_networks,
         resolution_virtual_networks=__ret__.resolution_virtual_networks,
+        signing_keys=__ret__.signing_keys,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         zone_type=__ret__.zone_type)
@@ -228,10 +254,10 @@ def get_zone_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetZoneResult]:
     """
     Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
-    Azure REST API version: 2018-05-01.
+    Azure REST API version: 2023-07-01-preview.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
     ...
