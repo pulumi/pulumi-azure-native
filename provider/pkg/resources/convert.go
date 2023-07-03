@@ -374,7 +374,7 @@ func ParseResourceID(id, path string) (map[string]string, error) {
 	for i, s := range pathParts {
 		if strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}") {
 			name := s[1 : len(s)-1]
-			regexParts[i] = fmt.Sprintf("(?P<%s>.+)", name)
+			regexParts[i] = fmt.Sprintf("(?P<%s>.*?)", name)
 		} else {
 			regexParts[i] = pathParts[i]
 		}
