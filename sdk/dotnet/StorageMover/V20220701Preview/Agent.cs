@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
     /// <summary>
     /// The Agent resource.
     /// </summary>
+    [Obsolete(@"azure-native:storagemover/v20220701preview:Agent is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:Agent to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storagemover/v20220701preview:Agent")]
     public partial class Agent : global::Pulumi.CustomResource
     {

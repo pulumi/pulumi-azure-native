@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
     /// <summary>
     /// An Azure SQL Database sync agent.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20201101preview:SyncAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SyncAgent to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20201101preview:SyncAgent")]
     public partial class SyncAgent : global::Pulumi.CustomResource
     {

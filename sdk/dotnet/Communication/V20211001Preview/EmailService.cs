@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Communication.V20211001Preview
     /// <summary>
     /// A class representing an EmailService resource.
     /// </summary>
+    [Obsolete(@"azure-native:communication/v20211001preview:EmailService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:EmailService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:communication/v20211001preview:EmailService")]
     public partial class EmailService : global::Pulumi.CustomResource
     {

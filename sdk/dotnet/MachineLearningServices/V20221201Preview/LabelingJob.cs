@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221201Preview
     /// <summary>
     /// Azure Resource Manager resource envelope.
     /// </summary>
+    [Obsolete(@"azure-native:machinelearningservices/v20221201preview:LabelingJob is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:LabelingJob to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20221201preview:LabelingJob")]
     public partial class LabelingJob : global::Pulumi.CustomResource
     {

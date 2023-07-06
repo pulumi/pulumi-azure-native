@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevCenter.V20221111Preview
     /// <summary>
     /// Represents a devcenter resource.
     /// </summary>
+    [Obsolete(@"azure-native:devcenter/v20221111preview:DevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:DevCenter to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devcenter/v20221111preview:DevCenter")]
     public partial class DevCenter : global::Pulumi.CustomResource
     {

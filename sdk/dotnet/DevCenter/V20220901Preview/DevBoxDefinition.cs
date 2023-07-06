@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
     /// <summary>
     /// Represents a definition for a Developer Machine.
     /// </summary>
+    [Obsolete(@"azure-native:devcenter/v20220901preview:DevBoxDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devcenter/v20220901preview:DevBoxDefinition")]
     public partial class DevBoxDefinition : global::Pulumi.CustomResource
     {

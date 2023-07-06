@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20200301
 {
-    [Obsolete(@"azure-native:network/v20200301:VirtualWan is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualWan to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20200301:VirtualWan is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualWan to guarantee forwards compatibility.")]
     public static class GetVirtualWan
     {
         /// <summary>

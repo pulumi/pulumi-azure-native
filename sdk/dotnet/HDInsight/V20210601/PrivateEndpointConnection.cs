@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
     /// <summary>
     /// The private endpoint connection.
     /// </summary>
+    [Obsolete(@"azure-native:hdinsight/v20210601:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hdinsight/v20210601:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

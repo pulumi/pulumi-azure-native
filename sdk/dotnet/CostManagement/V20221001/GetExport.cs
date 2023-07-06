@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.CostManagement.V20221001
 {
+    [Obsolete(@"azure-native:costmanagement/v20221001:Export is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:Export to guarantee forwards compatibility.")]
     public static class GetExport
     {
         /// <summary>

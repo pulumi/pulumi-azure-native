@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
     /// <summary>
     /// An Azure SQL Database sync group.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20201101preview:SyncGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SyncGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20201101preview:SyncGroup")]
     public partial class SyncGroup : global::Pulumi.CustomResource
     {

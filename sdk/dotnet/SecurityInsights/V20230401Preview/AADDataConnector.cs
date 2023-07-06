@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
     /// <summary>
     /// Represents AADIP (Azure Active Directory Identity Protection) data connector.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230401preview:AADDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:AADDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:AADDataConnector")]
     public partial class AADDataConnector : global::Pulumi.CustomResource
     {

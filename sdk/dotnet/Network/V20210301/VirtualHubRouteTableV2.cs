@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210301
     /// <summary>
     /// VirtualHubRouteTableV2 Resource.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20210301:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubRouteTableV2 to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20210301:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualHubRouteTableV2 to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20210301:VirtualHubRouteTableV2")]
     public partial class VirtualHubRouteTableV2 : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.App.V20220301
     /// <summary>
     /// Container App SourceControl.
     /// </summary>
+    [Obsolete(@"azure-native:app/v20220301:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsSourceControl to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:app/v20220301:ContainerAppsSourceControl")]
     public partial class ContainerAppsSourceControl : global::Pulumi.CustomResource
     {

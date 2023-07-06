@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataProtection.V20221001Preview
 {
-    [Obsolete(@"azure-native:dataprotection/v20221001preview:DppResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:DppResourceGuardProxy to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:dataprotection/v20221001preview:DppResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:DppResourceGuardProxy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dataprotection/v20221001preview:DppResourceGuardProxy")]
     public partial class DppResourceGuardProxy : global::Pulumi.CustomResource
     {

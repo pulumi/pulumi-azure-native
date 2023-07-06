@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureArcData.V20220615Preview
 {
+    [Obsolete(@"azure-native:azurearcdata/v20220615preview:ActiveDirectoryConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector to guarantee forwards compatibility.")]
     public static class GetActiveDirectoryConnector
     {
         /// <summary>

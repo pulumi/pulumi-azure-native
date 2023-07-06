@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.WebPubSub.V20230201
 {
+    [Obsolete(@"azure-native:webpubsub/v20230201:WebPubSubHub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubHub to guarantee forwards compatibility.")]
     public static class GetWebPubSubHub
     {
         /// <summary>

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210615
     /// <summary>
     /// An Azure Cosmos DB userDefinedFunction.
     /// </summary>
-    [Obsolete(@"azure-native:documentdb/v20210615:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:documentdb/v20210615:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20210615:SqlResourceSqlUserDefinedFunction")]
     public partial class SqlResourceSqlUserDefinedFunction : global::Pulumi.CustomResource
     {

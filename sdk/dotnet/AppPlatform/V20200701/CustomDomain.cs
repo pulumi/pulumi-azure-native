@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
     /// <summary>
     /// Custom domain resource payload.
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20200701:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:CustomDomain to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20200701:CustomDomain")]
     public partial class CustomDomain : global::Pulumi.CustomResource
     {

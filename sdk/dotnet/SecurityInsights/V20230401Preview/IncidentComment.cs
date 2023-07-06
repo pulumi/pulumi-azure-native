@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
     /// <summary>
     /// Represents an incident comment
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230401preview:IncidentComment is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:IncidentComment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:IncidentComment")]
     public partial class IncidentComment : global::Pulumi.CustomResource
     {

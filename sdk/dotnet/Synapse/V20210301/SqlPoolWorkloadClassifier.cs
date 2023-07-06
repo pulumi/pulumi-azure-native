@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Synapse.V20210301
     /// <summary>
     /// Workload classifier operations for a data warehouse
     /// </summary>
+    [Obsolete(@"azure-native:synapse/v20210301:SqlPoolWorkloadClassifier is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:SqlPoolWorkloadClassifier to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:synapse/v20210301:SqlPoolWorkloadClassifier")]
     public partial class SqlPoolWorkloadClassifier : global::Pulumi.CustomResource
     {

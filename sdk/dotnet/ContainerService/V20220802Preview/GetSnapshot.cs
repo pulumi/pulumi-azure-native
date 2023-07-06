@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ContainerService.V20220802Preview
 {
-    [Obsolete(@"azure-native:containerservice/v20220802preview:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:Snapshot to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:containerservice/v20220802preview:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230502preview:Snapshot to guarantee forwards compatibility.")]
     public static class GetSnapshot
     {
         /// <summary>

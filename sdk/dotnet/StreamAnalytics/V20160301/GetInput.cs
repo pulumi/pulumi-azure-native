@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StreamAnalytics.V20160301
 {
+    [Obsolete(@"azure-native:streamanalytics/v20160301:Input is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Input to guarantee forwards compatibility.")]
     public static class GetInput
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
     /// <summary>
     /// A private link scoped resource
     /// </summary>
+    [Obsolete(@"azure-native:insights/v20191017preview:PrivateLinkScopedResource is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210701preview:PrivateLinkScopedResource to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:insights/v20191017preview:PrivateLinkScopedResource")]
     public partial class PrivateLinkScopedResource : global::Pulumi.CustomResource
     {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.IoTCentral.V20210601
 {
+    [Obsolete(@"azure-native:iotcentral/v20210601:App is being removed in the next major version of this provider. Upgrade to at least azure-native:iotcentral/v20211101preview:App to guarantee forwards compatibility.")]
     public static class GetApp
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
     /// <summary>
     /// NSX Public IP Block
     /// </summary>
+    [Obsolete(@"azure-native:avs/v20210601:WorkloadNetworkPublicIP is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPublicIP to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20210601:WorkloadNetworkPublicIP")]
     public partial class WorkloadNetworkPublicIP : global::Pulumi.CustomResource
     {

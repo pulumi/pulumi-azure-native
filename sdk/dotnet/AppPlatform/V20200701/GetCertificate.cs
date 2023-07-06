@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AppPlatform.V20200701
 {
+    [Obsolete(@"azure-native:appplatform/v20200701:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20210601preview:Certificate to guarantee forwards compatibility.")]
     public static class GetCertificate
     {
         /// <summary>

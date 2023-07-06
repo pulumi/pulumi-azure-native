@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20221201
     /// <summary>
     /// ArcSetting details.
     /// </summary>
-    [Obsolete(@"azure-native:azurestackhci/v20221201:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:ArcSetting to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:azurestackhci/v20221201:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:ArcSetting to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurestackhci/v20221201:ArcSetting")]
     public partial class ArcSetting : global::Pulumi.CustomResource
     {

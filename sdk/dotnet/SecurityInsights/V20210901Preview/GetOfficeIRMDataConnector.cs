@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
-    [Obsolete(@"azure-native:securityinsights/v20210901preview:OfficeIRMDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:OfficeIRMDataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20210901preview:OfficeIRMDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:OfficeIRMDataConnector to guarantee forwards compatibility.")]
     public static class GetOfficeIRMDataConnector
     {
         /// <summary>

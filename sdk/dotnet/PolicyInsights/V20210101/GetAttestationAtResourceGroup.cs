@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.PolicyInsights.V20210101
 {
+    [Obsolete(@"azure-native:policyinsights/v20210101:AttestationAtResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtResourceGroup to guarantee forwards compatibility.")]
     public static class GetAttestationAtResourceGroup
     {
         /// <summary>

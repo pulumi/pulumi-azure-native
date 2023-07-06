@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20230201
     /// <summary>
     /// A custom domain
     /// </summary>
+    [Obsolete(@"azure-native:webpubsub/v20230201:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomDomain to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:webpubsub/v20230201:WebPubSubCustomDomain")]
     public partial class WebPubSubCustomDomain : global::Pulumi.CustomResource
     {

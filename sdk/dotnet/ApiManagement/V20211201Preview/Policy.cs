@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
     /// <summary>
     /// Policy Contract details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20211201preview:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Policy to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20211201preview:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Policy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20211201preview:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {

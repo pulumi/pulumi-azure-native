@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Media.V20200501
 {
+    [Obsolete(@"azure-native:media/v20200501:MediaService is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:MediaService to guarantee forwards compatibility.")]
     public static class GetMediaService
     {
         /// <summary>

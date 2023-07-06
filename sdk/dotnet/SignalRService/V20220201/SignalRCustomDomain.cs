@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SignalRService.V20220201
     /// <summary>
     /// A custom domain
     /// </summary>
+    [Obsolete(@"azure-native:signalrservice/v20220201:SignalRCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRCustomDomain to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:signalrservice/v20220201:SignalRCustomDomain")]
     public partial class SignalRCustomDomain : global::Pulumi.CustomResource
     {

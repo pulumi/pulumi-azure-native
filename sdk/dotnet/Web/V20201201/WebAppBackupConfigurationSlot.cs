@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20201201
     /// <summary>
     /// Description of a backup which will be performed.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20201201:WebAppBackupConfigurationSlot is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppBackupConfigurationSlot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20201201:WebAppBackupConfigurationSlot")]
     public partial class WebAppBackupConfigurationSlot : global::Pulumi.CustomResource
     {

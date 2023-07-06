@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ContainerInstance.V20220901
 {
-    [Obsolete(@"azure-native:containerinstance/v20220901:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230501:ContainerGroup to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:containerinstance/v20220901:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230201preview:ContainerGroup to guarantee forwards compatibility.")]
     public static class GetContainerGroup
     {
         /// <summary>

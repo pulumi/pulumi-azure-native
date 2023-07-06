@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.CognitiveServices.V20220301
 {
-    [Obsolete(@"azure-native:cognitiveservices/v20220301:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20221201:Account to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:cognitiveservices/v20220301:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:Account to guarantee forwards compatibility.")]
     public static class GetAccount
     {
         /// <summary>

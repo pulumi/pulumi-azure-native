@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
     /// <summary>
     /// Service Registry resource
     /// </summary>
-    [Obsolete(@"azure-native:appplatform/v20220301preview:ServiceRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ServiceRegistry to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:appplatform/v20220301preview:ServiceRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ServiceRegistry to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20220301preview:ServiceRegistry")]
     public partial class ServiceRegistry : global::Pulumi.CustomResource
     {

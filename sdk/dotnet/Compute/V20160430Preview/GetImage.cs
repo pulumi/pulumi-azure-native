@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20160430Preview
 {
     [Obsolete(@"Version 2016-04-30-preview will be removed in v2 of the provider.
-azure-native:compute/v20160430preview:Image is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:Image to guarantee forwards compatibility.")]
+azure-native:compute/v20160430preview:Image is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:Image to guarantee forwards compatibility.")]
     public static class GetImage
     {
         /// <summary>

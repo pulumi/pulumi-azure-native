@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401
     /// <summary>
     /// Replication protected item.
     /// </summary>
-    [Obsolete(@"azure-native:recoveryservices/v20210401:ReplicationProtectedItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationProtectedItem to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:recoveryservices/v20210401:ReplicationProtectedItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ReplicationProtectedItem to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20210401:ReplicationProtectedItem")]
     public partial class ReplicationProtectedItem : global::Pulumi.CustomResource
     {

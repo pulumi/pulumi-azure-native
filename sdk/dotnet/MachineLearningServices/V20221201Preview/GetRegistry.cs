@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20221201Preview
 {
+    [Obsolete(@"azure-native:machinelearningservices/v20221201preview:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:Registry to guarantee forwards compatibility.")]
     public static class GetRegistry
     {
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)

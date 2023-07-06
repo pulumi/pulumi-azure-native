@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
     /// <summary>
     /// A sensitivity label.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20210501preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20210501preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20210501preview:ManagedDatabaseSensitivityLabel")]
     public partial class ManagedDatabaseSensitivityLabel : global::Pulumi.CustomResource
     {

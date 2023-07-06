@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
 {
+    [Obsolete(@"azure-native:dbforpostgresql/v20171201:ServerAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20171201preview:ServerAdministrator to guarantee forwards compatibility.")]
     public static class GetServerAdministrator
     {
         /// <summary>

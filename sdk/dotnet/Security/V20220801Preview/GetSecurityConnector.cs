@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Security.V20220801Preview
 {
+    [Obsolete(@"azure-native:security/v20220801preview:SecurityConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20230301preview:SecurityConnector to guarantee forwards compatibility.")]
     public static class GetSecurityConnector
     {
         /// <summary>

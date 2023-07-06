@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DevHub.V20220401Preview
 {
+    [Obsolete(@"azure-native:devhub/v20220401preview:Workflow is being removed in the next major version of this provider. Upgrade to at least azure-native:devhub/v20221011preview:Workflow to guarantee forwards compatibility.")]
     public static class GetWorkflow
     {
         /// <summary>

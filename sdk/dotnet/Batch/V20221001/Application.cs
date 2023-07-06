@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Batch.V20221001
     /// <summary>
     /// Contains information about an application in a Batch account.
     /// </summary>
+    [Obsolete(@"azure-native:batch/v20221001:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20230501:Application to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:batch/v20221001:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {

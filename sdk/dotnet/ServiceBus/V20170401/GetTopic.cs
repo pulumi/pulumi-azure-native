@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceBus.V20170401
 {
+    [Obsolete(@"azure-native:servicebus/v20170401:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Topic to guarantee forwards compatibility.")]
     public static class GetTopic
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
     /// <summary>
     /// Defines the HybridIdentityMetadata.
     /// </summary>
+    [Obsolete(@"azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum")]
     public partial class HybridIdentityMetadatum : global::Pulumi.CustomResource
     {

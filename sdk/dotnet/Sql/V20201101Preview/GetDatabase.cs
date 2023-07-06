@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20201101Preview
 {
+    [Obsolete(@"azure-native:sql/v20201101preview:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:Database to guarantee forwards compatibility.")]
     public static class GetDatabase
     {
         /// <summary>

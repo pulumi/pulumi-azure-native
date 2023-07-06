@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20221227
     /// <summary>
     /// An Azure Arc PrivateLinkScope definition.
     /// </summary>
+    [Obsolete(@"azure-native:hybridcompute/v20221227:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hybridcompute/v20221227:PrivateLinkScope")]
     public partial class PrivateLinkScope : global::Pulumi.CustomResource
     {

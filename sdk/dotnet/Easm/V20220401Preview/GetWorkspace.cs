@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Easm.V20220401Preview
 {
+    [Obsolete(@"azure-native:easm/v20220401preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:easm/v20230401preview:Workspace to guarantee forwards compatibility.")]
     public static class GetWorkspace
     {
         /// <summary>

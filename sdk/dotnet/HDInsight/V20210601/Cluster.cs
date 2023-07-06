@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
     /// <summary>
     /// The HDInsight cluster.
     /// </summary>
+    [Obsolete(@"azure-native:hdinsight/v20210601:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:Cluster to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hdinsight/v20210601:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {

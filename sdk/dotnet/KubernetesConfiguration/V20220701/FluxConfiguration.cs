@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220701
     /// <summary>
     /// The Flux Configuration object returned in Get &amp; Put response.
     /// </summary>
-    [Obsolete(@"azure-native:kubernetesconfiguration/v20220701:FluxConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:FluxConfiguration to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:kubernetesconfiguration/v20220701:FluxConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20230501:FluxConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:kubernetesconfiguration/v20220701:FluxConfiguration")]
     public partial class FluxConfiguration : global::Pulumi.CustomResource
     {

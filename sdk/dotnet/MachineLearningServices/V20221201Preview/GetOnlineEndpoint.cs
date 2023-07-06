@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20221201Preview
 {
+    [Obsolete(@"azure-native:machinelearningservices/v20221201preview:OnlineEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:OnlineEndpoint to guarantee forwards compatibility.")]
     public static class GetOnlineEndpoint
     {
         public static Task<GetOnlineEndpointResult> InvokeAsync(GetOnlineEndpointArgs args, InvokeOptions? options = null)

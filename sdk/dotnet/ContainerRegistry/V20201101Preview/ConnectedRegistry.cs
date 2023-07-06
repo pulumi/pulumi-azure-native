@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
     /// <summary>
     /// An object that represents a connected registry for a container registry.
     /// </summary>
+    [Obsolete(@"azure-native:containerregistry/v20201101preview:ConnectedRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerregistry/v20201101preview:ConnectedRegistry")]
     public partial class ConnectedRegistry : global::Pulumi.CustomResource
     {

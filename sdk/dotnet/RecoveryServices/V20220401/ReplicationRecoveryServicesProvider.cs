@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401
     /// <summary>
     /// Provider details.
     /// </summary>
-    [Obsolete(@"azure-native:recoveryservices/v20220401:ReplicationRecoveryServicesProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationRecoveryServicesProvider to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:recoveryservices/v20220401:ReplicationRecoveryServicesProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ReplicationRecoveryServicesProvider to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20220401:ReplicationRecoveryServicesProvider")]
     public partial class ReplicationRecoveryServicesProvider : global::Pulumi.CustomResource
     {

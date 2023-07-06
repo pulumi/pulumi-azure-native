@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20170901
     /// An application security group in a resource group.
     /// </summary>
     [Obsolete(@"Version 2017-09-01 will be removed in v2 of the provider.
-azure-native:network/v20170901:ApplicationSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationSecurityGroup to guarantee forwards compatibility.")]
+azure-native:network/v20170901:ApplicationSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ApplicationSecurityGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20170901:ApplicationSecurityGroup")]
     public partial class ApplicationSecurityGroup : global::Pulumi.CustomResource
     {

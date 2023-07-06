@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20201105Preview
 {
-    [Obsolete(@"azure-native:dbforpostgresql/v20201105preview:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221201:Database to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:dbforpostgresql/v20201105preview:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Database to guarantee forwards compatibility.")]
     public static class GetDatabase
     {
         /// <summary>

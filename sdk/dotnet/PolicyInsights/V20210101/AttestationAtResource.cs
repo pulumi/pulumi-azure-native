@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
     /// <summary>
     /// An attestation resource.
     /// </summary>
+    [Obsolete(@"azure-native:policyinsights/v20210101:AttestationAtResource is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtResource to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:policyinsights/v20210101:AttestationAtResource")]
     public partial class AttestationAtResource : global::Pulumi.CustomResource
     {

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20211101Preview
 {
-    [Obsolete(@"azure-native:sql/v20211101preview:WorkloadClassifier is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:WorkloadClassifier to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20211101preview:WorkloadClassifier is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:WorkloadClassifier to guarantee forwards compatibility.")]
     public static class GetWorkloadClassifier
     {
         /// <summary>

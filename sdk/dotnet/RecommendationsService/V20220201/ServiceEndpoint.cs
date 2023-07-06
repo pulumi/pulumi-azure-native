@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
     /// <summary>
     /// ServiceEndpoint resource details.
     /// </summary>
+    [Obsolete(@"azure-native:recommendationsservice/v20220201:ServiceEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:recommendationsservice/v20220301preview:ServiceEndpoint to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recommendationsservice/v20220201:ServiceEndpoint")]
     public partial class ServiceEndpoint : global::Pulumi.CustomResource
     {

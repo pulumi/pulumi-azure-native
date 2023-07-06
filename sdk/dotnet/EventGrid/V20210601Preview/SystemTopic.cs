@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
     /// <summary>
     /// EventGrid System Topic.
     /// </summary>
+    [Obsolete(@"azure-native:eventgrid/v20210601preview:SystemTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:SystemTopic to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20210601preview:SystemTopic")]
     public partial class SystemTopic : global::Pulumi.CustomResource
     {

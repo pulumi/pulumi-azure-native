@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20230201
     /// <summary>
     /// Details of an Update run
     /// </summary>
+    [Obsolete(@"azure-native:azurestackhci/v20230201:UpdateRun is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230301:UpdateRun to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurestackhci/v20230201:UpdateRun")]
     public partial class UpdateRun : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview
     /// <summary>
     /// A SqlServerInstance.
     /// </summary>
+    [Obsolete(@"azure-native:azurearcdata/v20210601preview:SqlServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:SqlServerInstance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurearcdata/v20210601preview:SqlServerInstance")]
     public partial class SqlServerInstance : global::Pulumi.CustomResource
     {

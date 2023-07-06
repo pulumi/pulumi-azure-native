@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ExtendedLocation.V20210315Preview
 {
+    [Obsolete(@"azure-native:extendedlocation/v20210315preview:CustomLocation is being removed in the next major version of this provider. Upgrade to at least azure-native:extendedlocation/v20210831preview:CustomLocation to guarantee forwards compatibility.")]
     public static class GetCustomLocation
     {
         /// <summary>

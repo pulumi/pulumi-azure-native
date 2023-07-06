@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ManagedIdentity.V20181130
 {
+    [Obsolete(@"azure-native:managedidentity/v20181130:UserAssignedIdentity is being removed in the next major version of this provider. Upgrade to at least azure-native:managedidentity/v20230131:UserAssignedIdentity to guarantee forwards compatibility.")]
     public static class GetUserAssignedIdentity
     {
         /// <summary>

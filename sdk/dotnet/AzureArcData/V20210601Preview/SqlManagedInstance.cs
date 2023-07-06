@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview
     /// <summary>
     /// A SqlManagedInstance.
     /// </summary>
+    [Obsolete(@"azure-native:azurearcdata/v20210601preview:SqlManagedInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:SqlManagedInstance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurearcdata/v20210601preview:SqlManagedInstance")]
     public partial class SqlManagedInstance : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     /// <summary>
     /// Static Site Linked Backend ARM resource.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20220301:StaticSiteLinkedBackendForBuild is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteLinkedBackendForBuild to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20220301:StaticSiteLinkedBackendForBuild")]
     public partial class StaticSiteLinkedBackendForBuild : global::Pulumi.CustomResource
     {

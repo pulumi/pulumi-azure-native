@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     /// <summary>
     /// Defines the GuestAgent.
     /// </summary>
+    [Obsolete(@"azure-native:azurestackhci/v20210901preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:GuestAgent to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:GuestAgent")]
     public partial class GuestAgent : global::Pulumi.CustomResource
     {

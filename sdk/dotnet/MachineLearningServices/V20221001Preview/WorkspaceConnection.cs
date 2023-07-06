@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20221001Preview
 {
-    [Obsolete(@"azure-native:machinelearningservices/v20221001preview:WorkspaceConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:WorkspaceConnection to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:machinelearningservices/v20221001preview:WorkspaceConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:WorkspaceConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20221001preview:WorkspaceConnection")]
     public partial class WorkspaceConnection : global::Pulumi.CustomResource
     {

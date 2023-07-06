@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     /// <summary>
     /// Defines the security configuration
     /// </summary>
+    [Obsolete(@"azure-native:network/v20210201preview:SecurityUserConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210501preview:SecurityUserConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20210201preview:SecurityUserConfiguration")]
     public partial class SecurityUserConfiguration : global::Pulumi.CustomResource
     {

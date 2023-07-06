@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.App.V20220601Preview
 {
-    [Obsolete(@"azure-native:app/v20220601preview:ConnectedEnvironmentsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ConnectedEnvironmentsCertificate to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:app/v20220601preview:ConnectedEnvironmentsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsCertificate to guarantee forwards compatibility.")]
     public static class GetConnectedEnvironmentsCertificate
     {
         /// <summary>

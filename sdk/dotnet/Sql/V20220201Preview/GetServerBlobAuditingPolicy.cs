@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20220201Preview
 {
-    [Obsolete(@"azure-native:sql/v20220201preview:ServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerBlobAuditingPolicy to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20220201preview:ServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerBlobAuditingPolicy to guarantee forwards compatibility.")]
     public static class GetServerBlobAuditingPolicy
     {
         /// <summary>

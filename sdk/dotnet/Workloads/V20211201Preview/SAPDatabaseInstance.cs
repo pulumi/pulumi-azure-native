@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     /// <summary>
     /// Define the Database resource.
     /// </summary>
+    [Obsolete(@"azure-native:workloads/v20211201preview:SAPDatabaseInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPDatabaseInstance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:workloads/v20211201preview:SAPDatabaseInstance")]
     public partial class SAPDatabaseInstance : global::Pulumi.CustomResource
     {

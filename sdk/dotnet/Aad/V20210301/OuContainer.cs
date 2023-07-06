@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Aad.V20210301
     /// <summary>
     /// Resource for OuContainer.
     /// </summary>
+    [Obsolete(@"azure-native:aad/v20210301:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:aad/v20210301:OuContainer")]
     public partial class OuContainer : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
     /// <summary>
     /// Event Channel.
     /// </summary>
+    [Obsolete(@"azure-native:eventgrid/v20210601preview:EventChannel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:EventChannel to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20210601preview:EventChannel")]
     public partial class EventChannel : global::Pulumi.CustomResource
     {

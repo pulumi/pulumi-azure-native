@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20230201
     /// <summary>
     /// A class represent a resource.
     /// </summary>
+    [Obsolete(@"azure-native:webpubsub/v20230201:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSub to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:webpubsub/v20230201:WebPubSub")]
     public partial class WebPubSub : global::Pulumi.CustomResource
     {

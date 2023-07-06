@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20210401
     /// <summary>
     /// Specifies information about the capacity reservation group that the capacity reservations should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
     /// </summary>
+    [Obsolete(@"azure-native:compute/v20210401:CapacityReservationGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:CapacityReservationGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20210401:CapacityReservationGroup")]
     public partial class CapacityReservationGroup : global::Pulumi.CustomResource
     {

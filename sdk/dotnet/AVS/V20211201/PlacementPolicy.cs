@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
     /// <summary>
     /// A vSphere Distributed Resource Scheduler (DRS) placement policy
     /// </summary>
+    [Obsolete(@"azure-native:avs/v20211201:PlacementPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:PlacementPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20211201:PlacementPolicy")]
     public partial class PlacementPolicy : global::Pulumi.CustomResource
     {

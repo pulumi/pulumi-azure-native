@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220601Preview
     /// <summary>
     /// Azure Resource Manager resource envelope.
     /// </summary>
-    [Obsolete(@"azure-native:machinelearningservices/v20220601preview:CodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:machinelearningservices/v20220601preview:CodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:CodeContainer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220601preview:CodeContainer")]
     public partial class CodeContainer : global::Pulumi.CustomResource
     {

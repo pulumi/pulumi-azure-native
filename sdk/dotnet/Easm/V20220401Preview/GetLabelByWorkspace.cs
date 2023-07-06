@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Easm.V20220401Preview
 {
+    [Obsolete(@"azure-native:easm/v20220401preview:LabelByWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:easm/v20230401preview:LabelByWorkspace to guarantee forwards compatibility.")]
     public static class GetLabelByWorkspace
     {
         /// <summary>

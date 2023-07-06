@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Security.V20200101
 {
+    [Obsolete(@"azure-native:security/v20200101:AssessmentMetadataInSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20210601:AssessmentMetadataInSubscription to guarantee forwards compatibility.")]
     public static class GetAssessmentMetadataInSubscription
     {
         /// <summary>

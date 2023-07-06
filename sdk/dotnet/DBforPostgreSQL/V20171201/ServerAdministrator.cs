@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
     /// <summary>
     /// Represents a and external administrator to be created.
     /// </summary>
+    [Obsolete(@"azure-native:dbforpostgresql/v20171201:ServerAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20171201preview:ServerAdministrator to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20171201:ServerAdministrator")]
     public partial class ServerAdministrator : global::Pulumi.CustomResource
     {

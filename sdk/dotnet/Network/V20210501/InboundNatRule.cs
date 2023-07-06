@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210501
     /// <summary>
     /// Inbound NAT rule of the load balancer.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20210501:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:InboundNatRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20210501:InboundNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:InboundNatRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20210501:InboundNatRule")]
     public partial class InboundNatRule : global::Pulumi.CustomResource
     {

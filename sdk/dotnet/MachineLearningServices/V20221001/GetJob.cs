@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20221001
 {
-    [Obsolete(@"azure-native:machinelearningservices/v20221001:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Job to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:machinelearningservices/v20221001:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:Job to guarantee forwards compatibility.")]
     public static class GetJob
     {
         /// <summary>

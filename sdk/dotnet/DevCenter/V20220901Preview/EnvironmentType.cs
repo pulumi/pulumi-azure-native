@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
     /// <summary>
     /// Represents an environment type.
     /// </summary>
+    [Obsolete(@"azure-native:devcenter/v20220901preview:EnvironmentType is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:EnvironmentType to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devcenter/v20220901preview:EnvironmentType")]
     public partial class EnvironmentType : global::Pulumi.CustomResource
     {

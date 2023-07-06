@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Confluent.V20200301
 {
+    [Obsolete(@"azure-native:confluent/v20200301:Organization is being removed in the next major version of this provider. Upgrade to at least azure-native:confluent/v20200301preview:Organization to guarantee forwards compatibility.")]
     public static class GetOrganization
     {
         /// <summary>

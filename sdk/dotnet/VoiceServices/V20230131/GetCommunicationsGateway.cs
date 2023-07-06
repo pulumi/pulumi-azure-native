@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.VoiceServices.V20230131
 {
+    [Obsolete(@"azure-native:voiceservices/v20230131:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility.")]
     public static class GetCommunicationsGateway
     {
         /// <summary>

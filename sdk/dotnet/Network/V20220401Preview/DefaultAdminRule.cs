@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
     /// <summary>
     /// Network default admin rule.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20220401preview:DefaultAdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:DefaultAdminRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20220401preview:DefaultAdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:DefaultAdminRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220401preview:DefaultAdminRule")]
     public partial class DefaultAdminRule : global::Pulumi.CustomResource
     {

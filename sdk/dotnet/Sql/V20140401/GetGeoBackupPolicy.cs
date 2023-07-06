@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20140401
 {
+    [Obsolete(@"azure-native:sql/v20140401:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:GeoBackupPolicy to guarantee forwards compatibility.")]
     public static class GetGeoBackupPolicy
     {
         /// <summary>

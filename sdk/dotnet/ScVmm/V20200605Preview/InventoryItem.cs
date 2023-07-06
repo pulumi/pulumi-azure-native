@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
     /// <summary>
     /// Defines the inventory item.
     /// </summary>
+    [Obsolete(@"azure-native:scvmm/v20200605preview:InventoryItem is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:InventoryItem to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:scvmm/v20200605preview:InventoryItem")]
     public partial class InventoryItem : global::Pulumi.CustomResource
     {

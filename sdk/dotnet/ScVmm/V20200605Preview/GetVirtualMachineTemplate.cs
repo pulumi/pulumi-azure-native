@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ScVmm.V20200605Preview
 {
+    [Obsolete(@"azure-native:scvmm/v20200605preview:VirtualMachineTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachineTemplate to guarantee forwards compatibility.")]
     public static class GetVirtualMachineTemplate
     {
         /// <summary>

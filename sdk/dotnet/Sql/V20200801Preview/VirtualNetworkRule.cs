@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
     /// <summary>
     /// A virtual network rule.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20200801preview:VirtualNetworkRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:VirtualNetworkRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20200801preview:VirtualNetworkRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:VirtualNetworkRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20200801preview:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : global::Pulumi.CustomResource
     {

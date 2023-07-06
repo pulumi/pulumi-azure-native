@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.VoiceServices.V20221201Preview
     /// <summary>
     /// A CommunicationsGateway resource
     /// </summary>
+    [Obsolete(@"azure-native:voiceservices/v20221201preview:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:voiceservices/v20221201preview:CommunicationsGateway")]
     public partial class CommunicationsGateway : global::Pulumi.CustomResource
     {

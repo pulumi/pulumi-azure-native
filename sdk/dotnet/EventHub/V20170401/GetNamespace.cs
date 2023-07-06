@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EventHub.V20170401
 {
+    [Obsolete(@"azure-native:eventhub/v20170401:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:Namespace to guarantee forwards compatibility.")]
     public static class GetNamespace
     {
         /// <summary>

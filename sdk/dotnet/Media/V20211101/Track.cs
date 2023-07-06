@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Media.V20211101
     /// <summary>
     /// An Asset Track resource.
     /// </summary>
+    [Obsolete(@"azure-native:media/v20211101:Track is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:Track to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20211101:Track")]
     public partial class Track : global::Pulumi.CustomResource
     {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20210401
 {
+    [Obsolete(@"azure-native:compute/v20210401:CapacityReservation is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:CapacityReservation to guarantee forwards compatibility.")]
     public static class GetCapacityReservation
     {
         /// <summary>

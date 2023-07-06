@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Security.V20200101
     /// <summary>
     /// Security assessment metadata
     /// </summary>
+    [Obsolete(@"azure-native:security/v20200101:AssessmentMetadataInSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20210601:AssessmentMetadataInSubscription to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:security/v20200101:AssessmentMetadataInSubscription")]
     public partial class AssessmentMetadataInSubscription : global::Pulumi.CustomResource
     {

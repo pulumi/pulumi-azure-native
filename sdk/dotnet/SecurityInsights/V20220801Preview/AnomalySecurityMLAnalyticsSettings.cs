@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
     /// <summary>
     /// Represents Anomaly Security ML Analytics Settings
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20220801preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20220801preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20220801preview:AnomalySecurityMLAnalyticsSettings")]
     public partial class AnomalySecurityMLAnalyticsSettings : global::Pulumi.CustomResource
     {

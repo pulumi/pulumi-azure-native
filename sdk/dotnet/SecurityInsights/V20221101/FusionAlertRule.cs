@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221101
     /// <summary>
     /// Represents Fusion alert rule.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20221101:FusionAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:FusionAlertRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20221101:FusionAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:FusionAlertRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20221101:FusionAlertRule")]
     public partial class FusionAlertRule : global::Pulumi.CustomResource
     {

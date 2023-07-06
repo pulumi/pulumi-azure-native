@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
     /// <summary>
     /// Represents MTP (Microsoft Threat Protection) data connector.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230401preview:MTPDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MTPDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:MTPDataConnector")]
     public partial class MTPDataConnector : global::Pulumi.CustomResource
     {

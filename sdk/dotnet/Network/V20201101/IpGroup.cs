@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20201101
     /// <summary>
     /// The IpGroups resource information.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20201101:IpGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:IpGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20201101:IpGroup")]
     public partial class IpGroup : global::Pulumi.CustomResource
     {

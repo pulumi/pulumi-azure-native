@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20221201
     /// <summary>
     /// The commitment plan association.
     /// </summary>
+    [Obsolete(@"azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:CommitmentPlanAssociation to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation")]
     public partial class CommitmentPlanAssociation : global::Pulumi.CustomResource
     {

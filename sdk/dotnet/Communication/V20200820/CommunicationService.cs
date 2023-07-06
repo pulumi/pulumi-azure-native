@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Communication.V20200820
     /// <summary>
     /// A class representing a CommunicationService resource.
     /// </summary>
+    [Obsolete(@"azure-native:communication/v20200820:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:CommunicationService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:communication/v20200820:CommunicationService")]
     public partial class CommunicationService : global::Pulumi.CustomResource
     {

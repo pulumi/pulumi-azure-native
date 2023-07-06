@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
     /// <summary>
     /// An Application Insights web test definition.
     /// </summary>
+    [Obsolete(@"azure-native:insights/v20150501:WebTest is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201005preview:WebTest to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:insights/v20150501:WebTest")]
     public partial class WebTest : global::Pulumi.CustomResource
     {

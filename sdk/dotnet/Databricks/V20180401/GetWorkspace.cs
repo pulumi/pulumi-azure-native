@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Databricks.V20180401
 {
+    [Obsolete(@"azure-native:databricks/v20180401:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:Workspace to guarantee forwards compatibility.")]
     public static class GetWorkspace
     {
         /// <summary>

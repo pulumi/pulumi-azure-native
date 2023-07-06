@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
     /// <summary>
     /// Extension resource.
     /// </summary>
+    [Obsolete(@"azure-native:agfoodplatform/v20200512preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:agfoodplatform/v20210901preview:Extension to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:agfoodplatform/v20200512preview:Extension")]
     public partial class Extension : global::Pulumi.CustomResource
     {

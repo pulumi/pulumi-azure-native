@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview
 {
+    [Obsolete(@"azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm to guarantee forwards compatibility.")]
     public static class GetDedicatedHsm
     {
         /// <summary>

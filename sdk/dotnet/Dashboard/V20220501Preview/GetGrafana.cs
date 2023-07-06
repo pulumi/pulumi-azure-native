@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Dashboard.V20220501Preview
 {
+    [Obsolete(@"azure-native:dashboard/v20220501preview:Grafana is being removed in the next major version of this provider. Upgrade to at least azure-native:dashboard/v20220801:Grafana to guarantee forwards compatibility.")]
     public static class GetGrafana
     {
         /// <summary>

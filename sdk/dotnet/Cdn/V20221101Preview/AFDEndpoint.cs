@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
     /// <summary>
     /// Azure Front Door endpoint is the entity within a Azure Front Door profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
     /// </summary>
+    [Obsolete(@"azure-native:cdn/v20221101preview:AFDEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDEndpoint to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20221101preview:AFDEndpoint")]
     public partial class AFDEndpoint : global::Pulumi.CustomResource
     {

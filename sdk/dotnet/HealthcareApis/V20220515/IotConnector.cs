@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220515
     /// <summary>
     /// IoT Connector definition.
     /// </summary>
+    [Obsolete(@"azure-native:healthcareapis/v20220515:IotConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:IotConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20220515:IotConnector")]
     public partial class IotConnector : global::Pulumi.CustomResource
     {

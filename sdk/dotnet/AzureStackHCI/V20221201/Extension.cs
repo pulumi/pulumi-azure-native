@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20221201
     /// <summary>
     /// Details of a particular extension in HCI Cluster.
     /// </summary>
-    [Obsolete(@"azure-native:azurestackhci/v20221201:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:Extension to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:azurestackhci/v20221201:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:Extension to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurestackhci/v20221201:Extension")]
     public partial class Extension : global::Pulumi.CustomResource
     {

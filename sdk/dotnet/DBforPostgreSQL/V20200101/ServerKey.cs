@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200101
     /// <summary>
     /// A PostgreSQL Server key.
     /// </summary>
+    [Obsolete(@"azure-native:dbforpostgresql/v20200101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20200214privatepreview:ServerKey to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20200101:ServerKey")]
     public partial class ServerKey : global::Pulumi.CustomResource
     {

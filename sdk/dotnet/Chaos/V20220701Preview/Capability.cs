@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Chaos.V20220701Preview
     /// <summary>
     /// Model that represents a Capability resource.
     /// </summary>
-    [Obsolete(@"azure-native:chaos/v20220701preview:Capability is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Capability to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:chaos/v20220701preview:Capability is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Capability to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:chaos/v20220701preview:Capability")]
     public partial class Capability : global::Pulumi.CustomResource
     {

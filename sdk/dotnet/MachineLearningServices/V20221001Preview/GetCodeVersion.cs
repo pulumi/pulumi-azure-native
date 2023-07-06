@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20221001Preview
 {
-    [Obsolete(@"azure-native:machinelearningservices/v20221001preview:CodeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:CodeVersion to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:machinelearningservices/v20221001preview:CodeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:CodeVersion to guarantee forwards compatibility.")]
     public static class GetCodeVersion
     {
         /// <summary>

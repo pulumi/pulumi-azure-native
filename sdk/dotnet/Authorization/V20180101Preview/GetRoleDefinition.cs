@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Authorization.V20180101Preview
 {
+    [Obsolete(@"azure-native:authorization/v20180101preview:RoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220501preview:RoleDefinition to guarantee forwards compatibility.")]
     public static class GetRoleDefinition
     {
         /// <summary>

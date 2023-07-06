@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
     /// <summary>
     /// An Azure SQL DB Server Outbound Firewall Rule.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20210201preview:OutboundFirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:OutboundFirewallRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20210201preview:OutboundFirewallRule")]
     public partial class OutboundFirewallRule : global::Pulumi.CustomResource
     {

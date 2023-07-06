@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220901
     /// <summary>
     /// The network group resource
     /// </summary>
+    [Obsolete(@"azure-native:network/v20220901:NetworkGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:NetworkGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220901:NetworkGroup")]
     public partial class NetworkGroup : global::Pulumi.CustomResource
     {

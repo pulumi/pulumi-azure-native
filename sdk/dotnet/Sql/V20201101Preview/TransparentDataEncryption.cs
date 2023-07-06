@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
     /// <summary>
     /// A logical database transparent data encryption state.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20201101preview:TransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:TransparentDataEncryption to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20201101preview:TransparentDataEncryption is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:TransparentDataEncryption to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20201101preview:TransparentDataEncryption")]
     public partial class TransparentDataEncryption : global::Pulumi.CustomResource
     {

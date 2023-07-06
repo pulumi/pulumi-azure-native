@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Communication.V20200820
 {
+    [Obsolete(@"azure-native:communication/v20200820:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:CommunicationService to guarantee forwards compatibility.")]
     public static class GetCommunicationService
     {
         /// <summary>

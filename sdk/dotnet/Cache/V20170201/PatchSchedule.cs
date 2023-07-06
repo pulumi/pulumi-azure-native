@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache.V20170201
     /// Response to put/get patch schedules for Redis cache.
     /// </summary>
     [Obsolete(@"Version 2017-02-01 will be removed in v2 of the provider.
-azure-native:cache/v20170201:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.")]
+azure-native:cache/v20170201:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:PatchSchedule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cache/v20170201:PatchSchedule")]
     public partial class PatchSchedule : global::Pulumi.CustomResource
     {

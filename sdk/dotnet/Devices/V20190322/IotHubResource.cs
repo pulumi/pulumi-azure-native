@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices.V20190322
     /// The description of the IoT hub.
     /// </summary>
     [Obsolete(@"Version 2019-03-22 will be removed in v2 of the provider.
-azure-native:devices/v20190322:IotHubResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20220430preview:IotHubResource to guarantee forwards compatibility.")]
+azure-native:devices/v20190322:IotHubResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20221115preview:IotHubResource to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devices/v20190322:IotHubResource")]
     public partial class IotHubResource : global::Pulumi.CustomResource
     {

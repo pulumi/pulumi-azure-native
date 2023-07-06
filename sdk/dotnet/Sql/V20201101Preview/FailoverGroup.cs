@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
     /// <summary>
     /// A failover group.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20201101preview:FailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:FailoverGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20201101preview:FailoverGroup")]
     public partial class FailoverGroup : global::Pulumi.CustomResource
     {

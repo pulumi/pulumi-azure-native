@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HDInsight.V20180601Preview
 {
+    [Obsolete(@"azure-native:hdinsight/v20180601preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:Application to guarantee forwards compatibility.")]
     public static class GetApplication
     {
         /// <summary>

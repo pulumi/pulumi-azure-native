@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
     /// <summary>
     /// The VirtualMachines resource definition.
     /// </summary>
+    [Obsolete(@"azure-native:scvmm/v20200605preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachine to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:scvmm/v20200605preview:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
     {

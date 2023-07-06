@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName")]
     public partial class PrivateEndpointConnectionByName : global::Pulumi.CustomResource
     {

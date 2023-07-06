@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
 {
-    [Obsolete(@"azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachineGroup to guarantee forwards compatibility.")]
     public static class GetSqlVirtualMachineGroup
     {
         /// <summary>

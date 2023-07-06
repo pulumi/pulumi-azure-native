@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
     /// <summary>
     /// Definition of the watcher type.
     /// </summary>
+    [Obsolete(@"azure-native:automation/v20190601:Watcher is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20200113preview:Watcher to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automation/v20190601:Watcher")]
     public partial class Watcher : global::Pulumi.CustomResource
     {

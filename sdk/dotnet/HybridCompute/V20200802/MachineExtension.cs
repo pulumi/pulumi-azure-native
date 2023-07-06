@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20200802
     /// <summary>
     /// Describes a Machine Extension.
     /// </summary>
+    [Obsolete(@"azure-native:hybridcompute/v20200802:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20200815preview:MachineExtension to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hybridcompute/v20200802:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource
     {

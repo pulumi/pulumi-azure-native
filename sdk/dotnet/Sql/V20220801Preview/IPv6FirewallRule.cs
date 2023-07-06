@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
     /// <summary>
     /// An IPv6 server firewall rule.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20220801preview:IPv6FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:IPv6FirewallRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20220801preview:IPv6FirewallRule")]
     public partial class IPv6FirewallRule : global::Pulumi.CustomResource
     {

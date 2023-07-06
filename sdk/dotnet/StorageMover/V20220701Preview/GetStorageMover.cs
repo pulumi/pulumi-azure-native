@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StorageMover.V20220701Preview
 {
+    [Obsolete(@"azure-native:storagemover/v20220701preview:StorageMover is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:StorageMover to guarantee forwards compatibility.")]
     public static class GetStorageMover
     {
         /// <summary>

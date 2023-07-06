@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevHub.V20220401Preview
     /// <summary>
     /// Resource representation of a workflow
     /// </summary>
+    [Obsolete(@"azure-native:devhub/v20220401preview:Workflow is being removed in the next major version of this provider. Upgrade to at least azure-native:devhub/v20221011preview:Workflow to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devhub/v20220401preview:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource
     {

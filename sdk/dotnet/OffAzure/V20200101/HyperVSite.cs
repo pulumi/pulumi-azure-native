@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.OffAzure.V20200101
     /// <summary>
     /// Site REST Resource.
     /// </summary>
+    [Obsolete(@"azure-native:offazure/v20200101:HyperVSite is being removed in the next major version of this provider. Upgrade to at least azure-native:offazure/v20200707:HyperVSite to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:offazure/v20200101:HyperVSite")]
     public partial class HyperVSite : global::Pulumi.CustomResource
     {

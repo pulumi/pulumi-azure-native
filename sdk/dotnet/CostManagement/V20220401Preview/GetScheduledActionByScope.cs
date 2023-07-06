@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.CostManagement.V20220401Preview
 {
+    [Obsolete(@"azure-native:costmanagement/v20220401preview:ScheduledActionByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:ScheduledActionByScope to guarantee forwards compatibility.")]
     public static class GetScheduledActionByScope
     {
         /// <summary>

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Dashboard.V20220501Preview
     /// <summary>
     /// The grafana resource type.
     /// </summary>
+    [Obsolete(@"azure-native:dashboard/v20220501preview:Grafana is being removed in the next major version of this provider. Upgrade to at least azure-native:dashboard/v20220801:Grafana to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dashboard/v20220501preview:Grafana")]
     public partial class Grafana : global::Pulumi.CustomResource
     {

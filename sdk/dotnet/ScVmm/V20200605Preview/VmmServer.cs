@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
     /// <summary>
     /// The VmmServers resource definition.
     /// </summary>
+    [Obsolete(@"azure-native:scvmm/v20200605preview:VmmServer is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VmmServer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:scvmm/v20200605preview:VmmServer")]
     public partial class VmmServer : global::Pulumi.CustomResource
     {

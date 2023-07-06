@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220401Preview
     /// <summary>
     /// Global Schema Contract details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220401preview:GlobalSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GlobalSchema to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20220401preview:GlobalSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GlobalSchema to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220401preview:GlobalSchema")]
     public partial class GlobalSchema : global::Pulumi.CustomResource
     {

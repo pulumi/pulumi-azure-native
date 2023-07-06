@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Chaos.V20221001Preview
     /// <summary>
     /// Model that represents a Target resource.
     /// </summary>
-    [Obsolete(@"azure-native:chaos/v20221001preview:Target is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Target to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:chaos/v20221001preview:Target is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Target to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:chaos/v20221001preview:Target")]
     public partial class Target : global::Pulumi.CustomResource
     {

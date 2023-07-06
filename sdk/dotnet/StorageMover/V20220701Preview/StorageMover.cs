@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
     /// <summary>
     /// The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
     /// </summary>
+    [Obsolete(@"azure-native:storagemover/v20220701preview:StorageMover is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:StorageMover to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storagemover/v20220701preview:StorageMover")]
     public partial class StorageMover : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
     /// <summary>
     /// Represents a project resource.
     /// </summary>
+    [Obsolete(@"azure-native:devcenter/v20220901preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Project to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devcenter/v20220901preview:Project")]
     public partial class Project : global::Pulumi.CustomResource
     {

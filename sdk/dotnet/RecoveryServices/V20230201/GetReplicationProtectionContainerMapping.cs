@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20230201
 {
+    [Obsolete(@"azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ReplicationProtectionContainerMapping to guarantee forwards compatibility.")]
     public static class GetReplicationProtectionContainerMapping
     {
         /// <summary>

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801Preview
     /// <summary>
     /// Settings with single toggle.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20220801preview:EyesOn is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:EyesOn to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20220801preview:EyesOn is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:EyesOn to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20220801preview:EyesOn")]
     public partial class EyesOn : global::Pulumi.CustomResource
     {

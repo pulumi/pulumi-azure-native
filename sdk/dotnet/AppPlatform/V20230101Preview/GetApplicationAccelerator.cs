@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AppPlatform.V20230101Preview
 {
+    [Obsolete(@"azure-native:appplatform/v20230101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApplicationAccelerator to guarantee forwards compatibility.")]
     public static class GetApplicationAccelerator
     {
         /// <summary>

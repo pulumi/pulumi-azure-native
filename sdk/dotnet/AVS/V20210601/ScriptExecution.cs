@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
     /// <summary>
     /// An instance of a script executed by a user - custom or AVS
     /// </summary>
+    [Obsolete(@"azure-native:avs/v20210601:ScriptExecution is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:ScriptExecution to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20210601:ScriptExecution")]
     public partial class ScriptExecution : global::Pulumi.CustomResource
     {

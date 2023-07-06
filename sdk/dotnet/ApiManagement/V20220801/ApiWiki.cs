@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Wiki properties
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20220801:ApiWiki is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiWiki to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:ApiWiki")]
     public partial class ApiWiki : global::Pulumi.CustomResource
     {

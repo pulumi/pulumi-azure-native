@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Authorization.V20170401
     /// <summary>
     /// The lock information.
     /// </summary>
+    [Obsolete(@"azure-native:authorization/v20170401:ManagementLockAtResourceGroupLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:authorization/v20170401:ManagementLockAtResourceGroupLevel")]
     public partial class ManagementLockAtResourceGroupLevel : global::Pulumi.CustomResource
     {

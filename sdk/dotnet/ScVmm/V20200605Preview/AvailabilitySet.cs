@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
     /// <summary>
     /// The AvailabilitySets resource definition.
     /// </summary>
+    [Obsolete(@"azure-native:scvmm/v20200605preview:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:AvailabilitySet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:scvmm/v20200605preview:AvailabilitySet")]
     public partial class AvailabilitySet : global::Pulumi.CustomResource
     {

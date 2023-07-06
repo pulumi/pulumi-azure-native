@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
     /// <summary>
     /// Definition of the certificate.
     /// </summary>
+    [Obsolete(@"azure-native:automation/v20190601:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Certificate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automation/v20190601:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {

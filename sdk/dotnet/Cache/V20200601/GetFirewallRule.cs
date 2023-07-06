@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Cache.V20200601
 {
+    [Obsolete(@"azure-native:cache/v20200601:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:FirewallRule to guarantee forwards compatibility.")]
     public static class GetFirewallRule
     {
         /// <summary>

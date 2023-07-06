@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
     /// <summary>
     /// A server DNS alias.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20201101preview:ServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerDnsAlias to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20201101preview:ServerDnsAlias")]
     public partial class ServerDnsAlias : global::Pulumi.CustomResource
     {

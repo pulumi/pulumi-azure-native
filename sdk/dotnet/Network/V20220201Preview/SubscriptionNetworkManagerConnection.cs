@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
     /// <summary>
     /// The Network Manager Connection resource
     /// </summary>
+    [Obsolete(@"azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:SubscriptionNetworkManagerConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection")]
     public partial class SubscriptionNetworkManagerConnection : global::Pulumi.CustomResource
     {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceFabric.V20200101Preview
 {
+    [Obsolete(@"azure-native:servicefabric/v20200101preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210901privatepreview:NodeType to guarantee forwards compatibility.")]
     public static class GetNodeType
     {
         /// <summary>

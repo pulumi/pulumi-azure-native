@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
     /// <summary>
     /// A server firewall rule.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20210801preview:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:FirewallRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20210801preview:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:FirewallRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20210801preview:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource
     {

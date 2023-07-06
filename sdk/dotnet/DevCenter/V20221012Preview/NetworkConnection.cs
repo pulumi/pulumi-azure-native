@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DevCenter.V20221012Preview
     /// <summary>
     /// Network related settings
     /// </summary>
-    [Obsolete(@"azure-native:devcenter/v20221012preview:NetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:NetworkConnection to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:devcenter/v20221012preview:NetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:NetworkConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devcenter/v20221012preview:NetworkConnection")]
     public partial class NetworkConnection : global::Pulumi.CustomResource
     {

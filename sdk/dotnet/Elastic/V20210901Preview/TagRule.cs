@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Elastic.V20210901Preview
     /// <summary>
     /// Capture logs and metrics of Azure resources based on ARM tags.
     /// </summary>
-    [Obsolete(@"azure-native:elastic/v20210901preview:TagRule is being removed in the next major version of this provider. Upgrade to at least azure-native:elastic/v20220901preview:TagRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:elastic/v20210901preview:TagRule is being removed in the next major version of this provider. Upgrade to at least azure-native:elastic/v20230615preview:TagRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:elastic/v20210901preview:TagRule")]
     public partial class TagRule : global::Pulumi.CustomResource
     {

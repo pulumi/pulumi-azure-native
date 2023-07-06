@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
     /// <summary>
     /// Represents a relation between two resources
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20210401:IncidentRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IncidentRelation to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20210401:IncidentRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:IncidentRelation to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20210401:IncidentRelation")]
     public partial class IncidentRelation : global::Pulumi.CustomResource
     {

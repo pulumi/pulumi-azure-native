@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20200701Preview
     /// <summary>
     /// The key-value resource along with all resource properties.
     /// </summary>
+    [Obsolete(@"azure-native:appconfiguration/v20200701preview:KeyValue is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appconfiguration/v20200701preview:KeyValue")]
     public partial class KeyValue : global::Pulumi.CustomResource
     {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Automanage.V20200630Preview
 {
+    [Obsolete(@"azure-native:automanage/v20200630preview:ConfigurationProfileAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfileAssignment to guarantee forwards compatibility.")]
     public static class GetConfigurationProfileAssignment
     {
         /// <summary>

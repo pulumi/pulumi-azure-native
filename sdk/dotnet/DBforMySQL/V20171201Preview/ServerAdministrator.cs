@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201Preview
     /// <summary>
     /// Represents a and external administrator to be created.
     /// </summary>
+    [Obsolete(@"azure-native:dbformysql/v20171201preview:ServerAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20180601privatepreview:ServerAdministrator to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbformysql/v20171201preview:ServerAdministrator")]
     public partial class ServerAdministrator : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20221101
     /// <summary>
     /// Create or update Restore Point collection parameters.
     /// </summary>
+    [Obsolete(@"azure-native:compute/v20221101:RestorePointCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:RestorePointCollection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20221101:RestorePointCollection")]
     public partial class RestorePointCollection : global::Pulumi.CustomResource
     {

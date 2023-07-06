@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
     /// <summary>
     /// Represents a Hunt in Azure Security Insights.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230401preview:Hunt is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Hunt to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:Hunt")]
     public partial class Hunt : global::Pulumi.CustomResource
     {

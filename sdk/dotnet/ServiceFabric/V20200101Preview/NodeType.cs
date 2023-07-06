@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20200101Preview
     /// <summary>
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     /// </summary>
+    [Obsolete(@"azure-native:servicefabric/v20200101preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210901privatepreview:NodeType to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicefabric/v20200101preview:NodeType")]
     public partial class NodeType : global::Pulumi.CustomResource
     {

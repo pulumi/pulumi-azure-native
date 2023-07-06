@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
     /// <summary>
     /// The workspace manager member
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230401preview:WorkspaceManagerMember is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerMember to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:WorkspaceManagerMember")]
     public partial class WorkspaceManagerMember : global::Pulumi.CustomResource
     {

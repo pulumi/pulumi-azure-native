@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     /// <summary>
     /// Defines the HybridIdentityMetadata.
     /// </summary>
+    [Obsolete(@"azure-native:azurestackhci/v20210901preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:HybridIdentityMetadatum to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:HybridIdentityMetadatum")]
     public partial class HybridIdentityMetadatum : global::Pulumi.CustomResource
     {

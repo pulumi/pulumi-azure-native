@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataProtection.V20230101
     /// <summary>
     /// ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
     /// </summary>
+    [Obsolete(@"azure-native:dataprotection/v20230101:DppResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:DppResourceGuardProxy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dataprotection/v20230101:DppResourceGuardProxy")]
     public partial class DppResourceGuardProxy : global::Pulumi.CustomResource
     {

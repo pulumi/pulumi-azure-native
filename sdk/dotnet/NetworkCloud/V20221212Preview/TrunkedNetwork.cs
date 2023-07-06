@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
+    [Obsolete(@"azure-native:networkcloud/v20221212preview:TrunkedNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:TrunkedNetwork to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:networkcloud/v20221212preview:TrunkedNetwork")]
     public partial class TrunkedNetwork : global::Pulumi.CustomResource
     {

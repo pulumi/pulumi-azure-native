@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20200901
     /// <summary>
     /// A share data transfer object.
     /// </summary>
+    [Obsolete(@"azure-native:datashare/v20200901:Share is being removed in the next major version of this provider. Upgrade to at least azure-native:datashare/v20210801:Share to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datashare/v20200901:Share")]
     public partial class Share : global::Pulumi.CustomResource
     {

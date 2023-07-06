@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview
 {
+    [Obsolete(@"azure-native:recoveryservices/v20210201preview:ResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ResourceGuardProxy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20210201preview:ResourceGuardProxy")]
     public partial class ResourceGuardProxy : global::Pulumi.CustomResource
     {

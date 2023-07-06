@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.VisualStudio.V20140401Preview
 {
+    [Obsolete(@"azure-native:visualstudio/v20140401preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:visualstudio/v20171101preview:Extension to guarantee forwards compatibility.")]
     public static class GetExtension
     {
         /// <summary>

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Advisor.V20170331
 {
     [Obsolete(@"Version 2017-03-31 will be removed in v2 of the provider.
-azure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.")]
+azure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20230101:Suppression to guarantee forwards compatibility.")]
     public static class GetSuppression
     {
         /// <summary>

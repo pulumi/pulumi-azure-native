@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HealthcareApis.V20211101
 {
-    [Obsolete(@"azure-native:healthcareapis/v20211101:FhirService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:FhirService to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:healthcareapis/v20211101:FhirService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:FhirService to guarantee forwards compatibility.")]
     public static class GetFhirService
     {
         /// <summary>

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DBforMySQL.V20200101
 {
+    [Obsolete(@"azure-native:dbformysql/v20200101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20200701privatepreview:ServerKey to guarantee forwards compatibility.")]
     public static class GetServerKey
     {
         /// <summary>

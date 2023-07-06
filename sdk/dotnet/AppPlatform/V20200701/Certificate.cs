@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
     /// <summary>
     /// Certificate resource payload.
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20200701:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20210601preview:Certificate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20200701:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Aad.V20210301
     /// <summary>
     /// Domain service.
     /// </summary>
+    [Obsolete(@"azure-native:aad/v20210301:DomainService is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:DomainService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:aad/v20210301:DomainService")]
     public partial class DomainService : global::Pulumi.CustomResource
     {

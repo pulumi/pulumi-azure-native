@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Relay.V20170401
     /// <summary>
     /// Description of the WCF relay resource.
     /// </summary>
+    [Obsolete(@"azure-native:relay/v20170401:WCFRelay is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:WCFRelay to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:relay/v20170401:WCFRelay")]
     public partial class WCFRelay : global::Pulumi.CustomResource
     {

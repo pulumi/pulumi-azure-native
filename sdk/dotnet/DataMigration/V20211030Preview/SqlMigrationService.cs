@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
     /// <summary>
     /// A SQL Migration Service.
     /// </summary>
+    [Obsolete(@"azure-native:datamigration/v20211030preview:SqlMigrationService is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:SqlMigrationService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:datamigration/v20211030preview:SqlMigrationService")]
     public partial class SqlMigrationService : global::Pulumi.CustomResource
     {

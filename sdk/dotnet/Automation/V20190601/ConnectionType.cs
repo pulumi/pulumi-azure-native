@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
     /// <summary>
     /// Definition of the connection type.
     /// </summary>
+    [Obsolete(@"azure-native:automation/v20190601:ConnectionType is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:ConnectionType to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automation/v20190601:ConnectionType")]
     public partial class ConnectionType : global::Pulumi.CustomResource
     {

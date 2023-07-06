@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
+    [Obsolete(@"azure-native:networkcloud/v20221212preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:VirtualMachine to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:networkcloud/v20221212preview:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
     {

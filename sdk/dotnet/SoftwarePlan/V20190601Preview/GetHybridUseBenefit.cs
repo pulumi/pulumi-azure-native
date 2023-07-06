@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SoftwarePlan.V20190601Preview
 {
+    [Obsolete(@"azure-native:softwareplan/v20190601preview:HybridUseBenefit is being removed in the next major version of this provider. Upgrade to at least azure-native:softwareplan/v20191201:HybridUseBenefit to guarantee forwards compatibility.")]
     public static class GetHybridUseBenefit
     {
         /// <summary>

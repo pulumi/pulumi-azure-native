@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20221001
 {
+    [Obsolete(@"azure-native:azurestackhci/v20221001:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:Cluster to guarantee forwards compatibility.")]
     public static class GetCluster
     {
         /// <summary>

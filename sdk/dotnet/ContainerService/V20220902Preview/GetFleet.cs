@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ContainerService.V20220902Preview
 {
+    [Obsolete(@"azure-native:containerservice/v20220902preview:Fleet is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230315preview:Fleet to guarantee forwards compatibility.")]
     public static class GetFleet
     {
         /// <summary>

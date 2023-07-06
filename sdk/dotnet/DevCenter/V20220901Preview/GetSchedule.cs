@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DevCenter.V20220901Preview
 {
+    [Obsolete(@"azure-native:devcenter/v20220901preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Schedule to guarantee forwards compatibility.")]
     public static class GetSchedule
     {
         /// <summary>

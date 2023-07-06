@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.VisualStudio.V20140401Preview
     /// <summary>
     /// The response to an account resource GET request.
     /// </summary>
+    [Obsolete(@"azure-native:visualstudio/v20140401preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:visualstudio/v20171101preview:Account to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:visualstudio/v20140401preview:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {

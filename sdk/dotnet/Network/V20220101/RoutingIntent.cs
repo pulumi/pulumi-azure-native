@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20220101
     /// <summary>
     /// The routing intent child resource of a Virtual hub.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20220101:RoutingIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:RoutingIntent to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20220101:RoutingIntent")]
     public partial class RoutingIntent : global::Pulumi.CustomResource
     {

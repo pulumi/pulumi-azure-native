@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview
 {
+    [Obsolete(@"azure-native:datamigration/v20180715preview:File is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:File to guarantee forwards compatibility.")]
     public static class GetFile
     {
         /// <summary>

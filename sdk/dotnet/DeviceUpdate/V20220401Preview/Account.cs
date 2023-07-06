@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20220401Preview
     /// <summary>
     /// Device Update account details.
     /// </summary>
-    [Obsolete(@"azure-native:deviceupdate/v20220401preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20221201preview:Account to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:deviceupdate/v20220401preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20230701:Account to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:deviceupdate/v20220401preview:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
