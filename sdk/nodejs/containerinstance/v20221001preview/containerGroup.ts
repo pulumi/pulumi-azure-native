@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * A container group.
  *
- * @deprecated azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230501:ContainerGroup to guarantee forwards compatibility.
+ * @deprecated azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230201preview:ContainerGroup to guarantee forwards compatibility.
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class ContainerGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ContainerGroup {
-        pulumi.log.warn("ContainerGroup is deprecated: azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230501:ContainerGroup to guarantee forwards compatibility.")
+        pulumi.log.warn("ContainerGroup is deprecated: azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230201preview:ContainerGroup to guarantee forwards compatibility.")
         return new ContainerGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -143,9 +143,9 @@ export class ContainerGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230501:ContainerGroup to guarantee forwards compatibility. */
+    /** @deprecated azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230201preview:ContainerGroup to guarantee forwards compatibility. */
     constructor(name: string, args: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ContainerGroup is deprecated: azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230501:ContainerGroup to guarantee forwards compatibility.")
+        pulumi.log.warn("ContainerGroup is deprecated: azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230201preview:ContainerGroup to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

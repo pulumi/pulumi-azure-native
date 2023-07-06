@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a specific Smart Detector alert rule.
  */
+/** @deprecated azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility. */
 export function getSmartDetectorAlertRule(args: GetSmartDetectorAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSmartDetectorAlertRuleResult> {
+    pulumi.log.warn("getSmartDetectorAlertRule is deprecated: azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20190601:getSmartDetectorAlertRule", {
@@ -95,6 +97,7 @@ export interface GetSmartDetectorAlertRuleResult {
 /**
  * Get a specific Smart Detector alert rule.
  */
+/** @deprecated azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility. */
 export function getSmartDetectorAlertRuleOutput(args: GetSmartDetectorAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSmartDetectorAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getSmartDetectorAlertRule(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get baseboard management controller key set of the provided cluster.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:BmcKeySet is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BmcKeySet to guarantee forwards compatibility. */
 export function getBmcKeySet(args: GetBmcKeySetArgs, opts?: pulumi.InvokeOptions): Promise<GetBmcKeySetResult> {
+    pulumi.log.warn("getBmcKeySet is deprecated: azure-native:networkcloud/v20221212preview:BmcKeySet is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BmcKeySet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getBmcKeySet", {
@@ -104,6 +106,7 @@ export interface GetBmcKeySetResult {
 /**
  * Get baseboard management controller key set of the provided cluster.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:BmcKeySet is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BmcKeySet to guarantee forwards compatibility. */
 export function getBmcKeySetOutput(args: GetBmcKeySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBmcKeySetResult> {
     return pulumi.output(args).apply((a: any) => getBmcKeySet(a, opts))
 }

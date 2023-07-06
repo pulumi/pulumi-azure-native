@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * This operation retrieves a single policy exemption, given its name and the scope it was created at.
  */
+/** @deprecated azure-native:authorization/v20200701preview:PolicyExemption is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220701preview:PolicyExemption to guarantee forwards compatibility. */
 export function getPolicyExemption(args: GetPolicyExemptionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyExemptionResult> {
+    pulumi.log.warn("getPolicyExemption is deprecated: azure-native:authorization/v20200701preview:PolicyExemption is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220701preview:PolicyExemption to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20200701preview:getPolicyExemption", {
@@ -82,6 +84,7 @@ export interface GetPolicyExemptionResult {
 /**
  * This operation retrieves a single policy exemption, given its name and the scope it was created at.
  */
+/** @deprecated azure-native:authorization/v20200701preview:PolicyExemption is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220701preview:PolicyExemption to guarantee forwards compatibility. */
 export function getPolicyExemptionOutput(args: GetPolicyExemptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyExemptionResult> {
     return pulumi.output(args).apply((a: any) => getPolicyExemption(a, opts))
 }

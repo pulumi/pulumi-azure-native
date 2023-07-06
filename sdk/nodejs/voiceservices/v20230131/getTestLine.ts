@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a TestLine
  */
+/** @deprecated azure-native:voiceservices/v20230131:TestLine is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:TestLine to guarantee forwards compatibility. */
 export function getTestLine(args: GetTestLineArgs, opts?: pulumi.InvokeOptions): Promise<GetTestLineResult> {
+    pulumi.log.warn("getTestLine is deprecated: azure-native:voiceservices/v20230131:TestLine is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:TestLine to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:voiceservices/v20230131:getTestLine", {
@@ -79,6 +81,7 @@ export interface GetTestLineResult {
 /**
  * Get a TestLine
  */
+/** @deprecated azure-native:voiceservices/v20230131:TestLine is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:TestLine to guarantee forwards compatibility. */
 export function getTestLineOutput(args: GetTestLineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestLineResult> {
     return pulumi.output(args).apply((a: any) => getTestLine(a, opts))
 }

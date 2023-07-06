@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
  */
-/** @deprecated azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:monitor to guarantee forwards compatibility. */
 export function getmonitor(args: GetmonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetmonitorResult> {
-    pulumi.log.warn("getmonitor is deprecated: azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:monitor to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20221101preview:getmonitor", {
@@ -108,7 +106,6 @@ export interface GetmonitorResult {
 /**
  * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
  */
-/** @deprecated azure-native:workloads/v20221101preview:monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:monitor to guarantee forwards compatibility. */
 export function getmonitorOutput(args: GetmonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmonitorResult> {
     return pulumi.output(args).apply((a: any) => getmonitor(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of an extension associated with a Visual Studio Team Services account resource.
  */
+/** @deprecated azure-native:visualstudio/v20140401preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:visualstudio/v20171101preview:Extension to guarantee forwards compatibility. */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
+    pulumi.log.warn("getExtension is deprecated: azure-native:visualstudio/v20140401preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:visualstudio/v20171101preview:Extension to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:visualstudio/v20140401preview:getExtension", {
@@ -71,6 +73,7 @@ export interface GetExtensionResult {
 /**
  * Gets the details of an extension associated with a Visual Studio Team Services account resource.
  */
+/** @deprecated azure-native:visualstudio/v20140401preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:visualstudio/v20171101preview:Extension to guarantee forwards compatibility. */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))
 }

@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified application security group.
  */
-/** @deprecated azure-native:network/v20220101:ApplicationSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationSecurityGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220101:ApplicationSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ApplicationSecurityGroup to guarantee forwards compatibility. */
 export function getApplicationSecurityGroup(args: GetApplicationSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationSecurityGroupResult> {
-    pulumi.log.warn("getApplicationSecurityGroup is deprecated: azure-native:network/v20220101:ApplicationSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationSecurityGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getApplicationSecurityGroup is deprecated: azure-native:network/v20220101:ApplicationSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ApplicationSecurityGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220101:getApplicationSecurityGroup", {
@@ -69,7 +69,7 @@ export interface GetApplicationSecurityGroupResult {
 /**
  * Gets information about the specified application security group.
  */
-/** @deprecated azure-native:network/v20220101:ApplicationSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationSecurityGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220101:ApplicationSecurityGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ApplicationSecurityGroup to guarantee forwards compatibility. */
 export function getApplicationSecurityGroupOutput(args: GetApplicationSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationSecurityGroupResult> {
     return pulumi.output(args).apply((a: any) => getApplicationSecurityGroup(a, opts))
 }

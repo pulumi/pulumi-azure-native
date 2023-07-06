@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Azure dedicated HSM.
  */
+/** @deprecated azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm to guarantee forwards compatibility. */
 export function getDedicatedHsm(args: GetDedicatedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHsmResult> {
+    pulumi.log.warn("getDedicatedHsm is deprecated: azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hardwaresecuritymodules/v20181031preview:getDedicatedHsm", {
@@ -82,6 +84,7 @@ export interface GetDedicatedHsmResult {
 /**
  * Gets the specified Azure dedicated HSM.
  */
+/** @deprecated azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm to guarantee forwards compatibility. */
 export function getDedicatedHsmOutput(args: GetDedicatedHsmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHsmResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedHsm(a, opts))
 }

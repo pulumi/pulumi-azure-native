@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves a postgres Instance resource
  */
-/** @deprecated azure-native:azurearcdata/v20220301preview:PostgresInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:PostgresInstance to guarantee forwards compatibility. */
+/** @deprecated azure-native:azurearcdata/v20220301preview:PostgresInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:PostgresInstance to guarantee forwards compatibility. */
 export function getPostgresInstance(args: GetPostgresInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetPostgresInstanceResult> {
-    pulumi.log.warn("getPostgresInstance is deprecated: azure-native:azurearcdata/v20220301preview:PostgresInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:PostgresInstance to guarantee forwards compatibility.")
+    pulumi.log.warn("getPostgresInstance is deprecated: azure-native:azurearcdata/v20220301preview:PostgresInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:PostgresInstance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20220301preview:getPostgresInstance", {
@@ -76,7 +76,7 @@ export interface GetPostgresInstanceResult {
 /**
  * Retrieves a postgres Instance resource
  */
-/** @deprecated azure-native:azurearcdata/v20220301preview:PostgresInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:PostgresInstance to guarantee forwards compatibility. */
+/** @deprecated azure-native:azurearcdata/v20220301preview:PostgresInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:PostgresInstance to guarantee forwards compatibility. */
 export function getPostgresInstanceOutput(args: GetPostgresInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPostgresInstanceResult> {
     return pulumi.output(args).apply((a: any) => getPostgresInstance(a, opts))
 }

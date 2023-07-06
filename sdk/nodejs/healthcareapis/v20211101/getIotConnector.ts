@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified IoT Connector.
  */
-/** @deprecated azure-native:healthcareapis/v20211101:IotConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:IotConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:healthcareapis/v20211101:IotConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:IotConnector to guarantee forwards compatibility. */
 export function getIotConnector(args: GetIotConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorResult> {
-    pulumi.log.warn("getIotConnector is deprecated: azure-native:healthcareapis/v20211101:IotConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:IotConnector to guarantee forwards compatibility.")
+    pulumi.log.warn("getIotConnector is deprecated: azure-native:healthcareapis/v20211101:IotConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:IotConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20211101:getIotConnector", {
@@ -89,7 +89,7 @@ export interface GetIotConnectorResult {
 /**
  * Gets the properties of the specified IoT Connector.
  */
-/** @deprecated azure-native:healthcareapis/v20211101:IotConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:IotConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:healthcareapis/v20211101:IotConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:IotConnector to guarantee forwards compatibility. */
 export function getIotConnectorOutput(args: GetIotConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotConnectorResult> {
     return pulumi.output(args).apply((a: any) => getIotConnector(a, opts))
 }

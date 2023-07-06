@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the managed instance's Start/Stop schedule.
  */
+/** @deprecated azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:StartStopManagedInstanceSchedule to guarantee forwards compatibility. */
 export function getStartStopManagedInstanceSchedule(args: GetStartStopManagedInstanceScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetStartStopManagedInstanceScheduleResult> {
+    pulumi.log.warn("getStartStopManagedInstanceSchedule is deprecated: azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:StartStopManagedInstanceSchedule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20220801preview:getStartStopManagedInstanceSchedule", {
@@ -79,6 +81,7 @@ export interface GetStartStopManagedInstanceScheduleResult {
 /**
  * Gets the managed instance's Start/Stop schedule.
  */
+/** @deprecated azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:StartStopManagedInstanceSchedule to guarantee forwards compatibility. */
 export function getStartStopManagedInstanceScheduleOutput(args: GetStartStopManagedInstanceScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStartStopManagedInstanceScheduleResult> {
     return pulumi.output(args).apply((a: any) => getStartStopManagedInstanceSchedule(a, opts))
 }

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of NetworkRuleSet resource.
+ *
+ * @deprecated azure-native:eventhub/v20170401:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility.
  */
 export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NamespaceNetworkRuleSet {
+        pulumi.log.warn("NamespaceNetworkRuleSet is deprecated: azure-native:eventhub/v20170401:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility.")
         return new NamespaceNetworkRuleSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,7 +68,9 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:eventhub/v20170401:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility. */
     constructor(name: string, args: NamespaceNetworkRuleSetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("NamespaceNetworkRuleSet is deprecated: azure-native:eventhub/v20170401:NamespaceNetworkRuleSet is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

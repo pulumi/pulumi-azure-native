@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the Monitoring Setting and its properties.
  */
-/** @deprecated azure-native:appplatform/v20221201:MonitoringSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:MonitoringSetting to guarantee forwards compatibility. */
+/** @deprecated azure-native:appplatform/v20221201:MonitoringSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:MonitoringSetting to guarantee forwards compatibility. */
 export function getMonitoringSetting(args: GetMonitoringSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringSettingResult> {
-    pulumi.log.warn("getMonitoringSetting is deprecated: azure-native:appplatform/v20221201:MonitoringSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:MonitoringSetting to guarantee forwards compatibility.")
+    pulumi.log.warn("getMonitoringSetting is deprecated: azure-native:appplatform/v20221201:MonitoringSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:MonitoringSetting to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20221201:getMonitoringSetting", {
@@ -60,7 +60,7 @@ export interface GetMonitoringSettingResult {
 /**
  * Get the Monitoring Setting and its properties.
  */
-/** @deprecated azure-native:appplatform/v20221201:MonitoringSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:MonitoringSetting to guarantee forwards compatibility. */
+/** @deprecated azure-native:appplatform/v20221201:MonitoringSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:MonitoringSetting to guarantee forwards compatibility. */
 export function getMonitoringSettingOutput(args: GetMonitoringSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringSettingResult> {
     return pulumi.output(args).apply((a: any) => getMonitoringSetting(a, opts))
 }

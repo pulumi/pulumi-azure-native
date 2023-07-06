@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the Domains resource and its properties.
  */
+/** @deprecated azure-native:communication/v20211001preview:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20220701preview:Domain to guarantee forwards compatibility. */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
+    pulumi.log.warn("getDomain is deprecated: azure-native:communication/v20211001preview:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20220701preview:Domain to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:communication/v20211001preview:getDomain", {
@@ -103,6 +105,7 @@ export interface GetDomainResult {
 /**
  * Get the Domains resource and its properties.
  */
+/** @deprecated azure-native:communication/v20211001preview:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20220701preview:Domain to guarantee forwards compatibility. */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))
 }

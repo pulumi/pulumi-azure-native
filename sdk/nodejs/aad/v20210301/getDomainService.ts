@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The Get Domain Service operation retrieves a json representation of the Domain Service.
  */
+/** @deprecated azure-native:aad/v20210301:DomainService is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:DomainService to guarantee forwards compatibility. */
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
+    pulumi.log.warn("getDomainService is deprecated: azure-native:aad/v20210301:DomainService is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:DomainService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:aad/v20210301:getDomainService", {
@@ -126,6 +128,7 @@ export interface GetDomainServiceResult {
 /**
  * The Get Domain Service operation retrieves a json representation of the Domain Service.
  */
+/** @deprecated azure-native:aad/v20210301:DomainService is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:DomainService to guarantee forwards compatibility. */
 export function getDomainServiceOutput(args: GetDomainServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainServiceResult> {
     return pulumi.output(args).apply((a: any) => getDomainService(a, opts))
 }

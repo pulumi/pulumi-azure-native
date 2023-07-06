@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get information about a guest configuration assignment
  */
+/** @deprecated azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility. */
 export function getGuestConfigurationAssignment(args: GetGuestConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationAssignmentResult> {
+    pulumi.log.warn("getGuestConfigurationAssignment is deprecated: azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:guestconfiguration/v20200625:getGuestConfigurationAssignment", {
@@ -63,6 +65,7 @@ export interface GetGuestConfigurationAssignmentResult {
 /**
  * Get information about a guest configuration assignment
  */
+/** @deprecated azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility. */
 export function getGuestConfigurationAssignmentOutput(args: GetGuestConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getGuestConfigurationAssignment(a, opts))
 }

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The alert rule information
+ *
+ * @deprecated azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility.
  */
 export class SmartDetectorAlertRule extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SmartDetectorAlertRule {
+        pulumi.log.warn("SmartDetectorAlertRule is deprecated: azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility.")
         return new SmartDetectorAlertRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -93,7 +96,9 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility. */
     constructor(name: string, args: SmartDetectorAlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SmartDetectorAlertRule is deprecated: azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

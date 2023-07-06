@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
  */
+/** @deprecated azure-native:cdn/v20200901:AFDCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDCustomDomain to guarantee forwards compatibility. */
 export function getAFDCustomDomain(args: GetAFDCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDCustomDomainResult> {
+    pulumi.log.warn("getAFDCustomDomain is deprecated: azure-native:cdn/v20200901:AFDCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDCustomDomain to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20200901:getAFDCustomDomain", {
@@ -84,6 +86,7 @@ export interface GetAFDCustomDomainResult {
 /**
  * Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
  */
+/** @deprecated azure-native:cdn/v20200901:AFDCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDCustomDomain to guarantee forwards compatibility. */
 export function getAFDCustomDomainOutput(args: GetAFDCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getAFDCustomDomain(a, opts))
 }

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a connected registry for a container registry.
+ *
+ * @deprecated azure-native:containerregistry/v20201101preview:ConnectedRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility.
  */
 export class ConnectedRegistry extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ConnectedRegistry extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConnectedRegistry {
+        pulumi.log.warn("ConnectedRegistry is deprecated: azure-native:containerregistry/v20201101preview:ConnectedRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility.")
         return new ConnectedRegistry(name, undefined as any, { ...opts, id: id });
     }
 
@@ -101,7 +104,9 @@ export class ConnectedRegistry extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:containerregistry/v20201101preview:ConnectedRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility. */
     constructor(name: string, args: ConnectedRegistryArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ConnectedRegistry is deprecated: azure-native:containerregistry/v20201101preview:ConnectedRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:ConnectedRegistry to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

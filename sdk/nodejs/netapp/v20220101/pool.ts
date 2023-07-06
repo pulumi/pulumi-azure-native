@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Capacity pool resource
  *
- * @deprecated azure-native:netapp/v20220101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Pool to guarantee forwards compatibility.
+ * @deprecated azure-native:netapp/v20220101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Pool to guarantee forwards compatibility.
  */
 export class Pool extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Pool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Pool {
-        pulumi.log.warn("Pool is deprecated: azure-native:netapp/v20220101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Pool to guarantee forwards compatibility.")
+        pulumi.log.warn("Pool is deprecated: azure-native:netapp/v20220101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Pool to guarantee forwards compatibility.")
         return new Pool(name, undefined as any, { ...opts, id: id });
     }
 
@@ -108,9 +108,9 @@ export class Pool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:netapp/v20220101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Pool to guarantee forwards compatibility. */
+    /** @deprecated azure-native:netapp/v20220101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Pool to guarantee forwards compatibility. */
     constructor(name: string, args: PoolArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Pool is deprecated: azure-native:netapp/v20220101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Pool to guarantee forwards compatibility.")
+        pulumi.log.warn("Pool is deprecated: azure-native:netapp/v20220101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Pool to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

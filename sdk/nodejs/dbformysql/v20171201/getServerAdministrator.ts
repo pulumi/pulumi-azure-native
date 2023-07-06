@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a AAD server administrator.
  */
+/** @deprecated azure-native:dbformysql/v20171201:ServerAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20180601privatepreview:ServerAdministrator to guarantee forwards compatibility. */
 export function getServerAdministrator(args: GetServerAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAdministratorResult> {
+    pulumi.log.warn("getServerAdministrator is deprecated: azure-native:dbformysql/v20171201:ServerAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20180601privatepreview:ServerAdministrator to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbformysql/v20171201:getServerAdministrator", {
@@ -63,6 +65,7 @@ export interface GetServerAdministratorResult {
 /**
  * Gets information about a AAD server administrator.
  */
+/** @deprecated azure-native:dbformysql/v20171201:ServerAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20180601privatepreview:ServerAdministrator to guarantee forwards compatibility. */
 export function getServerAdministratorOutput(args: GetServerAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAdministratorResult> {
     return pulumi.output(args).apply((a: any) => getServerAdministrator(a, opts))
 }

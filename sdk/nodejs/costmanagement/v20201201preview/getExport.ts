@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get the export for the defined scope by export name.
  */
-/** @deprecated azure-native:costmanagement/v20201201preview:Export is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221001:Export to guarantee forwards compatibility. */
+/** @deprecated azure-native:costmanagement/v20201201preview:Export is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:Export to guarantee forwards compatibility. */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
-    pulumi.log.warn("getExport is deprecated: azure-native:costmanagement/v20201201preview:Export is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221001:Export to guarantee forwards compatibility.")
+    pulumi.log.warn("getExport is deprecated: azure-native:costmanagement/v20201201preview:Export is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:Export to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20201201preview:getExport", {
@@ -85,7 +85,7 @@ export interface GetExportResult {
 /**
  * The operation to get the export for the defined scope by export name.
  */
-/** @deprecated azure-native:costmanagement/v20201201preview:Export is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221001:Export to guarantee forwards compatibility. */
+/** @deprecated azure-native:costmanagement/v20201201preview:Export is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:Export to guarantee forwards compatibility. */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
     return pulumi.output(args).apply((a: any) => getExport(a, opts))
 }

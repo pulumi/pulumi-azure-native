@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Get the metadata of a service instance.
  */
 /** @deprecated Version 2020-03-30 will be removed in v2 of the provider.
-azure-native:healthcareapis/v20200330:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Service to guarantee forwards compatibility. */
+azure-native:healthcareapis/v20200330:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:Service to guarantee forwards compatibility. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    pulumi.log.warn("getService is deprecated: Version 2020-03-30 will be removed in v2 of the provider.\nazure-native:healthcareapis/v20200330:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Service to guarantee forwards compatibility.")
+    pulumi.log.warn("getService is deprecated: Version 2020-03-30 will be removed in v2 of the provider.\nazure-native:healthcareapis/v20200330:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:Service to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20200330:getService", {
@@ -78,7 +78,7 @@ export interface GetServiceResult {
  * Get the metadata of a service instance.
  */
 /** @deprecated Version 2020-03-30 will be removed in v2 of the provider.
-azure-native:healthcareapis/v20200330:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Service to guarantee forwards compatibility. */
+azure-native:healthcareapis/v20200330:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:Service to guarantee forwards compatibility. */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))
 }

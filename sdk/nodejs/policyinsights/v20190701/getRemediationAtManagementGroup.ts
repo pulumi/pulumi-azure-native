@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing remediation at management group scope.
  */
+/** @deprecated azure-native:policyinsights/v20190701:RemediationAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtManagementGroup to guarantee forwards compatibility. */
 export function getRemediationAtManagementGroup(args: GetRemediationAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtManagementGroupResult> {
+    pulumi.log.warn("getRemediationAtManagementGroup is deprecated: azure-native:policyinsights/v20190701:RemediationAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtManagementGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights/v20190701:getRemediationAtManagementGroup", {
@@ -87,6 +89,7 @@ export interface GetRemediationAtManagementGroupResult {
 /**
  * Gets an existing remediation at management group scope.
  */
+/** @deprecated azure-native:policyinsights/v20190701:RemediationAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtManagementGroup to guarantee forwards compatibility. */
 export function getRemediationAtManagementGroupOutput(args: GetRemediationAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getRemediationAtManagementGroup(a, opts))
 }

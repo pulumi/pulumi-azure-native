@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an attached NetworkConnection.
  */
-/** @deprecated azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter to guarantee forwards compatibility. */
+/** @deprecated azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:AttachedNetworkByDevCenter to guarantee forwards compatibility. */
 export function getAttachedNetworkByDevCenter(args: GetAttachedNetworkByDevCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedNetworkByDevCenterResult> {
-    pulumi.log.warn("getAttachedNetworkByDevCenter is deprecated: azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter to guarantee forwards compatibility.")
+    pulumi.log.warn("getAttachedNetworkByDevCenter is deprecated: azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:AttachedNetworkByDevCenter to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20221012preview:getAttachedNetworkByDevCenter", {
@@ -81,7 +81,7 @@ export interface GetAttachedNetworkByDevCenterResult {
 /**
  * Gets an attached NetworkConnection.
  */
-/** @deprecated azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter to guarantee forwards compatibility. */
+/** @deprecated azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:AttachedNetworkByDevCenter to guarantee forwards compatibility. */
 export function getAttachedNetworkByDevCenterOutput(args: GetAttachedNetworkByDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedNetworkByDevCenterResult> {
     return pulumi.output(args).apply((a: any) => getAttachedNetworkByDevCenter(a, opts))
 }

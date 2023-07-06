@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve the python 2 package identified by package name.
  */
+/** @deprecated azure-native:automation/v20190601:Python2Package is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Python2Package to guarantee forwards compatibility. */
 export function getPython2Package(args: GetPython2PackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPython2PackageResult> {
+    pulumi.log.warn("getPython2Package is deprecated: azure-native:automation/v20190601:Python2Package is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Python2Package to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20190601:getPython2Package", {
@@ -111,6 +113,7 @@ export interface GetPython2PackageResult {
 /**
  * Retrieve the python 2 package identified by package name.
  */
+/** @deprecated azure-native:automation/v20190601:Python2Package is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Python2Package to guarantee forwards compatibility. */
 export function getPython2PackageOutput(args: GetPython2PackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPython2PackageResult> {
     return pulumi.output(args).apply((a: any) => getPython2Package(a, opts))
 }

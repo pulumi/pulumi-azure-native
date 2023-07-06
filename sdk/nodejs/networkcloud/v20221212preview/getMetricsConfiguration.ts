@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get metrics configuration of the provided cluster.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:MetricsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:MetricsConfiguration to guarantee forwards compatibility. */
 export function getMetricsConfiguration(args: GetMetricsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricsConfigurationResult> {
+    pulumi.log.warn("getMetricsConfiguration is deprecated: azure-native:networkcloud/v20221212preview:MetricsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:MetricsConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getMetricsConfiguration", {
@@ -92,6 +94,7 @@ export interface GetMetricsConfigurationResult {
 /**
  * Get metrics configuration of the provided cluster.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:MetricsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:MetricsConfiguration to guarantee forwards compatibility. */
 export function getMetricsConfigurationOutput(args: GetMetricsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricsConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getMetricsConfiguration(a, opts))
 }

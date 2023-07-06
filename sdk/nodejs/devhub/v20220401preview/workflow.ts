@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource representation of a workflow
+ *
+ * @deprecated azure-native:devhub/v20220401preview:Workflow is being removed in the next major version of this provider. Upgrade to at least azure-native:devhub/v20221011preview:Workflow to guarantee forwards compatibility.
  */
 export class Workflow extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Workflow extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Workflow {
+        pulumi.log.warn("Workflow is deprecated: azure-native:devhub/v20220401preview:Workflow is being removed in the next major version of this provider. Upgrade to at least azure-native:devhub/v20221011preview:Workflow to guarantee forwards compatibility.")
         return new Workflow(name, undefined as any, { ...opts, id: id });
     }
 
@@ -119,7 +122,9 @@ export class Workflow extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:devhub/v20220401preview:Workflow is being removed in the next major version of this provider. Upgrade to at least azure-native:devhub/v20221011preview:Workflow to guarantee forwards compatibility. */
     constructor(name: string, args: WorkflowArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Workflow is deprecated: azure-native:devhub/v20220401preview:Workflow is being removed in the next major version of this provider. Upgrade to at least azure-native:devhub/v20221011preview:Workflow to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

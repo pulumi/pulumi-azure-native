@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a database's blob auditing policy.
  */
+/** @deprecated azure-native:sql/v20201101preview:DatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DatabaseBlobAuditingPolicy to guarantee forwards compatibility. */
 export function getDatabaseBlobAuditingPolicy(args: GetDatabaseBlobAuditingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseBlobAuditingPolicyResult> {
+    pulumi.log.warn("getDatabaseBlobAuditingPolicy is deprecated: azure-native:sql/v20201101preview:DatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DatabaseBlobAuditingPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20201101preview:getDatabaseBlobAuditingPolicy", {
@@ -160,6 +162,7 @@ export interface GetDatabaseBlobAuditingPolicyResult {
 /**
  * Gets a database's blob auditing policy.
  */
+/** @deprecated azure-native:sql/v20201101preview:DatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DatabaseBlobAuditingPolicy to guarantee forwards compatibility. */
 export function getDatabaseBlobAuditingPolicyOutput(args: GetDatabaseBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseBlobAuditingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseBlobAuditingPolicy(a, opts))
 }

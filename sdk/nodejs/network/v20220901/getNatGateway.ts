@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified nat gateway in a specified resource group.
  */
+/** @deprecated azure-native:network/v20220901:NatGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:NatGateway to guarantee forwards compatibility. */
 export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
+    pulumi.log.warn("getNatGateway is deprecated: azure-native:network/v20220901:NatGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:NatGateway to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220901:getNatGateway", {
@@ -99,6 +101,7 @@ export interface GetNatGatewayResult {
 /**
  * Gets the specified nat gateway in a specified resource group.
  */
+/** @deprecated azure-native:network/v20220901:NatGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:NatGateway to guarantee forwards compatibility. */
 export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
     return pulumi.output(args).apply((a: any) => getNatGateway(a, opts))
 }

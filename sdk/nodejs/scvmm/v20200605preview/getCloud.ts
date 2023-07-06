@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Implements Cloud GET method.
  */
+/** @deprecated azure-native:scvmm/v20200605preview:Cloud is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:Cloud to guarantee forwards compatibility. */
 export function getCloud(args: GetCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudResult> {
+    pulumi.log.warn("getCloud is deprecated: azure-native:scvmm/v20200605preview:Cloud is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:Cloud to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm/v20200605preview:getCloud", {
@@ -94,6 +96,7 @@ export interface GetCloudResult {
 /**
  * Implements Cloud GET method.
  */
+/** @deprecated azure-native:scvmm/v20200605preview:Cloud is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:Cloud to guarantee forwards compatibility. */
 export function getCloudOutput(args: GetCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudResult> {
     return pulumi.output(args).apply((a: any) => getCloud(a, opts))
 }

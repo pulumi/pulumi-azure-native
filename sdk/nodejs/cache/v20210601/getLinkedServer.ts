@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
  */
-/** @deprecated azure-native:cache/v20210601:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility. */
+/** @deprecated azure-native:cache/v20210601:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:LinkedServer to guarantee forwards compatibility. */
 export function getLinkedServer(args: GetLinkedServerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServerResult> {
-    pulumi.log.warn("getLinkedServer is deprecated: azure-native:cache/v20210601:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.")
+    pulumi.log.warn("getLinkedServer is deprecated: azure-native:cache/v20210601:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:LinkedServer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20210601:getLinkedServer", {
@@ -70,7 +70,7 @@ export interface GetLinkedServerResult {
 /**
  * Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
  */
-/** @deprecated azure-native:cache/v20210601:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility. */
+/** @deprecated azure-native:cache/v20210601:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:LinkedServer to guarantee forwards compatibility. */
 export function getLinkedServerOutput(args: GetLinkedServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServerResult> {
     return pulumi.output(args).apply((a: any) => getLinkedServer(a, opts))
 }

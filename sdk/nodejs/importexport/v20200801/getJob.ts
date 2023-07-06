@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about an existing job.
  */
+/** @deprecated azure-native:importexport/v20200801:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:importexport/v20210101:Job to guarantee forwards compatibility. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
+    pulumi.log.warn("getJob is deprecated: azure-native:importexport/v20200801:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:importexport/v20210101:Job to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:importexport/v20200801:getJob", {
@@ -70,6 +72,7 @@ export interface GetJobResult {
 /**
  * Gets information about an existing job.
  */
+/** @deprecated azure-native:importexport/v20200801:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:importexport/v20210101:Job to guarantee forwards compatibility. */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))
 }

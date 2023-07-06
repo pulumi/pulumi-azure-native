@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about an SSH public key.
  */
-/** @deprecated azure-native:compute/v20220801:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20220801:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:SshPublicKey to guarantee forwards compatibility. */
 export function getSshPublicKey(args: GetSshPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshPublicKeyResult> {
-    pulumi.log.warn("getSshPublicKey is deprecated: azure-native:compute/v20220801:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.")
+    pulumi.log.warn("getSshPublicKey is deprecated: azure-native:compute/v20220801:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:SshPublicKey to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20220801:getSshPublicKey", {
@@ -61,7 +61,7 @@ export interface GetSshPublicKeyResult {
 /**
  * Retrieves information about an SSH public key.
  */
-/** @deprecated azure-native:compute/v20220801:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility. */
+/** @deprecated azure-native:compute/v20220801:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:SshPublicKey to guarantee forwards compatibility. */
 export function getSshPublicKeyOutput(args: GetSshPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshPublicKeyResult> {
     return pulumi.output(args).apply((a: any) => getSshPublicKey(a, opts))
 }

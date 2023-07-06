@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a buildpack binding by name.
  */
-/** @deprecated azure-native:appplatform/v20221101preview:BuildpackBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildpackBinding to guarantee forwards compatibility. */
+/** @deprecated azure-native:appplatform/v20221101preview:BuildpackBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:BuildpackBinding to guarantee forwards compatibility. */
 export function getBuildpackBinding(args: GetBuildpackBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildpackBindingResult> {
-    pulumi.log.warn("getBuildpackBinding is deprecated: azure-native:appplatform/v20221101preview:BuildpackBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildpackBinding to guarantee forwards compatibility.")
+    pulumi.log.warn("getBuildpackBinding is deprecated: azure-native:appplatform/v20221101preview:BuildpackBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:BuildpackBinding to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20221101preview:getBuildpackBinding", {
@@ -75,7 +75,7 @@ export interface GetBuildpackBindingResult {
 /**
  * Get a buildpack binding by name.
  */
-/** @deprecated azure-native:appplatform/v20221101preview:BuildpackBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildpackBinding to guarantee forwards compatibility. */
+/** @deprecated azure-native:appplatform/v20221101preview:BuildpackBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:BuildpackBinding to guarantee forwards compatibility. */
 export function getBuildpackBindingOutput(args: GetBuildpackBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildpackBindingResult> {
     return pulumi.output(args).apply((a: any) => getBuildpackBinding(a, opts))
 }

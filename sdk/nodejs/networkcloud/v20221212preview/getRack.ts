@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of the provided rack.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:Rack is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Rack to guarantee forwards compatibility. */
 export function getRack(args: GetRackArgs, opts?: pulumi.InvokeOptions): Promise<GetRackResult> {
+    pulumi.log.warn("getRack is deprecated: azure-native:networkcloud/v20221212preview:Rack is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Rack to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getRack", {
@@ -95,6 +97,7 @@ export interface GetRackResult {
 /**
  * Get properties of the provided rack.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:Rack is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Rack to guarantee forwards compatibility. */
 export function getRackOutput(args: GetRackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRackResult> {
     return pulumi.output(args).apply((a: any) => getRack(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing Secret within a profile.
  */
+/** @deprecated azure-native:cdn/v20200901:Secret is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:Secret to guarantee forwards compatibility. */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
+    pulumi.log.warn("getSecret is deprecated: azure-native:cdn/v20200901:Secret is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:Secret to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20200901:getSecret", {
@@ -68,6 +70,7 @@ export interface GetSecretResult {
 /**
  * Gets an existing Secret within a profile.
  */
+/** @deprecated azure-native:cdn/v20200901:Secret is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:Secret to guarantee forwards compatibility. */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply((a: any) => getSecret(a, opts))
 }

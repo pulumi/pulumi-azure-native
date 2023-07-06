@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of the provided layer 2 (L2) network.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:L2Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L2Network to guarantee forwards compatibility. */
 export function getL2Network(args: GetL2NetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetL2NetworkResult> {
+    pulumi.log.warn("getL2Network is deprecated: azure-native:networkcloud/v20221212preview:L2Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L2Network to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getL2Network", {
@@ -99,6 +101,7 @@ export interface GetL2NetworkResult {
 /**
  * Get properties of the provided layer 2 (L2) network.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:L2Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L2Network to guarantee forwards compatibility. */
 export function getL2NetworkOutput(args: GetL2NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2NetworkResult> {
     return pulumi.output(args).apply((a: any) => getL2Network(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves details about given subscription which is associated with the management group.
  */
+/** @deprecated azure-native:management/v20200501:ManagementGroupSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:ManagementGroupSubscription to guarantee forwards compatibility. */
 export function getManagementGroupSubscription(args: GetManagementGroupSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupSubscriptionResult> {
+    pulumi.log.warn("getManagementGroupSubscription is deprecated: azure-native:management/v20200501:ManagementGroupSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:ManagementGroupSubscription to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:management/v20200501:getManagementGroupSubscription", {
@@ -66,6 +68,7 @@ export interface GetManagementGroupSubscriptionResult {
 /**
  * Retrieves details about given subscription which is associated with the management group.
  */
+/** @deprecated azure-native:management/v20200501:ManagementGroupSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:ManagementGroupSubscription to guarantee forwards compatibility. */
 export function getManagementGroupSubscriptionOutput(args: GetManagementGroupSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroupSubscription(a, opts))
 }

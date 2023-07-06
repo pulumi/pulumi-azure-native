@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the specified product.
  */
+/** @deprecated azure-native:azurestack/v20170601:CustomerSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:CustomerSubscription to guarantee forwards compatibility. */
 export function getCustomerSubscription(args: GetCustomerSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerSubscriptionResult> {
+    pulumi.log.warn("getCustomerSubscription is deprecated: azure-native:azurestack/v20170601:CustomerSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:CustomerSubscription to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestack/v20170601:getCustomerSubscription", {
@@ -60,6 +62,7 @@ export interface GetCustomerSubscriptionResult {
 /**
  * Returns the specified product.
  */
+/** @deprecated azure-native:azurestack/v20170601:CustomerSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:CustomerSubscription to guarantee forwards compatibility. */
 export function getCustomerSubscriptionOutput(args: GetCustomerSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getCustomerSubscription(a, opts))
 }

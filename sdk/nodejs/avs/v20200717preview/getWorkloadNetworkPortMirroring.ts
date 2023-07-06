@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * NSX Port Mirroring
  */
+/** @deprecated azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility. */
 export function getWorkloadNetworkPortMirroring(args: GetWorkloadNetworkPortMirroringArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkPortMirroringResult> {
+    pulumi.log.warn("getWorkloadNetworkPortMirroring is deprecated: azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20200717preview:getWorkloadNetworkPortMirroring", {
@@ -80,6 +82,7 @@ export interface GetWorkloadNetworkPortMirroringResult {
 /**
  * NSX Port Mirroring
  */
+/** @deprecated azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:WorkloadNetworkPortMirroring to guarantee forwards compatibility. */
 export function getWorkloadNetworkPortMirroringOutput(args: GetWorkloadNetworkPortMirroringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkPortMirroringResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadNetworkPortMirroring(a, opts))
 }

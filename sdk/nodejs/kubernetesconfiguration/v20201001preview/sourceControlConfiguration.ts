@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The SourceControl Configuration object returned in Get & Put response.
  *
- * @deprecated azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility.
+ * @deprecated azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20230501:SourceControlConfiguration to guarantee forwards compatibility.
  */
 export class SourceControlConfiguration extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SourceControlConfiguration {
-        pulumi.log.warn("SourceControlConfiguration is deprecated: azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility.")
+        pulumi.log.warn("SourceControlConfiguration is deprecated: azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20230501:SourceControlConfiguration to guarantee forwards compatibility.")
         return new SourceControlConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -112,9 +112,9 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility. */
+    /** @deprecated azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20230501:SourceControlConfiguration to guarantee forwards compatibility. */
     constructor(name: string, args: SourceControlConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SourceControlConfiguration is deprecated: azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration to guarantee forwards compatibility.")
+        pulumi.log.warn("SourceControlConfiguration is deprecated: azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20230501:SourceControlConfiguration to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a server's blob auditing policy.
  */
-/** @deprecated azure-native:sql/v20211101:ServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerBlobAuditingPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101:ServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerBlobAuditingPolicy to guarantee forwards compatibility. */
 export function getServerBlobAuditingPolicy(args: GetServerBlobAuditingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerBlobAuditingPolicyResult> {
-    pulumi.log.warn("getServerBlobAuditingPolicy is deprecated: azure-native:sql/v20211101:ServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerBlobAuditingPolicy to guarantee forwards compatibility.")
+    pulumi.log.warn("getServerBlobAuditingPolicy is deprecated: azure-native:sql/v20211101:ServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerBlobAuditingPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getServerBlobAuditingPolicy", {
@@ -174,7 +174,7 @@ export interface GetServerBlobAuditingPolicyResult {
 /**
  * Gets a server's blob auditing policy.
  */
-/** @deprecated azure-native:sql/v20211101:ServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerBlobAuditingPolicy to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101:ServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerBlobAuditingPolicy to guarantee forwards compatibility. */
 export function getServerBlobAuditingPolicyOutput(args: GetServerBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerBlobAuditingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getServerBlobAuditingPolicy(a, opts))
 }

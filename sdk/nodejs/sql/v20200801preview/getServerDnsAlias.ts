@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a server DNS alias.
  */
-/** @deprecated azure-native:sql/v20200801preview:ServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerDnsAlias to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20200801preview:ServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerDnsAlias to guarantee forwards compatibility. */
 export function getServerDnsAlias(args: GetServerDnsAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetServerDnsAliasResult> {
-    pulumi.log.warn("getServerDnsAlias is deprecated: azure-native:sql/v20200801preview:ServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerDnsAlias to guarantee forwards compatibility.")
+    pulumi.log.warn("getServerDnsAlias is deprecated: azure-native:sql/v20200801preview:ServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerDnsAlias to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20200801preview:getServerDnsAlias", {
@@ -58,7 +58,7 @@ export interface GetServerDnsAliasResult {
 /**
  * Gets a server DNS alias.
  */
-/** @deprecated azure-native:sql/v20200801preview:ServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerDnsAlias to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20200801preview:ServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerDnsAlias to guarantee forwards compatibility. */
 export function getServerDnsAliasOutput(args: GetServerDnsAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerDnsAliasResult> {
     return pulumi.output(args).apply((a: any) => getServerDnsAlias(a, opts))
 }

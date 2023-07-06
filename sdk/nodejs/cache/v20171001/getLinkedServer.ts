@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
  */
 /** @deprecated Version 2017-10-01 will be removed in v2 of the provider.
-azure-native:cache/v20171001:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility. */
+azure-native:cache/v20171001:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:LinkedServer to guarantee forwards compatibility. */
 export function getLinkedServer(args: GetLinkedServerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServerResult> {
-    pulumi.log.warn("getLinkedServer is deprecated: Version 2017-10-01 will be removed in v2 of the provider.\nazure-native:cache/v20171001:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility.")
+    pulumi.log.warn("getLinkedServer is deprecated: Version 2017-10-01 will be removed in v2 of the provider.\nazure-native:cache/v20171001:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:LinkedServer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20171001:getLinkedServer", {
@@ -72,7 +72,7 @@ export interface GetLinkedServerResult {
  * Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
  */
 /** @deprecated Version 2017-10-01 will be removed in v2 of the provider.
-azure-native:cache/v20171001:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:LinkedServer to guarantee forwards compatibility. */
+azure-native:cache/v20171001:LinkedServer is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:LinkedServer to guarantee forwards compatibility. */
 export function getLinkedServerOutput(args: GetLinkedServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServerResult> {
     return pulumi.output(args).apply((a: any) => getLinkedServer(a, opts))
 }

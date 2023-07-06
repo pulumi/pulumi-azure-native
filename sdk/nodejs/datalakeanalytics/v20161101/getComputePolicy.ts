@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified Data Lake Analytics compute policy.
  */
+/** @deprecated azure-native:datalakeanalytics/v20161101:ComputePolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:datalakeanalytics/v20191101preview:ComputePolicy to guarantee forwards compatibility. */
 export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetComputePolicyResult> {
+    pulumi.log.warn("getComputePolicy is deprecated: azure-native:datalakeanalytics/v20161101:ComputePolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:datalakeanalytics/v20191101preview:ComputePolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakeanalytics/v20161101:getComputePolicy", {
@@ -68,6 +70,7 @@ export interface GetComputePolicyResult {
 /**
  * Gets the specified Data Lake Analytics compute policy.
  */
+/** @deprecated azure-native:datalakeanalytics/v20161101:ComputePolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:datalakeanalytics/v20191101preview:ComputePolicy to guarantee forwards compatibility. */
 export function getComputePolicyOutput(args: GetComputePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputePolicyResult> {
     return pulumi.output(args).apply((a: any) => getComputePolicy(a, opts))
 }

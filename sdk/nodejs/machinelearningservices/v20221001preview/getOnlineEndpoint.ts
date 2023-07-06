@@ -7,9 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-/** @deprecated azure-native:machinelearningservices/v20221001preview:OnlineEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:OnlineEndpoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:OnlineEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:OnlineEndpoint to guarantee forwards compatibility. */
 export function getOnlineEndpoint(args: GetOnlineEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineEndpointResult> {
-    pulumi.log.warn("getOnlineEndpoint is deprecated: azure-native:machinelearningservices/v20221001preview:OnlineEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:OnlineEndpoint to guarantee forwards compatibility.")
+    pulumi.log.warn("getOnlineEndpoint is deprecated: azure-native:machinelearningservices/v20221001preview:OnlineEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:OnlineEndpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001preview:getOnlineEndpoint", {
@@ -76,7 +76,7 @@ export interface GetOnlineEndpointResult {
      */
     readonly type: string;
 }
-/** @deprecated azure-native:machinelearningservices/v20221001preview:OnlineEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:OnlineEndpoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:OnlineEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:OnlineEndpoint to guarantee forwards compatibility. */
 export function getOnlineEndpointOutput(args: GetOnlineEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineEndpointResult> {
     return pulumi.output(args).apply((a: any) => getOnlineEndpoint(a, opts))
 }

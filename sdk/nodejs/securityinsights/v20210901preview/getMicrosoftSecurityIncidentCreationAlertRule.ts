@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the alert rule.
  */
-/** @deprecated azure-native:securityinsights/v20210901preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20210901preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility. */
 export function getMicrosoftSecurityIncidentCreationAlertRule(args: GetMicrosoftSecurityIncidentCreationAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMicrosoftSecurityIncidentCreationAlertRuleResult> {
-    pulumi.log.warn("getMicrosoftSecurityIncidentCreationAlertRule is deprecated: azure-native:securityinsights/v20210901preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility.")
+    pulumi.log.warn("getMicrosoftSecurityIncidentCreationAlertRule is deprecated: azure-native:securityinsights/v20210901preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210901preview:getMicrosoftSecurityIncidentCreationAlertRule", {
@@ -106,7 +106,7 @@ export interface GetMicrosoftSecurityIncidentCreationAlertRuleResult {
 /**
  * Gets the alert rule.
  */
-/** @deprecated azure-native:securityinsights/v20210901preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20210901preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility. */
 export function getMicrosoftSecurityIncidentCreationAlertRuleOutput(args: GetMicrosoftSecurityIncidentCreationAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getMicrosoftSecurityIncidentCreationAlertRule(a, opts))
 }

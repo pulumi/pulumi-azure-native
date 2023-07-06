@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Experiment resource.
  */
-/** @deprecated azure-native:chaos/v20221001preview:Experiment is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Experiment to guarantee forwards compatibility. */
+/** @deprecated azure-native:chaos/v20221001preview:Experiment is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Experiment to guarantee forwards compatibility. */
 export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
-    pulumi.log.warn("getExperiment is deprecated: azure-native:chaos/v20221001preview:Experiment is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Experiment to guarantee forwards compatibility.")
+    pulumi.log.warn("getExperiment is deprecated: azure-native:chaos/v20221001preview:Experiment is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Experiment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:chaos/v20221001preview:getExperiment", {
@@ -72,7 +72,7 @@ export interface GetExperimentResult {
 /**
  * Get a Experiment resource.
  */
-/** @deprecated azure-native:chaos/v20221001preview:Experiment is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Experiment to guarantee forwards compatibility. */
+/** @deprecated azure-native:chaos/v20221001preview:Experiment is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Experiment to guarantee forwards compatibility. */
 export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentResult> {
     return pulumi.output(args).apply((a: any) => getExperiment(a, opts))
 }

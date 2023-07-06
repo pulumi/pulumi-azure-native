@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the federated identity credential.
  */
+/** @deprecated azure-native:managedidentity/v20220131preview:FederatedIdentityCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:managedidentity/v20230131:FederatedIdentityCredential to guarantee forwards compatibility. */
 export function getFederatedIdentityCredential(args: GetFederatedIdentityCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedIdentityCredentialResult> {
+    pulumi.log.warn("getFederatedIdentityCredential is deprecated: azure-native:managedidentity/v20220131preview:FederatedIdentityCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:managedidentity/v20230131:FederatedIdentityCredential to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedidentity/v20220131preview:getFederatedIdentityCredential", {
@@ -64,6 +66,7 @@ export interface GetFederatedIdentityCredentialResult {
 /**
  * Gets the federated identity credential.
  */
+/** @deprecated azure-native:managedidentity/v20220131preview:FederatedIdentityCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:managedidentity/v20230131:FederatedIdentityCredential to guarantee forwards compatibility. */
 export function getFederatedIdentityCredentialOutput(args: GetFederatedIdentityCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedIdentityCredentialResult> {
     return pulumi.output(args).apply((a: any) => getFederatedIdentityCredential(a, opts))
 }

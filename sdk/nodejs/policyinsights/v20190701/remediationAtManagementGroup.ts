@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The remediation definition.
+ *
+ * @deprecated azure-native:policyinsights/v20190701:RemediationAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtManagementGroup to guarantee forwards compatibility.
  */
 export class RemediationAtManagementGroup extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RemediationAtManagementGroup {
+        pulumi.log.warn("RemediationAtManagementGroup is deprecated: azure-native:policyinsights/v20190701:RemediationAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtManagementGroup to guarantee forwards compatibility.")
         return new RemediationAtManagementGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -85,7 +88,9 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:policyinsights/v20190701:RemediationAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtManagementGroup to guarantee forwards compatibility. */
     constructor(name: string, args: RemediationAtManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("RemediationAtManagementGroup is deprecated: azure-native:policyinsights/v20190701:RemediationAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtManagementGroup to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

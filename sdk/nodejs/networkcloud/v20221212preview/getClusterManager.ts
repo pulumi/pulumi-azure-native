@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the properties of the provided cluster manager.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:ClusterManager is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:ClusterManager to guarantee forwards compatibility. */
 export function getClusterManager(args: GetClusterManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterManagerResult> {
+    pulumi.log.warn("getClusterManager is deprecated: azure-native:networkcloud/v20221212preview:ClusterManager is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:ClusterManager to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getClusterManager", {
@@ -99,6 +101,7 @@ export interface GetClusterManagerResult {
 /**
  * Get the properties of the provided cluster manager.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:ClusterManager is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:ClusterManager to guarantee forwards compatibility. */
 export function getClusterManagerOutput(args: GetClusterManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterManagerResult> {
     return pulumi.output(args).apply((a: any) => getClusterManager(a, opts))
 }

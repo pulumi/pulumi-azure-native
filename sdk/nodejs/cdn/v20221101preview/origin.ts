@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+ *
+ * @deprecated azure-native:cdn/v20221101preview:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:Origin to guarantee forwards compatibility.
  */
 export class Origin extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Origin extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Origin {
+        pulumi.log.warn("Origin is deprecated: azure-native:cdn/v20221101preview:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:Origin to guarantee forwards compatibility.")
         return new Origin(name, undefined as any, { ...opts, id: id });
     }
 
@@ -113,7 +116,9 @@ export class Origin extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:cdn/v20221101preview:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:Origin to guarantee forwards compatibility. */
     constructor(name: string, args: OriginArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Origin is deprecated: azure-native:cdn/v20221101preview:Origin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:Origin to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

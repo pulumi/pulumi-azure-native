@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A CommunicationsGateway resource
+ *
+ * @deprecated azure-native:voiceservices/v20221201preview:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility.
  */
 export class CommunicationsGateway extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class CommunicationsGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CommunicationsGateway {
+        pulumi.log.warn("CommunicationsGateway is deprecated: azure-native:voiceservices/v20221201preview:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility.")
         return new CommunicationsGateway(name, undefined as any, { ...opts, id: id });
     }
 
@@ -97,7 +100,9 @@ export class CommunicationsGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:voiceservices/v20221201preview:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility. */
     constructor(name: string, args: CommunicationsGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CommunicationsGateway is deprecated: azure-native:voiceservices/v20221201preview:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

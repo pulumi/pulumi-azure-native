@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the Wiki for an API specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20220801:ApiWiki is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiWiki to guarantee forwards compatibility. */
 export function getApiWiki(args: GetApiWikiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiWikiResult> {
+    pulumi.log.warn("getApiWiki is deprecated: azure-native:apimanagement/v20220801:ApiWiki is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiWiki to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:getApiWiki", {
@@ -59,6 +61,7 @@ export interface GetApiWikiResult {
 /**
  * Gets the details of the Wiki for an API specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20220801:ApiWiki is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiWiki to guarantee forwards compatibility. */
 export function getApiWikiOutput(args: GetApiWikiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiWikiResult> {
     return pulumi.output(args).apply((a: any) => getApiWiki(a, opts))
 }

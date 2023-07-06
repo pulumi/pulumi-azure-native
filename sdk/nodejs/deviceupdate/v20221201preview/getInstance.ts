@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns instance details for the given instance and account name.
  */
+/** @deprecated azure-native:deviceupdate/v20221201preview:Instance is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20230701:Instance to guarantee forwards compatibility. */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
+    pulumi.log.warn("getInstance is deprecated: azure-native:deviceupdate/v20221201preview:Instance is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20230701:Instance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deviceupdate/v20221201preview:getInstance", {
@@ -87,6 +89,7 @@ export interface GetInstanceResult {
 /**
  * Returns instance details for the given instance and account name.
  */
+/** @deprecated azure-native:deviceupdate/v20221201preview:Instance is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20230701:Instance to guarantee forwards compatibility. */
 export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
     return pulumi.output(args).apply((a: any) => getInstance(a, opts))
 }

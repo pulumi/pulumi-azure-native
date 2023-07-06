@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Job Definition resource.
  */
+/** @deprecated azure-native:storagemover/v20220701preview:JobDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:JobDefinition to guarantee forwards compatibility. */
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
+    pulumi.log.warn("getJobDefinition is deprecated: azure-native:storagemover/v20220701preview:JobDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:JobDefinition to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagemover/v20220701preview:getJobDefinition", {
@@ -120,6 +122,7 @@ export interface GetJobDefinitionResult {
 /**
  * Gets a Job Definition resource.
  */
+/** @deprecated azure-native:storagemover/v20220701preview:JobDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:JobDefinition to guarantee forwards compatibility. */
 export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getJobDefinition(a, opts))
 }

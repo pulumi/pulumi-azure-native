@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Storage Mover resource.
  */
+/** @deprecated azure-native:storagemover/v20220701preview:StorageMover is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:StorageMover to guarantee forwards compatibility. */
 export function getStorageMover(args: GetStorageMoverArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageMoverResult> {
+    pulumi.log.warn("getStorageMover is deprecated: azure-native:storagemover/v20220701preview:StorageMover is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:StorageMover to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagemover/v20220701preview:getStorageMover", {
@@ -70,6 +72,7 @@ export interface GetStorageMoverResult {
 /**
  * Gets a Storage Mover resource.
  */
+/** @deprecated azure-native:storagemover/v20220701preview:StorageMover is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:StorageMover to guarantee forwards compatibility. */
 export function getStorageMoverOutput(args: GetStorageMoverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageMoverResult> {
     return pulumi.output(args).apply((a: any) => getStorageMover(a, opts))
 }

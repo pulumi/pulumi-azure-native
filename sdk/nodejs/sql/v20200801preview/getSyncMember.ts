@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a sync member.
  */
-/** @deprecated azure-native:sql/v20200801preview:SyncMember is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SyncMember to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20200801preview:SyncMember is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SyncMember to guarantee forwards compatibility. */
 export function getSyncMember(args: GetSyncMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncMemberResult> {
-    pulumi.log.warn("getSyncMember is deprecated: azure-native:sql/v20200801preview:SyncMember is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SyncMember to guarantee forwards compatibility.")
+    pulumi.log.warn("getSyncMember is deprecated: azure-native:sql/v20200801preview:SyncMember is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SyncMember to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20200801preview:getSyncMember", {
@@ -108,7 +108,7 @@ export interface GetSyncMemberResult {
 /**
  * Gets a sync member.
  */
-/** @deprecated azure-native:sql/v20200801preview:SyncMember is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:SyncMember to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20200801preview:SyncMember is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SyncMember to guarantee forwards compatibility. */
 export function getSyncMemberOutput(args: GetSyncMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncMemberResult> {
     return pulumi.output(args).apply((a: any) => getSyncMember(a, opts))
 }

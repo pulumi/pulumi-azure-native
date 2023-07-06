@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a network manager security configuration admin rule.
  */
-/** @deprecated azure-native:network/v20220401preview:AdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:AdminRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220401preview:AdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:AdminRule to guarantee forwards compatibility. */
 export function getAdminRule(args: GetAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminRuleResult> {
-    pulumi.log.warn("getAdminRule is deprecated: azure-native:network/v20220401preview:AdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:AdminRule to guarantee forwards compatibility.")
+    pulumi.log.warn("getAdminRule is deprecated: azure-native:network/v20220401preview:AdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:AdminRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220401preview:getAdminRule", {
@@ -120,7 +120,7 @@ export interface GetAdminRuleResult {
 /**
  * Gets a network manager security configuration admin rule.
  */
-/** @deprecated azure-native:network/v20220401preview:AdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:AdminRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220401preview:AdminRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:AdminRule to guarantee forwards compatibility. */
 export function getAdminRuleOutput(args: GetAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminRuleResult> {
     return pulumi.output(args).apply((a: any) => getAdminRule(a, opts))
 }

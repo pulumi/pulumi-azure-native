@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a nat rule.
  */
+/** @deprecated azure-native:network/v20210301:VirtualNetworkGatewayNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetworkGatewayNatRule to guarantee forwards compatibility. */
 export function getVirtualNetworkGatewayNatRule(args: GetVirtualNetworkGatewayNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayNatRuleResult> {
+    pulumi.log.warn("getVirtualNetworkGatewayNatRule is deprecated: azure-native:network/v20210301:VirtualNetworkGatewayNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetworkGatewayNatRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210301:getVirtualNetworkGatewayNatRule", {
@@ -79,6 +81,7 @@ export interface GetVirtualNetworkGatewayNatRuleResult {
 /**
  * Retrieves the details of a nat rule.
  */
+/** @deprecated azure-native:network/v20210301:VirtualNetworkGatewayNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetworkGatewayNatRule to guarantee forwards compatibility. */
 export function getVirtualNetworkGatewayNatRuleOutput(args: GetVirtualNetworkGatewayNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayNatRuleResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayNatRule(a, opts))
 }

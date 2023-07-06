@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about a partner registration.
+ *
+ * @deprecated azure-native:eventgrid/v20210601preview:PartnerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:PartnerRegistration to guarantee forwards compatibility.
  */
 export class PartnerRegistration extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class PartnerRegistration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PartnerRegistration {
+        pulumi.log.warn("PartnerRegistration is deprecated: azure-native:eventgrid/v20210601preview:PartnerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:PartnerRegistration to guarantee forwards compatibility.")
         return new PartnerRegistration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -125,7 +128,9 @@ export class PartnerRegistration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:eventgrid/v20210601preview:PartnerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:PartnerRegistration to guarantee forwards compatibility. */
     constructor(name: string, args: PartnerRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PartnerRegistration is deprecated: azure-native:eventgrid/v20210601preview:PartnerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20211015preview:PartnerRegistration to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

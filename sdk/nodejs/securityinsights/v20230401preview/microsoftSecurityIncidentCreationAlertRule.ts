@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents MicrosoftSecurityIncidentCreation rule.
+ *
+ * @deprecated azure-native:securityinsights/v20230401preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility.
  */
 export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomRes
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MicrosoftSecurityIncidentCreationAlertRule {
+        pulumi.log.warn("MicrosoftSecurityIncidentCreationAlertRule is deprecated: azure-native:securityinsights/v20230401preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility.")
         return new MicrosoftSecurityIncidentCreationAlertRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -102,7 +105,9 @@ export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20230401preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility. */
     constructor(name: string, args: MicrosoftSecurityIncidentCreationAlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MicrosoftSecurityIncidentCreationAlertRule is deprecated: azure-native:securityinsights/v20230401preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

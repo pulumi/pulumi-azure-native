@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * BaseBackupPolicy resource
+ *
+ * @deprecated azure-native:dataprotection/v20230101:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupPolicy to guarantee forwards compatibility.
  */
 export class BackupPolicy extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class BackupPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BackupPolicy {
+        pulumi.log.warn("BackupPolicy is deprecated: azure-native:dataprotection/v20230101:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupPolicy to guarantee forwards compatibility.")
         return new BackupPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,7 +64,9 @@ export class BackupPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:dataprotection/v20230101:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: BackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BackupPolicy is deprecated: azure-native:dataprotection/v20230101:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

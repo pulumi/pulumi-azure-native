@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a specific Application Insights web test definition.
  */
+/** @deprecated azure-native:insights/v20150501:WebTest is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201005preview:WebTest to guarantee forwards compatibility. */
 export function getWebTest(args: GetWebTestArgs, opts?: pulumi.InvokeOptions): Promise<GetWebTestResult> {
+    pulumi.log.warn("getWebTest is deprecated: azure-native:insights/v20150501:WebTest is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201005preview:WebTest to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20150501:getWebTest", {
@@ -106,6 +108,7 @@ export interface GetWebTestResult {
 /**
  * Get a specific Application Insights web test definition.
  */
+/** @deprecated azure-native:insights/v20150501:WebTest is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201005preview:WebTest to guarantee forwards compatibility. */
 export function getWebTestOutput(args: GetWebTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebTestResult> {
     return pulumi.output(args).apply((a: any) => getWebTest(a, opts))
 }

@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Represents Dynamics365 data connector.
  *
- * @deprecated azure-native:securityinsights/v20220101preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility.
+ * @deprecated azure-native:securityinsights/v20220101preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Dynamics365DataConnector to guarantee forwards compatibility.
  */
 export class Dynamics365DataConnector extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Dynamics365DataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Dynamics365DataConnector {
-        pulumi.log.warn("Dynamics365DataConnector is deprecated: azure-native:securityinsights/v20220101preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility.")
+        pulumi.log.warn("Dynamics365DataConnector is deprecated: azure-native:securityinsights/v20220101preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Dynamics365DataConnector to guarantee forwards compatibility.")
         return new Dynamics365DataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,9 +77,9 @@ export class Dynamics365DataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:securityinsights/v20220101preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility. */
+    /** @deprecated azure-native:securityinsights/v20220101preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Dynamics365DataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: Dynamics365DataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Dynamics365DataConnector is deprecated: azure-native:securityinsights/v20220101preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility.")
+        pulumi.log.warn("Dynamics365DataConnector is deprecated: azure-native:securityinsights/v20220101preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Dynamics365DataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

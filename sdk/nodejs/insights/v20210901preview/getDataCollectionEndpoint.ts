@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Definition of ARM tracked top level resource.
  */
+/** @deprecated azure-native:insights/v20210901preview:DataCollectionEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionEndpoint to guarantee forwards compatibility. */
 export function getDataCollectionEndpoint(args: GetDataCollectionEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionEndpointResult> {
+    pulumi.log.warn("getDataCollectionEndpoint is deprecated: azure-native:insights/v20210901preview:DataCollectionEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionEndpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20210901preview:getDataCollectionEndpoint", {
@@ -94,6 +96,7 @@ export interface GetDataCollectionEndpointResult {
 /**
  * Definition of ARM tracked top level resource.
  */
+/** @deprecated azure-native:insights/v20210901preview:DataCollectionEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionEndpoint to guarantee forwards compatibility. */
 export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionEndpointResult> {
     return pulumi.output(args).apply((a: any) => getDataCollectionEndpoint(a, opts))
 }

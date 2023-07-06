@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
  */
+/** @deprecated azure-native:operationalinsights/v20190901:Query is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:Query to guarantee forwards compatibility. */
 export function getQuery(args: GetQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryResult> {
+    pulumi.log.warn("getQuery is deprecated: azure-native:operationalinsights/v20190901:Query is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:Query to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20190901:getQuery", {
@@ -95,6 +97,7 @@ export interface GetQueryResult {
 /**
  * Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
  */
+/** @deprecated azure-native:operationalinsights/v20190901:Query is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:Query to guarantee forwards compatibility. */
 export function getQueryOutput(args: GetQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryResult> {
     return pulumi.output(args).apply((a: any) => getQuery(a, opts))
 }

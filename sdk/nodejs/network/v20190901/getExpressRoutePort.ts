@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the requested ExpressRoutePort resource.
  */
-/** @deprecated azure-native:network/v20190901:ExpressRoutePort is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRoutePort to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20190901:ExpressRoutePort is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ExpressRoutePort to guarantee forwards compatibility. */
 export function getExpressRoutePort(args: GetExpressRoutePortArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRoutePortResult> {
-    pulumi.log.warn("getExpressRoutePort is deprecated: azure-native:network/v20190901:ExpressRoutePort is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRoutePort to guarantee forwards compatibility.")
+    pulumi.log.warn("getExpressRoutePort is deprecated: azure-native:network/v20190901:ExpressRoutePort is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ExpressRoutePort to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190901:getExpressRoutePort", {
@@ -112,7 +112,7 @@ export interface GetExpressRoutePortResult {
 /**
  * Retrieves the requested ExpressRoutePort resource.
  */
-/** @deprecated azure-native:network/v20190901:ExpressRoutePort is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRoutePort to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20190901:ExpressRoutePort is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ExpressRoutePort to guarantee forwards compatibility. */
 export function getExpressRoutePortOutput(args: GetExpressRoutePortOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRoutePortResult> {
     return pulumi.output(args).apply((a: any) => getExpressRoutePort(a, opts))
 }

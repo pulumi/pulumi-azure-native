@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a specific project.
  */
+/** @deprecated azure-native:devcenter/v20221111preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Project to guarantee forwards compatibility. */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
+    pulumi.log.warn("getProject is deprecated: azure-native:devcenter/v20221111preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Project to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20221111preview:getProject", {
@@ -78,6 +80,7 @@ export interface GetProjectResult {
 /**
  * Gets a specific project.
  */
+/** @deprecated azure-native:devcenter/v20221111preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Project to guarantee forwards compatibility. */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply((a: any) => getProject(a, opts))
 }

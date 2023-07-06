@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns content item details
  */
-/** @deprecated azure-native:apimanagement/v20191201:ContentItem is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ContentItem to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20191201:ContentItem is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ContentItem to guarantee forwards compatibility. */
 export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOptions): Promise<GetContentItemResult> {
-    pulumi.log.warn("getContentItem is deprecated: azure-native:apimanagement/v20191201:ContentItem is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ContentItem to guarantee forwards compatibility.")
+    pulumi.log.warn("getContentItem is deprecated: azure-native:apimanagement/v20191201:ContentItem is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ContentItem to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201:getContentItem", {
@@ -63,7 +63,7 @@ export interface GetContentItemResult {
 /**
  * Returns content item details
  */
-/** @deprecated azure-native:apimanagement/v20191201:ContentItem is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ContentItem to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20191201:ContentItem is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ContentItem to guarantee forwards compatibility. */
 export function getContentItemOutput(args: GetContentItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentItemResult> {
     return pulumi.output(args).apply((a: any) => getContentItem(a, opts))
 }

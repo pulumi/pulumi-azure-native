@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the SAP Database Instance resource.
  */
+/** @deprecated azure-native:workloads/v20211201preview:SAPDatabaseInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPDatabaseInstance to guarantee forwards compatibility. */
 export function getSAPDatabaseInstance(args: GetSAPDatabaseInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPDatabaseInstanceResult> {
+    pulumi.log.warn("getSAPDatabaseInstance is deprecated: azure-native:workloads/v20211201preview:SAPDatabaseInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPDatabaseInstance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20211201preview:getSAPDatabaseInstance", {
@@ -103,6 +105,7 @@ export interface GetSAPDatabaseInstanceResult {
 /**
  * Gets the SAP Database Instance resource.
  */
+/** @deprecated azure-native:workloads/v20211201preview:SAPDatabaseInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPDatabaseInstance to guarantee forwards compatibility. */
 export function getSAPDatabaseInstanceOutput(args: GetSAPDatabaseInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPDatabaseInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSAPDatabaseInstance(a, opts))
 }

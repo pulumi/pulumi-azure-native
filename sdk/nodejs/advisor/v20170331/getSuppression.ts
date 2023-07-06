@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Obtains the details of a suppression.
  */
 /** @deprecated Version 2017-03-31 will be removed in v2 of the provider.
-azure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility. */
+azure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20230101:Suppression to guarantee forwards compatibility. */
 export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionResult> {
-    pulumi.log.warn("getSuppression is deprecated: Version 2017-03-31 will be removed in v2 of the provider.\nazure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility.")
+    pulumi.log.warn("getSuppression is deprecated: Version 2017-03-31 will be removed in v2 of the provider.\nazure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20230101:Suppression to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:advisor/v20170331:getSuppression", {
@@ -64,7 +64,7 @@ export interface GetSuppressionResult {
  * Obtains the details of a suppression.
  */
 /** @deprecated Version 2017-03-31 will be removed in v2 of the provider.
-azure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20221001:Suppression to guarantee forwards compatibility. */
+azure-native:advisor/v20170331:Suppression is being removed in the next major version of this provider. Upgrade to at least azure-native:advisor/v20230101:Suppression to guarantee forwards compatibility. */
 export function getSuppressionOutput(args: GetSuppressionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuppressionResult> {
     return pulumi.output(args).apply((a: any) => getSuppression(a, opts))
 }

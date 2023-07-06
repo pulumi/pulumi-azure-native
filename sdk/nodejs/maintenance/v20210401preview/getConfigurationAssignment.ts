@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get configuration for resource.
  */
+/** @deprecated azure-native:maintenance/v20210401preview:ConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignment to guarantee forwards compatibility. */
 export function getConfigurationAssignment(args: GetConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAssignmentResult> {
+    pulumi.log.warn("getConfigurationAssignment is deprecated: azure-native:maintenance/v20210401preview:ConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maintenance/v20210401preview:getConfigurationAssignment", {
@@ -81,6 +83,7 @@ export interface GetConfigurationAssignmentResult {
 /**
  * Get configuration for resource.
  */
+/** @deprecated azure-native:maintenance/v20210401preview:ConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignment to guarantee forwards compatibility. */
 export function getConfigurationAssignmentOutput(args: GetConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationAssignment(a, opts))
 }

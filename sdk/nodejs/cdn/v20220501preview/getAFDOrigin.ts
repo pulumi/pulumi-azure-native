@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing origin within an origin group.
  */
-/** @deprecated azure-native:cdn/v20220501preview:AFDOrigin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDOrigin to guarantee forwards compatibility. */
+/** @deprecated azure-native:cdn/v20220501preview:AFDOrigin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDOrigin to guarantee forwards compatibility. */
 export function getAFDOrigin(args: GetAFDOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginResult> {
-    pulumi.log.warn("getAFDOrigin is deprecated: azure-native:cdn/v20220501preview:AFDOrigin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDOrigin to guarantee forwards compatibility.")
+    pulumi.log.warn("getAFDOrigin is deprecated: azure-native:cdn/v20220501preview:AFDOrigin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDOrigin to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20220501preview:getAFDOrigin", {
@@ -115,7 +115,7 @@ export interface GetAFDOriginResult {
 /**
  * Gets an existing origin within an origin group.
  */
-/** @deprecated azure-native:cdn/v20220501preview:AFDOrigin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDOrigin to guarantee forwards compatibility. */
+/** @deprecated azure-native:cdn/v20220501preview:AFDOrigin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDOrigin to guarantee forwards compatibility. */
 export function getAFDOriginOutput(args: GetAFDOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDOriginResult> {
     return pulumi.output(args).apply((a: any) => getAFDOrigin(a, opts))
 }

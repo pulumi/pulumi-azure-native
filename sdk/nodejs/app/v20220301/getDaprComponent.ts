@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Dapr Component.
  */
+/** @deprecated azure-native:app/v20220301:DaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:DaprComponent to guarantee forwards compatibility. */
 export function getDaprComponent(args: GetDaprComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetDaprComponentResult> {
+    pulumi.log.warn("getDaprComponent is deprecated: azure-native:app/v20220301:DaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:DaprComponent to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20220301:getDaprComponent", {
@@ -87,6 +89,7 @@ export interface GetDaprComponentResult {
 /**
  * Dapr Component.
  */
+/** @deprecated azure-native:app/v20220301:DaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:DaprComponent to guarantee forwards compatibility. */
 export function getDaprComponentOutput(args: GetDaprComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaprComponentResult> {
     return pulumi.output(args).apply((a: any) => getDaprComponent(a, opts))
 }

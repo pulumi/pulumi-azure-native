@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a tenant action group.
  */
+/** @deprecated azure-native:insights/v20230301preview:TenantActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230501preview:TenantActionGroup to guarantee forwards compatibility. */
 export function getTenantActionGroup(args: GetTenantActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantActionGroupResult> {
+    pulumi.log.warn("getTenantActionGroup is deprecated: azure-native:insights/v20230301preview:TenantActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230501preview:TenantActionGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20230301preview:getTenantActionGroup", {
@@ -86,6 +88,7 @@ export interface GetTenantActionGroupResult {
 /**
  * Get a tenant action group.
  */
+/** @deprecated azure-native:insights/v20230301preview:TenantActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230501preview:TenantActionGroup to guarantee forwards compatibility. */
 export function getTenantActionGroupOutput(args: GetTenantActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantActionGroupResult> {
     return pulumi.output(args).apply((a: any) => getTenantActionGroup(a, opts))
 }

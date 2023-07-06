@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the user provided function app registered with a static site build
  */
+/** @deprecated azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSiteBuild to guarantee forwards compatibility. */
 export function getStaticSiteUserProvidedFunctionAppForStaticSiteBuild(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult> {
+    pulumi.log.warn("getStaticSiteUserProvidedFunctionAppForStaticSiteBuild is deprecated: azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSiteBuild to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201201:getStaticSiteUserProvidedFunctionAppForStaticSiteBuild", {
@@ -73,6 +75,7 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult {
 /**
  * Gets the details of the user provided function app registered with a static site build
  */
+/** @deprecated azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSiteBuild to guarantee forwards compatibility. */
 export function getStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult> {
     return pulumi.output(args).apply((a: any) => getStaticSiteUserProvidedFunctionAppForStaticSiteBuild(a, opts))
 }

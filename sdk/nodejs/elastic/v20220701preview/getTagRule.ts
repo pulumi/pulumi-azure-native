@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
  */
-/** @deprecated azure-native:elastic/v20220701preview:TagRule is being removed in the next major version of this provider. Upgrade to at least azure-native:elastic/v20220901preview:TagRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:elastic/v20220701preview:TagRule is being removed in the next major version of this provider. Upgrade to at least azure-native:elastic/v20230615preview:TagRule to guarantee forwards compatibility. */
 export function getTagRule(args: GetTagRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTagRuleResult> {
-    pulumi.log.warn("getTagRule is deprecated: azure-native:elastic/v20220701preview:TagRule is being removed in the next major version of this provider. Upgrade to at least azure-native:elastic/v20220901preview:TagRule to guarantee forwards compatibility.")
+    pulumi.log.warn("getTagRule is deprecated: azure-native:elastic/v20220701preview:TagRule is being removed in the next major version of this provider. Upgrade to at least azure-native:elastic/v20230615preview:TagRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic/v20220701preview:getTagRule", {
@@ -65,7 +65,7 @@ export interface GetTagRuleResult {
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
  */
-/** @deprecated azure-native:elastic/v20220701preview:TagRule is being removed in the next major version of this provider. Upgrade to at least azure-native:elastic/v20220901preview:TagRule to guarantee forwards compatibility. */
+/** @deprecated azure-native:elastic/v20220701preview:TagRule is being removed in the next major version of this provider. Upgrade to at least azure-native:elastic/v20230615preview:TagRule to guarantee forwards compatibility. */
 export function getTagRuleOutput(args: GetTagRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagRuleResult> {
     return pulumi.output(args).apply((a: any) => getTagRule(a, opts))
 }

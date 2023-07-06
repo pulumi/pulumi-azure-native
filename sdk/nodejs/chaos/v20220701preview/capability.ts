@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Model that represents a Capability resource.
  *
- * @deprecated azure-native:chaos/v20220701preview:Capability is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Capability to guarantee forwards compatibility.
+ * @deprecated azure-native:chaos/v20220701preview:Capability is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Capability to guarantee forwards compatibility.
  */
 export class Capability extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Capability extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Capability {
-        pulumi.log.warn("Capability is deprecated: azure-native:chaos/v20220701preview:Capability is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Capability to guarantee forwards compatibility.")
+        pulumi.log.warn("Capability is deprecated: azure-native:chaos/v20220701preview:Capability is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Capability to guarantee forwards compatibility.")
         return new Capability(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,9 +64,9 @@ export class Capability extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:chaos/v20220701preview:Capability is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Capability to guarantee forwards compatibility. */
+    /** @deprecated azure-native:chaos/v20220701preview:Capability is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Capability to guarantee forwards compatibility. */
     constructor(name: string, args: CapabilityArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Capability is deprecated: azure-native:chaos/v20220701preview:Capability is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Capability to guarantee forwards compatibility.")
+        pulumi.log.warn("Capability is deprecated: azure-native:chaos/v20220701preview:Capability is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Capability to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

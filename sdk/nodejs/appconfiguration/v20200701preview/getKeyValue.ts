@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified key-value.
  */
+/** @deprecated azure-native:appconfiguration/v20200701preview:KeyValue is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility. */
 export function getKeyValue(args: GetKeyValueArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyValueResult> {
+    pulumi.log.warn("getKeyValue is deprecated: azure-native:appconfiguration/v20200701preview:KeyValue is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20200701preview:getKeyValue", {
@@ -88,6 +90,7 @@ export interface GetKeyValueResult {
 /**
  * Gets the properties of the specified key-value.
  */
+/** @deprecated azure-native:appconfiguration/v20200701preview:KeyValue is being removed in the next major version of this provider. Upgrade to at least azure-native:appconfiguration/v20230301:KeyValue to guarantee forwards compatibility. */
 export function getKeyValueOutput(args: GetKeyValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyValueResult> {
     return pulumi.output(args).apply((a: any) => getKeyValue(a, opts))
 }

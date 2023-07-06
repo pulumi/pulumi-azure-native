@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get information about a virtual machine image template
  */
+/** @deprecated azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility. */
 export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineImageTemplateResult> {
+    pulumi.log.warn("getVirtualMachineImageTemplate is deprecated: azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:virtualmachineimages/v20200214:getVirtualMachineImageTemplate", {
@@ -94,6 +96,7 @@ export interface GetVirtualMachineImageTemplateResult {
 /**
  * Get information about a virtual machine image template
  */
+/** @deprecated azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate to guarantee forwards compatibility. */
 export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineImageTemplate(a, opts))
 }

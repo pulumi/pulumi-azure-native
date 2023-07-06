@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Resource representation of a workflow
  */
+/** @deprecated azure-native:devhub/v20220401preview:Workflow is being removed in the next major version of this provider. Upgrade to at least azure-native:devhub/v20221011preview:Workflow to guarantee forwards compatibility. */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
+    pulumi.log.warn("getWorkflow is deprecated: azure-native:devhub/v20220401preview:Workflow is being removed in the next major version of this provider. Upgrade to at least azure-native:devhub/v20221011preview:Workflow to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devhub/v20220401preview:getWorkflow", {
@@ -116,6 +118,7 @@ export interface GetWorkflowResult {
 /**
  * Resource representation of a workflow
  */
+/** @deprecated azure-native:devhub/v20220401preview:Workflow is being removed in the next major version of this provider. Upgrade to at least azure-native:devhub/v20221011preview:Workflow to guarantee forwards compatibility. */
 export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
     return pulumi.output(args).apply((a: any) => getWorkflow(a, opts))
 }

@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Represents IoT data connector.
  *
- * @deprecated azure-native:securityinsights/v20221101preview:IoTDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility.
+ * @deprecated azure-native:securityinsights/v20221101preview:IoTDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:IoTDataConnector to guarantee forwards compatibility.
  */
 export class IoTDataConnector extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class IoTDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IoTDataConnector {
-        pulumi.log.warn("IoTDataConnector is deprecated: azure-native:securityinsights/v20221101preview:IoTDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility.")
+        pulumi.log.warn("IoTDataConnector is deprecated: azure-native:securityinsights/v20221101preview:IoTDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:IoTDataConnector to guarantee forwards compatibility.")
         return new IoTDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,9 +77,9 @@ export class IoTDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:securityinsights/v20221101preview:IoTDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility. */
+    /** @deprecated azure-native:securityinsights/v20221101preview:IoTDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:IoTDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: IoTDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("IoTDataConnector is deprecated: azure-native:securityinsights/v20221101preview:IoTDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IoTDataConnector to guarantee forwards compatibility.")
+        pulumi.log.warn("IoTDataConnector is deprecated: azure-native:securityinsights/v20221101preview:IoTDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:IoTDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

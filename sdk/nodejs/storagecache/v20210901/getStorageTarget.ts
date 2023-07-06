@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a Storage Target from a Cache.
  */
-/** @deprecated azure-native:storagecache/v20210901:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230301preview:StorageTarget to guarantee forwards compatibility. */
+/** @deprecated azure-native:storagecache/v20210901:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230501:StorageTarget to guarantee forwards compatibility. */
 export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTargetResult> {
-    pulumi.log.warn("getStorageTarget is deprecated: azure-native:storagecache/v20210901:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230301preview:StorageTarget to guarantee forwards compatibility.")
+    pulumi.log.warn("getStorageTarget is deprecated: azure-native:storagecache/v20210901:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230501:StorageTarget to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagecache/v20210901:getStorageTarget", {
@@ -97,7 +97,7 @@ export interface GetStorageTargetResult {
 /**
  * Returns a Storage Target from a Cache.
  */
-/** @deprecated azure-native:storagecache/v20210901:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230301preview:StorageTarget to guarantee forwards compatibility. */
+/** @deprecated azure-native:storagecache/v20210901:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230501:StorageTarget to guarantee forwards compatibility. */
 export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTargetResult> {
     return pulumi.output(args).apply((a: any) => getStorageTarget(a, opts))
 }

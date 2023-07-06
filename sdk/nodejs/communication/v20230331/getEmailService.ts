@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the EmailService and its properties.
  */
+/** @deprecated azure-native:communication/v20230331:EmailService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:EmailService to guarantee forwards compatibility. */
 export function getEmailService(args: GetEmailServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailServiceResult> {
+    pulumi.log.warn("getEmailService is deprecated: azure-native:communication/v20230331:EmailService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:EmailService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:communication/v20230331:getEmailService", {
@@ -70,6 +72,7 @@ export interface GetEmailServiceResult {
 /**
  * Get the EmailService and its properties.
  */
+/** @deprecated azure-native:communication/v20230331:EmailService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:EmailService to guarantee forwards compatibility. */
 export function getEmailServiceOutput(args: GetEmailServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailServiceResult> {
     return pulumi.output(args).apply((a: any) => getEmailService(a, opts))
 }

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a specified connection created by this management group.
  */
-/** @deprecated azure-native:network/v20220501:ManagementGroupNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ManagementGroupNetworkManagerConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220501:ManagementGroupNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ManagementGroupNetworkManagerConnection to guarantee forwards compatibility. */
 export function getManagementGroupNetworkManagerConnection(args: GetManagementGroupNetworkManagerConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupNetworkManagerConnectionResult> {
-    pulumi.log.warn("getManagementGroupNetworkManagerConnection is deprecated: azure-native:network/v20220501:ManagementGroupNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ManagementGroupNetworkManagerConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getManagementGroupNetworkManagerConnection is deprecated: azure-native:network/v20220501:ManagementGroupNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ManagementGroupNetworkManagerConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220501:getManagementGroupNetworkManagerConnection", {
@@ -68,7 +68,7 @@ export interface GetManagementGroupNetworkManagerConnectionResult {
 /**
  * Get a specified connection created by this management group.
  */
-/** @deprecated azure-native:network/v20220501:ManagementGroupNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ManagementGroupNetworkManagerConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220501:ManagementGroupNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ManagementGroupNetworkManagerConnection to guarantee forwards compatibility. */
 export function getManagementGroupNetworkManagerConnectionOutput(args: GetManagementGroupNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupNetworkManagerConnectionResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroupNetworkManagerConnection(a, opts))
 }

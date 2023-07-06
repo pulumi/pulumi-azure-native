@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an installed packages by its id.
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:ContentPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ContentPackage to guarantee forwards compatibility. */
 export function getContentPackage(args: GetContentPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetContentPackageResult> {
+    pulumi.log.warn("getContentPackage is deprecated: azure-native:securityinsights/v20230401preview:ContentPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ContentPackage to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230401preview:getContentPackage", {
@@ -147,6 +149,7 @@ export interface GetContentPackageResult {
 /**
  * Gets an installed packages by its id.
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:ContentPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ContentPackage to guarantee forwards compatibility. */
 export function getContentPackageOutput(args: GetContentPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentPackageResult> {
     return pulumi.output(args).apply((a: any) => getContentPackage(a, opts))
 }

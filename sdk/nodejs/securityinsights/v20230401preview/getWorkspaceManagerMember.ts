@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a workspace manager member
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:WorkspaceManagerMember is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerMember to guarantee forwards compatibility. */
 export function getWorkspaceManagerMember(args: GetWorkspaceManagerMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceManagerMemberResult> {
+    pulumi.log.warn("getWorkspaceManagerMember is deprecated: azure-native:securityinsights/v20230401preview:WorkspaceManagerMember is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerMember to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230401preview:getWorkspaceManagerMember", {
@@ -71,6 +73,7 @@ export interface GetWorkspaceManagerMemberResult {
 /**
  * Gets a workspace manager member
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:WorkspaceManagerMember is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerMember to guarantee forwards compatibility. */
 export function getWorkspaceManagerMemberOutput(args: GetWorkspaceManagerMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceManagerMemberResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceManagerMember(a, opts))
 }

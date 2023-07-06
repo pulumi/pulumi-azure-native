@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the subscription-level key used for Real User Metrics collection.
  */
+/** @deprecated azure-native:network/v20180801:TrafficManagerUserMetricsKey is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:TrafficManagerUserMetricsKey to guarantee forwards compatibility. */
 export function getTrafficManagerUserMetricsKey(args?: GetTrafficManagerUserMetricsKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerUserMetricsKeyResult> {
+    pulumi.log.warn("getTrafficManagerUserMetricsKey is deprecated: azure-native:network/v20180801:TrafficManagerUserMetricsKey is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:TrafficManagerUserMetricsKey to guarantee forwards compatibility.")
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

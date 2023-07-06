@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * A vSphere Distributed Resource Scheduler (DRS) placement policy
  */
+/** @deprecated azure-native:avs/v20211201:PlacementPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:PlacementPolicy to guarantee forwards compatibility. */
 export function getPlacementPolicy(args: GetPlacementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementPolicyResult> {
+    pulumi.log.warn("getPlacementPolicy is deprecated: azure-native:avs/v20211201:PlacementPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:PlacementPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getPlacementPolicy", {
@@ -64,6 +66,7 @@ export interface GetPlacementPolicyResult {
 /**
  * A vSphere Distributed Resource Scheduler (DRS) placement policy
  */
+/** @deprecated azure-native:avs/v20211201:PlacementPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:PlacementPolicy to guarantee forwards compatibility. */
 export function getPlacementPolicyOutput(args: GetPlacementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPlacementPolicy(a, opts))
 }

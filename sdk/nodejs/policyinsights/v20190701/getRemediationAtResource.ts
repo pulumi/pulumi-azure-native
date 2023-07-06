@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing remediation at resource scope.
  */
+/** @deprecated azure-native:policyinsights/v20190701:RemediationAtResource is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtResource to guarantee forwards compatibility. */
 export function getRemediationAtResource(args: GetRemediationAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtResourceResult> {
+    pulumi.log.warn("getRemediationAtResource is deprecated: azure-native:policyinsights/v20190701:RemediationAtResource is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtResource to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights/v20190701:getRemediationAtResource", {
@@ -82,6 +84,7 @@ export interface GetRemediationAtResourceResult {
 /**
  * Gets an existing remediation at resource scope.
  */
+/** @deprecated azure-native:policyinsights/v20190701:RemediationAtResource is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtResource to guarantee forwards compatibility. */
 export function getRemediationAtResourceOutput(args: GetRemediationAtResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtResourceResult> {
     return pulumi.output(args).apply((a: any) => getRemediationAtResource(a, opts))
 }

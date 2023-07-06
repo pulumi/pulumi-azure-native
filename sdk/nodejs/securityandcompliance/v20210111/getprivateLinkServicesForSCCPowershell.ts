@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get the metadata of a privateLinkServicesForSCCPowershell resource.
  */
-/** @deprecated azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell to guarantee forwards compatibility. */
 export function getprivateLinkServicesForSCCPowershell(args: GetprivateLinkServicesForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForSCCPowershellResult> {
-    pulumi.log.warn("getprivateLinkServicesForSCCPowershell is deprecated: azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210111:getprivateLinkServicesForSCCPowershell", {
@@ -80,7 +78,6 @@ export interface GetprivateLinkServicesForSCCPowershellResult {
 /**
  * Get the metadata of a privateLinkServicesForSCCPowershell resource.
  */
-/** @deprecated azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell to guarantee forwards compatibility. */
 export function getprivateLinkServicesForSCCPowershellOutput(args: GetprivateLinkServicesForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetprivateLinkServicesForSCCPowershellResult> {
     return pulumi.output(args).apply((a: any) => getprivateLinkServicesForSCCPowershell(a, opts))
 }

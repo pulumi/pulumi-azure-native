@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the resource and its properties.
  */
-/** @deprecated azure-native:signalrservice/v20211001:SignalR is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalR to guarantee forwards compatibility. */
+/** @deprecated azure-native:signalrservice/v20211001:SignalR is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalR to guarantee forwards compatibility. */
 export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRResult> {
-    pulumi.log.warn("getSignalR is deprecated: azure-native:signalrservice/v20211001:SignalR is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalR to guarantee forwards compatibility.")
+    pulumi.log.warn("getSignalR is deprecated: azure-native:signalrservice/v20211001:SignalR is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalR to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:signalrservice/v20211001:getSignalR", {
@@ -159,7 +159,7 @@ export interface GetSignalRResult {
 /**
  * Get the resource and its properties.
  */
-/** @deprecated azure-native:signalrservice/v20211001:SignalR is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalR to guarantee forwards compatibility. */
+/** @deprecated azure-native:signalrservice/v20211001:SignalR is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalR to guarantee forwards compatibility. */
 export function getSignalROutput(args: GetSignalROutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRResult> {
     return pulumi.output(args).apply((a: any) => getSignalR(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a label in the given workspace.
  */
+/** @deprecated azure-native:easm/v20220401preview:LabelByWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:easm/v20230401preview:LabelByWorkspace to guarantee forwards compatibility. */
 export function getLabelByWorkspace(args: GetLabelByWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelByWorkspaceResult> {
+    pulumi.log.warn("getLabelByWorkspace is deprecated: azure-native:easm/v20220401preview:LabelByWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:easm/v20230401preview:LabelByWorkspace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:easm/v20220401preview:getLabelByWorkspace", {
@@ -71,6 +73,7 @@ export interface GetLabelByWorkspaceResult {
 /**
  * Returns a label in the given workspace.
  */
+/** @deprecated azure-native:easm/v20220401preview:LabelByWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:easm/v20230401preview:LabelByWorkspace to guarantee forwards compatibility. */
 export function getLabelByWorkspaceOutput(args: GetLabelByWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelByWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getLabelByWorkspace(a, opts))
 }

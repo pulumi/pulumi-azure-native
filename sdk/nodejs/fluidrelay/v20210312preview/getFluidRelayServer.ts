@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * A FluidRelay Server.
  */
+/** @deprecated azure-native:fluidrelay/v20210312preview:FluidRelayServer is being removed in the next major version of this provider. Upgrade to at least azure-native:fluidrelay/v20210615preview:FluidRelayServer to guarantee forwards compatibility. */
 export function getFluidRelayServer(args: GetFluidRelayServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFluidRelayServerResult> {
+    pulumi.log.warn("getFluidRelayServer is deprecated: azure-native:fluidrelay/v20210312preview:FluidRelayServer is being removed in the next major version of this provider. Upgrade to at least azure-native:fluidrelay/v20210615preview:FluidRelayServer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:fluidrelay/v20210312preview:getFluidRelayServer", {
@@ -74,6 +76,7 @@ export interface GetFluidRelayServerResult {
 /**
  * A FluidRelay Server.
  */
+/** @deprecated azure-native:fluidrelay/v20210312preview:FluidRelayServer is being removed in the next major version of this provider. Upgrade to at least azure-native:fluidrelay/v20210615preview:FluidRelayServer to guarantee forwards compatibility. */
 export function getFluidRelayServerOutput(args: GetFluidRelayServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluidRelayServerResult> {
     return pulumi.output(args).apply((a: any) => getFluidRelayServer(a, opts))
 }

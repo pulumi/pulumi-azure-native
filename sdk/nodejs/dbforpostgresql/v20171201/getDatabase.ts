@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a database.
  */
+/** @deprecated azure-native:dbforpostgresql/v20171201:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Database to guarantee forwards compatibility. */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
+    pulumi.log.warn("getDatabase is deprecated: azure-native:dbforpostgresql/v20171201:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Database to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20171201:getDatabase", {
@@ -60,6 +62,7 @@ export interface GetDatabaseResult {
 /**
  * Gets information about a database.
  */
+/** @deprecated azure-native:dbforpostgresql/v20171201:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Database to guarantee forwards compatibility. */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
 }

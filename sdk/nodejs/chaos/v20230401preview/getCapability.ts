@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Capability resource that extends a Target resource.
  */
+/** @deprecated azure-native:chaos/v20230401preview:Capability is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Capability to guarantee forwards compatibility. */
 export function getCapability(args: GetCapabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetCapabilityResult> {
+    pulumi.log.warn("getCapability is deprecated: azure-native:chaos/v20230401preview:Capability is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Capability to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:chaos/v20230401preview:getCapability", {
@@ -78,6 +80,7 @@ export interface GetCapabilityResult {
 /**
  * Get a Capability resource that extends a Target resource.
  */
+/** @deprecated azure-native:chaos/v20230401preview:Capability is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Capability to guarantee forwards compatibility. */
 export function getCapabilityOutput(args: GetCapabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapabilityResult> {
     return pulumi.output(args).apply((a: any) => getCapability(a, opts))
 }

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified route table.
  */
-/** @deprecated azure-native:network/v20210801:RouteTable is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteTable to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210801:RouteTable is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:RouteTable to guarantee forwards compatibility. */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
-    pulumi.log.warn("getRouteTable is deprecated: azure-native:network/v20210801:RouteTable is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteTable to guarantee forwards compatibility.")
+    pulumi.log.warn("getRouteTable is deprecated: azure-native:network/v20210801:RouteTable is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:RouteTable to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210801:getRouteTable", {
@@ -89,7 +89,7 @@ export interface GetRouteTableResult {
 /**
  * Gets the specified route table.
  */
-/** @deprecated azure-native:network/v20210801:RouteTable is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteTable to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210801:RouteTable is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:RouteTable to guarantee forwards compatibility. */
 export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
     return pulumi.output(args).apply((a: any) => getRouteTable(a, opts))
 }

@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB storedProcedure.
  *
- * @deprecated azure-native:documentdb/v20210415:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.
+ * @deprecated azure-native:documentdb/v20210415:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.
  */
 export class SqlResourceSqlStoredProcedure extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class SqlResourceSqlStoredProcedure extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlResourceSqlStoredProcedure {
-        pulumi.log.warn("SqlResourceSqlStoredProcedure is deprecated: azure-native:documentdb/v20210415:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.")
+        pulumi.log.warn("SqlResourceSqlStoredProcedure is deprecated: azure-native:documentdb/v20210415:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.")
         return new SqlResourceSqlStoredProcedure(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,9 +65,9 @@ export class SqlResourceSqlStoredProcedure extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:documentdb/v20210415:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility. */
+    /** @deprecated azure-native:documentdb/v20210415:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility. */
     constructor(name: string, args: SqlResourceSqlStoredProcedureArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SqlResourceSqlStoredProcedure is deprecated: azure-native:documentdb/v20210415:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.")
+        pulumi.log.warn("SqlResourceSqlStoredProcedure is deprecated: azure-native:documentdb/v20210415:SqlResourceSqlStoredProcedure is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:SqlResourceSqlStoredProcedure to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

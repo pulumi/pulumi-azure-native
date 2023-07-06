@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Maintenance configuration record type
  */
+/** @deprecated azure-native:maintenance/v20200401:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility. */
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {
+    pulumi.log.warn("getMaintenanceConfiguration is deprecated: azure-native:maintenance/v20200401:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maintenance/v20200401:getMaintenanceConfiguration", {
@@ -67,6 +69,7 @@ export interface GetMaintenanceConfigurationResult {
 /**
  * Maintenance configuration record type
  */
+/** @deprecated azure-native:maintenance/v20200401:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:MaintenanceConfiguration to guarantee forwards compatibility. */
 export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getMaintenanceConfiguration(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the Workspace resource associated with the given name.
  */
+/** @deprecated azure-native:quantum/v20191104preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:quantum/v20220110preview:Workspace to guarantee forwards compatibility. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
+    pulumi.log.warn("getWorkspace is deprecated: azure-native:quantum/v20191104preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:quantum/v20220110preview:Workspace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:quantum/v20191104preview:getWorkspace", {
@@ -86,6 +88,7 @@ export interface GetWorkspaceResult {
 /**
  * Returns the Workspace resource associated with the given name.
  */
+/** @deprecated azure-native:quantum/v20191104preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:quantum/v20220110preview:Workspace to guarantee forwards compatibility. */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }

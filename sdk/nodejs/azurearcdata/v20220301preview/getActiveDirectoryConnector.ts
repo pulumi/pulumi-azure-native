@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves an Active Directory connector resource
  */
+/** @deprecated azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector to guarantee forwards compatibility. */
 export function getActiveDirectoryConnector(args: GetActiveDirectoryConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetActiveDirectoryConnectorResult> {
+    pulumi.log.warn("getActiveDirectoryConnector is deprecated: azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20220301preview:getActiveDirectoryConnector", {
@@ -63,6 +65,7 @@ export interface GetActiveDirectoryConnectorResult {
 /**
  * Retrieves an Active Directory connector resource
  */
+/** @deprecated azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector to guarantee forwards compatibility. */
 export function getActiveDirectoryConnectorOutput(args: GetActiveDirectoryConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveDirectoryConnectorResult> {
     return pulumi.output(args).apply((a: any) => getActiveDirectoryConnector(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a workspace manager group
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:WorkspaceManagerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerGroup to guarantee forwards compatibility. */
 export function getWorkspaceManagerGroup(args: GetWorkspaceManagerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceManagerGroupResult> {
+    pulumi.log.warn("getWorkspaceManagerGroup is deprecated: azure-native:securityinsights/v20230401preview:WorkspaceManagerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230401preview:getWorkspaceManagerGroup", {
@@ -75,6 +77,7 @@ export interface GetWorkspaceManagerGroupResult {
 /**
  * Gets a workspace manager group
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:WorkspaceManagerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerGroup to guarantee forwards compatibility. */
 export function getWorkspaceManagerGroupOutput(args: GetWorkspaceManagerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceManagerGroupResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceManagerGroup(a, opts))
 }

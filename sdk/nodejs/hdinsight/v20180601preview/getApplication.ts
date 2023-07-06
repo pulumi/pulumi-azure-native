@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets properties of the specified application.
  */
+/** @deprecated azure-native:hdinsight/v20180601preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:Application to guarantee forwards compatibility. */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
+    pulumi.log.warn("getApplication is deprecated: azure-native:hdinsight/v20180601preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:Application to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hdinsight/v20180601preview:getApplication", {
@@ -67,6 +69,7 @@ export interface GetApplicationResult {
 /**
  * Gets properties of the specified application.
  */
+/** @deprecated azure-native:hdinsight/v20180601preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:Application to guarantee forwards compatibility. */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }

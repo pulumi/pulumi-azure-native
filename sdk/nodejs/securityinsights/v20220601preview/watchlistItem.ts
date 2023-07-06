@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Represents a Watchlist item in Azure Security Insights.
  *
- * @deprecated azure-native:securityinsights/v20220601preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:WatchlistItem to guarantee forwards compatibility.
+ * @deprecated azure-native:securityinsights/v20220601preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WatchlistItem to guarantee forwards compatibility.
  */
 export class WatchlistItem extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class WatchlistItem extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WatchlistItem {
-        pulumi.log.warn("WatchlistItem is deprecated: azure-native:securityinsights/v20220601preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:WatchlistItem to guarantee forwards compatibility.")
+        pulumi.log.warn("WatchlistItem is deprecated: azure-native:securityinsights/v20220601preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WatchlistItem to guarantee forwards compatibility.")
         return new WatchlistItem(name, undefined as any, { ...opts, id: id });
     }
 
@@ -104,9 +104,9 @@ export class WatchlistItem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:securityinsights/v20220601preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:WatchlistItem to guarantee forwards compatibility. */
+    /** @deprecated azure-native:securityinsights/v20220601preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WatchlistItem to guarantee forwards compatibility. */
     constructor(name: string, args: WatchlistItemArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WatchlistItem is deprecated: azure-native:securityinsights/v20220601preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:WatchlistItem to guarantee forwards compatibility.")
+        pulumi.log.warn("WatchlistItem is deprecated: azure-native:securityinsights/v20220601preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WatchlistItem to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

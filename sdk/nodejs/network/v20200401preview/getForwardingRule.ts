@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets properties of a forwarding rule in a DNS forwarding ruleset.
  */
+/** @deprecated azure-native:network/v20200401preview:ForwardingRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:ForwardingRule to guarantee forwards compatibility. */
 export function getForwardingRule(args: GetForwardingRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetForwardingRuleResult> {
+    pulumi.log.warn("getForwardingRule is deprecated: azure-native:network/v20200401preview:ForwardingRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:ForwardingRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200401preview:getForwardingRule", {
@@ -83,6 +85,7 @@ export interface GetForwardingRuleResult {
 /**
  * Gets properties of a forwarding rule in a DNS forwarding ruleset.
  */
+/** @deprecated azure-native:network/v20200401preview:ForwardingRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:ForwardingRule to guarantee forwards compatibility. */
 export function getForwardingRuleOutput(args: GetForwardingRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetForwardingRuleResult> {
     return pulumi.output(args).apply((a: any) => getForwardingRule(a, opts))
 }

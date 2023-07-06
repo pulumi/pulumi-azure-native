@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Logger details.
  *
- * @deprecated azure-native:apimanagement/v20210401preview:Logger is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Logger to guarantee forwards compatibility.
+ * @deprecated azure-native:apimanagement/v20210401preview:Logger is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Logger to guarantee forwards compatibility.
  */
 export class Logger extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Logger extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Logger {
-        pulumi.log.warn("Logger is deprecated: azure-native:apimanagement/v20210401preview:Logger is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Logger to guarantee forwards compatibility.")
+        pulumi.log.warn("Logger is deprecated: azure-native:apimanagement/v20210401preview:Logger is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Logger to guarantee forwards compatibility.")
         return new Logger(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,9 +77,9 @@ export class Logger extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20210401preview:Logger is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Logger to guarantee forwards compatibility. */
+    /** @deprecated azure-native:apimanagement/v20210401preview:Logger is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Logger to guarantee forwards compatibility. */
     constructor(name: string, args: LoggerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Logger is deprecated: azure-native:apimanagement/v20210401preview:Logger is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Logger to guarantee forwards compatibility.")
+        pulumi.log.warn("Logger is deprecated: azure-native:apimanagement/v20210401preview:Logger is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Logger to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

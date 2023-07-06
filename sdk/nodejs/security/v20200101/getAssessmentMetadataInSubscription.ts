@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get metadata information on an assessment type in a specific subscription
  */
+/** @deprecated azure-native:security/v20200101:AssessmentMetadataInSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20210601:AssessmentMetadataInSubscription to guarantee forwards compatibility. */
 export function getAssessmentMetadataInSubscription(args: GetAssessmentMetadataInSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentMetadataInSubscriptionResult> {
+    pulumi.log.warn("getAssessmentMetadataInSubscription is deprecated: azure-native:security/v20200101:AssessmentMetadataInSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20210601:AssessmentMetadataInSubscription to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20200101:getAssessmentMetadataInSubscription", {
@@ -87,6 +89,7 @@ export interface GetAssessmentMetadataInSubscriptionResult {
 /**
  * Get metadata information on an assessment type in a specific subscription
  */
+/** @deprecated azure-native:security/v20200101:AssessmentMetadataInSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20210601:AssessmentMetadataInSubscription to guarantee forwards compatibility. */
 export function getAssessmentMetadataInSubscriptionOutput(args: GetAssessmentMetadataInSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentMetadataInSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getAssessmentMetadataInSubscription(a, opts))
 }

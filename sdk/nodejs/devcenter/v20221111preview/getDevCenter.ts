@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a devcenter.
  */
+/** @deprecated azure-native:devcenter/v20221111preview:DevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:DevCenter to guarantee forwards compatibility. */
 export function getDevCenter(args: GetDevCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetDevCenterResult> {
+    pulumi.log.warn("getDevCenter is deprecated: azure-native:devcenter/v20221111preview:DevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:DevCenter to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20221111preview:getDevCenter", {
@@ -74,6 +76,7 @@ export interface GetDevCenterResult {
 /**
  * Gets a devcenter.
  */
+/** @deprecated azure-native:devcenter/v20221111preview:DevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:DevCenter to guarantee forwards compatibility. */
 export function getDevCenterOutput(args: GetDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevCenterResult> {
     return pulumi.output(args).apply((a: any) => getDevCenter(a, opts))
 }

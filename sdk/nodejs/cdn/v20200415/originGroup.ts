@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  *
  * @deprecated Version 2020-04-15 will be removed in v2 of the provider.
-azure-native:cdn/v20200415:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility.
+azure-native:cdn/v20200415:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:OriginGroup to guarantee forwards compatibility.
  */
 export class OriginGroup extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class OriginGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OriginGroup {
-        pulumi.log.warn("OriginGroup is deprecated: Version 2020-04-15 will be removed in v2 of the provider.\nazure-native:cdn/v20200415:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility.")
+        pulumi.log.warn("OriginGroup is deprecated: Version 2020-04-15 will be removed in v2 of the provider.\nazure-native:cdn/v20200415:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:OriginGroup to guarantee forwards compatibility.")
         return new OriginGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -82,9 +82,9 @@ export class OriginGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2020-04-15 will be removed in v2 of the provider.
-azure-native:cdn/v20200415:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility. */
+azure-native:cdn/v20200415:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:OriginGroup to guarantee forwards compatibility. */
     constructor(name: string, args: OriginGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("OriginGroup is deprecated: Version 2020-04-15 will be removed in v2 of the provider.\nazure-native:cdn/v20200415:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility.")
+        pulumi.log.warn("OriginGroup is deprecated: Version 2020-04-15 will be removed in v2 of the provider.\nazure-native:cdn/v20200415:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:OriginGroup to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

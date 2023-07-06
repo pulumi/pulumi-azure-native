@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the properties for the specified encryption scope.
  */
+/** @deprecated azure-native:storage/v20210201:EncryptionScope is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:EncryptionScope to guarantee forwards compatibility. */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
+    pulumi.log.warn("getEncryptionScope is deprecated: azure-native:storage/v20210201:EncryptionScope is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:EncryptionScope to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20210201:getEncryptionScope", {
@@ -79,6 +81,7 @@ export interface GetEncryptionScopeResult {
 /**
  * Returns the properties for the specified encryption scope.
  */
+/** @deprecated azure-native:storage/v20210201:EncryptionScope is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:EncryptionScope to guarantee forwards compatibility. */
 export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
     return pulumi.output(args).apply((a: any) => getEncryptionScope(a, opts))
 }

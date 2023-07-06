@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get details of the specified quota rule
  */
+/** @deprecated azure-native:netapp/v20220901:VolumeQuotaRule is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:VolumeQuotaRule to guarantee forwards compatibility. */
 export function getVolumeQuotaRule(args: GetVolumeQuotaRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeQuotaRuleResult> {
+    pulumi.log.warn("getVolumeQuotaRule is deprecated: azure-native:netapp/v20220901:VolumeQuotaRule is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:VolumeQuotaRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20220901:getVolumeQuotaRule", {
@@ -93,6 +95,7 @@ export interface GetVolumeQuotaRuleResult {
 /**
  * Get details of the specified quota rule
  */
+/** @deprecated azure-native:netapp/v20220901:VolumeQuotaRule is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:VolumeQuotaRule to guarantee forwards compatibility. */
 export function getVolumeQuotaRuleOutput(args: GetVolumeQuotaRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeQuotaRuleResult> {
     return pulumi.output(args).apply((a: any) => getVolumeQuotaRule(a, opts))
 }

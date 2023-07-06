@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get information about an Automation Account.
  */
+/** @deprecated azure-native:automation/v20210622:AutomationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:AutomationAccount to guarantee forwards compatibility. */
 export function getAutomationAccount(args: GetAutomationAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationAccountResult> {
+    pulumi.log.warn("getAutomationAccount is deprecated: azure-native:automation/v20210622:AutomationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:AutomationAccount to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20210622:getAutomationAccount", {
@@ -114,6 +116,7 @@ export interface GetAutomationAccountResult {
 /**
  * Get information about an Automation Account.
  */
+/** @deprecated azure-native:automation/v20210622:AutomationAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:AutomationAccount to guarantee forwards compatibility. */
 export function getAutomationAccountOutput(args: GetAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationAccountResult> {
     return pulumi.output(args).apply((a: any) => getAutomationAccount(a, opts))
 }

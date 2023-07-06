@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a given CloudEndpoint.
  */
+/** @deprecated azure-native:storagesync/v20200301:CloudEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility. */
 export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEndpointResult> {
+    pulumi.log.warn("getCloudEndpoint is deprecated: azure-native:storagesync/v20200301:CloudEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagesync/v20200301:getCloudEndpoint", {
@@ -93,6 +95,7 @@ export interface GetCloudEndpointResult {
 /**
  * Get a given CloudEndpoint.
  */
+/** @deprecated azure-native:storagesync/v20200301:CloudEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility. */
 export function getCloudEndpointOutput(args: GetCloudEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEndpointResult> {
     return pulumi.output(args).apply((a: any) => getCloudEndpoint(a, opts))
 }

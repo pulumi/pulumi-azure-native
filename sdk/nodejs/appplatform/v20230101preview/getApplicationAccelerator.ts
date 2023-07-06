@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the application accelerator.
  */
+/** @deprecated azure-native:appplatform/v20230101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApplicationAccelerator to guarantee forwards compatibility. */
 export function getApplicationAccelerator(args: GetApplicationAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationAcceleratorResult> {
+    pulumi.log.warn("getApplicationAccelerator is deprecated: azure-native:appplatform/v20230101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApplicationAccelerator to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20230101preview:getApplicationAccelerator", {
@@ -67,6 +69,7 @@ export interface GetApplicationAcceleratorResult {
 /**
  * Get the application accelerator.
  */
+/** @deprecated azure-native:appplatform/v20230101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApplicationAccelerator to guarantee forwards compatibility. */
 export function getApplicationAcceleratorOutput(args: GetApplicationAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationAcceleratorResult> {
     return pulumi.output(args).apply((a: any) => getApplicationAccelerator(a, opts))
 }

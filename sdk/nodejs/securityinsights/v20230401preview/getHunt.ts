@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a hunt, without relations and comments.
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:Hunt is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Hunt to guarantee forwards compatibility. */
 export function getHunt(args: GetHuntArgs, opts?: pulumi.InvokeOptions): Promise<GetHuntResult> {
+    pulumi.log.warn("getHunt is deprecated: azure-native:securityinsights/v20230401preview:Hunt is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Hunt to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230401preview:getHunt", {
@@ -95,6 +97,7 @@ export interface GetHuntResult {
 /**
  * Gets a hunt, without relations and comments.
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:Hunt is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Hunt to guarantee forwards compatibility. */
 export function getHuntOutput(args: GetHuntOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHuntResult> {
     return pulumi.output(args).apply((a: any) => getHunt(a, opts))
 }

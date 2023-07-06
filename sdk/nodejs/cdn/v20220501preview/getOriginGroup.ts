@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing origin group within an endpoint.
  */
-/** @deprecated azure-native:cdn/v20220501preview:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:cdn/v20220501preview:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:OriginGroup to guarantee forwards compatibility. */
 export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginGroupResult> {
-    pulumi.log.warn("getOriginGroup is deprecated: azure-native:cdn/v20220501preview:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getOriginGroup is deprecated: azure-native:cdn/v20220501preview:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:OriginGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20220501preview:getOriginGroup", {
@@ -90,7 +90,7 @@ export interface GetOriginGroupResult {
 /**
  * Gets an existing origin group within an endpoint.
  */
-/** @deprecated azure-native:cdn/v20220501preview:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:cdn/v20220501preview:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:OriginGroup to guarantee forwards compatibility. */
 export function getOriginGroupOutput(args: GetOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginGroupResult> {
     return pulumi.output(args).apply((a: any) => getOriginGroup(a, opts))
 }

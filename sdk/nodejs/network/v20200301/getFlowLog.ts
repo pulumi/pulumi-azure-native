@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a flow log resource by name.
  */
-/** @deprecated azure-native:network/v20200301:FlowLog is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:FlowLog to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200301:FlowLog is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:FlowLog to guarantee forwards compatibility. */
 export function getFlowLog(args: GetFlowLogArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowLogResult> {
-    pulumi.log.warn("getFlowLog is deprecated: azure-native:network/v20200301:FlowLog is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:FlowLog to guarantee forwards compatibility.")
+    pulumi.log.warn("getFlowLog is deprecated: azure-native:network/v20200301:FlowLog is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:FlowLog to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200301:getFlowLog", {
@@ -101,7 +101,7 @@ export interface GetFlowLogResult {
 /**
  * Gets a flow log resource by name.
  */
-/** @deprecated azure-native:network/v20200301:FlowLog is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:FlowLog to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200301:FlowLog is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:FlowLog to guarantee forwards compatibility. */
 export function getFlowLogOutput(args: GetFlowLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowLogResult> {
     return pulumi.output(args).apply((a: any) => getFlowLog(a, opts))
 }

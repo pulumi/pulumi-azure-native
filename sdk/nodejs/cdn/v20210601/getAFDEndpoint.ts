@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
  */
-/** @deprecated azure-native:cdn/v20210601:AFDEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDEndpoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:cdn/v20210601:AFDEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDEndpoint to guarantee forwards compatibility. */
 export function getAFDEndpoint(args: GetAFDEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDEndpointResult> {
-    pulumi.log.warn("getAFDEndpoint is deprecated: azure-native:cdn/v20210601:AFDEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDEndpoint to guarantee forwards compatibility.")
+    pulumi.log.warn("getAFDEndpoint is deprecated: azure-native:cdn/v20210601:AFDEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDEndpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20210601:getAFDEndpoint", {
@@ -90,7 +90,7 @@ export interface GetAFDEndpointResult {
 /**
  * Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
  */
-/** @deprecated azure-native:cdn/v20210601:AFDEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDEndpoint to guarantee forwards compatibility. */
+/** @deprecated azure-native:cdn/v20210601:AFDEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDEndpoint to guarantee forwards compatibility. */
 export function getAFDEndpointOutput(args: GetAFDEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDEndpointResult> {
     return pulumi.output(args).apply((a: any) => getAFDEndpoint(a, opts))
 }

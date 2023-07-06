@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The description of the IoT hub.
  *
- * @deprecated azure-native:devices/v20210702preview:IotHubResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20220430preview:IotHubResource to guarantee forwards compatibility.
+ * @deprecated azure-native:devices/v20210702preview:IotHubResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20221115preview:IotHubResource to guarantee forwards compatibility.
  */
 export class IotHubResource extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class IotHubResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IotHubResource {
-        pulumi.log.warn("IotHubResource is deprecated: azure-native:devices/v20210702preview:IotHubResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20220430preview:IotHubResource to guarantee forwards compatibility.")
+        pulumi.log.warn("IotHubResource is deprecated: azure-native:devices/v20210702preview:IotHubResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20221115preview:IotHubResource to guarantee forwards compatibility.")
         return new IotHubResource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,9 +84,9 @@ export class IotHubResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:devices/v20210702preview:IotHubResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20220430preview:IotHubResource to guarantee forwards compatibility. */
+    /** @deprecated azure-native:devices/v20210702preview:IotHubResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20221115preview:IotHubResource to guarantee forwards compatibility. */
     constructor(name: string, args: IotHubResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("IotHubResource is deprecated: azure-native:devices/v20210702preview:IotHubResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20220430preview:IotHubResource to guarantee forwards compatibility.")
+        pulumi.log.warn("IotHubResource is deprecated: azure-native:devices/v20210702preview:IotHubResource is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20221115preview:IotHubResource to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of the provided virtual machine.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:VirtualMachine to guarantee forwards compatibility. */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
+    pulumi.log.warn("getVirtualMachine is deprecated: azure-native:networkcloud/v20221212preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:VirtualMachine to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getVirtualMachine", {
@@ -155,6 +157,7 @@ export interface GetVirtualMachineResult {
 /**
  * Get properties of the provided virtual machine.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:VirtualMachine to guarantee forwards compatibility. */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))
 }

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The workspace manager group
+ *
+ * @deprecated azure-native:securityinsights/v20230401preview:WorkspaceManagerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerGroup to guarantee forwards compatibility.
  */
 export class WorkspaceManagerGroup extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class WorkspaceManagerGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WorkspaceManagerGroup {
+        pulumi.log.warn("WorkspaceManagerGroup is deprecated: azure-native:securityinsights/v20230401preview:WorkspaceManagerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerGroup to guarantee forwards compatibility.")
         return new WorkspaceManagerGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,7 +76,9 @@ export class WorkspaceManagerGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20230401preview:WorkspaceManagerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerGroup to guarantee forwards compatibility. */
     constructor(name: string, args: WorkspaceManagerGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WorkspaceManagerGroup is deprecated: azure-native:securityinsights/v20230401preview:WorkspaceManagerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerGroup to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

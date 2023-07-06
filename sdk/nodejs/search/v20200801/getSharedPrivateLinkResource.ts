@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the shared private link resource managed by the search service in the given resource group.
  */
+/** @deprecated azure-native:search/v20200801:SharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility. */
 export function getSharedPrivateLinkResource(args: GetSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedPrivateLinkResourceResult> {
+    pulumi.log.warn("getSharedPrivateLinkResource is deprecated: azure-native:search/v20200801:SharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:search/v20200801:getSharedPrivateLinkResource", {
@@ -59,6 +61,7 @@ export interface GetSharedPrivateLinkResourceResult {
 /**
  * Gets the details of the shared private link resource managed by the search service in the given resource group.
  */
+/** @deprecated azure-native:search/v20200801:SharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility. */
 export function getSharedPrivateLinkResourceOutput(args: GetSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedPrivateLinkResourceResult> {
     return pulumi.output(args).apply((a: any) => getSharedPrivateLinkResource(a, opts))
 }

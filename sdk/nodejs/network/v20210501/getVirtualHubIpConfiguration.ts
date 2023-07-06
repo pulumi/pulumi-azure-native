@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a Virtual Hub Ip configuration.
  */
-/** @deprecated azure-native:network/v20210501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubIpConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualHubIpConfiguration to guarantee forwards compatibility. */
 export function getVirtualHubIpConfiguration(args: GetVirtualHubIpConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubIpConfigurationResult> {
-    pulumi.log.warn("getVirtualHubIpConfiguration is deprecated: azure-native:network/v20210501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubIpConfiguration to guarantee forwards compatibility.")
+    pulumi.log.warn("getVirtualHubIpConfiguration is deprecated: azure-native:network/v20210501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualHubIpConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210501:getVirtualHubIpConfiguration", {
@@ -81,7 +81,7 @@ export interface GetVirtualHubIpConfigurationResult {
 /**
  * Retrieves the details of a Virtual Hub Ip configuration.
  */
-/** @deprecated azure-native:network/v20210501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubIpConfiguration to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualHubIpConfiguration to guarantee forwards compatibility. */
 export function getVirtualHubIpConfigurationOutput(args: GetVirtualHubIpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubIpConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHubIpConfiguration(a, opts))
 }

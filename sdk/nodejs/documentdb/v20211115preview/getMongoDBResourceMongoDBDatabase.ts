@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility. */
 export function getMongoDBResourceMongoDBDatabase(args: GetMongoDBResourceMongoDBDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoDBDatabaseResult> {
-    pulumi.log.warn("getMongoDBResourceMongoDBDatabase is deprecated: azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility.")
+    pulumi.log.warn("getMongoDBResourceMongoDBDatabase is deprecated: azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20211115preview:getMongoDBResourceMongoDBDatabase", {
@@ -71,7 +71,7 @@ export interface GetMongoDBResourceMongoDBDatabaseResult {
 /**
  * Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
  */
-/** @deprecated azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility. */
 export function getMongoDBResourceMongoDBDatabaseOutput(args: GetMongoDBResourceMongoDBDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoDBDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoDBDatabase(a, opts))
 }

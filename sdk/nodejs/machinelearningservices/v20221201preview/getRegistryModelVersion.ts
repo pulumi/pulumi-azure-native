@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Azure Resource Manager resource envelope.
  */
+/** @deprecated azure-native:machinelearningservices/v20221201preview:RegistryModelVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:RegistryModelVersion to guarantee forwards compatibility. */
 export function getRegistryModelVersion(args: GetRegistryModelVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryModelVersionResult> {
+    pulumi.log.warn("getRegistryModelVersion is deprecated: azure-native:machinelearningservices/v20221201preview:RegistryModelVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:RegistryModelVersion to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221201preview:getRegistryModelVersion", {
@@ -68,6 +70,7 @@ export interface GetRegistryModelVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
+/** @deprecated azure-native:machinelearningservices/v20221201preview:RegistryModelVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:RegistryModelVersion to guarantee forwards compatibility. */
 export function getRegistryModelVersionOutput(args: GetRegistryModelVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryModelVersionResult> {
     return pulumi.output(args).apply((a: any) => getRegistryModelVersion(a, opts))
 }

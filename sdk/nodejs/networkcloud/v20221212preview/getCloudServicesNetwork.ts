@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of the provided cloud services network.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:CloudServicesNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:CloudServicesNetwork to guarantee forwards compatibility. */
 export function getCloudServicesNetwork(args: GetCloudServicesNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudServicesNetworkResult> {
+    pulumi.log.warn("getCloudServicesNetwork is deprecated: azure-native:networkcloud/v20221212preview:CloudServicesNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:CloudServicesNetwork to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getCloudServicesNetwork", {
@@ -109,6 +111,7 @@ export interface GetCloudServicesNetworkResult {
 /**
  * Get properties of the provided cloud services network.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:CloudServicesNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:CloudServicesNetwork to guarantee forwards compatibility. */
 export function getCloudServicesNetworkOutput(args: GetCloudServicesNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudServicesNetworkResult> {
     return pulumi.output(args).apply((a: any) => getCloudServicesNetwork(a, opts))
 }

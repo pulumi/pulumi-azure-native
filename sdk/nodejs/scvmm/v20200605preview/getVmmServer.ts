@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Implements VMMServer GET method.
  */
+/** @deprecated azure-native:scvmm/v20200605preview:VmmServer is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VmmServer to guarantee forwards compatibility. */
 export function getVmmServer(args: GetVmmServerArgs, opts?: pulumi.InvokeOptions): Promise<GetVmmServerResult> {
+    pulumi.log.warn("getVmmServer is deprecated: azure-native:scvmm/v20200605preview:VmmServer is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VmmServer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm/v20200605preview:getVmmServer", {
@@ -98,6 +100,7 @@ export interface GetVmmServerResult {
 /**
  * Implements VMMServer GET method.
  */
+/** @deprecated azure-native:scvmm/v20200605preview:VmmServer is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VmmServer to guarantee forwards compatibility. */
 export function getVmmServerOutput(args: GetVmmServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVmmServerResult> {
     return pulumi.output(args).apply((a: any) => getVmmServer(a, opts))
 }

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns Intune iOS policies.
  */
+/** @deprecated azure-native:intune/v20150114preview:IoMAMPolicyByName is being removed in the next major version of this provider. Upgrade to at least azure-native:intune/v20150114privatepreview:IoMAMPolicyByName to guarantee forwards compatibility. */
 export function getIoMAMPolicyByName(args: GetIoMAMPolicyByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetIoMAMPolicyByNameResult> {
+    pulumi.log.warn("getIoMAMPolicyByName is deprecated: azure-native:intune/v20150114preview:IoMAMPolicyByName is being removed in the next major version of this provider. Upgrade to at least azure-native:intune/v20150114privatepreview:IoMAMPolicyByName to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:intune/v20150114preview:getIoMAMPolicyByName", {
@@ -80,6 +82,7 @@ export interface GetIoMAMPolicyByNameResult {
 /**
  * Returns Intune iOS policies.
  */
+/** @deprecated azure-native:intune/v20150114preview:IoMAMPolicyByName is being removed in the next major version of this provider. Upgrade to at least azure-native:intune/v20150114privatepreview:IoMAMPolicyByName to guarantee forwards compatibility. */
 export function getIoMAMPolicyByNameOutput(args: GetIoMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoMAMPolicyByNameResult> {
     return pulumi.output(args).apply((a: any) => getIoMAMPolicyByName(a, opts))
 }

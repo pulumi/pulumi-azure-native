@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the Wiki for a Product specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20220801:ProductWiki is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ProductWiki to guarantee forwards compatibility. */
 export function getProductWiki(args: GetProductWikiArgs, opts?: pulumi.InvokeOptions): Promise<GetProductWikiResult> {
+    pulumi.log.warn("getProductWiki is deprecated: azure-native:apimanagement/v20220801:ProductWiki is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ProductWiki to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:getProductWiki", {
@@ -59,6 +61,7 @@ export interface GetProductWikiResult {
 /**
  * Gets the details of the Wiki for a Product specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20220801:ProductWiki is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ProductWiki to guarantee forwards compatibility. */
 export function getProductWikiOutput(args: GetProductWikiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductWikiResult> {
     return pulumi.output(args).apply((a: any) => getProductWiki(a, opts))
 }

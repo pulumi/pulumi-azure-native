@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of a nested event subscription for a domain topic.
  */
+/** @deprecated azure-native:eventgrid/v20220615:DomainTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainTopicEventSubscription to guarantee forwards compatibility. */
 export function getDomainTopicEventSubscription(args: GetDomainTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicEventSubscriptionResult> {
+    pulumi.log.warn("getDomainTopicEventSubscription is deprecated: azure-native:eventgrid/v20220615:DomainTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainTopicEventSubscription to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20220615:getDomainTopicEventSubscription", {
@@ -112,6 +114,7 @@ export interface GetDomainTopicEventSubscriptionResult {
 /**
  * Get properties of a nested event subscription for a domain topic.
  */
+/** @deprecated azure-native:eventgrid/v20220615:DomainTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainTopicEventSubscription to guarantee forwards compatibility. */
 export function getDomainTopicEventSubscriptionOutput(args: GetDomainTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getDomainTopicEventSubscription(a, opts))
 }

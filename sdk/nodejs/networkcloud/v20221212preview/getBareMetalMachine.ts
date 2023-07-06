@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of the provided bare metal machine.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:BareMetalMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BareMetalMachine to guarantee forwards compatibility. */
 export function getBareMetalMachine(args: GetBareMetalMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalMachineResult> {
+    pulumi.log.warn("getBareMetalMachine is deprecated: azure-native:networkcloud/v20221212preview:BareMetalMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BareMetalMachine to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getBareMetalMachine", {
@@ -171,6 +173,7 @@ export interface GetBareMetalMachineResult {
 /**
  * Get properties of the provided bare metal machine.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:BareMetalMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BareMetalMachine to guarantee forwards compatibility. */
 export function getBareMetalMachineOutput(args: GetBareMetalMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalMachineResult> {
     return pulumi.output(args).apply((a: any) => getBareMetalMachine(a, opts))
 }

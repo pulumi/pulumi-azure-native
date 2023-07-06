@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of an event subscription of a topic.
  */
+/** @deprecated azure-native:eventgrid/v20220615:TopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:TopicEventSubscription to guarantee forwards compatibility. */
 export function getTopicEventSubscription(args: GetTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicEventSubscriptionResult> {
+    pulumi.log.warn("getTopicEventSubscription is deprecated: azure-native:eventgrid/v20220615:TopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:TopicEventSubscription to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20220615:getTopicEventSubscription", {
@@ -107,6 +109,7 @@ export interface GetTopicEventSubscriptionResult {
 /**
  * Get properties of an event subscription of a topic.
  */
+/** @deprecated azure-native:eventgrid/v20220615:TopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:TopicEventSubscription to guarantee forwards compatibility. */
 export function getTopicEventSubscriptionOutput(args: GetTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getTopicEventSubscription(a, opts))
 }

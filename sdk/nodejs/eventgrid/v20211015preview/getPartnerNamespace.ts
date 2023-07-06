@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of a partner namespace.
  */
-/** @deprecated azure-native:eventgrid/v20211015preview:PartnerNamespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:PartnerNamespace to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventgrid/v20211015preview:PartnerNamespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerNamespace to guarantee forwards compatibility. */
 export function getPartnerNamespace(args: GetPartnerNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerNamespaceResult> {
-    pulumi.log.warn("getPartnerNamespace is deprecated: azure-native:eventgrid/v20211015preview:PartnerNamespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:PartnerNamespace to guarantee forwards compatibility.")
+    pulumi.log.warn("getPartnerNamespace is deprecated: azure-native:eventgrid/v20211015preview:PartnerNamespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerNamespace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20211015preview:getPartnerNamespace", {
@@ -96,7 +96,7 @@ export interface GetPartnerNamespaceResult {
 /**
  * Get properties of a partner namespace.
  */
-/** @deprecated azure-native:eventgrid/v20211015preview:PartnerNamespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:PartnerNamespace to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventgrid/v20211015preview:PartnerNamespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerNamespace to guarantee forwards compatibility. */
 export function getPartnerNamespaceOutput(args: GetPartnerNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getPartnerNamespace(a, opts))
 }

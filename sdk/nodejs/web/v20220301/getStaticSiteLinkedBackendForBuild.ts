@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Static Site Linked Backend ARM resource.
  */
+/** @deprecated azure-native:web/v20220301:StaticSiteLinkedBackendForBuild is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteLinkedBackendForBuild to guarantee forwards compatibility. */
 export function getStaticSiteLinkedBackendForBuild(args: GetStaticSiteLinkedBackendForBuildArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteLinkedBackendForBuildResult> {
+    pulumi.log.warn("getStaticSiteLinkedBackendForBuild is deprecated: azure-native:web/v20220301:StaticSiteLinkedBackendForBuild is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteLinkedBackendForBuild to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220301:getStaticSiteLinkedBackendForBuild", {
@@ -77,6 +79,7 @@ export interface GetStaticSiteLinkedBackendForBuildResult {
 /**
  * Static Site Linked Backend ARM resource.
  */
+/** @deprecated azure-native:web/v20220301:StaticSiteLinkedBackendForBuild is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteLinkedBackendForBuild to guarantee forwards compatibility. */
 export function getStaticSiteLinkedBackendForBuildOutput(args: GetStaticSiteLinkedBackendForBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteLinkedBackendForBuildResult> {
     return pulumi.output(args).apply((a: any) => getStaticSiteLinkedBackendForBuild(a, opts))
 }

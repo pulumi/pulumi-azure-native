@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get the extension.
  */
-/** @deprecated azure-native:hybridcompute/v20221110:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20221227preview:MachineExtension to guarantee forwards compatibility. */
+/** @deprecated azure-native:hybridcompute/v20221110:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:MachineExtension to guarantee forwards compatibility. */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
-    pulumi.log.warn("getMachineExtension is deprecated: azure-native:hybridcompute/v20221110:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20221227preview:MachineExtension to guarantee forwards compatibility.")
+    pulumi.log.warn("getMachineExtension is deprecated: azure-native:hybridcompute/v20221110:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:MachineExtension to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute/v20221110:getMachineExtension", {
@@ -105,7 +105,7 @@ export interface GetMachineExtensionResult {
 /**
  * The operation to get the extension.
  */
-/** @deprecated azure-native:hybridcompute/v20221110:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20221227preview:MachineExtension to guarantee forwards compatibility. */
+/** @deprecated azure-native:hybridcompute/v20221110:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:MachineExtension to guarantee forwards compatibility. */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
     return pulumi.output(args).apply((a: any) => getMachineExtension(a, opts))
 }

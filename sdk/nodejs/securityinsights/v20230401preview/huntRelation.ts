@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Hunt Relation in Azure Security Insights.
+ *
+ * @deprecated azure-native:securityinsights/v20230401preview:HuntRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:HuntRelation to guarantee forwards compatibility.
  */
 export class HuntRelation extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class HuntRelation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HuntRelation {
+        pulumi.log.warn("HuntRelation is deprecated: azure-native:securityinsights/v20230401preview:HuntRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:HuntRelation to guarantee forwards compatibility.")
         return new HuntRelation(name, undefined as any, { ...opts, id: id });
     }
 
@@ -81,7 +84,9 @@ export class HuntRelation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:securityinsights/v20230401preview:HuntRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:HuntRelation to guarantee forwards compatibility. */
     constructor(name: string, args: HuntRelationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("HuntRelation is deprecated: azure-native:securityinsights/v20230401preview:HuntRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:HuntRelation to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
