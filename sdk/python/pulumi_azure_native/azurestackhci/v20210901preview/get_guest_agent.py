@@ -17,6 +17,8 @@ __all__ = [
     'get_guest_agent_output',
 ]
 
+warnings.warn("""azure-native:azurestackhci/v20210901preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:GuestAgent to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGuestAgentResult:
     """
@@ -153,6 +155,7 @@ def get_guest_agent(name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_machine_name: Name of the vm.
     """
+    pulumi.log.warn("""get_guest_agent is deprecated: azure-native:azurestackhci/v20210901preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:GuestAgent to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -185,4 +188,5 @@ def get_guest_agent_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_machine_name: Name of the vm.
     """
+    pulumi.log.warn("""get_guest_agent is deprecated: azure-native:azurestackhci/v20210901preview:GuestAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:GuestAgent to guarantee forwards compatibility.""")
     ...

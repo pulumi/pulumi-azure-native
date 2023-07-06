@@ -17,7 +17,7 @@ __all__ = [
     'get_private_link_scope_output',
 ]
 
-warnings.warn("""azure-native:hybridcompute/v20210422preview:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20221227preview:PrivateLinkScope to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:hybridcompute/v20210422preview:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPrivateLinkScopeResult:
@@ -129,7 +129,7 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scope_name: The name of the Azure Arc PrivateLinkScope resource.
     """
-    pulumi.log.warn("""get_private_link_scope is deprecated: azure-native:hybridcompute/v20210422preview:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20221227preview:PrivateLinkScope to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_link_scope is deprecated: azure-native:hybridcompute/v20210422preview:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['scopeName'] = scope_name
@@ -157,5 +157,5 @@ def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scope_name: The name of the Azure Arc PrivateLinkScope resource.
     """
-    pulumi.log.warn("""get_private_link_scope is deprecated: azure-native:hybridcompute/v20210422preview:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20221227preview:PrivateLinkScope to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_link_scope is deprecated: azure-native:hybridcompute/v20210422preview:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility.""")
     ...

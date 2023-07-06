@@ -66,11 +66,11 @@ class ApplicationLiveViewArgs:
         pulumi.set(self, "application_live_view_name", value)
 
 
-warnings.warn("""azure-native:appplatform/v20221101preview:ApplicationLiveView is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApplicationLiveView to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:appplatform/v20221101preview:ApplicationLiveView is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApplicationLiveView to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ApplicationLiveView(pulumi.CustomResource):
-    warnings.warn("""azure-native:appplatform/v20221101preview:ApplicationLiveView is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApplicationLiveView to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:appplatform/v20221101preview:ApplicationLiveView is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApplicationLiveView to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -117,7 +117,7 @@ class ApplicationLiveView(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApplicationLiveView is deprecated: azure-native:appplatform/v20221101preview:ApplicationLiveView is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApplicationLiveView to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ApplicationLiveView is deprecated: azure-native:appplatform/v20221101preview:ApplicationLiveView is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApplicationLiveView to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

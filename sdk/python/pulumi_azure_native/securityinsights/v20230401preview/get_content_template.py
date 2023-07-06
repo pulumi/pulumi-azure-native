@@ -17,6 +17,8 @@ __all__ = [
     'get_content_template_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20230401preview:ContentTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ContentTemplate to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetContentTemplateResult:
     """
@@ -381,6 +383,7 @@ def get_content_template(resource_group_name: Optional[str] = None,
     :param str template_id: template Id
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_content_template is deprecated: azure-native:securityinsights/v20230401preview:ContentTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ContentTemplate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['templateId'] = template_id
@@ -432,4 +435,5 @@ def get_content_template_output(resource_group_name: Optional[pulumi.Input[str]]
     :param str template_id: template Id
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_content_template is deprecated: azure-native:securityinsights/v20230401preview:ContentTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ContentTemplate to guarantee forwards compatibility.""")
     ...

@@ -17,6 +17,8 @@ __all__ = [
     'get_zone_output',
 ]
 
+warnings.warn("""azure-native:network/v20180501:Zone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:Zone to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetZoneResult:
     """
@@ -199,6 +201,7 @@ def get_zone(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
+    pulumi.log.warn("""get_zone is deprecated: azure-native:network/v20180501:Zone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:Zone to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['zoneName'] = zone_name
@@ -232,4 +235,5 @@ def get_zone_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
+    pulumi.log.warn("""get_zone is deprecated: azure-native:network/v20180501:Zone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:Zone to guarantee forwards compatibility.""")
     ...

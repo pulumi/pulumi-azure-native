@@ -84,7 +84,12 @@ class RegistrationDefinitionArgs:
         pulumi.set(self, "registration_definition_id", value)
 
 
+warnings.warn("""azure-native:managedservices/v20190901:RegistrationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class RegistrationDefinition(pulumi.CustomResource):
+    warnings.warn("""azure-native:managedservices/v20190901:RegistrationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -133,6 +138,7 @@ class RegistrationDefinition(pulumi.CustomResource):
                  registration_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""RegistrationDefinition is deprecated: azure-native:managedservices/v20190901:RegistrationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationDefinition to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

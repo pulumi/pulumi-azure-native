@@ -17,7 +17,7 @@ __all__ = [
     'get_replication_fabric_output',
 ]
 
-warnings.warn("""azure-native:recoveryservices/v20220101:ReplicationFabric is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationFabric to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:recoveryservices/v20220101:ReplicationFabric is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ReplicationFabric to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetReplicationFabricResult:
@@ -109,7 +109,7 @@ def get_replication_fabric(fabric_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("""get_replication_fabric is deprecated: azure-native:recoveryservices/v20220101:ReplicationFabric is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationFabric to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_replication_fabric is deprecated: azure-native:recoveryservices/v20220101:ReplicationFabric is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ReplicationFabric to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['filter'] = filter
@@ -141,5 +141,5 @@ def get_replication_fabric_output(fabric_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("""get_replication_fabric is deprecated: azure-native:recoveryservices/v20220101:ReplicationFabric is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationFabric to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_replication_fabric is deprecated: azure-native:recoveryservices/v20220101:ReplicationFabric is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ReplicationFabric to guarantee forwards compatibility.""")
     ...

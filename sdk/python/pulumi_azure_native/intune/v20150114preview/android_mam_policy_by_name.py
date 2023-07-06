@@ -307,7 +307,12 @@ class AndroidMAMPolicyByNameArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:intune/v20150114preview:AndroidMAMPolicyByName is being removed in the next major version of this provider. Upgrade to at least azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AndroidMAMPolicyByName(pulumi.CustomResource):
+    warnings.warn("""azure-native:intune/v20150114preview:AndroidMAMPolicyByName is being removed in the next major version of this provider. Upgrade to at least azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -390,6 +395,7 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
                  screen_capture: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""AndroidMAMPolicyByName is deprecated: azure-native:intune/v20150114preview:AndroidMAMPolicyByName is being removed in the next major version of this provider. Upgrade to at least azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

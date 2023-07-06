@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:compute/v20190701:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:compute/v20190701:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:DedicatedHostGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDedicatedHostGroupResult:
@@ -143,7 +143,7 @@ def get_dedicated_host_group(host_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_dedicated_host_group is deprecated: Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:compute/v20190701:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.""")
+azure-native:compute/v20190701:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:DedicatedHostGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['hostGroupName'] = host_group_name
     __args__['resourceGroupName'] = resource_group_name
@@ -173,5 +173,5 @@ def get_dedicated_host_group_output(host_group_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: The name of the resource group.
     """
     pulumi.log.warn("""get_dedicated_host_group is deprecated: Version 2019-07-01 will be removed in v2 of the provider.
-azure-native:compute/v20190701:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:DedicatedHostGroup to guarantee forwards compatibility.""")
+azure-native:compute/v20190701:DedicatedHostGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:DedicatedHostGroup to guarantee forwards compatibility.""")
     ...

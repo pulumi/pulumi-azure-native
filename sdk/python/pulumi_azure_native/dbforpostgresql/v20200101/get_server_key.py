@@ -16,6 +16,8 @@ __all__ = [
     'get_server_key_output',
 ]
 
+warnings.warn("""azure-native:dbforpostgresql/v20200101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20200214privatepreview:ServerKey to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServerKeyResult:
     """
@@ -128,6 +130,7 @@ def get_server_key(key_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_server_key is deprecated: azure-native:dbforpostgresql/v20200101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20200214privatepreview:ServerKey to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['keyName'] = key_name
     __args__['resourceGroupName'] = resource_group_name
@@ -158,4 +161,5 @@ def get_server_key_output(key_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_server_key is deprecated: azure-native:dbforpostgresql/v20200101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20200214privatepreview:ServerKey to guarantee forwards compatibility.""")
     ...

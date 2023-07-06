@@ -17,6 +17,8 @@ __all__ = [
     'get_registry_code_container_output',
 ]
 
+warnings.warn("""azure-native:machinelearningservices/v20221201preview:RegistryCodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:RegistryCodeContainer to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRegistryCodeContainerResult:
     """
@@ -105,6 +107,7 @@ def get_registry_code_container(code_name: Optional[str] = None,
     :param str registry_name: Name of Azure Machine Learning registry.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_registry_code_container is deprecated: azure-native:machinelearningservices/v20221201preview:RegistryCodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:RegistryCodeContainer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['codeName'] = code_name
     __args__['registryName'] = registry_name
@@ -133,4 +136,5 @@ def get_registry_code_container_output(code_name: Optional[pulumi.Input[str]] = 
     :param str registry_name: Name of Azure Machine Learning registry.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_registry_code_container is deprecated: azure-native:machinelearningservices/v20221201preview:RegistryCodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:RegistryCodeContainer to guarantee forwards compatibility.""")
     ...

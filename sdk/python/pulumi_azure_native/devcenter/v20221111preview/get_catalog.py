@@ -17,6 +17,8 @@ __all__ = [
     'get_catalog_output',
 ]
 
+warnings.warn("""azure-native:devcenter/v20221111preview:Catalog is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Catalog to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCatalogResult:
     """
@@ -153,6 +155,7 @@ def get_catalog(catalog_name: Optional[str] = None,
     :param str dev_center_name: The name of the devcenter.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_catalog is deprecated: azure-native:devcenter/v20221111preview:Catalog is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Catalog to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['catalogName'] = catalog_name
     __args__['devCenterName'] = dev_center_name
@@ -185,4 +188,5 @@ def get_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
     :param str dev_center_name: The name of the devcenter.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_catalog is deprecated: azure-native:devcenter/v20221111preview:Catalog is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Catalog to guarantee forwards compatibility.""")
     ...

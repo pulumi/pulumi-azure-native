@@ -17,6 +17,8 @@ __all__ = [
     'get_bare_metal_machine_output',
 ]
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:BareMetalMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BareMetalMachine to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBareMetalMachineResult:
     def __init__(__self__, bmc_connection_string=None, bmc_credentials=None, bmc_mac_address=None, boot_mac_address=None, cluster_id=None, cordon_status=None, detailed_status=None, detailed_status_message=None, extended_location=None, hardware_inventory=None, hardware_validation_status=None, hybrid_aks_clusters_associated_ids=None, id=None, kubernetes_node_name=None, kubernetes_version=None, location=None, machine_details=None, machine_name=None, machine_sku_id=None, name=None, oam_ipv4_address=None, oam_ipv6_address=None, os_image=None, power_state=None, provisioning_state=None, rack_id=None, rack_slot=None, ready_state=None, serial_number=None, service_tag=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None):
@@ -448,6 +450,7 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[str] = None,
     :param str bare_metal_machine_name: The name of the bare metal machine.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_bare_metal_machine is deprecated: azure-native:networkcloud/v20221212preview:BareMetalMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BareMetalMachine to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['bareMetalMachineName'] = bare_metal_machine_name
     __args__['resourceGroupName'] = resource_group_name
@@ -502,4 +505,5 @@ def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input
     :param str bare_metal_machine_name: The name of the bare metal machine.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_bare_metal_machine is deprecated: azure-native:networkcloud/v20221212preview:BareMetalMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BareMetalMachine to guarantee forwards compatibility.""")
     ...

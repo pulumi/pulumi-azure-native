@@ -17,6 +17,8 @@ __all__ = [
     'get_access_review_history_definition_by_id_output',
 ]
 
+warnings.warn("""azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAccessReviewHistoryDefinitionByIdResult:
     """
@@ -269,6 +271,7 @@ def get_access_review_history_definition_by_id(history_definition_id: Optional[s
 
     :param str history_definition_id: The id of the access review history definition.
     """
+    pulumi.log.warn("""get_access_review_history_definition_by_id is deprecated: azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['historyDefinitionId'] = history_definition_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -305,4 +308,5 @@ def get_access_review_history_definition_by_id_output(history_definition_id: Opt
 
     :param str history_definition_id: The id of the access review history definition.
     """
+    pulumi.log.warn("""get_access_review_history_definition_by_id is deprecated: azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById to guarantee forwards compatibility.""")
     ...

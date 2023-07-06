@@ -205,7 +205,12 @@ class TopicArgs:
         pulumi.set(self, "topic_name", value)
 
 
+warnings.warn("""azure-native:eventgrid/v20220615:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:Topic to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Topic(pulumi.CustomResource):
+    warnings.warn("""azure-native:eventgrid/v20220615:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:Topic to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -276,6 +281,7 @@ class Topic(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Topic is deprecated: azure-native:eventgrid/v20220615:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:Topic to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

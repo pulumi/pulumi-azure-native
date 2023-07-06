@@ -404,7 +404,12 @@ class ClusterArgs:
         pulumi.set(self, "vm_image", value)
 
 
+warnings.warn("""azure-native:servicefabric/v20200301:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20201201preview:Cluster to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Cluster(pulumi.CustomResource):
+    warnings.warn("""azure-native:servicefabric/v20200301:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20201201preview:Cluster to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -519,6 +524,7 @@ class Cluster(pulumi.CustomResource):
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Cluster is deprecated: azure-native:servicefabric/v20200301:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20201201preview:Cluster to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -17,7 +17,7 @@ __all__ = [
     'get_dev_center_output',
 ]
 
-warnings.warn("""azure-native:devcenter/v20220801preview:DevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevCenter to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:devcenter/v20220801preview:DevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:DevCenter to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDevCenterResult:
@@ -141,7 +141,7 @@ def get_dev_center(dev_center_name: Optional[str] = None,
     :param str dev_center_name: The name of the devcenter.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_dev_center is deprecated: azure-native:devcenter/v20220801preview:DevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevCenter to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_dev_center is deprecated: azure-native:devcenter/v20220801preview:DevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:DevCenter to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['devCenterName'] = dev_center_name
     __args__['resourceGroupName'] = resource_group_name
@@ -170,5 +170,5 @@ def get_dev_center_output(dev_center_name: Optional[pulumi.Input[str]] = None,
     :param str dev_center_name: The name of the devcenter.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_dev_center is deprecated: azure-native:devcenter/v20220801preview:DevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevCenter to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_dev_center is deprecated: azure-native:devcenter/v20220801preview:DevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:DevCenter to guarantee forwards compatibility.""")
     ...

@@ -17,6 +17,8 @@ __all__ = [
     'get_query_output',
 ]
 
+warnings.warn("""azure-native:operationalinsights/v20190901:Query is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:Query to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetQueryResult:
     """
@@ -201,6 +203,7 @@ def get_query(id: Optional[str] = None,
     :param str query_pack_name: The name of the Log Analytics QueryPack resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_query is deprecated: azure-native:operationalinsights/v20190901:Query is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:Query to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['id'] = id
     __args__['queryPackName'] = query_pack_name
@@ -237,4 +240,5 @@ def get_query_output(id: Optional[pulumi.Input[str]] = None,
     :param str query_pack_name: The name of the Log Analytics QueryPack resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_query is deprecated: azure-native:operationalinsights/v20190901:Query is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:Query to guarantee forwards compatibility.""")
     ...

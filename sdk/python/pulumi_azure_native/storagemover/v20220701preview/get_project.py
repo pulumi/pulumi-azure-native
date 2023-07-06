@@ -17,6 +17,8 @@ __all__ = [
     'get_project_output',
 ]
 
+warnings.warn("""azure-native:storagemover/v20220701preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:Project to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProjectResult:
     """
@@ -117,6 +119,7 @@ def get_project(project_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_mover_name: The name of the Storage Mover resource.
     """
+    pulumi.log.warn("""get_project is deprecated: azure-native:storagemover/v20220701preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:Project to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
@@ -146,4 +149,5 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_mover_name: The name of the Storage Mover resource.
     """
+    pulumi.log.warn("""get_project is deprecated: azure-native:storagemover/v20220701preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:Project to guarantee forwards compatibility.""")
     ...

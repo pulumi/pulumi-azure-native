@@ -17,6 +17,8 @@ __all__ = [
     'get_account_filter_output',
 ]
 
+warnings.warn("""azure-native:media/v20200501:AccountFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:AccountFilter to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAccountFilterResult:
     """
@@ -129,6 +131,7 @@ def get_account_filter(account_name: Optional[str] = None,
     :param str filter_name: The Account Filter name
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_account_filter is deprecated: azure-native:media/v20200501:AccountFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:AccountFilter to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['filterName'] = filter_name
@@ -159,4 +162,5 @@ def get_account_filter_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str filter_name: The Account Filter name
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_account_filter is deprecated: azure-native:media/v20200501:AccountFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:AccountFilter to guarantee forwards compatibility.""")
     ...

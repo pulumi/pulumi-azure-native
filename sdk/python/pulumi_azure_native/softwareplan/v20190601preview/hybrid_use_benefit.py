@@ -67,7 +67,12 @@ class HybridUseBenefitArgs:
         pulumi.set(self, "plan_id", value)
 
 
+warnings.warn("""azure-native:softwareplan/v20190601preview:HybridUseBenefit is being removed in the next major version of this provider. Upgrade to at least azure-native:softwareplan/v20191201:HybridUseBenefit to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class HybridUseBenefit(pulumi.CustomResource):
+    warnings.warn("""azure-native:softwareplan/v20190601preview:HybridUseBenefit is being removed in the next major version of this provider. Upgrade to at least azure-native:softwareplan/v20191201:HybridUseBenefit to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -113,6 +118,7 @@ class HybridUseBenefit(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""HybridUseBenefit is deprecated: azure-native:softwareplan/v20190601preview:HybridUseBenefit is being removed in the next major version of this provider. Upgrade to at least azure-native:softwareplan/v20191201:HybridUseBenefit to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

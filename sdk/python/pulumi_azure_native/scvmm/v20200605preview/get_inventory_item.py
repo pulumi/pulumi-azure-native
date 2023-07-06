@@ -17,6 +17,8 @@ __all__ = [
     'get_inventory_item_output',
 ]
 
+warnings.warn("""azure-native:scvmm/v20200605preview:InventoryItem is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:InventoryItem to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetInventoryItemResult:
     """
@@ -165,6 +167,7 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str vmm_server_name: Name of the VMMServer.
     """
+    pulumi.log.warn("""get_inventory_item is deprecated: azure-native:scvmm/v20200605preview:InventoryItem is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:InventoryItem to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['inventoryItemName'] = inventory_item_name
     __args__['resourceGroupName'] = resource_group_name
@@ -198,4 +201,5 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group.
     :param str vmm_server_name: Name of the VMMServer.
     """
+    pulumi.log.warn("""get_inventory_item is deprecated: azure-native:scvmm/v20200605preview:InventoryItem is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:InventoryItem to guarantee forwards compatibility.""")
     ...

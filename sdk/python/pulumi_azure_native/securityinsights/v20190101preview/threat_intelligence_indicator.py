@@ -545,7 +545,12 @@ class ThreatIntelligenceIndicatorArgs:
         pulumi.set(self, "valid_until", value)
 
 
+warnings.warn("""azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ThreatIntelligenceIndicator(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -681,6 +686,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  valid_until: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ThreatIntelligenceIndicator is deprecated: azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

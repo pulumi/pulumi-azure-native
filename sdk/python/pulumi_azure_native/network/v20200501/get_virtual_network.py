@@ -17,7 +17,7 @@ __all__ = [
     'get_virtual_network_output',
 ]
 
-warnings.warn("""azure-native:network/v20200501:VirtualNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetwork to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20200501:VirtualNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetwork to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualNetworkResult:
@@ -251,7 +251,7 @@ def get_virtual_network(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_name: The name of the virtual network.
     """
-    pulumi.log.warn("""get_virtual_network is deprecated: azure-native:network/v20200501:VirtualNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetwork to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_network is deprecated: azure-native:network/v20200501:VirtualNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetwork to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -292,5 +292,5 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_name: The name of the virtual network.
     """
-    pulumi.log.warn("""get_virtual_network is deprecated: azure-native:network/v20200501:VirtualNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetwork to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_network is deprecated: azure-native:network/v20200501:VirtualNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetwork to guarantee forwards compatibility.""")
     ...

@@ -17,6 +17,8 @@ __all__ = [
     'get_cassandra_data_center_output',
 ]
 
+warnings.warn("""azure-native:documentdb/v20230315:CassandraDataCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230415:CassandraDataCenter to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCassandraDataCenterResult:
     """
@@ -93,6 +95,7 @@ def get_cassandra_data_center(cluster_name: Optional[str] = None,
     :param str data_center_name: Data center name in a managed Cassandra cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cassandra_data_center is deprecated: azure-native:documentdb/v20230315:CassandraDataCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230415:CassandraDataCenter to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['dataCenterName'] = data_center_name
@@ -120,4 +123,5 @@ def get_cassandra_data_center_output(cluster_name: Optional[pulumi.Input[str]] =
     :param str data_center_name: Data center name in a managed Cassandra cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cassandra_data_center is deprecated: azure-native:documentdb/v20230315:CassandraDataCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230415:CassandraDataCenter to guarantee forwards compatibility.""")
     ...

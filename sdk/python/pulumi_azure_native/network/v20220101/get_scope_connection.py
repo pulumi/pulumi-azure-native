@@ -17,7 +17,7 @@ __all__ = [
     'get_scope_connection_output',
 ]
 
-warnings.warn("""azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ScopeConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ScopeConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetScopeConnectionResult:
@@ -143,7 +143,7 @@ def get_scope_connection(network_manager_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str scope_connection_name: Name for the cross-tenant connection.
     """
-    pulumi.log.warn("""get_scope_connection is deprecated: azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ScopeConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_scope_connection is deprecated: azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ScopeConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['networkManagerName'] = network_manager_name
     __args__['resourceGroupName'] = resource_group_name
@@ -175,5 +175,5 @@ def get_scope_connection_output(network_manager_name: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group.
     :param str scope_connection_name: Name for the cross-tenant connection.
     """
-    pulumi.log.warn("""get_scope_connection is deprecated: azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ScopeConnection to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_scope_connection is deprecated: azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ScopeConnection to guarantee forwards compatibility.""")
     ...

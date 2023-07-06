@@ -82,7 +82,12 @@ class CommitmentPlanAssociationArgs:
         pulumi.set(self, "commitment_plan_association_name", value)
 
 
+warnings.warn("""azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:CommitmentPlanAssociation to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class CommitmentPlanAssociation(pulumi.CustomResource):
+    warnings.warn("""azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:CommitmentPlanAssociation to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,6 +136,7 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
                  commitment_plan_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""CommitmentPlanAssociation is deprecated: azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:CommitmentPlanAssociation to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

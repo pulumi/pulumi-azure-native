@@ -17,7 +17,7 @@ __all__ = [
     'get_container_group_output',
 ]
 
-warnings.warn("""azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230501:ContainerGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230201preview:ContainerGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetContainerGroupResult:
@@ -336,7 +336,7 @@ def get_container_group(container_group_name: Optional[str] = None,
     :param str container_group_name: The name of the container group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_container_group is deprecated: azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230501:ContainerGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_container_group is deprecated: azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230201preview:ContainerGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['containerGroupName'] = container_group_name
     __args__['resourceGroupName'] = resource_group_name
@@ -381,5 +381,5 @@ def get_container_group_output(container_group_name: Optional[pulumi.Input[str]]
     :param str container_group_name: The name of the container group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_container_group is deprecated: azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230501:ContainerGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_container_group is deprecated: azure-native:containerinstance/v20221001preview:ContainerGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:containerinstance/v20230201preview:ContainerGroup to guarantee forwards compatibility.""")
     ...

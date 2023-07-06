@@ -17,6 +17,8 @@ __all__ = [
     'get_attached_network_by_dev_center_output',
 ]
 
+warnings.warn("""azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:AttachedNetworkByDevCenter to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAttachedNetworkByDevCenterResult:
     """
@@ -153,6 +155,7 @@ def get_attached_network_by_dev_center(attached_network_connection_name: Optiona
     :param str dev_center_name: The name of the devcenter.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_attached_network_by_dev_center is deprecated: azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:AttachedNetworkByDevCenter to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['attachedNetworkConnectionName'] = attached_network_connection_name
     __args__['devCenterName'] = dev_center_name
@@ -185,4 +188,5 @@ def get_attached_network_by_dev_center_output(attached_network_connection_name: 
     :param str dev_center_name: The name of the devcenter.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_attached_network_by_dev_center is deprecated: azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:AttachedNetworkByDevCenter to guarantee forwards compatibility.""")
     ...

@@ -17,6 +17,8 @@ __all__ = [
     'get_profile_output',
 ]
 
+warnings.warn("""azure-native:network/v20180801:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:Profile to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProfileResult:
     """
@@ -199,6 +201,7 @@ def get_profile(profile_name: Optional[str] = None,
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group containing the Traffic Manager profile.
     """
+    pulumi.log.warn("""get_profile is deprecated: azure-native:network/v20180801:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:Profile to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
@@ -232,4 +235,5 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group containing the Traffic Manager profile.
     """
+    pulumi.log.warn("""get_profile is deprecated: azure-native:network/v20180801:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:Profile to guarantee forwards compatibility.""")
     ...

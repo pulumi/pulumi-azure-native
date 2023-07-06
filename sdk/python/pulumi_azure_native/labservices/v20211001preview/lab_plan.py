@@ -197,7 +197,12 @@ class LabPlanArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:labservices/v20211001preview:LabPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:LabPlan to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class LabPlan(pulumi.CustomResource):
+    warnings.warn("""azure-native:labservices/v20211001preview:LabPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:LabPlan to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -267,6 +272,7 @@ class LabPlan(pulumi.CustomResource):
                  support_info: Optional[pulumi.Input[pulumi.InputType['SupportInfoArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""LabPlan is deprecated: azure-native:labservices/v20211001preview:LabPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:LabPlan to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

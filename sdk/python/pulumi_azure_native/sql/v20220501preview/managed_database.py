@@ -354,11 +354,11 @@ class ManagedDatabaseArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:sql/v20220501preview:ManagedDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedDatabase to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sql/v20220501preview:ManagedDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedDatabase to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ManagedDatabase(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20220501preview:ManagedDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedDatabase to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:sql/v20220501preview:ManagedDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedDatabase to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -459,7 +459,7 @@ class ManagedDatabase(pulumi.CustomResource):
                  storage_container_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ManagedDatabase is deprecated: azure-native:sql/v20220501preview:ManagedDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedDatabase to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ManagedDatabase is deprecated: azure-native:sql/v20220501preview:ManagedDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedDatabase to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

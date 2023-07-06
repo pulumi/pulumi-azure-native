@@ -17,6 +17,8 @@ __all__ = [
     'get_file_import_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20230401preview:FileImport is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:FileImport to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFileImportResult:
     """
@@ -249,6 +251,7 @@ def get_file_import(file_import_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_file_import is deprecated: azure-native:securityinsights/v20230401preview:FileImport is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:FileImport to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['fileImportId'] = file_import_id
     __args__['resourceGroupName'] = resource_group_name
@@ -289,4 +292,5 @@ def get_file_import_output(file_import_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_file_import is deprecated: azure-native:securityinsights/v20230401preview:FileImport is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:FileImport to guarantee forwards compatibility.""")
     ...

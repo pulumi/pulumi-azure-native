@@ -17,7 +17,7 @@ __all__ = [
     'get_aws_s3_data_connector_output',
 ]
 
-warnings.warn("""azure-native:securityinsights/v20230201preview:AwsS3DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AwsS3DataConnector to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:securityinsights/v20230201preview:AwsS3DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:AwsS3DataConnector to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAwsS3DataConnectorResult:
@@ -168,7 +168,7 @@ def get_aws_s3_data_connector(data_connector_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_aws_s3_data_connector is deprecated: azure-native:securityinsights/v20230201preview:AwsS3DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AwsS3DataConnector to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_aws_s3_data_connector is deprecated: azure-native:securityinsights/v20230201preview:AwsS3DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:AwsS3DataConnector to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataConnectorId'] = data_connector_id
     __args__['resourceGroupName'] = resource_group_name
@@ -202,5 +202,5 @@ def get_aws_s3_data_connector_output(data_connector_id: Optional[pulumi.Input[st
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_aws_s3_data_connector is deprecated: azure-native:securityinsights/v20230201preview:AwsS3DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AwsS3DataConnector to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_aws_s3_data_connector is deprecated: azure-native:securityinsights/v20230201preview:AwsS3DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:AwsS3DataConnector to guarantee forwards compatibility.""")
     ...

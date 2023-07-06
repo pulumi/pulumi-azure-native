@@ -17,6 +17,8 @@ __all__ = [
     'get_remediation_at_resource_group_output',
 ]
 
+warnings.warn("""azure-native:policyinsights/v20190701:RemediationAtResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtResourceGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRemediationAtResourceGroupResult:
     """
@@ -175,6 +177,7 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
     :param str remediation_name: The name of the remediation.
     :param str resource_group_name: Resource group name.
     """
+    pulumi.log.warn("""get_remediation_at_resource_group is deprecated: azure-native:policyinsights/v20190701:RemediationAtResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtResourceGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['remediationName'] = remediation_name
     __args__['resourceGroupName'] = resource_group_name
@@ -206,4 +209,5 @@ def get_remediation_at_resource_group_output(remediation_name: Optional[pulumi.I
     :param str remediation_name: The name of the remediation.
     :param str resource_group_name: Resource group name.
     """
+    pulumi.log.warn("""get_remediation_at_resource_group is deprecated: azure-native:policyinsights/v20190701:RemediationAtResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtResourceGroup to guarantee forwards compatibility.""")
     ...

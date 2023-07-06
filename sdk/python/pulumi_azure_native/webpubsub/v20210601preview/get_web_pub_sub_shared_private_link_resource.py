@@ -17,7 +17,7 @@ __all__ = [
     'get_web_pub_sub_shared_private_link_resource_output',
 ]
 
-warnings.warn("""azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetWebPubSubSharedPrivateLinkResourceResult:
@@ -155,7 +155,7 @@ def get_web_pub_sub_shared_private_link_resource(resource_group_name: Optional[s
     :param str resource_name: The name of the resource.
     :param str shared_private_link_resource_name: The name of the shared private link resource
     """
-    pulumi.log.warn("""get_web_pub_sub_shared_private_link_resource is deprecated: azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_web_pub_sub_shared_private_link_resource is deprecated: azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -188,5 +188,5 @@ def get_web_pub_sub_shared_private_link_resource_output(resource_group_name: Opt
     :param str resource_name: The name of the resource.
     :param str shared_private_link_resource_name: The name of the shared private link resource
     """
-    pulumi.log.warn("""get_web_pub_sub_shared_private_link_resource is deprecated: azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_web_pub_sub_shared_private_link_resource is deprecated: azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.""")
     ...

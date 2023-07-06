@@ -16,7 +16,7 @@ __all__ = [
     'get_workload_classifier_output',
 ]
 
-warnings.warn("""azure-native:sql/v20211101preview:WorkloadClassifier is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:WorkloadClassifier to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sql/v20211101preview:WorkloadClassifier is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:WorkloadClassifier to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetWorkloadClassifierResult:
@@ -158,7 +158,7 @@ def get_workload_classifier(database_name: Optional[str] = None,
     :param str workload_classifier_name: The name of the workload classifier.
     :param str workload_group_name: The name of the workload group from which to receive the classifier from.
     """
-    pulumi.log.warn("""get_workload_classifier is deprecated: azure-native:sql/v20211101preview:WorkloadClassifier is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:WorkloadClassifier to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_workload_classifier is deprecated: azure-native:sql/v20211101preview:WorkloadClassifier is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:WorkloadClassifier to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
@@ -197,5 +197,5 @@ def get_workload_classifier_output(database_name: Optional[pulumi.Input[str]] = 
     :param str workload_classifier_name: The name of the workload classifier.
     :param str workload_group_name: The name of the workload group from which to receive the classifier from.
     """
-    pulumi.log.warn("""get_workload_classifier is deprecated: azure-native:sql/v20211101preview:WorkloadClassifier is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:WorkloadClassifier to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_workload_classifier is deprecated: azure-native:sql/v20211101preview:WorkloadClassifier is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:WorkloadClassifier to guarantee forwards compatibility.""")
     ...

@@ -17,7 +17,7 @@ __all__ = [
     'get_fleet_member_output',
 ]
 
-warnings.warn("""azure-native:containerservice/v20220602preview:FleetMember is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:FleetMember to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:containerservice/v20220602preview:FleetMember is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220702preview:FleetMember to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetFleetMemberResult:
@@ -131,7 +131,7 @@ def get_fleet_member(fleet_member_name: Optional[str] = None,
     :param str fleet_name: The name of the Fleet resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_fleet_member is deprecated: azure-native:containerservice/v20220602preview:FleetMember is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:FleetMember to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_fleet_member is deprecated: azure-native:containerservice/v20220602preview:FleetMember is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220702preview:FleetMember to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['fleetMemberName'] = fleet_member_name
     __args__['fleetName'] = fleet_name
@@ -162,5 +162,5 @@ def get_fleet_member_output(fleet_member_name: Optional[pulumi.Input[str]] = Non
     :param str fleet_name: The name of the Fleet resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_fleet_member is deprecated: azure-native:containerservice/v20220602preview:FleetMember is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:FleetMember to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_fleet_member is deprecated: azure-native:containerservice/v20220602preview:FleetMember is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220702preview:FleetMember to guarantee forwards compatibility.""")
     ...

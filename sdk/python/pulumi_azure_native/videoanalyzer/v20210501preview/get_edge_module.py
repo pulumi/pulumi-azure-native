@@ -17,6 +17,8 @@ __all__ = [
     'get_edge_module_output',
 ]
 
+warnings.warn("""azure-native:videoanalyzer/v20210501preview:EdgeModule is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:EdgeModule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEdgeModuleResult:
     """
@@ -105,6 +107,7 @@ def get_edge_module(account_name: Optional[str] = None,
     :param str edge_module_name: The name of the edge module to retrieve.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_edge_module is deprecated: azure-native:videoanalyzer/v20210501preview:EdgeModule is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:EdgeModule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['edgeModuleName'] = edge_module_name
@@ -133,4 +136,5 @@ def get_edge_module_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str edge_module_name: The name of the edge module to retrieve.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_edge_module is deprecated: azure-native:videoanalyzer/v20210501preview:EdgeModule is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:EdgeModule to guarantee forwards compatibility.""")
     ...

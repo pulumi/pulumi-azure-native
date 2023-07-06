@@ -146,7 +146,12 @@ class DomainArgs:
         pulumi.set(self, "valid_sender_usernames", value)
 
 
+warnings.warn("""azure-native:communication/v20211001preview:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20220701preview:Domain to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Domain(pulumi.CustomResource):
+    warnings.warn("""azure-native:communication/v20211001preview:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20220701preview:Domain to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -207,6 +212,7 @@ class Domain(pulumi.CustomResource):
                  user_engagement_tracking: Optional[pulumi.Input[Union[str, 'UserEngagementTracking']]] = None,
                  valid_sender_usernames: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Domain is deprecated: azure-native:communication/v20211001preview:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20220701preview:Domain to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

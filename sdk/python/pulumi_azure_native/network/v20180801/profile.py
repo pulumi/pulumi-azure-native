@@ -261,7 +261,12 @@ class ProfileArgs:
         pulumi.set(self, "type", value)
 
 
+warnings.warn("""azure-native:network/v20180801:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:Profile to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Profile(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20180801:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:Profile to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -343,6 +348,7 @@ class Profile(pulumi.CustomResource):
                  traffic_view_enrollment_status: Optional[pulumi.Input[Union[str, 'TrafficViewEnrollmentStatus']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Profile is deprecated: azure-native:network/v20180801:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:Profile to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

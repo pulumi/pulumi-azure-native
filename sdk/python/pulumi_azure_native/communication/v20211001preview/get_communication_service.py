@@ -17,7 +17,7 @@ __all__ = [
     'get_communication_service_output',
 ]
 
-warnings.warn("""azure-native:communication/v20211001preview:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230331:CommunicationService to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:communication/v20211001preview:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:CommunicationService to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCommunicationServiceResult:
@@ -201,7 +201,7 @@ def get_communication_service(communication_service_name: Optional[str] = None,
     :param str communication_service_name: The name of the CommunicationService resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_communication_service is deprecated: azure-native:communication/v20211001preview:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230331:CommunicationService to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_communication_service is deprecated: azure-native:communication/v20211001preview:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:CommunicationService to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['communicationServiceName'] = communication_service_name
     __args__['resourceGroupName'] = resource_group_name
@@ -235,5 +235,5 @@ def get_communication_service_output(communication_service_name: Optional[pulumi
     :param str communication_service_name: The name of the CommunicationService resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_communication_service is deprecated: azure-native:communication/v20211001preview:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230331:CommunicationService to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_communication_service is deprecated: azure-native:communication/v20211001preview:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:CommunicationService to guarantee forwards compatibility.""")
     ...

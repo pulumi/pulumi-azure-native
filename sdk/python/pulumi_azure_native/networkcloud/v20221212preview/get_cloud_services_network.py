@@ -17,6 +17,8 @@ __all__ = [
     'get_cloud_services_network_output',
 ]
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:CloudServicesNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:CloudServicesNetwork to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCloudServicesNetworkResult:
     """
@@ -250,6 +252,7 @@ def get_cloud_services_network(cloud_services_network_name: Optional[str] = None
     :param str cloud_services_network_name: The name of the cloud services network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cloud_services_network is deprecated: azure-native:networkcloud/v20221212preview:CloudServicesNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:CloudServicesNetwork to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['cloudServicesNetworkName'] = cloud_services_network_name
     __args__['resourceGroupName'] = resource_group_name
@@ -287,4 +290,5 @@ def get_cloud_services_network_output(cloud_services_network_name: Optional[pulu
     :param str cloud_services_network_name: The name of the cloud services network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cloud_services_network is deprecated: azure-native:networkcloud/v20221212preview:CloudServicesNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:CloudServicesNetwork to guarantee forwards compatibility.""")
     ...

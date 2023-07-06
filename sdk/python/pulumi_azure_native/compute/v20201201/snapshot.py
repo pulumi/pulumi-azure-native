@@ -292,7 +292,12 @@ class SnapshotArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:compute/v20201201:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:Snapshot to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Snapshot(pulumi.CustomResource):
+    warnings.warn("""azure-native:compute/v20201201:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:Snapshot to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -380,6 +385,7 @@ class Snapshot(pulumi.CustomResource):
                  supports_hibernation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Snapshot is deprecated: azure-native:compute/v20201201:Snapshot is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20220702:Snapshot to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

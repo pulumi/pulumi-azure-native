@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-08-01 will be removed in v2 of the provider.
-azure-native:batch/v20190801:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:ApplicationPackage to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:batch/v20190801:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20230501:ApplicationPackage to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetApplicationPackageResult:
@@ -158,7 +158,7 @@ def get_application_package(account_name: Optional[str] = None,
     :param str version_name: The version of the application.
     """
     pulumi.log.warn("""get_application_package is deprecated: Version 2019-08-01 will be removed in v2 of the provider.
-azure-native:batch/v20190801:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:ApplicationPackage to guarantee forwards compatibility.""")
+azure-native:batch/v20190801:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20230501:ApplicationPackage to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['applicationName'] = application_name
@@ -195,5 +195,5 @@ def get_application_package_output(account_name: Optional[pulumi.Input[str]] = N
     :param str version_name: The version of the application.
     """
     pulumi.log.warn("""get_application_package is deprecated: Version 2019-08-01 will be removed in v2 of the provider.
-azure-native:batch/v20190801:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:ApplicationPackage to guarantee forwards compatibility.""")
+azure-native:batch/v20190801:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20230501:ApplicationPackage to guarantee forwards compatibility.""")
     ...

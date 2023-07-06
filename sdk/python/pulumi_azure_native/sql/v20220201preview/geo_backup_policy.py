@@ -96,11 +96,11 @@ class GeoBackupPolicyArgs:
         pulumi.set(self, "geo_backup_policy_name", value)
 
 
-warnings.warn("""azure-native:sql/v20220201preview:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:GeoBackupPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sql/v20220201preview:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:GeoBackupPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class GeoBackupPolicy(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20220201preview:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:GeoBackupPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:sql/v20220201preview:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:GeoBackupPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -153,7 +153,7 @@ class GeoBackupPolicy(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['GeoBackupPolicyState']] = None,
                  __props__=None):
-        pulumi.log.warn("""GeoBackupPolicy is deprecated: azure-native:sql/v20220201preview:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:GeoBackupPolicy to guarantee forwards compatibility.""")
+        pulumi.log.warn("""GeoBackupPolicy is deprecated: azure-native:sql/v20220201preview:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:GeoBackupPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

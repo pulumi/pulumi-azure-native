@@ -17,6 +17,8 @@ __all__ = [
     'get_sql_server_database_output',
 ]
 
+warnings.warn("""azure-native:azurearcdata/v20220615preview:SqlServerDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:SqlServerDatabase to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlServerDatabaseResult:
     """
@@ -129,6 +131,7 @@ def get_sql_server_database(database_name: Optional[str] = None,
     :param str resource_group_name: The name of the Azure resource group
     :param str sql_server_instance_name: Name of SQL Server Instance
     """
+    pulumi.log.warn("""get_sql_server_database is deprecated: azure-native:azurearcdata/v20220615preview:SqlServerDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:SqlServerDatabase to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
@@ -159,4 +162,5 @@ def get_sql_server_database_output(database_name: Optional[pulumi.Input[str]] = 
     :param str resource_group_name: The name of the Azure resource group
     :param str sql_server_instance_name: Name of SQL Server Instance
     """
+    pulumi.log.warn("""get_sql_server_database is deprecated: azure-native:azurearcdata/v20220615preview:SqlServerDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:SqlServerDatabase to guarantee forwards compatibility.""")
     ...

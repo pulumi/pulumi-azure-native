@@ -17,6 +17,8 @@ __all__ = [
     'get_extension_output',
 ]
 
+warnings.warn("""azure-native:agfoodplatform/v20200512preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:agfoodplatform/v20210901preview:Extension to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExtensionResult:
     """
@@ -165,6 +167,7 @@ def get_extension(extension_id: Optional[str] = None,
     :param str farm_beats_resource_name: FarmBeats resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_extension is deprecated: azure-native:agfoodplatform/v20200512preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:agfoodplatform/v20210901preview:Extension to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['extensionId'] = extension_id
     __args__['farmBeatsResourceName'] = farm_beats_resource_name
@@ -198,4 +201,5 @@ def get_extension_output(extension_id: Optional[pulumi.Input[str]] = None,
     :param str farm_beats_resource_name: FarmBeats resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_extension is deprecated: azure-native:agfoodplatform/v20200512preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:agfoodplatform/v20210901preview:Extension to guarantee forwards compatibility.""")
     ...

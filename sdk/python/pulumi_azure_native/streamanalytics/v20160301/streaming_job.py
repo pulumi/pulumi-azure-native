@@ -293,7 +293,12 @@ class StreamingJobArgs:
         pulumi.set(self, "transformation", value)
 
 
+warnings.warn("""azure-native:streamanalytics/v20160301:StreamingJob is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20170401preview:StreamingJob to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class StreamingJob(pulumi.CustomResource):
+    warnings.warn("""azure-native:streamanalytics/v20160301:StreamingJob is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20170401preview:StreamingJob to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -381,6 +386,7 @@ class StreamingJob(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transformation: Optional[pulumi.Input[pulumi.InputType['TransformationArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""StreamingJob is deprecated: azure-native:streamanalytics/v20160301:StreamingJob is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20170401preview:StreamingJob to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

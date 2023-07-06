@@ -17,6 +17,8 @@ __all__ = [
     'get_domain_topic_output',
 ]
 
+warnings.warn("""azure-native:eventgrid/v20200601:DomainTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainTopic to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDomainTopicResult:
     """
@@ -105,6 +107,7 @@ def get_domain_topic(domain_name: Optional[str] = None,
     :param str domain_topic_name: Name of the topic.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("""get_domain_topic is deprecated: azure-native:eventgrid/v20200601:DomainTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainTopic to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['domainTopicName'] = domain_topic_name
@@ -133,4 +136,5 @@ def get_domain_topic_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str domain_topic_name: Name of the topic.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("""get_domain_topic is deprecated: azure-native:eventgrid/v20200601:DomainTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainTopic to guarantee forwards compatibility.""")
     ...

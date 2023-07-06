@@ -17,7 +17,7 @@ __all__ = [
     'get_failover_group_output',
 ]
 
-warnings.warn("""azure-native:sql/v20200202preview:FailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:FailoverGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sql/v20200202preview:FailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:FailoverGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetFailoverGroupResult:
@@ -179,7 +179,7 @@ def get_failover_group(failover_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server containing the failover group.
     """
-    pulumi.log.warn("""get_failover_group is deprecated: azure-native:sql/v20200202preview:FailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:FailoverGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_failover_group is deprecated: azure-native:sql/v20200202preview:FailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:FailoverGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['failoverGroupName'] = failover_group_name
     __args__['resourceGroupName'] = resource_group_name
@@ -214,5 +214,5 @@ def get_failover_group_output(failover_group_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server containing the failover group.
     """
-    pulumi.log.warn("""get_failover_group is deprecated: azure-native:sql/v20200202preview:FailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:FailoverGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_failover_group is deprecated: azure-native:sql/v20200202preview:FailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:FailoverGroup to guarantee forwards compatibility.""")
     ...

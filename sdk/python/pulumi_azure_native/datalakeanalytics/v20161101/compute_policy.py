@@ -128,7 +128,12 @@ class ComputePolicyArgs:
         pulumi.set(self, "min_priority_per_job", value)
 
 
+warnings.warn("""azure-native:datalakeanalytics/v20161101:ComputePolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:datalakeanalytics/v20191101preview:ComputePolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ComputePolicy(pulumi.CustomResource):
+    warnings.warn("""azure-native:datalakeanalytics/v20161101:ComputePolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:datalakeanalytics/v20191101preview:ComputePolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -186,6 +191,7 @@ class ComputePolicy(pulumi.CustomResource):
                  object_type: Optional[pulumi.Input[Union[str, 'AADObjectType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ComputePolicy is deprecated: azure-native:datalakeanalytics/v20161101:ComputePolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:datalakeanalytics/v20191101preview:ComputePolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

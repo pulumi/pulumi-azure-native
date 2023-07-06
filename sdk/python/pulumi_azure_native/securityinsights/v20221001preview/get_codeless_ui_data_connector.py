@@ -17,7 +17,7 @@ __all__ = [
     'get_codeless_ui_data_connector_output',
 ]
 
-warnings.warn("""azure-native:securityinsights/v20221001preview:CodelessUiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessUiDataConnector to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:securityinsights/v20221001preview:CodelessUiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:CodelessUiDataConnector to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCodelessUiDataConnectorResult:
@@ -132,7 +132,7 @@ def get_codeless_ui_data_connector(data_connector_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_codeless_ui_data_connector is deprecated: azure-native:securityinsights/v20221001preview:CodelessUiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessUiDataConnector to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_codeless_ui_data_connector is deprecated: azure-native:securityinsights/v20221001preview:CodelessUiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:CodelessUiDataConnector to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataConnectorId'] = data_connector_id
     __args__['resourceGroupName'] = resource_group_name
@@ -163,5 +163,5 @@ def get_codeless_ui_data_connector_output(data_connector_id: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_codeless_ui_data_connector is deprecated: azure-native:securityinsights/v20221001preview:CodelessUiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:CodelessUiDataConnector to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_codeless_ui_data_connector is deprecated: azure-native:securityinsights/v20221001preview:CodelessUiDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:CodelessUiDataConnector to guarantee forwards compatibility.""")
     ...

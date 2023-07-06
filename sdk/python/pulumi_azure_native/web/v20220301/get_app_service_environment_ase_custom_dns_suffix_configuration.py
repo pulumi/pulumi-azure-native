@@ -16,6 +16,8 @@ __all__ = [
     'get_app_service_environment_ase_custom_dns_suffix_configuration_output',
 ]
 
+warnings.warn("""azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:AppServiceEnvironmentAseCustomDnsSuffixConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult:
     """
@@ -144,6 +146,7 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration(name: Option
     :param str name: Name of the App Service Environment.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_app_service_environment_ase_custom_dns_suffix_configuration is deprecated: azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:AppServiceEnvironmentAseCustomDnsSuffixConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -173,4 +176,5 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration_output(name:
     :param str name: Name of the App Service Environment.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_app_service_environment_ase_custom_dns_suffix_configuration is deprecated: azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:AppServiceEnvironmentAseCustomDnsSuffixConfiguration to guarantee forwards compatibility.""")
     ...

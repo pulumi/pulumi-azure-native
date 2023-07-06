@@ -133,11 +133,11 @@ class SecurityPartnerProviderArgs:
         pulumi.set(self, "virtual_hub", value)
 
 
-warnings.warn("""azure-native:network/v20200301:SecurityPartnerProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:SecurityPartnerProvider to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20200301:SecurityPartnerProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:SecurityPartnerProvider to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class SecurityPartnerProvider(pulumi.CustomResource):
-    warnings.warn("""azure-native:network/v20200301:SecurityPartnerProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:SecurityPartnerProvider to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:network/v20200301:SecurityPartnerProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:SecurityPartnerProvider to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -196,7 +196,7 @@ class SecurityPartnerProvider(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""SecurityPartnerProvider is deprecated: azure-native:network/v20200301:SecurityPartnerProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:SecurityPartnerProvider to guarantee forwards compatibility.""")
+        pulumi.log.warn("""SecurityPartnerProvider is deprecated: azure-native:network/v20200301:SecurityPartnerProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:SecurityPartnerProvider to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

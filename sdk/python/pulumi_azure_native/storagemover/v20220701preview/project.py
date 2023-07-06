@@ -82,7 +82,12 @@ class ProjectArgs:
         pulumi.set(self, "project_name", value)
 
 
+warnings.warn("""azure-native:storagemover/v20220701preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:Project to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Project(pulumi.CustomResource):
+    warnings.warn("""azure-native:storagemover/v20220701preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:Project to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,6 +136,7 @@ class Project(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_mover_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Project is deprecated: azure-native:storagemover/v20220701preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:Project to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

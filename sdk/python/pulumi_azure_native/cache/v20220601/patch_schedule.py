@@ -83,7 +83,12 @@ class PatchScheduleArgs:
         pulumi.set(self, "default", value)
 
 
+warnings.warn("""azure-native:cache/v20220601:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:PatchSchedule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class PatchSchedule(pulumi.CustomResource):
+    warnings.warn("""azure-native:cache/v20220601:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:PatchSchedule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,6 +137,7 @@ class PatchSchedule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""PatchSchedule is deprecated: azure-native:cache/v20220601:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:PatchSchedule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

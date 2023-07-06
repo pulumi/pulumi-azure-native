@@ -17,7 +17,7 @@ __all__ = [
     'get_rule_output',
 ]
 
-warnings.warn("""azure-native:cdn/v20210601:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Rule to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:cdn/v20210601:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:Rule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRuleResult:
@@ -178,7 +178,7 @@ def get_rule(profile_name: Optional[str] = None,
     :param str rule_name: Name of the delivery rule which is unique within the endpoint.
     :param str rule_set_name: Name of the rule set under the profile.
     """
-    pulumi.log.warn("""get_rule is deprecated: azure-native:cdn/v20210601:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Rule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_rule is deprecated: azure-native:cdn/v20210601:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:Rule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
@@ -216,5 +216,5 @@ def get_rule_output(profile_name: Optional[pulumi.Input[str]] = None,
     :param str rule_name: Name of the delivery rule which is unique within the endpoint.
     :param str rule_set_name: Name of the rule set under the profile.
     """
-    pulumi.log.warn("""get_rule is deprecated: azure-native:cdn/v20210601:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Rule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_rule is deprecated: azure-native:cdn/v20210601:Rule is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:Rule to guarantee forwards compatibility.""")
     ...

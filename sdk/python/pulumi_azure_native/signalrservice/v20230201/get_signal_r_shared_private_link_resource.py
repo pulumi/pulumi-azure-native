@@ -17,6 +17,8 @@ __all__ = [
     'get_signal_r_shared_private_link_resource_output',
 ]
 
+warnings.warn("""azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRSharedPrivateLinkResource to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSignalRSharedPrivateLinkResourceResult:
     """
@@ -153,6 +155,7 @@ def get_signal_r_shared_private_link_resource(resource_group_name: Optional[str]
     :param str resource_name: The name of the resource.
     :param str shared_private_link_resource_name: The name of the shared private link resource
     """
+    pulumi.log.warn("""get_signal_r_shared_private_link_resource is deprecated: azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRSharedPrivateLinkResource to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -185,4 +188,5 @@ def get_signal_r_shared_private_link_resource_output(resource_group_name: Option
     :param str resource_name: The name of the resource.
     :param str shared_private_link_resource_name: The name of the shared private link resource
     """
+    pulumi.log.warn("""get_signal_r_shared_private_link_resource is deprecated: azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRSharedPrivateLinkResource to guarantee forwards compatibility.""")
     ...

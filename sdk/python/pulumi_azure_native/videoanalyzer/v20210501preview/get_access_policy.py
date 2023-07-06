@@ -17,6 +17,8 @@ __all__ = [
     'get_access_policy_output',
 ]
 
+warnings.warn("""azure-native:videoanalyzer/v20210501preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:AccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAccessPolicyResult:
     """
@@ -117,6 +119,7 @@ def get_access_policy(access_policy_name: Optional[str] = None,
     :param str account_name: The Azure Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_access_policy is deprecated: azure-native:videoanalyzer/v20210501preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:AccessPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accessPolicyName'] = access_policy_name
     __args__['accountName'] = account_name
@@ -146,4 +149,5 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
     :param str account_name: The Azure Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_access_policy is deprecated: azure-native:videoanalyzer/v20210501preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:AccessPolicy to guarantee forwards compatibility.""")
     ...

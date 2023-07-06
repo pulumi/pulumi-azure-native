@@ -17,7 +17,7 @@ __all__ = [
     'get_arc_setting_output',
 ]
 
-warnings.warn("""azure-native:azurestackhci/v20220501:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221001:ArcSetting to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:azurestackhci/v20220501:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:ArcSetting to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetArcSettingResult:
@@ -263,7 +263,7 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_arc_setting is deprecated: azure-native:azurestackhci/v20220501:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221001:ArcSetting to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_arc_setting is deprecated: azure-native:azurestackhci/v20220501:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:ArcSetting to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['arcSettingName'] = arc_setting_name
     __args__['clusterName'] = cluster_name
@@ -305,5 +305,5 @@ def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_arc_setting is deprecated: azure-native:azurestackhci/v20220501:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221001:ArcSetting to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_arc_setting is deprecated: azure-native:azurestackhci/v20220501:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:ArcSetting to guarantee forwards compatibility.""")
     ...

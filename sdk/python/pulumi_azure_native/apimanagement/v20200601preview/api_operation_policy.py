@@ -129,11 +129,11 @@ class ApiOperationPolicyArgs:
         pulumi.set(self, "policy_id", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20200601preview:ApiOperationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiOperationPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:apimanagement/v20200601preview:ApiOperationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiOperationPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ApiOperationPolicy(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20200601preview:ApiOperationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiOperationPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:apimanagement/v20200601preview:ApiOperationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiOperationPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -192,7 +192,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApiOperationPolicy is deprecated: azure-native:apimanagement/v20200601preview:ApiOperationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiOperationPolicy to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ApiOperationPolicy is deprecated: azure-native:apimanagement/v20200601preview:ApiOperationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiOperationPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -17,6 +17,8 @@ __all__ = [
     'get_policy_exemption_output',
 ]
 
+warnings.warn("""azure-native:authorization/v20200701preview:PolicyExemption is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220701preview:PolicyExemption to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPolicyExemptionResult:
     """
@@ -175,6 +177,7 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
     :param str policy_exemption_name: The name of the policy exemption to delete.
     :param str scope: The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     """
+    pulumi.log.warn("""get_policy_exemption is deprecated: azure-native:authorization/v20200701preview:PolicyExemption is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220701preview:PolicyExemption to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['policyExemptionName'] = policy_exemption_name
     __args__['scope'] = scope
@@ -206,4 +209,5 @@ def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[str
     :param str policy_exemption_name: The name of the policy exemption to delete.
     :param str scope: The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     """
+    pulumi.log.warn("""get_policy_exemption is deprecated: azure-native:authorization/v20200701preview:PolicyExemption is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220701preview:PolicyExemption to guarantee forwards compatibility.""")
     ...

@@ -113,7 +113,12 @@ class HybridRunbookWorkerArgs:
         pulumi.set(self, "vm_resource_id", value)
 
 
+warnings.warn("""azure-native:automation/v20210622:HybridRunbookWorker is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorker to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class HybridRunbookWorker(pulumi.CustomResource):
+    warnings.warn("""azure-native:automation/v20210622:HybridRunbookWorker is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorker to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -168,6 +173,7 @@ class HybridRunbookWorker(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vm_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""HybridRunbookWorker is deprecated: azure-native:automation/v20210622:HybridRunbookWorker is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorker to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

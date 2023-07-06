@@ -17,6 +17,8 @@ __all__ = [
     'get_assessment_metadata_in_subscription_output',
 ]
 
+warnings.warn("""azure-native:security/v20200101:AssessmentMetadataInSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20210601:AssessmentMetadataInSubscription to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAssessmentMetadataInSubscriptionResult:
     """
@@ -215,6 +217,7 @@ def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[s
 
     :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type
     """
+    pulumi.log.warn("""get_assessment_metadata_in_subscription is deprecated: azure-native:security/v20200101:AssessmentMetadataInSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20210601:AssessmentMetadataInSubscription to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['assessmentMetadataName'] = assessment_metadata_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -247,4 +250,5 @@ def get_assessment_metadata_in_subscription_output(assessment_metadata_name: Opt
 
     :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type
     """
+    pulumi.log.warn("""get_assessment_metadata_in_subscription is deprecated: azure-native:security/v20200101:AssessmentMetadataInSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20210601:AssessmentMetadataInSubscription to guarantee forwards compatibility.""")
     ...

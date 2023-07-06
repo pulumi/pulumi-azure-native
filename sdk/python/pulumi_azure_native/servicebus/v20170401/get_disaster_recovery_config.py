@@ -16,6 +16,8 @@ __all__ = [
     'get_disaster_recovery_config_output',
 ]
 
+warnings.warn("""azure-native:servicebus/v20170401:DisasterRecoveryConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDisasterRecoveryConfigResult:
     """
@@ -140,6 +142,7 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_disaster_recovery_config is deprecated: azure-native:servicebus/v20170401:DisasterRecoveryConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['alias'] = alias
     __args__['namespaceName'] = namespace_name
@@ -171,4 +174,5 @@ def get_disaster_recovery_config_output(alias: Optional[pulumi.Input[str]] = Non
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_disaster_recovery_config is deprecated: azure-native:servicebus/v20170401:DisasterRecoveryConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:DisasterRecoveryConfig to guarantee forwards compatibility.""")
     ...

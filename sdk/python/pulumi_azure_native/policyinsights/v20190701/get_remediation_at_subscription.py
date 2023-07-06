@@ -17,6 +17,8 @@ __all__ = [
     'get_remediation_at_subscription_output',
 ]
 
+warnings.warn("""azure-native:policyinsights/v20190701:RemediationAtSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtSubscription to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRemediationAtSubscriptionResult:
     """
@@ -173,6 +175,7 @@ def get_remediation_at_subscription(remediation_name: Optional[str] = None,
 
     :param str remediation_name: The name of the remediation.
     """
+    pulumi.log.warn("""get_remediation_at_subscription is deprecated: azure-native:policyinsights/v20190701:RemediationAtSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtSubscription to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['remediationName'] = remediation_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -201,4 +204,5 @@ def get_remediation_at_subscription_output(remediation_name: Optional[pulumi.Inp
 
     :param str remediation_name: The name of the remediation.
     """
+    pulumi.log.warn("""get_remediation_at_subscription is deprecated: azure-native:policyinsights/v20190701:RemediationAtSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtSubscription to guarantee forwards compatibility.""")
     ...

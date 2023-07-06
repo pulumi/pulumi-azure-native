@@ -17,6 +17,8 @@ __all__ = [
     'get_patch_schedule_output',
 ]
 
+warnings.warn("""azure-native:cache/v20200601:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:PatchSchedule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPatchScheduleResult:
     """
@@ -93,6 +95,7 @@ def get_patch_schedule(default: Optional[str] = None,
     :param str name: The name of the redis cache.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_patch_schedule is deprecated: azure-native:cache/v20200601:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:PatchSchedule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['default'] = default
     __args__['name'] = name
@@ -120,4 +123,5 @@ def get_patch_schedule_output(default: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the redis cache.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_patch_schedule is deprecated: azure-native:cache/v20200601:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:PatchSchedule to guarantee forwards compatibility.""")
     ...

@@ -17,6 +17,8 @@ __all__ = [
     'get_table_output',
 ]
 
+warnings.warn("""azure-native:operationalinsights/v20211201preview:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20221001:Table to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTableResult:
     """
@@ -213,6 +215,7 @@ def get_table(resource_group_name: Optional[str] = None,
     :param str table_name: The name of the table.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_table is deprecated: azure-native:operationalinsights/v20211201preview:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20221001:Table to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['tableName'] = table_name
@@ -250,4 +253,5 @@ def get_table_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str table_name: The name of the table.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_table is deprecated: azure-native:operationalinsights/v20211201preview:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20221001:Table to guarantee forwards compatibility.""")
     ...

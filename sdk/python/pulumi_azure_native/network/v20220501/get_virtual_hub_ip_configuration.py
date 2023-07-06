@@ -17,7 +17,7 @@ __all__ = [
     'get_virtual_hub_ip_configuration_output',
 ]
 
-warnings.warn("""azure-native:network/v20220501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubIpConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20220501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualHubIpConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualHubIpConfigurationResult:
@@ -155,7 +155,7 @@ def get_virtual_hub_ip_configuration(ip_config_name: Optional[str] = None,
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
-    pulumi.log.warn("""get_virtual_hub_ip_configuration is deprecated: azure-native:network/v20220501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubIpConfiguration to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_hub_ip_configuration is deprecated: azure-native:network/v20220501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualHubIpConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['ipConfigName'] = ip_config_name
     __args__['resourceGroupName'] = resource_group_name
@@ -188,5 +188,5 @@ def get_virtual_hub_ip_configuration_output(ip_config_name: Optional[pulumi.Inpu
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
-    pulumi.log.warn("""get_virtual_hub_ip_configuration is deprecated: azure-native:network/v20220501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubIpConfiguration to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_virtual_hub_ip_configuration is deprecated: azure-native:network/v20220501:VirtualHubIpConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualHubIpConfiguration to guarantee forwards compatibility.""")
     ...

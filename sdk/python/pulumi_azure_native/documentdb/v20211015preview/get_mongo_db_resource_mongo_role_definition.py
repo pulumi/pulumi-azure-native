@@ -17,6 +17,8 @@ __all__ = [
     'get_mongo_db_resource_mongo_role_definition_output',
 ]
 
+warnings.warn("""azure-native:documentdb/v20211015preview:MongoDBResourceMongoRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230301preview:MongoDBResourceMongoRoleDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMongoDBResourceMongoRoleDefinitionResult:
     """
@@ -129,6 +131,7 @@ def get_mongo_db_resource_mongo_role_definition(account_name: Optional[str] = No
     :param str mongo_role_definition_id: The ID for the Role Definition {dbName.roleName}.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_mongo_db_resource_mongo_role_definition is deprecated: azure-native:documentdb/v20211015preview:MongoDBResourceMongoRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230301preview:MongoDBResourceMongoRoleDefinition to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['mongoRoleDefinitionId'] = mongo_role_definition_id
@@ -159,4 +162,5 @@ def get_mongo_db_resource_mongo_role_definition_output(account_name: Optional[pu
     :param str mongo_role_definition_id: The ID for the Role Definition {dbName.roleName}.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_mongo_db_resource_mongo_role_definition is deprecated: azure-native:documentdb/v20211015preview:MongoDBResourceMongoRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230301preview:MongoDBResourceMongoRoleDefinition to guarantee forwards compatibility.""")
     ...

@@ -66,7 +66,12 @@ class EdgeModuleArgs:
         pulumi.set(self, "edge_module_name", value)
 
 
+warnings.warn("""azure-native:videoanalyzer/v20210501preview:EdgeModule is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:EdgeModule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class EdgeModule(pulumi.CustomResource):
+    warnings.warn("""azure-native:videoanalyzer/v20210501preview:EdgeModule is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:EdgeModule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -112,6 +117,7 @@ class EdgeModule(pulumi.CustomResource):
                  edge_module_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""EdgeModule is deprecated: azure-native:videoanalyzer/v20210501preview:EdgeModule is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:EdgeModule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

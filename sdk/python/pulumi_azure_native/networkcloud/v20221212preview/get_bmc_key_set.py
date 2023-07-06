@@ -17,6 +17,8 @@ __all__ = [
     'get_bmc_key_set_output',
 ]
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:BmcKeySet is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BmcKeySet to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBmcKeySetResult:
     def __init__(__self__, azure_group_id=None, detailed_status=None, detailed_status_message=None, expiration=None, extended_location=None, id=None, last_validation=None, location=None, name=None, privilege_level=None, provisioning_state=None, system_data=None, tags=None, type=None, user_list=None, user_list_status=None):
@@ -234,6 +236,7 @@ def get_bmc_key_set(bmc_key_set_name: Optional[str] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_bmc_key_set is deprecated: azure-native:networkcloud/v20221212preview:BmcKeySet is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BmcKeySet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['bmcKeySetName'] = bmc_key_set_name
     __args__['clusterName'] = cluster_name
@@ -273,4 +276,5 @@ def get_bmc_key_set_output(bmc_key_set_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_bmc_key_set is deprecated: azure-native:networkcloud/v20221212preview:BmcKeySet is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BmcKeySet to guarantee forwards compatibility.""")
     ...

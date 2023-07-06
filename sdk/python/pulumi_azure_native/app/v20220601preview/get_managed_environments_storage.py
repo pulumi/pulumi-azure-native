@@ -17,7 +17,7 @@ __all__ = [
     'get_managed_environments_storage_output',
 ]
 
-warnings.warn("""azure-native:app/v20220601preview:ManagedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ManagedEnvironmentsStorage to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:app/v20220601preview:ManagedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ManagedEnvironmentsStorage to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetManagedEnvironmentsStorageResult:
@@ -107,7 +107,7 @@ def get_managed_environments_storage(environment_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_name: Name of the storage.
     """
-    pulumi.log.warn("""get_managed_environments_storage is deprecated: azure-native:app/v20220601preview:ManagedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ManagedEnvironmentsStorage to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_managed_environments_storage is deprecated: azure-native:app/v20220601preview:ManagedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ManagedEnvironmentsStorage to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['resourceGroupName'] = resource_group_name
@@ -136,5 +136,5 @@ def get_managed_environments_storage_output(environment_name: Optional[pulumi.In
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_name: Name of the storage.
     """
-    pulumi.log.warn("""get_managed_environments_storage is deprecated: azure-native:app/v20220601preview:ManagedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ManagedEnvironmentsStorage to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_managed_environments_storage is deprecated: azure-native:app/v20220601preview:ManagedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ManagedEnvironmentsStorage to guarantee forwards compatibility.""")
     ...

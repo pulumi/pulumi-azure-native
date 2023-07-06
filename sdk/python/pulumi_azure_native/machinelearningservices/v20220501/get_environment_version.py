@@ -17,7 +17,7 @@ __all__ = [
     'get_environment_version_output',
 ]
 
-warnings.warn("""azure-native:machinelearningservices/v20220501:EnvironmentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:EnvironmentVersion to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:machinelearningservices/v20220501:EnvironmentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:EnvironmentVersion to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetEnvironmentVersionResult:
@@ -109,7 +109,7 @@ def get_environment_version(name: Optional[str] = None,
     :param str version: Version identifier. This is case-sensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("""get_environment_version is deprecated: azure-native:machinelearningservices/v20220501:EnvironmentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:EnvironmentVersion to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_environment_version is deprecated: azure-native:machinelearningservices/v20220501:EnvironmentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:EnvironmentVersion to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -141,5 +141,5 @@ def get_environment_version_output(name: Optional[pulumi.Input[str]] = None,
     :param str version: Version identifier. This is case-sensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("""get_environment_version is deprecated: azure-native:machinelearningservices/v20220501:EnvironmentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:EnvironmentVersion to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_environment_version is deprecated: azure-native:machinelearningservices/v20220501:EnvironmentVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:EnvironmentVersion to guarantee forwards compatibility.""")
     ...

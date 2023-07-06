@@ -16,7 +16,7 @@ __all__ = [
     'get_api_issue_attachment_output',
 ]
 
-warnings.warn("""azure-native:apimanagement/v20180601preview:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiIssueAttachment to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:apimanagement/v20180601preview:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetApiIssueAttachmentResult:
@@ -122,7 +122,7 @@ def get_api_issue_attachment(api_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("""get_api_issue_attachment is deprecated: azure-native:apimanagement/v20180601preview:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiIssueAttachment to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_api_issue_attachment is deprecated: azure-native:apimanagement/v20180601preview:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['attachmentId'] = attachment_id
@@ -158,5 +158,5 @@ def get_api_issue_attachment_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("""get_api_issue_attachment is deprecated: azure-native:apimanagement/v20180601preview:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiIssueAttachment to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_api_issue_attachment is deprecated: azure-native:apimanagement/v20180601preview:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility.""")
     ...

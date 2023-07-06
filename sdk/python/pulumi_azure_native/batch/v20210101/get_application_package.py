@@ -16,6 +16,8 @@ __all__ = [
     'get_application_package_output',
 ]
 
+warnings.warn("""azure-native:batch/v20210101:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20230501:ApplicationPackage to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationPackageResult:
     """
@@ -154,6 +156,7 @@ def get_application_package(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     :param str version_name: The version of the application.
     """
+    pulumi.log.warn("""get_application_package is deprecated: azure-native:batch/v20210101:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20230501:ApplicationPackage to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['applicationName'] = application_name
@@ -189,4 +192,5 @@ def get_application_package_output(account_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     :param str version_name: The version of the application.
     """
+    pulumi.log.warn("""get_application_package is deprecated: azure-native:batch/v20210101:ApplicationPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20230501:ApplicationPackage to guarantee forwards compatibility.""")
     ...

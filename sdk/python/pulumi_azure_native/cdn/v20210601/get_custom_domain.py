@@ -17,7 +17,7 @@ __all__ = [
     'get_custom_domain_output',
 ]
 
-warnings.warn("""azure-native:cdn/v20210601:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:CustomDomain to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:cdn/v20210601:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:CustomDomain to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCustomDomainResult:
@@ -181,7 +181,7 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_custom_domain is deprecated: azure-native:cdn/v20210601:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:CustomDomain to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_custom_domain is deprecated: azure-native:cdn/v20210601:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:CustomDomain to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['customDomainName'] = custom_domain_name
     __args__['endpointName'] = endpoint_name
@@ -219,5 +219,5 @@ def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = N
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_custom_domain is deprecated: azure-native:cdn/v20210601:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:CustomDomain to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_custom_domain is deprecated: azure-native:cdn/v20210601:CustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:CustomDomain to guarantee forwards compatibility.""")
     ...

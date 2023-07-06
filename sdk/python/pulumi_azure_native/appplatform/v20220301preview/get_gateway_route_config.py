@@ -17,7 +17,7 @@ __all__ = [
     'get_gateway_route_config_output',
 ]
 
-warnings.warn("""azure-native:appplatform/v20220301preview:GatewayRouteConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:GatewayRouteConfig to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:appplatform/v20220301preview:GatewayRouteConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:GatewayRouteConfig to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetGatewayRouteConfigResult:
@@ -109,7 +109,7 @@ def get_gateway_route_config(gateway_name: Optional[str] = None,
     :param str route_config_name: The name of the Spring Cloud Gateway route config.
     :param str service_name: The name of the Service resource.
     """
-    pulumi.log.warn("""get_gateway_route_config is deprecated: azure-native:appplatform/v20220301preview:GatewayRouteConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:GatewayRouteConfig to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_gateway_route_config is deprecated: azure-native:appplatform/v20220301preview:GatewayRouteConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:GatewayRouteConfig to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['gatewayName'] = gateway_name
     __args__['resourceGroupName'] = resource_group_name
@@ -141,5 +141,5 @@ def get_gateway_route_config_output(gateway_name: Optional[pulumi.Input[str]] = 
     :param str route_config_name: The name of the Spring Cloud Gateway route config.
     :param str service_name: The name of the Service resource.
     """
-    pulumi.log.warn("""get_gateway_route_config is deprecated: azure-native:appplatform/v20220301preview:GatewayRouteConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:GatewayRouteConfig to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_gateway_route_config is deprecated: azure-native:appplatform/v20220301preview:GatewayRouteConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:GatewayRouteConfig to guarantee forwards compatibility.""")
     ...

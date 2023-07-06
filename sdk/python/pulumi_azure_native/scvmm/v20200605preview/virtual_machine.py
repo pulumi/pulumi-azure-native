@@ -324,7 +324,12 @@ class VirtualMachineArgs:
         pulumi.set(self, "vmm_server_id", value)
 
 
+warnings.warn("""azure-native:scvmm/v20200605preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachine to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class VirtualMachine(pulumi.CustomResource):
+    warnings.warn("""azure-native:scvmm/v20200605preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachine to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -418,6 +423,7 @@ class VirtualMachine(pulumi.CustomResource):
                  vm_name: Optional[pulumi.Input[str]] = None,
                  vmm_server_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""VirtualMachine is deprecated: azure-native:scvmm/v20200605preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachine to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

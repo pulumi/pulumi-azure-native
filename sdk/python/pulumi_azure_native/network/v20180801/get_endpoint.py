@@ -17,6 +17,8 @@ __all__ = [
     'get_endpoint_output',
 ]
 
+warnings.warn("""azure-native:network/v20180801:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:Endpoint to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEndpointResult:
     """
@@ -239,6 +241,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group containing the Traffic Manager endpoint.
     """
+    pulumi.log.warn("""get_endpoint is deprecated: azure-native:network/v20180801:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:Endpoint to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['endpointType'] = endpoint_type
@@ -281,4 +284,5 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group containing the Traffic Manager endpoint.
     """
+    pulumi.log.warn("""get_endpoint is deprecated: azure-native:network/v20180801:Endpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220401preview:Endpoint to guarantee forwards compatibility.""")
     ...

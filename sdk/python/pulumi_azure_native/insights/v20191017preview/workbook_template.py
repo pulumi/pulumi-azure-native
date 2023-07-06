@@ -162,7 +162,12 @@ class WorkbookTemplateArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:insights/v20191017preview:WorkbookTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201120:WorkbookTemplate to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WorkbookTemplate(pulumi.CustomResource):
+    warnings.warn("""azure-native:insights/v20191017preview:WorkbookTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201120:WorkbookTemplate to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -226,6 +231,7 @@ class WorkbookTemplate(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_data: Optional[Any] = None,
                  __props__=None):
+        pulumi.log.warn("""WorkbookTemplate is deprecated: azure-native:insights/v20191017preview:WorkbookTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201120:WorkbookTemplate to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -129,7 +129,12 @@ class DigitalTwinArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:digitaltwins/v20201201:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class DigitalTwin(pulumi.CustomResource):
+    warnings.warn("""azure-native:digitaltwins/v20201201:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -186,6 +191,7 @@ class DigitalTwin(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""DigitalTwin is deprecated: azure-native:digitaltwins/v20201201:DigitalTwin is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwin to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

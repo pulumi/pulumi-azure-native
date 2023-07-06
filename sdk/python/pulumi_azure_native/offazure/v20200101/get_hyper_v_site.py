@@ -17,6 +17,8 @@ __all__ = [
     'get_hyper_v_site_output',
 ]
 
+warnings.warn("""azure-native:offazure/v20200101:HyperVSite is being removed in the next major version of this provider. Upgrade to at least azure-native:offazure/v20200707:HyperVSite to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHyperVSiteResult:
     """
@@ -124,6 +126,7 @@ def get_hyper_v_site(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str site_name: Site name.
     """
+    pulumi.log.warn("""get_hyper_v_site is deprecated: azure-native:offazure/v20200101:HyperVSite is being removed in the next major version of this provider. Upgrade to at least azure-native:offazure/v20200707:HyperVSite to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteName'] = site_name
@@ -151,4 +154,5 @@ def get_hyper_v_site_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str site_name: Site name.
     """
+    pulumi.log.warn("""get_hyper_v_site is deprecated: azure-native:offazure/v20200101:HyperVSite is being removed in the next major version of this provider. Upgrade to at least azure-native:offazure/v20200707:HyperVSite to guarantee forwards compatibility.""")
     ...

@@ -66,7 +66,12 @@ class HierarchySettingArgs:
         pulumi.set(self, "require_authorization_for_group_creation", value)
 
 
+warnings.warn("""azure-native:management/v20200501:HierarchySetting is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:HierarchySetting to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class HierarchySetting(pulumi.CustomResource):
+    warnings.warn("""azure-native:management/v20200501:HierarchySetting is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:HierarchySetting to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -112,6 +117,7 @@ class HierarchySetting(pulumi.CustomResource):
                  group_id: Optional[pulumi.Input[str]] = None,
                  require_authorization_for_group_creation: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
+        pulumi.log.warn("""HierarchySetting is deprecated: azure-native:management/v20200501:HierarchySetting is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:HierarchySetting to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

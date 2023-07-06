@@ -96,7 +96,12 @@ class WorkspaceManagerMemberArgs:
         pulumi.set(self, "workspace_manager_member_name", value)
 
 
+warnings.warn("""azure-native:securityinsights/v20230401preview:WorkspaceManagerMember is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerMember to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class WorkspaceManagerMember(pulumi.CustomResource):
+    warnings.warn("""azure-native:securityinsights/v20230401preview:WorkspaceManagerMember is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerMember to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -148,6 +153,7 @@ class WorkspaceManagerMember(pulumi.CustomResource):
                  workspace_manager_member_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WorkspaceManagerMember is deprecated: azure-native:securityinsights/v20230401preview:WorkspaceManagerMember is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerMember to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

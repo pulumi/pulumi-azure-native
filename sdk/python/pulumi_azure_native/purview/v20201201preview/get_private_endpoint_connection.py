@@ -17,6 +17,8 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
+warnings.warn("""azure-native:purview/v20201201preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:purview/v20210701:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
@@ -117,6 +119,7 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
     :param str private_endpoint_connection_name: Name of the private endpoint connection.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:purview/v20201201preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:purview/v20210701:PrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -146,4 +149,5 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
     :param str private_endpoint_connection_name: Name of the private endpoint connection.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:purview/v20201201preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:purview/v20210701:PrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

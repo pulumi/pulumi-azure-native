@@ -196,7 +196,12 @@ class TenantActionGroupArgs:
         pulumi.set(self, "webhook_receivers", value)
 
 
+warnings.warn("""azure-native:insights/v20230301preview:TenantActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230501preview:TenantActionGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class TenantActionGroup(pulumi.CustomResource):
+    warnings.warn("""azure-native:insights/v20230301preview:TenantActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230501preview:TenantActionGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -266,6 +271,7 @@ class TenantActionGroup(pulumi.CustomResource):
                  voice_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceReceiverArgs']]]]] = None,
                  webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookReceiverArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""TenantActionGroup is deprecated: azure-native:insights/v20230301preview:TenantActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230501preview:TenantActionGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

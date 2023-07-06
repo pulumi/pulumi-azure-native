@@ -132,11 +132,11 @@ class FirewallPolicyRuleCollectionGroupArgs:
         pulumi.set(self, "rule_collections", value)
 
 
-warnings.warn("""azure-native:network/v20200601:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20200601:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
-    warnings.warn("""azure-native:network/v20200601:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:network/v20200601:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -195,7 +195,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                  rule_collection_group_name: Optional[pulumi.Input[str]] = None,
                  rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleCollectionArgs'], pulumi.InputType['FirewallPolicyNatRuleCollectionArgs']]]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""FirewallPolicyRuleCollectionGroup is deprecated: azure-native:network/v20200601:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility.""")
+        pulumi.log.warn("""FirewallPolicyRuleCollectionGroup is deprecated: azure-native:network/v20200601:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

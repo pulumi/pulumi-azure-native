@@ -17,6 +17,8 @@ __all__ = [
     'get_private_store_collection_offer_output',
 ]
 
+warnings.warn("""azure-native:marketplace/v20211201:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateStoreCollectionOfferResult:
     """
@@ -225,6 +227,7 @@ def get_private_store_collection_offer(collection_id: Optional[str] = None,
     :param str offer_id: The offer ID to update or delete
     :param str private_store_id: The store ID - must use the tenant ID
     """
+    pulumi.log.warn("""get_private_store_collection_offer is deprecated: azure-native:marketplace/v20211201:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['collectionId'] = collection_id
     __args__['offerId'] = offer_id
@@ -263,4 +266,5 @@ def get_private_store_collection_offer_output(collection_id: Optional[pulumi.Inp
     :param str offer_id: The offer ID to update or delete
     :param str private_store_id: The store ID - must use the tenant ID
     """
+    pulumi.log.warn("""get_private_store_collection_offer is deprecated: azure-native:marketplace/v20211201:PrivateStoreCollectionOffer is being removed in the next major version of this provider. Upgrade to at least azure-native:marketplace/v20230101:PrivateStoreCollectionOffer to guarantee forwards compatibility.""")
     ...

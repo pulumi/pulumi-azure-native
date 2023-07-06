@@ -17,6 +17,8 @@ __all__ = [
     'get_tenant_action_group_output',
 ]
 
+warnings.warn("""azure-native:insights/v20230301preview:TenantActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230501preview:TenantActionGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTenantActionGroupResult:
     """
@@ -187,6 +189,7 @@ def get_tenant_action_group(management_group_id: Optional[str] = None,
     :param str management_group_id: The management group id.
     :param str tenant_action_group_name: The name of the action group.
     """
+    pulumi.log.warn("""get_tenant_action_group is deprecated: azure-native:insights/v20230301preview:TenantActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230501preview:TenantActionGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['tenantActionGroupName'] = tenant_action_group_name
@@ -219,4 +222,5 @@ def get_tenant_action_group_output(management_group_id: Optional[pulumi.Input[st
     :param str management_group_id: The management group id.
     :param str tenant_action_group_name: The name of the action group.
     """
+    pulumi.log.warn("""get_tenant_action_group is deprecated: azure-native:insights/v20230301preview:TenantActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230501preview:TenantActionGroup to guarantee forwards compatibility.""")
     ...

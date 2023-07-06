@@ -16,6 +16,8 @@ __all__ = [
     'get_cloud_link_output',
 ]
 
+warnings.warn("""azure-native:avs/v20210601:CloudLink is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:CloudLink to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCloudLinkResult:
     """
@@ -104,6 +106,7 @@ def get_cloud_link(cloud_link_name: Optional[str] = None,
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cloud_link is deprecated: azure-native:avs/v20210601:CloudLink is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:CloudLink to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['cloudLinkName'] = cloud_link_name
     __args__['privateCloudName'] = private_cloud_name
@@ -132,4 +135,5 @@ def get_cloud_link_output(cloud_link_name: Optional[pulumi.Input[str]] = None,
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cloud_link is deprecated: azure-native:avs/v20210601:CloudLink is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:CloudLink to guarantee forwards compatibility.""")
     ...

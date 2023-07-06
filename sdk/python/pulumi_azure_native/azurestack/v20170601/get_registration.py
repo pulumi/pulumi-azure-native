@@ -16,6 +16,8 @@ __all__ = [
     'get_registration_output',
 ]
 
+warnings.warn("""azure-native:azurestack/v20170601:Registration is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:Registration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRegistrationResult:
     """
@@ -150,6 +152,7 @@ def get_registration(registration_name: Optional[str] = None,
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
+    pulumi.log.warn("""get_registration is deprecated: azure-native:azurestack/v20170601:Registration is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:Registration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['registrationName'] = registration_name
     __args__['resourceGroup'] = resource_group
@@ -179,4 +182,5 @@ def get_registration_output(registration_name: Optional[pulumi.Input[str]] = Non
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
+    pulumi.log.warn("""get_registration is deprecated: azure-native:azurestack/v20170601:Registration is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:Registration to guarantee forwards compatibility.""")
     ...

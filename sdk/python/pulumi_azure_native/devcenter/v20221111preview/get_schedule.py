@@ -17,6 +17,8 @@ __all__ = [
     'get_schedule_output',
 ]
 
+warnings.warn("""azure-native:devcenter/v20221111preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Schedule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScheduleResult:
     """
@@ -157,6 +159,7 @@ def get_schedule(pool_name: Optional[str] = None,
     :param str schedule_name: The name of the schedule that uniquely identifies it.
     :param int top: The maximum number of resources to return from the operation. Example: '$top=10'.
     """
+    pulumi.log.warn("""get_schedule is deprecated: azure-native:devcenter/v20221111preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Schedule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['poolName'] = pool_name
     __args__['projectName'] = project_name
@@ -195,4 +198,5 @@ def get_schedule_output(pool_name: Optional[pulumi.Input[str]] = None,
     :param str schedule_name: The name of the schedule that uniquely identifies it.
     :param int top: The maximum number of resources to return from the operation. Example: '$top=10'.
     """
+    pulumi.log.warn("""get_schedule is deprecated: azure-native:devcenter/v20221111preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Schedule to guarantee forwards compatibility.""")
     ...

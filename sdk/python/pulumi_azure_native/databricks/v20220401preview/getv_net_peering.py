@@ -17,8 +17,6 @@ __all__ = [
     'getv_net_peering_output',
 ]
 
-warnings.warn("""azure-native:databricks/v20220401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetvNetPeeringResult:
     """
@@ -203,7 +201,6 @@ def getv_net_peering(peering_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""getv_net_peering is deprecated: azure-native:databricks/v20220401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['peeringName'] = peering_name
     __args__['resourceGroupName'] = resource_group_name
@@ -240,5 +237,4 @@ def getv_net_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""getv_net_peering is deprecated: azure-native:databricks/v20220401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.""")
     ...

@@ -17,6 +17,8 @@ __all__ = [
     'get_availability_set_output',
 ]
 
+warnings.warn("""azure-native:scvmm/v20200605preview:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:AvailabilitySet to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAvailabilitySetResult:
     """
@@ -163,6 +165,7 @@ def get_availability_set(availability_set_name: Optional[str] = None,
     :param str availability_set_name: Name of the AvailabilitySet.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_availability_set is deprecated: azure-native:scvmm/v20200605preview:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:AvailabilitySet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['availabilitySetName'] = availability_set_name
     __args__['resourceGroupName'] = resource_group_name
@@ -193,4 +196,5 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str
     :param str availability_set_name: Name of the AvailabilitySet.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_availability_set is deprecated: azure-native:scvmm/v20200605preview:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:AvailabilitySet to guarantee forwards compatibility.""")
     ...

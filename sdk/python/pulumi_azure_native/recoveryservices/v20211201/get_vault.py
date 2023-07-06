@@ -17,7 +17,7 @@ __all__ = [
     'get_vault_output',
 ]
 
-warnings.warn("""azure-native:recoveryservices/v20211201:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:Vault to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:recoveryservices/v20211201:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:Vault to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVaultResult:
@@ -165,7 +165,7 @@ def get_vault(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("""get_vault is deprecated: azure-native:recoveryservices/v20211201:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:Vault to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_vault is deprecated: azure-native:recoveryservices/v20211201:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:Vault to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
@@ -196,5 +196,5 @@ def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("""get_vault is deprecated: azure-native:recoveryservices/v20211201:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:Vault to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_vault is deprecated: azure-native:recoveryservices/v20211201:Vault is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:Vault to guarantee forwards compatibility.""")
     ...

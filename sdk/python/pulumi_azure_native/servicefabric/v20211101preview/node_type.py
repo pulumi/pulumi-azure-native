@@ -520,11 +520,11 @@ class NodeTypeArgs:
         pulumi.set(self, "vm_size", value)
 
 
-warnings.warn("""azure-native:servicefabric/v20211101preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:NodeType to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:servicefabric/v20211101preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230301preview:NodeType to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class NodeType(pulumi.CustomResource):
-    warnings.warn("""azure-native:servicefabric/v20211101preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:NodeType to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:servicefabric/v20211101preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230301preview:NodeType to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -655,7 +655,7 @@ class NodeType(pulumi.CustomResource):
                  vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""NodeType is deprecated: azure-native:servicefabric/v20211101preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:NodeType to guarantee forwards compatibility.""")
+        pulumi.log.warn("""NodeType is deprecated: azure-native:servicefabric/v20211101preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230301preview:NodeType to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

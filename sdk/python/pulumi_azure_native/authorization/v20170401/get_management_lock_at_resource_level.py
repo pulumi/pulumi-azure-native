@@ -17,6 +17,8 @@ __all__ = [
     'get_management_lock_at_resource_level_output',
 ]
 
+warnings.warn("""azure-native:authorization/v20170401:ManagementLockAtResourceLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtResourceLevel to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagementLockAtResourceLevelResult:
     """
@@ -123,6 +125,7 @@ def get_management_lock_at_resource_level(lock_name: Optional[str] = None,
     :param str resource_provider_namespace: The namespace of the resource provider.
     :param str resource_type: The type of the resource.
     """
+    pulumi.log.warn("""get_management_lock_at_resource_level is deprecated: azure-native:authorization/v20170401:ManagementLockAtResourceLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtResourceLevel to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['lockName'] = lock_name
     __args__['parentResourcePath'] = parent_resource_path
@@ -161,4 +164,5 @@ def get_management_lock_at_resource_level_output(lock_name: Optional[pulumi.Inpu
     :param str resource_provider_namespace: The namespace of the resource provider.
     :param str resource_type: The type of the resource.
     """
+    pulumi.log.warn("""get_management_lock_at_resource_level is deprecated: azure-native:authorization/v20170401:ManagementLockAtResourceLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtResourceLevel to guarantee forwards compatibility.""")
     ...

@@ -17,6 +17,8 @@ __all__ = [
     'get_schedule_output',
 ]
 
+warnings.warn("""azure-native:labservices/v20211001preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Schedule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScheduleResult:
     """
@@ -165,6 +167,7 @@ def get_schedule(lab_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str schedule_name: The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
     """
+    pulumi.log.warn("""get_schedule is deprecated: azure-native:labservices/v20211001preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Schedule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['labName'] = lab_name
     __args__['resourceGroupName'] = resource_group_name
@@ -198,4 +201,5 @@ def get_schedule_output(lab_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str schedule_name: The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
     """
+    pulumi.log.warn("""get_schedule is deprecated: azure-native:labservices/v20211001preview:Schedule is being removed in the next major version of this provider. Upgrade to at least azure-native:labservices/v20220801:Schedule to guarantee forwards compatibility.""")
     ...

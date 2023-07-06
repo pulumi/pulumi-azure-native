@@ -17,6 +17,8 @@ __all__ = [
     'get_test_line_output',
 ]
 
+warnings.warn("""azure-native:voiceservices/v20230131:TestLine is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:TestLine to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTestLineResult:
     """
@@ -153,6 +155,7 @@ def get_test_line(communications_gateway_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_line_name: Unique identifier for this test line
     """
+    pulumi.log.warn("""get_test_line is deprecated: azure-native:voiceservices/v20230131:TestLine is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:TestLine to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['communicationsGatewayName'] = communications_gateway_name
     __args__['resourceGroupName'] = resource_group_name
@@ -185,4 +188,5 @@ def get_test_line_output(communications_gateway_name: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_line_name: Unique identifier for this test line
     """
+    pulumi.log.warn("""get_test_line is deprecated: azure-native:voiceservices/v20230131:TestLine is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:TestLine to guarantee forwards compatibility.""")
     ...

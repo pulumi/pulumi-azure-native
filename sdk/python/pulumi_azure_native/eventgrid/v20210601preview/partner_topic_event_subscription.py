@@ -222,11 +222,11 @@ class PartnerTopicEventSubscriptionArgs:
         pulumi.set(self, "retry_policy", value)
 
 
-warnings.warn("""azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:PartnerTopicEventSubscription to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerTopicEventSubscription to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class PartnerTopicEventSubscription(pulumi.CustomResource):
-    warnings.warn("""azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:PartnerTopicEventSubscription to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerTopicEventSubscription to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -304,7 +304,7 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retry_policy: Optional[pulumi.Input[pulumi.InputType['RetryPolicyArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""PartnerTopicEventSubscription is deprecated: azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:PartnerTopicEventSubscription to guarantee forwards compatibility.""")
+        pulumi.log.warn("""PartnerTopicEventSubscription is deprecated: azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerTopicEventSubscription to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

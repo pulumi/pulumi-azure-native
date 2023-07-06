@@ -116,11 +116,11 @@ class ServiceEndpointPolicyInitArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:network/v20200701:ServiceEndpointPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20200701:ServiceEndpointPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ServiceEndpointPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ServiceEndpointPolicy(pulumi.CustomResource):
-    warnings.warn("""azure-native:network/v20200701:ServiceEndpointPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:network/v20200701:ServiceEndpointPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ServiceEndpointPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -176,7 +176,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
                  service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ServiceEndpointPolicy is deprecated: azure-native:network/v20200701:ServiceEndpointPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ServiceEndpointPolicy to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ServiceEndpointPolicy is deprecated: azure-native:network/v20200701:ServiceEndpointPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ServiceEndpointPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

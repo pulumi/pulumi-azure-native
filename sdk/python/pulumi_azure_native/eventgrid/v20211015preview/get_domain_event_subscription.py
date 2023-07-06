@@ -17,6 +17,8 @@ __all__ = [
     'get_domain_event_subscription_output',
 ]
 
+warnings.warn("""azure-native:eventgrid/v20211015preview:DomainEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainEventSubscription to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDomainEventSubscriptionResult:
     """
@@ -229,6 +231,7 @@ def get_domain_event_subscription(domain_name: Optional[str] = None,
     :param str event_subscription_name: Name of the event subscription to be found. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("""get_domain_event_subscription is deprecated: azure-native:eventgrid/v20211015preview:DomainEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainEventSubscription to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['eventSubscriptionName'] = event_subscription_name
@@ -267,4 +270,5 @@ def get_domain_event_subscription_output(domain_name: Optional[pulumi.Input[str]
     :param str event_subscription_name: Name of the event subscription to be found. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("""get_domain_event_subscription is deprecated: azure-native:eventgrid/v20211015preview:DomainEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainEventSubscription to guarantee forwards compatibility.""")
     ...

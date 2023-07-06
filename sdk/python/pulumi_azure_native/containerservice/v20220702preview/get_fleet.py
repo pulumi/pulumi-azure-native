@@ -17,8 +17,6 @@ __all__ = [
     'get_fleet_output',
 ]
 
-warnings.warn("""azure-native:containerservice/v20220702preview:Fleet is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:Fleet to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetFleetResult:
     """
@@ -153,7 +151,6 @@ def get_fleet(fleet_name: Optional[str] = None,
     :param str fleet_name: The name of the Fleet resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_fleet is deprecated: azure-native:containerservice/v20220702preview:Fleet is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:Fleet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['fleetName'] = fleet_name
     __args__['resourceGroupName'] = resource_group_name
@@ -183,5 +180,4 @@ def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
     :param str fleet_name: The name of the Fleet resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_fleet is deprecated: azure-native:containerservice/v20220702preview:Fleet is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20220902preview:Fleet to guarantee forwards compatibility.""")
     ...

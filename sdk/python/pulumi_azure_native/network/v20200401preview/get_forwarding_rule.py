@@ -17,6 +17,8 @@ __all__ = [
     'get_forwarding_rule_output',
 ]
 
+warnings.warn("""azure-native:network/v20200401preview:ForwardingRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:ForwardingRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetForwardingRuleResult:
     """
@@ -165,6 +167,7 @@ def get_forwarding_rule(dns_forwarding_ruleset_name: Optional[str] = None,
     :param str forwarding_rule_name: The name of the forwarding rule.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_forwarding_rule is deprecated: azure-native:network/v20200401preview:ForwardingRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:ForwardingRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dnsForwardingRulesetName'] = dns_forwarding_ruleset_name
     __args__['forwardingRuleName'] = forwarding_rule_name
@@ -198,4 +201,5 @@ def get_forwarding_rule_output(dns_forwarding_ruleset_name: Optional[pulumi.Inpu
     :param str forwarding_rule_name: The name of the forwarding rule.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_forwarding_rule is deprecated: azure-native:network/v20200401preview:ForwardingRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:ForwardingRule to guarantee forwards compatibility.""")
     ...

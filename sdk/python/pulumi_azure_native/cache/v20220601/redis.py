@@ -312,7 +312,12 @@ class RedisArgs:
         pulumi.set(self, "zones", value)
 
 
+warnings.warn("""azure-native:cache/v20220601:Redis is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:Redis to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Redis(pulumi.CustomResource):
+    warnings.warn("""azure-native:cache/v20220601:Redis is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:Redis to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -403,6 +408,7 @@ class Redis(pulumi.CustomResource):
                  tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Redis is deprecated: azure-native:cache/v20220601:Redis is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:Redis to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

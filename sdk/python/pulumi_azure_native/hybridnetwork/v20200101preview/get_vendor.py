@@ -17,6 +17,8 @@ __all__ = [
     'get_vendor_output',
 ]
 
+warnings.warn("""azure-native:hybridnetwork/v20200101preview:Vendor is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:Vendor to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVendorResult:
     """
@@ -101,6 +103,7 @@ def get_vendor(vendor_name: Optional[str] = None,
 
     :param str vendor_name: The name of the vendor.
     """
+    pulumi.log.warn("""get_vendor is deprecated: azure-native:hybridnetwork/v20200101preview:Vendor is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:Vendor to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['vendorName'] = vendor_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -123,4 +126,5 @@ def get_vendor_output(vendor_name: Optional[pulumi.Input[str]] = None,
 
     :param str vendor_name: The name of the vendor.
     """
+    pulumi.log.warn("""get_vendor is deprecated: azure-native:hybridnetwork/v20200101preview:Vendor is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:Vendor to guarantee forwards compatibility.""")
     ...

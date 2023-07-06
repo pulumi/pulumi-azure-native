@@ -17,7 +17,7 @@ __all__ = [
     'get_customized_accelerator_output',
 ]
 
-warnings.warn("""azure-native:appplatform/v20221101preview:CustomizedAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:CustomizedAccelerator to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:appplatform/v20221101preview:CustomizedAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:CustomizedAccelerator to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCustomizedAcceleratorResult:
@@ -121,7 +121,7 @@ def get_customized_accelerator(application_accelerator_name: Optional[str] = Non
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
-    pulumi.log.warn("""get_customized_accelerator is deprecated: azure-native:appplatform/v20221101preview:CustomizedAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:CustomizedAccelerator to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_customized_accelerator is deprecated: azure-native:appplatform/v20221101preview:CustomizedAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:CustomizedAccelerator to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationAcceleratorName'] = application_accelerator_name
     __args__['customizedAcceleratorName'] = customized_accelerator_name
@@ -154,5 +154,5 @@ def get_customized_accelerator_output(application_accelerator_name: Optional[pul
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
-    pulumi.log.warn("""get_customized_accelerator is deprecated: azure-native:appplatform/v20221101preview:CustomizedAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:CustomizedAccelerator to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_customized_accelerator is deprecated: azure-native:appplatform/v20221101preview:CustomizedAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:CustomizedAccelerator to guarantee forwards compatibility.""")
     ...

@@ -146,11 +146,11 @@ class InstancePoolArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:sql/v20220201preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstancePool to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sql/v20220201preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:InstancePool to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class InstancePool(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20220201preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstancePool to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:sql/v20220201preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:InstancePool to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -212,7 +212,7 @@ class InstancePool(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  v_cores: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""InstancePool is deprecated: azure-native:sql/v20220201preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstancePool to guarantee forwards compatibility.""")
+        pulumi.log.warn("""InstancePool is deprecated: azure-native:sql/v20220201preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:InstancePool to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

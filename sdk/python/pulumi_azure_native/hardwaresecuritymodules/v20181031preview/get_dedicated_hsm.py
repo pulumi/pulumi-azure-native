@@ -17,6 +17,8 @@ __all__ = [
     'get_dedicated_hsm_output',
 ]
 
+warnings.warn("""azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDedicatedHsmResult:
     """
@@ -175,6 +177,7 @@ def get_dedicated_hsm(name: Optional[str] = None,
     :param str name: The name of the dedicated HSM.
     :param str resource_group_name: The name of the Resource Group to which the dedicated hsm belongs.
     """
+    pulumi.log.warn("""get_dedicated_hsm is deprecated: azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -206,4 +209,5 @@ def get_dedicated_hsm_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the dedicated HSM.
     :param str resource_group_name: The name of the Resource Group to which the dedicated hsm belongs.
     """
+    pulumi.log.warn("""get_dedicated_hsm is deprecated: azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm is being removed in the next major version of this provider. Upgrade to at least azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm to guarantee forwards compatibility.""")
     ...

@@ -16,6 +16,8 @@ __all__ = [
     'get_variable_output',
 ]
 
+warnings.warn("""azure-native:automation/v20190601:Variable is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Variable to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVariableResult:
     """
@@ -140,6 +142,7 @@ def get_variable(automation_account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure Resource group.
     :param str variable_name: The name of variable.
     """
+    pulumi.log.warn("""get_variable is deprecated: azure-native:automation/v20190601:Variable is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Variable to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -171,4 +174,5 @@ def get_variable_output(automation_account_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: Name of an Azure Resource group.
     :param str variable_name: The name of variable.
     """
+    pulumi.log.warn("""get_variable is deprecated: azure-native:automation/v20190601:Variable is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Variable to guarantee forwards compatibility.""")
     ...

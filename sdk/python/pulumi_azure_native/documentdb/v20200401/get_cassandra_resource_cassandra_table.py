@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-04-01 will be removed in v2 of the provider.
-azure-native:documentdb/v20200401:CassandraResourceCassandraTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:CassandraResourceCassandraTable to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:documentdb/v20200401:CassandraResourceCassandraTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:CassandraResourceCassandraTable to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCassandraResourceCassandraTableResult:
@@ -129,7 +129,7 @@ def get_cassandra_resource_cassandra_table(account_name: Optional[str] = None,
     :param str table_name: Cosmos DB table name.
     """
     pulumi.log.warn("""get_cassandra_resource_cassandra_table is deprecated: Version 2020-04-01 will be removed in v2 of the provider.
-azure-native:documentdb/v20200401:CassandraResourceCassandraTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:CassandraResourceCassandraTable to guarantee forwards compatibility.""")
+azure-native:documentdb/v20200401:CassandraResourceCassandraTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:CassandraResourceCassandraTable to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['keyspaceName'] = keyspace_name
@@ -164,5 +164,5 @@ def get_cassandra_resource_cassandra_table_output(account_name: Optional[pulumi.
     :param str table_name: Cosmos DB table name.
     """
     pulumi.log.warn("""get_cassandra_resource_cassandra_table is deprecated: Version 2020-04-01 will be removed in v2 of the provider.
-azure-native:documentdb/v20200401:CassandraResourceCassandraTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:CassandraResourceCassandraTable to guarantee forwards compatibility.""")
+azure-native:documentdb/v20200401:CassandraResourceCassandraTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:CassandraResourceCassandraTable to guarantee forwards compatibility.""")
     ...

@@ -17,7 +17,7 @@ __all__ = [
     'get_incident_task_output',
 ]
 
-warnings.warn("""azure-native:securityinsights/v20221201preview:IncidentTask is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IncidentTask to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:securityinsights/v20221201preview:IncidentTask is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:IncidentTask to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetIncidentTaskResult:
@@ -187,7 +187,7 @@ def get_incident_task(incident_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_incident_task is deprecated: azure-native:securityinsights/v20221201preview:IncidentTask is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IncidentTask to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_incident_task is deprecated: azure-native:securityinsights/v20221201preview:IncidentTask is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:IncidentTask to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['incidentId'] = incident_id
     __args__['incidentTaskId'] = incident_task_id
@@ -226,5 +226,5 @@ def get_incident_task_output(incident_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_incident_task is deprecated: azure-native:securityinsights/v20221201preview:IncidentTask is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IncidentTask to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_incident_task is deprecated: azure-native:securityinsights/v20221201preview:IncidentTask is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:IncidentTask to guarantee forwards compatibility.""")
     ...

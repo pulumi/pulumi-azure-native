@@ -290,7 +290,12 @@ class RecordSetArgs:
         pulumi.set(self, "txt_records", value)
 
 
+warnings.warn("""azure-native:network/v20180501:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:RecordSet to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class RecordSet(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20180501:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:RecordSet to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -378,6 +383,7 @@ class RecordSet(pulumi.CustomResource):
                  txt_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""RecordSet is deprecated: azure-native:network/v20180501:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:RecordSet to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

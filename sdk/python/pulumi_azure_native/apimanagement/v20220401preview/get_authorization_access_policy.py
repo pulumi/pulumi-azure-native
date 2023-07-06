@@ -16,7 +16,7 @@ __all__ = [
     'get_authorization_access_policy_output',
 ]
 
-warnings.warn("""azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationAccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:AuthorizationAccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAuthorizationAccessPolicyResult:
@@ -110,7 +110,7 @@ def get_authorization_access_policy(authorization_access_policy_id: Optional[str
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("""get_authorization_access_policy is deprecated: azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationAccessPolicy to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_authorization_access_policy is deprecated: azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:AuthorizationAccessPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['authorizationAccessPolicyId'] = authorization_access_policy_id
     __args__['authorizationId'] = authorization_id
@@ -145,5 +145,5 @@ def get_authorization_access_policy_output(authorization_access_policy_id: Optio
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("""get_authorization_access_policy is deprecated: azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationAccessPolicy to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_authorization_access_policy is deprecated: azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:AuthorizationAccessPolicy to guarantee forwards compatibility.""")
     ...

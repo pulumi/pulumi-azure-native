@@ -17,6 +17,8 @@ __all__ = [
     'get_cloud_output',
 ]
 
+warnings.warn("""azure-native:scvmm/v20200605preview:Cloud is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:Cloud to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCloudResult:
     """
@@ -211,6 +213,7 @@ def get_cloud(cloud_name: Optional[str] = None,
     :param str cloud_name: Name of the Cloud.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_cloud is deprecated: azure-native:scvmm/v20200605preview:Cloud is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:Cloud to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['cloudName'] = cloud_name
     __args__['resourceGroupName'] = resource_group_name
@@ -245,4 +248,5 @@ def get_cloud_output(cloud_name: Optional[pulumi.Input[str]] = None,
     :param str cloud_name: Name of the Cloud.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_cloud is deprecated: azure-native:scvmm/v20200605preview:Cloud is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:Cloud to guarantee forwards compatibility.""")
     ...

@@ -145,11 +145,11 @@ class BackupArgs:
         pulumi.set(self, "use_existing_snapshot", value)
 
 
-warnings.warn("""azure-native:netapp/v20220301:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Backup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:netapp/v20220301:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Backup to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Backup(pulumi.CustomResource):
-    warnings.warn("""azure-native:netapp/v20220301:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Backup to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:netapp/v20220301:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Backup to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -211,7 +211,7 @@ class Backup(pulumi.CustomResource):
                  use_existing_snapshot: Optional[pulumi.Input[bool]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Backup is deprecated: azure-native:netapp/v20220301:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Backup to guarantee forwards compatibility.""")
+        pulumi.log.warn("""Backup is deprecated: azure-native:netapp/v20220301:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Backup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

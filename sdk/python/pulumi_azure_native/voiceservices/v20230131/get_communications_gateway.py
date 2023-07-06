@@ -17,6 +17,8 @@ __all__ = [
     'get_communications_gateway_output',
 ]
 
+warnings.warn("""azure-native:voiceservices/v20230131:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCommunicationsGatewayResult:
     """
@@ -271,6 +273,7 @@ def get_communications_gateway(communications_gateway_name: Optional[str] = None
     :param str communications_gateway_name: Unique identifier for this deployment
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_communications_gateway is deprecated: azure-native:voiceservices/v20230131:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['communicationsGatewayName'] = communications_gateway_name
     __args__['resourceGroupName'] = resource_group_name
@@ -310,4 +313,5 @@ def get_communications_gateway_output(communications_gateway_name: Optional[pulu
     :param str communications_gateway_name: Unique identifier for this deployment
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_communications_gateway is deprecated: azure-native:voiceservices/v20230131:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility.""")
     ...

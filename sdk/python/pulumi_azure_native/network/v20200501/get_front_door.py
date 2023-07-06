@@ -17,6 +17,8 @@ __all__ = [
     'get_front_door_output',
 ]
 
+warnings.warn("""azure-native:network/v20200501:FrontDoor is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:FrontDoor to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFrontDoorResult:
     """
@@ -259,6 +261,7 @@ def get_front_door(front_door_name: Optional[str] = None,
     :param str front_door_name: Name of the Front Door which is globally unique.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_front_door is deprecated: azure-native:network/v20200501:FrontDoor is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:FrontDoor to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['frontDoorName'] = front_door_name
     __args__['resourceGroupName'] = resource_group_name
@@ -297,4 +300,5 @@ def get_front_door_output(front_door_name: Optional[pulumi.Input[str]] = None,
     :param str front_door_name: Name of the Front Door which is globally unique.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_front_door is deprecated: azure-native:network/v20200501:FrontDoor is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:FrontDoor to guarantee forwards compatibility.""")
     ...

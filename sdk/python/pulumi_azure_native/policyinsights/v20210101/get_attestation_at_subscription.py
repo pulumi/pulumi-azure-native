@@ -17,6 +17,8 @@ __all__ = [
     'get_attestation_at_subscription_output',
 ]
 
+warnings.warn("""azure-native:policyinsights/v20210101:AttestationAtSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtSubscription to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAttestationAtSubscriptionResult:
     """
@@ -197,6 +199,7 @@ def get_attestation_at_subscription(attestation_name: Optional[str] = None,
 
     :param str attestation_name: The name of the attestation.
     """
+    pulumi.log.warn("""get_attestation_at_subscription is deprecated: azure-native:policyinsights/v20210101:AttestationAtSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtSubscription to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['attestationName'] = attestation_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -227,4 +230,5 @@ def get_attestation_at_subscription_output(attestation_name: Optional[pulumi.Inp
 
     :param str attestation_name: The name of the attestation.
     """
+    pulumi.log.warn("""get_attestation_at_subscription is deprecated: azure-native:policyinsights/v20210101:AttestationAtSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtSubscription to guarantee forwards compatibility.""")
     ...

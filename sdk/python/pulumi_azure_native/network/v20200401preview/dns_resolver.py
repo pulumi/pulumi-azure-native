@@ -99,7 +99,12 @@ class DnsResolverArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:network/v20200401preview:DnsResolver is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:DnsResolver to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class DnsResolver(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20200401preview:DnsResolver is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:DnsResolver to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -151,6 +156,7 @@ class DnsResolver(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""DnsResolver is deprecated: azure-native:network/v20200401preview:DnsResolver is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:DnsResolver to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -17,7 +17,7 @@ __all__ = [
     'get_packet_capture_output',
 ]
 
-warnings.warn("""azure-native:network/v20220701:PacketCapture is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PacketCapture to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20220701:PacketCapture is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:PacketCapture to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPacketCaptureResult:
@@ -191,7 +191,7 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
     :param str packet_capture_name: The name of the packet capture session.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_packet_capture is deprecated: azure-native:network/v20220701:PacketCapture is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PacketCapture to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_packet_capture is deprecated: azure-native:network/v20220701:PacketCapture is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:PacketCapture to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['networkWatcherName'] = network_watcher_name
     __args__['packetCaptureName'] = packet_capture_name
@@ -227,5 +227,5 @@ def get_packet_capture_output(network_watcher_name: Optional[pulumi.Input[str]] 
     :param str packet_capture_name: The name of the packet capture session.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_packet_capture is deprecated: azure-native:network/v20220701:PacketCapture is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PacketCapture to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_packet_capture is deprecated: azure-native:network/v20220701:PacketCapture is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:PacketCapture to guarantee forwards compatibility.""")
     ...

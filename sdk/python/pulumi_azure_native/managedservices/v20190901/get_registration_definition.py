@@ -17,6 +17,8 @@ __all__ = [
     'get_registration_definition_output',
 ]
 
+warnings.warn("""azure-native:managedservices/v20190901:RegistrationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRegistrationDefinitionResult:
     """
@@ -103,6 +105,7 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
     :param str registration_definition_id: Guid of the registration definition.
     :param str scope: Scope of the resource.
     """
+    pulumi.log.warn("""get_registration_definition is deprecated: azure-native:managedservices/v20190901:RegistrationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationDefinition to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['registrationDefinitionId'] = registration_definition_id
     __args__['scope'] = scope
@@ -128,4 +131,5 @@ def get_registration_definition_output(registration_definition_id: Optional[pulu
     :param str registration_definition_id: Guid of the registration definition.
     :param str scope: Scope of the resource.
     """
+    pulumi.log.warn("""get_registration_definition is deprecated: azure-native:managedservices/v20190901:RegistrationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:managedservices/v20221001:RegistrationDefinition to guarantee forwards compatibility.""")
     ...

@@ -17,6 +17,8 @@ __all__ = [
     'get_fluid_relay_server_output',
 ]
 
+warnings.warn("""azure-native:fluidrelay/v20210312preview:FluidRelayServer is being removed in the next major version of this provider. Upgrade to at least azure-native:fluidrelay/v20210615preview:FluidRelayServer to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFluidRelayServerResult:
     """
@@ -151,6 +153,7 @@ def get_fluid_relay_server(name: Optional[str] = None,
     :param str name: The resource name.
     :param str resource_group: The resource group containing the resource.
     """
+    pulumi.log.warn("""get_fluid_relay_server is deprecated: azure-native:fluidrelay/v20210312preview:FluidRelayServer is being removed in the next major version of this provider. Upgrade to at least azure-native:fluidrelay/v20210615preview:FluidRelayServer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroup'] = resource_group
@@ -180,4 +183,5 @@ def get_fluid_relay_server_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The resource name.
     :param str resource_group: The resource group containing the resource.
     """
+    pulumi.log.warn("""get_fluid_relay_server is deprecated: azure-native:fluidrelay/v20210312preview:FluidRelayServer is being removed in the next major version of this provider. Upgrade to at least azure-native:fluidrelay/v20210615preview:FluidRelayServer to guarantee forwards compatibility.""")
     ...

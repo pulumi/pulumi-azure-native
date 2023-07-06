@@ -17,6 +17,8 @@ __all__ = [
     'get_postgres_instance_output',
 ]
 
+warnings.warn("""azure-native:azurearcdata/v20210601preview:PostgresInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:PostgresInstance to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPostgresInstanceResult:
     """
@@ -151,6 +153,7 @@ def get_postgres_instance(postgres_instance_name: Optional[str] = None,
     :param str postgres_instance_name: Name of Postgres Instance
     :param str resource_group_name: The name of the Azure resource group
     """
+    pulumi.log.warn("""get_postgres_instance is deprecated: azure-native:azurearcdata/v20210601preview:PostgresInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:PostgresInstance to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['postgresInstanceName'] = postgres_instance_name
     __args__['resourceGroupName'] = resource_group_name
@@ -180,4 +183,5 @@ def get_postgres_instance_output(postgres_instance_name: Optional[pulumi.Input[s
     :param str postgres_instance_name: Name of Postgres Instance
     :param str resource_group_name: The name of the Azure resource group
     """
+    pulumi.log.warn("""get_postgres_instance is deprecated: azure-native:azurearcdata/v20210601preview:PostgresInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:PostgresInstance to guarantee forwards compatibility.""")
     ...

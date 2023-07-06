@@ -17,6 +17,8 @@ __all__ = [
     'get_storage_appliance_output',
 ]
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:StorageAppliance is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:StorageAppliance to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStorageApplianceResult:
     def __init__(__self__, administrator_credentials=None, capacity=None, capacity_used=None, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, location=None, management_ipv4_address=None, name=None, provisioning_state=None, rack_id=None, rack_slot=None, remote_vendor_management_feature=None, remote_vendor_management_status=None, serial_number=None, storage_appliance_sku_id=None, system_data=None, tags=None, type=None):
@@ -292,6 +294,7 @@ def get_storage_appliance(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_appliance_name: The name of the storage appliance.
     """
+    pulumi.log.warn("""get_storage_appliance is deprecated: azure-native:networkcloud/v20221212preview:StorageAppliance is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:StorageAppliance to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageApplianceName'] = storage_appliance_name
@@ -333,4 +336,5 @@ def get_storage_appliance_output(resource_group_name: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_appliance_name: The name of the storage appliance.
     """
+    pulumi.log.warn("""get_storage_appliance is deprecated: azure-native:networkcloud/v20221212preview:StorageAppliance is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:StorageAppliance to guarantee forwards compatibility.""")
     ...

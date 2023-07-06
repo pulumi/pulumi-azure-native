@@ -17,6 +17,8 @@ __all__ = [
     'get_virtual_machine_output',
 ]
 
+warnings.warn("""azure-native:scvmm/v20200605preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachine to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineResult:
     """
@@ -319,6 +321,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str virtual_machine_name: Name of the VirtualMachine.
     """
+    pulumi.log.warn("""get_virtual_machine is deprecated: azure-native:scvmm/v20200605preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachine to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualMachineName'] = virtual_machine_name
@@ -362,4 +365,5 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group.
     :param str virtual_machine_name: Name of the VirtualMachine.
     """
+    pulumi.log.warn("""get_virtual_machine is deprecated: azure-native:scvmm/v20200605preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachine to guarantee forwards compatibility.""")
     ...

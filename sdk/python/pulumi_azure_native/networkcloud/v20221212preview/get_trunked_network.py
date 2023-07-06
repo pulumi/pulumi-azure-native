@@ -17,6 +17,8 @@ __all__ = [
     'get_trunked_network_output',
 ]
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:TrunkedNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:TrunkedNetwork to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTrunkedNetworkResult:
     def __init__(__self__, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, hybrid_aks_plugin_type=None, id=None, interface_name=None, isolation_domain_ids=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None, vlans=None):
@@ -244,6 +246,7 @@ def get_trunked_network(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str trunked_network_name: The name of the trunked network.
     """
+    pulumi.log.warn("""get_trunked_network is deprecated: azure-native:networkcloud/v20221212preview:TrunkedNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:TrunkedNetwork to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['trunkedNetworkName'] = trunked_network_name
@@ -281,4 +284,5 @@ def get_trunked_network_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str trunked_network_name: The name of the trunked network.
     """
+    pulumi.log.warn("""get_trunked_network is deprecated: azure-native:networkcloud/v20221212preview:TrunkedNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:TrunkedNetwork to guarantee forwards compatibility.""")
     ...

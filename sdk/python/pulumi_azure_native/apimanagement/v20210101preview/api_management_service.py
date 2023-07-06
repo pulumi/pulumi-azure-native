@@ -362,11 +362,11 @@ class ApiManagementServiceArgs:
         pulumi.set(self, "zones", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20210101preview:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiManagementService to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:apimanagement/v20210101preview:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiManagementService to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ApiManagementService(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20210101preview:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiManagementService to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:apimanagement/v20210101preview:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiManagementService to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -467,7 +467,7 @@ class ApiManagementService(pulumi.CustomResource):
                  virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApiManagementService is deprecated: azure-native:apimanagement/v20210101preview:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiManagementService to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ApiManagementService is deprecated: azure-native:apimanagement/v20210101preview:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiManagementService to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

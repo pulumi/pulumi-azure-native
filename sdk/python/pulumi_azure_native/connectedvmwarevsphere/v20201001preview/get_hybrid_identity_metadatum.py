@@ -17,6 +17,8 @@ __all__ = [
     'get_hybrid_identity_metadatum_output',
 ]
 
+warnings.warn("""azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHybridIdentityMetadatumResult:
     """
@@ -141,6 +143,7 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[str] = None,
     :param str resource_group_name: The Resource Group Name.
     :param str virtual_machine_name: Name of the vm.
     """
+    pulumi.log.warn("""get_hybrid_identity_metadatum is deprecated: azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['metadataName'] = metadata_name
     __args__['resourceGroupName'] = resource_group_name
@@ -172,4 +175,5 @@ def get_hybrid_identity_metadatum_output(metadata_name: Optional[pulumi.Input[st
     :param str resource_group_name: The Resource Group Name.
     :param str virtual_machine_name: Name of the vm.
     """
+    pulumi.log.warn("""get_hybrid_identity_metadatum is deprecated: azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum to guarantee forwards compatibility.""")
     ...

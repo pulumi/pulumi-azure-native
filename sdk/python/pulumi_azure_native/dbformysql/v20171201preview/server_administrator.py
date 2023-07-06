@@ -110,7 +110,12 @@ class ServerAdministratorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+warnings.warn("""azure-native:dbformysql/v20171201preview:ServerAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20180601privatepreview:ServerAdministrator to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ServerAdministrator(pulumi.CustomResource):
+    warnings.warn("""azure-native:dbformysql/v20171201preview:ServerAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20180601privatepreview:ServerAdministrator to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -165,6 +170,7 @@ class ServerAdministrator(pulumi.CustomResource):
                  sid: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ServerAdministrator is deprecated: azure-native:dbformysql/v20171201preview:ServerAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20180601privatepreview:ServerAdministrator to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

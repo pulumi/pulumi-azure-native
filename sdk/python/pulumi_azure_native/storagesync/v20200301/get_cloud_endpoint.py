@@ -16,6 +16,8 @@ __all__ = [
     'get_cloud_endpoint_output',
 ]
 
+warnings.warn("""azure-native:storagesync/v20200301:CloudEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCloudEndpointResult:
     """
@@ -190,6 +192,7 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
+    pulumi.log.warn("""get_cloud_endpoint is deprecated: azure-native:storagesync/v20200301:CloudEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['cloudEndpointName'] = cloud_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
@@ -228,4 +231,5 @@ def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] =
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
+    pulumi.log.warn("""get_cloud_endpoint is deprecated: azure-native:storagesync/v20200301:CloudEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:CloudEndpoint to guarantee forwards compatibility.""")
     ...

@@ -17,6 +17,8 @@ __all__ = [
     'get_instance_output',
 ]
 
+warnings.warn("""azure-native:deviceupdate/v20200301preview:Instance is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20230701:Instance to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetInstanceResult:
     """
@@ -177,6 +179,7 @@ def get_instance(account_name: Optional[str] = None,
     :param str instance_name: Instance name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_instance is deprecated: azure-native:deviceupdate/v20200301preview:Instance is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20230701:Instance to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['instanceName'] = instance_name
@@ -211,4 +214,5 @@ def get_instance_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str instance_name: Instance name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_instance is deprecated: azure-native:deviceupdate/v20200301preview:Instance is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20230701:Instance to guarantee forwards compatibility.""")
     ...

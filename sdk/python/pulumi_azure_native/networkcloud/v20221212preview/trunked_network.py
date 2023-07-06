@@ -164,7 +164,12 @@ class TrunkedNetworkArgs:
         pulumi.set(self, "trunked_network_name", value)
 
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:TrunkedNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:TrunkedNetwork to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class TrunkedNetwork(pulumi.CustomResource):
+    warnings.warn("""azure-native:networkcloud/v20221212preview:TrunkedNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:TrunkedNetwork to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -226,6 +231,7 @@ class TrunkedNetwork(pulumi.CustomResource):
                  trunked_network_name: Optional[pulumi.Input[str]] = None,
                  vlans: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""TrunkedNetwork is deprecated: azure-native:networkcloud/v20221212preview:TrunkedNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:TrunkedNetwork to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -17,6 +17,8 @@ __all__ = [
     'get_output_output',
 ]
 
+warnings.warn("""azure-native:streamanalytics/v20160301:Output is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetOutputResult:
     """
@@ -129,6 +131,7 @@ def get_output(job_name: Optional[str] = None,
     :param str output_name: The name of the output.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("""get_output is deprecated: azure-native:streamanalytics/v20160301:Output is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['jobName'] = job_name
     __args__['outputName'] = output_name
@@ -159,4 +162,5 @@ def get_output_output(job_name: Optional[pulumi.Input[str]] = None,
     :param str output_name: The name of the output.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("""get_output is deprecated: azure-native:streamanalytics/v20160301:Output is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Output to guarantee forwards compatibility.""")
     ...

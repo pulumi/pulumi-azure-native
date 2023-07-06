@@ -16,6 +16,8 @@ __all__ = [
     'get_sync_agent_output',
 ]
 
+warnings.warn("""azure-native:sql/v20220801preview:SyncAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SyncAgent to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSyncAgentResult:
     """
@@ -152,6 +154,7 @@ def get_sync_agent(resource_group_name: Optional[str] = None,
     :param str server_name: The name of the server on which the sync agent is hosted.
     :param str sync_agent_name: The name of the sync agent.
     """
+    pulumi.log.warn("""get_sync_agent is deprecated: azure-native:sql/v20220801preview:SyncAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SyncAgent to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
@@ -184,4 +187,5 @@ def get_sync_agent_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     :param str server_name: The name of the server on which the sync agent is hosted.
     :param str sync_agent_name: The name of the sync agent.
     """
+    pulumi.log.warn("""get_sync_agent is deprecated: azure-native:sql/v20220801preview:SyncAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SyncAgent to guarantee forwards compatibility.""")
     ...

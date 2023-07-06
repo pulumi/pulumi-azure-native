@@ -180,7 +180,12 @@ class ProjectEnvironmentTypeArgs:
         pulumi.set(self, "user_role_assignments", value)
 
 
+warnings.warn("""azure-native:devcenter/v20221111preview:ProjectEnvironmentType is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:ProjectEnvironmentType to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ProjectEnvironmentType(pulumi.CustomResource):
+    warnings.warn("""azure-native:devcenter/v20221111preview:ProjectEnvironmentType is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:ProjectEnvironmentType to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -247,6 +252,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_role_assignments: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['UserRoleAssignmentArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""ProjectEnvironmentType is deprecated: azure-native:devcenter/v20221111preview:ProjectEnvironmentType is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:ProjectEnvironmentType to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

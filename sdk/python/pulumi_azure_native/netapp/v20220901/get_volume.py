@@ -17,6 +17,8 @@ __all__ = [
     'get_volume_output',
 ]
 
+warnings.warn("""azure-native:netapp/v20220901:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Volume to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVolumeResult:
     """
@@ -752,6 +754,7 @@ def get_volume(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str volume_name: The name of the volume
     """
+    pulumi.log.warn("""get_volume is deprecated: azure-native:netapp/v20220901:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Volume to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['poolName'] = pool_name
@@ -837,4 +840,5 @@ def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str volume_name: The name of the volume
     """
+    pulumi.log.warn("""get_volume is deprecated: azure-native:netapp/v20220901:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Volume to guarantee forwards compatibility.""")
     ...

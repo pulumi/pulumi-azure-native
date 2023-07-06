@@ -17,6 +17,8 @@ __all__ = [
     'get_cluster_manager_output',
 ]
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:ClusterManager is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:ClusterManager to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetClusterManagerResult:
     def __init__(__self__, analytics_workspace_id=None, availability_zones=None, cluster_versions=None, detailed_status=None, detailed_status_message=None, fabric_controller_id=None, id=None, location=None, managed_resource_group_configuration=None, manager_extended_location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, vm_size=None):
@@ -232,6 +234,7 @@ def get_cluster_manager(cluster_manager_name: Optional[str] = None,
     :param str cluster_manager_name: The name of the cluster manager.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cluster_manager is deprecated: azure-native:networkcloud/v20221212preview:ClusterManager is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:ClusterManager to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterManagerName'] = cluster_manager_name
     __args__['resourceGroupName'] = resource_group_name
@@ -268,4 +271,5 @@ def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[str]]
     :param str cluster_manager_name: The name of the cluster manager.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_cluster_manager is deprecated: azure-native:networkcloud/v20221212preview:ClusterManager is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:ClusterManager to guarantee forwards compatibility.""")
     ...

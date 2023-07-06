@@ -17,7 +17,7 @@ __all__ = [
     'get_origin_group_output',
 ]
 
-warnings.warn("""azure-native:cdn/v20220501preview:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:cdn/v20220501preview:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:OriginGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetOriginGroupResult:
@@ -169,7 +169,7 @@ def get_origin_group(endpoint_name: Optional[str] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_origin_group is deprecated: azure-native:cdn/v20220501preview:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_origin_group is deprecated: azure-native:cdn/v20220501preview:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:OriginGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['originGroupName'] = origin_group_name
@@ -206,5 +206,5 @@ def get_origin_group_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_origin_group is deprecated: azure-native:cdn/v20220501preview:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:OriginGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_origin_group is deprecated: azure-native:cdn/v20220501preview:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:OriginGroup to guarantee forwards compatibility.""")
     ...

@@ -164,7 +164,12 @@ class AttestationAtResourceArgs:
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
+warnings.warn("""azure-native:policyinsights/v20210101:AttestationAtResource is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtResource to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AttestationAtResource(pulumi.CustomResource):
+    warnings.warn("""azure-native:policyinsights/v20210101:AttestationAtResource is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtResource to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -228,6 +233,7 @@ class AttestationAtResource(pulumi.CustomResource):
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""AttestationAtResource is deprecated: azure-native:policyinsights/v20210101:AttestationAtResource is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtResource to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -17,6 +17,8 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
+warnings.warn("""azure-native:attestation/v20201001:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:attestation/v20210601preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
@@ -117,6 +119,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     :param str provider_name: The name of the attestation provider.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:attestation/v20201001:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:attestation/v20210601preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['providerName'] = provider_name
@@ -146,4 +149,5 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     :param str provider_name: The name of the attestation provider.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:attestation/v20201001:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:attestation/v20210601preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

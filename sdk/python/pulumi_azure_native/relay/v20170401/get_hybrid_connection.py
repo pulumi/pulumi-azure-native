@@ -16,6 +16,8 @@ __all__ = [
     'get_hybrid_connection_output',
 ]
 
+warnings.warn("""azure-native:relay/v20170401:HybridConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:HybridConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHybridConnectionResult:
     """
@@ -140,6 +142,7 @@ def get_hybrid_connection(hybrid_connection_name: Optional[str] = None,
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_hybrid_connection is deprecated: azure-native:relay/v20170401:HybridConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:HybridConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['hybridConnectionName'] = hybrid_connection_name
     __args__['namespaceName'] = namespace_name
@@ -171,4 +174,5 @@ def get_hybrid_connection_output(hybrid_connection_name: Optional[pulumi.Input[s
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_hybrid_connection is deprecated: azure-native:relay/v20170401:HybridConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:HybridConnection to guarantee forwards compatibility.""")
     ...

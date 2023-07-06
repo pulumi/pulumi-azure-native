@@ -165,7 +165,12 @@ class NetworkFunctionArgs:
         pulumi.set(self, "vendor_name", value)
 
 
+warnings.warn("""azure-native:hybridnetwork/v20200101preview:NetworkFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:NetworkFunction to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class NetworkFunction(pulumi.CustomResource):
+    warnings.warn("""azure-native:hybridnetwork/v20200101preview:NetworkFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:NetworkFunction to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -229,6 +234,7 @@ class NetworkFunction(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vendor_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""NetworkFunction is deprecated: azure-native:hybridnetwork/v20200101preview:NetworkFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:NetworkFunction to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

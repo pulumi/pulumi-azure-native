@@ -16,6 +16,8 @@ __all__ = [
     'get_firewall_rule_output',
 ]
 
+warnings.warn("""azure-native:datalakeanalytics/v20161101:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:datalakeanalytics/v20191101preview:FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFirewallRuleResult:
     """
@@ -104,6 +106,7 @@ def get_firewall_rule(account_name: Optional[str] = None,
     :param str firewall_rule_name: The name of the firewall rule to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
+    pulumi.log.warn("""get_firewall_rule is deprecated: azure-native:datalakeanalytics/v20161101:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:datalakeanalytics/v20191101preview:FirewallRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['firewallRuleName'] = firewall_rule_name
@@ -132,4 +135,5 @@ def get_firewall_rule_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str firewall_rule_name: The name of the firewall rule to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
+    pulumi.log.warn("""get_firewall_rule is deprecated: azure-native:datalakeanalytics/v20161101:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:datalakeanalytics/v20191101preview:FirewallRule to guarantee forwards compatibility.""")
     ...

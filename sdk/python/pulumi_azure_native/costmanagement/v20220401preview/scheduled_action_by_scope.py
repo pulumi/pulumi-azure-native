@@ -160,7 +160,12 @@ class ScheduledActionByScopeArgs:
         pulumi.set(self, "name", value)
 
 
+warnings.warn("""azure-native:costmanagement/v20220401preview:ScheduledActionByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:ScheduledActionByScope to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ScheduledActionByScope(pulumi.CustomResource):
+    warnings.warn("""azure-native:costmanagement/v20220401preview:ScheduledActionByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:ScheduledActionByScope to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -224,6 +229,7 @@ class ScheduledActionByScope(pulumi.CustomResource):
                  status: Optional[pulumi.Input[Union[str, 'ScheduledActionStatus']]] = None,
                  view_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ScheduledActionByScope is deprecated: azure-native:costmanagement/v20220401preview:ScheduledActionByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:ScheduledActionByScope to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

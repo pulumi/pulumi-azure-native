@@ -17,6 +17,8 @@ __all__ = [
     'get_azure_monitor_workspace_output',
 ]
 
+warnings.warn("""azure-native:monitor/v20210603preview:AzureMonitorWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:monitor/v20230403:AzureMonitorWorkspace to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAzureMonitorWorkspaceResult:
     """
@@ -175,6 +177,7 @@ def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = No
     :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_azure_monitor_workspace is deprecated: azure-native:monitor/v20210603preview:AzureMonitorWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:monitor/v20230403:AzureMonitorWorkspace to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['azureMonitorWorkspaceName'] = azure_monitor_workspace_name
     __args__['resourceGroupName'] = resource_group_name
@@ -206,4 +209,5 @@ def get_azure_monitor_workspace_output(azure_monitor_workspace_name: Optional[pu
     :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_azure_monitor_workspace is deprecated: azure-native:monitor/v20210603preview:AzureMonitorWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:monitor/v20230403:AzureMonitorWorkspace to guarantee forwards compatibility.""")
     ...
