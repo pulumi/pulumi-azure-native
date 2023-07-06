@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a CommunicationsGateway
  */
+/** @deprecated azure-native:voiceservices/v20221201preview:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility. */
 export function getCommunicationsGateway(args: GetCommunicationsGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationsGatewayResult> {
+    pulumi.log.warn("getCommunicationsGateway is deprecated: azure-native:voiceservices/v20221201preview:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:voiceservices/v20221201preview:getCommunicationsGateway", {
@@ -94,6 +96,7 @@ export interface GetCommunicationsGatewayResult {
 /**
  * Get a CommunicationsGateway
  */
+/** @deprecated azure-native:voiceservices/v20221201preview:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility. */
 export function getCommunicationsGatewayOutput(args: GetCommunicationsGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationsGatewayResult> {
     return pulumi.output(args).apply((a: any) => getCommunicationsGateway(a, opts))
 }

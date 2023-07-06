@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2017-07-01 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ProtectionIntent to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetProtectionIntentResult:
@@ -136,7 +136,7 @@ def get_protection_intent(fabric_name: Optional[str] = None,
     :param str vault_name: The name of the recovery services vault.
     """
     pulumi.log.warn("""get_protection_intent is deprecated: Version 2017-07-01 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.""")
+azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ProtectionIntent to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['intentObjectName'] = intent_object_name
@@ -172,5 +172,5 @@ def get_protection_intent_output(fabric_name: Optional[pulumi.Input[str]] = None
     :param str vault_name: The name of the recovery services vault.
     """
     pulumi.log.warn("""get_protection_intent is deprecated: Version 2017-07-01 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.""")
+azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ProtectionIntent to guarantee forwards compatibility.""")
     ...

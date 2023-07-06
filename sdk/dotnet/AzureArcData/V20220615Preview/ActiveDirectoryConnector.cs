@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220615Preview
     /// <summary>
     /// Active directory connector resource
     /// </summary>
+    [Obsolete(@"azure-native:azurearcdata/v20220615preview:ActiveDirectoryConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurearcdata/v20220615preview:ActiveDirectoryConnector")]
     public partial class ActiveDirectoryConnector : global::Pulumi.CustomResource
     {

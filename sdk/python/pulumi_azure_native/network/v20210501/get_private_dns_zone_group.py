@@ -17,7 +17,7 @@ __all__ = [
     'get_private_dns_zone_group_output',
 ]
 
-warnings.warn("""azure-native:network/v20210501:PrivateDnsZoneGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PrivateDnsZoneGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20210501:PrivateDnsZoneGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:PrivateDnsZoneGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPrivateDnsZoneGroupResult:
@@ -107,7 +107,7 @@ def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None
     :param str private_endpoint_name: The name of the private endpoint.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_private_dns_zone_group is deprecated: azure-native:network/v20210501:PrivateDnsZoneGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PrivateDnsZoneGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_dns_zone_group is deprecated: azure-native:network/v20210501:PrivateDnsZoneGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:PrivateDnsZoneGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateDnsZoneGroupName'] = private_dns_zone_group_name
     __args__['privateEndpointName'] = private_endpoint_name
@@ -136,5 +136,5 @@ def get_private_dns_zone_group_output(private_dns_zone_group_name: Optional[pulu
     :param str private_endpoint_name: The name of the private endpoint.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_private_dns_zone_group is deprecated: azure-native:network/v20210501:PrivateDnsZoneGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PrivateDnsZoneGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_private_dns_zone_group is deprecated: azure-native:network/v20210501:PrivateDnsZoneGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:PrivateDnsZoneGroup to guarantee forwards compatibility.""")
     ...

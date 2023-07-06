@@ -11,7 +11,7 @@ import * as utilities from "../../utilities";
  * Describes a Virtual Machine.
  *
  * @deprecated Version 2017-03-30 will be removed in v2 of the provider.
-azure-native:compute/v20170330:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.
+azure-native:compute/v20170330:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:VirtualMachine to guarantee forwards compatibility.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -23,7 +23,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachine {
-        pulumi.log.warn("VirtualMachine is deprecated: Version 2017-03-30 will be removed in v2 of the provider.\nazure-native:compute/v20170330:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.")
+        pulumi.log.warn("VirtualMachine is deprecated: Version 2017-03-30 will be removed in v2 of the provider.\nazure-native:compute/v20170330:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:VirtualMachine to guarantee forwards compatibility.")
         return new VirtualMachine(name, undefined as any, { ...opts, id: id });
     }
 
@@ -122,9 +122,9 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Version 2017-03-30 will be removed in v2 of the provider.
-azure-native:compute/v20170330:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility. */
+azure-native:compute/v20170330:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:VirtualMachine to guarantee forwards compatibility. */
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VirtualMachine is deprecated: Version 2017-03-30 will be removed in v2 of the provider.\nazure-native:compute/v20170330:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:VirtualMachine to guarantee forwards compatibility.")
+        pulumi.log.warn("VirtualMachine is deprecated: Version 2017-03-30 will be removed in v2 of the provider.\nazure-native:compute/v20170330:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:VirtualMachine to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220101
     /// <summary>
     /// Backup Vault Resource
     /// </summary>
-    [Obsolete(@"azure-native:dataprotection/v20220101:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:dataprotection/v20220101:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupVault to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dataprotection/v20220101:BackupVault")]
     public partial class BackupVault : global::Pulumi.CustomResource
     {

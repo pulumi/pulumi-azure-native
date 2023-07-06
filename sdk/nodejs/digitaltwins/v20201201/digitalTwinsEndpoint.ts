@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * DigitalTwinsInstance endpoint resource.
+ *
+ * @deprecated azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint to guarantee forwards compatibility.
  */
 export class DigitalTwinsEndpoint extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DigitalTwinsEndpoint {
+        pulumi.log.warn("DigitalTwinsEndpoint is deprecated: azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint to guarantee forwards compatibility.")
         return new DigitalTwinsEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
@@ -57,7 +60,9 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint to guarantee forwards compatibility. */
     constructor(name: string, args: DigitalTwinsEndpointArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DigitalTwinsEndpoint is deprecated: azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

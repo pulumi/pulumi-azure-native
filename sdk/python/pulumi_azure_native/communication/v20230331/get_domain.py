@@ -17,6 +17,8 @@ __all__ = [
     'get_domain_output',
 ]
 
+warnings.warn("""azure-native:communication/v20230331:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:Domain to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDomainResult:
     """
@@ -213,6 +215,7 @@ def get_domain(domain_name: Optional[str] = None,
     :param str email_service_name: The name of the EmailService resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_domain is deprecated: azure-native:communication/v20230331:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:Domain to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['emailServiceName'] = email_service_name
@@ -250,4 +253,5 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str email_service_name: The name of the EmailService resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_domain is deprecated: azure-native:communication/v20230331:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:Domain to guarantee forwards compatibility.""")
     ...

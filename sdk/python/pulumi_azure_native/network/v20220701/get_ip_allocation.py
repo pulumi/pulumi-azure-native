@@ -17,7 +17,7 @@ __all__ = [
     'get_ip_allocation_output',
 ]
 
-warnings.warn("""azure-native:network/v20220701:IpAllocation is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:IpAllocation to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20220701:IpAllocation is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:IpAllocation to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetIpAllocationResult:
@@ -203,7 +203,7 @@ def get_ip_allocation(expand: Optional[str] = None,
     :param str ip_allocation_name: The name of the IpAllocation.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_ip_allocation is deprecated: azure-native:network/v20220701:IpAllocation is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:IpAllocation to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_ip_allocation is deprecated: azure-native:network/v20220701:IpAllocation is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:IpAllocation to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['ipAllocationName'] = ip_allocation_name
@@ -240,5 +240,5 @@ def get_ip_allocation_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     :param str ip_allocation_name: The name of the IpAllocation.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_ip_allocation is deprecated: azure-native:network/v20220701:IpAllocation is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:IpAllocation to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_ip_allocation is deprecated: azure-native:network/v20220701:IpAllocation is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:IpAllocation to guarantee forwards compatibility.""")
     ...

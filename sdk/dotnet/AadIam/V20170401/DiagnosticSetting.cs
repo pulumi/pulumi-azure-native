@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AadIam.V20170401
     /// <summary>
     /// The diagnostic setting resource.
     /// </summary>
+    [Obsolete(@"azure-native:aadiam/v20170401:DiagnosticSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:aadiam/v20170401preview:DiagnosticSetting to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:aadiam/v20170401:DiagnosticSetting")]
     public partial class DiagnosticSetting : global::Pulumi.CustomResource
     {

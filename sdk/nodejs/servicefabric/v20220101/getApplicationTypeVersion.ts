@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
  */
-/** @deprecated azure-native:servicefabric/v20220101:ApplicationTypeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:ApplicationTypeVersion to guarantee forwards compatibility. */
 export function getApplicationTypeVersion(args: GetApplicationTypeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeVersionResult> {
-    pulumi.log.warn("getApplicationTypeVersion is deprecated: azure-native:servicefabric/v20220101:ApplicationTypeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:ApplicationTypeVersion to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20220101:getApplicationTypeVersion", {
@@ -82,7 +80,6 @@ export interface GetApplicationTypeVersionResult {
 /**
  * Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
  */
-/** @deprecated azure-native:servicefabric/v20220101:ApplicationTypeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:ApplicationTypeVersion to guarantee forwards compatibility. */
 export function getApplicationTypeVersionOutput(args: GetApplicationTypeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationTypeVersionResult> {
     return pulumi.output(args).apply((a: any) => getApplicationTypeVersion(a, opts))
 }

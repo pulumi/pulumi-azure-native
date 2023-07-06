@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20210201
 {
+    [Obsolete(@"azure-native:storage/v20210201:FileServiceProperties is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileServiceProperties to guarantee forwards compatibility.")]
     public static class GetFileServiceProperties
     {
         /// <summary>

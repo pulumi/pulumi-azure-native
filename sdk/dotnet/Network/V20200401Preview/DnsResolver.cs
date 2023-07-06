@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
     /// <summary>
     /// Describes a DNS resolver.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20200401preview:DnsResolver is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:DnsResolver to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20200401preview:DnsResolver")]
     public partial class DnsResolver : global::Pulumi.CustomResource
     {

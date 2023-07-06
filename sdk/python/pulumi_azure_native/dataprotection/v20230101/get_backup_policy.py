@@ -17,6 +17,8 @@ __all__ = [
     'get_backup_policy_output',
 ]
 
+warnings.warn("""azure-native:dataprotection/v20230101:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBackupPolicyResult:
     """
@@ -104,6 +106,7 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vault_name: The name of the backup vault.
     """
+    pulumi.log.warn("""get_backup_policy is deprecated: azure-native:dataprotection/v20230101:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['backupPolicyName'] = backup_policy_name
     __args__['resourceGroupName'] = resource_group_name
@@ -131,4 +134,5 @@ def get_backup_policy_output(backup_policy_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vault_name: The name of the backup vault.
     """
+    pulumi.log.warn("""get_backup_policy is deprecated: azure-native:dataprotection/v20230101:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupPolicy to guarantee forwards compatibility.""")
     ...

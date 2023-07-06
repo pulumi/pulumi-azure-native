@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Cache.V20220601
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
+    [Obsolete(@"azure-native:cache/v20220601:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cache/v20220601:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

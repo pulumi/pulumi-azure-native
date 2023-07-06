@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
     /// <summary>
     /// A cloud link resource
     /// </summary>
+    [Obsolete(@"azure-native:avs/v20210601:CloudLink is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:CloudLink to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:avs/v20210601:CloudLink")]
     public partial class CloudLink : global::Pulumi.CustomResource
     {

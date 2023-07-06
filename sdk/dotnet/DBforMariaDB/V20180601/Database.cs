@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
     /// <summary>
     /// Represents a Database.
     /// </summary>
+    [Obsolete(@"azure-native:dbformariadb/v20180601:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformariadb/v20180601preview:Database to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbformariadb/v20180601:Database")]
     public partial class Database : global::Pulumi.CustomResource
     {

@@ -17,6 +17,8 @@ __all__ = [
     'get_dev_tool_portal_output',
 ]
 
+warnings.warn("""azure-native:appplatform/v20230101preview:DevToolPortal is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:DevToolPortal to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDevToolPortalResult:
     """
@@ -105,6 +107,7 @@ def get_dev_tool_portal(dev_tool_portal_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
+    pulumi.log.warn("""get_dev_tool_portal is deprecated: azure-native:appplatform/v20230101preview:DevToolPortal is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:DevToolPortal to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['devToolPortalName'] = dev_tool_portal_name
     __args__['resourceGroupName'] = resource_group_name
@@ -133,4 +136,5 @@ def get_dev_tool_portal_output(dev_tool_portal_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
+    pulumi.log.warn("""get_dev_tool_portal is deprecated: azure-native:appplatform/v20230101preview:DevToolPortal is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:DevToolPortal to guarantee forwards compatibility.""")
     ...

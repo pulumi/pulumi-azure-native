@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
 {
+    [Obsolete(@"azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20230701:PrivateEndpointConnectionProxy to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnectionProxy
     {
         /// <summary>

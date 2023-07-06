@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a private endpoint connection
  */
+/** @deprecated azure-native:web/v20201201:WebAppPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getWebAppPrivateEndpointConnection(args: GetWebAppPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPrivateEndpointConnectionResult> {
+    pulumi.log.warn("getWebAppPrivateEndpointConnection is deprecated: azure-native:web/v20201201:WebAppPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppPrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201201:getWebAppPrivateEndpointConnection", {
@@ -72,6 +74,7 @@ export interface GetWebAppPrivateEndpointConnectionResult {
 /**
  * Gets a private endpoint connection
  */
+/** @deprecated azure-native:web/v20201201:WebAppPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getWebAppPrivateEndpointConnectionOutput(args: GetWebAppPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppPrivateEndpointConnection(a, opts))
 }

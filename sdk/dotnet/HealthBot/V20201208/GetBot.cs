@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HealthBot.V20201208
 {
+    [Obsolete(@"azure-native:healthbot/v20201208:Bot is being removed in the next major version of this provider. Upgrade to at least azure-native:healthbot/v20201208preview:Bot to guarantee forwards compatibility.")]
     public static class GetBot
     {
         /// <summary>

@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a server encryption protector.
  */
-/** @deprecated azure-native:sql/v20211101preview:EncryptionProtector is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:EncryptionProtector to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101preview:EncryptionProtector is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:EncryptionProtector to guarantee forwards compatibility. */
 export function getEncryptionProtector(args: GetEncryptionProtectorArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionProtectorResult> {
-    pulumi.log.warn("getEncryptionProtector is deprecated: azure-native:sql/v20211101preview:EncryptionProtector is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:EncryptionProtector to guarantee forwards compatibility.")
+    pulumi.log.warn("getEncryptionProtector is deprecated: azure-native:sql/v20211101preview:EncryptionProtector is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:EncryptionProtector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101preview:getEncryptionProtector", {
@@ -86,7 +86,7 @@ export interface GetEncryptionProtectorResult {
 /**
  * Gets a server encryption protector.
  */
-/** @deprecated azure-native:sql/v20211101preview:EncryptionProtector is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:EncryptionProtector to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101preview:EncryptionProtector is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:EncryptionProtector to guarantee forwards compatibility. */
 export function getEncryptionProtectorOutput(args: GetEncryptionProtectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionProtectorResult> {
     return pulumi.output(args).apply((a: any) => getEncryptionProtector(a, opts))
 }

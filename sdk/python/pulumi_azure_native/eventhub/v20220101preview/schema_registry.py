@@ -107,7 +107,12 @@ class SchemaRegistryArgs:
         pulumi.set(self, "schema_type", value)
 
 
+warnings.warn("""azure-native:eventhub/v20220101preview:SchemaRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:SchemaRegistry to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class SchemaRegistry(pulumi.CustomResource):
+    warnings.warn("""azure-native:eventhub/v20220101preview:SchemaRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:SchemaRegistry to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -160,6 +165,7 @@ class SchemaRegistry(pulumi.CustomResource):
                  schema_group_name: Optional[pulumi.Input[str]] = None,
                  schema_type: Optional[pulumi.Input[Union[str, 'SchemaType']]] = None,
                  __props__=None):
+        pulumi.log.warn("""SchemaRegistry is deprecated: azure-native:eventhub/v20220101preview:SchemaRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:SchemaRegistry to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

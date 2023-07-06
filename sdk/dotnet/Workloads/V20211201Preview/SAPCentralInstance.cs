@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     /// <summary>
     /// Define the SAP Central Services Instance resource.
     /// </summary>
+    [Obsolete(@"azure-native:workloads/v20211201preview:SAPCentralInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPCentralInstance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:workloads/v20211201preview:SAPCentralInstance")]
     public partial class SAPCentralInstance : global::Pulumi.CustomResource
     {

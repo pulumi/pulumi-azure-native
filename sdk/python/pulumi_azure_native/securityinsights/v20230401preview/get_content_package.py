@@ -17,6 +17,8 @@ __all__ = [
     'get_content_package_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20230401preview:ContentPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ContentPackage to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetContentPackageResult:
     """
@@ -357,6 +359,7 @@ def get_content_package(package_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_content_package is deprecated: azure-native:securityinsights/v20230401preview:ContentPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ContentPackage to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['packageId'] = package_id
     __args__['resourceGroupName'] = resource_group_name
@@ -406,4 +409,5 @@ def get_content_package_output(package_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_content_package is deprecated: azure-native:securityinsights/v20230401preview:ContentPackage is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ContentPackage to guarantee forwards compatibility.""")
     ...

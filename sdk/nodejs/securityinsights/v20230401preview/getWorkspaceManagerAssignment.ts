@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a workspace manager assignment
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:WorkspaceManagerAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerAssignment to guarantee forwards compatibility. */
 export function getWorkspaceManagerAssignment(args: GetWorkspaceManagerAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceManagerAssignmentResult> {
+    pulumi.log.warn("getWorkspaceManagerAssignment is deprecated: azure-native:securityinsights/v20230401preview:WorkspaceManagerAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230401preview:getWorkspaceManagerAssignment", {
@@ -79,6 +81,7 @@ export interface GetWorkspaceManagerAssignmentResult {
 /**
  * Gets a workspace manager assignment
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:WorkspaceManagerAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerAssignment to guarantee forwards compatibility. */
 export function getWorkspaceManagerAssignmentOutput(args: GetWorkspaceManagerAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceManagerAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceManagerAssignment(a, opts))
 }

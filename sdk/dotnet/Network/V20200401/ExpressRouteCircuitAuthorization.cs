@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20200401
     /// <summary>
     /// Authorization in an ExpressRouteCircuit resource.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20200401:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteCircuitAuthorization to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20200401:ExpressRouteCircuitAuthorization is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ExpressRouteCircuitAuthorization to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20200401:ExpressRouteCircuitAuthorization")]
     public partial class ExpressRouteCircuitAuthorization : global::Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
     /// <summary>
     /// Represents a Configuration.
     /// </summary>
-    [Obsolete(@"azure-native:dbforpostgresql/v20200214privatepreview:Configuration is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221201:Configuration to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:dbforpostgresql/v20200214privatepreview:Configuration is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Configuration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20200214privatepreview:Configuration")]
     public partial class Configuration : global::Pulumi.CustomResource
     {

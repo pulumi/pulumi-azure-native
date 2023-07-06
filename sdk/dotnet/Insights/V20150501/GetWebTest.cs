@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Insights.V20150501
 {
+    [Obsolete(@"azure-native:insights/v20150501:WebTest is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201005preview:WebTest to guarantee forwards compatibility.")]
     public static class GetWebTest
     {
         /// <summary>

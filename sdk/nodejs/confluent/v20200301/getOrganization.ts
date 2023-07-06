@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Organization resource.
  */
+/** @deprecated azure-native:confluent/v20200301:Organization is being removed in the next major version of this provider. Upgrade to at least azure-native:confluent/v20200301preview:Organization to guarantee forwards compatibility. */
 export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
+    pulumi.log.warn("getOrganization is deprecated: azure-native:confluent/v20200301:Organization is being removed in the next major version of this provider. Upgrade to at least azure-native:confluent/v20200301preview:Organization to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:confluent/v20200301:getOrganization", {
@@ -82,6 +84,7 @@ export interface GetOrganizationResult {
 /**
  * Organization resource.
  */
+/** @deprecated azure-native:confluent/v20200301:Organization is being removed in the next major version of this provider. Upgrade to at least azure-native:confluent/v20200301preview:Organization to guarantee forwards compatibility. */
 export function getOrganizationOutput(args: GetOrganizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationResult> {
     return pulumi.output(args).apply((a: any) => getOrganization(a, opts))
 }

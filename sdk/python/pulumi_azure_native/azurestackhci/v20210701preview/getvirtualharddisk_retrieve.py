@@ -17,8 +17,6 @@ __all__ = [
     'getvirtualharddisk_retrieve_output',
 ]
 
-warnings.warn("""azure-native:azurestackhci/v20210701preview:virtualharddiskRetrieve is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetvirtualharddiskRetrieveResult:
     """
@@ -212,7 +210,6 @@ def getvirtualharddisk_retrieve(resource_group_name: Optional[str] = None,
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""getvirtualharddisk_retrieve is deprecated: azure-native:azurestackhci/v20210701preview:virtualharddiskRetrieve is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualharddisksName'] = virtualharddisks_name
@@ -247,5 +244,4 @@ def getvirtualharddisk_retrieve_output(resource_group_name: Optional[pulumi.Inpu
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""getvirtualharddisk_retrieve is deprecated: azure-native:azurestackhci/v20210701preview:virtualharddiskRetrieve is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve to guarantee forwards compatibility.""")
     ...

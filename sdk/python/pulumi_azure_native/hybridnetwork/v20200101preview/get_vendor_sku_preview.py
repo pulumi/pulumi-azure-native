@@ -16,6 +16,8 @@ __all__ = [
     'get_vendor_sku_preview_output',
 ]
 
+warnings.warn("""azure-native:hybridnetwork/v20200101preview:VendorSkuPreview is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkuPreview to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVendorSkuPreviewResult:
     """
@@ -80,6 +82,7 @@ def get_vendor_sku_preview(preview_subscription: Optional[str] = None,
     :param str sku_name: The name of the vendor sku.
     :param str vendor_name: The name of the vendor.
     """
+    pulumi.log.warn("""get_vendor_sku_preview is deprecated: azure-native:hybridnetwork/v20200101preview:VendorSkuPreview is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkuPreview to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['previewSubscription'] = preview_subscription
     __args__['skuName'] = sku_name
@@ -106,4 +109,5 @@ def get_vendor_sku_preview_output(preview_subscription: Optional[pulumi.Input[st
     :param str sku_name: The name of the vendor sku.
     :param str vendor_name: The name of the vendor.
     """
+    pulumi.log.warn("""get_vendor_sku_preview is deprecated: azure-native:hybridnetwork/v20200101preview:VendorSkuPreview is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkuPreview to guarantee forwards compatibility.""")
     ...

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview
     /// <summary>
     /// Alert processing rule object containing target scopes, conditions and scheduling logic.
     /// </summary>
+    [Obsolete(@"azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20230501preview:AlertProcessingRuleByName to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName")]
     public partial class AlertProcessingRuleByName : global::Pulumi.CustomResource
     {

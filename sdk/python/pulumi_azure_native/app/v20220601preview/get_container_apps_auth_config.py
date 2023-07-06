@@ -17,7 +17,7 @@ __all__ = [
     'get_container_apps_auth_config_output',
 ]
 
-warnings.warn("""azure-native:app/v20220601preview:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerAppsAuthConfig to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:app/v20220601preview:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsAuthConfig to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetContainerAppsAuthConfigResult:
@@ -155,7 +155,7 @@ def get_container_apps_auth_config(auth_config_name: Optional[str] = None,
     :param str container_app_name: Name of the Container App.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_container_apps_auth_config is deprecated: azure-native:app/v20220601preview:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerAppsAuthConfig to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_container_apps_auth_config is deprecated: azure-native:app/v20220601preview:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsAuthConfig to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['authConfigName'] = auth_config_name
     __args__['containerAppName'] = container_app_name
@@ -188,5 +188,5 @@ def get_container_apps_auth_config_output(auth_config_name: Optional[pulumi.Inpu
     :param str container_app_name: Name of the Container App.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_container_apps_auth_config is deprecated: azure-native:app/v20220601preview:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerAppsAuthConfig to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_container_apps_auth_config is deprecated: azure-native:app/v20220601preview:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsAuthConfig to guarantee forwards compatibility.""")
     ...

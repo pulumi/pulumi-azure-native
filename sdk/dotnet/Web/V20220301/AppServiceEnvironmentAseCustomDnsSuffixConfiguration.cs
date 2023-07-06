@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20220301
     /// <summary>
     /// Full view of the custom domain suffix configuration for ASEv3.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:AppServiceEnvironmentAseCustomDnsSuffixConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration")]
     public partial class AppServiceEnvironmentAseCustomDnsSuffixConfiguration : global::Pulumi.CustomResource
     {

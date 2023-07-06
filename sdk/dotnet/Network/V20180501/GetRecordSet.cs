@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20180501
 {
+    [Obsolete(@"azure-native:network/v20180501:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:RecordSet to guarantee forwards compatibility.")]
     public static class GetRecordSet
     {
         /// <summary>

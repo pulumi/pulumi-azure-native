@@ -287,11 +287,11 @@ class AnomalySecurityMLAnalyticsSettingsArgs:
         pulumi.set(self, "techniques", value)
 
 
-warnings.warn("""azure-native:securityinsights/v20220901preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:securityinsights/v20220901preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
-    warnings.warn("""azure-native:securityinsights/v20220901preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:securityinsights/v20220901preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -381,7 +381,7 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
                  techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""AnomalySecurityMLAnalyticsSettings is deprecated: azure-native:securityinsights/v20220901preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.""")
+        pulumi.log.warn("""AnomalySecurityMLAnalyticsSettings is deprecated: azure-native:securityinsights/v20220901preview:AnomalySecurityMLAnalyticsSettings is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:AnomalySecurityMLAnalyticsSettings to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

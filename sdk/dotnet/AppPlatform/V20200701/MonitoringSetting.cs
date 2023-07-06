@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
     /// <summary>
     /// Monitoring Setting resource
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20200701:MonitoringSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:MonitoringSetting to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20200701:MonitoringSetting")]
     public partial class MonitoringSetting : global::Pulumi.CustomResource
     {

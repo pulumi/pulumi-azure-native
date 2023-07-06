@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
     /// <summary>
     /// Application Configuration Service resource
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20220101preview:ConfigurationService is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ConfigurationService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20220101preview:ConfigurationService")]
     public partial class ConfigurationService : global::Pulumi.CustomResource
     {

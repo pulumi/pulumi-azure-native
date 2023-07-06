@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get DigitalTwinsInstances Endpoint.
  */
+/** @deprecated azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint to guarantee forwards compatibility. */
 export function getDigitalTwinsEndpoint(args: GetDigitalTwinsEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinsEndpointResult> {
+    pulumi.log.warn("getDigitalTwinsEndpoint is deprecated: azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:digitaltwins/v20201201:getDigitalTwinsEndpoint", {
@@ -59,6 +61,7 @@ export interface GetDigitalTwinsEndpointResult {
 /**
  * Get DigitalTwinsInstances Endpoint.
  */
+/** @deprecated azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint to guarantee forwards compatibility. */
 export function getDigitalTwinsEndpointOutput(args: GetDigitalTwinsEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinsEndpointResult> {
     return pulumi.output(args).apply((a: any) => getDigitalTwinsEndpoint(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get installed extension details by extension id.
  */
+/** @deprecated azure-native:agfoodplatform/v20200512preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:agfoodplatform/v20210901preview:Extension to guarantee forwards compatibility. */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
+    pulumi.log.warn("getExtension is deprecated: azure-native:agfoodplatform/v20200512preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:agfoodplatform/v20210901preview:Extension to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:agfoodplatform/v20200512preview:getExtension", {
@@ -83,6 +85,7 @@ export interface GetExtensionResult {
 /**
  * Get installed extension details by extension id.
  */
+/** @deprecated azure-native:agfoodplatform/v20200512preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:agfoodplatform/v20210901preview:Extension to guarantee forwards compatibility. */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))
 }

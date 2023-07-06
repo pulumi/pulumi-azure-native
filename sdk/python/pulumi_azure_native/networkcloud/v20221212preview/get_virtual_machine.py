@@ -17,6 +17,8 @@ __all__ = [
     'get_virtual_machine_output',
 ]
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:VirtualMachine to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineResult:
     def __init__(__self__, admin_username=None, bare_metal_machine_id=None, boot_method=None, cloud_services_network_attachment=None, cluster_id=None, cpu_cores=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, isolate_emulator_thread=None, location=None, memory_size_gb=None, name=None, network_attachments=None, network_data=None, placement_hints=None, power_state=None, provisioning_state=None, ssh_public_keys=None, storage_profile=None, system_data=None, tags=None, type=None, user_data=None, virtio_interface=None, vm_device_model=None, vm_image=None, vm_image_repository_credentials=None, volumes=None):
@@ -400,6 +402,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_machine_name: The name of the virtual machine.
     """
+    pulumi.log.warn("""get_virtual_machine is deprecated: azure-native:networkcloud/v20221212preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:VirtualMachine to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualMachineName'] = virtual_machine_name
@@ -450,4 +453,5 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_machine_name: The name of the virtual machine.
     """
+    pulumi.log.warn("""get_virtual_machine is deprecated: azure-native:networkcloud/v20221212preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:VirtualMachine to guarantee forwards compatibility.""")
     ...

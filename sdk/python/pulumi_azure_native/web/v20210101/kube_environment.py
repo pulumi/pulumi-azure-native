@@ -201,7 +201,12 @@ class KubeEnvironmentArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:web/v20210101:KubeEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:KubeEnvironment to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class KubeEnvironment(pulumi.CustomResource):
+    warnings.warn("""azure-native:web/v20210101:KubeEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:KubeEnvironment to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -274,6 +279,7 @@ class KubeEnvironment(pulumi.CustomResource):
                  static_ip: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""KubeEnvironment is deprecated: azure-native:web/v20210101:KubeEnvironment is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:KubeEnvironment to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -17,6 +17,8 @@ __all__ = [
     'get_dsc_configuration_output',
 ]
 
+warnings.warn("""azure-native:automation/v20190601:DscConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:DscConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDscConfigurationResult:
     """
@@ -237,6 +239,7 @@ def get_dsc_configuration(automation_account_name: Optional[str] = None,
     :param str configuration_name: The configuration name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_dsc_configuration is deprecated: azure-native:automation/v20190601:DscConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:DscConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['configurationName'] = configuration_name
@@ -276,4 +279,5 @@ def get_dsc_configuration_output(automation_account_name: Optional[pulumi.Input[
     :param str configuration_name: The configuration name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_dsc_configuration is deprecated: azure-native:automation/v20190601:DscConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:DscConfiguration to guarantee forwards compatibility.""")
     ...

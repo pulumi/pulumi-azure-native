@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Cache.V20210601
 {
-    [Obsolete(@"azure-native:cache/v20210601:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:cache/v20210601:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:PatchSchedule to guarantee forwards compatibility.")]
     public static class GetPatchSchedule
     {
         /// <summary>

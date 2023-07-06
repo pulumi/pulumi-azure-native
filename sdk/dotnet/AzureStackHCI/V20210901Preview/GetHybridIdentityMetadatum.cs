@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
 {
+    [Obsolete(@"azure-native:azurestackhci/v20210901preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:HybridIdentityMetadatum to guarantee forwards compatibility.")]
     public static class GetHybridIdentityMetadatum
     {
         /// <summary>

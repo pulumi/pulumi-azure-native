@@ -82,11 +82,11 @@ class CodeContainerInitArgs:
         pulumi.set(self, "name", value)
 
 
-warnings.warn("""azure-native:machinelearningservices/v20221001:CodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:machinelearningservices/v20221001:CodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:CodeContainer to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class CodeContainer(pulumi.CustomResource):
-    warnings.warn("""azure-native:machinelearningservices/v20221001:CodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:machinelearningservices/v20221001:CodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:CodeContainer to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -136,7 +136,7 @@ class CodeContainer(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""CodeContainer is deprecated: azure-native:machinelearningservices/v20221001:CodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:CodeContainer to guarantee forwards compatibility.""")
+        pulumi.log.warn("""CodeContainer is deprecated: azure-native:machinelearningservices/v20221001:CodeContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:CodeContainer to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

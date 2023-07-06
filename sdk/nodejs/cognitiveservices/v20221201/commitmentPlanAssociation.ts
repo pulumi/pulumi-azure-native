@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The commitment plan association.
+ *
+ * @deprecated azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:CommitmentPlanAssociation to guarantee forwards compatibility.
  */
 export class CommitmentPlanAssociation extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class CommitmentPlanAssociation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CommitmentPlanAssociation {
+        pulumi.log.warn("CommitmentPlanAssociation is deprecated: azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:CommitmentPlanAssociation to guarantee forwards compatibility.")
         return new CommitmentPlanAssociation(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,7 +68,9 @@ export class CommitmentPlanAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:CommitmentPlanAssociation to guarantee forwards compatibility. */
     constructor(name: string, args: CommitmentPlanAssociationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CommitmentPlanAssociation is deprecated: azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:CommitmentPlanAssociation to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

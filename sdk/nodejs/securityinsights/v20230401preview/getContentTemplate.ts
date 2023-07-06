@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a template byt its identifier.
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:ContentTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ContentTemplate to guarantee forwards compatibility. */
 export function getContentTemplate(args: GetContentTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetContentTemplateResult> {
+    pulumi.log.warn("getContentTemplate is deprecated: azure-native:securityinsights/v20230401preview:ContentTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ContentTemplate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230401preview:getContentTemplate", {
@@ -155,6 +157,7 @@ export interface GetContentTemplateResult {
 /**
  * Gets a template byt its identifier.
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:ContentTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ContentTemplate to guarantee forwards compatibility. */
 export function getContentTemplateOutput(args: GetContentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTemplateResult> {
     return pulumi.output(args).apply((a: any) => getContentTemplate(a, opts))
 }

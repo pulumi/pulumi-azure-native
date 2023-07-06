@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210801
     /// <summary>
     /// VirtualNetworkGatewayNatRule Resource.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20210801:VirtualNetworkGatewayNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetworkGatewayNatRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20210801:VirtualNetworkGatewayNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetworkGatewayNatRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20210801:VirtualNetworkGatewayNatRule")]
     public partial class VirtualNetworkGatewayNatRule : global::Pulumi.CustomResource
     {

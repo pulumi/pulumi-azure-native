@@ -17,6 +17,8 @@ __all__ = [
     'get_experiment_output',
 ]
 
+warnings.warn("""azure-native:chaos/v20230401preview:Experiment is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Experiment to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExperimentResult:
     """
@@ -139,6 +141,7 @@ def get_experiment(experiment_name: Optional[str] = None,
     :param str experiment_name: String that represents a Experiment resource name.
     :param str resource_group_name: String that represents an Azure resource group.
     """
+    pulumi.log.warn("""get_experiment is deprecated: azure-native:chaos/v20230401preview:Experiment is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Experiment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['experimentName'] = experiment_name
     __args__['resourceGroupName'] = resource_group_name
@@ -167,4 +170,5 @@ def get_experiment_output(experiment_name: Optional[pulumi.Input[str]] = None,
     :param str experiment_name: String that represents a Experiment resource name.
     :param str resource_group_name: String that represents an Azure resource group.
     """
+    pulumi.log.warn("""get_experiment is deprecated: azure-native:chaos/v20230401preview:Experiment is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Experiment to guarantee forwards compatibility.""")
     ...

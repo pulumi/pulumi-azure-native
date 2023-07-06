@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The grafana resource type.
  */
+/** @deprecated azure-native:dashboard/v20220501preview:Grafana is being removed in the next major version of this provider. Upgrade to at least azure-native:dashboard/v20220801:Grafana to guarantee forwards compatibility. */
 export function getGrafana(args: GetGrafanaArgs, opts?: pulumi.InvokeOptions): Promise<GetGrafanaResult> {
+    pulumi.log.warn("getGrafana is deprecated: azure-native:dashboard/v20220501preview:Grafana is being removed in the next major version of this provider. Upgrade to at least azure-native:dashboard/v20220801:Grafana to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dashboard/v20220501preview:getGrafana", {
@@ -74,6 +76,7 @@ export interface GetGrafanaResult {
 /**
  * The grafana resource type.
  */
+/** @deprecated azure-native:dashboard/v20220501preview:Grafana is being removed in the next major version of this provider. Upgrade to at least azure-native:dashboard/v20220801:Grafana to guarantee forwards compatibility. */
 export function getGrafanaOutput(args: GetGrafanaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrafanaResult> {
     return pulumi.output(args).apply((a: any) => getGrafana(a, opts))
 }

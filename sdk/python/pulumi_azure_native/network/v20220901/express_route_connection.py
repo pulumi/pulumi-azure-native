@@ -210,7 +210,12 @@ class ExpressRouteConnectionInitArgs:
         pulumi.set(self, "routing_weight", value)
 
 
+warnings.warn("""azure-native:network/v20220901:ExpressRouteConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ExpressRouteConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ExpressRouteConnection(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20220901:ExpressRouteConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ExpressRouteConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -283,6 +288,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  routing_configuration: Optional[pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
+        pulumi.log.warn("""ExpressRouteConnection is deprecated: azure-native:network/v20220901:ExpressRouteConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ExpressRouteConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

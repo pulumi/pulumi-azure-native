@@ -16,7 +16,7 @@ __all__ = [
     'get_ssh_public_key_output',
 ]
 
-warnings.warn("""azure-native:compute/v20211101:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:compute/v20211101:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:SshPublicKey to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSshPublicKeyResult:
@@ -116,7 +116,7 @@ def get_ssh_public_key(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str ssh_public_key_name: The name of the SSH public key.
     """
-    pulumi.log.warn("""get_ssh_public_key is deprecated: azure-native:compute/v20211101:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_ssh_public_key is deprecated: azure-native:compute/v20211101:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:SshPublicKey to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sshPublicKeyName'] = ssh_public_key_name
@@ -143,5 +143,5 @@ def get_ssh_public_key_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group.
     :param str ssh_public_key_name: The name of the SSH public key.
     """
-    pulumi.log.warn("""get_ssh_public_key is deprecated: azure-native:compute/v20211101:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:SshPublicKey to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_ssh_public_key is deprecated: azure-native:compute/v20211101:SshPublicKey is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:SshPublicKey to guarantee forwards compatibility.""")
     ...

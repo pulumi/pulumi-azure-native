@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220515
     /// <summary>
     /// The description of Dicom Service
     /// </summary>
+    [Obsolete(@"azure-native:healthcareapis/v20220515:DicomService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:DicomService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20220515:DicomService")]
     public partial class DicomService : global::Pulumi.CustomResource
     {

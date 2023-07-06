@@ -17,6 +17,8 @@ __all__ = [
     'get_hybrid_use_benefit_output',
 ]
 
+warnings.warn("""azure-native:softwareplan/v20190601preview:HybridUseBenefit is being removed in the next major version of this provider. Upgrade to at least azure-native:softwareplan/v20191201:HybridUseBenefit to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHybridUseBenefitResult:
     """
@@ -139,6 +141,7 @@ def get_hybrid_use_benefit(plan_id: Optional[str] = None,
     :param str plan_id: This is a unique identifier for a plan. Should be a guid.
     :param str scope: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
     """
+    pulumi.log.warn("""get_hybrid_use_benefit is deprecated: azure-native:softwareplan/v20190601preview:HybridUseBenefit is being removed in the next major version of this provider. Upgrade to at least azure-native:softwareplan/v20191201:HybridUseBenefit to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['planId'] = plan_id
     __args__['scope'] = scope
@@ -167,4 +170,5 @@ def get_hybrid_use_benefit_output(plan_id: Optional[pulumi.Input[str]] = None,
     :param str plan_id: This is a unique identifier for a plan. Should be a guid.
     :param str scope: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
     """
+    pulumi.log.warn("""get_hybrid_use_benefit is deprecated: azure-native:softwareplan/v20190601preview:HybridUseBenefit is being removed in the next major version of this provider. Upgrade to at least azure-native:softwareplan/v20191201:HybridUseBenefit to guarantee forwards compatibility.""")
     ...

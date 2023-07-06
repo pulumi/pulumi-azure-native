@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
     /// <summary>
     /// Logger details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20210401preview:Logger is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Logger to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20210401preview:Logger is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Logger to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20210401preview:Logger")]
     public partial class Logger : global::Pulumi.CustomResource
     {

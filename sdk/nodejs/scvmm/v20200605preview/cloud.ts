@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The Clouds resource definition.
+ *
+ * @deprecated azure-native:scvmm/v20200605preview:Cloud is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:Cloud to guarantee forwards compatibility.
  */
 export class Cloud extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Cloud extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cloud {
+        pulumi.log.warn("Cloud is deprecated: azure-native:scvmm/v20200605preview:Cloud is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:Cloud to guarantee forwards compatibility.")
         return new Cloud(name, undefined as any, { ...opts, id: id });
     }
 
@@ -97,7 +100,9 @@ export class Cloud extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:scvmm/v20200605preview:Cloud is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:Cloud to guarantee forwards compatibility. */
     constructor(name: string, args: CloudArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Cloud is deprecated: azure-native:scvmm/v20200605preview:Cloud is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:Cloud to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

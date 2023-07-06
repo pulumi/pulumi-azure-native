@@ -209,7 +209,12 @@ class SmartDetectorAlertRuleArgs:
         pulumi.set(self, "throttling", value)
 
 
+warnings.warn("""azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class SmartDetectorAlertRule(pulumi.CustomResource):
+    warnings.warn("""azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -282,6 +287,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throttling: Optional[pulumi.Input[pulumi.InputType['ThrottlingInformationArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""SmartDetectorAlertRule is deprecated: azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

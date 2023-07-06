@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
+ *
+ * @deprecated azure-native:guestconfiguration/v20200625:GuestConfigurationConnectedVMwarevSphereAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment to guarantee forwards compatibility.
  */
 export class GuestConfigurationConnectedVMwarevSphereAssignment extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class GuestConfigurationConnectedVMwarevSphereAssignment extends pulumi.C
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GuestConfigurationConnectedVMwarevSphereAssignment {
+        pulumi.log.warn("GuestConfigurationConnectedVMwarevSphereAssignment is deprecated: azure-native:guestconfiguration/v20200625:GuestConfigurationConnectedVMwarevSphereAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment to guarantee forwards compatibility.")
         return new GuestConfigurationConnectedVMwarevSphereAssignment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,7 +64,9 @@ export class GuestConfigurationConnectedVMwarevSphereAssignment extends pulumi.C
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:guestconfiguration/v20200625:GuestConfigurationConnectedVMwarevSphereAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment to guarantee forwards compatibility. */
     constructor(name: string, args: GuestConfigurationConnectedVMwarevSphereAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("GuestConfigurationConnectedVMwarevSphereAssignment is deprecated: azure-native:guestconfiguration/v20200625:GuestConfigurationConnectedVMwarevSphereAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

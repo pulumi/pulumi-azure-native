@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a single workbook template by its resourceName.
  */
+/** @deprecated azure-native:insights/v20191017preview:WorkbookTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201120:WorkbookTemplate to guarantee forwards compatibility. */
 export function getWorkbookTemplate(args: GetWorkbookTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookTemplateResult> {
+    pulumi.log.warn("getWorkbookTemplate is deprecated: azure-native:insights/v20191017preview:WorkbookTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201120:WorkbookTemplate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20191017preview:getWorkbookTemplate", {
@@ -78,6 +80,7 @@ export interface GetWorkbookTemplateResult {
 /**
  * Get a single workbook template by its resourceName.
  */
+/** @deprecated azure-native:insights/v20191017preview:WorkbookTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201120:WorkbookTemplate to guarantee forwards compatibility. */
 export function getWorkbookTemplateOutput(args: GetWorkbookTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookTemplateResult> {
     return pulumi.output(args).apply((a: any) => getWorkbookTemplate(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221201Preview
     /// <summary>
     /// Private endpoint connection proxy details.
     /// </summary>
+    [Obsolete(@"azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:deviceupdate/v20230701:PrivateEndpointConnectionProxy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy")]
     public partial class PrivateEndpointConnectionProxy : global::Pulumi.CustomResource
     {

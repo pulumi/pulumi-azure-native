@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an Agent resource.
  */
+/** @deprecated azure-native:storagemover/v20220701preview:Agent is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:Agent to guarantee forwards compatibility. */
 export function getAgent(args: GetAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentResult> {
+    pulumi.log.warn("getAgent is deprecated: azure-native:storagemover/v20220701preview:Agent is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:Agent to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagemover/v20220701preview:getAgent", {
@@ -104,6 +106,7 @@ export interface GetAgentResult {
 /**
  * Gets an Agent resource.
  */
+/** @deprecated azure-native:storagemover/v20220701preview:Agent is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:Agent to guarantee forwards compatibility. */
 export function getAgentOutput(args: GetAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentResult> {
     return pulumi.output(args).apply((a: any) => getAgent(a, opts))
 }

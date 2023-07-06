@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the Documentation specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20220801:Documentation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Documentation to guarantee forwards compatibility. */
 export function getDocumentation(args: GetDocumentationArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentationResult> {
+    pulumi.log.warn("getDocumentation is deprecated: azure-native:apimanagement/v20220801:Documentation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Documentation to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:getDocumentation", {
@@ -60,6 +62,7 @@ export interface GetDocumentationResult {
 /**
  * Gets the details of the Documentation specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20220801:Documentation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Documentation to guarantee forwards compatibility. */
 export function getDocumentationOutput(args: GetDocumentationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationResult> {
     return pulumi.output(args).apply((a: any) => getDocumentation(a, opts))
 }

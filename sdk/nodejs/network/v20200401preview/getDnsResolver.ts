@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets properties of a DNS resolver.
  */
+/** @deprecated azure-native:network/v20200401preview:DnsResolver is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:DnsResolver to guarantee forwards compatibility. */
 export function getDnsResolver(args: GetDnsResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResolverResult> {
+    pulumi.log.warn("getDnsResolver is deprecated: azure-native:network/v20200401preview:DnsResolver is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:DnsResolver to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200401preview:getDnsResolver", {
@@ -82,6 +84,7 @@ export interface GetDnsResolverResult {
 /**
  * Gets properties of a DNS resolver.
  */
+/** @deprecated azure-native:network/v20200401preview:DnsResolver is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:DnsResolver to guarantee forwards compatibility. */
 export function getDnsResolverOutput(args: GetDnsResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResolverResult> {
     return pulumi.output(args).apply((a: any) => getDnsResolver(a, opts))
 }

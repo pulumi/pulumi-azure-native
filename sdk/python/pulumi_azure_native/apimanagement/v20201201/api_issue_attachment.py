@@ -140,7 +140,12 @@ class ApiIssueAttachmentArgs:
         pulumi.set(self, "attachment_id", value)
 
 
+warnings.warn("""azure-native:apimanagement/v20201201:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ApiIssueAttachment(pulumi.CustomResource):
+    warnings.warn("""azure-native:apimanagement/v20201201:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -201,6 +206,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ApiIssueAttachment is deprecated: azure-native:apimanagement/v20201201:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

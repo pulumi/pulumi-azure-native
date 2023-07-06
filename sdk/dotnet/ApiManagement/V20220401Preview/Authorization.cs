@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220401Preview
     /// <summary>
     /// Authorization contract.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220401preview:Authorization is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Authorization to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20220401preview:Authorization is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Authorization to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220401preview:Authorization")]
     public partial class Authorization : global::Pulumi.CustomResource
     {

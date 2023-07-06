@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve a Remote Rendering Account.
  */
+/** @deprecated azure-native:mixedreality/v20210101:RemoteRenderingAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:mixedreality/v20210301preview:RemoteRenderingAccount to guarantee forwards compatibility. */
 export function getRemoteRenderingAccount(args: GetRemoteRenderingAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteRenderingAccountResult> {
+    pulumi.log.warn("getRemoteRenderingAccount is deprecated: azure-native:mixedreality/v20210101:RemoteRenderingAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:mixedreality/v20210301preview:RemoteRenderingAccount to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mixedreality/v20210101:getRemoteRenderingAccount", {
@@ -90,6 +92,7 @@ export interface GetRemoteRenderingAccountResult {
 /**
  * Retrieve a Remote Rendering Account.
  */
+/** @deprecated azure-native:mixedreality/v20210101:RemoteRenderingAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:mixedreality/v20210301preview:RemoteRenderingAccount to guarantee forwards compatibility. */
 export function getRemoteRenderingAccountOutput(args: GetRemoteRenderingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteRenderingAccountResult> {
     return pulumi.output(args).apply((a: any) => getRemoteRenderingAccount(a, opts))
 }

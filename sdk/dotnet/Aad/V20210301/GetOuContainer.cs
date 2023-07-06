@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Aad.V20210301
 {
+    [Obsolete(@"azure-native:aad/v20210301:OuContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:OuContainer to guarantee forwards compatibility.")]
     public static class GetOuContainer
     {
         /// <summary>

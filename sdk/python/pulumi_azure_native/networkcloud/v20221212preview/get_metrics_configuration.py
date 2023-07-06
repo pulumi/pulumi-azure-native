@@ -17,6 +17,8 @@ __all__ = [
     'get_metrics_configuration_output',
 ]
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:MetricsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:MetricsConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMetricsConfigurationResult:
     def __init__(__self__, collection_interval=None, detailed_status=None, detailed_status_message=None, disabled_metrics=None, enabled_metrics=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
@@ -198,6 +200,7 @@ def get_metrics_configuration(cluster_name: Optional[str] = None,
     :param str metrics_configuration_name: The name of the metrics configuration for the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_metrics_configuration is deprecated: azure-native:networkcloud/v20221212preview:MetricsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:MetricsConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['metricsConfigurationName'] = metrics_configuration_name
@@ -234,4 +237,5 @@ def get_metrics_configuration_output(cluster_name: Optional[pulumi.Input[str]] =
     :param str metrics_configuration_name: The name of the metrics configuration for the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_metrics_configuration is deprecated: azure-native:networkcloud/v20221212preview:MetricsConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:MetricsConfiguration to guarantee forwards compatibility.""")
     ...

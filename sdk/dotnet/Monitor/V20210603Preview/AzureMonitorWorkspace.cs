@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Monitor.V20210603Preview
     /// <summary>
     /// An Azure Monitor Workspace definition
     /// </summary>
+    [Obsolete(@"azure-native:monitor/v20210603preview:AzureMonitorWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:monitor/v20230403:AzureMonitorWorkspace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:monitor/v20210603preview:AzureMonitorWorkspace")]
     public partial class AzureMonitorWorkspace : global::Pulumi.CustomResource
     {

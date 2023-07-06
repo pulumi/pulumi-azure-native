@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.PolicyInsights.V20190701
     /// <summary>
     /// The remediation definition.
     /// </summary>
+    [Obsolete(@"azure-native:policyinsights/v20190701:RemediationAtSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtSubscription to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:policyinsights/v20190701:RemediationAtSubscription")]
     public partial class RemediationAtSubscription : global::Pulumi.CustomResource
     {

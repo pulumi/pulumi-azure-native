@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
  */
+/** @deprecated azure-native:app/v20221001:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsAuthConfig to guarantee forwards compatibility. */
 export function getContainerAppsAuthConfig(args: GetContainerAppsAuthConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppsAuthConfigResult> {
+    pulumi.log.warn("getContainerAppsAuthConfig is deprecated: azure-native:app/v20221001:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsAuthConfig to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20221001:getContainerAppsAuthConfig", {
@@ -79,6 +81,7 @@ export interface GetContainerAppsAuthConfigResult {
 /**
  * Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
  */
+/** @deprecated azure-native:app/v20221001:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsAuthConfig to guarantee forwards compatibility. */
 export function getContainerAppsAuthConfigOutput(args: GetContainerAppsAuthConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppsAuthConfigResult> {
     return pulumi.output(args).apply((a: any) => getContainerAppsAuthConfig(a, opts))
 }

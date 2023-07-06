@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20200301
     /// <summary>
     /// The application resource.
     /// </summary>
+    [Obsolete(@"azure-native:servicefabric/v20200301:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20210601:Application to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicefabric/v20200301:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {

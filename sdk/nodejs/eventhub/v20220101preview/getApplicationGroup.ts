@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an ApplicationGroup for a Namespace.
  */
+/** @deprecated azure-native:eventhub/v20220101preview:ApplicationGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:ApplicationGroup to guarantee forwards compatibility. */
 export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGroupResult> {
+    pulumi.log.warn("getApplicationGroup is deprecated: azure-native:eventhub/v20220101preview:ApplicationGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:ApplicationGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20220101preview:getApplicationGroup", {
@@ -75,6 +77,7 @@ export interface GetApplicationGroupResult {
 /**
  * Gets an ApplicationGroup for a Namespace.
  */
+/** @deprecated azure-native:eventhub/v20220101preview:ApplicationGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:ApplicationGroup to guarantee forwards compatibility. */
 export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGroupResult> {
     return pulumi.output(args).apply((a: any) => getApplicationGroup(a, opts))
 }

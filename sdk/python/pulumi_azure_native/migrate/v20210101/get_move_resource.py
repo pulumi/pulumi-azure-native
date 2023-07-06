@@ -17,6 +17,8 @@ __all__ = [
     'get_move_resource_output',
 ]
 
+warnings.warn("""azure-native:migrate/v20210101:MoveResource is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20220801:MoveResource to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMoveResourceResult:
     """
@@ -93,6 +95,7 @@ def get_move_resource(move_collection_name: Optional[str] = None,
     :param str move_resource_name: The Move Resource Name.
     :param str resource_group_name: The Resource Group Name.
     """
+    pulumi.log.warn("""get_move_resource is deprecated: azure-native:migrate/v20210101:MoveResource is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20220801:MoveResource to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['moveCollectionName'] = move_collection_name
     __args__['moveResourceName'] = move_resource_name
@@ -120,4 +123,5 @@ def get_move_resource_output(move_collection_name: Optional[pulumi.Input[str]] =
     :param str move_resource_name: The Move Resource Name.
     :param str resource_group_name: The Resource Group Name.
     """
+    pulumi.log.warn("""get_move_resource is deprecated: azure-native:migrate/v20210101:MoveResource is being removed in the next major version of this provider. Upgrade to at least azure-native:migrate/v20220801:MoveResource to guarantee forwards compatibility.""")
     ...

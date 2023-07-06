@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a DNS record set (a collection of DNS records with the same name and type).
+ *
+ * @deprecated azure-native:network/v20180501:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:RecordSet to guarantee forwards compatibility.
  */
 export class RecordSet extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class RecordSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RecordSet {
+        pulumi.log.warn("RecordSet is deprecated: azure-native:network/v20180501:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:RecordSet to guarantee forwards compatibility.")
         return new RecordSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -117,7 +120,9 @@ export class RecordSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:network/v20180501:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:RecordSet to guarantee forwards compatibility. */
     constructor(name: string, args: RecordSetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("RecordSet is deprecated: azure-native:network/v20180501:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:RecordSet to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An addon resource
+ *
+ * @deprecated azure-native:avs/v20200717preview:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20210101preview:Addon to guarantee forwards compatibility.
  */
 export class Addon extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Addon extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Addon {
+        pulumi.log.warn("Addon is deprecated: azure-native:avs/v20200717preview:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20210101preview:Addon to guarantee forwards compatibility.")
         return new Addon(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,7 +68,9 @@ export class Addon extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:avs/v20200717preview:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20210101preview:Addon to guarantee forwards compatibility. */
     constructor(name: string, args: AddonArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Addon is deprecated: azure-native:avs/v20200717preview:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20210101preview:Addon to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

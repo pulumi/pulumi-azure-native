@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
 {
+    [Obsolete(@"azure-native:desktopvirtualization/v20210201preview:HostPool is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20220401preview:HostPool to guarantee forwards compatibility.")]
     public static class GetHostPool
     {
         /// <summary>

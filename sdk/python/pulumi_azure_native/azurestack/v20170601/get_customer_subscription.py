@@ -16,6 +16,8 @@ __all__ = [
     'get_customer_subscription_output',
 ]
 
+warnings.warn("""azure-native:azurestack/v20170601:CustomerSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:CustomerSubscription to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCustomerSubscriptionResult:
     """
@@ -104,6 +106,7 @@ def get_customer_subscription(customer_subscription_name: Optional[str] = None,
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
+    pulumi.log.warn("""get_customer_subscription is deprecated: azure-native:azurestack/v20170601:CustomerSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:CustomerSubscription to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['customerSubscriptionName'] = customer_subscription_name
     __args__['registrationName'] = registration_name
@@ -132,4 +135,5 @@ def get_customer_subscription_output(customer_subscription_name: Optional[pulumi
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
+    pulumi.log.warn("""get_customer_subscription is deprecated: azure-native:azurestack/v20170601:CustomerSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:CustomerSubscription to guarantee forwards compatibility.""")
     ...

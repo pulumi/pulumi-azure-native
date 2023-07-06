@@ -17,6 +17,8 @@ __all__ = [
     'get_virtual_machine_extension_output',
 ]
 
+warnings.warn("""azure-native:compute/v20221101:VirtualMachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:VirtualMachineExtension to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineExtensionResult:
     """
@@ -239,6 +241,7 @@ def get_virtual_machine_extension(expand: Optional[str] = None,
     :param str vm_extension_name: The name of the virtual machine extension.
     :param str vm_name: The name of the virtual machine containing the extension.
     """
+    pulumi.log.warn("""get_virtual_machine_extension is deprecated: azure-native:compute/v20221101:VirtualMachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:VirtualMachineExtension to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -281,4 +284,5 @@ def get_virtual_machine_extension_output(expand: Optional[pulumi.Input[Optional[
     :param str vm_extension_name: The name of the virtual machine extension.
     :param str vm_name: The name of the virtual machine containing the extension.
     """
+    pulumi.log.warn("""get_virtual_machine_extension is deprecated: azure-native:compute/v20221101:VirtualMachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:VirtualMachineExtension to guarantee forwards compatibility.""")
     ...

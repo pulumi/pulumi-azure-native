@@ -68,12 +68,12 @@ class PatchScheduleArgs:
 
 
 warnings.warn("""Version 2017-02-01 will be removed in v2 of the provider.
-azure-native:cache/v20170201:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:cache/v20170201:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:PatchSchedule to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class PatchSchedule(pulumi.CustomResource):
     warnings.warn("""Version 2017-02-01 will be removed in v2 of the provider.
-azure-native:cache/v20170201:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:cache/v20170201:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:PatchSchedule to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -121,7 +121,7 @@ azure-native:cache/v20170201:PatchSchedule is being removed in the next major ve
                  schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""PatchSchedule is deprecated: Version 2017-02-01 will be removed in v2 of the provider.
-azure-native:cache/v20170201:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20220601:PatchSchedule to guarantee forwards compatibility.""")
+azure-native:cache/v20170201:PatchSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230501preview:PatchSchedule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

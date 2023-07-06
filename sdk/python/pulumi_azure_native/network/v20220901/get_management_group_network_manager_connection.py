@@ -17,6 +17,8 @@ __all__ = [
     'get_management_group_network_manager_connection_output',
 ]
 
+warnings.warn("""azure-native:network/v20220901:ManagementGroupNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ManagementGroupNetworkManagerConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagementGroupNetworkManagerConnectionResult:
     """
@@ -127,6 +129,7 @@ def get_management_group_network_manager_connection(management_group_id: Optiona
     :param str management_group_id: The management group Id which uniquely identify the Microsoft Azure management group.
     :param str network_manager_connection_name: Name for the network manager connection.
     """
+    pulumi.log.warn("""get_management_group_network_manager_connection is deprecated: azure-native:network/v20220901:ManagementGroupNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ManagementGroupNetworkManagerConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['networkManagerConnectionName'] = network_manager_connection_name
@@ -154,4 +157,5 @@ def get_management_group_network_manager_connection_output(management_group_id: 
     :param str management_group_id: The management group Id which uniquely identify the Microsoft Azure management group.
     :param str network_manager_connection_name: Name for the network manager connection.
     """
+    pulumi.log.warn("""get_management_group_network_manager_connection is deprecated: azure-native:network/v20220901:ManagementGroupNetworkManagerConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ManagementGroupNetworkManagerConnection to guarantee forwards compatibility.""")
     ...

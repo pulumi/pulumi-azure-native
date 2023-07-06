@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
     /// <summary>
     /// ApiRelease details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20210401preview:ApiRelease is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiRelease to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20210401preview:ApiRelease is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiRelease to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20210401preview:ApiRelease")]
     public partial class ApiRelease : global::Pulumi.CustomResource
     {

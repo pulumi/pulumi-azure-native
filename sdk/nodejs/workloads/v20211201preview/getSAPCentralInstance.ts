@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the SAP Central Services Instance resource.
  */
+/** @deprecated azure-native:workloads/v20211201preview:SAPCentralInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPCentralInstance to guarantee forwards compatibility. */
 export function getSAPCentralInstance(args: GetSAPCentralInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPCentralInstanceResult> {
+    pulumi.log.warn("getSAPCentralInstance is deprecated: azure-native:workloads/v20211201preview:SAPCentralInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPCentralInstance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20211201preview:getSAPCentralInstance", {
@@ -123,6 +125,7 @@ export interface GetSAPCentralInstanceResult {
 /**
  * Gets the SAP Central Services Instance resource.
  */
+/** @deprecated azure-native:workloads/v20211201preview:SAPCentralInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPCentralInstance to guarantee forwards compatibility. */
 export function getSAPCentralInstanceOutput(args: GetSAPCentralInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPCentralInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSAPCentralInstance(a, opts))
 }

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a scoped resource in a private link scope.
  */
+/** @deprecated azure-native:insights/v20191017preview:PrivateLinkScopedResource is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210701preview:PrivateLinkScopedResource to guarantee forwards compatibility. */
 export function getPrivateLinkScopedResource(args: GetPrivateLinkScopedResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopedResourceResult> {
+    pulumi.log.warn("getPrivateLinkScopedResource is deprecated: azure-native:insights/v20191017preview:PrivateLinkScopedResource is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210701preview:PrivateLinkScopedResource to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20191017preview:getPrivateLinkScopedResource", {
@@ -60,6 +62,7 @@ export interface GetPrivateLinkScopedResourceResult {
 /**
  * Gets a scoped resource in a private link scope.
  */
+/** @deprecated azure-native:insights/v20191017preview:PrivateLinkScopedResource is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210701preview:PrivateLinkScopedResource to guarantee forwards compatibility. */
 export function getPrivateLinkScopedResourceOutput(args: GetPrivateLinkScopedResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopedResourceResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkScopedResource(a, opts))
 }

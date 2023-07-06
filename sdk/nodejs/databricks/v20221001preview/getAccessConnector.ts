@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an azure databricks accessConnector.
  */
+/** @deprecated azure-native:databricks/v20221001preview:AccessConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230501:AccessConnector to guarantee forwards compatibility. */
 export function getAccessConnector(args: GetAccessConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessConnectorResult> {
+    pulumi.log.warn("getAccessConnector is deprecated: azure-native:databricks/v20221001preview:AccessConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230501:AccessConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databricks/v20221001preview:getAccessConnector", {
@@ -70,6 +72,7 @@ export interface GetAccessConnectorResult {
 /**
  * Gets an azure databricks accessConnector.
  */
+/** @deprecated azure-native:databricks/v20221001preview:AccessConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230501:AccessConnector to guarantee forwards compatibility. */
 export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAccessConnector(a, opts))
 }

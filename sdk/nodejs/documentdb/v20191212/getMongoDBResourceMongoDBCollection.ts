@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the MongoDB collection under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2019-12-12 will be removed in v2 of the provider.
-azure-native:documentdb/v20191212:MongoDBResourceMongoDBCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection to guarantee forwards compatibility. */
+azure-native:documentdb/v20191212:MongoDBResourceMongoDBCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:MongoDBResourceMongoDBCollection to guarantee forwards compatibility. */
 export function getMongoDBResourceMongoDBCollection(args: GetMongoDBResourceMongoDBCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoDBCollectionResult> {
-    pulumi.log.warn("getMongoDBResourceMongoDBCollection is deprecated: Version 2019-12-12 will be removed in v2 of the provider.\nazure-native:documentdb/v20191212:MongoDBResourceMongoDBCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection to guarantee forwards compatibility.")
+    pulumi.log.warn("getMongoDBResourceMongoDBCollection is deprecated: Version 2019-12-12 will be removed in v2 of the provider.\nazure-native:documentdb/v20191212:MongoDBResourceMongoDBCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:MongoDBResourceMongoDBCollection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20191212:getMongoDBResourceMongoDBCollection", {
@@ -73,7 +73,7 @@ export interface GetMongoDBResourceMongoDBCollectionResult {
  * Gets the MongoDB collection under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2019-12-12 will be removed in v2 of the provider.
-azure-native:documentdb/v20191212:MongoDBResourceMongoDBCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection to guarantee forwards compatibility. */
+azure-native:documentdb/v20191212:MongoDBResourceMongoDBCollection is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:MongoDBResourceMongoDBCollection to guarantee forwards compatibility. */
 export function getMongoDBResourceMongoDBCollectionOutput(args: GetMongoDBResourceMongoDBCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoDBCollectionResult> {
     return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoDBCollection(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves an existing access policy resource from an account by name.
  */
+/** @deprecated azure-native:videoanalyzer/v20210501preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:AccessPolicy to guarantee forwards compatibility. */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
+    pulumi.log.warn("getAccessPolicy is deprecated: azure-native:videoanalyzer/v20210501preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:AccessPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20210501preview:getAccessPolicy", {
@@ -67,6 +69,7 @@ export interface GetAccessPolicyResult {
 /**
  * Retrieves an existing access policy resource from an account by name.
  */
+/** @deprecated azure-native:videoanalyzer/v20210501preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:AccessPolicy to guarantee forwards compatibility. */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))
 }

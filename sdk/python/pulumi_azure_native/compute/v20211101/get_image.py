@@ -17,7 +17,7 @@ __all__ = [
     'get_image_output',
 ]
 
-warnings.warn("""azure-native:compute/v20211101:Image is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:Image to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:compute/v20211101:Image is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:Image to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetImageResult:
@@ -167,7 +167,7 @@ def get_image(expand: Optional[str] = None,
     :param str image_name: The name of the image.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_image is deprecated: azure-native:compute/v20211101:Image is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:Image to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_image is deprecated: azure-native:compute/v20211101:Image is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:Image to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['imageName'] = image_name
@@ -201,5 +201,5 @@ def get_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str image_name: The name of the image.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_image is deprecated: azure-native:compute/v20211101:Image is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:Image to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_image is deprecated: azure-native:compute/v20211101:Image is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:Image to guarantee forwards compatibility.""")
     ...

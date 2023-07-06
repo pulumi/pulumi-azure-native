@@ -17,6 +17,8 @@ __all__ = [
     'get_extension_output',
 ]
 
+warnings.warn("""azure-native:visualstudio/v20140401preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:visualstudio/v20171101preview:Extension to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExtensionResult:
     """
@@ -129,6 +131,7 @@ def get_extension(account_resource_name: Optional[str] = None,
     :param str extension_resource_name: The name of the extension.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_extension is deprecated: azure-native:visualstudio/v20140401preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:visualstudio/v20171101preview:Extension to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountResourceName'] = account_resource_name
     __args__['extensionResourceName'] = extension_resource_name
@@ -159,4 +162,5 @@ def get_extension_output(account_resource_name: Optional[pulumi.Input[str]] = No
     :param str extension_resource_name: The name of the extension.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_extension is deprecated: azure-native:visualstudio/v20140401preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:visualstudio/v20171101preview:Extension to guarantee forwards compatibility.""")
     ...

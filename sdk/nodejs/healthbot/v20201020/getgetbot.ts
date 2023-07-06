@@ -10,10 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Healthcare Bot.
  */
-/** @deprecated Version 2020-10-20 will be removed in v2 of the provider.
-azure-native:healthbot/v20201020:getbot is being removed in the next major version of this provider. Upgrade to at least azure-native:healthbot/v20201020preview:getbot to guarantee forwards compatibility. */
+/** @deprecated Version 2020-10-20 will be removed in v2 of the provider. */
 export function getgetbot(args: GetgetbotArgs, opts?: pulumi.InvokeOptions): Promise<GetgetbotResult> {
-    pulumi.log.warn("getgetbot is deprecated: Version 2020-10-20 will be removed in v2 of the provider.\nazure-native:healthbot/v20201020:getbot is being removed in the next major version of this provider. Upgrade to at least azure-native:healthbot/v20201020preview:getbot to guarantee forwards compatibility.")
+    pulumi.log.warn("getgetbot is deprecated: Version 2020-10-20 will be removed in v2 of the provider.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthbot/v20201020:getgetbot", {
@@ -73,8 +72,7 @@ export interface GetgetbotResult {
 /**
  * Get a Healthcare Bot.
  */
-/** @deprecated Version 2020-10-20 will be removed in v2 of the provider.
-azure-native:healthbot/v20201020:getbot is being removed in the next major version of this provider. Upgrade to at least azure-native:healthbot/v20201020preview:getbot to guarantee forwards compatibility. */
+/** @deprecated Version 2020-10-20 will be removed in v2 of the provider. */
 export function getgetbotOutput(args: GetgetbotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetgetbotResult> {
     return pulumi.output(args).apply((a: any) => getgetbot(a, opts))
 }

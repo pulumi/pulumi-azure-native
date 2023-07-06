@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves a SQL Server Instance resource
  */
+/** @deprecated azure-native:azurearcdata/v20210601preview:SqlServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:SqlServerInstance to guarantee forwards compatibility. */
 export function getSqlServerInstance(args: GetSqlServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerInstanceResult> {
+    pulumi.log.warn("getSqlServerInstance is deprecated: azure-native:azurearcdata/v20210601preview:SqlServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:SqlServerInstance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20210601preview:getSqlServerInstance", {
@@ -66,6 +68,7 @@ export interface GetSqlServerInstanceResult {
 /**
  * Retrieves a SQL Server Instance resource
  */
+/** @deprecated azure-native:azurearcdata/v20210601preview:SqlServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:SqlServerInstance to guarantee forwards compatibility. */
 export function getSqlServerInstanceOutput(args: GetSqlServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSqlServerInstance(a, opts))
 }

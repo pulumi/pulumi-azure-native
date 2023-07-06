@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve the configuration identified by configuration name.
  */
+/** @deprecated azure-native:automation/v20190601:DscConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:DscConfiguration to guarantee forwards compatibility. */
 export function getDscConfiguration(args: GetDscConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscConfigurationResult> {
+    pulumi.log.warn("getDscConfiguration is deprecated: azure-native:automation/v20190601:DscConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:DscConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20190601:getDscConfiguration", {
@@ -107,6 +109,7 @@ export interface GetDscConfigurationResult {
 /**
  * Retrieve the configuration identified by configuration name.
  */
+/** @deprecated azure-native:automation/v20190601:DscConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:DscConfiguration to guarantee forwards compatibility. */
 export function getDscConfigurationOutput(args: GetDscConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getDscConfiguration(a, opts))
 }

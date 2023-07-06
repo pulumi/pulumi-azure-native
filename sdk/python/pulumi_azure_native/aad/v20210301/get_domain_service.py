@@ -17,6 +17,8 @@ __all__ = [
     'get_domain_service_output',
 ]
 
+warnings.warn("""azure-native:aad/v20210301:DomainService is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:DomainService to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDomainServiceResult:
     """
@@ -307,6 +309,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
     :param str domain_service_name: The name of the domain service.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("""get_domain_service is deprecated: azure-native:aad/v20210301:DomainService is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:DomainService to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['domainServiceName'] = domain_service_name
     __args__['resourceGroupName'] = resource_group_name
@@ -349,4 +352,5 @@ def get_domain_service_output(domain_service_name: Optional[pulumi.Input[str]] =
     :param str domain_service_name: The name of the domain service.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("""get_domain_service is deprecated: azure-native:aad/v20210301:DomainService is being removed in the next major version of this provider. Upgrade to at least azure-native:aad/v20221201:DomainService to guarantee forwards compatibility.""")
     ...

@@ -16,6 +16,8 @@ __all__ = [
     'get_server_administrator_output',
 ]
 
+warnings.warn("""azure-native:dbformysql/v20171201:ServerAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20180601privatepreview:ServerAdministrator to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServerAdministratorResult:
     """
@@ -126,6 +128,7 @@ def get_server_administrator(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_server_administrator is deprecated: azure-native:dbformysql/v20171201:ServerAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20180601privatepreview:ServerAdministrator to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
@@ -153,4 +156,5 @@ def get_server_administrator_output(resource_group_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_server_administrator is deprecated: azure-native:dbformysql/v20171201:ServerAdministrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20180601privatepreview:ServerAdministrator to guarantee forwards compatibility.""")
     ...

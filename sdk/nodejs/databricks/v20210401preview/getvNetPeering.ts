@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the workspace vNet Peering.
  */
-/** @deprecated azure-native:databricks/v20210401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility. */
 export function getvNetPeering(args: GetvNetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetvNetPeeringResult> {
-    pulumi.log.warn("getvNetPeering is deprecated: azure-native:databricks/v20210401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databricks/v20210401preview:getvNetPeering", {
@@ -97,7 +95,6 @@ export interface GetvNetPeeringResult {
 /**
  * Gets the workspace vNet Peering.
  */
-/** @deprecated azure-native:databricks/v20210401preview:vNetPeering is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230201:vNetPeering to guarantee forwards compatibility. */
 export function getvNetPeeringOutput(args: GetvNetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetvNetPeeringResult> {
     return pulumi.output(args).apply((a: any) => getvNetPeering(a, opts))
 }

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
     /// <summary>
     /// The description of the service.
     /// </summary>
-    [Obsolete(@"azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI is being removed in the next major version of this provider. Upgrade to at least azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI")]
     public partial class PrivateLinkServicesForO365ManagementActivityAPI : global::Pulumi.CustomResource
     {

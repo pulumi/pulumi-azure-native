@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Site REST Resource.
  */
+/** @deprecated azure-native:offazure/v20200101:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:offazure/v20200707:Site to guarantee forwards compatibility. */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
+    pulumi.log.warn("getSite is deprecated: azure-native:offazure/v20200101:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:offazure/v20200707:Site to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure/v20200101:getSite", {
@@ -63,6 +65,7 @@ export interface GetSiteResult {
 /**
  * Site REST Resource.
  */
+/** @deprecated azure-native:offazure/v20200101:Site is being removed in the next major version of this provider. Upgrade to at least azure-native:offazure/v20200707:Site to guarantee forwards compatibility. */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
     return pulumi.output(args).apply((a: any) => getSite(a, opts))
 }

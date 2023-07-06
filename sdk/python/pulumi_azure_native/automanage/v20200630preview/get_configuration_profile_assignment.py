@@ -17,6 +17,8 @@ __all__ = [
     'get_configuration_profile_assignment_output',
 ]
 
+warnings.warn("""azure-native:automanage/v20200630preview:ConfigurationProfileAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfileAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConfigurationProfileAssignmentResult:
     """
@@ -93,6 +95,7 @@ def get_configuration_profile_assignment(configuration_profile_assignment_name: 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vm_name: The name of the virtual machine.
     """
+    pulumi.log.warn("""get_configuration_profile_assignment is deprecated: azure-native:automanage/v20200630preview:ConfigurationProfileAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfileAssignment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configurationProfileAssignmentName'] = configuration_profile_assignment_name
     __args__['resourceGroupName'] = resource_group_name
@@ -120,4 +123,5 @@ def get_configuration_profile_assignment_output(configuration_profile_assignment
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vm_name: The name of the virtual machine.
     """
+    pulumi.log.warn("""get_configuration_profile_assignment is deprecated: azure-native:automanage/v20200630preview:ConfigurationProfileAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:automanage/v20220504:ConfigurationProfileAssignment to guarantee forwards compatibility.""")
     ...

@@ -96,11 +96,11 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-warnings.warn("""azure-native:sql/v20200801preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sql/v20200801preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class PrivateEndpointConnection(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20200801preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:sql/v20200801preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -152,7 +152,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""PrivateEndpointConnection is deprecated: azure-native:sql/v20200801preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
+        pulumi.log.warn("""PrivateEndpointConnection is deprecated: azure-native:sql/v20200801preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

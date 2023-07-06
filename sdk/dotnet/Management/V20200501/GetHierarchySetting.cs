@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Management.V20200501
 {
+    [Obsolete(@"azure-native:management/v20200501:HierarchySetting is being removed in the next major version of this provider. Upgrade to at least azure-native:management/v20210401:HierarchySetting to guarantee forwards compatibility.")]
     public static class GetHierarchySetting
     {
         /// <summary>

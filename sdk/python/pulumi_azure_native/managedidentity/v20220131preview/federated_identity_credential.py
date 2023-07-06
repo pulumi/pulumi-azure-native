@@ -110,7 +110,12 @@ class FederatedIdentityCredentialArgs:
         pulumi.set(self, "federated_identity_credential_resource_name", value)
 
 
+warnings.warn("""azure-native:managedidentity/v20220131preview:FederatedIdentityCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:managedidentity/v20230131:FederatedIdentityCredential to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class FederatedIdentityCredential(pulumi.CustomResource):
+    warnings.warn("""azure-native:managedidentity/v20220131preview:FederatedIdentityCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:managedidentity/v20230131:FederatedIdentityCredential to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -165,6 +170,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  subject: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""FederatedIdentityCredential is deprecated: azure-native:managedidentity/v20220131preview:FederatedIdentityCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:managedidentity/v20230131:FederatedIdentityCredential to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

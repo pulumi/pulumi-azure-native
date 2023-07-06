@@ -17,6 +17,8 @@ __all__ = [
     'get_bot_output',
 ]
 
+warnings.warn("""azure-native:healthbot/v20201208:Bot is being removed in the next major version of this provider. Upgrade to at least azure-native:healthbot/v20201208preview:Bot to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBotResult:
     """
@@ -139,6 +141,7 @@ def get_bot(bot_name: Optional[str] = None,
     :param str bot_name: The name of the Bot resource.
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
     """
+    pulumi.log.warn("""get_bot is deprecated: azure-native:healthbot/v20201208:Bot is being removed in the next major version of this provider. Upgrade to at least azure-native:healthbot/v20201208preview:Bot to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['botName'] = bot_name
     __args__['resourceGroupName'] = resource_group_name
@@ -167,4 +170,5 @@ def get_bot_output(bot_name: Optional[pulumi.Input[str]] = None,
     :param str bot_name: The name of the Bot resource.
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
     """
+    pulumi.log.warn("""get_bot is deprecated: azure-native:healthbot/v20201208:Bot is being removed in the next major version of this provider. Upgrade to at least azure-native:healthbot/v20201208preview:Bot to guarantee forwards compatibility.""")
     ...

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevCenter.V20221111Preview
     /// <summary>
     /// Represents an attached NetworkConnection.
     /// </summary>
+    [Obsolete(@"azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:AttachedNetworkByDevCenter to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter")]
     public partial class AttachedNetworkByDevCenter : global::Pulumi.CustomResource
     {

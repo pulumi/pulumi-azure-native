@@ -17,6 +17,8 @@ __all__ = [
     'get_attestation_at_resource_output',
 ]
 
+warnings.warn("""azure-native:policyinsights/v20210101:AttestationAtResource is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtResource to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAttestationAtResourceResult:
     """
@@ -199,6 +201,7 @@ def get_attestation_at_resource(attestation_name: Optional[str] = None,
     :param str attestation_name: The name of the attestation.
     :param str resource_id: Resource ID.
     """
+    pulumi.log.warn("""get_attestation_at_resource is deprecated: azure-native:policyinsights/v20210101:AttestationAtResource is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtResource to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['attestationName'] = attestation_name
     __args__['resourceId'] = resource_id
@@ -232,4 +235,5 @@ def get_attestation_at_resource_output(attestation_name: Optional[pulumi.Input[s
     :param str attestation_name: The name of the attestation.
     :param str resource_id: Resource ID.
     """
+    pulumi.log.warn("""get_attestation_at_resource is deprecated: azure-native:policyinsights/v20210101:AttestationAtResource is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtResource to guarantee forwards compatibility.""")
     ...

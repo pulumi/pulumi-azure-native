@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+ *
+ * @deprecated azure-native:search/v20200801:SharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility.
  */
 export class SharedPrivateLinkResource extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SharedPrivateLinkResource {
+        pulumi.log.warn("SharedPrivateLinkResource is deprecated: azure-native:search/v20200801:SharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility.")
         return new SharedPrivateLinkResource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -57,7 +60,9 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:search/v20200801:SharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility. */
     constructor(name: string, args: SharedPrivateLinkResourceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SharedPrivateLinkResource is deprecated: azure-native:search/v20200801:SharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:search/v20220901:SharedPrivateLinkResource to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

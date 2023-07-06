@@ -182,12 +182,7 @@ class ApplicationArgs:
         pulumi.set(self, "version", value)
 
 
-warnings.warn("""azure-native:servicefabric/v20211101preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:Application to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class Application(pulumi.CustomResource):
-    warnings.warn("""azure-native:servicefabric/v20211101preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:Application to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -255,7 +250,6 @@ class Application(pulumi.CustomResource):
                  upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationUpgradePolicyArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Application is deprecated: azure-native:servicefabric/v20211101preview:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:Application to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

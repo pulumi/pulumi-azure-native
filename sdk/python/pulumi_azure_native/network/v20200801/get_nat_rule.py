@@ -17,7 +17,7 @@ __all__ = [
     'get_nat_rule_output',
 ]
 
-warnings.warn("""azure-native:network/v20200801:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NatRule to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20200801:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:NatRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetNatRuleResult:
@@ -179,7 +179,7 @@ def get_nat_rule(gateway_name: Optional[str] = None,
     :param str nat_rule_name: The name of the nat rule.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
-    pulumi.log.warn("""get_nat_rule is deprecated: azure-native:network/v20200801:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NatRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_nat_rule is deprecated: azure-native:network/v20200801:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:NatRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['gatewayName'] = gateway_name
     __args__['natRuleName'] = nat_rule_name
@@ -214,5 +214,5 @@ def get_nat_rule_output(gateway_name: Optional[pulumi.Input[str]] = None,
     :param str nat_rule_name: The name of the nat rule.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
-    pulumi.log.warn("""get_nat_rule is deprecated: azure-native:network/v20200801:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NatRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_nat_rule is deprecated: azure-native:network/v20200801:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:NatRule to guarantee forwards compatibility.""")
     ...

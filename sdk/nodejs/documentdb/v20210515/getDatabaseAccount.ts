@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the properties of an existing Azure Cosmos DB database account.
  */
-/** @deprecated azure-native:documentdb/v20210515:DatabaseAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:DatabaseAccount to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20210515:DatabaseAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:DatabaseAccount to guarantee forwards compatibility. */
 export function getDatabaseAccount(args: GetDatabaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountResult> {
-    pulumi.log.warn("getDatabaseAccount is deprecated: azure-native:documentdb/v20210515:DatabaseAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:DatabaseAccount to guarantee forwards compatibility.")
+    pulumi.log.warn("getDatabaseAccount is deprecated: azure-native:documentdb/v20210515:DatabaseAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:DatabaseAccount to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20210515:getDatabaseAccount", {
@@ -184,7 +184,7 @@ export interface GetDatabaseAccountResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB database account.
  */
-/** @deprecated azure-native:documentdb/v20210515:DatabaseAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:DatabaseAccount to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20210515:DatabaseAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:DatabaseAccount to guarantee forwards compatibility. */
 export function getDatabaseAccountOutput(args: GetDatabaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccount(a, opts))
 }

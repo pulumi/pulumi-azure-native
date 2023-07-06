@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of the provided volume.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Volume to guarantee forwards compatibility. */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
+    pulumi.log.warn("getVolume is deprecated: azure-native:networkcloud/v20221212preview:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Volume to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getVolume", {
@@ -87,6 +89,7 @@ export interface GetVolumeResult {
 /**
  * Get properties of the provided volume.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Volume to guarantee forwards compatibility. */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))
 }

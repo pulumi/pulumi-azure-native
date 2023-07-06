@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Kusto pool principalAssignment.
  */
+/** @deprecated azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment to guarantee forwards compatibility. */
 export function getKustoPoolPrincipalAssignment(args: GetKustoPoolPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolPrincipalAssignmentResult> {
+    pulumi.log.warn("getKustoPoolPrincipalAssignment is deprecated: azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210401preview:getKustoPoolPrincipalAssignment", {
@@ -92,6 +94,7 @@ export interface GetKustoPoolPrincipalAssignmentResult {
 /**
  * Gets a Kusto pool principalAssignment.
  */
+/** @deprecated azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment to guarantee forwards compatibility. */
 export function getKustoPoolPrincipalAssignmentOutput(args: GetKustoPoolPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolPrincipalAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getKustoPoolPrincipalAssignment(a, opts))
 }

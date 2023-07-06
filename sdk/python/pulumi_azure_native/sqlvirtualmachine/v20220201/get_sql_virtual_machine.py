@@ -17,7 +17,7 @@ __all__ = [
     'get_sql_virtual_machine_output',
 ]
 
-warnings.warn("""azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSqlVirtualMachineResult:
@@ -311,7 +311,7 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str sql_virtual_machine_name: Name of the SQL virtual machine.
     """
-    pulumi.log.warn("""get_sql_virtual_machine is deprecated: azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_sql_virtual_machine is deprecated: azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -357,5 +357,5 @@ def get_sql_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]]
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str sql_virtual_machine_name: Name of the SQL virtual machine.
     """
-    pulumi.log.warn("""get_sql_virtual_machine is deprecated: azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_sql_virtual_machine is deprecated: azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine to guarantee forwards compatibility.""")
     ...

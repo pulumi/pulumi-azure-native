@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.
-azure-native:netapp/v20200901:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Backup to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:netapp/v20200901:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Backup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetBackupResult:
@@ -172,7 +172,7 @@ def get_backup(account_name: Optional[str] = None,
     :param str volume_name: The name of the volume
     """
     pulumi.log.warn("""get_backup is deprecated: Version 2020-09-01 will be removed in v2 of the provider.
-azure-native:netapp/v20200901:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Backup to guarantee forwards compatibility.""")
+azure-native:netapp/v20200901:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Backup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['backupName'] = backup_name
@@ -213,5 +213,5 @@ def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str volume_name: The name of the volume
     """
     pulumi.log.warn("""get_backup is deprecated: Version 2020-09-01 will be removed in v2 of the provider.
-azure-native:netapp/v20200901:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Backup to guarantee forwards compatibility.""")
+azure-native:netapp/v20200901:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Backup to guarantee forwards compatibility.""")
     ...

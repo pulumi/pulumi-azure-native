@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AppPlatform.V20220901Preview
 {
-    [Obsolete(@"azure-native:appplatform/v20220901preview:Gateway is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Gateway to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:appplatform/v20220901preview:Gateway is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:Gateway to guarantee forwards compatibility.")]
     public static class GetGateway
     {
         /// <summary>

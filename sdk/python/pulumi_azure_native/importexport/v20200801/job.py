@@ -101,7 +101,12 @@ class JobArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:importexport/v20200801:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:importexport/v20210101:Job to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Job(pulumi.CustomResource):
+    warnings.warn("""azure-native:importexport/v20200801:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:importexport/v20210101:Job to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -153,6 +158,7 @@ class Job(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
+        pulumi.log.warn("""Job is deprecated: azure-native:importexport/v20200801:Job is being removed in the next major version of this provider. Upgrade to at least azure-native:importexport/v20210101:Job to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified ipGroups.
  */
-/** @deprecated azure-native:network/v20210301:IpGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:IpGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210301:IpGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:IpGroup to guarantee forwards compatibility. */
 export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIpGroupResult> {
-    pulumi.log.warn("getIpGroup is deprecated: azure-native:network/v20210301:IpGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:IpGroup to guarantee forwards compatibility.")
+    pulumi.log.warn("getIpGroup is deprecated: azure-native:network/v20210301:IpGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:IpGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210301:getIpGroup", {
@@ -85,7 +85,7 @@ export interface GetIpGroupResult {
 /**
  * Gets the specified ipGroups.
  */
-/** @deprecated azure-native:network/v20210301:IpGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:IpGroup to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210301:IpGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:IpGroup to guarantee forwards compatibility. */
 export function getIpGroupOutput(args: GetIpGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupResult> {
     return pulumi.output(args).apply((a: any) => getIpGroup(a, opts))
 }

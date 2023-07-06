@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the API specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20210801:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Api to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20210801:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Api to guarantee forwards compatibility. */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
-    pulumi.log.warn("getApi is deprecated: azure-native:apimanagement/v20210801:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Api to guarantee forwards compatibility.")
+    pulumi.log.warn("getApi is deprecated: azure-native:apimanagement/v20210801:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Api to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210801:getApi", {
@@ -141,7 +141,7 @@ export interface GetApiResult {
 /**
  * Gets the details of the API specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20210801:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Api to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20210801:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Api to guarantee forwards compatibility. */
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
     return pulumi.output(args).apply((a: any) => getApi(a, opts))
 }

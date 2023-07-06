@@ -17,7 +17,7 @@ __all__ = [
     'get_configuration_policy_group_output',
 ]
 
-warnings.warn("""azure-native:network/v20220501:ConfigurationPolicyGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ConfigurationPolicyGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20220501:ConfigurationPolicyGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ConfigurationPolicyGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetConfigurationPolicyGroupResult:
@@ -155,7 +155,7 @@ def get_configuration_policy_group(configuration_policy_group_name: Optional[str
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.
     :param str vpn_server_configuration_name: The name of the VpnServerConfiguration.
     """
-    pulumi.log.warn("""get_configuration_policy_group is deprecated: azure-native:network/v20220501:ConfigurationPolicyGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ConfigurationPolicyGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_configuration_policy_group is deprecated: azure-native:network/v20220501:ConfigurationPolicyGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ConfigurationPolicyGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configurationPolicyGroupName'] = configuration_policy_group_name
     __args__['resourceGroupName'] = resource_group_name
@@ -188,5 +188,5 @@ def get_configuration_policy_group_output(configuration_policy_group_name: Optio
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.
     :param str vpn_server_configuration_name: The name of the VpnServerConfiguration.
     """
-    pulumi.log.warn("""get_configuration_policy_group is deprecated: azure-native:network/v20220501:ConfigurationPolicyGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ConfigurationPolicyGroup to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_configuration_policy_group is deprecated: azure-native:network/v20220501:ConfigurationPolicyGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ConfigurationPolicyGroup to guarantee forwards compatibility.""")
     ...

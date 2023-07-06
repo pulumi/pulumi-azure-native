@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
     /// <summary>
     /// Policy that determines how a video can be accessed.
     /// </summary>
+    [Obsolete(@"azure-native:videoanalyzer/v20210501preview:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:AccessPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:videoanalyzer/v20210501preview:AccessPolicy")]
     public partial class AccessPolicy : global::Pulumi.CustomResource
     {

@@ -16,6 +16,8 @@ __all__ = [
     'get_io_mam_policy_by_name_output',
 ]
 
+warnings.warn("""azure-native:intune/v20150114preview:IoMAMPolicyByName is being removed in the next major version of this provider. Upgrade to at least azure-native:intune/v20150114privatepreview:IoMAMPolicyByName to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIoMAMPolicyByNameResult:
     """
@@ -284,6 +286,7 @@ def get_io_mam_policy_by_name(host_name: Optional[str] = None,
     :param str policy_name: Unique name for the policy
     :param str select: select specific fields in entity.
     """
+    pulumi.log.warn("""get_io_mam_policy_by_name is deprecated: azure-native:intune/v20150114preview:IoMAMPolicyByName is being removed in the next major version of this provider. Upgrade to at least azure-native:intune/v20150114privatepreview:IoMAMPolicyByName to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['hostName'] = host_name
     __args__['policyName'] = policy_name
@@ -332,4 +335,5 @@ def get_io_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]] = No
     :param str policy_name: Unique name for the policy
     :param str select: select specific fields in entity.
     """
+    pulumi.log.warn("""get_io_mam_policy_by_name is deprecated: azure-native:intune/v20150114preview:IoMAMPolicyByName is being removed in the next major version of this provider. Upgrade to at least azure-native:intune/v20150114privatepreview:IoMAMPolicyByName to guarantee forwards compatibility.""")
     ...

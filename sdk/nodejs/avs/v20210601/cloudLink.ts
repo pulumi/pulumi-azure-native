@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A cloud link resource
+ *
+ * @deprecated azure-native:avs/v20210601:CloudLink is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:CloudLink to guarantee forwards compatibility.
  */
 export class CloudLink extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class CloudLink extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CloudLink {
+        pulumi.log.warn("CloudLink is deprecated: azure-native:avs/v20210601:CloudLink is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:CloudLink to guarantee forwards compatibility.")
         return new CloudLink(name, undefined as any, { ...opts, id: id });
     }
 
@@ -58,7 +61,9 @@ export class CloudLink extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:avs/v20210601:CloudLink is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:CloudLink to guarantee forwards compatibility. */
     constructor(name: string, args: CloudLinkArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CloudLink is deprecated: azure-native:avs/v20210601:CloudLink is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:CloudLink to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

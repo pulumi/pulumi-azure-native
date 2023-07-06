@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Shows an inventory item.
  */
+/** @deprecated azure-native:scvmm/v20200605preview:InventoryItem is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:InventoryItem to guarantee forwards compatibility. */
 export function getInventoryItem(args: GetInventoryItemArgs, opts?: pulumi.InvokeOptions): Promise<GetInventoryItemResult> {
+    pulumi.log.warn("getInventoryItem is deprecated: azure-native:scvmm/v20200605preview:InventoryItem is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:InventoryItem to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm/v20200605preview:getInventoryItem", {
@@ -83,6 +85,7 @@ export interface GetInventoryItemResult {
 /**
  * Shows an inventory item.
  */
+/** @deprecated azure-native:scvmm/v20200605preview:InventoryItem is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:InventoryItem to guarantee forwards compatibility. */
 export function getInventoryItemOutput(args: GetInventoryItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInventoryItemResult> {
     return pulumi.output(args).apply((a: any) => getInventoryItem(a, opts))
 }

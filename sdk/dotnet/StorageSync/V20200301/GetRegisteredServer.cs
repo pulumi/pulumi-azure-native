@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StorageSync.V20200301
 {
+    [Obsolete(@"azure-native:storagesync/v20200301:RegisteredServer is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:RegisteredServer to guarantee forwards compatibility.")]
     public static class GetRegisteredServer
     {
         /// <summary>

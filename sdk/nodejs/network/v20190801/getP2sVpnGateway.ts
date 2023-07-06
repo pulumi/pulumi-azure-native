@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a virtual wan p2s vpn gateway.
  */
-/** @deprecated azure-native:network/v20190801:P2sVpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:P2sVpnGateway to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20190801:P2sVpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:P2sVpnGateway to guarantee forwards compatibility. */
 export function getP2sVpnGateway(args: GetP2sVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayResult> {
-    pulumi.log.warn("getP2sVpnGateway is deprecated: azure-native:network/v20190801:P2sVpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:P2sVpnGateway to guarantee forwards compatibility.")
+    pulumi.log.warn("getP2sVpnGateway is deprecated: azure-native:network/v20190801:P2sVpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:P2sVpnGateway to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190801:getP2sVpnGateway", {
@@ -88,7 +88,7 @@ export interface GetP2sVpnGatewayResult {
 /**
  * Retrieves the details of a virtual wan p2s vpn gateway.
  */
-/** @deprecated azure-native:network/v20190801:P2sVpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:P2sVpnGateway to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20190801:P2sVpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:P2sVpnGateway to guarantee forwards compatibility. */
 export function getP2sVpnGatewayOutput(args: GetP2sVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnGatewayResult> {
     return pulumi.output(args).apply((a: any) => getP2sVpnGateway(a, opts))
 }

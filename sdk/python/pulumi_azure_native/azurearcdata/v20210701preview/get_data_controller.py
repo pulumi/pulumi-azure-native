@@ -17,7 +17,7 @@ __all__ = [
     'get_data_controller_output',
 ]
 
-warnings.warn("""azure-native:azurearcdata/v20210701preview:DataController is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:DataController to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:azurearcdata/v20210701preview:DataController is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:DataController to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDataControllerResult:
@@ -140,7 +140,7 @@ def get_data_controller(data_controller_name: Optional[str] = None,
 
     :param str resource_group_name: The name of the Azure resource group
     """
-    pulumi.log.warn("""get_data_controller is deprecated: azure-native:azurearcdata/v20210701preview:DataController is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:DataController to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_data_controller is deprecated: azure-native:azurearcdata/v20210701preview:DataController is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:DataController to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dataControllerName'] = data_controller_name
     __args__['resourceGroupName'] = resource_group_name
@@ -168,5 +168,5 @@ def get_data_controller_output(data_controller_name: Optional[pulumi.Input[str]]
 
     :param str resource_group_name: The name of the Azure resource group
     """
-    pulumi.log.warn("""get_data_controller is deprecated: azure-native:azurearcdata/v20210701preview:DataController is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20220615preview:DataController to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_data_controller is deprecated: azure-native:azurearcdata/v20210701preview:DataController is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:DataController to guarantee forwards compatibility.""")
     ...

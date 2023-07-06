@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
+    [Obsolete(@"azure-native:networkcloud/v20221212preview:L2Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L2Network to guarantee forwards compatibility.")]
     public static class GetL2Network
     {
         /// <summary>

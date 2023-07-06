@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of the provided layer 3 (L3) network.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:L3Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L3Network to guarantee forwards compatibility. */
 export function getL3Network(args: GetL3NetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetL3NetworkResult> {
+    pulumi.log.warn("getL3Network is deprecated: azure-native:networkcloud/v20221212preview:L3Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L3Network to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getL3Network", {
@@ -121,6 +123,7 @@ export interface GetL3NetworkResult {
 /**
  * Get properties of the provided layer 3 (L3) network.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:L3Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L3Network to guarantee forwards compatibility. */
 export function getL3NetworkOutput(args: GetL3NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL3NetworkResult> {
     return pulumi.output(args).apply((a: any) => getL3Network(a, opts))
 }

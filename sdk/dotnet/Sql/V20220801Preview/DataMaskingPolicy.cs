@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
     /// <summary>
     /// A database data masking policy.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20220801preview:DataMaskingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DataMaskingPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20220801preview:DataMaskingPolicy")]
     public partial class DataMaskingPolicy : global::Pulumi.CustomResource
     {

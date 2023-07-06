@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.VisualStudio.V20140401Preview
     /// <summary>
     /// The response to an extension resource GET request.
     /// </summary>
+    [Obsolete(@"azure-native:visualstudio/v20140401preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:visualstudio/v20171101preview:Extension to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:visualstudio/v20140401preview:Extension")]
     public partial class Extension : global::Pulumi.CustomResource
     {

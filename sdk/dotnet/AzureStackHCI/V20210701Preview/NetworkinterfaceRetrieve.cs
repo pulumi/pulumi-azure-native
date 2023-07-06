@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210701Preview
     /// <summary>
     /// The networkinterfaces resource definition.
     /// </summary>
-    [Obsolete(@"azure-native:azurestackhci/v20210701preview:networkinterfaceRetrieve is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurestackhci/v20210701preview:networkinterfaceRetrieve")]
     public partial class NetworkinterfaceRetrieve : global::Pulumi.CustomResource
     {

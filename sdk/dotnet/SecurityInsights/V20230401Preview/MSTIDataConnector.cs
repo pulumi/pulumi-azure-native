@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
     /// <summary>
     /// Represents Microsoft Threat Intelligence data connector.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230401preview:MSTIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MSTIDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:MSTIDataConnector")]
     public partial class MSTIDataConnector : global::Pulumi.CustomResource
     {

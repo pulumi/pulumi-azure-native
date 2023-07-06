@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the named value specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20220801:NamedValue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NamedValue to guarantee forwards compatibility. */
 export function getNamedValue(args: GetNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<GetNamedValueResult> {
+    pulumi.log.warn("getNamedValue is deprecated: azure-native:apimanagement/v20220801:NamedValue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NamedValue to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:getNamedValue", {
@@ -75,6 +77,7 @@ export interface GetNamedValueResult {
 /**
  * Gets the details of the named value specified by its identifier.
  */
+/** @deprecated azure-native:apimanagement/v20220801:NamedValue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NamedValue to guarantee forwards compatibility. */
 export function getNamedValueOutput(args: GetNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamedValueResult> {
     return pulumi.output(args).apply((a: any) => getNamedValue(a, opts))
 }

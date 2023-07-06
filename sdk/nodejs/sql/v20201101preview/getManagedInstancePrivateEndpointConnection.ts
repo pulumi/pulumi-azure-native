@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a private endpoint connection.
  */
+/** @deprecated azure-native:sql/v20201101preview:ManagedInstancePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedInstancePrivateEndpointConnection to guarantee forwards compatibility. */
 export function getManagedInstancePrivateEndpointConnection(args: GetManagedInstancePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstancePrivateEndpointConnectionResult> {
+    pulumi.log.warn("getManagedInstancePrivateEndpointConnection is deprecated: azure-native:sql/v20201101preview:ManagedInstancePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedInstancePrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20201101preview:getManagedInstancePrivateEndpointConnection", {
@@ -67,6 +69,7 @@ export interface GetManagedInstancePrivateEndpointConnectionResult {
 /**
  * Gets a private endpoint connection.
  */
+/** @deprecated azure-native:sql/v20201101preview:ManagedInstancePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedInstancePrivateEndpointConnection to guarantee forwards compatibility. */
 export function getManagedInstancePrivateEndpointConnectionOutput(args: GetManagedInstancePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstancePrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getManagedInstancePrivateEndpointConnection(a, opts))
 }

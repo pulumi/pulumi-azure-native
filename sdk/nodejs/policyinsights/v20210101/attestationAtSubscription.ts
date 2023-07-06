@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An attestation resource.
+ *
+ * @deprecated azure-native:policyinsights/v20210101:AttestationAtSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtSubscription to guarantee forwards compatibility.
  */
 export class AttestationAtSubscription extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AttestationAtSubscription {
+        pulumi.log.warn("AttestationAtSubscription is deprecated: azure-native:policyinsights/v20210101:AttestationAtSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtSubscription to guarantee forwards compatibility.")
         return new AttestationAtSubscription(name, undefined as any, { ...opts, id: id });
     }
 
@@ -93,7 +96,9 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:policyinsights/v20210101:AttestationAtSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtSubscription to guarantee forwards compatibility. */
     constructor(name: string, args: AttestationAtSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AttestationAtSubscription is deprecated: azure-native:policyinsights/v20210101:AttestationAtSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtSubscription to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

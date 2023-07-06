@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Logz.V20201001
     /// <summary>
     /// Capture logs and metrics of Azure resources based on ARM tags.
     /// </summary>
+    [Obsolete(@"azure-native:logz/v20201001:TagRule is being removed in the next major version of this provider. Upgrade to at least azure-native:logz/v20220101preview:TagRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:logz/v20201001:TagRule")]
     public partial class TagRule : global::Pulumi.CustomResource
     {

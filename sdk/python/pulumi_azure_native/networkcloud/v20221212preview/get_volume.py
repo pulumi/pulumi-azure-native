@@ -17,6 +17,8 @@ __all__ = [
     'get_volume_output',
 ]
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Volume to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVolumeResult:
     def __init__(__self__, attached_to=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, serial_number=None, size_mi_b=None, system_data=None, tags=None, type=None):
@@ -196,6 +198,7 @@ def get_volume(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str volume_name: The name of the volume.
     """
+    pulumi.log.warn("""get_volume is deprecated: azure-native:networkcloud/v20221212preview:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Volume to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['volumeName'] = volume_name
@@ -229,4 +232,5 @@ def get_volume_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str volume_name: The name of the volume.
     """
+    pulumi.log.warn("""get_volume is deprecated: azure-native:networkcloud/v20221212preview:Volume is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Volume to guarantee forwards compatibility.""")
     ...

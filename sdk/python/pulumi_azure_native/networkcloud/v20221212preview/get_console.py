@@ -17,6 +17,8 @@ __all__ = [
     'get_console_output',
 ]
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:Console is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Console to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConsoleResult:
     def __init__(__self__, detailed_status=None, detailed_status_message=None, enabled=None, expiration=None, extended_location=None, id=None, location=None, name=None, private_link_service_id=None, provisioning_state=None, ssh_public_key=None, system_data=None, tags=None, type=None, virtual_machine_access_id=None):
@@ -222,6 +224,7 @@ def get_console(console_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_machine_name: The name of the virtual machine.
     """
+    pulumi.log.warn("""get_console is deprecated: azure-native:networkcloud/v20221212preview:Console is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Console to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['consoleName'] = console_name
     __args__['resourceGroupName'] = resource_group_name
@@ -260,4 +263,5 @@ def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_machine_name: The name of the virtual machine.
     """
+    pulumi.log.warn("""get_console is deprecated: azure-native:networkcloud/v20221212preview:Console is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Console to guarantee forwards compatibility.""")
     ...

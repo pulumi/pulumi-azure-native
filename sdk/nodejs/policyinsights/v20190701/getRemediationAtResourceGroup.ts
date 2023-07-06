@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing remediation at resource group scope.
  */
+/** @deprecated azure-native:policyinsights/v20190701:RemediationAtResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtResourceGroup to guarantee forwards compatibility. */
 export function getRemediationAtResourceGroup(args: GetRemediationAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtResourceGroupResult> {
+    pulumi.log.warn("getRemediationAtResourceGroup is deprecated: azure-native:policyinsights/v20190701:RemediationAtResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtResourceGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights/v20190701:getRemediationAtResourceGroup", {
@@ -82,6 +84,7 @@ export interface GetRemediationAtResourceGroupResult {
 /**
  * Gets an existing remediation at resource group scope.
  */
+/** @deprecated azure-native:policyinsights/v20190701:RemediationAtResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtResourceGroup to guarantee forwards compatibility. */
 export function getRemediationAtResourceGroupOutput(args: GetRemediationAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtResourceGroupResult> {
     return pulumi.output(args).apply((a: any) => getRemediationAtResourceGroup(a, opts))
 }

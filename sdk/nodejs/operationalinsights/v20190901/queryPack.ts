@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An Log Analytics QueryPack definition.
+ *
+ * @deprecated azure-native:operationalinsights/v20190901:QueryPack is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:QueryPack to guarantee forwards compatibility.
  */
 export class QueryPack extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class QueryPack extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): QueryPack {
+        pulumi.log.warn("QueryPack is deprecated: azure-native:operationalinsights/v20190901:QueryPack is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:QueryPack to guarantee forwards compatibility.")
         return new QueryPack(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class QueryPack extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:operationalinsights/v20190901:QueryPack is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:QueryPack to guarantee forwards compatibility. */
     constructor(name: string, args: QueryPackArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("QueryPack is deprecated: azure-native:operationalinsights/v20190901:QueryPack is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:QueryPack to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

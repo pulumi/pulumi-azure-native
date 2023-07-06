@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the config server and its properties.
  */
-/** @deprecated azure-native:appplatform/v20220501preview:ConfigServer is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ConfigServer to guarantee forwards compatibility. */
+/** @deprecated azure-native:appplatform/v20220501preview:ConfigServer is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ConfigServer to guarantee forwards compatibility. */
 export function getConfigServer(args: GetConfigServerArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigServerResult> {
-    pulumi.log.warn("getConfigServer is deprecated: azure-native:appplatform/v20220501preview:ConfigServer is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ConfigServer to guarantee forwards compatibility.")
+    pulumi.log.warn("getConfigServer is deprecated: azure-native:appplatform/v20220501preview:ConfigServer is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ConfigServer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20220501preview:getConfigServer", {
@@ -60,7 +60,7 @@ export interface GetConfigServerResult {
 /**
  * Get the config server and its properties.
  */
-/** @deprecated azure-native:appplatform/v20220501preview:ConfigServer is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ConfigServer to guarantee forwards compatibility. */
+/** @deprecated azure-native:appplatform/v20220501preview:ConfigServer is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ConfigServer to guarantee forwards compatibility. */
 export function getConfigServerOutput(args: GetConfigServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServerResult> {
     return pulumi.output(args).apply((a: any) => getConfigServer(a, opts))
 }

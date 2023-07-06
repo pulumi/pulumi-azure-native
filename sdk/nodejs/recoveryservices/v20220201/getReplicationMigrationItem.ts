@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Migration item.
  */
-/** @deprecated azure-native:recoveryservices/v20220201:ReplicationMigrationItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationMigrationItem to guarantee forwards compatibility. */
+/** @deprecated azure-native:recoveryservices/v20220201:ReplicationMigrationItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ReplicationMigrationItem to guarantee forwards compatibility. */
 export function getReplicationMigrationItem(args: GetReplicationMigrationItemArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationMigrationItemResult> {
-    pulumi.log.warn("getReplicationMigrationItem is deprecated: azure-native:recoveryservices/v20220201:ReplicationMigrationItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationMigrationItem to guarantee forwards compatibility.")
+    pulumi.log.warn("getReplicationMigrationItem is deprecated: azure-native:recoveryservices/v20220201:ReplicationMigrationItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ReplicationMigrationItem to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20220201:getReplicationMigrationItem", {
@@ -75,7 +75,7 @@ export interface GetReplicationMigrationItemResult {
 /**
  * Migration item.
  */
-/** @deprecated azure-native:recoveryservices/v20220201:ReplicationMigrationItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationMigrationItem to guarantee forwards compatibility. */
+/** @deprecated azure-native:recoveryservices/v20220201:ReplicationMigrationItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ReplicationMigrationItem to guarantee forwards compatibility. */
 export function getReplicationMigrationItemOutput(args: GetReplicationMigrationItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationMigrationItemResult> {
     return pulumi.output(args).apply((a: any) => getReplicationMigrationItem(a, opts))
 }

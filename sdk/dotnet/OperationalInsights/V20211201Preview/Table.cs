@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
     /// <summary>
     /// Workspace data table definition.
     /// </summary>
+    [Obsolete(@"azure-native:operationalinsights/v20211201preview:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20221001:Table to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:operationalinsights/v20211201preview:Table")]
     public partial class Table : global::Pulumi.CustomResource
     {

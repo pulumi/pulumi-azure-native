@@ -99,11 +99,11 @@ class CatalogArgs:
         pulumi.set(self, "git_hub", value)
 
 
-warnings.warn("""azure-native:devcenter/v20221012preview:Catalog is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Catalog to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:devcenter/v20221012preview:Catalog is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Catalog to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class Catalog(pulumi.CustomResource):
-    warnings.warn("""azure-native:devcenter/v20221012preview:Catalog is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Catalog to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:devcenter/v20221012preview:Catalog is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Catalog to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -156,7 +156,7 @@ class Catalog(pulumi.CustomResource):
                  git_hub: Optional[pulumi.Input[pulumi.InputType['GitCatalogArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Catalog is deprecated: azure-native:devcenter/v20221012preview:Catalog is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:Catalog to guarantee forwards compatibility.""")
+        pulumi.log.warn("""Catalog is deprecated: azure-native:devcenter/v20221012preview:Catalog is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20230401:Catalog to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// A single API Management service resource in List or Get response.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20220801:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiManagementService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:ApiManagementService")]
     public partial class ApiManagementService : global::Pulumi.CustomResource
     {

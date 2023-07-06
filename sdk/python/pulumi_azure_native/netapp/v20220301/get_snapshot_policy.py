@@ -17,7 +17,7 @@ __all__ = [
     'get_snapshot_policy_output',
 ]
 
-warnings.warn("""azure-native:netapp/v20220301:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:netapp/v20220301:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:SnapshotPolicy to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSnapshotPolicyResult:
@@ -203,7 +203,7 @@ def get_snapshot_policy(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str snapshot_policy_name: The name of the snapshot policy
     """
-    pulumi.log.warn("""get_snapshot_policy is deprecated: azure-native:netapp/v20220301:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_snapshot_policy is deprecated: azure-native:netapp/v20220301:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:SnapshotPolicy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -240,5 +240,5 @@ def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str snapshot_policy_name: The name of the snapshot policy
     """
-    pulumi.log.warn("""get_snapshot_policy is deprecated: azure-native:netapp/v20220301:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:SnapshotPolicy to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_snapshot_policy is deprecated: azure-native:netapp/v20220301:SnapshotPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:SnapshotPolicy to guarantee forwards compatibility.""")
     ...

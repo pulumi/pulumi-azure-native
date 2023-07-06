@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetworkFunction.V20220501
 {
+    [Obsolete(@"azure-native:networkfunction/v20220501:AzureTrafficCollector is being removed in the next major version of this provider. Upgrade to at least azure-native:networkfunction/v20220801:AzureTrafficCollector to guarantee forwards compatibility.")]
     public static class GetAzureTrafficCollector
     {
         /// <summary>

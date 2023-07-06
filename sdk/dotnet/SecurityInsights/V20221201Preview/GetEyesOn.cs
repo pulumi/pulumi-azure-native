@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20221201Preview
 {
-    [Obsolete(@"azure-native:securityinsights/v20221201preview:EyesOn is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:EyesOn to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20221201preview:EyesOn is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:EyesOn to guarantee forwards compatibility.")]
     public static class GetEyesOn
     {
         /// <summary>

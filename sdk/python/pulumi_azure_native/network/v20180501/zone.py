@@ -135,7 +135,12 @@ class ZoneArgs:
         pulumi.set(self, "zone_type", value)
 
 
+warnings.warn("""azure-native:network/v20180501:Zone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:Zone to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Zone(pulumi.CustomResource):
+    warnings.warn("""azure-native:network/v20180501:Zone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:Zone to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -193,6 +198,7 @@ class Zone(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  zone_type: Optional[pulumi.Input['ZoneType']] = None,
                  __props__=None):
+        pulumi.log.warn("""Zone is deprecated: azure-native:network/v20180501:Zone is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:Zone to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

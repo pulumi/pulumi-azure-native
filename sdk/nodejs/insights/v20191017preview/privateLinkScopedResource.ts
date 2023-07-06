@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A private link scoped resource
+ *
+ * @deprecated azure-native:insights/v20191017preview:PrivateLinkScopedResource is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210701preview:PrivateLinkScopedResource to guarantee forwards compatibility.
  */
 export class PrivateLinkScopedResource extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateLinkScopedResource {
+        pulumi.log.warn("PrivateLinkScopedResource is deprecated: azure-native:insights/v20191017preview:PrivateLinkScopedResource is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210701preview:PrivateLinkScopedResource to guarantee forwards compatibility.")
         return new PrivateLinkScopedResource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -58,7 +61,9 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:insights/v20191017preview:PrivateLinkScopedResource is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210701preview:PrivateLinkScopedResource to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateLinkScopedResourceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PrivateLinkScopedResource is deprecated: azure-native:insights/v20191017preview:PrivateLinkScopedResource is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210701preview:PrivateLinkScopedResource to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Media.V20200501
     /// <summary>
     /// An Account Filter.
     /// </summary>
+    [Obsolete(@"azure-native:media/v20200501:AccountFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:media/v20230101:AccountFilter to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:media/v20200501:AccountFilter")]
     public partial class AccountFilter : global::Pulumi.CustomResource
     {

@@ -17,6 +17,8 @@ __all__ = [
     'get_management_lock_at_subscription_level_output',
 ]
 
+warnings.warn("""azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagementLockAtSubscriptionLevelResult:
     """
@@ -113,6 +115,7 @@ def get_management_lock_at_subscription_level(lock_name: Optional[str] = None,
 
     :param str lock_name: The name of the lock to get.
     """
+    pulumi.log.warn("""get_management_lock_at_subscription_level is deprecated: azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['lockName'] = lock_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -136,4 +139,5 @@ def get_management_lock_at_subscription_level_output(lock_name: Optional[pulumi.
 
     :param str lock_name: The name of the lock to get.
     """
+    pulumi.log.warn("""get_management_lock_at_subscription_level is deprecated: azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel to guarantee forwards compatibility.""")
     ...

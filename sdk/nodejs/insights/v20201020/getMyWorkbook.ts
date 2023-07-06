@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a single private workbook by its resourceName.
  */
+/** @deprecated azure-native:insights/v20201020:MyWorkbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:MyWorkbook to guarantee forwards compatibility. */
 export function getMyWorkbook(args: GetMyWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetMyWorkbookResult> {
+    pulumi.log.warn("getMyWorkbook is deprecated: azure-native:insights/v20201020:MyWorkbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:MyWorkbook to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20201020:getMyWorkbook", {
@@ -102,6 +104,7 @@ export interface GetMyWorkbookResult {
 /**
  * Get a single private workbook by its resourceName.
  */
+/** @deprecated azure-native:insights/v20201020:MyWorkbook is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210308:MyWorkbook to guarantee forwards compatibility. */
 export function getMyWorkbookOutput(args: GetMyWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMyWorkbookResult> {
     return pulumi.output(args).apply((a: any) => getMyWorkbook(a, opts))
 }

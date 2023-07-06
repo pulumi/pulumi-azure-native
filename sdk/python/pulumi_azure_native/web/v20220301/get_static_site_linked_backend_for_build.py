@@ -16,6 +16,8 @@ __all__ = [
     'get_static_site_linked_backend_for_build_output',
 ]
 
+warnings.warn("""azure-native:web/v20220301:StaticSiteLinkedBackendForBuild is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteLinkedBackendForBuild to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStaticSiteLinkedBackendForBuildResult:
     """
@@ -142,6 +144,7 @@ def get_static_site_linked_backend_for_build(environment_name: Optional[str] = N
     :param str name: Name of the static site
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_static_site_linked_backend_for_build is deprecated: azure-native:web/v20220301:StaticSiteLinkedBackendForBuild is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteLinkedBackendForBuild to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['linkedBackendName'] = linked_backend_name
@@ -176,4 +179,5 @@ def get_static_site_linked_backend_for_build_output(environment_name: Optional[p
     :param str name: Name of the static site
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
+    pulumi.log.warn("""get_static_site_linked_backend_for_build is deprecated: azure-native:web/v20220301:StaticSiteLinkedBackendForBuild is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:StaticSiteLinkedBackendForBuild to guarantee forwards compatibility.""")
     ...

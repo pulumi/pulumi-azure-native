@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Solutions.V20190701
 {
+    [Obsolete(@"azure-native:solutions/v20190701:JitRequest is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:JitRequest to guarantee forwards compatibility.")]
     public static class GetJitRequest
     {
         /// <summary>

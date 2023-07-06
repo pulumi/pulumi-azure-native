@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
     /// <summary>
     /// Event Subscription
     /// </summary>
+    [Obsolete(@"azure-native:eventgrid/v20211015preview:DomainEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainEventSubscription to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20211015preview:DomainEventSubscription")]
     public partial class DomainEventSubscription : global::Pulumi.CustomResource
     {

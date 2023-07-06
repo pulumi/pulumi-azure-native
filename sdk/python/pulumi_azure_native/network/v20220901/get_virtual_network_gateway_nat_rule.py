@@ -17,6 +17,8 @@ __all__ = [
     'get_virtual_network_gateway_nat_rule_output',
 ]
 
+warnings.warn("""azure-native:network/v20220901:VirtualNetworkGatewayNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetworkGatewayNatRule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualNetworkGatewayNatRuleResult:
     """
@@ -153,6 +155,7 @@ def get_virtual_network_gateway_nat_rule(nat_rule_name: Optional[str] = None,
     :param str resource_group_name: The resource group name of the Virtual Network Gateway.
     :param str virtual_network_gateway_name: The name of the gateway.
     """
+    pulumi.log.warn("""get_virtual_network_gateway_nat_rule is deprecated: azure-native:network/v20220901:VirtualNetworkGatewayNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetworkGatewayNatRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['natRuleName'] = nat_rule_name
     __args__['resourceGroupName'] = resource_group_name
@@ -185,4 +188,5 @@ def get_virtual_network_gateway_nat_rule_output(nat_rule_name: Optional[pulumi.I
     :param str resource_group_name: The resource group name of the Virtual Network Gateway.
     :param str virtual_network_gateway_name: The name of the gateway.
     """
+    pulumi.log.warn("""get_virtual_network_gateway_nat_rule is deprecated: azure-native:network/v20220901:VirtualNetworkGatewayNatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetworkGatewayNatRule to guarantee forwards compatibility.""")
     ...

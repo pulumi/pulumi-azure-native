@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
     /// <summary>
     /// OpenId Connect Provider details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20191201:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:OpenIdConnectProvider to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20191201:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:OpenIdConnectProvider to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20191201:OpenIdConnectProvider")]
     public partial class OpenIdConnectProvider : global::Pulumi.CustomResource
     {

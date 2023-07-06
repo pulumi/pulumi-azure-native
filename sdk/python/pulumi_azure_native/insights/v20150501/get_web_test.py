@@ -17,6 +17,8 @@ __all__ = [
     'get_web_test_output',
 ]
 
+warnings.warn("""azure-native:insights/v20150501:WebTest is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201005preview:WebTest to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebTestResult:
     """
@@ -247,6 +249,7 @@ def get_web_test(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str web_test_name: The name of the Application Insights webtest resource.
     """
+    pulumi.log.warn("""get_web_test is deprecated: azure-native:insights/v20150501:WebTest is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201005preview:WebTest to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['webTestName'] = web_test_name
@@ -284,4 +287,5 @@ def get_web_test_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str web_test_name: The name of the Application Insights webtest resource.
     """
+    pulumi.log.warn("""get_web_test is deprecated: azure-native:insights/v20150501:WebTest is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201005preview:WebTest to guarantee forwards compatibility.""")
     ...

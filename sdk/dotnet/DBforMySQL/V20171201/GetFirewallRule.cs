@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DBforMySQL.V20171201
 {
+    [Obsolete(@"azure-native:dbformysql/v20171201:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20220101:FirewallRule to guarantee forwards compatibility.")]
     public static class GetFirewallRule
     {
         /// <summary>

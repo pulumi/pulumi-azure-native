@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
     /// <summary>
     /// Gateway certificate authority details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20201201:GatewayCertificateAuthority is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:GatewayCertificateAuthority")]
     public partial class GatewayCertificateAuthority : global::Pulumi.CustomResource
     {

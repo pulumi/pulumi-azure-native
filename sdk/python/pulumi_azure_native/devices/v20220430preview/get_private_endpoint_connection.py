@@ -17,6 +17,8 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
+warnings.warn("""azure-native:devices/v20220430preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20221115preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
@@ -93,6 +95,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:devices/v20220430preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20221115preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -120,4 +123,5 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: azure-native:devices/v20220430preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20221115preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
     ...

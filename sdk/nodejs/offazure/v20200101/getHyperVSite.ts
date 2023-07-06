@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Site REST Resource.
  */
+/** @deprecated azure-native:offazure/v20200101:HyperVSite is being removed in the next major version of this provider. Upgrade to at least azure-native:offazure/v20200707:HyperVSite to guarantee forwards compatibility. */
 export function getHyperVSite(args: GetHyperVSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetHyperVSiteResult> {
+    pulumi.log.warn("getHyperVSite is deprecated: azure-native:offazure/v20200101:HyperVSite is being removed in the next major version of this provider. Upgrade to at least azure-native:offazure/v20200707:HyperVSite to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure/v20200101:getHyperVSite", {
@@ -63,6 +65,7 @@ export interface GetHyperVSiteResult {
 /**
  * Site REST Resource.
  */
+/** @deprecated azure-native:offazure/v20200101:HyperVSite is being removed in the next major version of this provider. Upgrade to at least azure-native:offazure/v20200707:HyperVSite to guarantee forwards compatibility. */
 export function getHyperVSiteOutput(args: GetHyperVSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHyperVSiteResult> {
     return pulumi.output(args).apply((a: any) => getHyperVSite(a, opts))
 }

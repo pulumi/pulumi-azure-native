@@ -11,9 +11,9 @@ import * as utilities from "../../utilities";
  * Gets the SQL userDefinedFunction under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2020-03-01 will be removed in v2 of the provider.
-azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility. */
+azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility. */
 export function getSqlResourceSqlUserDefinedFunction(args: GetSqlResourceSqlUserDefinedFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlUserDefinedFunctionResult> {
-    pulumi.log.warn("getSqlResourceSqlUserDefinedFunction is deprecated: Version 2020-03-01 will be removed in v2 of the provider.\nazure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.")
+    pulumi.log.warn("getSqlResourceSqlUserDefinedFunction is deprecated: Version 2020-03-01 will be removed in v2 of the provider.\nazure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20200301:getSqlResourceSqlUserDefinedFunction", {
@@ -78,7 +78,7 @@ export interface GetSqlResourceSqlUserDefinedFunctionResult {
  * Gets the SQL userDefinedFunction under an existing Azure Cosmos DB database account.
  */
 /** @deprecated Version 2020-03-01 will be removed in v2 of the provider.
-azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility. */
+azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:SqlResourceSqlUserDefinedFunction to guarantee forwards compatibility. */
 export function getSqlResourceSqlUserDefinedFunctionOutput(args: GetSqlResourceSqlUserDefinedFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlUserDefinedFunctionResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlUserDefinedFunction(a, opts))
 }

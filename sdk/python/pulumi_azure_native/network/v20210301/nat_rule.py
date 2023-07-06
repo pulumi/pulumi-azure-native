@@ -180,11 +180,11 @@ class NatRuleInitArgs:
         pulumi.set(self, "type", value)
 
 
-warnings.warn("""azure-native:network/v20210301:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NatRule to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20210301:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:NatRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class NatRule(pulumi.CustomResource):
-    warnings.warn("""azure-native:network/v20210301:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NatRule to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:network/v20210301:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:NatRule to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -252,7 +252,7 @@ class NatRule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'VpnNatRuleType']]] = None,
                  __props__=None):
-        pulumi.log.warn("""NatRule is deprecated: azure-native:network/v20210301:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:NatRule to guarantee forwards compatibility.""")
+        pulumi.log.warn("""NatRule is deprecated: azure-native:network/v20210301:NatRule is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:NatRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

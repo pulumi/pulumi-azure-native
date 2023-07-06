@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
     /// <summary>
     /// Defines the vCenter.
     /// </summary>
+    [Obsolete(@"azure-native:connectedvmwarevsphere/v20201001preview:VCenter is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:VCenter to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20201001preview:VCenter")]
     public partial class VCenter : global::Pulumi.CustomResource
     {

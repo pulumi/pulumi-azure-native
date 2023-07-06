@@ -17,7 +17,7 @@ __all__ = [
     'get_route_filter_output',
 ]
 
-warnings.warn("""azure-native:network/v20210501:RouteFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteFilter to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20210501:RouteFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:RouteFilter to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRouteFilterResult:
@@ -167,7 +167,7 @@ def get_route_filter(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str route_filter_name: The name of the route filter.
     """
-    pulumi.log.warn("""get_route_filter is deprecated: azure-native:network/v20210501:RouteFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteFilter to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_route_filter is deprecated: azure-native:network/v20210501:RouteFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:RouteFilter to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -201,5 +201,5 @@ def get_route_filter_output(expand: Optional[pulumi.Input[Optional[str]]] = None
     :param str resource_group_name: The name of the resource group.
     :param str route_filter_name: The name of the route filter.
     """
-    pulumi.log.warn("""get_route_filter is deprecated: azure-native:network/v20210501:RouteFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteFilter to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_route_filter is deprecated: azure-native:network/v20210501:RouteFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:RouteFilter to guarantee forwards compatibility.""")
     ...

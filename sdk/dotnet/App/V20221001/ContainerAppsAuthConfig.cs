@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.App.V20221001
     /// <summary>
     /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
     /// </summary>
+    [Obsolete(@"azure-native:app/v20221001:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsAuthConfig to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:app/v20221001:ContainerAppsAuthConfig")]
     public partial class ContainerAppsAuthConfig : global::Pulumi.CustomResource
     {

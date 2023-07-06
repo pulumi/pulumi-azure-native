@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of the provided storage appliance.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:StorageAppliance is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:StorageAppliance to guarantee forwards compatibility. */
 export function getStorageAppliance(args: GetStorageApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageApplianceResult> {
+    pulumi.log.warn("getStorageAppliance is deprecated: azure-native:networkcloud/v20221212preview:StorageAppliance is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:StorageAppliance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getStorageAppliance", {
@@ -119,6 +121,7 @@ export interface GetStorageApplianceResult {
 /**
  * Get properties of the provided storage appliance.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:StorageAppliance is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:StorageAppliance to guarantee forwards compatibility. */
 export function getStorageApplianceOutput(args: GetStorageApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageApplianceResult> {
     return pulumi.output(args).apply((a: any) => getStorageAppliance(a, opts))
 }

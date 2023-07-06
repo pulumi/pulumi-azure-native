@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Authorization.V20210301Preview
     /// <summary>
     /// Access Review Schedule Definition.
     /// </summary>
+    [Obsolete(@"azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById")]
     public partial class AccessReviewScheduleDefinitionById : global::Pulumi.CustomResource
     {

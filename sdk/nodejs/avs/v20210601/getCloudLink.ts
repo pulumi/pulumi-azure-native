@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A cloud link resource
  */
+/** @deprecated azure-native:avs/v20210601:CloudLink is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:CloudLink to guarantee forwards compatibility. */
 export function getCloudLink(args: GetCloudLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudLinkResult> {
+    pulumi.log.warn("getCloudLink is deprecated: azure-native:avs/v20210601:CloudLink is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:CloudLink to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20210601:getCloudLink", {
@@ -60,6 +62,7 @@ export interface GetCloudLinkResult {
 /**
  * A cloud link resource
  */
+/** @deprecated azure-native:avs/v20210601:CloudLink is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:CloudLink to guarantee forwards compatibility. */
 export function getCloudLinkOutput(args: GetCloudLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudLinkResult> {
     return pulumi.output(args).apply((a: any) => getCloudLink(a, opts))
 }

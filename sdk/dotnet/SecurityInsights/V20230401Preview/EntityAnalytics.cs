@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
     /// <summary>
     /// Settings with single toggle.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230401preview:EntityAnalytics is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:EntityAnalytics to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:EntityAnalytics")]
     public partial class EntityAnalytics : global::Pulumi.CustomResource
     {

@@ -17,7 +17,7 @@ __all__ = [
     'get_profile_output',
 ]
 
-warnings.warn("""azure-native:cdn/v20210601:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Profile to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:cdn/v20210601:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:Profile to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetProfileResult:
@@ -189,7 +189,7 @@ def get_profile(profile_name: Optional[str] = None,
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_profile is deprecated: azure-native:cdn/v20210601:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Profile to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_profile is deprecated: azure-native:cdn/v20210601:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:Profile to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
@@ -222,5 +222,5 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_profile is deprecated: azure-native:cdn/v20210601:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:Profile to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_profile is deprecated: azure-native:cdn/v20210601:Profile is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:Profile to guarantee forwards compatibility.""")
     ...

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the properties of the specified workspace.
  */
-/** @deprecated azure-native:healthcareapis/v20221001preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Workspace to guarantee forwards compatibility. */
+/** @deprecated azure-native:healthcareapis/v20221001preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:Workspace to guarantee forwards compatibility. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
-    pulumi.log.warn("getWorkspace is deprecated: azure-native:healthcareapis/v20221001preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Workspace to guarantee forwards compatibility.")
+    pulumi.log.warn("getWorkspace is deprecated: azure-native:healthcareapis/v20221001preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:Workspace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20221001preview:getWorkspace", {
@@ -72,7 +72,7 @@ export interface GetWorkspaceResult {
 /**
  * Gets the properties of the specified workspace.
  */
-/** @deprecated azure-native:healthcareapis/v20221001preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:Workspace to guarantee forwards compatibility. */
+/** @deprecated azure-native:healthcareapis/v20221001preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:Workspace to guarantee forwards compatibility. */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }

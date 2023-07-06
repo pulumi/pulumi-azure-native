@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Get the update summaries for the cluster
+ *
+ * @deprecated azure-native:azurestackhci/v20230201:UpdateSummary is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230301:UpdateSummary to guarantee forwards compatibility.
  */
 export class UpdateSummary extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class UpdateSummary extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): UpdateSummary {
+        pulumi.log.warn("UpdateSummary is deprecated: azure-native:azurestackhci/v20230201:UpdateSummary is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230301:UpdateSummary to guarantee forwards compatibility.")
         return new UpdateSummary(name, undefined as any, { ...opts, id: id });
     }
 
@@ -93,7 +96,9 @@ export class UpdateSummary extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:azurestackhci/v20230201:UpdateSummary is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230301:UpdateSummary to guarantee forwards compatibility. */
     constructor(name: string, args: UpdateSummaryArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("UpdateSummary is deprecated: azure-native:azurestackhci/v20230201:UpdateSummary is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230301:UpdateSummary to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

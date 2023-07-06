@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StorageSync.V20200301
 {
+    [Obsolete(@"azure-native:storagesync/v20200301:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:PrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnection
     {
         /// <summary>

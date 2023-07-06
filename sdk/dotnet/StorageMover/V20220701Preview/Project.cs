@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
     /// <summary>
     /// The Project resource.
     /// </summary>
+    [Obsolete(@"azure-native:storagemover/v20220701preview:Project is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:Project to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:storagemover/v20220701preview:Project")]
     public partial class Project : global::Pulumi.CustomResource
     {

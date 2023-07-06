@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Insights.V20191017Preview
 {
+    [Obsolete(@"azure-native:insights/v20191017preview:WorkbookTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20201120:WorkbookTemplate to guarantee forwards compatibility.")]
     public static class GetWorkbookTemplate
     {
         /// <summary>

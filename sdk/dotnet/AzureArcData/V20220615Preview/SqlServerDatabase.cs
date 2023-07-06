@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20220615Preview
     /// <summary>
     /// Arc Sql Server database
     /// </summary>
+    [Obsolete(@"azure-native:azurearcdata/v20220615preview:SqlServerDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:SqlServerDatabase to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurearcdata/v20220615preview:SqlServerDatabase")]
     public partial class SqlServerDatabase : global::Pulumi.CustomResource
     {

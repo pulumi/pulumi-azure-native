@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
     /// <summary>
     /// Represents a Database.
     /// </summary>
+    [Obsolete(@"azure-native:dbforpostgresql/v20221201:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Database to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20221201:Database")]
     public partial class Database : global::Pulumi.CustomResource
     {

@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
  * Get details of the specified capacity pool
  */
 /** @deprecated Version 2020-11-01 will be removed in v2 of the provider.
-azure-native:netapp/v20201101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Pool to guarantee forwards compatibility. */
+azure-native:netapp/v20201101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Pool to guarantee forwards compatibility. */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
-    pulumi.log.warn("getPool is deprecated: Version 2020-11-01 will be removed in v2 of the provider.\nazure-native:netapp/v20201101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Pool to guarantee forwards compatibility.")
+    pulumi.log.warn("getPool is deprecated: Version 2020-11-01 will be removed in v2 of the provider.\nazure-native:netapp/v20201101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Pool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20201101:getPool", {
@@ -92,7 +92,7 @@ export interface GetPoolResult {
  * Get details of the specified capacity pool
  */
 /** @deprecated Version 2020-11-01 will be removed in v2 of the provider.
-azure-native:netapp/v20201101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Pool to guarantee forwards compatibility. */
+azure-native:netapp/v20201101:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Pool to guarantee forwards compatibility. */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
     return pulumi.output(args).apply((a: any) => getPool(a, opts))
 }

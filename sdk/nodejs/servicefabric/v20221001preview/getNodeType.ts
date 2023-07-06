@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Service Fabric node type of a given managed cluster.
  */
-/** @deprecated azure-native:servicefabric/v20221001preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:NodeType to guarantee forwards compatibility. */
+/** @deprecated azure-native:servicefabric/v20221001preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230301preview:NodeType to guarantee forwards compatibility. */
 export function getNodeType(args: GetNodeTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeTypeResult> {
-    pulumi.log.warn("getNodeType is deprecated: azure-native:servicefabric/v20221001preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:NodeType to guarantee forwards compatibility.")
+    pulumi.log.warn("getNodeType is deprecated: azure-native:servicefabric/v20221001preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230301preview:NodeType to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20221001preview:getNodeType", {
@@ -217,7 +217,7 @@ export interface GetNodeTypeResult {
 /**
  * Get a Service Fabric node type of a given managed cluster.
  */
-/** @deprecated azure-native:servicefabric/v20221001preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230201preview:NodeType to guarantee forwards compatibility. */
+/** @deprecated azure-native:servicefabric/v20221001preview:NodeType is being removed in the next major version of this provider. Upgrade to at least azure-native:servicefabric/v20230301preview:NodeType to guarantee forwards compatibility. */
 export function getNodeTypeOutput(args: GetNodeTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeTypeResult> {
     return pulumi.output(args).apply((a: any) => getNodeType(a, opts))
 }

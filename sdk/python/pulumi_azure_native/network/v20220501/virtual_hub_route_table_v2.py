@@ -131,11 +131,11 @@ class VirtualHubRouteTableV2InitArgs:
         pulumi.set(self, "routes", value)
 
 
-warnings.warn("""azure-native:network/v20220501:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubRouteTableV2 to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20220501:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualHubRouteTableV2 to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class VirtualHubRouteTableV2(pulumi.CustomResource):
-    warnings.warn("""azure-native:network/v20220501:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubRouteTableV2 to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:network/v20220501:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualHubRouteTableV2 to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -194,7 +194,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteV2Args']]]]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualHubRouteTableV2 is deprecated: azure-native:network/v20220501:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualHubRouteTableV2 to guarantee forwards compatibility.""")
+        pulumi.log.warn("""VirtualHubRouteTableV2 is deprecated: azure-native:network/v20220501:VirtualHubRouteTableV2 is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualHubRouteTableV2 to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

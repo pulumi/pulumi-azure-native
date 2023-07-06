@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an elastic pool.
  */
-/** @deprecated azure-native:sql/v20200202preview:ElasticPool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ElasticPool to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20200202preview:ElasticPool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ElasticPool to guarantee forwards compatibility. */
 export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
-    pulumi.log.warn("getElasticPool is deprecated: azure-native:sql/v20200202preview:ElasticPool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ElasticPool to guarantee forwards compatibility.")
+    pulumi.log.warn("getElasticPool is deprecated: azure-native:sql/v20200202preview:ElasticPool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ElasticPool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20200202preview:getElasticPool", {
@@ -103,7 +103,7 @@ export interface GetElasticPoolResult {
 /**
  * Gets an elastic pool.
  */
-/** @deprecated azure-native:sql/v20200202preview:ElasticPool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ElasticPool to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20200202preview:ElasticPool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ElasticPool to guarantee forwards compatibility. */
 export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticPoolResult> {
     return pulumi.output(args).apply((a: any) => getElasticPool(a, opts))
 }

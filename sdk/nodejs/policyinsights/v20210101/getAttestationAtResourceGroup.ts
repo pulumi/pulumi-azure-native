@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing attestation at resource group scope.
  */
+/** @deprecated azure-native:policyinsights/v20210101:AttestationAtResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtResourceGroup to guarantee forwards compatibility. */
 export function getAttestationAtResourceGroup(args: GetAttestationAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtResourceGroupResult> {
+    pulumi.log.warn("getAttestationAtResourceGroup is deprecated: azure-native:policyinsights/v20210101:AttestationAtResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtResourceGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights/v20210101:getAttestationAtResourceGroup", {
@@ -90,6 +92,7 @@ export interface GetAttestationAtResourceGroupResult {
 /**
  * Gets an existing attestation at resource group scope.
  */
+/** @deprecated azure-native:policyinsights/v20210101:AttestationAtResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20220901:AttestationAtResourceGroup to guarantee forwards compatibility. */
 export function getAttestationAtResourceGroupOutput(args: GetAttestationAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtResourceGroupResult> {
     return pulumi.output(args).apply((a: any) => getAttestationAtResourceGroup(a, opts))
 }

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a specific private endpoint connection under a topic, domain, or partner namespace.
  */
-/** @deprecated azure-native:eventgrid/v20211015preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:PrivateEndpointConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventgrid/v20211015preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getPrivateEndpointConnection is deprecated: azure-native:eventgrid/v20211015preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:PrivateEndpointConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getPrivateEndpointConnection is deprecated: azure-native:eventgrid/v20211015preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20211015preview:getPrivateEndpointConnection", {
@@ -75,7 +75,7 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * Get a specific private endpoint connection under a topic, domain, or partner namespace.
  */
-/** @deprecated azure-native:eventgrid/v20211015preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20220615:PrivateEndpointConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:eventgrid/v20211015preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A streaming job object, containing all information associated with the named streaming job.
+ *
+ * @deprecated azure-native:streamanalytics/v20160301:StreamingJob is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20170401preview:StreamingJob to guarantee forwards compatibility.
  */
 export class StreamingJob extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class StreamingJob extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StreamingJob {
+        pulumi.log.warn("StreamingJob is deprecated: azure-native:streamanalytics/v20160301:StreamingJob is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20170401preview:StreamingJob to guarantee forwards compatibility.")
         return new StreamingJob(name, undefined as any, { ...opts, id: id });
     }
 
@@ -137,7 +140,9 @@ export class StreamingJob extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:streamanalytics/v20160301:StreamingJob is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20170401preview:StreamingJob to guarantee forwards compatibility. */
     constructor(name: string, args: StreamingJobArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("StreamingJob is deprecated: azure-native:streamanalytics/v20160301:StreamingJob is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20170401preview:StreamingJob to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

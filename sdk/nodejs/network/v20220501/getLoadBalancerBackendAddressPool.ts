@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets load balancer backend address pool.
  */
-/** @deprecated azure-native:network/v20220501:LoadBalancerBackendAddressPool is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:LoadBalancerBackendAddressPool to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220501:LoadBalancerBackendAddressPool is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:LoadBalancerBackendAddressPool to guarantee forwards compatibility. */
 export function getLoadBalancerBackendAddressPool(args: GetLoadBalancerBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerBackendAddressPoolResult> {
-    pulumi.log.warn("getLoadBalancerBackendAddressPool is deprecated: azure-native:network/v20220501:LoadBalancerBackendAddressPool is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:LoadBalancerBackendAddressPool to guarantee forwards compatibility.")
+    pulumi.log.warn("getLoadBalancerBackendAddressPool is deprecated: azure-native:network/v20220501:LoadBalancerBackendAddressPool is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:LoadBalancerBackendAddressPool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220501:getLoadBalancerBackendAddressPool", {
@@ -101,7 +101,7 @@ export interface GetLoadBalancerBackendAddressPoolResult {
 /**
  * Gets load balancer backend address pool.
  */
-/** @deprecated azure-native:network/v20220501:LoadBalancerBackendAddressPool is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:LoadBalancerBackendAddressPool to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20220501:LoadBalancerBackendAddressPool is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:LoadBalancerBackendAddressPool to guarantee forwards compatibility. */
 export function getLoadBalancerBackendAddressPoolOutput(args: GetLoadBalancerBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerBackendAddressPoolResult> {
     return pulumi.output(args).apply((a: any) => getLoadBalancerBackendAddressPool(a, opts))
 }

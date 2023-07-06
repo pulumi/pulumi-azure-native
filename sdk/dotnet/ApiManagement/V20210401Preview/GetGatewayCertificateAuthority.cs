@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
 {
-    [Obsolete(@"azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GatewayCertificateAuthority to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority to guarantee forwards compatibility.")]
     public static class GetGatewayCertificateAuthority
     {
         /// <summary>

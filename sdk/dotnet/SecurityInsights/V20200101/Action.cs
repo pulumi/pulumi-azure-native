@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
     /// <summary>
     /// Action for alert rule.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20200101:Action is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210301preview:Action to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20200101:Action")]
     public partial class Action : global::Pulumi.CustomResource
     {

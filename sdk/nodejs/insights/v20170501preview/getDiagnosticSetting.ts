@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the active diagnostic settings for the specified resource.
  */
+/** @deprecated azure-native:insights/v20170501preview:DiagnosticSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210501preview:DiagnosticSetting to guarantee forwards compatibility. */
 export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticSettingResult> {
+    pulumi.log.warn("getDiagnosticSetting is deprecated: azure-native:insights/v20170501preview:DiagnosticSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210501preview:DiagnosticSetting to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20170501preview:getDiagnosticSetting", {
@@ -82,6 +84,7 @@ export interface GetDiagnosticSettingResult {
 /**
  * Gets the active diagnostic settings for the specified resource.
  */
+/** @deprecated azure-native:insights/v20170501preview:DiagnosticSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210501preview:DiagnosticSetting to guarantee forwards compatibility. */
 export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticSettingResult> {
     return pulumi.output(args).apply((a: any) => getDiagnosticSetting(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20201101
     /// <summary>
     /// Tap configuration in a Network Interface.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20201101:NetworkInterfaceTapConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:NetworkInterfaceTapConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20201101:NetworkInterfaceTapConfiguration")]
     public partial class NetworkInterfaceTapConfiguration : global::Pulumi.CustomResource
     {

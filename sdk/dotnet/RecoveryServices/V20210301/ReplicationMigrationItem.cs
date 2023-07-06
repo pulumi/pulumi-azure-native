@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210301
     /// <summary>
     /// Migration item.
     /// </summary>
-    [Obsolete(@"azure-native:recoveryservices/v20210301:ReplicationMigrationItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ReplicationMigrationItem to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:recoveryservices/v20210301:ReplicationMigrationItem is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ReplicationMigrationItem to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20210301:ReplicationMigrationItem")]
     public partial class ReplicationMigrationItem : global::Pulumi.CustomResource
     {

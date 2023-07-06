@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20220131Preview
     /// <summary>
     /// Describes a federated identity credential.
     /// </summary>
+    [Obsolete(@"azure-native:managedidentity/v20220131preview:FederatedIdentityCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:managedidentity/v20230131:FederatedIdentityCredential to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:managedidentity/v20220131preview:FederatedIdentityCredential")]
     public partial class FederatedIdentityCredential : global::Pulumi.CustomResource
     {

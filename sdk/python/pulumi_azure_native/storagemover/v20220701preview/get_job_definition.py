@@ -17,6 +17,8 @@ __all__ = [
     'get_job_definition_output',
 ]
 
+warnings.warn("""azure-native:storagemover/v20220701preview:JobDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:JobDefinition to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetJobDefinitionResult:
     """
@@ -263,6 +265,7 @@ def get_job_definition(job_definition_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_mover_name: The name of the Storage Mover resource.
     """
+    pulumi.log.warn("""get_job_definition is deprecated: azure-native:storagemover/v20220701preview:JobDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:JobDefinition to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['jobDefinitionName'] = job_definition_name
     __args__['projectName'] = project_name
@@ -307,4 +310,5 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_mover_name: The name of the Storage Mover resource.
     """
+    pulumi.log.warn("""get_job_definition is deprecated: azure-native:storagemover/v20220701preview:JobDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:storagemover/v20230301:JobDefinition to guarantee forwards compatibility.""")
     ...

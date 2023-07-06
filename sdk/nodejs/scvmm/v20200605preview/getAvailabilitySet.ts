@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Implements AvailabilitySet GET method.
  */
+/** @deprecated azure-native:scvmm/v20200605preview:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:AvailabilitySet to guarantee forwards compatibility. */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
+    pulumi.log.warn("getAvailabilitySet is deprecated: azure-native:scvmm/v20200605preview:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:AvailabilitySet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm/v20200605preview:getAvailabilitySet", {
@@ -78,6 +80,7 @@ export interface GetAvailabilitySetResult {
 /**
  * Implements AvailabilitySet GET method.
  */
+/** @deprecated azure-native:scvmm/v20200605preview:AvailabilitySet is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:AvailabilitySet to guarantee forwards compatibility. */
 export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
     return pulumi.output(args).apply((a: any) => getAvailabilitySet(a, opts))
 }

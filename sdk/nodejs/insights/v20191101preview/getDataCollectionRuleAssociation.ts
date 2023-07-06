@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Definition of generic ARM proxy resource.
  */
+/** @deprecated azure-native:insights/v20191101preview:DataCollectionRuleAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility. */
 export function getDataCollectionRuleAssociation(args: GetDataCollectionRuleAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleAssociationResult> {
+    pulumi.log.warn("getDataCollectionRuleAssociation is deprecated: azure-native:insights/v20191101preview:DataCollectionRuleAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20191101preview:getDataCollectionRuleAssociation", {
@@ -63,6 +65,7 @@ export interface GetDataCollectionRuleAssociationResult {
 /**
  * Definition of generic ARM proxy resource.
  */
+/** @deprecated azure-native:insights/v20191101preview:DataCollectionRuleAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility. */
 export function getDataCollectionRuleAssociationOutput(args: GetDataCollectionRuleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleAssociationResult> {
     return pulumi.output(args).apply((a: any) => getDataCollectionRuleAssociation(a, opts))
 }

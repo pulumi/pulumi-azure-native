@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
     /// <summary>
     /// Modeling resource details.
     /// </summary>
+    [Obsolete(@"azure-native:recommendationsservice/v20220201:Modeling is being removed in the next major version of this provider. Upgrade to at least azure-native:recommendationsservice/v20220301preview:Modeling to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recommendationsservice/v20220201:Modeling")]
     public partial class Modeling : global::Pulumi.CustomResource
     {

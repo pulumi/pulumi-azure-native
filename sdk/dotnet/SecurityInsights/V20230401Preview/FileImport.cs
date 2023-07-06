@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
     /// <summary>
     /// Represents a file import in Azure Security Insights.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230401preview:FileImport is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:FileImport to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:FileImport")]
     public partial class FileImport : global::Pulumi.CustomResource
     {

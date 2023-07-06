@@ -17,7 +17,7 @@ __all__ = [
     'get_backup_vault_output',
 ]
 
-warnings.warn("""azure-native:dataprotection/v20220101:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:dataprotection/v20220101:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupVault to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetBackupVaultResult:
@@ -153,7 +153,7 @@ def get_backup_vault(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the backup vault is present.
     :param str vault_name: The name of the backup vault.
     """
-    pulumi.log.warn("""get_backup_vault is deprecated: azure-native:dataprotection/v20220101:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_backup_vault is deprecated: azure-native:dataprotection/v20220101:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupVault to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
@@ -183,5 +183,5 @@ def get_backup_vault_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group where the backup vault is present.
     :param str vault_name: The name of the backup vault.
     """
-    pulumi.log.warn("""get_backup_vault is deprecated: azure-native:dataprotection/v20220101:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupVault to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_backup_vault is deprecated: azure-native:dataprotection/v20220101:BackupVault is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupVault to guarantee forwards compatibility.""")
     ...

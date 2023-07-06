@@ -176,7 +176,12 @@ class CommunicationsGatewayArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:voiceservices/v20221201preview:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class CommunicationsGateway(pulumi.CustomResource):
+    warnings.warn("""azure-native:voiceservices/v20221201preview:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -243,6 +248,7 @@ class CommunicationsGateway(pulumi.CustomResource):
                  service_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceRegionPropertiesArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""CommunicationsGateway is deprecated: azure-native:voiceservices/v20221201preview:CommunicationsGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:voiceservices/v20230403:CommunicationsGateway to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

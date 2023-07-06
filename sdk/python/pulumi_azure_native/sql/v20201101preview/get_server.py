@@ -17,6 +17,8 @@ __all__ = [
     'get_server_output',
 ]
 
+warnings.warn("""azure-native:sql/v20201101preview:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:Server to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServerResult:
     """
@@ -261,6 +263,7 @@ def get_server(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_server is deprecated: azure-native:sql/v20201101preview:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:Server to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -302,4 +305,5 @@ def get_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
+    pulumi.log.warn("""get_server is deprecated: azure-native:sql/v20201101preview:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:Server to guarantee forwards compatibility.""")
     ...

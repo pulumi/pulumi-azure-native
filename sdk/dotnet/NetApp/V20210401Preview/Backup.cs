@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401Preview
     /// <summary>
     /// Backup of a Volume
     /// </summary>
-    [Obsolete(@"azure-native:netapp/v20210401preview:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:Backup to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:netapp/v20210401preview:Backup is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Backup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:netapp/v20210401preview:Backup")]
     public partial class Backup : global::Pulumi.CustomResource
     {

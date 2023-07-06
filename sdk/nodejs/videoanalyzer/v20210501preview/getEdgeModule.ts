@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves a specific existing edge module resource in the given Video Analyzer account.
  */
+/** @deprecated azure-native:videoanalyzer/v20210501preview:EdgeModule is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:EdgeModule to guarantee forwards compatibility. */
 export function getEdgeModule(args: GetEdgeModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEdgeModuleResult> {
+    pulumi.log.warn("getEdgeModule is deprecated: azure-native:videoanalyzer/v20210501preview:EdgeModule is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:EdgeModule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20210501preview:getEdgeModule", {
@@ -63,6 +65,7 @@ export interface GetEdgeModuleResult {
 /**
  * Retrieves a specific existing edge module resource in the given Video Analyzer account.
  */
+/** @deprecated azure-native:videoanalyzer/v20210501preview:EdgeModule is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:EdgeModule to guarantee forwards compatibility. */
 export function getEdgeModuleOutput(args: GetEdgeModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEdgeModuleResult> {
     return pulumi.output(args).apply((a: any) => getEdgeModule(a, opts))
 }

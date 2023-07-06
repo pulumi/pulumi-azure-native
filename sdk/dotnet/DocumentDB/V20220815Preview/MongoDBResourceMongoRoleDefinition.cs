@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220815Preview
     /// <summary>
     /// An Azure Cosmos DB Mongo Role Definition.
     /// </summary>
-    [Obsolete(@"azure-native:documentdb/v20220815preview:MongoDBResourceMongoRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:MongoDBResourceMongoRoleDefinition to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:documentdb/v20220815preview:MongoDBResourceMongoRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230301preview:MongoDBResourceMongoRoleDefinition to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20220815preview:MongoDBResourceMongoRoleDefinition")]
     public partial class MongoDBResourceMongoRoleDefinition : global::Pulumi.CustomResource
     {

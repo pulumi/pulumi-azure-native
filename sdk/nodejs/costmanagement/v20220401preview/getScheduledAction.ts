@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the private scheduled action by name.
  */
+/** @deprecated azure-native:costmanagement/v20220401preview:ScheduledAction is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:ScheduledAction to guarantee forwards compatibility. */
 export function getScheduledAction(args: GetScheduledActionArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionResult> {
+    pulumi.log.warn("getScheduledAction is deprecated: azure-native:costmanagement/v20220401preview:ScheduledAction is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:ScheduledAction to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20220401preview:getScheduledAction", {
@@ -85,6 +87,7 @@ export interface GetScheduledActionResult {
 /**
  * Get the private scheduled action by name.
  */
+/** @deprecated azure-native:costmanagement/v20220401preview:ScheduledAction is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:ScheduledAction to guarantee forwards compatibility. */
 export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionResult> {
     return pulumi.output(args).apply((a: any) => getScheduledAction(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20200501
     /// <summary>
     /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20200501:RulesEngine is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210601:RulesEngine to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20200501:RulesEngine")]
     public partial class RulesEngine : global::Pulumi.CustomResource
     {

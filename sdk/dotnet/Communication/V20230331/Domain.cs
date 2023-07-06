@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Communication.V20230331
     /// <summary>
     /// A class representing a Domains resource.
     /// </summary>
+    [Obsolete(@"azure-native:communication/v20230331:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:Domain to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:communication/v20230331:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
     {

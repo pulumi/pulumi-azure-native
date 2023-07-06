@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20180601
     /// <summary>
     /// A private endpoint connection
     /// </summary>
+    [Obsolete(@"azure-native:dbformysql/v20180601:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20180601privatepreview:PrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbformysql/v20180601:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

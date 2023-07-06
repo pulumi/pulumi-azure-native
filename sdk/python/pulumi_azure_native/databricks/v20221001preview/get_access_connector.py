@@ -17,6 +17,8 @@ __all__ = [
     'get_access_connector_output',
 ]
 
+warnings.warn("""azure-native:databricks/v20221001preview:AccessConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230501:AccessConnector to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAccessConnectorResult:
     """
@@ -139,6 +141,7 @@ def get_access_connector(connector_name: Optional[str] = None,
     :param str connector_name: The name of the azure databricks accessConnector.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_access_connector is deprecated: azure-native:databricks/v20221001preview:AccessConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230501:AccessConnector to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['connectorName'] = connector_name
     __args__['resourceGroupName'] = resource_group_name
@@ -167,4 +170,5 @@ def get_access_connector_output(connector_name: Optional[pulumi.Input[str]] = No
     :param str connector_name: The name of the azure databricks accessConnector.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_access_connector is deprecated: azure-native:databricks/v20221001preview:AccessConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230501:AccessConnector to guarantee forwards compatibility.""")
     ...

@@ -16,6 +16,8 @@ __all__ = [
     'get_account_output',
 ]
 
+warnings.warn("""azure-native:visualstudio/v20140401preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:visualstudio/v20171101preview:Account to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAccountResult:
     """
@@ -114,6 +116,7 @@ def get_account(resource_group_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     :param str resource_name: Name of the resource.
     """
+    pulumi.log.warn("""get_account is deprecated: azure-native:visualstudio/v20140401preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:visualstudio/v20171101preview:Account to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -140,4 +143,5 @@ def get_account_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     :param str resource_name: Name of the resource.
     """
+    pulumi.log.warn("""get_account is deprecated: azure-native:visualstudio/v20140401preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:visualstudio/v20171101preview:Account to guarantee forwards compatibility.""")
     ...

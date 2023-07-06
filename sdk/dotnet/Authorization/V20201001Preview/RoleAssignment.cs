@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
     /// <summary>
     /// Role Assignments
     /// </summary>
+    [Obsolete(@"azure-native:authorization/v20201001preview:RoleAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20220401:RoleAssignment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:authorization/v20201001preview:RoleAssignment")]
     public partial class RoleAssignment : global::Pulumi.CustomResource
     {

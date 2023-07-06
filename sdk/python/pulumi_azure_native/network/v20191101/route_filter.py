@@ -117,11 +117,11 @@ class RouteFilterArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:network/v20191101:RouteFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteFilter to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20191101:RouteFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:RouteFilter to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class RouteFilter(pulumi.CustomResource):
-    warnings.warn("""azure-native:network/v20191101:RouteFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteFilter to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:network/v20191101:RouteFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:RouteFilter to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -177,7 +177,7 @@ class RouteFilter(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteFilterRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""RouteFilter is deprecated: azure-native:network/v20191101:RouteFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:RouteFilter to guarantee forwards compatibility.""")
+        pulumi.log.warn("""RouteFilter is deprecated: azure-native:network/v20191101:RouteFilter is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:RouteFilter to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

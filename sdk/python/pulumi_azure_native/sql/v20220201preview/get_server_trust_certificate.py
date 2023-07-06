@@ -16,7 +16,7 @@ __all__ = [
     'get_server_trust_certificate_output',
 ]
 
-warnings.warn("""azure-native:sql/v20220201preview:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerTrustCertificate to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:sql/v20220201preview:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustCertificate to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetServerTrustCertificateResult:
@@ -118,7 +118,7 @@ def get_server_trust_certificate(certificate_name: Optional[str] = None,
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
-    pulumi.log.warn("""get_server_trust_certificate is deprecated: azure-native:sql/v20220201preview:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerTrustCertificate to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_server_trust_certificate is deprecated: azure-native:sql/v20220201preview:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustCertificate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['certificateName'] = certificate_name
     __args__['managedInstanceName'] = managed_instance_name
@@ -148,5 +148,5 @@ def get_server_trust_certificate_output(certificate_name: Optional[pulumi.Input[
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
-    pulumi.log.warn("""get_server_trust_certificate is deprecated: azure-native:sql/v20220201preview:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerTrustCertificate to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_server_trust_certificate is deprecated: azure-native:sql/v20220201preview:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustCertificate to guarantee forwards compatibility.""")
     ...

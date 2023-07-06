@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the management lock of a resource or any level below resource.
  */
+/** @deprecated azure-native:authorization/v20170401:ManagementLockAtResourceLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtResourceLevel to guarantee forwards compatibility. */
 export function getManagementLockAtResourceLevel(args: GetManagementLockAtResourceLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceLevelResult> {
+    pulumi.log.warn("getManagementLockAtResourceLevel is deprecated: azure-native:authorization/v20170401:ManagementLockAtResourceLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtResourceLevel to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20170401:getManagementLockAtResourceLevel", {
@@ -82,6 +84,7 @@ export interface GetManagementLockAtResourceLevelResult {
 /**
  * Get the management lock of a resource or any level below resource.
  */
+/** @deprecated azure-native:authorization/v20170401:ManagementLockAtResourceLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtResourceLevel to guarantee forwards compatibility. */
 export function getManagementLockAtResourceLevelOutput(args: GetManagementLockAtResourceLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtResourceLevelResult> {
     return pulumi.output(args).apply((a: any) => getManagementLockAtResourceLevel(a, opts))
 }

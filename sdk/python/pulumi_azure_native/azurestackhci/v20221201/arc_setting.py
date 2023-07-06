@@ -163,11 +163,11 @@ class ArcSettingArgs:
         pulumi.set(self, "connectivity_properties", value)
 
 
-warnings.warn("""azure-native:azurestackhci/v20221201:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:ArcSetting to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:azurestackhci/v20221201:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:ArcSetting to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ArcSetting(pulumi.CustomResource):
-    warnings.warn("""azure-native:azurestackhci/v20221201:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:ArcSetting to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:azurestackhci/v20221201:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:ArcSetting to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -232,7 +232,7 @@ class ArcSetting(pulumi.CustomResource):
                  connectivity_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArcConnectivityPropertiesArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ArcSetting is deprecated: azure-native:azurestackhci/v20221201:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230201:ArcSetting to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ArcSetting is deprecated: azure-native:azurestackhci/v20221201:ArcSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:ArcSetting to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

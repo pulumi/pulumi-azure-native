@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
     /// <summary>
     /// A long term retention policy.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedInstanceLongTermRetentionPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy")]
     public partial class ManagedInstanceLongTermRetentionPolicy : global::Pulumi.CustomResource
     {

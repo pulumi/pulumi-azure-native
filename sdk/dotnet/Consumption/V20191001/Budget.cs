@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Consumption.V20191001
     /// <summary>
     /// A budget resource.
     /// </summary>
+    [Obsolete(@"azure-native:consumption/v20191001:Budget is being removed in the next major version of this provider. Upgrade to at least azure-native:consumption/v20230501:Budget to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:consumption/v20191001:Budget")]
     public partial class Budget : global::Pulumi.CustomResource
     {

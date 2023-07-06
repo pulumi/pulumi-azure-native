@@ -17,6 +17,8 @@ __all__ = [
     'get_web_pub_sub_output',
 ]
 
+warnings.warn("""azure-native:webpubsub/v20230201:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSub to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWebPubSubResult:
     """
@@ -337,6 +339,7 @@ def get_web_pub_sub(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the resource.
     """
+    pulumi.log.warn("""get_web_pub_sub is deprecated: azure-native:webpubsub/v20230201:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSub to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -381,4 +384,5 @@ def get_web_pub_sub_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the resource.
     """
+    pulumi.log.warn("""get_web_pub_sub is deprecated: azure-native:webpubsub/v20230201:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSub to guarantee forwards compatibility.""")
     ...

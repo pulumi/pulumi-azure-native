@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an API Management service resource description.
  */
+/** @deprecated azure-native:apimanagement/v20201201:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiManagementService to guarantee forwards compatibility. */
 export function getApiManagementService(args: GetApiManagementServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceResult> {
+    pulumi.log.warn("getApiManagementService is deprecated: azure-native:apimanagement/v20201201:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiManagementService to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20201201:getApiManagementService", {
@@ -170,6 +172,7 @@ export interface GetApiManagementServiceResult {
 /**
  * Gets an API Management service resource description.
  */
+/** @deprecated azure-native:apimanagement/v20201201:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiManagementService to guarantee forwards compatibility. */
 export function getApiManagementServiceOutput(args: GetApiManagementServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceResult> {
     return pulumi.output(args).apply((a: any) => getApiManagementService(a, opts))
 }

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an instance pool.
  */
-/** @deprecated azure-native:sql/v20200202preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstancePool to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20200202preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:InstancePool to guarantee forwards compatibility. */
 export function getInstancePool(args: GetInstancePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancePoolResult> {
-    pulumi.log.warn("getInstancePool is deprecated: azure-native:sql/v20200202preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstancePool to guarantee forwards compatibility.")
+    pulumi.log.warn("getInstancePool is deprecated: azure-native:sql/v20200202preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:InstancePool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20200202preview:getInstancePool", {
@@ -76,7 +76,7 @@ export interface GetInstancePoolResult {
 /**
  * Gets an instance pool.
  */
-/** @deprecated azure-native:sql/v20200202preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:InstancePool to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20200202preview:InstancePool is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:InstancePool to guarantee forwards compatibility. */
 export function getInstancePoolOutput(args: GetInstancePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancePoolResult> {
     return pulumi.output(args).apply((a: any) => getInstancePool(a, opts))
 }

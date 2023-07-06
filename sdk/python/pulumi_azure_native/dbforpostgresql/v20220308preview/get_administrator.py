@@ -17,7 +17,7 @@ __all__ = [
     'get_administrator_output',
 ]
 
-warnings.warn("""azure-native:dbforpostgresql/v20220308preview:Administrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221201:Administrator to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:dbforpostgresql/v20220308preview:Administrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Administrator to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAdministratorResult:
@@ -143,7 +143,7 @@ def get_administrator(object_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("""get_administrator is deprecated: azure-native:dbforpostgresql/v20220308preview:Administrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221201:Administrator to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_administrator is deprecated: azure-native:dbforpostgresql/v20220308preview:Administrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Administrator to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['objectId'] = object_id
     __args__['resourceGroupName'] = resource_group_name
@@ -175,5 +175,5 @@ def get_administrator_output(object_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("""get_administrator is deprecated: azure-native:dbforpostgresql/v20220308preview:Administrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20221201:Administrator to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_administrator is deprecated: azure-native:dbforpostgresql/v20220308preview:Administrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Administrator to guarantee forwards compatibility.""")
     ...

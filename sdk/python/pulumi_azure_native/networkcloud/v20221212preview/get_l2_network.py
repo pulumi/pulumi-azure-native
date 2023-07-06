@@ -17,6 +17,8 @@ __all__ = [
     'get_l2_network_output',
 ]
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:L2Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L2Network to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetL2NetworkResult:
     def __init__(__self__, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, hybrid_aks_plugin_type=None, id=None, interface_name=None, l2_isolation_domain_id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None):
@@ -232,6 +234,7 @@ def get_l2_network(l2_network_name: Optional[str] = None,
     :param str l2_network_name: The name of the L2 network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_l2_network is deprecated: azure-native:networkcloud/v20221212preview:L2Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L2Network to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['l2NetworkName'] = l2_network_name
     __args__['resourceGroupName'] = resource_group_name
@@ -268,4 +271,5 @@ def get_l2_network_output(l2_network_name: Optional[pulumi.Input[str]] = None,
     :param str l2_network_name: The name of the L2 network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_l2_network is deprecated: azure-native:networkcloud/v20221212preview:L2Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L2Network to guarantee forwards compatibility.""")
     ...

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the properties of an existing Azure Cosmos DB SQL Role Definition with the given Id.
  */
-/** @deprecated azure-native:documentdb/v20220815preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:SqlResourceSqlRoleDefinition to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20220815preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230415:SqlResourceSqlRoleDefinition to guarantee forwards compatibility. */
 export function getSqlResourceSqlRoleDefinition(args: GetSqlResourceSqlRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlRoleDefinitionResult> {
-    pulumi.log.warn("getSqlResourceSqlRoleDefinition is deprecated: azure-native:documentdb/v20220815preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:SqlResourceSqlRoleDefinition to guarantee forwards compatibility.")
+    pulumi.log.warn("getSqlResourceSqlRoleDefinition is deprecated: azure-native:documentdb/v20220815preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230415:SqlResourceSqlRoleDefinition to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20220815preview:getSqlResourceSqlRoleDefinition", {
@@ -69,7 +69,7 @@ export interface GetSqlResourceSqlRoleDefinitionResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB SQL Role Definition with the given Id.
  */
-/** @deprecated azure-native:documentdb/v20220815preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:SqlResourceSqlRoleDefinition to guarantee forwards compatibility. */
+/** @deprecated azure-native:documentdb/v20220815preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230415:SqlResourceSqlRoleDefinition to guarantee forwards compatibility. */
 export function getSqlResourceSqlRoleDefinitionOutput(args: GetSqlResourceSqlRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlRoleDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlRoleDefinition(a, opts))
 }

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20220215Preview
     /// <summary>
     /// Properties for the database account.
     /// </summary>
-    [Obsolete(@"azure-native:documentdb/v20220215preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:Service to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:documentdb/v20220215preview:Service is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230415:Service to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20220215preview:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {

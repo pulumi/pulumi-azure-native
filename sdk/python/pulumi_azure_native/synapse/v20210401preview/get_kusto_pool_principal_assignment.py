@@ -17,6 +17,8 @@ __all__ = [
     'get_kusto_pool_principal_assignment_output',
 ]
 
+warnings.warn("""azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetKustoPoolPrincipalAssignmentResult:
     """
@@ -179,6 +181,7 @@ def get_kusto_pool_principal_assignment(kusto_pool_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("""get_kusto_pool_principal_assignment is deprecated: azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['kustoPoolName'] = kusto_pool_name
     __args__['principalAssignmentName'] = principal_assignment_name
@@ -216,4 +219,5 @@ def get_kusto_pool_principal_assignment_output(kusto_pool_name: Optional[pulumi.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("""get_kusto_pool_principal_assignment is deprecated: azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment to guarantee forwards compatibility.""")
     ...

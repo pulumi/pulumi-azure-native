@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20201201
     /// <summary>
     /// String dictionary resource.
     /// </summary>
+    [Obsolete(@"azure-native:web/v20201201:WebAppMetadata is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:WebAppMetadata to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:web/v20201201:WebAppMetadata")]
     public partial class WebAppMetadata : global::Pulumi.CustomResource
     {

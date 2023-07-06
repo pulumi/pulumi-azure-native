@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Databricks.V20221001Preview
     /// <summary>
     /// Information about azure databricks accessConnector.
     /// </summary>
+    [Obsolete(@"azure-native:databricks/v20221001preview:AccessConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:databricks/v20230501:AccessConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databricks/v20221001preview:AccessConnector")]
     public partial class AccessConnector : global::Pulumi.CustomResource
     {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the Spring Cloud Gateway custom domain.
  */
+/** @deprecated azure-native:appplatform/v20230101preview:GatewayCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:GatewayCustomDomain to guarantee forwards compatibility. */
 export function getGatewayCustomDomain(args: GetGatewayCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayCustomDomainResult> {
+    pulumi.log.warn("getGatewayCustomDomain is deprecated: azure-native:appplatform/v20230101preview:GatewayCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:GatewayCustomDomain to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20230101preview:getGatewayCustomDomain", {
@@ -68,6 +70,7 @@ export interface GetGatewayCustomDomainResult {
 /**
  * Get the Spring Cloud Gateway custom domain.
  */
+/** @deprecated azure-native:appplatform/v20230101preview:GatewayCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:GatewayCustomDomain to guarantee forwards compatibility. */
 export function getGatewayCustomDomainOutput(args: GetGatewayCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getGatewayCustomDomain(a, opts))
 }

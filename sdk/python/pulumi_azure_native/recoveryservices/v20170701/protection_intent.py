@@ -148,12 +148,12 @@ class ProtectionIntentArgs:
 
 
 warnings.warn("""Version 2017-07-01 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ProtectionIntent to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ProtectionIntent(pulumi.CustomResource):
     warnings.warn("""Version 2017-07-01 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ProtectionIntent to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -216,7 +216,7 @@ azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""ProtectionIntent is deprecated: Version 2017-07-01 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionIntent to guarantee forwards compatibility.""")
+azure-native:recoveryservices/v20170701:ProtectionIntent is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ProtectionIntent to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

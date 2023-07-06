@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AgFoodPlatform.V20200512Preview
 {
+    [Obsolete(@"azure-native:agfoodplatform/v20200512preview:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:agfoodplatform/v20210901preview:Extension to guarantee forwards compatibility.")]
     public static class GetExtension
     {
         /// <summary>

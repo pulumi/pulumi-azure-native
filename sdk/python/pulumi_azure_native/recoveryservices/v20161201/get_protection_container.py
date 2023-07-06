@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2016-12-01 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20161201:ProtectionContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:recoveryservices/v20161201:ProtectionContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ProtectionContainer to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetProtectionContainerResult:
@@ -135,7 +135,7 @@ def get_protection_container(container_name: Optional[str] = None,
     :param str vault_name: The name of the recovery services vault.
     """
     pulumi.log.warn("""get_protection_container is deprecated: Version 2016-12-01 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20161201:ProtectionContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility.""")
+azure-native:recoveryservices/v20161201:ProtectionContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ProtectionContainer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['containerName'] = container_name
     __args__['fabricName'] = fabric_name
@@ -170,5 +170,5 @@ def get_protection_container_output(container_name: Optional[pulumi.Input[str]] 
     :param str vault_name: The name of the recovery services vault.
     """
     pulumi.log.warn("""get_protection_container is deprecated: Version 2016-12-01 will be removed in v2 of the provider.
-azure-native:recoveryservices/v20161201:ProtectionContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230201:ProtectionContainer to guarantee forwards compatibility.""")
+azure-native:recoveryservices/v20161201:ProtectionContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:recoveryservices/v20230401:ProtectionContainer to guarantee forwards compatibility.""")
     ...

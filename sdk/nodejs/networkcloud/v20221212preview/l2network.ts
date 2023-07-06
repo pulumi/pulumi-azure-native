@@ -7,6 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * @deprecated azure-native:networkcloud/v20221212preview:L2Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L2Network to guarantee forwards compatibility.
+ */
 export class L2Network extends pulumi.CustomResource {
     /**
      * Get an existing L2Network resource's state with the given name, ID, and optional extra
@@ -17,6 +20,7 @@ export class L2Network extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): L2Network {
+        pulumi.log.warn("L2Network is deprecated: azure-native:networkcloud/v20221212preview:L2Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L2Network to guarantee forwards compatibility.")
         return new L2Network(name, undefined as any, { ...opts, id: id });
     }
 
@@ -102,7 +106,9 @@ export class L2Network extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:networkcloud/v20221212preview:L2Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L2Network to guarantee forwards compatibility. */
     constructor(name: string, args: L2NetworkArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("L2Network is deprecated: azure-native:networkcloud/v20221212preview:L2Network is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:L2Network to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

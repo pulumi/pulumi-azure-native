@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
     /// <summary>
     /// Account resource details.
     /// </summary>
+    [Obsolete(@"azure-native:recommendationsservice/v20220201:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:recommendationsservice/v20220301preview:Account to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:recommendationsservice/v20220201:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20220701
 {
-    [Obsolete(@"azure-native:network/v20220701:P2sVpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:P2sVpnGateway to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20220701:P2sVpnGateway is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:P2sVpnGateway to guarantee forwards compatibility.")]
     public static class GetP2sVpnGateway
     {
         /// <summary>

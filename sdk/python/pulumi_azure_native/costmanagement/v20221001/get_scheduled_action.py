@@ -17,6 +17,8 @@ __all__ = [
     'get_scheduled_action_output',
 ]
 
+warnings.warn("""azure-native:costmanagement/v20221001:ScheduledAction is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:ScheduledAction to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetScheduledActionResult:
     """
@@ -209,6 +211,7 @@ def get_scheduled_action(name: Optional[str] = None,
 
     :param str name: Scheduled action name.
     """
+    pulumi.log.warn("""get_scheduled_action is deprecated: azure-native:costmanagement/v20221001:ScheduledAction is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:ScheduledAction to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -240,4 +243,5 @@ def get_scheduled_action_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Scheduled action name.
     """
+    pulumi.log.warn("""get_scheduled_action is deprecated: azure-native:costmanagement/v20221001:ScheduledAction is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:ScheduledAction to guarantee forwards compatibility.""")
     ...

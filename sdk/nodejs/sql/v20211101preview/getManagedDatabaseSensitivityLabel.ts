@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the sensitivity label of a given column
  */
-/** @deprecated azure-native:sql/v20211101preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility. */
 export function getManagedDatabaseSensitivityLabel(args: GetManagedDatabaseSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseSensitivityLabelResult> {
-    pulumi.log.warn("getManagedDatabaseSensitivityLabel is deprecated: azure-native:sql/v20211101preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.")
+    pulumi.log.warn("getManagedDatabaseSensitivityLabel is deprecated: azure-native:sql/v20211101preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101preview:getManagedDatabaseSensitivityLabel", {
@@ -111,7 +111,7 @@ export interface GetManagedDatabaseSensitivityLabelResult {
 /**
  * Gets the sensitivity label of a given column
  */
-/** @deprecated azure-native:sql/v20211101preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20211101preview:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility. */
 export function getManagedDatabaseSensitivityLabelOutput(args: GetManagedDatabaseSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseSensitivityLabelResult> {
     return pulumi.output(args).apply((a: any) => getManagedDatabaseSensitivityLabel(a, opts))
 }

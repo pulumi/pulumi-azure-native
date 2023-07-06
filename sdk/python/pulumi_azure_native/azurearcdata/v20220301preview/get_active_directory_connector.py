@@ -17,6 +17,8 @@ __all__ = [
     'get_active_directory_connector_output',
 ]
 
+warnings.warn("""azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetActiveDirectoryConnectorResult:
     """
@@ -105,6 +107,7 @@ def get_active_directory_connector(active_directory_connector_name: Optional[str
     :param str data_controller_name: The name of the data controller
     :param str resource_group_name: The name of the Azure resource group
     """
+    pulumi.log.warn("""get_active_directory_connector is deprecated: azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['activeDirectoryConnectorName'] = active_directory_connector_name
     __args__['dataControllerName'] = data_controller_name
@@ -133,4 +136,5 @@ def get_active_directory_connector_output(active_directory_connector_name: Optio
     :param str data_controller_name: The name of the data controller
     :param str resource_group_name: The name of the Azure resource group
     """
+    pulumi.log.warn("""get_active_directory_connector is deprecated: azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector to guarantee forwards compatibility.""")
     ...

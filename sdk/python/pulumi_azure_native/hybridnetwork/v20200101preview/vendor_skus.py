@@ -149,7 +149,12 @@ class VendorSkusArgs:
         pulumi.set(self, "sku_type", value)
 
 
+warnings.warn("""azure-native:hybridnetwork/v20200101preview:VendorSkus is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkus to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class VendorSkus(pulumi.CustomResource):
+    warnings.warn("""azure-native:hybridnetwork/v20200101preview:VendorSkus is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkus to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -210,6 +215,7 @@ class VendorSkus(pulumi.CustomResource):
                  sku_type: Optional[pulumi.Input[Union[str, 'SkuType']]] = None,
                  vendor_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""VendorSkus is deprecated: azure-native:hybridnetwork/v20200101preview:VendorSkus is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:VendorSkus to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

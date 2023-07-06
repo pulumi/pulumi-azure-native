@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
     /// <summary>
     /// Definition of the configuration type.
     /// </summary>
+    [Obsolete(@"azure-native:automation/v20190601:DscConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:DscConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automation/v20190601:DscConfiguration")]
     public partial class DscConfiguration : global::Pulumi.CustomResource
     {

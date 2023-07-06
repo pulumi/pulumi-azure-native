@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get an alert processing rule by name.
  */
+/** @deprecated azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20230501preview:AlertProcessingRuleByName to guarantee forwards compatibility. */
 export function getAlertProcessingRuleByName(args: GetAlertProcessingRuleByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertProcessingRuleByNameResult> {
+    pulumi.log.warn("getAlertProcessingRuleByName is deprecated: azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20230501preview:AlertProcessingRuleByName to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20210808preview:getAlertProcessingRuleByName", {
@@ -66,6 +68,7 @@ export interface GetAlertProcessingRuleByNameResult {
 /**
  * Get an alert processing rule by name.
  */
+/** @deprecated azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName is being removed in the next major version of this provider. Upgrade to at least azure-native:alertsmanagement/v20230501preview:AlertProcessingRuleByName to guarantee forwards compatibility. */
 export function getAlertProcessingRuleByNameOutput(args: GetAlertProcessingRuleByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertProcessingRuleByNameResult> {
     return pulumi.output(args).apply((a: any) => getAlertProcessingRuleByName(a, opts))
 }

@@ -17,7 +17,7 @@ __all__ = [
     'get_registry_code_version_output',
 ]
 
-warnings.warn("""azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:RegistryCodeVersion to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRegistryCodeVersionResult:
@@ -109,7 +109,7 @@ def get_registry_code_version(code_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str version: Version identifier.
     """
-    pulumi.log.warn("""get_registry_code_version is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_registry_code_version is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:RegistryCodeVersion to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['codeName'] = code_name
     __args__['registryName'] = registry_name
@@ -141,5 +141,5 @@ def get_registry_code_version_output(code_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str version: Version identifier.
     """
-    pulumi.log.warn("""get_registry_code_version is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_registry_code_version is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:RegistryCodeVersion to guarantee forwards compatibility.""")
     ...

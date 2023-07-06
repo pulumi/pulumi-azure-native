@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
     /// <summary>
     /// Partner configuration information
     /// </summary>
+    [Obsolete(@"azure-native:eventgrid/v20220615:PartnerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20220615:PartnerConfiguration")]
     public partial class PartnerConfiguration : global::Pulumi.CustomResource
     {

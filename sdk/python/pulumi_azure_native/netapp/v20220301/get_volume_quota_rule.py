@@ -17,7 +17,7 @@ __all__ = [
     'get_volume_quota_rule_output',
 ]
 
-warnings.warn("""azure-native:netapp/v20220301:VolumeQuotaRule is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:VolumeQuotaRule to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:netapp/v20220301:VolumeQuotaRule is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:VolumeQuotaRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVolumeQuotaRuleResult:
@@ -171,7 +171,7 @@ def get_volume_quota_rule(account_name: Optional[str] = None,
     :param str volume_name: The name of the volume
     :param str volume_quota_rule_name: The name of volume quota rule
     """
-    pulumi.log.warn("""get_volume_quota_rule is deprecated: azure-native:netapp/v20220301:VolumeQuotaRule is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:VolumeQuotaRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_volume_quota_rule is deprecated: azure-native:netapp/v20220301:VolumeQuotaRule is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:VolumeQuotaRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['poolName'] = pool_name
@@ -211,5 +211,5 @@ def get_volume_quota_rule_output(account_name: Optional[pulumi.Input[str]] = Non
     :param str volume_name: The name of the volume
     :param str volume_quota_rule_name: The name of volume quota rule
     """
-    pulumi.log.warn("""get_volume_quota_rule is deprecated: azure-native:netapp/v20220301:VolumeQuotaRule is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20220901:VolumeQuotaRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_volume_quota_rule is deprecated: azure-native:netapp/v20220301:VolumeQuotaRule is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:VolumeQuotaRule to guarantee forwards compatibility.""")
     ...

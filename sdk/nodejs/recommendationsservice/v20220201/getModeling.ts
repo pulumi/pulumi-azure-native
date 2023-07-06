@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns Modeling resources for a given name.
  */
+/** @deprecated azure-native:recommendationsservice/v20220201:Modeling is being removed in the next major version of this provider. Upgrade to at least azure-native:recommendationsservice/v20220301preview:Modeling to guarantee forwards compatibility. */
 export function getModeling(args: GetModelingArgs, opts?: pulumi.InvokeOptions): Promise<GetModelingResult> {
+    pulumi.log.warn("getModeling is deprecated: azure-native:recommendationsservice/v20220201:Modeling is being removed in the next major version of this provider. Upgrade to at least azure-native:recommendationsservice/v20220301preview:Modeling to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recommendationsservice/v20220201:getModeling", {
@@ -71,6 +73,7 @@ export interface GetModelingResult {
 /**
  * Returns Modeling resources for a given name.
  */
+/** @deprecated azure-native:recommendationsservice/v20220201:Modeling is being removed in the next major version of this provider. Upgrade to at least azure-native:recommendationsservice/v20220301preview:Modeling to guarantee forwards compatibility. */
 export function getModelingOutput(args: GetModelingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelingResult> {
     return pulumi.output(args).apply((a: any) => getModeling(a, opts))
 }

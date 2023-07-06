@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20210201Preview
 {
+    [Obsolete(@"azure-native:autonomousdevelopmentplatform/v20210201preview:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:autonomousdevelopmentplatform/v20211101preview:Account to guarantee forwards compatibility.")]
     public static class GetAccount
     {
         /// <summary>

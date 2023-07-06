@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20210301
     /// <summary>
     /// Specifies information about the Dedicated host.
     /// </summary>
-    [Obsolete(@"azure-native:compute/v20210301:DedicatedHost is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20221101:DedicatedHost to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:compute/v20210301:DedicatedHost is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:DedicatedHost to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20210301:DedicatedHost")]
     public partial class DedicatedHost : global::Pulumi.CustomResource
     {

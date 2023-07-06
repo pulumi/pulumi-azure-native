@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
     /// <summary>
     /// Api Operation details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20190101:ApiOperation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiOperation to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20190101:ApiOperation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiOperation to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20190101:ApiOperation")]
     public partial class ApiOperation : global::Pulumi.CustomResource
     {

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
 {
-    [Obsolete(@"azure-native:securityinsights/v20220501preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:WatchlistItem to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20220501preview:WatchlistItem is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WatchlistItem to guarantee forwards compatibility.")]
     public static class GetWatchlistItem
     {
         /// <summary>

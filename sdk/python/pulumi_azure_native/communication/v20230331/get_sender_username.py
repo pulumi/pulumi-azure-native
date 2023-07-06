@@ -17,6 +17,8 @@ __all__ = [
     'get_sender_username_output',
 ]
 
+warnings.warn("""azure-native:communication/v20230331:SenderUsername is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:SenderUsername to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSenderUsernameResult:
     """
@@ -143,6 +145,7 @@ def get_sender_username(domain_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sender_username: The valid sender Username.
     """
+    pulumi.log.warn("""get_sender_username is deprecated: azure-native:communication/v20230331:SenderUsername is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:SenderUsername to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['emailServiceName'] = email_service_name
@@ -177,4 +180,5 @@ def get_sender_username_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sender_username: The valid sender Username.
     """
+    pulumi.log.warn("""get_sender_username is deprecated: azure-native:communication/v20230331:SenderUsername is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:SenderUsername to guarantee forwards compatibility.""")
     ...

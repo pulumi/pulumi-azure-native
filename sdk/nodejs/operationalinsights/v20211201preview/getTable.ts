@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Log Analytics workspace table.
  */
+/** @deprecated azure-native:operationalinsights/v20211201preview:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20221001:Table to guarantee forwards compatibility. */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
+    pulumi.log.warn("getTable is deprecated: azure-native:operationalinsights/v20211201preview:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20221001:Table to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20211201preview:getTable", {
@@ -99,6 +101,7 @@ export interface GetTableResult {
 /**
  * Gets a Log Analytics workspace table.
  */
+/** @deprecated azure-native:operationalinsights/v20211201preview:Table is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20221001:Table to guarantee forwards compatibility. */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
     return pulumi.output(args).apply((a: any) => getTable(a, opts))
 }

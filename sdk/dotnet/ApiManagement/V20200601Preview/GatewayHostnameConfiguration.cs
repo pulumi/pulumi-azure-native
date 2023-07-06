@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
     /// <summary>
     /// Gateway hostname configuration details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:GatewayHostnameConfiguration to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayHostnameConfiguration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration")]
     public partial class GatewayHostnameConfiguration : global::Pulumi.CustomResource
     {

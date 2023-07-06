@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The Scope Connections resource
  *
- * @deprecated azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ScopeConnection to guarantee forwards compatibility.
+ * @deprecated azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ScopeConnection to guarantee forwards compatibility.
  */
 export class ScopeConnection extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class ScopeConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ScopeConnection {
-        pulumi.log.warn("ScopeConnection is deprecated: azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ScopeConnection to guarantee forwards compatibility.")
+        pulumi.log.warn("ScopeConnection is deprecated: azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ScopeConnection to guarantee forwards compatibility.")
         return new ScopeConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,9 +76,9 @@ export class ScopeConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ScopeConnection to guarantee forwards compatibility. */
+    /** @deprecated azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ScopeConnection to guarantee forwards compatibility. */
     constructor(name: string, args: ScopeConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ScopeConnection is deprecated: azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ScopeConnection to guarantee forwards compatibility.")
+        pulumi.log.warn("ScopeConnection is deprecated: azure-native:network/v20220101:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ScopeConnection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

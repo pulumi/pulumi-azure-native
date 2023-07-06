@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
     /// <summary>
     /// Represents Threat Intelligence alert rule.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ThreatIntelligenceAlertRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:ThreatIntelligenceAlertRule")]
     public partial class ThreatIntelligenceAlertRule : global::Pulumi.CustomResource
     {

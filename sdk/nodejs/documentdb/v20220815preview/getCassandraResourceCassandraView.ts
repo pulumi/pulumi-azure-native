@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the Cassandra view under an existing Azure Cosmos DB database account.
  */
+/** @deprecated azure-native:documentdb/v20220815preview:CassandraResourceCassandraView is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:CassandraResourceCassandraView to guarantee forwards compatibility. */
 export function getCassandraResourceCassandraView(args: GetCassandraResourceCassandraViewArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraViewResult> {
+    pulumi.log.warn("getCassandraResourceCassandraView is deprecated: azure-native:documentdb/v20220815preview:CassandraResourceCassandraView is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:CassandraResourceCassandraView to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20220815preview:getCassandraResourceCassandraView", {
@@ -74,6 +76,7 @@ export interface GetCassandraResourceCassandraViewResult {
 /**
  * Gets the Cassandra view under an existing Azure Cosmos DB database account.
  */
+/** @deprecated azure-native:documentdb/v20220815preview:CassandraResourceCassandraView is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:CassandraResourceCassandraView to guarantee forwards compatibility. */
 export function getCassandraResourceCassandraViewOutput(args: GetCassandraResourceCassandraViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraViewResult> {
     return pulumi.output(args).apply((a: any) => getCassandraResourceCassandraView(a, opts))
 }

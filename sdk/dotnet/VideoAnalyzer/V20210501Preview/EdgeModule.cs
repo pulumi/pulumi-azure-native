@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
     /// <summary>
     /// The representation of an edge module.
     /// </summary>
+    [Obsolete(@"azure-native:videoanalyzer/v20210501preview:EdgeModule is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:EdgeModule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:videoanalyzer/v20210501preview:EdgeModule")]
     public partial class EdgeModule : global::Pulumi.CustomResource
     {

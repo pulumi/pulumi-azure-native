@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Dapr Component.
  */
+/** @deprecated azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent to guarantee forwards compatibility. */
 export function getConnectedEnvironmentsDaprComponent(args: GetConnectedEnvironmentsDaprComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentsDaprComponentResult> {
+    pulumi.log.warn("getConnectedEnvironmentsDaprComponent is deprecated: azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20221001:getConnectedEnvironmentsDaprComponent", {
@@ -91,6 +93,7 @@ export interface GetConnectedEnvironmentsDaprComponentResult {
 /**
  * Dapr Component.
  */
+/** @deprecated azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent to guarantee forwards compatibility. */
 export function getConnectedEnvironmentsDaprComponentOutput(args: GetConnectedEnvironmentsDaprComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentsDaprComponentResult> {
     return pulumi.output(args).apply((a: any) => getConnectedEnvironmentsDaprComponent(a, opts))
 }

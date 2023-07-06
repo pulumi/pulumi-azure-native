@@ -69,7 +69,12 @@ class DefaultRolloutArgs:
         pulumi.set(self, "rollout_name", value)
 
 
+warnings.warn("""azure-native:providerhub/v20201120:DefaultRollout is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:DefaultRollout to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class DefaultRollout(pulumi.CustomResource):
+    warnings.warn("""azure-native:providerhub/v20201120:DefaultRollout is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:DefaultRollout to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -115,6 +120,7 @@ class DefaultRollout(pulumi.CustomResource):
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  rollout_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""DefaultRollout is deprecated: azure-native:providerhub/v20201120:DefaultRollout is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:DefaultRollout to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

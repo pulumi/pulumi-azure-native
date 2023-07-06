@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Insights.V20230301Preview
     /// <summary>
     /// A tenant action group resource.
     /// </summary>
+    [Obsolete(@"azure-native:insights/v20230301preview:TenantActionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20230501preview:TenantActionGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:insights/v20230301preview:TenantActionGroup")]
     public partial class TenantActionGroup : global::Pulumi.CustomResource
     {

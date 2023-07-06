@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 warnings.warn("""Version 2019-12-12 will be removed in v2 of the provider.
-azure-native:documentdb/v20191212:SqlResourceSqlTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlTrigger to guarantee forwards compatibility.""", DeprecationWarning)
+azure-native:documentdb/v20191212:SqlResourceSqlTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:SqlResourceSqlTrigger to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSqlResourceSqlTriggerResult:
@@ -122,7 +122,7 @@ def get_sql_resource_sql_trigger(account_name: Optional[str] = None,
     :param str trigger_name: Cosmos DB trigger name.
     """
     pulumi.log.warn("""get_sql_resource_sql_trigger is deprecated: Version 2019-12-12 will be removed in v2 of the provider.
-azure-native:documentdb/v20191212:SqlResourceSqlTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlTrigger to guarantee forwards compatibility.""")
+azure-native:documentdb/v20191212:SqlResourceSqlTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:SqlResourceSqlTrigger to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name
@@ -159,5 +159,5 @@ def get_sql_resource_sql_trigger_output(account_name: Optional[pulumi.Input[str]
     :param str trigger_name: Cosmos DB trigger name.
     """
     pulumi.log.warn("""get_sql_resource_sql_trigger is deprecated: Version 2019-12-12 will be removed in v2 of the provider.
-azure-native:documentdb/v20191212:SqlResourceSqlTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlTrigger to guarantee forwards compatibility.""")
+azure-native:documentdb/v20191212:SqlResourceSqlTrigger is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:SqlResourceSqlTrigger to guarantee forwards compatibility.""")
     ...

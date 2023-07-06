@@ -435,11 +435,11 @@ class VirtualNetworkGatewayConnectionArgs:
         pulumi.set(self, "virtual_network_gateway_connection_name", value)
 
 
-warnings.warn("""azure-native:network/v20220501:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetworkGatewayConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20220501:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetworkGatewayConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class VirtualNetworkGatewayConnection(pulumi.CustomResource):
-    warnings.warn("""azure-native:network/v20220501:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetworkGatewayConnection to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:network/v20220501:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetworkGatewayConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -555,7 +555,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  virtual_network_gateway2: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
                  virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualNetworkGatewayConnection is deprecated: azure-native:network/v20220501:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetworkGatewayConnection to guarantee forwards compatibility.""")
+        pulumi.log.warn("""VirtualNetworkGatewayConnection is deprecated: azure-native:network/v20220501:VirtualNetworkGatewayConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetworkGatewayConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

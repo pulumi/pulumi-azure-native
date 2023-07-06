@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210115
     /// <summary>
     /// An Azure Cosmos DB container.
     /// </summary>
-    [Obsolete(@"azure-native:documentdb/v20210115:SqlResourceSqlContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:SqlResourceSqlContainer to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:documentdb/v20210115:SqlResourceSqlContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:SqlResourceSqlContainer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20210115:SqlResourceSqlContainer")]
     public partial class SqlResourceSqlContainer : global::Pulumi.CustomResource
     {

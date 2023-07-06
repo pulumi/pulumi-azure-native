@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20201101
     /// <summary>
     /// Information about packet capture session.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20201101:PacketCapture is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:PacketCapture to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20201101:PacketCapture")]
     public partial class PacketCapture : global::Pulumi.CustomResource
     {

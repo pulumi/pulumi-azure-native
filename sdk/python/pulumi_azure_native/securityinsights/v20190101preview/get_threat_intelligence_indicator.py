@@ -16,6 +16,8 @@ __all__ = [
     'get_threat_intelligence_indicator_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetThreatIntelligenceIndicatorResult:
     """
@@ -106,6 +108,7 @@ def get_threat_intelligence_indicator(name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_threat_intelligence_indicator is deprecated: azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
@@ -137,4 +140,5 @@ def get_threat_intelligence_indicator_output(name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_threat_intelligence_indicator is deprecated: azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator to guarantee forwards compatibility.""")
     ...

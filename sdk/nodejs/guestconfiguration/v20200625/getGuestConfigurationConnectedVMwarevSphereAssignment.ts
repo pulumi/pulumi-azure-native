@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get information about a guest configuration assignment
  */
+/** @deprecated azure-native:guestconfiguration/v20200625:GuestConfigurationConnectedVMwarevSphereAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment to guarantee forwards compatibility. */
 export function getGuestConfigurationConnectedVMwarevSphereAssignment(args: GetGuestConfigurationConnectedVMwarevSphereAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> {
+    pulumi.log.warn("getGuestConfigurationConnectedVMwarevSphereAssignment is deprecated: azure-native:guestconfiguration/v20200625:GuestConfigurationConnectedVMwarevSphereAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:guestconfiguration/v20200625:getGuestConfigurationConnectedVMwarevSphereAssignment", {
@@ -63,6 +65,7 @@ export interface GetGuestConfigurationConnectedVMwarevSphereAssignmentResult {
 /**
  * Get information about a guest configuration assignment
  */
+/** @deprecated azure-native:guestconfiguration/v20200625:GuestConfigurationConnectedVMwarevSphereAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment to guarantee forwards compatibility. */
 export function getGuestConfigurationConnectedVMwarevSphereAssignmentOutput(args: GetGuestConfigurationConnectedVMwarevSphereAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getGuestConfigurationConnectedVMwarevSphereAssignment(a, opts))
 }

@@ -17,6 +17,8 @@ __all__ = [
     'get_virtual_machine_template_output',
 ]
 
+warnings.warn("""azure-native:scvmm/v20200605preview:VirtualMachineTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachineTemplate to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineTemplateResult:
     """
@@ -343,6 +345,7 @@ def get_virtual_machine_template(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str virtual_machine_template_name: Name of the VirtualMachineTemplate.
     """
+    pulumi.log.warn("""get_virtual_machine_template is deprecated: azure-native:scvmm/v20200605preview:VirtualMachineTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachineTemplate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualMachineTemplateName'] = virtual_machine_template_name
@@ -388,4 +391,5 @@ def get_virtual_machine_template_output(resource_group_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group.
     :param str virtual_machine_template_name: Name of the VirtualMachineTemplate.
     """
+    pulumi.log.warn("""get_virtual_machine_template is deprecated: azure-native:scvmm/v20200605preview:VirtualMachineTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachineTemplate to guarantee forwards compatibility.""")
     ...

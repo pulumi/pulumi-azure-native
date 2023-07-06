@@ -175,7 +175,12 @@ class BmcKeySetArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:BmcKeySet is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BmcKeySet to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class BmcKeySet(pulumi.CustomResource):
+    warnings.warn("""azure-native:networkcloud/v20221212preview:BmcKeySet is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BmcKeySet to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -240,6 +245,7 @@ class BmcKeySet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeySetUserArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""BmcKeySet is deprecated: azure-native:networkcloud/v20221212preview:BmcKeySet is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BmcKeySet to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

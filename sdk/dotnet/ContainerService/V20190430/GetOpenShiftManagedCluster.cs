@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ContainerService.V20190430
 {
+    [Obsolete(@"azure-native:containerservice/v20190430:OpenShiftManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility.")]
     public static class GetOpenShiftManagedCluster
     {
         /// <summary>

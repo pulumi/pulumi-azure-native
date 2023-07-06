@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.App.V20221001
     /// <summary>
     /// Storage resource for managedEnvironment.
     /// </summary>
+    [Obsolete(@"azure-native:app/v20221001:ManagedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ManagedEnvironmentsStorage to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:app/v20221001:ManagedEnvironmentsStorage")]
     public partial class ManagedEnvironmentsStorage : global::Pulumi.CustomResource
     {

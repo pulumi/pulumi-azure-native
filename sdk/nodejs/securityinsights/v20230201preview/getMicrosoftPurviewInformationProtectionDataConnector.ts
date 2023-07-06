@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a data connector.
  */
-/** @deprecated azure-native:securityinsights/v20230201preview:MicrosoftPurviewInformationProtectionDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MicrosoftPurviewInformationProtectionDataConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20230201preview:MicrosoftPurviewInformationProtectionDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MicrosoftPurviewInformationProtectionDataConnector to guarantee forwards compatibility. */
 export function getMicrosoftPurviewInformationProtectionDataConnector(args: GetMicrosoftPurviewInformationProtectionDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMicrosoftPurviewInformationProtectionDataConnectorResult> {
-    pulumi.log.warn("getMicrosoftPurviewInformationProtectionDataConnector is deprecated: azure-native:securityinsights/v20230201preview:MicrosoftPurviewInformationProtectionDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MicrosoftPurviewInformationProtectionDataConnector to guarantee forwards compatibility.")
+    pulumi.log.warn("getMicrosoftPurviewInformationProtectionDataConnector is deprecated: azure-native:securityinsights/v20230201preview:MicrosoftPurviewInformationProtectionDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MicrosoftPurviewInformationProtectionDataConnector to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230201preview:getMicrosoftPurviewInformationProtectionDataConnector", {
@@ -78,7 +78,7 @@ export interface GetMicrosoftPurviewInformationProtectionDataConnectorResult {
 /**
  * Gets a data connector.
  */
-/** @deprecated azure-native:securityinsights/v20230201preview:MicrosoftPurviewInformationProtectionDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MicrosoftPurviewInformationProtectionDataConnector to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20230201preview:MicrosoftPurviewInformationProtectionDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MicrosoftPurviewInformationProtectionDataConnector to guarantee forwards compatibility. */
 export function getMicrosoftPurviewInformationProtectionDataConnectorOutput(args: GetMicrosoftPurviewInformationProtectionDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftPurviewInformationProtectionDataConnectorResult> {
     return pulumi.output(args).apply((a: any) => getMicrosoftPurviewInformationProtectionDataConnector(a, opts))
 }

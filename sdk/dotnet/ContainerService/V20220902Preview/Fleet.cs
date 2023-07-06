@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
     /// <summary>
     /// The Fleet resource which contains multiple Kubernetes clusters as its members.
     /// </summary>
+    [Obsolete(@"azure-native:containerservice/v20220902preview:Fleet is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230315preview:Fleet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerservice/v20220902preview:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
     {

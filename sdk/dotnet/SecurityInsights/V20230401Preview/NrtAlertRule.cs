@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
     /// <summary>
     /// Represents NRT alert rule.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230401preview:NrtAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:NrtAlertRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:NrtAlertRule")]
     public partial class NrtAlertRule : global::Pulumi.CustomResource
     {

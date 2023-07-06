@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201Preview
     /// <summary>
     /// Represents Office Microsoft PowerBI data connector.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20230201preview:OfficePowerBIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:OfficePowerBIDataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20230201preview:OfficePowerBIDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:OfficePowerBIDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230201preview:OfficePowerBIDataConnector")]
     public partial class OfficePowerBIDataConnector : global::Pulumi.CustomResource
     {

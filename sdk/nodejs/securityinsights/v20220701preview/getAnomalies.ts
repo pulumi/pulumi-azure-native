@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a setting.
  */
-/** @deprecated azure-native:securityinsights/v20220701preview:Anomalies is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Anomalies to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20220701preview:Anomalies is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Anomalies to guarantee forwards compatibility. */
 export function getAnomalies(args: GetAnomaliesArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomaliesResult> {
-    pulumi.log.warn("getAnomalies is deprecated: azure-native:securityinsights/v20220701preview:Anomalies is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Anomalies to guarantee forwards compatibility.")
+    pulumi.log.warn("getAnomalies is deprecated: azure-native:securityinsights/v20220701preview:Anomalies is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Anomalies to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220701preview:getAnomalies", {
@@ -74,7 +74,7 @@ export interface GetAnomaliesResult {
 /**
  * Gets a setting.
  */
-/** @deprecated azure-native:securityinsights/v20220701preview:Anomalies is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Anomalies to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20220701preview:Anomalies is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Anomalies to guarantee forwards compatibility. */
 export function getAnomaliesOutput(args: GetAnomaliesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomaliesResult> {
     return pulumi.output(args).apply((a: any) => getAnomalies(a, opts))
 }

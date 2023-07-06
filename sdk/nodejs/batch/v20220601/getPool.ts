@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about the specified pool.
  */
-/** @deprecated azure-native:batch/v20220601:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:Pool to guarantee forwards compatibility. */
+/** @deprecated azure-native:batch/v20220601:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20230501:Pool to guarantee forwards compatibility. */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
-    pulumi.log.warn("getPool is deprecated: azure-native:batch/v20220601:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:Pool to guarantee forwards compatibility.")
+    pulumi.log.warn("getPool is deprecated: azure-native:batch/v20220601:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20230501:Pool to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:batch/v20220601:getPool", {
@@ -141,7 +141,7 @@ export interface GetPoolResult {
 /**
  * Gets information about the specified pool.
  */
-/** @deprecated azure-native:batch/v20220601:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20221001:Pool to guarantee forwards compatibility. */
+/** @deprecated azure-native:batch/v20220601:Pool is being removed in the next major version of this provider. Upgrade to at least azure-native:batch/v20230501:Pool to guarantee forwards compatibility. */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
     return pulumi.output(args).apply((a: any) => getPool(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
     /// <summary>
     /// A server blob auditing policy.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20201101preview:ServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerBlobAuditingPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20201101preview:ServerBlobAuditingPolicy")]
     public partial class ServerBlobAuditingPolicy : global::Pulumi.CustomResource
     {

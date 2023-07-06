@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
  */
+/** @deprecated azure-native:apimanagement/v20201201:ContentType is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ContentType to guarantee forwards compatibility. */
 export function getContentType(args: GetContentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetContentTypeResult> {
+    pulumi.log.warn("getContentType is deprecated: azure-native:apimanagement/v20201201:ContentType is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ContentType to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20201201:getContentType", {
@@ -64,6 +66,7 @@ export interface GetContentTypeResult {
 /**
  * Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
  */
+/** @deprecated azure-native:apimanagement/v20201201:ContentType is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ContentType to guarantee forwards compatibility. */
 export function getContentTypeOutput(args: GetContentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTypeResult> {
     return pulumi.output(args).apply((a: any) => getContentType(a, opts))
 }

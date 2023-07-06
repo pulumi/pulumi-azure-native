@@ -17,6 +17,8 @@ __all__ = [
     'get_partner_topic_output',
 ]
 
+warnings.warn("""azure-native:eventgrid/v20220615:PartnerTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerTopic to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPartnerTopicResult:
     """
@@ -225,6 +227,7 @@ def get_partner_topic(partner_topic_name: Optional[str] = None,
     :param str partner_topic_name: Name of the partner topic.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("""get_partner_topic is deprecated: azure-native:eventgrid/v20220615:PartnerTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerTopic to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['partnerTopicName'] = partner_topic_name
     __args__['resourceGroupName'] = resource_group_name
@@ -260,4 +263,5 @@ def get_partner_topic_output(partner_topic_name: Optional[pulumi.Input[str]] = N
     :param str partner_topic_name: Name of the partner topic.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("""get_partner_topic is deprecated: azure-native:eventgrid/v20220615:PartnerTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerTopic to guarantee forwards compatibility.""")
     ...

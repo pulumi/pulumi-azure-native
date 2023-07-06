@@ -112,7 +112,12 @@ class SenderUsernameArgs:
         pulumi.set(self, "sender_username", value)
 
 
+warnings.warn("""azure-native:communication/v20230331:SenderUsername is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:SenderUsername to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class SenderUsername(pulumi.CustomResource):
+    warnings.warn("""azure-native:communication/v20230331:SenderUsername is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:SenderUsername to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,6 +172,7 @@ class SenderUsername(pulumi.CustomResource):
                  sender_username: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SenderUsername is deprecated: azure-native:communication/v20230331:SenderUsername is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:SenderUsername to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

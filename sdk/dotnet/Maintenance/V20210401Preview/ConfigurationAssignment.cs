@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Maintenance.V20210401Preview
     /// <summary>
     /// Configuration Assignment
     /// </summary>
+    [Obsolete(@"azure-native:maintenance/v20210401preview:ConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:maintenance/v20221101preview:ConfigurationAssignment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:maintenance/v20210401preview:ConfigurationAssignment")]
     public partial class ConfigurationAssignment : global::Pulumi.CustomResource
     {

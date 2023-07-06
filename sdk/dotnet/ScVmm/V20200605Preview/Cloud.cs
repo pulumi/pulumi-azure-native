@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
     /// <summary>
     /// The Clouds resource definition.
     /// </summary>
+    [Obsolete(@"azure-native:scvmm/v20200605preview:Cloud is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:Cloud to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:scvmm/v20200605preview:Cloud")]
     public partial class Cloud : global::Pulumi.CustomResource
     {

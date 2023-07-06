@@ -119,11 +119,11 @@ class ContainerAppsSourceControlArgs:
         pulumi.set(self, "source_control_name", value)
 
 
-warnings.warn("""azure-native:app/v20220601preview:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerAppsSourceControl to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:app/v20220601preview:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsSourceControl to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ContainerAppsSourceControl(pulumi.CustomResource):
-    warnings.warn("""azure-native:app/v20220601preview:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerAppsSourceControl to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:app/v20220601preview:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsSourceControl to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -181,7 +181,7 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_control_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ContainerAppsSourceControl is deprecated: azure-native:app/v20220601preview:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20221001:ContainerAppsSourceControl to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ContainerAppsSourceControl is deprecated: azure-native:app/v20220601preview:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsSourceControl to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

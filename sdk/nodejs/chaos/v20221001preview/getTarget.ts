@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a Target resource that extends a tracked regional resource.
  */
-/** @deprecated azure-native:chaos/v20221001preview:Target is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Target to guarantee forwards compatibility. */
+/** @deprecated azure-native:chaos/v20221001preview:Target is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Target to guarantee forwards compatibility. */
 export function getTarget(args: GetTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetResult> {
-    pulumi.log.warn("getTarget is deprecated: azure-native:chaos/v20221001preview:Target is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Target to guarantee forwards compatibility.")
+    pulumi.log.warn("getTarget is deprecated: azure-native:chaos/v20221001preview:Target is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Target to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:chaos/v20221001preview:getTarget", {
@@ -79,7 +79,7 @@ export interface GetTargetResult {
 /**
  * Get a Target resource that extends a tracked regional resource.
  */
-/** @deprecated azure-native:chaos/v20221001preview:Target is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230401preview:Target to guarantee forwards compatibility. */
+/** @deprecated azure-native:chaos/v20221001preview:Target is being removed in the next major version of this provider. Upgrade to at least azure-native:chaos/v20230415preview:Target to guarantee forwards compatibility. */
 export function getTargetOutput(args: GetTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetResult> {
     return pulumi.output(args).apply((a: any) => getTarget(a, opts))
 }

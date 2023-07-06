@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Issue Attachment Contract details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20220801:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:ApiIssueAttachment")]
     public partial class ApiIssueAttachment : global::Pulumi.CustomResource
     {

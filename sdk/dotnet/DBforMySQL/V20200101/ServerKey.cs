@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200101
     /// <summary>
     /// A MySQL Server key.
     /// </summary>
+    [Obsolete(@"azure-native:dbformysql/v20200101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20200701privatepreview:ServerKey to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbformysql/v20200101:ServerKey")]
     public partial class ServerKey : global::Pulumi.CustomResource
     {

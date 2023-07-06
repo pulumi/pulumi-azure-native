@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
     /// <summary>
     /// Settings with single toggle.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230401preview:Anomalies is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Anomalies to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:Anomalies")]
     public partial class Anomalies : global::Pulumi.CustomResource
     {

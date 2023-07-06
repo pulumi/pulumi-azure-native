@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.CostManagement.V20221001
     /// <summary>
     /// Scheduled action definition.
     /// </summary>
+    [Obsolete(@"azure-native:costmanagement/v20221001:ScheduledAction is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20230401preview:ScheduledAction to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:costmanagement/v20221001:ScheduledAction")]
     public partial class ScheduledAction : global::Pulumi.CustomResource
     {

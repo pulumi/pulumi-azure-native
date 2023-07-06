@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20210301
     /// <summary>
     /// Describes a Virtual Machine run command.
     /// </summary>
+    [Obsolete(@"azure-native:compute/v20210301:VirtualMachineScaleSetVMRunCommand is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:VirtualMachineScaleSetVMRunCommand to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20210301:VirtualMachineScaleSetVMRunCommand")]
     public partial class VirtualMachineScaleSetVMRunCommand : global::Pulumi.CustomResource
     {

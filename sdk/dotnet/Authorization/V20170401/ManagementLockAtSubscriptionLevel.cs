@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Authorization.V20170401
     /// <summary>
     /// The lock information.
     /// </summary>
+    [Obsolete(@"azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel")]
     public partial class ManagementLockAtSubscriptionLevel : global::Pulumi.CustomResource
     {

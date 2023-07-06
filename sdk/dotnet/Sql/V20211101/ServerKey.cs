@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
     /// <summary>
     /// A server key.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20211101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerKey to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20211101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerKey to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20211101:ServerKey")]
     public partial class ServerKey : global::Pulumi.CustomResource
     {

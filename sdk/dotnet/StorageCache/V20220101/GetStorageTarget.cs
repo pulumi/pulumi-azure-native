@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StorageCache.V20220101
 {
-    [Obsolete(@"azure-native:storagecache/v20220101:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230301preview:StorageTarget to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:storagecache/v20220101:StorageTarget is being removed in the next major version of this provider. Upgrade to at least azure-native:storagecache/v20230501:StorageTarget to guarantee forwards compatibility.")]
     public static class GetStorageTarget
     {
         /// <summary>

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a given plan ID
  */
+/** @deprecated azure-native:softwareplan/v20190601preview:HybridUseBenefit is being removed in the next major version of this provider. Upgrade to at least azure-native:softwareplan/v20191201:HybridUseBenefit to guarantee forwards compatibility. */
 export function getHybridUseBenefit(args: GetHybridUseBenefitArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridUseBenefitResult> {
+    pulumi.log.warn("getHybridUseBenefit is deprecated: azure-native:softwareplan/v20190601preview:HybridUseBenefit is being removed in the next major version of this provider. Upgrade to at least azure-native:softwareplan/v20191201:HybridUseBenefit to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:softwareplan/v20190601preview:getHybridUseBenefit", {
@@ -70,6 +72,7 @@ export interface GetHybridUseBenefitResult {
 /**
  * Gets a given plan ID
  */
+/** @deprecated azure-native:softwareplan/v20190601preview:HybridUseBenefit is being removed in the next major version of this provider. Upgrade to at least azure-native:softwareplan/v20191201:HybridUseBenefit to guarantee forwards compatibility. */
 export function getHybridUseBenefitOutput(args: GetHybridUseBenefitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridUseBenefitResult> {
     return pulumi.output(args).apply((a: any) => getHybridUseBenefit(a, opts))
 }

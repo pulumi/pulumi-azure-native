@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Azure Resource Manager resource envelope.
  */
-/** @deprecated azure-native:machinelearningservices/v20221001preview:RegistryModelContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryModelContainer to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:RegistryModelContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:RegistryModelContainer to guarantee forwards compatibility. */
 export function getRegistryModelContainer(args: GetRegistryModelContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryModelContainerResult> {
-    pulumi.log.warn("getRegistryModelContainer is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryModelContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryModelContainer to guarantee forwards compatibility.")
+    pulumi.log.warn("getRegistryModelContainer is deprecated: azure-native:machinelearningservices/v20221001preview:RegistryModelContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:RegistryModelContainer to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001preview:getRegistryModelContainer", {
@@ -65,7 +65,7 @@ export interface GetRegistryModelContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-/** @deprecated azure-native:machinelearningservices/v20221001preview:RegistryModelContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryModelContainer to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:RegistryModelContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:RegistryModelContainer to guarantee forwards compatibility. */
 export function getRegistryModelContainerOutput(args: GetRegistryModelContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryModelContainerResult> {
     return pulumi.output(args).apply((a: any) => getRegistryModelContainer(a, opts))
 }

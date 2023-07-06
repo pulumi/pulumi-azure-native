@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SignalRService.V20200501
     /// <summary>
     /// A private endpoint connection to SignalR resource
     /// </summary>
+    [Obsolete(@"azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection")]
     public partial class SignalRPrivateEndpointConnection : global::Pulumi.CustomResource
     {

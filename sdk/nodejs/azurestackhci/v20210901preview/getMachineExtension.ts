@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * The operation to get the extension.
  */
+/** @deprecated azure-native:azurestackhci/v20210901preview:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:MachineExtension to guarantee forwards compatibility. */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
+    pulumi.log.warn("getMachineExtension is deprecated: azure-native:azurestackhci/v20210901preview:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:MachineExtension to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getMachineExtension", {
@@ -99,6 +101,7 @@ export interface GetMachineExtensionResult {
 /**
  * The operation to get the extension.
  */
+/** @deprecated azure-native:azurestackhci/v20210901preview:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:MachineExtension to guarantee forwards compatibility. */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
     return pulumi.output(args).apply((a: any) => getMachineExtension(a, opts))
 }

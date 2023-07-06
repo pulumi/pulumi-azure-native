@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves the details of a HubVirtualNetworkConnection.
  */
-/** @deprecated azure-native:network/v20210201:HubVirtualNetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:HubVirtualNetworkConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210201:HubVirtualNetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:HubVirtualNetworkConnection to guarantee forwards compatibility. */
 export function getHubVirtualNetworkConnection(args: GetHubVirtualNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHubVirtualNetworkConnectionResult> {
-    pulumi.log.warn("getHubVirtualNetworkConnection is deprecated: azure-native:network/v20210201:HubVirtualNetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:HubVirtualNetworkConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getHubVirtualNetworkConnection is deprecated: azure-native:network/v20210201:HubVirtualNetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:HubVirtualNetworkConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201:getHubVirtualNetworkConnection", {
@@ -81,7 +81,7 @@ export interface GetHubVirtualNetworkConnectionResult {
 /**
  * Retrieves the details of a HubVirtualNetworkConnection.
  */
-/** @deprecated azure-native:network/v20210201:HubVirtualNetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:HubVirtualNetworkConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210201:HubVirtualNetworkConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:HubVirtualNetworkConnection to guarantee forwards compatibility. */
 export function getHubVirtualNetworkConnectionOutput(args: GetHubVirtualNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubVirtualNetworkConnectionResult> {
     return pulumi.output(args).apply((a: any) => getHubVirtualNetworkConnection(a, opts))
 }

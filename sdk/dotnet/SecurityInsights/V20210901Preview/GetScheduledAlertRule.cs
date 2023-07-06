@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
-    [Obsolete(@"azure-native:securityinsights/v20210901preview:ScheduledAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:ScheduledAlertRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20210901preview:ScheduledAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:ScheduledAlertRule to guarantee forwards compatibility.")]
     public static class GetScheduledAlertRule
     {
         /// <summary>

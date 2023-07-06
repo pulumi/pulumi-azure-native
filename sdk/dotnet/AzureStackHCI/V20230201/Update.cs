@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20230201
     /// <summary>
     /// Update details
     /// </summary>
+    [Obsolete(@"azure-native:azurestackhci/v20230201:Update is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230301:Update to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurestackhci/v20230201:Update")]
     public partial class Update : global::Pulumi.CustomResource
     {

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about managed application definition.
+ *
+ * @deprecated azure-native:solutions/v20190701:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.
  */
 export class ApplicationDefinition extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationDefinition {
+        pulumi.log.warn("ApplicationDefinition is deprecated: azure-native:solutions/v20190701:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.")
         return new ApplicationDefinition(name, undefined as any, { ...opts, id: id });
     }
 
@@ -129,7 +132,9 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:solutions/v20190701:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility. */
     constructor(name: string, args: ApplicationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ApplicationDefinition is deprecated: azure-native:solutions/v20190701:ApplicationDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:solutions/v20210701:ApplicationDefinition to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the specific Azure Monitor workspace
  */
+/** @deprecated azure-native:monitor/v20210603preview:AzureMonitorWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:monitor/v20230403:AzureMonitorWorkspace to guarantee forwards compatibility. */
 export function getAzureMonitorWorkspace(args: GetAzureMonitorWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureMonitorWorkspaceResult> {
+    pulumi.log.warn("getAzureMonitorWorkspace is deprecated: azure-native:monitor/v20210603preview:AzureMonitorWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:monitor/v20230403:AzureMonitorWorkspace to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:monitor/v20210603preview:getAzureMonitorWorkspace", {
@@ -82,6 +84,7 @@ export interface GetAzureMonitorWorkspaceResult {
 /**
  * Returns the specific Azure Monitor workspace
  */
+/** @deprecated azure-native:monitor/v20210603preview:AzureMonitorWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:monitor/v20230403:AzureMonitorWorkspace to guarantee forwards compatibility. */
 export function getAzureMonitorWorkspaceOutput(args: GetAzureMonitorWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureMonitorWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getAzureMonitorWorkspace(a, opts))
 }

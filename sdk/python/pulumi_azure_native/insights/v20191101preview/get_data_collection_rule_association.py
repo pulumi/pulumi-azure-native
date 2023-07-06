@@ -16,6 +16,8 @@ __all__ = [
     'get_data_collection_rule_association_output',
 ]
 
+warnings.warn("""azure-native:insights/v20191101preview:DataCollectionRuleAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataCollectionRuleAssociationResult:
     """
@@ -126,6 +128,7 @@ def get_data_collection_rule_association(association_name: Optional[str] = None,
     :param str association_name: The name of the association. The name is case insensitive.
     :param str resource_uri: The identifier of the resource.
     """
+    pulumi.log.warn("""get_data_collection_rule_association is deprecated: azure-native:insights/v20191101preview:DataCollectionRuleAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['associationName'] = association_name
     __args__['resourceUri'] = resource_uri
@@ -153,4 +156,5 @@ def get_data_collection_rule_association_output(association_name: Optional[pulum
     :param str association_name: The name of the association. The name is case insensitive.
     :param str resource_uri: The identifier of the resource.
     """
+    pulumi.log.warn("""get_data_collection_rule_association is deprecated: azure-native:insights/v20191101preview:DataCollectionRuleAssociation is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRuleAssociation to guarantee forwards compatibility.""")
     ...

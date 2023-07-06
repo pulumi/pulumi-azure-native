@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20200101
 {
+    [Obsolete(@"azure-native:dbforpostgresql/v20200101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20200214privatepreview:ServerKey to guarantee forwards compatibility.")]
     public static class GetServerKey
     {
         /// <summary>

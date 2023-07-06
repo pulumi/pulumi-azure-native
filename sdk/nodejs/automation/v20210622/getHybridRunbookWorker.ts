@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve a hybrid runbook worker.
  */
+/** @deprecated azure-native:automation/v20210622:HybridRunbookWorker is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorker to guarantee forwards compatibility. */
 export function getHybridRunbookWorker(args: GetHybridRunbookWorkerArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridRunbookWorkerResult> {
+    pulumi.log.warn("getHybridRunbookWorker is deprecated: azure-native:automation/v20210622:HybridRunbookWorker is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorker to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20210622:getHybridRunbookWorker", {
@@ -88,6 +90,7 @@ export interface GetHybridRunbookWorkerResult {
 /**
  * Retrieve a hybrid runbook worker.
  */
+/** @deprecated azure-native:automation/v20210622:HybridRunbookWorker is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorker to guarantee forwards compatibility. */
 export function getHybridRunbookWorkerOutput(args: GetHybridRunbookWorkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridRunbookWorkerResult> {
     return pulumi.output(args).apply((a: any) => getHybridRunbookWorker(a, opts))
 }

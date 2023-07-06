@@ -7,9 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-/** @deprecated azure-native:dataprotection/v20220901preview:DppResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:DppResourceGuardProxy to guarantee forwards compatibility. */
+/** @deprecated azure-native:dataprotection/v20220901preview:DppResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:DppResourceGuardProxy to guarantee forwards compatibility. */
 export function getDppResourceGuardProxy(args: GetDppResourceGuardProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetDppResourceGuardProxyResult> {
-    pulumi.log.warn("getDppResourceGuardProxy is deprecated: azure-native:dataprotection/v20220901preview:DppResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:DppResourceGuardProxy to guarantee forwards compatibility.")
+    pulumi.log.warn("getDppResourceGuardProxy is deprecated: azure-native:dataprotection/v20220901preview:DppResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:DppResourceGuardProxy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dataprotection/v20220901preview:getDppResourceGuardProxy", {
@@ -53,7 +53,7 @@ export interface GetDppResourceGuardProxyResult {
      */
     readonly type: string;
 }
-/** @deprecated azure-native:dataprotection/v20220901preview:DppResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:DppResourceGuardProxy to guarantee forwards compatibility. */
+/** @deprecated azure-native:dataprotection/v20220901preview:DppResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:DppResourceGuardProxy to guarantee forwards compatibility. */
 export function getDppResourceGuardProxyOutput(args: GetDppResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDppResourceGuardProxyResult> {
     return pulumi.output(args).apply((a: any) => getDppResourceGuardProxy(a, opts))
 }

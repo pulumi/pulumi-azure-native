@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ProviderHub.V20201120
 {
+    [Obsolete(@"azure-native:providerhub/v20201120:SkusNestedResourceTypeFirst is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:SkusNestedResourceTypeFirst to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:providerhub/v20201120:SkusNestedResourceTypeFirst")]
     public partial class SkusNestedResourceTypeFirst : global::Pulumi.CustomResource
     {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Automation.V20190601
 {
+    [Obsolete(@"azure-native:automation/v20190601:DscNodeConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:DscNodeConfiguration to guarantee forwards compatibility.")]
     public static class GetDscNodeConfiguration
     {
         /// <summary>

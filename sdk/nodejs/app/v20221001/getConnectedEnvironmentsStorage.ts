@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get storage for a connectedEnvironment.
  */
+/** @deprecated azure-native:app/v20221001:ConnectedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsStorage to guarantee forwards compatibility. */
 export function getConnectedEnvironmentsStorage(args: GetConnectedEnvironmentsStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentsStorageResult> {
+    pulumi.log.warn("getConnectedEnvironmentsStorage is deprecated: azure-native:app/v20221001:ConnectedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsStorage to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20221001:getConnectedEnvironmentsStorage", {
@@ -63,6 +65,7 @@ export interface GetConnectedEnvironmentsStorageResult {
 /**
  * Get storage for a connectedEnvironment.
  */
+/** @deprecated azure-native:app/v20221001:ConnectedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsStorage to guarantee forwards compatibility. */
 export function getConnectedEnvironmentsStorageOutput(args: GetConnectedEnvironmentsStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentsStorageResult> {
     return pulumi.output(args).apply((a: any) => getConnectedEnvironmentsStorage(a, opts))
 }

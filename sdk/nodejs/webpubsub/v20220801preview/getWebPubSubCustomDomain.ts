@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a custom domain.
  */
-/** @deprecated azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubCustomDomain to guarantee forwards compatibility. */
+/** @deprecated azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomDomain to guarantee forwards compatibility. */
 export function getWebPubSubCustomDomain(args: GetWebPubSubCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubCustomDomainResult> {
-    pulumi.log.warn("getWebPubSubCustomDomain is deprecated: azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubCustomDomain to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebPubSubCustomDomain is deprecated: azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomDomain to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20220801preview:getWebPubSubCustomDomain", {
@@ -73,7 +73,7 @@ export interface GetWebPubSubCustomDomainResult {
 /**
  * Get a custom domain.
  */
-/** @deprecated azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubCustomDomain to guarantee forwards compatibility. */
+/** @deprecated azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomDomain to guarantee forwards compatibility. */
 export function getWebPubSubCustomDomainOutput(args: GetWebPubSubCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSubCustomDomain(a, opts))
 }

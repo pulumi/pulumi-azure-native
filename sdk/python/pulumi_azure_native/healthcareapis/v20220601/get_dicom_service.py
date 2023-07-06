@@ -17,7 +17,7 @@ __all__ = [
     'get_dicom_service_output',
 ]
 
-warnings.warn("""azure-native:healthcareapis/v20220601:DicomService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:DicomService to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:healthcareapis/v20220601:DicomService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:DicomService to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDicomServiceResult:
@@ -215,7 +215,7 @@ def get_dicom_service(dicom_service_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str workspace_name: The name of workspace resource.
     """
-    pulumi.log.warn("""get_dicom_service is deprecated: azure-native:healthcareapis/v20220601:DicomService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:DicomService to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_dicom_service is deprecated: azure-native:healthcareapis/v20220601:DicomService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:DicomService to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dicomServiceName'] = dicom_service_name
     __args__['resourceGroupName'] = resource_group_name
@@ -253,5 +253,5 @@ def get_dicom_service_output(dicom_service_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str workspace_name: The name of workspace resource.
     """
-    pulumi.log.warn("""get_dicom_service is deprecated: azure-native:healthcareapis/v20220601:DicomService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:DicomService to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_dicom_service is deprecated: azure-native:healthcareapis/v20220601:DicomService is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:DicomService to guarantee forwards compatibility.""")
     ...

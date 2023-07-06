@@ -17,6 +17,8 @@ __all__ = [
     'get_management_lock_by_scope_output',
 ]
 
+warnings.warn("""azure-native:authorization/v20170401:ManagementLockByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagementLockByScopeResult:
     """
@@ -115,6 +117,7 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
     :param str lock_name: The name of lock.
     :param str scope: The scope for the lock. 
     """
+    pulumi.log.warn("""get_management_lock_by_scope is deprecated: azure-native:authorization/v20170401:ManagementLockByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['lockName'] = lock_name
     __args__['scope'] = scope
@@ -141,4 +144,5 @@ def get_management_lock_by_scope_output(lock_name: Optional[pulumi.Input[str]] =
     :param str lock_name: The name of lock.
     :param str scope: The scope for the lock. 
     """
+    pulumi.log.warn("""get_management_lock_by_scope is deprecated: azure-native:authorization/v20170401:ManagementLockByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.""")
     ...

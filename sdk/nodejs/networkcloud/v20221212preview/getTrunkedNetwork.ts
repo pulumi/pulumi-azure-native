@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of the provided trunked network.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:TrunkedNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:TrunkedNetwork to guarantee forwards compatibility. */
 export function getTrunkedNetwork(args: GetTrunkedNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetTrunkedNetworkResult> {
+    pulumi.log.warn("getTrunkedNetwork is deprecated: azure-native:networkcloud/v20221212preview:TrunkedNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:TrunkedNetwork to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getTrunkedNetwork", {
@@ -103,6 +105,7 @@ export interface GetTrunkedNetworkResult {
 /**
  * Get properties of the provided trunked network.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:TrunkedNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:TrunkedNetwork to guarantee forwards compatibility. */
 export function getTrunkedNetworkOutput(args: GetTrunkedNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrunkedNetworkResult> {
     return pulumi.output(args).apply((a: any) => getTrunkedNetwork(a, opts))
 }

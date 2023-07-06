@@ -17,6 +17,8 @@ __all__ = [
     'get_hybrid_runbook_worker_output',
 ]
 
+warnings.warn("""azure-native:automation/v20210622:HybridRunbookWorker is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorker to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHybridRunbookWorkerResult:
     """
@@ -167,6 +169,7 @@ def get_hybrid_runbook_worker(automation_account_name: Optional[str] = None,
     :param str hybrid_runbook_worker_id: The hybrid runbook worker id
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_hybrid_runbook_worker is deprecated: azure-native:automation/v20210622:HybridRunbookWorker is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorker to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['hybridRunbookWorkerGroupName'] = hybrid_runbook_worker_group_name
@@ -203,4 +206,5 @@ def get_hybrid_runbook_worker_output(automation_account_name: Optional[pulumi.In
     :param str hybrid_runbook_worker_id: The hybrid runbook worker id
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_hybrid_runbook_worker is deprecated: azure-native:automation/v20210622:HybridRunbookWorker is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:HybridRunbookWorker to guarantee forwards compatibility.""")
     ...

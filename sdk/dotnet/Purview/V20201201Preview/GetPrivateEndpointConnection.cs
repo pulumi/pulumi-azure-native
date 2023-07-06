@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Purview.V20201201Preview
 {
+    [Obsolete(@"azure-native:purview/v20201201preview:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:purview/v20210701:PrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnection
     {
         /// <summary>

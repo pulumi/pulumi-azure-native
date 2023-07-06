@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20200501
     /// <summary>
     /// Virtual Appliance Site resource.
     /// </summary>
-    [Obsolete(@"azure-native:network/v20200501:VirtualApplianceSite is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualApplianceSite to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20200501:VirtualApplianceSite is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualApplianceSite to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20200501:VirtualApplianceSite")]
     public partial class VirtualApplianceSite : global::Pulumi.CustomResource
     {

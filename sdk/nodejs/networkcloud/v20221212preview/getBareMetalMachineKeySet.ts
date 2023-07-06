@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get bare metal machine key set of the provided cluster.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:BareMetalMachineKeySet is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BareMetalMachineKeySet to guarantee forwards compatibility. */
 export function getBareMetalMachineKeySet(args: GetBareMetalMachineKeySetArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalMachineKeySetResult> {
+    pulumi.log.warn("getBareMetalMachineKeySet is deprecated: azure-native:networkcloud/v20221212preview:BareMetalMachineKeySet is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BareMetalMachineKeySet to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getBareMetalMachineKeySet", {
@@ -112,6 +114,7 @@ export interface GetBareMetalMachineKeySetResult {
 /**
  * Get bare metal machine key set of the provided cluster.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:BareMetalMachineKeySet is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:BareMetalMachineKeySet to guarantee forwards compatibility. */
 export function getBareMetalMachineKeySetOutput(args: GetBareMetalMachineKeySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalMachineKeySetResult> {
     return pulumi.output(args).apply((a: any) => getBareMetalMachineKeySet(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of an EventHub schema group.
  */
+/** @deprecated azure-native:eventhub/v20220101preview:SchemaRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:SchemaRegistry to guarantee forwards compatibility. */
 export function getSchemaRegistry(args: GetSchemaRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryResult> {
+    pulumi.log.warn("getSchemaRegistry is deprecated: azure-native:eventhub/v20220101preview:SchemaRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:SchemaRegistry to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20220101preview:getSchemaRegistry", {
@@ -81,6 +83,7 @@ export interface GetSchemaRegistryResult {
 /**
  * Gets the details of an EventHub schema group.
  */
+/** @deprecated azure-native:eventhub/v20220101preview:SchemaRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:SchemaRegistry to guarantee forwards compatibility. */
 export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryResult> {
     return pulumi.output(args).apply((a: any) => getSchemaRegistry(a, opts))
 }

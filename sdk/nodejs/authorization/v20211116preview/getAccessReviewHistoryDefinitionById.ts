@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get access review history definition by definition Id
  */
+/** @deprecated azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById to guarantee forwards compatibility. */
 export function getAccessReviewHistoryDefinitionById(args: GetAccessReviewHistoryDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewHistoryDefinitionByIdResult> {
+    pulumi.log.warn("getAccessReviewHistoryDefinitionById is deprecated: azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20211116preview:getAccessReviewHistoryDefinitionById", {
@@ -109,6 +111,7 @@ export interface GetAccessReviewHistoryDefinitionByIdResult {
 /**
  * Get access review history definition by definition Id
  */
+/** @deprecated azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById to guarantee forwards compatibility. */
 export function getAccessReviewHistoryDefinitionByIdOutput(args: GetAccessReviewHistoryDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessReviewHistoryDefinitionByIdResult> {
     return pulumi.output(args).apply((a: any) => getAccessReviewHistoryDefinitionById(a, opts))
 }

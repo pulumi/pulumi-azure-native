@@ -16,7 +16,7 @@ __all__ = [
     'get_subscription_output',
 ]
 
-warnings.warn("""azure-native:apimanagement/v20220401preview:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Subscription to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:apimanagement/v20220401preview:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Subscription to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSubscriptionResult:
@@ -238,7 +238,7 @@ def get_subscription(resource_group_name: Optional[str] = None,
     :param str service_name: The name of the API Management service.
     :param str sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
     """
-    pulumi.log.warn("""get_subscription is deprecated: azure-native:apimanagement/v20220401preview:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Subscription to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_subscription is deprecated: azure-native:apimanagement/v20220401preview:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Subscription to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
@@ -278,5 +278,5 @@ def get_subscription_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str service_name: The name of the API Management service.
     :param str sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
     """
-    pulumi.log.warn("""get_subscription is deprecated: azure-native:apimanagement/v20220401preview:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Subscription to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_subscription is deprecated: azure-native:apimanagement/v20220401preview:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Subscription to guarantee forwards compatibility.""")
     ...

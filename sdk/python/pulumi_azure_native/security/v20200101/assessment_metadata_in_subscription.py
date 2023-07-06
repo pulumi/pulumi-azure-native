@@ -203,7 +203,12 @@ class AssessmentMetadataInSubscriptionArgs:
         pulumi.set(self, "user_impact", value)
 
 
+warnings.warn("""azure-native:security/v20200101:AssessmentMetadataInSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20210601:AssessmentMetadataInSubscription to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class AssessmentMetadataInSubscription(pulumi.CustomResource):
+    warnings.warn("""azure-native:security/v20200101:AssessmentMetadataInSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20210601:AssessmentMetadataInSubscription to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -274,6 +279,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                  threats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]] = None,
                  user_impact: Optional[pulumi.Input[Union[str, 'UserImpact']]] = None,
                  __props__=None):
+        pulumi.log.warn("""AssessmentMetadataInSubscription is deprecated: azure-native:security/v20200101:AssessmentMetadataInSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:security/v20210601:AssessmentMetadataInSubscription to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

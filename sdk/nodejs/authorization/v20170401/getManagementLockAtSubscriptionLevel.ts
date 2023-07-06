@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a management lock at the subscription level.
  */
+/** @deprecated azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel to guarantee forwards compatibility. */
 export function getManagementLockAtSubscriptionLevel(args: GetManagementLockAtSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtSubscriptionLevelResult> {
+    pulumi.log.warn("getManagementLockAtSubscriptionLevel is deprecated: azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20170401:getManagementLockAtSubscriptionLevel", {
@@ -57,6 +59,7 @@ export interface GetManagementLockAtSubscriptionLevelResult {
 /**
  * Gets a management lock at the subscription level.
  */
+/** @deprecated azure-native:authorization/v20170401:ManagementLockAtSubscriptionLevel is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel to guarantee forwards compatibility. */
 export function getManagementLockAtSubscriptionLevelOutput(args: GetManagementLockAtSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtSubscriptionLevelResult> {
     return pulumi.output(args).apply((a: any) => getManagementLockAtSubscriptionLevel(a, opts))
 }

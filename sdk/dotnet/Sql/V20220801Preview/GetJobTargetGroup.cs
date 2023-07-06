@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
+    [Obsolete(@"azure-native:sql/v20220801preview:JobTargetGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobTargetGroup to guarantee forwards compatibility.")]
     public static class GetJobTargetGroup
     {
         /// <summary>

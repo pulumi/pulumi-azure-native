@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a RedisEnterprise cluster
  */
+/** @deprecated azure-native:cache/v20210301:RedisEnterprise is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230301preview:RedisEnterprise to guarantee forwards compatibility. */
 export function getRedisEnterprise(args: GetRedisEnterpriseArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisEnterpriseResult> {
+    pulumi.log.warn("getRedisEnterprise is deprecated: azure-native:cache/v20210301:RedisEnterprise is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230301preview:RedisEnterprise to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20210301:getRedisEnterprise", {
@@ -90,6 +92,7 @@ export interface GetRedisEnterpriseResult {
 /**
  * Gets information about a RedisEnterprise cluster
  */
+/** @deprecated azure-native:cache/v20210301:RedisEnterprise is being removed in the next major version of this provider. Upgrade to at least azure-native:cache/v20230301preview:RedisEnterprise to guarantee forwards compatibility. */
 export function getRedisEnterpriseOutput(args: GetRedisEnterpriseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisEnterpriseResult> {
     return pulumi.output(args).apply((a: any) => getRedisEnterprise(a, opts))
 }

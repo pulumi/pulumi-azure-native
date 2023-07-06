@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB MongoDB database.
  *
- * @deprecated azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility.
+ * @deprecated azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility.
  */
 export class MongoDBResourceMongoDBDatabase extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class MongoDBResourceMongoDBDatabase extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MongoDBResourceMongoDBDatabase {
-        pulumi.log.warn("MongoDBResourceMongoDBDatabase is deprecated: azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility.")
+        pulumi.log.warn("MongoDBResourceMongoDBDatabase is deprecated: azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility.")
         return new MongoDBResourceMongoDBDatabase(name, undefined as any, { ...opts, id: id });
     }
 
@@ -66,9 +66,9 @@ export class MongoDBResourceMongoDBDatabase extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility. */
+    /** @deprecated azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility. */
     constructor(name: string, args: MongoDBResourceMongoDBDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("MongoDBResourceMongoDBDatabase is deprecated: azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility.")
+        pulumi.log.warn("MongoDBResourceMongoDBDatabase is deprecated: azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:MongoDBResourceMongoDBDatabase to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

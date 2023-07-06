@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
     /// <summary>
     /// Represents a bookmark in Azure Security Insights.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20200101:Bookmark is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Bookmark to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20200101:Bookmark")]
     public partial class Bookmark : global::Pulumi.CustomResource
     {

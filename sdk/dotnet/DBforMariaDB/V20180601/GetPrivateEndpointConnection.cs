@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DBforMariaDB.V20180601
 {
+    [Obsolete(@"azure-native:dbformariadb/v20180601:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformariadb/v20180601privatepreview:PrivateEndpointConnection to guarantee forwards compatibility.")]
     public static class GetPrivateEndpointConnection
     {
         /// <summary>

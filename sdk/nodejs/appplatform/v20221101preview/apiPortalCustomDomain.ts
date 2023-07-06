@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Custom domain of the API portal
  *
- * @deprecated azure-native:appplatform/v20221101preview:ApiPortalCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApiPortalCustomDomain to guarantee forwards compatibility.
+ * @deprecated azure-native:appplatform/v20221101preview:ApiPortalCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApiPortalCustomDomain to guarantee forwards compatibility.
  */
 export class ApiPortalCustomDomain extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class ApiPortalCustomDomain extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiPortalCustomDomain {
-        pulumi.log.warn("ApiPortalCustomDomain is deprecated: azure-native:appplatform/v20221101preview:ApiPortalCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApiPortalCustomDomain to guarantee forwards compatibility.")
+        pulumi.log.warn("ApiPortalCustomDomain is deprecated: azure-native:appplatform/v20221101preview:ApiPortalCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApiPortalCustomDomain to guarantee forwards compatibility.")
         return new ApiPortalCustomDomain(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,9 +64,9 @@ export class ApiPortalCustomDomain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:appplatform/v20221101preview:ApiPortalCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApiPortalCustomDomain to guarantee forwards compatibility. */
+    /** @deprecated azure-native:appplatform/v20221101preview:ApiPortalCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApiPortalCustomDomain to guarantee forwards compatibility. */
     constructor(name: string, args: ApiPortalCustomDomainArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApiPortalCustomDomain is deprecated: azure-native:appplatform/v20221101preview:ApiPortalCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApiPortalCustomDomain to guarantee forwards compatibility.")
+        pulumi.log.warn("ApiPortalCustomDomain is deprecated: azure-native:appplatform/v20221101preview:ApiPortalCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApiPortalCustomDomain to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

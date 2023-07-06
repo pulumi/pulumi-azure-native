@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified FirewallPolicyRuleCollectionGroup.
  */
+/** @deprecated azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility. */
 export function getFirewallPolicyRuleCollectionGroup(args: GetFirewallPolicyRuleCollectionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyRuleCollectionGroupResult> {
+    pulumi.log.warn("getFirewallPolicyRuleCollectionGroup is deprecated: azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220901:getFirewallPolicyRuleCollectionGroup", {
@@ -71,6 +73,7 @@ export interface GetFirewallPolicyRuleCollectionGroupResult {
 /**
  * Gets the specified FirewallPolicyRuleCollectionGroup.
  */
+/** @deprecated azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:FirewallPolicyRuleCollectionGroup to guarantee forwards compatibility. */
 export function getFirewallPolicyRuleCollectionGroupOutput(args: GetFirewallPolicyRuleCollectionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyRuleCollectionGroupResult> {
     return pulumi.output(args).apply((a: any) => getFirewallPolicyRuleCollectionGroup(a, opts))
 }

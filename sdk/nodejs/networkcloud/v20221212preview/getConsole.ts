@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of the provided virtual machine console.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:Console is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Console to guarantee forwards compatibility. */
 export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleResult> {
+    pulumi.log.warn("getConsole is deprecated: azure-native:networkcloud/v20221212preview:Console is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Console to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20221212preview:getConsole", {
@@ -100,6 +102,7 @@ export interface GetConsoleResult {
 /**
  * Get properties of the provided virtual machine console.
  */
+/** @deprecated azure-native:networkcloud/v20221212preview:Console is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Console to guarantee forwards compatibility. */
 export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleResult> {
     return pulumi.output(args).apply((a: any) => getConsole(a, opts))
 }

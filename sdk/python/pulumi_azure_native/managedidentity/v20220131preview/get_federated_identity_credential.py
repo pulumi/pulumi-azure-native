@@ -16,6 +16,8 @@ __all__ = [
     'get_federated_identity_credential_output',
 ]
 
+warnings.warn("""azure-native:managedidentity/v20220131preview:FederatedIdentityCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:managedidentity/v20230131:FederatedIdentityCredential to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFederatedIdentityCredentialResult:
     """
@@ -116,6 +118,7 @@ def get_federated_identity_credential(federated_identity_credential_resource_nam
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.
     :param str resource_name: The name of the identity resource.
     """
+    pulumi.log.warn("""get_federated_identity_credential is deprecated: azure-native:managedidentity/v20220131preview:FederatedIdentityCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:managedidentity/v20230131:FederatedIdentityCredential to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['federatedIdentityCredentialResourceName'] = federated_identity_credential_resource_name
     __args__['resourceGroupName'] = resource_group_name
@@ -145,4 +148,5 @@ def get_federated_identity_credential_output(federated_identity_credential_resou
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.
     :param str resource_name: The name of the identity resource.
     """
+    pulumi.log.warn("""get_federated_identity_credential is deprecated: azure-native:managedidentity/v20220131preview:FederatedIdentityCredential is being removed in the next major version of this provider. Upgrade to at least azure-native:managedidentity/v20230131:FederatedIdentityCredential to guarantee forwards compatibility.""")
     ...

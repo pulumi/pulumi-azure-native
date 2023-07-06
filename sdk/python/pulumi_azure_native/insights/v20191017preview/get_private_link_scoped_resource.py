@@ -16,6 +16,8 @@ __all__ = [
     'get_private_link_scoped_resource_output',
 ]
 
+warnings.warn("""azure-native:insights/v20191017preview:PrivateLinkScopedResource is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210701preview:PrivateLinkScopedResource to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateLinkScopedResourceResult:
     """
@@ -104,6 +106,7 @@ def get_private_link_scoped_resource(name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scope_name: The name of the Azure Monitor PrivateLinkScope resource.
     """
+    pulumi.log.warn("""get_private_link_scoped_resource is deprecated: azure-native:insights/v20191017preview:PrivateLinkScopedResource is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210701preview:PrivateLinkScopedResource to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -132,4 +135,5 @@ def get_private_link_scoped_resource_output(name: Optional[pulumi.Input[str]] = 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scope_name: The name of the Azure Monitor PrivateLinkScope resource.
     """
+    pulumi.log.warn("""get_private_link_scoped_resource is deprecated: azure-native:insights/v20191017preview:PrivateLinkScopedResource is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20210701preview:PrivateLinkScopedResource to guarantee forwards compatibility.""")
     ...

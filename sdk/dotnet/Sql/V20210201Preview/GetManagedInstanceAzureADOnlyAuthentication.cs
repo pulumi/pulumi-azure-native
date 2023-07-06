@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20210201Preview
 {
-    [Obsolete(@"azure-native:sql/v20210201preview:ManagedInstanceAzureADOnlyAuthentication is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:sql/v20210201preview:ManagedInstanceAzureADOnlyAuthentication is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedInstanceAzureADOnlyAuthentication to guarantee forwards compatibility.")]
     public static class GetManagedInstanceAzureADOnlyAuthentication
     {
         /// <summary>

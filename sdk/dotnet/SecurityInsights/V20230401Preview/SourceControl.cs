@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
     /// <summary>
     /// Represents a SourceControl in Azure Security Insights.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230401preview:SourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230501preview:SourceControl to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:SourceControl")]
     public partial class SourceControl : global::Pulumi.CustomResource
     {

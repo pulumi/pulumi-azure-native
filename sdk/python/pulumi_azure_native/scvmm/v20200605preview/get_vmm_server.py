@@ -17,6 +17,8 @@ __all__ = [
     'get_vmm_server_output',
 ]
 
+warnings.warn("""azure-native:scvmm/v20200605preview:VmmServer is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VmmServer to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVmmServerResult:
     """
@@ -223,6 +225,7 @@ def get_vmm_server(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str vmm_server_name: Name of the VMMServer.
     """
+    pulumi.log.warn("""get_vmm_server is deprecated: azure-native:scvmm/v20200605preview:VmmServer is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VmmServer to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmmServerName'] = vmm_server_name
@@ -258,4 +261,5 @@ def get_vmm_server_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group.
     :param str vmm_server_name: Name of the VMMServer.
     """
+    pulumi.log.warn("""get_vmm_server is deprecated: azure-native:scvmm/v20200605preview:VmmServer is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VmmServer to guarantee forwards compatibility.""")
     ...

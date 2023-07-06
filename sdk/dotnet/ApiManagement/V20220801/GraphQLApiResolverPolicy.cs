@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Policy Contract details.
     /// </summary>
+    [Obsolete(@"azure-native:apimanagement/v20220801:GraphQLApiResolverPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GraphQLApiResolverPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:GraphQLApiResolverPolicy")]
     public partial class GraphQLApiResolverPolicy : global::Pulumi.CustomResource
     {

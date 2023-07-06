@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
     /// <summary>
     /// Azure Front Door origin is the source of the content being delivered via Azure Front Door. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     /// </summary>
+    [Obsolete(@"azure-native:cdn/v20221101preview:AFDOrigin is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDOrigin to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:cdn/v20221101preview:AFDOrigin")]
     public partial class AFDOrigin : global::Pulumi.CustomResource
     {

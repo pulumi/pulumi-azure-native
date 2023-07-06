@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20201101
     /// <summary>
     /// Custom IP prefix resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20201101:CustomIPPrefix is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20210301:CustomIPPrefix to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20201101:CustomIPPrefix")]
     public partial class CustomIPPrefix : global::Pulumi.CustomResource
     {

@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a backup instance with name in a backup vault
  */
-/** @deprecated azure-native:dataprotection/v20210201preview:BackupInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupInstance to guarantee forwards compatibility. */
+/** @deprecated azure-native:dataprotection/v20210201preview:BackupInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupInstance to guarantee forwards compatibility. */
 export function getBackupInstance(args: GetBackupInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupInstanceResult> {
-    pulumi.log.warn("getBackupInstance is deprecated: azure-native:dataprotection/v20210201preview:BackupInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupInstance to guarantee forwards compatibility.")
+    pulumi.log.warn("getBackupInstance is deprecated: azure-native:dataprotection/v20210201preview:BackupInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupInstance to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dataprotection/v20210201preview:getBackupInstance", {
@@ -65,7 +65,7 @@ export interface GetBackupInstanceResult {
 /**
  * Gets a backup instance with name in a backup vault
  */
-/** @deprecated azure-native:dataprotection/v20210201preview:BackupInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupInstance to guarantee forwards compatibility. */
+/** @deprecated azure-native:dataprotection/v20210201preview:BackupInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupInstance to guarantee forwards compatibility. */
 export function getBackupInstanceOutput(args: GetBackupInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupInstanceResult> {
     return pulumi.output(args).apply((a: any) => getBackupInstance(a, opts))
 }

@@ -98,7 +98,12 @@ class HybridIdentityMetadatumArgs:
         pulumi.set(self, "vm_id", value)
 
 
+warnings.warn("""azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class HybridIdentityMetadatum(pulumi.CustomResource):
+    warnings.warn("""azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -150,6 +155,7 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  vm_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""HybridIdentityMetadatum is deprecated: azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

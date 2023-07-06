@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AVS.V20200717Preview
 {
+    [Obsolete(@"azure-native:avs/v20200717preview:WorkloadNetworkDhcp is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20210101preview:WorkloadNetworkDhcp to guarantee forwards compatibility.")]
     public static class GetWorkloadNetworkDhcp
     {
         /// <summary>

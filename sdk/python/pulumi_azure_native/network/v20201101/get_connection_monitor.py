@@ -17,6 +17,8 @@ __all__ = [
     'get_connection_monitor_output',
 ]
 
+warnings.warn("""azure-native:network/v20201101:ConnectionMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ConnectionMonitor to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConnectionMonitorResult:
     """
@@ -273,6 +275,7 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
     :param str network_watcher_name: The name of the Network Watcher resource.
     :param str resource_group_name: The name of the resource group containing Network Watcher.
     """
+    pulumi.log.warn("""get_connection_monitor is deprecated: azure-native:network/v20201101:ConnectionMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ConnectionMonitor to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['connectionMonitorName'] = connection_monitor_name
     __args__['networkWatcherName'] = network_watcher_name
@@ -315,4 +318,5 @@ def get_connection_monitor_output(connection_monitor_name: Optional[pulumi.Input
     :param str network_watcher_name: The name of the Network Watcher resource.
     :param str resource_group_name: The name of the resource group containing Network Watcher.
     """
+    pulumi.log.warn("""get_connection_monitor is deprecated: azure-native:network/v20201101:ConnectionMonitor is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ConnectionMonitor to guarantee forwards compatibility.""")
     ...

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.GuestConfiguration.V20200625
 {
+    [Obsolete(@"azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment to guarantee forwards compatibility.")]
     public static class GetGuestConfigurationAssignment
     {
         /// <summary>

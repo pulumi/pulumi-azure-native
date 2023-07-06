@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerService.V20190430
     /// <summary>
     /// OpenShift Managed cluster.
     /// </summary>
+    [Obsolete(@"azure-native:containerservice/v20190430:OpenShiftManagedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20191027preview:OpenShiftManagedCluster to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerservice/v20190430:OpenShiftManagedCluster")]
     public partial class OpenShiftManagedCluster : global::Pulumi.CustomResource
     {

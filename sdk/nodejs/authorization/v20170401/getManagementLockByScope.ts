@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a management lock by scope.
  */
+/** @deprecated azure-native:authorization/v20170401:ManagementLockByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility. */
 export function getManagementLockByScope(args: GetManagementLockByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockByScopeResult> {
+    pulumi.log.warn("getManagementLockByScope is deprecated: azure-native:authorization/v20170401:ManagementLockByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20170401:getManagementLockByScope", {
@@ -62,6 +64,7 @@ export interface GetManagementLockByScopeResult {
 /**
  * Get a management lock by scope.
  */
+/** @deprecated azure-native:authorization/v20170401:ManagementLockByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20200501:ManagementLockByScope to guarantee forwards compatibility. */
 export function getManagementLockByScopeOutput(args: GetManagementLockByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockByScopeResult> {
     return pulumi.output(args).apply((a: any) => getManagementLockByScope(a, opts))
 }

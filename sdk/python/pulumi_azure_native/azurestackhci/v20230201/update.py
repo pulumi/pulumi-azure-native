@@ -340,7 +340,12 @@ class UpdateArgs:
         pulumi.set(self, "version", value)
 
 
+warnings.warn("""azure-native:azurestackhci/v20230201:Update is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230301:Update to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class Update(pulumi.CustomResource):
+    warnings.warn("""azure-native:azurestackhci/v20230201:Update is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230301:Update to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -437,6 +442,7 @@ class Update(pulumi.CustomResource):
                  update_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Update is deprecated: azure-native:azurestackhci/v20230201:Update is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20230301:Update to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

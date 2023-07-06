@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the customized accelerator.
  */
+/** @deprecated azure-native:appplatform/v20230101preview:CustomizedAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:CustomizedAccelerator to guarantee forwards compatibility. */
 export function getCustomizedAccelerator(args: GetCustomizedAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomizedAcceleratorResult> {
+    pulumi.log.warn("getCustomizedAccelerator is deprecated: azure-native:appplatform/v20230101preview:CustomizedAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:CustomizedAccelerator to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20230101preview:getCustomizedAccelerator", {
@@ -72,6 +74,7 @@ export interface GetCustomizedAcceleratorResult {
 /**
  * Get the customized accelerator.
  */
+/** @deprecated azure-native:appplatform/v20230101preview:CustomizedAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:CustomizedAccelerator to guarantee forwards compatibility. */
 export function getCustomizedAcceleratorOutput(args: GetCustomizedAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizedAcceleratorResult> {
     return pulumi.output(args).apply((a: any) => getCustomizedAccelerator(a, opts))
 }

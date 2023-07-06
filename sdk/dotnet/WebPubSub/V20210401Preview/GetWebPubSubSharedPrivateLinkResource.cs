@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.WebPubSub.V20210401Preview
 {
+    [Obsolete(@"azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.")]
     public static class GetWebPubSubSharedPrivateLinkResource
     {
         /// <summary>

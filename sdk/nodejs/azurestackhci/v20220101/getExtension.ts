@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get particular Arc Extension of HCI Cluster.
  */
-/** @deprecated azure-native:azurestackhci/v20220101:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221001:Extension to guarantee forwards compatibility. */
+/** @deprecated azure-native:azurestackhci/v20220101:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:Extension to guarantee forwards compatibility. */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
-    pulumi.log.warn("getExtension is deprecated: azure-native:azurestackhci/v20220101:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221001:Extension to guarantee forwards compatibility.")
+    pulumi.log.warn("getExtension is deprecated: azure-native:azurestackhci/v20220101:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:Extension to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20220101:getExtension", {
@@ -122,7 +122,7 @@ export interface GetExtensionResult {
 /**
  * Get particular Arc Extension of HCI Cluster.
  */
-/** @deprecated azure-native:azurestackhci/v20220101:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221001:Extension to guarantee forwards compatibility. */
+/** @deprecated azure-native:azurestackhci/v20220101:Extension is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:Extension to guarantee forwards compatibility. */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))
 }

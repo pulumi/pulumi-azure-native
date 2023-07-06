@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20230201
 {
-    [Obsolete(@"azure-native:securityinsights/v20230201:AutomationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:AutomationRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20230201:AutomationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:AutomationRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230201:AutomationRule")]
     public partial class AutomationRule : global::Pulumi.CustomResource
     {

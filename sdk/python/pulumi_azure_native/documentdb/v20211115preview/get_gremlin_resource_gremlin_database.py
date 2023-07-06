@@ -17,7 +17,7 @@ __all__ = [
     'get_gremlin_resource_gremlin_database_output',
 ]
 
-warnings.warn("""azure-native:documentdb/v20211115preview:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:documentdb/v20211115preview:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetGremlinResourceGremlinDatabaseResult:
@@ -137,7 +137,7 @@ def get_gremlin_resource_gremlin_database(account_name: Optional[str] = None,
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_gremlin_resource_gremlin_database is deprecated: azure-native:documentdb/v20211115preview:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_gremlin_resource_gremlin_database is deprecated: azure-native:documentdb/v20211115preview:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['databaseName'] = database_name
@@ -169,5 +169,5 @@ def get_gremlin_resource_gremlin_database_output(account_name: Optional[pulumi.I
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_gremlin_resource_gremlin_database is deprecated: azure-native:documentdb/v20211115preview:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_gremlin_resource_gremlin_database is deprecated: azure-native:documentdb/v20211115preview:GremlinResourceGremlinDatabase is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:GremlinResourceGremlinDatabase to guarantee forwards compatibility.""")
     ...

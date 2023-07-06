@@ -17,6 +17,8 @@ __all__ = [
     'get_start_stop_managed_instance_schedule_output',
 ]
 
+warnings.warn("""azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:StartStopManagedInstanceSchedule to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStartStopManagedInstanceScheduleResult:
     """
@@ -153,6 +155,7 @@ def get_start_stop_managed_instance_schedule(managed_instance_name: Optional[str
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str start_stop_schedule_name: Name of the managed instance Start/Stop schedule.
     """
+    pulumi.log.warn("""get_start_stop_managed_instance_schedule is deprecated: azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:StartStopManagedInstanceSchedule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['managedInstanceName'] = managed_instance_name
     __args__['resourceGroupName'] = resource_group_name
@@ -185,4 +188,5 @@ def get_start_stop_managed_instance_schedule_output(managed_instance_name: Optio
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str start_stop_schedule_name: Name of the managed instance Start/Stop schedule.
     """
+    pulumi.log.warn("""get_start_stop_managed_instance_schedule is deprecated: azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:StartStopManagedInstanceSchedule to guarantee forwards compatibility.""")
     ...

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     /// <summary>
     /// Define the Virtual Instance for SAP solutions resource.
     /// </summary>
+    [Obsolete(@"azure-native:workloads/v20211201preview:SAPVirtualInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:workloads/v20211201preview:SAPVirtualInstance")]
     public partial class SAPVirtualInstance : global::Pulumi.CustomResource
     {

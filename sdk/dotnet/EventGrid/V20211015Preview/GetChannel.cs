@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EventGrid.V20211015Preview
 {
+    [Obsolete(@"azure-native:eventgrid/v20211015preview:Channel is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:Channel to guarantee forwards compatibility.")]
     public static class GetChannel
     {
         /// <summary>

@@ -17,6 +17,8 @@ __all__ = [
     'get_remediation_at_management_group_output',
 ]
 
+warnings.warn("""azure-native:policyinsights/v20190701:RemediationAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtManagementGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRemediationAtManagementGroupResult:
     """
@@ -177,6 +179,7 @@ def get_remediation_at_management_group(management_group_id: Optional[str] = Non
     :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
     :param str remediation_name: The name of the remediation.
     """
+    pulumi.log.warn("""get_remediation_at_management_group is deprecated: azure-native:policyinsights/v20190701:RemediationAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtManagementGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['managementGroupsNamespace'] = management_groups_namespace
@@ -211,4 +214,5 @@ def get_remediation_at_management_group_output(management_group_id: Optional[pul
     :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
     :param str remediation_name: The name of the remediation.
     """
+    pulumi.log.warn("""get_remediation_at_management_group is deprecated: azure-native:policyinsights/v20190701:RemediationAtManagementGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtManagementGroup to guarantee forwards compatibility.""")
     ...

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20201101
     /// <summary>
     /// NetworkVirtualAppliance Resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20201101:NetworkVirtualAppliance is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:NetworkVirtualAppliance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20201101:NetworkVirtualAppliance")]
     public partial class NetworkVirtualAppliance : global::Pulumi.CustomResource
     {

@@ -16,6 +16,8 @@ __all__ = [
     'get_wcf_relay_output',
 ]
 
+warnings.warn("""azure-native:relay/v20170401:WCFRelay is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:WCFRelay to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWCFRelayResult:
     """
@@ -176,6 +178,7 @@ def get_wcf_relay(namespace_name: Optional[str] = None,
     :param str relay_name: The relay name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_wcf_relay is deprecated: azure-native:relay/v20170401:WCFRelay is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:WCFRelay to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['relayName'] = relay_name
@@ -210,4 +213,5 @@ def get_wcf_relay_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str relay_name: The relay name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_wcf_relay is deprecated: azure-native:relay/v20170401:WCFRelay is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:WCFRelay to guarantee forwards compatibility.""")
     ...

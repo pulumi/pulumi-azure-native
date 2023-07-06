@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20210401Preview
     /// <summary>
     /// A private endpoint connection to an azure resource
     /// </summary>
+    [Obsolete(@"azure-native:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection")]
     public partial class WebPubSubPrivateEndpointConnection : global::Pulumi.CustomResource
     {

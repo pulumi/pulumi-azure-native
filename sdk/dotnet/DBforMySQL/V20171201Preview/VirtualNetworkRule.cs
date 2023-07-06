@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201Preview
     /// <summary>
     /// A virtual network rule.
     /// </summary>
+    [Obsolete(@"azure-native:dbformysql/v20171201preview:VirtualNetworkRule is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformysql/v20180601privatepreview:VirtualNetworkRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbformysql/v20171201preview:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : global::Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
     /// <summary>
     /// Network function resource response.
     /// </summary>
+    [Obsolete(@"azure-native:hybridnetwork/v20200101preview:NetworkFunction is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridnetwork/v20220101preview:NetworkFunction to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hybridnetwork/v20200101preview:NetworkFunction")]
     public partial class NetworkFunction : global::Pulumi.CustomResource
     {

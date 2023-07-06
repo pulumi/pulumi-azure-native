@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a custom certificate.
  */
-/** @deprecated azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubCustomCertificate to guarantee forwards compatibility. */
+/** @deprecated azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate to guarantee forwards compatibility. */
 export function getWebPubSubCustomCertificate(args: GetWebPubSubCustomCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubCustomCertificateResult> {
-    pulumi.log.warn("getWebPubSubCustomCertificate is deprecated: azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubCustomCertificate to guarantee forwards compatibility.")
+    pulumi.log.warn("getWebPubSubCustomCertificate is deprecated: azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20220801preview:getWebPubSubCustomCertificate", {
@@ -77,7 +77,7 @@ export interface GetWebPubSubCustomCertificateResult {
 /**
  * Get a custom certificate.
  */
-/** @deprecated azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230201:WebPubSubCustomCertificate to guarantee forwards compatibility. */
+/** @deprecated azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate to guarantee forwards compatibility. */
 export function getWebPubSubCustomCertificateOutput(args: GetWebPubSubCustomCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubCustomCertificateResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSubCustomCertificate(a, opts))
 }

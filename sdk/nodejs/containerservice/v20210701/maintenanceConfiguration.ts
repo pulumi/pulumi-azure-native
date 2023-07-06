@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
  *
- * @deprecated azure-native:containerservice/v20210701:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:MaintenanceConfiguration to guarantee forwards compatibility.
+ * @deprecated azure-native:containerservice/v20210701:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230502preview:MaintenanceConfiguration to guarantee forwards compatibility.
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MaintenanceConfiguration {
-        pulumi.log.warn("MaintenanceConfiguration is deprecated: azure-native:containerservice/v20210701:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:MaintenanceConfiguration to guarantee forwards compatibility.")
+        pulumi.log.warn("MaintenanceConfiguration is deprecated: azure-native:containerservice/v20210701:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230502preview:MaintenanceConfiguration to guarantee forwards compatibility.")
         return new MaintenanceConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,9 +68,9 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:containerservice/v20210701:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:MaintenanceConfiguration to guarantee forwards compatibility. */
+    /** @deprecated azure-native:containerservice/v20210701:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230502preview:MaintenanceConfiguration to guarantee forwards compatibility. */
     constructor(name: string, args: MaintenanceConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("MaintenanceConfiguration is deprecated: azure-native:containerservice/v20210701:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:MaintenanceConfiguration to guarantee forwards compatibility.")
+        pulumi.log.warn("MaintenanceConfiguration is deprecated: azure-native:containerservice/v20210701:MaintenanceConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230502preview:MaintenanceConfiguration to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

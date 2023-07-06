@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
     /// <summary>
     /// Managed instance's Start/Stop schedule.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:StartStopManagedInstanceSchedule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule")]
     public partial class StartStopManagedInstanceSchedule : global::Pulumi.CustomResource
     {

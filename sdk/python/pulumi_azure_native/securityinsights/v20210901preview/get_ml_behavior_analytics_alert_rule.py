@@ -17,7 +17,7 @@ __all__ = [
     'get_ml_behavior_analytics_alert_rule_output',
 ]
 
-warnings.warn("""azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MLBehaviorAnalyticsAlertRule to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MLBehaviorAnalyticsAlertRule to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetMLBehaviorAnalyticsAlertRuleResult:
@@ -204,7 +204,7 @@ def get_ml_behavior_analytics_alert_rule(resource_group_name: Optional[str] = No
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_ml_behavior_analytics_alert_rule is deprecated: azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MLBehaviorAnalyticsAlertRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_ml_behavior_analytics_alert_rule is deprecated: azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MLBehaviorAnalyticsAlertRule to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleId'] = rule_id
@@ -241,5 +241,5 @@ def get_ml_behavior_analytics_alert_rule_output(resource_group_name: Optional[pu
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_ml_behavior_analytics_alert_rule is deprecated: azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MLBehaviorAnalyticsAlertRule to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_ml_behavior_analytics_alert_rule is deprecated: azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MLBehaviorAnalyticsAlertRule to guarantee forwards compatibility.""")
     ...

@@ -243,12 +243,7 @@ class ViewByScopeArgs:
         pulumi.set(self, "view_name", value)
 
 
-warnings.warn("""azure-native:costmanagement/v20221001:ViewByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221005preview:ViewByScope to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ViewByScope(pulumi.CustomResource):
-    warnings.warn("""azure-native:costmanagement/v20221001:ViewByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221005preview:ViewByScope to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -327,7 +322,6 @@ class ViewByScope(pulumi.CustomResource):
                  type: Optional[pulumi.Input[Union[str, 'ReportType']]] = None,
                  view_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ViewByScope is deprecated: azure-native:costmanagement/v20221001:ViewByScope is being removed in the next major version of this provider. Upgrade to at least azure-native:costmanagement/v20221005preview:ViewByScope to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

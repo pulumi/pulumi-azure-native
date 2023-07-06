@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified private endpoint connection on application gateway.
  */
+/** @deprecated azure-native:network/v20201101:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getApplicationGatewayPrivateEndpointConnection(args: GetApplicationGatewayPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayPrivateEndpointConnectionResult> {
+    pulumi.log.warn("getApplicationGatewayPrivateEndpointConnection is deprecated: azure-native:network/v20201101:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20201101:getApplicationGatewayPrivateEndpointConnection", {
@@ -75,6 +77,7 @@ export interface GetApplicationGatewayPrivateEndpointConnectionResult {
 /**
  * Gets the specified private endpoint connection on application gateway.
  */
+/** @deprecated azure-native:network/v20201101:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility. */
 export function getApplicationGatewayPrivateEndpointConnectionOutput(args: GetApplicationGatewayPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getApplicationGatewayPrivateEndpointConnection(a, opts))
 }

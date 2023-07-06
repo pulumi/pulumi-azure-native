@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901
     /// <summary>
     /// An Log Analytics QueryPack definition.
     /// </summary>
+    [Obsolete(@"azure-native:operationalinsights/v20190901:QueryPack is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:QueryPack to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:operationalinsights/v20190901:QueryPack")]
     public partial class QueryPack : global::Pulumi.CustomResource
     {

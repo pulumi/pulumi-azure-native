@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20221201Preview
 {
+    [Obsolete(@"azure-native:machinelearningservices/v20221201preview:BatchEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:BatchEndpoint to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20221201preview:BatchEndpoint")]
     public partial class BatchEndpoint : global::Pulumi.CustomResource
     {

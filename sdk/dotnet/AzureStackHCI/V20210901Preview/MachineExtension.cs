@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     /// <summary>
     /// Describes a Machine Extension.
     /// </summary>
+    [Obsolete(@"azure-native:azurestackhci/v20210901preview:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:MachineExtension to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource
     {

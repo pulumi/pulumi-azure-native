@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A single API Management service resource in List or Get response.
+ *
+ * @deprecated azure-native:apimanagement/v20220801:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiManagementService to guarantee forwards compatibility.
  */
 export class ApiManagementService extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class ApiManagementService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiManagementService {
+        pulumi.log.warn("ApiManagementService is deprecated: azure-native:apimanagement/v20220801:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiManagementService to guarantee forwards compatibility.")
         return new ApiManagementService(name, undefined as any, { ...opts, id: id });
     }
 
@@ -201,7 +204,9 @@ export class ApiManagementService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:apimanagement/v20220801:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiManagementService to guarantee forwards compatibility. */
     constructor(name: string, args: ApiManagementServiceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ApiManagementService is deprecated: azure-native:apimanagement/v20220801:ApiManagementService is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiManagementService to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

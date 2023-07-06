@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns a Log Analytics QueryPack.
  */
+/** @deprecated azure-native:operationalinsights/v20190901:QueryPack is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:QueryPack to guarantee forwards compatibility. */
 export function getQueryPack(args: GetQueryPackArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryPackResult> {
+    pulumi.log.warn("getQueryPack is deprecated: azure-native:operationalinsights/v20190901:QueryPack is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:QueryPack to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20190901:getQueryPack", {
@@ -71,6 +73,7 @@ export interface GetQueryPackResult {
 /**
  * Returns a Log Analytics QueryPack.
  */
+/** @deprecated azure-native:operationalinsights/v20190901:QueryPack is being removed in the next major version of this provider. Upgrade to at least azure-native:operationalinsights/v20190901preview:QueryPack to guarantee forwards compatibility. */
 export function getQueryPackOutput(args: GetQueryPackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryPackResult> {
     return pulumi.output(args).apply((a: any) => getQueryPack(a, opts))
 }

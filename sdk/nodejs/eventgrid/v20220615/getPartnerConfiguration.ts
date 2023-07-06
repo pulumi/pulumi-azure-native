@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of a partner configuration.
  */
+/** @deprecated azure-native:eventgrid/v20220615:PartnerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerConfiguration to guarantee forwards compatibility. */
 export function getPartnerConfiguration(args: GetPartnerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerConfigurationResult> {
+    pulumi.log.warn("getPartnerConfiguration is deprecated: azure-native:eventgrid/v20220615:PartnerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20220615:getPartnerConfiguration", {
@@ -65,6 +67,7 @@ export interface GetPartnerConfigurationResult {
 /**
  * Get properties of a partner configuration.
  */
+/** @deprecated azure-native:eventgrid/v20220615:PartnerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerConfiguration to guarantee forwards compatibility. */
 export function getPartnerConfigurationOutput(args: GetPartnerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getPartnerConfiguration(a, opts))
 }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
     /// <summary>
     /// Spring Cloud Gateway route config resource
     /// </summary>
+    [Obsolete(@"azure-native:appplatform/v20220101preview:GatewayRouteConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:GatewayRouteConfig to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:appplatform/v20220101preview:GatewayRouteConfig")]
     public partial class GatewayRouteConfig : global::Pulumi.CustomResource
     {

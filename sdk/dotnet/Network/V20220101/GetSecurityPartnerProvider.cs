@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20220101
 {
-    [Obsolete(@"azure-native:network/v20220101:SecurityPartnerProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:SecurityPartnerProvider to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20220101:SecurityPartnerProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:SecurityPartnerProvider to guarantee forwards compatibility.")]
     public static class GetSecurityPartnerProvider
     {
         /// <summary>

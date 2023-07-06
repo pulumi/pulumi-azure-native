@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
     /// <summary>
     /// API Schema Contract details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20210801:ApiSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiSchema to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20210801:ApiSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiSchema to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20210801:ApiSchema")]
     public partial class ApiSchema : global::Pulumi.CustomResource
     {

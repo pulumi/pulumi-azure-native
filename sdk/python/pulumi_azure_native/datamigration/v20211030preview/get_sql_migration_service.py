@@ -17,6 +17,8 @@ __all__ = [
     'get_sql_migration_service_output',
 ]
 
+warnings.warn("""azure-native:datamigration/v20211030preview:SqlMigrationService is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:SqlMigrationService to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlMigrationServiceResult:
     """
@@ -121,6 +123,7 @@ def get_sql_migration_service(resource_group_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str sql_migration_service_name: Name of the SQL Migration Service.
     """
+    pulumi.log.warn("""get_sql_migration_service is deprecated: azure-native:datamigration/v20211030preview:SqlMigrationService is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:SqlMigrationService to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlMigrationServiceName'] = sql_migration_service_name
@@ -149,4 +152,5 @@ def get_sql_migration_service_output(resource_group_name: Optional[pulumi.Input[
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str sql_migration_service_name: Name of the SQL Migration Service.
     """
+    pulumi.log.warn("""get_sql_migration_service is deprecated: azure-native:datamigration/v20211030preview:SqlMigrationService is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:SqlMigrationService to guarantee forwards compatibility.""")
     ...

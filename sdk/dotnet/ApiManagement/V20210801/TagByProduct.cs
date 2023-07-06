@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
     /// <summary>
     /// Tag Contract details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20210801:TagByProduct is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:TagByProduct to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20210801:TagByProduct is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:TagByProduct to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20210801:TagByProduct")]
     public partial class TagByProduct : global::Pulumi.CustomResource
     {

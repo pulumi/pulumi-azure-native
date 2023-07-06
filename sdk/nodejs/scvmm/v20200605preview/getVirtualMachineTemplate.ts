@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Implements VirtualMachineTemplate GET method.
  */
+/** @deprecated azure-native:scvmm/v20200605preview:VirtualMachineTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachineTemplate to guarantee forwards compatibility. */
 export function getVirtualMachineTemplate(args: GetVirtualMachineTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineTemplateResult> {
+    pulumi.log.warn("getVirtualMachineTemplate is deprecated: azure-native:scvmm/v20200605preview:VirtualMachineTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachineTemplate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm/v20200605preview:getVirtualMachineTemplate", {
@@ -138,6 +140,7 @@ export interface GetVirtualMachineTemplateResult {
 /**
  * Implements VirtualMachineTemplate GET method.
  */
+/** @deprecated azure-native:scvmm/v20200605preview:VirtualMachineTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachineTemplate to guarantee forwards compatibility. */
 export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineTemplateResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineTemplate(a, opts))
 }

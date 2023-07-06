@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the specific private end point connection by specific private link service in the resource group.
  */
-/** @deprecated azure-native:network/v20210801:PrivateLinkServicePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PrivateLinkServicePrivateEndpointConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210801:PrivateLinkServicePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:PrivateLinkServicePrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateLinkServicePrivateEndpointConnection(args: GetPrivateLinkServicePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicePrivateEndpointConnectionResult> {
-    pulumi.log.warn("getPrivateLinkServicePrivateEndpointConnection is deprecated: azure-native:network/v20210801:PrivateLinkServicePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PrivateLinkServicePrivateEndpointConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getPrivateLinkServicePrivateEndpointConnection is deprecated: azure-native:network/v20210801:PrivateLinkServicePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:PrivateLinkServicePrivateEndpointConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210801:getPrivateLinkServicePrivateEndpointConnection", {
@@ -82,7 +82,7 @@ export interface GetPrivateLinkServicePrivateEndpointConnectionResult {
 /**
  * Get the specific private end point connection by specific private link service in the resource group.
  */
-/** @deprecated azure-native:network/v20210801:PrivateLinkServicePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:PrivateLinkServicePrivateEndpointConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20210801:PrivateLinkServicePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:PrivateLinkServicePrivateEndpointConnection to guarantee forwards compatibility. */
 export function getPrivateLinkServicePrivateEndpointConnectionOutput(args: GetPrivateLinkServicePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicePrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkServicePrivateEndpointConnection(a, opts))
 }

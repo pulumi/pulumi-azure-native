@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
+    [Obsolete(@"azure-native:networkcloud/v20221212preview:Console is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Console to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:networkcloud/v20221212preview:Console")]
     public partial class Console : global::Pulumi.CustomResource
     {

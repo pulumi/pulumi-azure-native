@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20221101
     /// <summary>
     /// Describes a Virtual Machine Scale Set Extension.
     /// </summary>
+    [Obsolete(@"azure-native:compute/v20221101:VirtualMachineScaleSetExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:compute/v20230301:VirtualMachineScaleSetExtension to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:compute/v20221101:VirtualMachineScaleSetExtension")]
     public partial class VirtualMachineScaleSetExtension : global::Pulumi.CustomResource
     {

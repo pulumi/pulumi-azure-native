@@ -117,7 +117,12 @@ class RemediationAtResourceGroupArgs:
         pulumi.set(self, "resource_discovery_mode", value)
 
 
+warnings.warn("""azure-native:policyinsights/v20190701:RemediationAtResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtResourceGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class RemediationAtResourceGroup(pulumi.CustomResource):
+    warnings.warn("""azure-native:policyinsights/v20190701:RemediationAtResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtResourceGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -172,6 +177,7 @@ class RemediationAtResourceGroup(pulumi.CustomResource):
                  resource_discovery_mode: Optional[pulumi.Input[Union[str, 'ResourceDiscoveryMode']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""RemediationAtResourceGroup is deprecated: azure-native:policyinsights/v20190701:RemediationAtResourceGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:policyinsights/v20211001:RemediationAtResourceGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The grafana resource type.
+ *
+ * @deprecated azure-native:dashboard/v20220501preview:Grafana is being removed in the next major version of this provider. Upgrade to at least azure-native:dashboard/v20220801:Grafana to guarantee forwards compatibility.
  */
 export class Grafana extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class Grafana extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Grafana {
+        pulumi.log.warn("Grafana is deprecated: azure-native:dashboard/v20220501preview:Grafana is being removed in the next major version of this provider. Upgrade to at least azure-native:dashboard/v20220801:Grafana to guarantee forwards compatibility.")
         return new Grafana(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,7 +80,9 @@ export class Grafana extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:dashboard/v20220501preview:Grafana is being removed in the next major version of this provider. Upgrade to at least azure-native:dashboard/v20220801:Grafana to guarantee forwards compatibility. */
     constructor(name: string, args: GrafanaArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Grafana is deprecated: azure-native:dashboard/v20220501preview:Grafana is being removed in the next major version of this provider. Upgrade to at least azure-native:dashboard/v20220801:Grafana to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

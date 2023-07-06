@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201Preview
     /// <summary>
     /// Represents Microsoft Purview Information Protection data connector.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20230201preview:MicrosoftPurviewInformationProtectionDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MicrosoftPurviewInformationProtectionDataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20230201preview:MicrosoftPurviewInformationProtectionDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MicrosoftPurviewInformationProtectionDataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230201preview:MicrosoftPurviewInformationProtectionDataConnector")]
     public partial class MicrosoftPurviewInformationProtectionDataConnector : global::Pulumi.CustomResource
     {

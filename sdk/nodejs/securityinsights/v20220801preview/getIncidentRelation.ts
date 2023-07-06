@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an incident relation.
  */
-/** @deprecated azure-native:securityinsights/v20220801preview:IncidentRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IncidentRelation to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20220801preview:IncidentRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:IncidentRelation to guarantee forwards compatibility. */
 export function getIncidentRelation(args: GetIncidentRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentRelationResult> {
-    pulumi.log.warn("getIncidentRelation is deprecated: azure-native:securityinsights/v20220801preview:IncidentRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IncidentRelation to guarantee forwards compatibility.")
+    pulumi.log.warn("getIncidentRelation is deprecated: azure-native:securityinsights/v20220801preview:IncidentRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:IncidentRelation to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20220801preview:getIncidentRelation", {
@@ -86,7 +86,7 @@ export interface GetIncidentRelationResult {
 /**
  * Gets an incident relation.
  */
-/** @deprecated azure-native:securityinsights/v20220801preview:IncidentRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:IncidentRelation to guarantee forwards compatibility. */
+/** @deprecated azure-native:securityinsights/v20220801preview:IncidentRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:IncidentRelation to guarantee forwards compatibility. */
 export function getIncidentRelationOutput(args: GetIncidentRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentRelationResult> {
     return pulumi.output(args).apply((a: any) => getIncidentRelation(a, opts))
 }

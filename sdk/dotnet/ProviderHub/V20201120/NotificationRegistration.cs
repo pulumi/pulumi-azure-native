@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
     /// <summary>
     /// The notification registration definition.
     /// </summary>
+    [Obsolete(@"azure-native:providerhub/v20201120:NotificationRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:providerhub/v20210901preview:NotificationRegistration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:providerhub/v20201120:NotificationRegistration")]
     public partial class NotificationRegistration : global::Pulumi.CustomResource
     {

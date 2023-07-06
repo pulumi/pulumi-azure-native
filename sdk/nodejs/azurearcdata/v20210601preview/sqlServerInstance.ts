@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A SqlServerInstance.
+ *
+ * @deprecated azure-native:azurearcdata/v20210601preview:SqlServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:SqlServerInstance to guarantee forwards compatibility.
  */
 export class SqlServerInstance extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class SqlServerInstance extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlServerInstance {
+        pulumi.log.warn("SqlServerInstance is deprecated: azure-native:azurearcdata/v20210601preview:SqlServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:SqlServerInstance to guarantee forwards compatibility.")
         return new SqlServerInstance(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,7 +72,9 @@ export class SqlServerInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:azurearcdata/v20210601preview:SqlServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:SqlServerInstance to guarantee forwards compatibility. */
     constructor(name: string, args: SqlServerInstanceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SqlServerInstance is deprecated: azure-native:azurearcdata/v20210601preview:SqlServerInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:azurearcdata/v20230115preview:SqlServerInstance to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

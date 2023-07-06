@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20201101
     /// <summary>
     /// VirtualWAN Resource.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20201101:VirtualWan is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualWan to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20201101:VirtualWan")]
     public partial class VirtualWan : global::Pulumi.CustomResource
     {

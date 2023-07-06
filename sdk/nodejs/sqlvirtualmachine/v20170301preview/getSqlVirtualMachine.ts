@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a SQL virtual machine.
  */
+/** @deprecated azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine to guarantee forwards compatibility. */
 export function getSqlVirtualMachine(args: GetSqlVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlVirtualMachineResult> {
+    pulumi.log.warn("getSqlVirtualMachine is deprecated: azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sqlvirtualmachine/v20170301preview:getSqlVirtualMachine", {
@@ -119,6 +121,7 @@ export interface GetSqlVirtualMachineResult {
 /**
  * Gets a SQL virtual machine.
  */
+/** @deprecated azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine to guarantee forwards compatibility. */
 export function getSqlVirtualMachineOutput(args: GetSqlVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getSqlVirtualMachine(a, opts))
 }

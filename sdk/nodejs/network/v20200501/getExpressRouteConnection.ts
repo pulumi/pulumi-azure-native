@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified ExpressRouteConnection.
  */
-/** @deprecated azure-native:network/v20200501:ExpressRouteConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200501:ExpressRouteConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ExpressRouteConnection to guarantee forwards compatibility. */
 export function getExpressRouteConnection(args: GetExpressRouteConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteConnectionResult> {
-    pulumi.log.warn("getExpressRouteConnection is deprecated: azure-native:network/v20200501:ExpressRouteConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteConnection to guarantee forwards compatibility.")
+    pulumi.log.warn("getExpressRouteConnection is deprecated: azure-native:network/v20200501:ExpressRouteConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ExpressRouteConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200501:getExpressRouteConnection", {
@@ -77,7 +77,7 @@ export interface GetExpressRouteConnectionResult {
 /**
  * Gets the specified ExpressRouteConnection.
  */
-/** @deprecated azure-native:network/v20200501:ExpressRouteConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ExpressRouteConnection to guarantee forwards compatibility. */
+/** @deprecated azure-native:network/v20200501:ExpressRouteConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ExpressRouteConnection to guarantee forwards compatibility. */
 export function getExpressRouteConnectionOutput(args: GetExpressRouteConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteConnectionResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteConnection(a, opts))
 }

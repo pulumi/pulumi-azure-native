@@ -17,6 +17,8 @@ __all__ = [
     'get_workspace_manager_configuration_output',
 ]
 
+warnings.warn("""azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetWorkspaceManagerConfigurationResult:
     """
@@ -117,6 +119,7 @@ def get_workspace_manager_configuration(resource_group_name: Optional[str] = Non
     :param str workspace_manager_configuration_name: The name of the workspace manager configuration
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_workspace_manager_configuration is deprecated: azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceManagerConfigurationName'] = workspace_manager_configuration_name
@@ -146,4 +149,5 @@ def get_workspace_manager_configuration_output(resource_group_name: Optional[pul
     :param str workspace_manager_configuration_name: The name of the workspace manager configuration
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_workspace_manager_configuration is deprecated: azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:WorkspaceManagerConfiguration to guarantee forwards compatibility.""")
     ...

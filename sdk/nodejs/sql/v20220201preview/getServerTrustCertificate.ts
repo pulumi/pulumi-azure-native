@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a server trust certificate that was uploaded from box to Sql Managed Instance.
  */
-/** @deprecated azure-native:sql/v20220201preview:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerTrustCertificate to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20220201preview:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustCertificate to guarantee forwards compatibility. */
 export function getServerTrustCertificate(args: GetServerTrustCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTrustCertificateResult> {
-    pulumi.log.warn("getServerTrustCertificate is deprecated: azure-native:sql/v20220201preview:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerTrustCertificate to guarantee forwards compatibility.")
+    pulumi.log.warn("getServerTrustCertificate is deprecated: azure-native:sql/v20220201preview:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustCertificate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20220201preview:getServerTrustCertificate", {
@@ -66,7 +66,7 @@ export interface GetServerTrustCertificateResult {
 /**
  * Gets a server trust certificate that was uploaded from box to Sql Managed Instance.
  */
-/** @deprecated azure-native:sql/v20220201preview:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20220801preview:ServerTrustCertificate to guarantee forwards compatibility. */
+/** @deprecated azure-native:sql/v20220201preview:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustCertificate to guarantee forwards compatibility. */
 export function getServerTrustCertificateOutput(args: GetServerTrustCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTrustCertificateResult> {
     return pulumi.output(args).apply((a: any) => getServerTrustCertificate(a, opts))
 }

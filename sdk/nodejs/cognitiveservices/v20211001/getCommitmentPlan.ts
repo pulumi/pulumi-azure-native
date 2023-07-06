@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified commitmentPlans associated with the Cognitive Services account.
  */
+/** @deprecated azure-native:cognitiveservices/v20211001:CommitmentPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:CommitmentPlan to guarantee forwards compatibility. */
 export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanResult> {
+    pulumi.log.warn("getCommitmentPlan is deprecated: azure-native:cognitiveservices/v20211001:CommitmentPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:CommitmentPlan to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20211001:getCommitmentPlan", {
@@ -67,6 +69,7 @@ export interface GetCommitmentPlanResult {
 /**
  * Gets the specified commitmentPlans associated with the Cognitive Services account.
  */
+/** @deprecated azure-native:cognitiveservices/v20211001:CommitmentPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:CommitmentPlan to guarantee forwards compatibility. */
 export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanResult> {
     return pulumi.output(args).apply((a: any) => getCommitmentPlan(a, opts))
 }

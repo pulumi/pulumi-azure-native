@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Represents Office Microsoft Project data connector.
  *
- * @deprecated azure-native:securityinsights/v20220901preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.
+ * @deprecated azure-native:securityinsights/v20220901preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Office365ProjectDataConnector to guarantee forwards compatibility.
  */
 export class Office365ProjectDataConnector extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Office365ProjectDataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Office365ProjectDataConnector {
-        pulumi.log.warn("Office365ProjectDataConnector is deprecated: azure-native:securityinsights/v20220901preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.")
+        pulumi.log.warn("Office365ProjectDataConnector is deprecated: azure-native:securityinsights/v20220901preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Office365ProjectDataConnector to guarantee forwards compatibility.")
         return new Office365ProjectDataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,9 +77,9 @@ export class Office365ProjectDataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:securityinsights/v20220901preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility. */
+    /** @deprecated azure-native:securityinsights/v20220901preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Office365ProjectDataConnector to guarantee forwards compatibility. */
     constructor(name: string, args: Office365ProjectDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Office365ProjectDataConnector is deprecated: azure-native:securityinsights/v20220901preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Office365ProjectDataConnector to guarantee forwards compatibility.")
+        pulumi.log.warn("Office365ProjectDataConnector is deprecated: azure-native:securityinsights/v20220901preview:Office365ProjectDataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Office365ProjectDataConnector to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

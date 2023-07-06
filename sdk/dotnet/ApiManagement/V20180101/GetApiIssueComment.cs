@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
-    [Obsolete(@"azure-native:apimanagement/v20180101:ApiIssueComment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:ApiIssueComment to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20180101:ApiIssueComment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueComment to guarantee forwards compatibility.")]
     public static class GetApiIssueComment
     {
         /// <summary>

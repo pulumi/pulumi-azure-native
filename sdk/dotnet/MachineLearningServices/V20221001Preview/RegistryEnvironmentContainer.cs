@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20221001Preview
     /// <summary>
     /// Azure Resource Manager resource envelope.
     /// </summary>
-    [Obsolete(@"azure-native:machinelearningservices/v20221001preview:RegistryEnvironmentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentContainer to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:machinelearningservices/v20221001preview:RegistryEnvironmentContainer is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:RegistryEnvironmentContainer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20221001preview:RegistryEnvironmentContainer")]
     public partial class RegistryEnvironmentContainer : global::Pulumi.CustomResource
     {

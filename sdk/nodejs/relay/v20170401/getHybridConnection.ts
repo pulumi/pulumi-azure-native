@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the description for the specified hybrid connection.
  */
+/** @deprecated azure-native:relay/v20170401:HybridConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:HybridConnection to guarantee forwards compatibility. */
 export function getHybridConnection(args: GetHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionResult> {
+    pulumi.log.warn("getHybridConnection is deprecated: azure-native:relay/v20170401:HybridConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:HybridConnection to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay/v20170401:getHybridConnection", {
@@ -72,6 +74,7 @@ export interface GetHybridConnectionResult {
 /**
  * Returns the description for the specified hybrid connection.
  */
+/** @deprecated azure-native:relay/v20170401:HybridConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:HybridConnection to guarantee forwards compatibility. */
 export function getHybridConnectionOutput(args: GetHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionResult> {
     return pulumi.output(args).apply((a: any) => getHybridConnection(a, opts))
 }

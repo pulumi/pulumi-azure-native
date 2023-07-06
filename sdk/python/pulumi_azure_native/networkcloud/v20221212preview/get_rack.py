@@ -17,6 +17,8 @@ __all__ = [
     'get_rack_output',
 ]
 
+warnings.warn("""azure-native:networkcloud/v20221212preview:Rack is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Rack to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRackResult:
     def __init__(__self__, availability_zone=None, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, rack_location=None, rack_serial_number=None, rack_sku_id=None, system_data=None, tags=None, type=None):
@@ -220,6 +222,7 @@ def get_rack(rack_name: Optional[str] = None,
     :param str rack_name: The name of the rack.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_rack is deprecated: azure-native:networkcloud/v20221212preview:Rack is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Rack to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['rackName'] = rack_name
     __args__['resourceGroupName'] = resource_group_name
@@ -255,4 +258,5 @@ def get_rack_output(rack_name: Optional[pulumi.Input[str]] = None,
     :param str rack_name: The name of the rack.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_rack is deprecated: azure-native:networkcloud/v20221212preview:Rack is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:Rack to guarantee forwards compatibility.""")
     ...

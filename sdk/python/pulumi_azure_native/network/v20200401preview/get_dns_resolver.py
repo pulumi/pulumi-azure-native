@@ -17,6 +17,8 @@ __all__ = [
     'get_dns_resolver_output',
 ]
 
+warnings.warn("""azure-native:network/v20200401preview:DnsResolver is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:DnsResolver to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDnsResolverResult:
     """
@@ -175,6 +177,7 @@ def get_dns_resolver(dns_resolver_name: Optional[str] = None,
     :param str dns_resolver_name: The name of the DNS resolver.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_dns_resolver is deprecated: azure-native:network/v20200401preview:DnsResolver is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:DnsResolver to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['dnsResolverName'] = dns_resolver_name
     __args__['resourceGroupName'] = resource_group_name
@@ -206,4 +209,5 @@ def get_dns_resolver_output(dns_resolver_name: Optional[pulumi.Input[str]] = Non
     :param str dns_resolver_name: The name of the DNS resolver.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_dns_resolver is deprecated: azure-native:network/v20200401preview:DnsResolver is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220701:DnsResolver to guarantee forwards compatibility.""")
     ...

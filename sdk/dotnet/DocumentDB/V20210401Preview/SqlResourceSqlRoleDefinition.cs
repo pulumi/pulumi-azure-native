@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210401Preview
     /// <summary>
     /// An Azure Cosmos DB SQL Role Definition.
     /// </summary>
-    [Obsolete(@"azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315:SqlResourceSqlRoleDefinition to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230415:SqlResourceSqlRoleDefinition to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition")]
     public partial class SqlResourceSqlRoleDefinition : global::Pulumi.CustomResource
     {

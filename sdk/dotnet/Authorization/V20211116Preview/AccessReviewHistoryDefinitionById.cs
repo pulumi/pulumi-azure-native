@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Authorization.V20211116Preview
     /// <summary>
     /// Access Review History Definition.
     /// </summary>
+    [Obsolete(@"azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById is being removed in the next major version of this provider. Upgrade to at least azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById")]
     public partial class AccessReviewHistoryDefinitionById : global::Pulumi.CustomResource
     {

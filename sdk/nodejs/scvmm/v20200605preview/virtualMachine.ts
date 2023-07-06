@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The VirtualMachines resource definition.
+ *
+ * @deprecated azure-native:scvmm/v20200605preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachine to guarantee forwards compatibility.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachine {
+        pulumi.log.warn("VirtualMachine is deprecated: azure-native:scvmm/v20200605preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachine to guarantee forwards compatibility.")
         return new VirtualMachine(name, undefined as any, { ...opts, id: id });
     }
 
@@ -133,7 +136,9 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:scvmm/v20200605preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachine to guarantee forwards compatibility. */
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualMachine is deprecated: azure-native:scvmm/v20200605preview:VirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:scvmm/v20220521preview:VirtualMachine to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

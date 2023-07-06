@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20190201
     /// <summary>
     /// Virtual Network Tap resource
     /// </summary>
-    [Obsolete(@"azure-native:network/v20190201:VirtualNetworkTap is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:VirtualNetworkTap to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20190201:VirtualNetworkTap is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:VirtualNetworkTap to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20190201:VirtualNetworkTap")]
     public partial class VirtualNetworkTap : global::Pulumi.CustomResource
     {

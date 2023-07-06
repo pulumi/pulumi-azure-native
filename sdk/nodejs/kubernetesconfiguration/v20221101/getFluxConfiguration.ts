@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets details of the Flux Configuration.
  */
+/** @deprecated azure-native:kubernetesconfiguration/v20221101:FluxConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20230501:FluxConfiguration to guarantee forwards compatibility. */
 export function getFluxConfiguration(args: GetFluxConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetFluxConfigurationResult> {
+    pulumi.log.warn("getFluxConfiguration is deprecated: azure-native:kubernetesconfiguration/v20221101:FluxConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20230501:FluxConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetesconfiguration/v20221101:getFluxConfiguration", {
@@ -137,6 +139,7 @@ export interface GetFluxConfigurationResult {
 /**
  * Gets details of the Flux Configuration.
  */
+/** @deprecated azure-native:kubernetesconfiguration/v20221101:FluxConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetesconfiguration/v20230501:FluxConfiguration to guarantee forwards compatibility. */
 export function getFluxConfigurationOutput(args: GetFluxConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluxConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getFluxConfiguration(a, opts))
 }

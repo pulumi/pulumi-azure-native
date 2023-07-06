@@ -10,7 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Application accelerator resource
  *
- * @deprecated azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.
+ * @deprecated azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApplicationAccelerator to guarantee forwards compatibility.
  */
 export class ApplicationAccelerator extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class ApplicationAccelerator extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationAccelerator {
-        pulumi.log.warn("ApplicationAccelerator is deprecated: azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.")
+        pulumi.log.warn("ApplicationAccelerator is deprecated: azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApplicationAccelerator to guarantee forwards compatibility.")
         return new ApplicationAccelerator(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,9 +68,9 @@ export class ApplicationAccelerator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility. */
+    /** @deprecated azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApplicationAccelerator to guarantee forwards compatibility. */
     constructor(name: string, args: ApplicationAcceleratorArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApplicationAccelerator is deprecated: azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ApplicationAccelerator to guarantee forwards compatibility.")
+        pulumi.log.warn("ApplicationAccelerator is deprecated: azure-native:appplatform/v20221101preview:ApplicationAccelerator is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApplicationAccelerator to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

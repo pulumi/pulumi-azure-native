@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
     /// <summary>
     /// Definition of the credential.
     /// </summary>
+    [Obsolete(@"azure-native:automation/v20190601:Credential is being removed in the next major version of this provider. Upgrade to at least azure-native:automation/v20220808:Credential to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:automation/v20190601:Credential")]
     public partial class Credential : global::Pulumi.CustomResource
     {

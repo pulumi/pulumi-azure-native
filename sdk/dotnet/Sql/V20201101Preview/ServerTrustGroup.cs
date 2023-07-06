@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
     /// <summary>
     /// A server trust group.
     /// </summary>
+    [Obsolete(@"azure-native:sql/v20201101preview:ServerTrustGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20201101preview:ServerTrustGroup")]
     public partial class ServerTrustGroup : global::Pulumi.CustomResource
     {

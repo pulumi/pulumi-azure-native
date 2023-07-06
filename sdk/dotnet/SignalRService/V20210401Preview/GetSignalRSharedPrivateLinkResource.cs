@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SignalRService.V20210401Preview
 {
+    [Obsolete(@"azure-native:signalrservice/v20210401preview:SignalRSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRSharedPrivateLinkResource to guarantee forwards compatibility.")]
     public static class GetSignalRSharedPrivateLinkResource
     {
         /// <summary>

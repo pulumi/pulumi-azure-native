@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20201101
     /// <summary>
     /// Private Endpoint connection on an application gateway.
     /// </summary>
+    [Obsolete(@"azure-native:network/v20201101:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:network/v20201101:ApplicationGatewayPrivateEndpointConnection")]
     public partial class ApplicationGatewayPrivateEndpointConnection : global::Pulumi.CustomResource
     {

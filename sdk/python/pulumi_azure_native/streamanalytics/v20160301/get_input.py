@@ -17,6 +17,8 @@ __all__ = [
     'get_input_output',
 ]
 
+warnings.warn("""azure-native:streamanalytics/v20160301:Input is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Input to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetInputResult:
     """
@@ -93,6 +95,7 @@ def get_input(input_name: Optional[str] = None,
     :param str job_name: The name of the streaming job.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("""get_input is deprecated: azure-native:streamanalytics/v20160301:Input is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Input to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['inputName'] = input_name
     __args__['jobName'] = job_name
@@ -120,4 +123,5 @@ def get_input_output(input_name: Optional[pulumi.Input[str]] = None,
     :param str job_name: The name of the streaming job.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
+    pulumi.log.warn("""get_input is deprecated: azure-native:streamanalytics/v20160301:Input is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Input to guarantee forwards compatibility.""")
     ...

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20221201
     /// <summary>
     /// Workspace resource.
     /// </summary>
+    [Obsolete(@"azure-native:healthcareapis/v20221201:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:Workspace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20221201:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {

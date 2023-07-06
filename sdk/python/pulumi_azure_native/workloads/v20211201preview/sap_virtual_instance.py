@@ -162,7 +162,12 @@ class SAPVirtualInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure-native:workloads/v20211201preview:SAPVirtualInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class SAPVirtualInstance(pulumi.CustomResource):
+    warnings.warn("""azure-native:workloads/v20211201preview:SAPVirtualInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -226,6 +231,7 @@ class SAPVirtualInstance(pulumi.CustomResource):
                  sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""SAPVirtualInstance is deprecated: azure-native:workloads/v20211201preview:SAPVirtualInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:workloads/v20230401:SAPVirtualInstance to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

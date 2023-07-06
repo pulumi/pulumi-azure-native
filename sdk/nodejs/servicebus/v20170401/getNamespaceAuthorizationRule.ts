@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an authorization rule for a namespace by rule name.
  */
+/** @deprecated azure-native:servicebus/v20170401:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule to guarantee forwards compatibility. */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
+    pulumi.log.warn("getNamespaceAuthorizationRule is deprecated: azure-native:servicebus/v20170401:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20170401:getNamespaceAuthorizationRule", {
@@ -56,6 +58,7 @@ export interface GetNamespaceAuthorizationRuleResult {
 /**
  * Gets an authorization rule for a namespace by rule name.
  */
+/** @deprecated azure-native:servicebus/v20170401:NamespaceAuthorizationRule is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule to guarantee forwards compatibility. */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))
 }

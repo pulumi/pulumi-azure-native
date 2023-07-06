@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Definition of ARM tracked top level resource.
  */
+/** @deprecated azure-native:insights/v20191101preview:DataCollectionRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility. */
 export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleResult> {
+    pulumi.log.warn("getDataCollectionRule is deprecated: azure-native:insights/v20191101preview:DataCollectionRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20191101preview:getDataCollectionRule", {
@@ -91,6 +93,7 @@ export interface GetDataCollectionRuleResult {
 /**
  * Definition of ARM tracked top level resource.
  */
+/** @deprecated azure-native:insights/v20191101preview:DataCollectionRule is being removed in the next major version of this provider. Upgrade to at least azure-native:insights/v20220601:DataCollectionRule to guarantee forwards compatibility. */
 export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
     return pulumi.output(args).apply((a: any) => getDataCollectionRule(a, opts))
 }

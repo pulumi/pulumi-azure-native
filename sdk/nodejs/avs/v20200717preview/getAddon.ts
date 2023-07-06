@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * An addon resource
  */
+/** @deprecated azure-native:avs/v20200717preview:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20210101preview:Addon to guarantee forwards compatibility. */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
+    pulumi.log.warn("getAddon is deprecated: azure-native:avs/v20200717preview:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20210101preview:Addon to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20200717preview:getAddon", {
@@ -64,6 +66,7 @@ export interface GetAddonResult {
 /**
  * An addon resource
  */
+/** @deprecated azure-native:avs/v20200717preview:Addon is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20210101preview:Addon to guarantee forwards compatibility. */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
     return pulumi.output(args).apply((a: any) => getAddon(a, opts))
 }

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     /// <summary>
     /// Represents MLBehaviorAnalytics alert rule.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:MLBehaviorAnalyticsAlertRule to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MLBehaviorAnalyticsAlertRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule")]
     public partial class MLBehaviorAnalyticsAlertRule : global::Pulumi.CustomResource
     {

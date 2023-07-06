@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Easm.V20220401Preview
     /// <summary>
     /// Label details
     /// </summary>
+    [Obsolete(@"azure-native:easm/v20220401preview:LabelByWorkspace is being removed in the next major version of this provider. Upgrade to at least azure-native:easm/v20230401preview:LabelByWorkspace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:easm/v20220401preview:LabelByWorkspace")]
     public partial class LabelByWorkspace : global::Pulumi.CustomResource
     {

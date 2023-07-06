@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ContainerService.V20220602Preview
 {
-    [Obsolete(@"azure-native:containerservice/v20220602preview:TrustedAccessRoleBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:containerservice/v20220602preview:TrustedAccessRoleBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:containerservice/v20230502preview:TrustedAccessRoleBinding to guarantee forwards compatibility.")]
     public static class GetTrustedAccessRoleBinding
     {
         /// <summary>

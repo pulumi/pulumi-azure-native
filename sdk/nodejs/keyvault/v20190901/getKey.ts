@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the current version of the specified key from the specified key vault.
  */
+/** @deprecated azure-native:keyvault/v20190901:Key is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:Key to guarantee forwards compatibility. */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
+    pulumi.log.warn("getKey is deprecated: azure-native:keyvault/v20190901:Key is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:Key to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:keyvault/v20190901:getKey", {
@@ -88,6 +90,7 @@ export interface GetKeyResult {
 /**
  * Gets the current version of the specified key from the specified key vault.
  */
+/** @deprecated azure-native:keyvault/v20190901:Key is being removed in the next major version of this provider. Upgrade to at least azure-native:keyvault/v20230201:Key to guarantee forwards compatibility. */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
     return pulumi.output(args).apply((a: any) => getKey(a, opts))
 }

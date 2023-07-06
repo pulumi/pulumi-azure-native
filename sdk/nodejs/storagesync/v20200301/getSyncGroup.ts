@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a given SyncGroup.
  */
+/** @deprecated azure-native:storagesync/v20200301:SyncGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:SyncGroup to guarantee forwards compatibility. */
 export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncGroupResult> {
+    pulumi.log.warn("getSyncGroup is deprecated: azure-native:storagesync/v20200301:SyncGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:SyncGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagesync/v20200301:getSyncGroup", {
@@ -60,6 +62,7 @@ export interface GetSyncGroupResult {
 /**
  * Get a given SyncGroup.
  */
+/** @deprecated azure-native:storagesync/v20200301:SyncGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:storagesync/v20220601:SyncGroup to guarantee forwards compatibility. */
 export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {
     return pulumi.output(args).apply((a: any) => getSyncGroup(a, opts))
 }

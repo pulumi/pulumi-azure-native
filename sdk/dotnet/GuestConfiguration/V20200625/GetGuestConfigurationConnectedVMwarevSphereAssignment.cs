@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.GuestConfiguration.V20200625
 {
+    [Obsolete(@"azure-native:guestconfiguration/v20200625:GuestConfigurationConnectedVMwarevSphereAssignment is being removed in the next major version of this provider. Upgrade to at least azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment to guarantee forwards compatibility.")]
     public static class GetGuestConfigurationConnectedVMwarevSphereAssignment
     {
         /// <summary>

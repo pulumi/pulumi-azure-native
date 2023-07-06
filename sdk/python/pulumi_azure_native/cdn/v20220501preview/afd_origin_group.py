@@ -132,11 +132,11 @@ class AFDOriginGroupArgs:
         pulumi.set(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", value)
 
 
-warnings.warn("""azure-native:cdn/v20220501preview:AFDOriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:cdn/v20220501preview:AFDOriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDOriginGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class AFDOriginGroup(pulumi.CustomResource):
-    warnings.warn("""azure-native:cdn/v20220501preview:AFDOriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:cdn/v20220501preview:AFDOriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDOriginGroup to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -195,7 +195,7 @@ class AFDOriginGroup(pulumi.CustomResource):
                  session_affinity_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""AFDOriginGroup is deprecated: azure-native:cdn/v20220501preview:AFDOriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20221101preview:AFDOriginGroup to guarantee forwards compatibility.""")
+        pulumi.log.warn("""AFDOriginGroup is deprecated: azure-native:cdn/v20220501preview:AFDOriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:AFDOriginGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

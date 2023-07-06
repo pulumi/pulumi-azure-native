@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
     /// <summary>
     /// Represents Dynamics365 data connector.
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20220601preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230401preview:Dynamics365DataConnector to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:securityinsights/v20220601preview:Dynamics365DataConnector is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Dynamics365DataConnector to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20220601preview:Dynamics365DataConnector")]
     public partial class Dynamics365DataConnector : global::Pulumi.CustomResource
     {

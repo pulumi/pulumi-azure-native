@@ -15,6 +15,7 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     /// of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
     /// virtual machines and/or Hybrid AKS clusters.
     /// </summary>
+    [Obsolete(@"azure-native:networkcloud/v20221212preview:CloudServicesNetwork is being removed in the next major version of this provider. Upgrade to at least azure-native:networkcloud/v20230501preview:CloudServicesNetwork to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:networkcloud/v20221212preview:CloudServicesNetwork")]
     public partial class CloudServicesNetwork : global::Pulumi.CustomResource
     {

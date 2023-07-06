@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Full view of the custom domain suffix configuration for ASEv3.
  */
+/** @deprecated azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:AppServiceEnvironmentAseCustomDnsSuffixConfiguration to guarantee forwards compatibility. */
 export function getAppServiceEnvironmentAseCustomDnsSuffixConfiguration(args: GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult> {
+    pulumi.log.warn("getAppServiceEnvironmentAseCustomDnsSuffixConfiguration is deprecated: azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:AppServiceEnvironmentAseCustomDnsSuffixConfiguration to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220301:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration", {
@@ -65,6 +67,7 @@ export interface GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult {
 /**
  * Full view of the custom domain suffix configuration for ASEv3.
  */
+/** @deprecated azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:web/v20220901:AppServiceEnvironmentAseCustomDnsSuffixConfiguration to guarantee forwards compatibility. */
 export function getAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutput(args: GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getAppServiceEnvironmentAseCustomDnsSuffixConfiguration(a, opts))
 }

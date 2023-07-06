@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Cdn.V20221101Preview
 {
+    [Obsolete(@"azure-native:cdn/v20221101preview:OriginGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:OriginGroup to guarantee forwards compatibility.")]
     public static class GetOriginGroup
     {
         /// <summary>

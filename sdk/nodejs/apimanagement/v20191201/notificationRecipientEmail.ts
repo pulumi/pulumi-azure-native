@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Recipient Email details.
  *
- * @deprecated azure-native:apimanagement/v20191201:NotificationRecipientEmail is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:NotificationRecipientEmail to guarantee forwards compatibility.
+ * @deprecated azure-native:apimanagement/v20191201:NotificationRecipientEmail is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientEmail to guarantee forwards compatibility.
  */
 export class NotificationRecipientEmail extends pulumi.CustomResource {
     /**
@@ -19,7 +19,7 @@ export class NotificationRecipientEmail extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NotificationRecipientEmail {
-        pulumi.log.warn("NotificationRecipientEmail is deprecated: azure-native:apimanagement/v20191201:NotificationRecipientEmail is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:NotificationRecipientEmail to guarantee forwards compatibility.")
+        pulumi.log.warn("NotificationRecipientEmail is deprecated: azure-native:apimanagement/v20191201:NotificationRecipientEmail is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientEmail to guarantee forwards compatibility.")
         return new NotificationRecipientEmail(name, undefined as any, { ...opts, id: id });
     }
 
@@ -57,9 +57,9 @@ export class NotificationRecipientEmail extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20191201:NotificationRecipientEmail is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:NotificationRecipientEmail to guarantee forwards compatibility. */
+    /** @deprecated azure-native:apimanagement/v20191201:NotificationRecipientEmail is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientEmail to guarantee forwards compatibility. */
     constructor(name: string, args: NotificationRecipientEmailArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("NotificationRecipientEmail is deprecated: azure-native:apimanagement/v20191201:NotificationRecipientEmail is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:NotificationRecipientEmail to guarantee forwards compatibility.")
+        pulumi.log.warn("NotificationRecipientEmail is deprecated: azure-native:apimanagement/v20191201:NotificationRecipientEmail is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientEmail to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

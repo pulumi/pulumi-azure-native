@@ -17,7 +17,7 @@ __all__ = [
     'get_storage_output',
 ]
 
-warnings.warn("""azure-native:appplatform/v20220901preview:Storage is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:appplatform/v20220901preview:Storage is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:Storage to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetStorageResult:
@@ -107,7 +107,7 @@ def get_storage(resource_group_name: Optional[str] = None,
     :param str service_name: The name of the Service resource.
     :param str storage_name: The name of the storage resource.
     """
-    pulumi.log.warn("""get_storage is deprecated: azure-native:appplatform/v20220901preview:Storage is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_storage is deprecated: azure-native:appplatform/v20220901preview:Storage is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:Storage to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
@@ -136,5 +136,5 @@ def get_storage_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of the Service resource.
     :param str storage_name: The name of the storage resource.
     """
-    pulumi.log.warn("""get_storage is deprecated: azure-native:appplatform/v20220901preview:Storage is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:Storage to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_storage is deprecated: azure-native:appplatform/v20220901preview:Storage is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:Storage to guarantee forwards compatibility.""")
     ...

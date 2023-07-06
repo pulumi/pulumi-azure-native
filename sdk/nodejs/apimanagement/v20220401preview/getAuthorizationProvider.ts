@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the authorization provider specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20220401preview:AuthorizationProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationProvider to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20220401preview:AuthorizationProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:AuthorizationProvider to guarantee forwards compatibility. */
 export function getAuthorizationProvider(args: GetAuthorizationProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationProviderResult> {
-    pulumi.log.warn("getAuthorizationProvider is deprecated: azure-native:apimanagement/v20220401preview:AuthorizationProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationProvider to guarantee forwards compatibility.")
+    pulumi.log.warn("getAuthorizationProvider is deprecated: azure-native:apimanagement/v20220401preview:AuthorizationProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:AuthorizationProvider to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220401preview:getAuthorizationProvider", {
@@ -69,7 +69,7 @@ export interface GetAuthorizationProviderResult {
 /**
  * Gets the details of the authorization provider specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20220401preview:AuthorizationProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:AuthorizationProvider to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20220401preview:AuthorizationProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:AuthorizationProvider to guarantee forwards compatibility. */
 export function getAuthorizationProviderOutput(args: GetAuthorizationProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationProviderResult> {
     return pulumi.output(args).apply((a: any) => getAuthorizationProvider(a, opts))
 }

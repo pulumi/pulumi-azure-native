@@ -115,11 +115,11 @@ class ApplicationGatewayPrivateEndpointConnectionArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-warnings.warn("""azure-native:network/v20220701:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:network/v20220701:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
-    warnings.warn("""azure-native:network/v20220701:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:network/v20220701:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -175,7 +175,7 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApplicationGatewayPrivateEndpointConnection is deprecated: azure-native:network/v20220701:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ApplicationGatewayPrivateEndpointConnection is deprecated: azure-native:network/v20220701:ApplicationGatewayPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ApplicationGatewayPrivateEndpointConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

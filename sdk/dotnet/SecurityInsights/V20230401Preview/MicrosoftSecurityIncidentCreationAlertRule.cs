@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
     /// <summary>
     /// Represents MicrosoftSecurityIncidentCreation rule.
     /// </summary>
+    [Obsolete(@"azure-native:securityinsights/v20230401preview:MicrosoftSecurityIncidentCreationAlertRule is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:MicrosoftSecurityIncidentCreationAlertRule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:MicrosoftSecurityIncidentCreationAlertRule")]
     public partial class MicrosoftSecurityIncidentCreationAlertRule : global::Pulumi.CustomResource
     {

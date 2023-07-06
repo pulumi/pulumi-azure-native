@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Azure Resource Manager resource envelope.
  */
-/** @deprecated azure-native:machinelearningservices/v20221001preview:DataVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:DataVersion to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:DataVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:DataVersion to guarantee forwards compatibility. */
 export function getDataVersion(args: GetDataVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetDataVersionResult> {
-    pulumi.log.warn("getDataVersion is deprecated: azure-native:machinelearningservices/v20221001preview:DataVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:DataVersion to guarantee forwards compatibility.")
+    pulumi.log.warn("getDataVersion is deprecated: azure-native:machinelearningservices/v20221001preview:DataVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:DataVersion to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001preview:getDataVersion", {
@@ -70,7 +70,7 @@ export interface GetDataVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-/** @deprecated azure-native:machinelearningservices/v20221001preview:DataVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:DataVersion to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:DataVersion is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:DataVersion to guarantee forwards compatibility. */
 export function getDataVersionOutput(args: GetDataVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataVersionResult> {
     return pulumi.output(args).apply((a: any) => getDataVersion(a, opts))
 }

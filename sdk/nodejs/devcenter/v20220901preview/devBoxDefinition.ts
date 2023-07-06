@@ -9,6 +9,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a definition for a Developer Machine.
+ *
+ * @deprecated azure-native:devcenter/v20220901preview:DevBoxDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility.
  */
 export class DevBoxDefinition extends pulumi.CustomResource {
     /**
@@ -20,6 +22,7 @@ export class DevBoxDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DevBoxDefinition {
+        pulumi.log.warn("DevBoxDefinition is deprecated: azure-native:devcenter/v20220901preview:DevBoxDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility.")
         return new DevBoxDefinition(name, undefined as any, { ...opts, id: id });
     }
 
@@ -93,7 +96,9 @@ export class DevBoxDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure-native:devcenter/v20220901preview:DevBoxDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility. */
     constructor(name: string, args: DevBoxDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DevBoxDefinition is deprecated: azure-native:devcenter/v20220901preview:DevBoxDefinition is being removed in the next major version of this provider. Upgrade to at least azure-native:devcenter/v20221111preview:DevBoxDefinition to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

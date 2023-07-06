@@ -17,6 +17,8 @@ __all__ = [
     'get_record_set_output',
 ]
 
+warnings.warn("""azure-native:network/v20180501:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:RecordSet to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRecordSetResult:
     """
@@ -275,6 +277,7 @@ def get_record_set(record_type: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
+    pulumi.log.warn("""get_record_set is deprecated: azure-native:network/v20180501:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:RecordSet to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['recordType'] = record_type
     __args__['relativeRecordSetName'] = relative_record_set_name
@@ -320,4 +323,5 @@ def get_record_set_output(record_type: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
+    pulumi.log.warn("""get_record_set is deprecated: azure-native:network/v20180501:RecordSet is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230701preview:RecordSet to guarantee forwards compatibility.""")
     ...

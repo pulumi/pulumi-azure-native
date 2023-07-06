@@ -16,6 +16,8 @@ __all__ = [
     'get_file_share_output',
 ]
 
+warnings.warn("""azure-native:storage/v20210201:FileShare is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFileShareResult:
     """
@@ -262,6 +264,7 @@ def get_file_share(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
     """
+    pulumi.log.warn("""get_file_share is deprecated: azure-native:storage/v20210201:FileShare is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['expand'] = expand
@@ -306,4 +309,5 @@ def get_file_share_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
     """
+    pulumi.log.warn("""get_file_share is deprecated: azure-native:storage/v20210201:FileShare is being removed in the next major version of this provider. Upgrade to at least azure-native:storage/v20220901:FileShare to guarantee forwards compatibility.""")
     ...

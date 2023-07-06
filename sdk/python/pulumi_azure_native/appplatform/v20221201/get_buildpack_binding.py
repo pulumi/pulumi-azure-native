@@ -17,7 +17,7 @@ __all__ = [
     'get_buildpack_binding_output',
 ]
 
-warnings.warn("""azure-native:appplatform/v20221201:BuildpackBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildpackBinding to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:appplatform/v20221201:BuildpackBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:BuildpackBinding to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetBuildpackBindingResult:
@@ -111,7 +111,7 @@ def get_buildpack_binding(build_service_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
-    pulumi.log.warn("""get_buildpack_binding is deprecated: azure-native:appplatform/v20221201:BuildpackBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildpackBinding to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_buildpack_binding is deprecated: azure-native:appplatform/v20221201:BuildpackBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:BuildpackBinding to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['buildServiceName'] = build_service_name
     __args__['builderName'] = builder_name
@@ -146,5 +146,5 @@ def get_buildpack_binding_output(build_service_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
-    pulumi.log.warn("""get_buildpack_binding is deprecated: azure-native:appplatform/v20221201:BuildpackBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:BuildpackBinding to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_buildpack_binding is deprecated: azure-native:appplatform/v20221201:BuildpackBinding is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:BuildpackBinding to guarantee forwards compatibility.""")
     ...

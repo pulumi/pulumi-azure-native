@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HealthBot.V20201208
     /// <summary>
     /// HealthBot resource definition
     /// </summary>
+    [Obsolete(@"azure-native:healthbot/v20201208:Bot is being removed in the next major version of this provider. Upgrade to at least azure-native:healthbot/v20201208preview:Bot to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:healthbot/v20201208:Bot")]
     public partial class Bot : global::Pulumi.CustomResource
     {

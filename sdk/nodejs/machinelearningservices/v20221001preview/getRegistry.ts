@@ -7,9 +7,9 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-/** @deprecated azure-native:machinelearningservices/v20221001preview:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Registry to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:Registry to guarantee forwards compatibility. */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
-    pulumi.log.warn("getRegistry is deprecated: azure-native:machinelearningservices/v20221001preview:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Registry to guarantee forwards compatibility.")
+    pulumi.log.warn("getRegistry is deprecated: azure-native:machinelearningservices/v20221001preview:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:Registry to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20221001preview:getRegistry", {
@@ -71,7 +71,7 @@ export interface GetRegistryResult {
      */
     readonly type: string;
 }
-/** @deprecated azure-native:machinelearningservices/v20221001preview:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20221201preview:Registry to guarantee forwards compatibility. */
+/** @deprecated azure-native:machinelearningservices/v20221001preview:Registry is being removed in the next major version of this provider. Upgrade to at least azure-native:machinelearningservices/v20230401preview:Registry to guarantee forwards compatibility. */
 export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
     return pulumi.output(args).apply((a: any) => getRegistry(a, opts))
 }

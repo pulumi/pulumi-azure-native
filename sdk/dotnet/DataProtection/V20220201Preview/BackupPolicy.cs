@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataProtection.V20220201Preview
     /// <summary>
     /// BaseBackupPolicy resource
     /// </summary>
-    [Obsolete(@"azure-native:dataprotection/v20220201preview:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230101:BackupPolicy to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:dataprotection/v20220201preview:BackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dataprotection/v20220201preview:BackupPolicy")]
     public partial class BackupPolicy : global::Pulumi.CustomResource
     {

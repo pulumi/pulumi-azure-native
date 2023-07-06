@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20230201
     /// <summary>
     /// A custom certificate.
     /// </summary>
+    [Obsolete(@"azure-native:webpubsub/v20230201:WebPubSubCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:webpubsub/v20230201:WebPubSubCustomCertificate")]
     public partial class WebPubSubCustomCertificate : global::Pulumi.CustomResource
     {

@@ -115,7 +115,12 @@ class ApplicationGroupArgs:
         pulumi.set(self, "policies", value)
 
 
+warnings.warn("""azure-native:eventhub/v20220101preview:ApplicationGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:ApplicationGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ApplicationGroup(pulumi.CustomResource):
+    warnings.warn("""azure-native:eventhub/v20220101preview:ApplicationGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:ApplicationGroup to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -170,6 +175,7 @@ class ApplicationGroup(pulumi.CustomResource):
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThrottlingPolicyArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ApplicationGroup is deprecated: azure-native:eventhub/v20220101preview:ApplicationGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:eventhub/v20221001preview:ApplicationGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

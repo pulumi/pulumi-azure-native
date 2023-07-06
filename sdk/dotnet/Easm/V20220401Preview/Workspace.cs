@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Easm.V20220401Preview
     /// <summary>
     /// Workspace details.
     /// </summary>
+    [Obsolete(@"azure-native:easm/v20220401preview:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:easm/v20230401preview:Workspace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:easm/v20220401preview:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {

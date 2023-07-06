@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Implements HybridIdentityMetadata GET method.
  */
+/** @deprecated azure-native:azurestackhci/v20210901preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:HybridIdentityMetadatum to guarantee forwards compatibility. */
 export function getHybridIdentityMetadatum(args: GetHybridIdentityMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridIdentityMetadatumResult> {
+    pulumi.log.warn("getHybridIdentityMetadatum is deprecated: azure-native:azurestackhci/v20210901preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:HybridIdentityMetadatum to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getHybridIdentityMetadatum", {
@@ -75,6 +77,7 @@ export interface GetHybridIdentityMetadatumResult {
 /**
  * Implements HybridIdentityMetadata GET method.
  */
+/** @deprecated azure-native:azurestackhci/v20210901preview:HybridIdentityMetadatum is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestackhci/v20221215preview:HybridIdentityMetadatum to guarantee forwards compatibility. */
 export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
     return pulumi.output(args).apply((a: any) => getHybridIdentityMetadatum(a, opts))
 }

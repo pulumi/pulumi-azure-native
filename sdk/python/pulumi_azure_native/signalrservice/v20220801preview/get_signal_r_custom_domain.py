@@ -17,7 +17,7 @@ __all__ = [
     'get_signal_r_custom_domain_output',
 ]
 
-warnings.warn("""azure-native:signalrservice/v20220801preview:SignalRCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRCustomDomain to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:signalrservice/v20220801preview:SignalRCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRCustomDomain to guarantee forwards compatibility.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSignalRCustomDomainResult:
@@ -131,7 +131,7 @@ def get_signal_r_custom_domain(name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the resource.
     """
-    pulumi.log.warn("""get_signal_r_custom_domain is deprecated: azure-native:signalrservice/v20220801preview:SignalRCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRCustomDomain to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_signal_r_custom_domain is deprecated: azure-native:signalrservice/v20220801preview:SignalRCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRCustomDomain to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -162,5 +162,5 @@ def get_signal_r_custom_domain_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the resource.
     """
-    pulumi.log.warn("""get_signal_r_custom_domain is deprecated: azure-native:signalrservice/v20220801preview:SignalRCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230201:SignalRCustomDomain to guarantee forwards compatibility.""")
+    pulumi.log.warn("""get_signal_r_custom_domain is deprecated: azure-native:signalrservice/v20220801preview:SignalRCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRCustomDomain to guarantee forwards compatibility.""")
     ...

@@ -99,7 +99,12 @@ class ApiPortalArgs:
         pulumi.set(self, "sku", value)
 
 
+warnings.warn("""azure-native:appplatform/v20220101preview:ApiPortal is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApiPortal to guarantee forwards compatibility.""", DeprecationWarning)
+
+
 class ApiPortal(pulumi.CustomResource):
+    warnings.warn("""azure-native:appplatform/v20220101preview:ApiPortal is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApiPortal to guarantee forwards compatibility.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -151,6 +156,7 @@ class ApiPortal(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""ApiPortal is deprecated: azure-native:appplatform/v20220101preview:ApiPortal is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ApiPortal to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

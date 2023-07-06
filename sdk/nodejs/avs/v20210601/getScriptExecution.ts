@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * An instance of a script executed by a user - custom or AVS
  */
+/** @deprecated azure-native:avs/v20210601:ScriptExecution is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:ScriptExecution to guarantee forwards compatibility. */
 export function getScriptExecution(args: GetScriptExecutionArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptExecutionResult> {
+    pulumi.log.warn("getScriptExecution is deprecated: azure-native:avs/v20210601:ScriptExecution is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:ScriptExecution to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20210601:getScriptExecution", {
@@ -115,6 +117,7 @@ export interface GetScriptExecutionResult {
 /**
  * An instance of a script executed by a user - custom or AVS
  */
+/** @deprecated azure-native:avs/v20210601:ScriptExecution is being removed in the next major version of this provider. Upgrade to at least azure-native:avs/v20220501:ScriptExecution to guarantee forwards compatibility. */
 export function getScriptExecutionOutput(args: GetScriptExecutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptExecutionResult> {
     return pulumi.output(args).apply((a: any) => getScriptExecution(a, opts))
 }

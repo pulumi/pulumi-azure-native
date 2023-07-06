@@ -17,6 +17,8 @@ __all__ = [
     'get_machine_extension_output',
 ]
 
+warnings.warn("""azure-native:connectedvmwarevsphere/v20201001preview:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220110preview:MachineExtension to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMachineExtensionResult:
     """
@@ -213,6 +215,7 @@ def get_machine_extension(extension_name: Optional[str] = None,
     :param str name: The name of the machine containing the extension.
     :param str resource_group_name: The Resource Group Name.
     """
+    pulumi.log.warn("""get_machine_extension is deprecated: azure-native:connectedvmwarevsphere/v20201001preview:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220110preview:MachineExtension to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['extensionName'] = extension_name
     __args__['name'] = name
@@ -250,4 +253,5 @@ def get_machine_extension_output(extension_name: Optional[pulumi.Input[str]] = N
     :param str name: The name of the machine containing the extension.
     :param str resource_group_name: The Resource Group Name.
     """
+    pulumi.log.warn("""get_machine_extension is deprecated: azure-native:connectedvmwarevsphere/v20201001preview:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:connectedvmwarevsphere/v20220110preview:MachineExtension to guarantee forwards compatibility.""")
     ...

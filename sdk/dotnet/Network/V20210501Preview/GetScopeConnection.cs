@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20210501Preview
 {
-    [Obsolete(@"azure-native:network/v20210501preview:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20220901:ScopeConnection to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:network/v20210501preview:ScopeConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:ScopeConnection to guarantee forwards compatibility.")]
     public static class GetScopeConnection
     {
         /// <summary>

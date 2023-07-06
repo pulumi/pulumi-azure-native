@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
     /// <summary>
     /// The metric setting details for the role
     /// </summary>
+    [Obsolete(@"azure-native:databoxedge/v20201201:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20201201:MonitoringConfig")]
     public partial class MonitoringConfig : global::Pulumi.CustomResource
     {

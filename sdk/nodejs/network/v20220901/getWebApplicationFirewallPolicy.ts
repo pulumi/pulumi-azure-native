@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve protection policy with specified name within a resource group.
  */
+/** @deprecated azure-native:network/v20220901:WebApplicationFirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:WebApplicationFirewallPolicy to guarantee forwards compatibility. */
 export function getWebApplicationFirewallPolicy(args: GetWebApplicationFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWebApplicationFirewallPolicyResult> {
+    pulumi.log.warn("getWebApplicationFirewallPolicy is deprecated: azure-native:network/v20220901:WebApplicationFirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:WebApplicationFirewallPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220901:getWebApplicationFirewallPolicy", {
@@ -94,6 +96,7 @@ export interface GetWebApplicationFirewallPolicyResult {
 /**
  * Retrieve protection policy with specified name within a resource group.
  */
+/** @deprecated azure-native:network/v20220901:WebApplicationFirewallPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:network/v20230201:WebApplicationFirewallPolicy to guarantee forwards compatibility. */
 export function getWebApplicationFirewallPolicyOutput(args: GetWebApplicationFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebApplicationFirewallPolicyResult> {
     return pulumi.output(args).apply((a: any) => getWebApplicationFirewallPolicy(a, opts))
 }

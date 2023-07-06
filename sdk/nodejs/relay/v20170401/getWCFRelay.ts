@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Returns the description for the specified WCF relay.
  */
+/** @deprecated azure-native:relay/v20170401:WCFRelay is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:WCFRelay to guarantee forwards compatibility. */
 export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayResult> {
+    pulumi.log.warn("getWCFRelay is deprecated: azure-native:relay/v20170401:WCFRelay is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:WCFRelay to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay/v20170401:getWCFRelay", {
@@ -84,6 +86,7 @@ export interface GetWCFRelayResult {
 /**
  * Returns the description for the specified WCF relay.
  */
+/** @deprecated azure-native:relay/v20170401:WCFRelay is being removed in the next major version of this provider. Upgrade to at least azure-native:relay/v20211101:WCFRelay to guarantee forwards compatibility. */
 export function getWCFRelayOutput(args: GetWCFRelayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayResult> {
     return pulumi.output(args).apply((a: any) => getWCFRelay(a, opts))
 }

@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets a hunt comment
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:HuntComment is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:HuntComment to guarantee forwards compatibility. */
 export function getHuntComment(args: GetHuntCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetHuntCommentResult> {
+    pulumi.log.warn("getHuntComment is deprecated: azure-native:securityinsights/v20230401preview:HuntComment is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:HuntComment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230401preview:getHuntComment", {
@@ -72,6 +74,7 @@ export interface GetHuntCommentResult {
 /**
  * Gets a hunt comment
  */
+/** @deprecated azure-native:securityinsights/v20230401preview:HuntComment is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:HuntComment to guarantee forwards compatibility. */
 export function getHuntCommentOutput(args: GetHuntCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHuntCommentResult> {
     return pulumi.output(args).apply((a: any) => getHuntComment(a, opts))
 }

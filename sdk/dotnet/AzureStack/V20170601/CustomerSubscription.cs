@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureStack.V20170601
     /// <summary>
     /// Customer subscription.
     /// </summary>
+    [Obsolete(@"azure-native:azurestack/v20170601:CustomerSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:azurestack/v20200601preview:CustomerSubscription to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:azurestack/v20170601:CustomerSubscription")]
     public partial class CustomerSubscription : global::Pulumi.CustomResource
     {

@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Get the Global policy definition of the Api Management service.
  */
-/** @deprecated azure-native:apimanagement/v20210401preview:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Policy to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20210401preview:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Policy to guarantee forwards compatibility. */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-    pulumi.log.warn("getPolicy is deprecated: azure-native:apimanagement/v20210401preview:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Policy to guarantee forwards compatibility.")
+    pulumi.log.warn("getPolicy is deprecated: azure-native:apimanagement/v20210401preview:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Policy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210401preview:getPolicy", {
@@ -67,7 +67,7 @@ export interface GetPolicyResult {
 /**
  * Get the Global policy definition of the Api Management service.
  */
-/** @deprecated azure-native:apimanagement/v20210401preview:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Policy to guarantee forwards compatibility. */
+/** @deprecated azure-native:apimanagement/v20210401preview:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Policy to guarantee forwards compatibility. */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
 }

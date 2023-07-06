@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Elastic.V20200701
 {
+    [Obsolete(@"azure-native:elastic/v20200701:Monitor is being removed in the next major version of this provider. Upgrade to at least azure-native:elastic/v20230615preview:Monitor to guarantee forwards compatibility.")]
     public static class GetMonitor
     {
         /// <summary>

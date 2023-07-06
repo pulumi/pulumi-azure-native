@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets an existing security policy within a profile.
  */
+/** @deprecated azure-native:cdn/v20200901:SecurityPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:SecurityPolicy to guarantee forwards compatibility. */
 export function getSecurityPolicy(args: GetSecurityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPolicyResult> {
+    pulumi.log.warn("getSecurityPolicy is deprecated: azure-native:cdn/v20200901:SecurityPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:SecurityPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20200901:getSecurityPolicy", {
@@ -68,6 +70,7 @@ export interface GetSecurityPolicyResult {
 /**
  * Gets an existing security policy within a profile.
  */
+/** @deprecated azure-native:cdn/v20200901:SecurityPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:cdn/v20230501:SecurityPolicy to guarantee forwards compatibility. */
 export function getSecurityPolicyOutput(args: GetSecurityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSecurityPolicy(a, opts))
 }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
 {
+    [Obsolete(@"azure-native:videoanalyzer/v20210501preview:EdgeModule is being removed in the next major version of this provider. Upgrade to at least azure-native:videoanalyzer/v20211101preview:EdgeModule to guarantee forwards compatibility.")]
     public static class GetEdgeModule
     {
         /// <summary>

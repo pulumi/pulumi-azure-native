@@ -144,11 +144,11 @@ class IotConnectorFhirDestinationArgs:
         pulumi.set(self, "location", value)
 
 
-warnings.warn("""azure-native:healthcareapis/v20220601:IotConnectorFhirDestination is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:IotConnectorFhirDestination to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:healthcareapis/v20220601:IotConnectorFhirDestination is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:IotConnectorFhirDestination to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class IotConnectorFhirDestination(pulumi.CustomResource):
-    warnings.warn("""azure-native:healthcareapis/v20220601:IotConnectorFhirDestination is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:IotConnectorFhirDestination to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:healthcareapis/v20220601:IotConnectorFhirDestination is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:IotConnectorFhirDestination to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -210,7 +210,7 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
                  resource_identity_resolution_type: Optional[pulumi.Input[Union[str, 'IotIdentityResolutionType']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""IotConnectorFhirDestination is deprecated: azure-native:healthcareapis/v20220601:IotConnectorFhirDestination is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20221201:IotConnectorFhirDestination to guarantee forwards compatibility.""")
+        pulumi.log.warn("""IotConnectorFhirDestination is deprecated: azure-native:healthcareapis/v20220601:IotConnectorFhirDestination is being removed in the next major version of this provider. Upgrade to at least azure-native:healthcareapis/v20230228:IotConnectorFhirDestination to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

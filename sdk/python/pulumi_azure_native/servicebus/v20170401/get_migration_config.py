@@ -16,6 +16,8 @@ __all__ = [
     'get_migration_config_output',
 ]
 
+warnings.warn("""azure-native:servicebus/v20170401:MigrationConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:MigrationConfig to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMigrationConfigResult:
     """
@@ -140,6 +142,7 @@ def get_migration_config(config_name: Optional[str] = None,
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_migration_config is deprecated: azure-native:servicebus/v20170401:MigrationConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:MigrationConfig to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['configName'] = config_name
     __args__['namespaceName'] = namespace_name
@@ -171,4 +174,5 @@ def get_migration_config_output(config_name: Optional[pulumi.Input[str]] = None,
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_migration_config is deprecated: azure-native:servicebus/v20170401:MigrationConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:MigrationConfig to guarantee forwards compatibility.""")
     ...

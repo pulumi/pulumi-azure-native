@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Gets the specified deployments associated with the Cognitive Services account.
  */
+/** @deprecated azure-native:cognitiveservices/v20221201:Deployment is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:Deployment to guarantee forwards compatibility. */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
+    pulumi.log.warn("getDeployment is deprecated: azure-native:cognitiveservices/v20221201:Deployment is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:Deployment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20221201:getDeployment", {
@@ -67,6 +69,7 @@ export interface GetDeploymentResult {
 /**
  * Gets the specified deployments associated with the Cognitive Services account.
  */
+/** @deprecated azure-native:cognitiveservices/v20221201:Deployment is being removed in the next major version of this provider. Upgrade to at least azure-native:cognitiveservices/v20230501:Deployment to guarantee forwards compatibility. */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
 }

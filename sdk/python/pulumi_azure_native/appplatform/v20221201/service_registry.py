@@ -66,11 +66,11 @@ class ServiceRegistryArgs:
         pulumi.set(self, "service_registry_name", value)
 
 
-warnings.warn("""azure-native:appplatform/v20221201:ServiceRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ServiceRegistry to guarantee forwards compatibility.""", DeprecationWarning)
+warnings.warn("""azure-native:appplatform/v20221201:ServiceRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ServiceRegistry to guarantee forwards compatibility.""", DeprecationWarning)
 
 
 class ServiceRegistry(pulumi.CustomResource):
-    warnings.warn("""azure-native:appplatform/v20221201:ServiceRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ServiceRegistry to guarantee forwards compatibility.""", DeprecationWarning)
+    warnings.warn("""azure-native:appplatform/v20221201:ServiceRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ServiceRegistry to guarantee forwards compatibility.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -117,7 +117,7 @@ class ServiceRegistry(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_registry_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ServiceRegistry is deprecated: azure-native:appplatform/v20221201:ServiceRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230101preview:ServiceRegistry to guarantee forwards compatibility.""")
+        pulumi.log.warn("""ServiceRegistry is deprecated: azure-native:appplatform/v20221201:ServiceRegistry is being removed in the next major version of this provider. Upgrade to at least azure-native:appplatform/v20230501preview:ServiceRegistry to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

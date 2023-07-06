@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ApiManagement.V20220401Preview
 {
-    [Obsolete(@"azure-native:apimanagement/v20220401preview:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220801:Api to guarantee forwards compatibility.")]
+    [Obsolete(@"azure-native:apimanagement/v20220401preview:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Api to guarantee forwards compatibility.")]
     public static class GetApi
     {
         /// <summary>

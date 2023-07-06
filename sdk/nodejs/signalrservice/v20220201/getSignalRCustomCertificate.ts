@@ -10,7 +10,9 @@ import * as utilities from "../../utilities";
 /**
  * Get a custom certificate.
  */
+/** @deprecated azure-native:signalrservice/v20220201:SignalRCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRCustomCertificate to guarantee forwards compatibility. */
 export function getSignalRCustomCertificate(args: GetSignalRCustomCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRCustomCertificateResult> {
+    pulumi.log.warn("getSignalRCustomCertificate is deprecated: azure-native:signalrservice/v20220201:SignalRCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRCustomCertificate to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:signalrservice/v20220201:getSignalRCustomCertificate", {
@@ -75,6 +77,7 @@ export interface GetSignalRCustomCertificateResult {
 /**
  * Get a custom certificate.
  */
+/** @deprecated azure-native:signalrservice/v20220201:SignalRCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRCustomCertificate to guarantee forwards compatibility. */
 export function getSignalRCustomCertificateOutput(args: GetSignalRCustomCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRCustomCertificateResult> {
     return pulumi.output(args).apply((a: any) => getSignalRCustomCertificate(a, opts))
 }

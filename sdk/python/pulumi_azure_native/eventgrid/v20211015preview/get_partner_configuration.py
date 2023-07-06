@@ -17,6 +17,8 @@ __all__ = [
     'get_partner_configuration_output',
 ]
 
+warnings.warn("""azure-native:eventgrid/v20211015preview:PartnerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerConfiguration to guarantee forwards compatibility.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPartnerConfigurationResult:
     """
@@ -137,6 +139,7 @@ def get_partner_configuration(resource_group_name: Optional[str] = None,
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("""get_partner_configuration is deprecated: azure-native:eventgrid/v20211015preview:PartnerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerConfiguration to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -162,4 +165,5 @@ def get_partner_configuration_output(resource_group_name: Optional[pulumi.Input[
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
+    pulumi.log.warn("""get_partner_configuration is deprecated: azure-native:eventgrid/v20211015preview:PartnerConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerConfiguration to guarantee forwards compatibility.""")
     ...

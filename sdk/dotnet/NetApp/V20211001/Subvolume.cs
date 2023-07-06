@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.NetApp.V20211001
     /// <summary>
     /// Subvolume Information properties
     /// </summary>
+    [Obsolete(@"azure-native:netapp/v20211001:Subvolume is being removed in the next major version of this provider. Upgrade to at least azure-native:netapp/v20221101:Subvolume to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:netapp/v20211001:Subvolume")]
     public partial class Subvolume : global::Pulumi.CustomResource
     {

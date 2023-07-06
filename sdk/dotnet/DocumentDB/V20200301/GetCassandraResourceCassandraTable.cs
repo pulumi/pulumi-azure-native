@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20200301
 {
     [Obsolete(@"Version 2020-03-01 will be removed in v2 of the provider.
-azure-native:documentdb/v20200301:CassandraResourceCassandraTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20220815preview:CassandraResourceCassandraTable to guarantee forwards compatibility.")]
+azure-native:documentdb/v20200301:CassandraResourceCassandraTable is being removed in the next major version of this provider. Upgrade to at least azure-native:documentdb/v20230315preview:CassandraResourceCassandraTable to guarantee forwards compatibility.")]
     public static class GetCassandraResourceCassandraTable
     {
         /// <summary>
