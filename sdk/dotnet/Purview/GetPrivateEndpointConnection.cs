@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Purview
     {
         /// <summary>
         /// Get a private endpoint connection
-        /// Azure REST API version: 2021-07-01.
+        /// Azure REST API version: 2021-12-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:purview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a private endpoint connection
-        /// Azure REST API version: 2021-07-01.
+        /// Azure REST API version: 2021-12-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:purview:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.ProxyResourceResponseSystemData SystemData;
+        /// <summary>
         /// Gets or sets the type.
         /// </summary>
         public readonly string Type;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.Purview
 
             string provisioningState,
 
+            Outputs.ProxyResourceResponseSystemData systemData,
+
             string type)
         {
             Id = id;
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNative.Purview
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -54,6 +54,28 @@ export const EventStreamingType = {
  */
 export type EventStreamingType = (typeof EventStreamingType)[keyof typeof EventStreamingType];
 
+export const ManagedEventHubState = {
+    NotSpecified: "NotSpecified",
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ *  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+ */
+export type ManagedEventHubState = (typeof ManagedEventHubState)[keyof typeof ManagedEventHubState];
+
+export const ManagedResourcesPublicNetworkAccess = {
+    NotSpecified: "NotSpecified",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Gets or sets the public network access for managed resources.
+ */
+export type ManagedResourcesPublicNetworkAccess = (typeof ManagedResourcesPublicNetworkAccess)[keyof typeof ManagedResourcesPublicNetworkAccess];
+
 export const PublicNetworkAccess = {
     NotSpecified: "NotSpecified",
     Enabled: "Enabled",

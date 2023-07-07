@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an account
- * Azure REST API version: 2021-07-01.
+ * Azure REST API version: 2021-12-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -35,6 +35,10 @@ export interface GetAccountArgs {
  * Account resource
  */
 export interface GetAccountResult {
+    /**
+     * Gets or sets the status of the account.
+     */
+    readonly accountStatus: outputs.purview.AccountPropertiesResponseAccountStatus;
     /**
      * Cloud connectors.
      * External cloud identifier used as part of scanning configuration.
@@ -73,6 +77,10 @@ export interface GetAccountResult {
      */
     readonly location?: string;
     /**
+     *  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+     */
+    readonly managedEventHubState?: string;
+    /**
      * Gets or sets the managed resource group name
      */
     readonly managedResourceGroupName?: string;
@@ -80,6 +88,10 @@ export interface GetAccountResult {
      * Gets the resource identifiers of the managed resources.
      */
     readonly managedResources: outputs.purview.AccountPropertiesResponseManagedResources;
+    /**
+     * Gets or sets the public network access for managed resources.
+     */
+    readonly managedResourcesPublicNetworkAccess?: string;
     /**
      * Gets or sets the name.
      */
@@ -115,7 +127,7 @@ export interface GetAccountResult {
 }
 /**
  * Get an account
- * Azure REST API version: 2021-07-01.
+ * Azure REST API version: 2021-12-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

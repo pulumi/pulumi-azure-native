@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Account resource
- * Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2020-12-01-preview
+ * Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-12-01-preview
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Account extends pulumi.CustomResource {
         return obj['__pulumiType'] === Account.__pulumiType;
     }
 
+    /**
+     * Gets or sets the status of the account.
+     */
+    public /*out*/ readonly accountStatus!: pulumi.Output<outputs.purview.AccountPropertiesResponseAccountStatus>;
     /**
      * Cloud connectors.
      * External cloud identifier used as part of scanning configuration.
@@ -72,6 +76,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     *  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+     */
+    public readonly managedEventHubState!: pulumi.Output<string | undefined>;
+    /**
      * Gets or sets the managed resource group name
      */
     public readonly managedResourceGroupName!: pulumi.Output<string | undefined>;
@@ -79,6 +87,10 @@ export class Account extends pulumi.CustomResource {
      * Gets the resource identifiers of the managed resources.
      */
     public /*out*/ readonly managedResources!: pulumi.Output<outputs.purview.AccountPropertiesResponseManagedResources>;
+    /**
+     * Gets or sets the public network access for managed resources.
+     */
+    public readonly managedResourcesPublicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the name.
      */
@@ -129,10 +141,13 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedEventHubState"] = (args ? args.managedEventHubState : undefined) ?? "NotSpecified";
             resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
+            resourceInputs["managedResourcesPublicNetworkAccess"] = (args ? args.managedResourcesPublicNetworkAccess : undefined) ?? "NotSpecified";
             resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountStatus"] = undefined /*out*/;
             resourceInputs["cloudConnectors"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
@@ -147,6 +162,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["accountStatus"] = undefined /*out*/;
             resourceInputs["cloudConnectors"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
@@ -155,8 +171,10 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedEventHubState"] = undefined /*out*/;
             resourceInputs["managedResourceGroupName"] = undefined /*out*/;
             resourceInputs["managedResources"] = undefined /*out*/;
+            resourceInputs["managedResourcesPublicNetworkAccess"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -190,9 +208,17 @@ export interface AccountArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     *  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+     */
+    managedEventHubState?: pulumi.Input<string | enums.purview.ManagedEventHubState>;
+    /**
      * Gets or sets the managed resource group name
      */
     managedResourceGroupName?: pulumi.Input<string>;
+    /**
+     * Gets or sets the public network access for managed resources.
+     */
+    managedResourcesPublicNetworkAccess?: pulumi.Input<string | enums.purview.ManagedResourcesPublicNetworkAccess>;
     /**
      * Gets or sets the public network access.
      */

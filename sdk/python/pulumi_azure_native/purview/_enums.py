@@ -9,6 +9,8 @@ __all__ = [
     'EventHubType',
     'EventStreamingState',
     'EventStreamingType',
+    'ManagedEventHubState',
+    'ManagedResourcesPublicNetworkAccess',
     'PublicNetworkAccess',
     'Status',
     'Type',
@@ -47,6 +49,24 @@ class EventStreamingType(str, Enum):
     NONE = "None"
     MANAGED = "Managed"
     AZURE = "Azure"
+
+
+class ManagedEventHubState(str, Enum):
+    """
+     Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class ManagedResourcesPublicNetworkAccess(str, Enum):
+    """
+    Gets or sets the public network access for managed resources.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class PublicNetworkAccess(str, Enum):
