@@ -345,16 +345,19 @@
     "ArcSetting": "2023-03-01",
     "Cluster": "2023-03-01",
     "Extension": "2023-03-01",
+    "GalleryImage": "2022-12-15-preview",
+    "GuestAgent": "2022-12-15-preview",
+    "HybridIdentityMetadatum": "2022-12-15-preview",
+    "MachineExtension": "2022-12-15-preview",
+    "MarketplaceGalleryImage": "2022-12-15-preview",
+    "NetworkInterface": "2022-12-15-preview",
+    "StorageContainer": "2022-12-15-preview",
     "Update": "2023-03-01",
     "UpdateRun": "2023-03-01",
     "UpdateSummary": "2023-03-01",
-    "galleryimageRetrieve": "2021-09-01-preview",
-    "marketplacegalleryimage": "2021-09-01-preview",
-    "networkinterfaceRetrieve": "2021-09-01-preview",
-    "storagecontainerRetrieve": "2021-09-01-preview",
-    "virtualharddiskRetrieve": "2021-09-01-preview",
-    "virtualmachineRetrieve": "2021-09-01-preview",
-    "virtualnetworkRetrieve": "2021-09-01-preview"
+    "VirtualHardDisk": "2022-12-15-preview",
+    "VirtualMachine": "2022-12-15-preview",
+    "VirtualNetwork": "2022-12-15-preview"
   },
   "BareMetalInfrastructure": {
     "AzureBareMetalStorageInstance": "2023-04-06"

@@ -88,19 +88,16 @@ AzureStack:
 AzureStackHCI:
   exclusions:
     # 2022-12-15-preview has different casing of the the IpConfiguration type which breaks dotnet
-    GalleryImage: 2022-12-15-preview
-    GuestAgent: 2022-12-15-preview
-    HybridIdentityMetadatum: 2022-12-15-preview
-    MachineExtension: 2022-12-15-preview
-    MarketplaceGalleryImage: 2022-12-15-preview
-    NetworkInterface: 2022-12-15-preview
-    StorageContainer: 2022-12-15-preview
-    VirtualHardDisk: 2022-12-15-preview
-    VirtualMachine: 2022-12-15-preview
-    VirtualNetwork: 2022-12-15-preview
+    galleryimageRetrieve: 2021-09-01-preview
+    marketplacegalleryimage: 2021-09-01-preview
+    networkinterfaceRetrieve: 2021-09-01-preview
+    storagecontainerRetrieve: 2021-09-01-preview
+    virtualharddiskRetrieve: 2021-09-01-preview
+    virtualmachineRetrieve: 2021-09-01-preview
+    virtualnetworkRetrieve: 2021-09-01-preview
   notes: |
     https://learn.microsoft.com/en-us/rest/api/stackhci/
-    Excluded resources from preview version not mentioned in docs.
+    Excluded resources with odd casing and naming which are also not mentioned in docs.
 BareMetalInfrastructure:
 Batch:
   exclusions:

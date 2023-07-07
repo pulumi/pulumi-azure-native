@@ -136,13 +136,16 @@ AzureStack:
 AzureStackHCI:
     tracking: "2023-03-01"
     additions:
-        galleryimageRetrieve: 2021-09-01-preview
-        marketplacegalleryimage: 2021-09-01-preview
-        networkinterfaceRetrieve: 2021-09-01-preview
-        storagecontainerRetrieve: 2021-09-01-preview
-        virtualharddiskRetrieve: 2021-09-01-preview
-        virtualmachineRetrieve: 2021-09-01-preview
-        virtualnetworkRetrieve: 2021-09-01-preview
+        GalleryImage: 2022-12-15-preview
+        GuestAgent: 2022-12-15-preview
+        HybridIdentityMetadatum: 2022-12-15-preview
+        MachineExtension: 2022-12-15-preview
+        MarketplaceGalleryImage: 2022-12-15-preview
+        NetworkInterface: 2022-12-15-preview
+        StorageContainer: 2022-12-15-preview
+        VirtualHardDisk: 2022-12-15-preview
+        VirtualMachine: 2022-12-15-preview
+        VirtualNetwork: 2022-12-15-preview
 BareMetalInfrastructure:
     tracking: "2023-04-06"
 Batch:
