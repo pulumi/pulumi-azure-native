@@ -599,6 +599,11 @@ export const listDelegationSettingSecrets: typeof import("./listDelegationSettin
 export const listDelegationSettingSecretsOutput: typeof import("./listDelegationSettingSecrets").listDelegationSettingSecretsOutput = null as any;
 utilities.lazyLoad(exports, ["listDelegationSettingSecrets","listDelegationSettingSecretsOutput"], () => require("./listDelegationSettingSecrets"));
 
+export { ListGatewayDebugCredentialsArgs, ListGatewayDebugCredentialsResult, ListGatewayDebugCredentialsOutputArgs } from "./listGatewayDebugCredentials";
+export const listGatewayDebugCredentials: typeof import("./listGatewayDebugCredentials").listGatewayDebugCredentials = null as any;
+export const listGatewayDebugCredentialsOutput: typeof import("./listGatewayDebugCredentials").listGatewayDebugCredentialsOutput = null as any;
+utilities.lazyLoad(exports, ["listGatewayDebugCredentials","listGatewayDebugCredentialsOutput"], () => require("./listGatewayDebugCredentials"));
+
 export { ListGatewayKeysArgs, ListGatewayKeysResult, ListGatewayKeysOutputArgs } from "./listGatewayKeys";
 export const listGatewayKeys: typeof import("./listGatewayKeys").listGatewayKeys = null as any;
 export const listGatewayKeysOutput: typeof import("./listGatewayKeys").listGatewayKeysOutput = null as any;
@@ -919,6 +924,7 @@ import * as v20211201preview from "./v20211201preview";
 import * as v20220401preview from "./v20220401preview";
 import * as v20220801 from "./v20220801";
 import * as v20220901preview from "./v20220901preview";
+import * as v20230301preview from "./v20230301preview";
 
 export {
     v20161010,
@@ -936,6 +942,7 @@ export {
     v20220401preview,
     v20220801,
     v20220901preview,
+    v20230301preview,
 };
 
 const _module = {

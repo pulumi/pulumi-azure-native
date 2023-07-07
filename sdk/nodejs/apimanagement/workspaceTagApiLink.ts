@@ -88,7 +88,7 @@ export class WorkspaceTagApiLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceTagApiLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceTagApiLink" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceTagApiLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceTagApiLink.__pulumiType, name, resourceInputs, opts);
     }

@@ -15,6 +15,11 @@ export const getNamespaceAuthorizationRule: typeof import("./getNamespaceAuthori
 export const getNamespaceAuthorizationRuleOutput: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
 
+export { GetNamespacePnsCredentialsArgs, GetNamespacePnsCredentialsResult, GetNamespacePnsCredentialsOutputArgs } from "./getNamespacePnsCredentials";
+export const getNamespacePnsCredentials: typeof import("./getNamespacePnsCredentials").getNamespacePnsCredentials = null as any;
+export const getNamespacePnsCredentialsOutput: typeof import("./getNamespacePnsCredentials").getNamespacePnsCredentialsOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespacePnsCredentials","getNamespacePnsCredentialsOutput"], () => require("./getNamespacePnsCredentials"));
+
 export { GetNotificationHubArgs, GetNotificationHubResult, GetNotificationHubOutputArgs } from "./getNotificationHub";
 export const getNotificationHub: typeof import("./getNotificationHub").getNotificationHub = null as any;
 export const getNotificationHubOutput: typeof import("./getNotificationHub").getNotificationHubOutput = null as any;
@@ -29,6 +34,11 @@ export { GetNotificationHubPnsCredentialsArgs, GetNotificationHubPnsCredentialsR
 export const getNotificationHubPnsCredentials: typeof import("./getNotificationHubPnsCredentials").getNotificationHubPnsCredentials = null as any;
 export const getNotificationHubPnsCredentialsOutput: typeof import("./getNotificationHubPnsCredentials").getNotificationHubPnsCredentialsOutput = null as any;
 utilities.lazyLoad(exports, ["getNotificationHubPnsCredentials","getNotificationHubPnsCredentialsOutput"], () => require("./getNotificationHubPnsCredentials"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
 export { ListNamespaceKeysArgs, ListNamespaceKeysResult, ListNamespaceKeysOutputArgs } from "./listNamespaceKeys";
 export const listNamespaceKeys: typeof import("./listNamespaceKeys").listNamespaceKeys = null as any;
@@ -60,15 +70,22 @@ export type NotificationHubAuthorizationRule = import("./notificationHubAuthoriz
 export const NotificationHubAuthorizationRule: typeof import("./notificationHubAuthorizationRule").NotificationHubAuthorizationRule = null as any;
 utilities.lazyLoad(exports, ["NotificationHubAuthorizationRule"], () => require("./notificationHubAuthorizationRule"));
 
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
 
 // Export enums:
 export * from "../types/enums/notificationhubs";
 
 // Export sub-modules:
 import * as v20170401 from "./v20170401";
+import * as v20230101preview from "./v20230101preview";
 
 export {
     v20170401,
+    v20230101preview,
 };
 
 const _module = {
@@ -83,6 +100,8 @@ const _module = {
                 return new NotificationHub(name, <any>undefined, { urn })
             case "azure-native:notificationhubs:NotificationHubAuthorizationRule":
                 return new NotificationHubAuthorizationRule(name, <any>undefined, { urn })
+            case "azure-native:notificationhubs:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

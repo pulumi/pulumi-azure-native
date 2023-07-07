@@ -104,7 +104,7 @@ export class SignalRReplica extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20230301preview:SignalRReplica" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20230301preview:SignalRReplica" }, { type: "azure-native:signalrservice/v20230601preview:SignalRReplica" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalRReplica.__pulumiType, name, resourceInputs, opts);
     }

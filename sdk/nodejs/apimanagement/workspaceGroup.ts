@@ -105,7 +105,7 @@ export class WorkspaceGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceGroup" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceGroup.__pulumiType, name, resourceInputs, opts);
     }

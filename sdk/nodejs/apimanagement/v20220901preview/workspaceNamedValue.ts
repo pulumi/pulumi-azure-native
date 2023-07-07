@@ -110,7 +110,7 @@ export class WorkspaceNamedValue extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceNamedValue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceNamedValue" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceNamedValue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceNamedValue.__pulumiType, name, resourceInputs, opts);
     }

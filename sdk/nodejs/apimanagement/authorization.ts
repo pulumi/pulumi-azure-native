@@ -108,7 +108,7 @@ export class Authorization extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220401preview:Authorization" }, { type: "azure-native:apimanagement/v20220801:Authorization" }, { type: "azure-native:apimanagement/v20220901preview:Authorization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220401preview:Authorization" }, { type: "azure-native:apimanagement/v20220801:Authorization" }, { type: "azure-native:apimanagement/v20220901preview:Authorization" }, { type: "azure-native:apimanagement/v20230301preview:Authorization" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Authorization.__pulumiType, name, resourceInputs, opts);
     }

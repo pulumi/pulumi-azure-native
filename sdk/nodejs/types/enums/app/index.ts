@@ -208,7 +208,7 @@ export const StorageType = {
 export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 export const TriggerType = {
-    Scheduled: "Scheduled",
+    Schedule: "Schedule",
     Event: "Event",
     Manual: "Manual",
 } as const;

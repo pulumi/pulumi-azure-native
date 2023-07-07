@@ -15,6 +15,11 @@ export type DataNetwork = import("./dataNetwork").DataNetwork;
 export const DataNetwork: typeof import("./dataNetwork").DataNetwork = null as any;
 utilities.lazyLoad(exports, ["DataNetwork"], () => require("./dataNetwork"));
 
+export { DiagnosticsPackageArgs } from "./diagnosticsPackage";
+export type DiagnosticsPackage = import("./diagnosticsPackage").DiagnosticsPackage;
+export const DiagnosticsPackage: typeof import("./diagnosticsPackage").DiagnosticsPackage = null as any;
+utilities.lazyLoad(exports, ["DiagnosticsPackage"], () => require("./diagnosticsPackage"));
+
 export { GetAttachedDataNetworkArgs, GetAttachedDataNetworkResult, GetAttachedDataNetworkOutputArgs } from "./getAttachedDataNetwork";
 export const getAttachedDataNetwork: typeof import("./getAttachedDataNetwork").getAttachedDataNetwork = null as any;
 export const getAttachedDataNetworkOutput: typeof import("./getAttachedDataNetwork").getAttachedDataNetworkOutput = null as any;
@@ -25,10 +30,20 @@ export const getDataNetwork: typeof import("./getDataNetwork").getDataNetwork = 
 export const getDataNetworkOutput: typeof import("./getDataNetwork").getDataNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["getDataNetwork","getDataNetworkOutput"], () => require("./getDataNetwork"));
 
+export { GetDiagnosticsPackageArgs, GetDiagnosticsPackageResult, GetDiagnosticsPackageOutputArgs } from "./getDiagnosticsPackage";
+export const getDiagnosticsPackage: typeof import("./getDiagnosticsPackage").getDiagnosticsPackage = null as any;
+export const getDiagnosticsPackageOutput: typeof import("./getDiagnosticsPackage").getDiagnosticsPackageOutput = null as any;
+utilities.lazyLoad(exports, ["getDiagnosticsPackage","getDiagnosticsPackageOutput"], () => require("./getDiagnosticsPackage"));
+
 export { GetMobileNetworkArgs, GetMobileNetworkResult, GetMobileNetworkOutputArgs } from "./getMobileNetwork";
 export const getMobileNetwork: typeof import("./getMobileNetwork").getMobileNetwork = null as any;
 export const getMobileNetworkOutput: typeof import("./getMobileNetwork").getMobileNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["getMobileNetwork","getMobileNetworkOutput"], () => require("./getMobileNetwork"));
+
+export { GetPacketCaptureArgs, GetPacketCaptureResult, GetPacketCaptureOutputArgs } from "./getPacketCapture";
+export const getPacketCapture: typeof import("./getPacketCapture").getPacketCapture = null as any;
+export const getPacketCaptureOutput: typeof import("./getPacketCapture").getPacketCaptureOutput = null as any;
+utilities.lazyLoad(exports, ["getPacketCapture","getPacketCaptureOutput"], () => require("./getPacketCapture"));
 
 export { GetPacketCoreControlPlaneArgs, GetPacketCoreControlPlaneResult, GetPacketCoreControlPlaneOutputArgs } from "./getPacketCoreControlPlane";
 export const getPacketCoreControlPlane: typeof import("./getPacketCoreControlPlane").getPacketCoreControlPlane = null as any;
@@ -80,6 +95,11 @@ export type MobileNetwork = import("./mobileNetwork").MobileNetwork;
 export const MobileNetwork: typeof import("./mobileNetwork").MobileNetwork = null as any;
 utilities.lazyLoad(exports, ["MobileNetwork"], () => require("./mobileNetwork"));
 
+export { PacketCaptureArgs } from "./packetCapture";
+export type PacketCapture = import("./packetCapture").PacketCapture;
+export const PacketCapture: typeof import("./packetCapture").PacketCapture = null as any;
+utilities.lazyLoad(exports, ["PacketCapture"], () => require("./packetCapture"));
+
 export { PacketCoreControlPlaneArgs } from "./packetCoreControlPlane";
 export type PacketCoreControlPlane = import("./packetCoreControlPlane").PacketCoreControlPlane;
 export const PacketCoreControlPlane: typeof import("./packetCoreControlPlane").PacketCoreControlPlane = null as any;
@@ -128,11 +148,13 @@ export * from "../types/enums/mobilenetwork";
 import * as v20220301preview from "./v20220301preview";
 import * as v20220401preview from "./v20220401preview";
 import * as v20221101 from "./v20221101";
+import * as v20230601 from "./v20230601";
 
 export {
     v20220301preview,
     v20220401preview,
     v20221101,
+    v20230601,
 };
 
 const _module = {
@@ -143,8 +165,12 @@ const _module = {
                 return new AttachedDataNetwork(name, <any>undefined, { urn })
             case "azure-native:mobilenetwork:DataNetwork":
                 return new DataNetwork(name, <any>undefined, { urn })
+            case "azure-native:mobilenetwork:DiagnosticsPackage":
+                return new DiagnosticsPackage(name, <any>undefined, { urn })
             case "azure-native:mobilenetwork:MobileNetwork":
                 return new MobileNetwork(name, <any>undefined, { urn })
+            case "azure-native:mobilenetwork:PacketCapture":
+                return new PacketCapture(name, <any>undefined, { urn })
             case "azure-native:mobilenetwork:PacketCoreControlPlane":
                 return new PacketCoreControlPlane(name, <any>undefined, { urn })
             case "azure-native:mobilenetwork:PacketCoreDataPlane":

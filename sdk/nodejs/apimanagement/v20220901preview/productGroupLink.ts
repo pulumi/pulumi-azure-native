@@ -83,7 +83,7 @@ export class ProductGroupLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductGroupLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductGroupLink" }, { type: "azure-native:apimanagement/v20230301preview:ProductGroupLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductGroupLink.__pulumiType, name, resourceInputs, opts);
     }
