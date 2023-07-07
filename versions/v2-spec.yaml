@@ -433,9 +433,8 @@ EventGrid:
         listNamespaceSharedAccessKeys: 2023-06-01-preview
         listNamespaceTopicSharedAccessKeys: 2023-06-01-preview
 EventHub:
-    tracking: "2021-11-01"
+    tracking: 2022-10-01-preview
     additions:
-        ApplicationGroup: 2022-10-01-preview
         NamespaceIpFilterRule: 2018-01-01-preview
         NamespaceVirtualNetworkRule: 2018-01-01-preview
 ExtendedLocation:
