@@ -407,9 +407,12 @@ Migrate:
     https://learn.microsoft.com/en-us/rest/api/migrate/
 MixedReality:
 MobileNetwork:
+  expectAdditions: true
+  notes: |
+    https://learn.microsoft.com/en-us/rest/api/mobilenetwork/mobile-networks
 Monitor:
-  expectTracking: preview
-  notes: Only single preview version
+  notes: |
+    This is *not* Azure Monitor
 NetApp:
 Network:
   explicit: true

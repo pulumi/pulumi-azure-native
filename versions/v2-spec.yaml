@@ -664,10 +664,8 @@ MixedReality:
         ObjectAnchorsAccount: 2021-03-01-preview
         listObjectAnchorsAccountKeys: 2021-03-01-preview
 MobileNetwork:
-    tracking: "2022-11-01"
+    tracking: "2023-06-01"
     additions:
-        DiagnosticsPackage: "2023-06-01"
-        PacketCapture: "2023-06-01"
         listMobileNetworkSimIds: 2022-04-01-preview
 Monitor:
     tracking: "2023-04-03"
