@@ -16,22 +16,10 @@ namespace Pulumi.AzureNative.NotificationHubs.Inputs
     public sealed class AdmCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL of the authorization token.
+        /// Description of a NotificationHub AdmCredential.
         /// </summary>
-        [Input("authTokenUrl")]
-        public Input<string>? AuthTokenUrl { get; set; }
-
-        /// <summary>
-        /// The client identifier.
-        /// </summary>
-        [Input("clientId")]
-        public Input<string>? ClientId { get; set; }
-
-        /// <summary>
-        /// The credential secret access key.
-        /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.AdmCredentialPropertiesArgs> Properties { get; set; } = null!;
 
         public AdmCredentialArgs()
         {

@@ -16,31 +16,31 @@ namespace Pulumi.AzureNative.NotificationHubs.Inputs
     public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The capacity of the resource
+        /// Gets or sets the capacity of the resource
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// The Sku Family
+        /// Gets or sets the Sku Family
         /// </summary>
         [Input("family")]
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// Name of the notification hub sku
+        /// Namespace SKU name.
         /// </summary>
         [Input("name", required: true)]
         public InputUnion<string, Pulumi.AzureNative.NotificationHubs.SkuName> Name { get; set; } = null!;
 
         /// <summary>
-        /// The Sku size
+        /// Gets or sets the Sku size
         /// </summary>
         [Input("size")]
         public Input<string>? Size { get; set; }
 
         /// <summary>
-        /// The tier of particular sku
+        /// Gets or sets the tier of particular sku
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }

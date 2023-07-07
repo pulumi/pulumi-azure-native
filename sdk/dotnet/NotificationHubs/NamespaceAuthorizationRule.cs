@@ -10,92 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NotificationHubs
 {
     /// <summary>
-    /// Description of a Namespace AuthorizationRules.
-    /// Azure REST API version: 2017-04-01. Prior API version in Azure Native 1.x: 2017-04-01
+    /// Response for POST requests that return single SharedAccessAuthorizationRule.
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A string that describes the claim type
-        /// </summary>
-        [Output("claimType")]
-        public Output<string> ClaimType { get; private set; } = null!;
-
-        /// <summary>
-        /// A string that describes the claim value
-        /// </summary>
-        [Output("claimValue")]
-        public Output<string> ClaimValue { get; private set; } = null!;
-
-        /// <summary>
-        /// The created time for this rule
-        /// </summary>
-        [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// A string that describes the authorization rule.
-        /// </summary>
-        [Output("keyName")]
-        public Output<string> KeyName { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource location
+        /// Deprecated - only for compatibility.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The last modified time for this rule
-        /// </summary>
-        [Output("modifiedTime")]
-        public Output<string> ModifiedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        /// SharedAccessAuthorizationRule properties.
         /// </summary>
-        [Output("primaryKey")]
-        public Output<string> PrimaryKey { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.SharedAccessAuthorizationRulePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The revision number for the rule
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        [Output("revision")]
-        public Output<int> Revision { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The rights associated with the rule.
-        /// </summary>
-        [Output("rights")]
-        public Output<ImmutableArray<string>> Rights { get; private set; } = null!;
-
-        /// <summary>
-        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-        /// </summary>
-        [Output("secondaryKey")]
-        public Output<string> SecondaryKey { get; private set; } = null!;
-
-        /// <summary>
-        /// The sku of the created namespace
-        /// </summary>
-        [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource tags
+        /// Deprecated - only for compatibility.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -152,28 +104,46 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class NamespaceAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authorization Rule Name.
+        /// Authorization Rule Name
         /// </summary>
         [Input("authorizationRuleName")]
         public Input<string>? AuthorizationRuleName { get; set; }
 
         /// <summary>
-        /// The namespace name.
+        /// Deprecated - only for compatibility.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Namespace AuthorizationRules.
+        /// SharedAccessAuthorizationRule properties.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.SharedAccessAuthorizationRulePropertiesArgs> Properties { get; set; } = null!;
+        [Input("properties")]
+        public Input<Inputs.SharedAccessAuthorizationRulePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Deprecated - only for compatibility.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public NamespaceAuthorizationRuleArgs()
         {

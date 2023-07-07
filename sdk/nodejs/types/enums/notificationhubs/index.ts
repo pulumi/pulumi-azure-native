@@ -16,7 +16,22 @@ export const AccessRights = {
     Listen: "Listen",
 } as const;
 
+/**
+ * Defines values for AccessRights.
+ */
 export type AccessRights = (typeof AccessRights)[keyof typeof AccessRights];
+
+export const NamespaceStatus = {
+    Created: "Created",
+    Creating: "Creating",
+    Suspended: "Suspended",
+    Deleting: "Deleting",
+} as const;
+
+/**
+ * Namespace status.
+ */
+export type NamespaceStatus = (typeof NamespaceStatus)[keyof typeof NamespaceStatus];
 
 export const NamespaceType = {
     Messaging: "Messaging",
@@ -24,9 +39,24 @@ export const NamespaceType = {
 } as const;
 
 /**
- * The namespace type.
+ * Defines values for NamespaceType.
  */
 export type NamespaceType = (typeof NamespaceType)[keyof typeof NamespaceType];
+
+export const OperationProvisioningState = {
+    Unknown: "Unknown",
+    InProgress: "InProgress",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Canceled: "Canceled",
+    Pending: "Pending",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Defines values for OperationProvisioningState.
+ */
+export type OperationProvisioningState = (typeof OperationProvisioningState)[keyof typeof OperationProvisioningState];
 
 export const PrivateEndpointConnectionProvisioningState = {
     Unknown: "Unknown",
@@ -56,6 +86,32 @@ export const PrivateLinkConnectionStatus = {
  */
 export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
 
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Type of public network access.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const ReplicationRegion = {
+    Default: "Default",
+    WestUs2: "WestUs2",
+    NorthEurope: "NorthEurope",
+    AustraliaEast: "AustraliaEast",
+    BrazilSouth: "BrazilSouth",
+    SouthEastAsia: "SouthEastAsia",
+    SouthAfricaNorth: "SouthAfricaNorth",
+    None: "None",
+} as const;
+
+/**
+ * Allowed replication region
+ */
+export type ReplicationRegion = (typeof ReplicationRegion)[keyof typeof ReplicationRegion];
+
 export const SkuName = {
     Free: "Free",
     Basic: "Basic",
@@ -63,6 +119,16 @@ export const SkuName = {
 } as const;
 
 /**
- * Name of the notification hub sku
+ * Namespace SKU name.
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const ZoneRedundancyPreference = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Namespace SKU name.
+ */
+export type ZoneRedundancyPreference = (typeof ZoneRedundancyPreference)[keyof typeof ZoneRedundancyPreference];

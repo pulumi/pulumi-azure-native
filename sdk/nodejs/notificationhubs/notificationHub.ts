@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Description of a NotificationHub Resource.
- * Azure REST API version: 2017-04-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Notification Hub Resource.
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class NotificationHub extends pulumi.CustomResource {
     /**
@@ -39,57 +39,33 @@ export class NotificationHub extends pulumi.CustomResource {
     }
 
     /**
-     * The AdmCredential of the created NotificationHub
+     * The geo-location where the resource lives
      */
-    public readonly admCredential!: pulumi.Output<outputs.notificationhubs.AdmCredentialResponse | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * The ApnsCredential of the created NotificationHub
+     * The name of the resource
      */
-    public readonly apnsCredential!: pulumi.Output<outputs.notificationhubs.ApnsCredentialResponse | undefined>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The AuthorizationRules of the created NotificationHub
+     * NotificationHub properties.
      */
-    public readonly authorizationRules!: pulumi.Output<outputs.notificationhubs.SharedAccessAuthorizationRulePropertiesResponse[] | undefined>;
+    public readonly properties!: pulumi.Output<outputs.notificationhubs.NotificationHubPropertiesResponse>;
     /**
-     * The BaiduCredential of the created NotificationHub
-     */
-    public readonly baiduCredential!: pulumi.Output<outputs.notificationhubs.BaiduCredentialResponse | undefined>;
-    /**
-     * The GcmCredential of the created NotificationHub
-     */
-    public readonly gcmCredential!: pulumi.Output<outputs.notificationhubs.GcmCredentialResponse | undefined>;
-    /**
-     * Resource location
-     */
-    public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * The MpnsCredential of the created NotificationHub
-     */
-    public readonly mpnsCredential!: pulumi.Output<outputs.notificationhubs.MpnsCredentialResponse | undefined>;
-    /**
-     * Resource name
-     */
-    public readonly name!: pulumi.Output<string>;
-    /**
-     * The RegistrationTtl of the created NotificationHub
-     */
-    public readonly registrationTtl!: pulumi.Output<string | undefined>;
-    /**
-     * The sku of the created namespace
+     * The Sku description for a namespace
      */
     public readonly sku!: pulumi.Output<outputs.notificationhubs.SkuResponse | undefined>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.notificationhubs.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The WnsCredential of the created NotificationHub
-     */
-    public readonly wnsCredential!: pulumi.Output<outputs.notificationhubs.WnsCredentialResponse | undefined>;
 
     /**
      * Create a NotificationHub resource with the given unique name, arguments, and options.
@@ -108,36 +84,24 @@ export class NotificationHub extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["admCredential"] = args ? args.admCredential : undefined;
-            resourceInputs["apnsCredential"] = args ? args.apnsCredential : undefined;
-            resourceInputs["authorizationRules"] = args ? args.authorizationRules : undefined;
-            resourceInputs["baiduCredential"] = args ? args.baiduCredential : undefined;
-            resourceInputs["gcmCredential"] = args ? args.gcmCredential : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mpnsCredential"] = args ? args.mpnsCredential : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["notificationHubName"] = args ? args.notificationHubName : undefined;
-            resourceInputs["registrationTtl"] = args ? args.registrationTtl : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["wnsCredential"] = args ? args.wnsCredential : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["admCredential"] = undefined /*out*/;
-            resourceInputs["apnsCredential"] = undefined /*out*/;
-            resourceInputs["authorizationRules"] = undefined /*out*/;
-            resourceInputs["baiduCredential"] = undefined /*out*/;
-            resourceInputs["gcmCredential"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["mpnsCredential"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["registrationTtl"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["wnsCredential"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20140901:NotificationHub" }, { type: "azure-native:notificationhubs/v20160301:NotificationHub" }, { type: "azure-native:notificationhubs/v20170401:NotificationHub" }, { type: "azure-native:notificationhubs/v20230101preview:NotificationHub" }] };
@@ -151,63 +115,31 @@ export class NotificationHub extends pulumi.CustomResource {
  */
 export interface NotificationHubArgs {
     /**
-     * The AdmCredential of the created NotificationHub
-     */
-    admCredential?: pulumi.Input<inputs.notificationhubs.AdmCredentialArgs>;
-    /**
-     * The ApnsCredential of the created NotificationHub
-     */
-    apnsCredential?: pulumi.Input<inputs.notificationhubs.ApnsCredentialArgs>;
-    /**
-     * The AuthorizationRules of the created NotificationHub
-     */
-    authorizationRules?: pulumi.Input<pulumi.Input<inputs.notificationhubs.SharedAccessAuthorizationRulePropertiesArgs>[]>;
-    /**
-     * The BaiduCredential of the created NotificationHub
-     */
-    baiduCredential?: pulumi.Input<inputs.notificationhubs.BaiduCredentialArgs>;
-    /**
-     * The GcmCredential of the created NotificationHub
-     */
-    gcmCredential?: pulumi.Input<inputs.notificationhubs.GcmCredentialArgs>;
-    /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The MpnsCredential of the created NotificationHub
-     */
-    mpnsCredential?: pulumi.Input<inputs.notificationhubs.MpnsCredentialArgs>;
-    /**
-     * The NotificationHub name.
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * The namespace name.
+     * Namespace name
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * The notification hub name.
+     * Notification Hub name
      */
     notificationHubName?: pulumi.Input<string>;
     /**
-     * The RegistrationTtl of the created NotificationHub
+     * NotificationHub properties.
      */
-    registrationTtl?: pulumi.Input<string>;
+    properties?: pulumi.Input<inputs.notificationhubs.NotificationHubPropertiesArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The sku of the created namespace
+     * The Sku description for a namespace
      */
     sku?: pulumi.Input<inputs.notificationhubs.SkuArgs>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The WnsCredential of the created NotificationHub
-     */
-    wnsCredential?: pulumi.Input<inputs.notificationhubs.WnsCredentialArgs>;
 }

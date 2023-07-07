@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AzureNative.NotificationHubs
 {
+    /// <summary>
+    /// Defines values for AccessRights.
+    /// </summary>
     [EnumType]
     public readonly struct AccessRights : IEquatable<AccessRights>
     {
@@ -37,7 +40,40 @@ namespace Pulumi.AzureNative.NotificationHubs
     }
 
     /// <summary>
-    /// The namespace type.
+    /// Namespace status.
+    /// </summary>
+    [EnumType]
+    public readonly struct NamespaceStatus : IEquatable<NamespaceStatus>
+    {
+        private readonly string _value;
+
+        private NamespaceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NamespaceStatus Created { get; } = new NamespaceStatus("Created");
+        public static NamespaceStatus Creating { get; } = new NamespaceStatus("Creating");
+        public static NamespaceStatus Suspended { get; } = new NamespaceStatus("Suspended");
+        public static NamespaceStatus Deleting { get; } = new NamespaceStatus("Deleting");
+
+        public static bool operator ==(NamespaceStatus left, NamespaceStatus right) => left.Equals(right);
+        public static bool operator !=(NamespaceStatus left, NamespaceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(NamespaceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NamespaceStatus other && Equals(other);
+        public bool Equals(NamespaceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines values for NamespaceType.
     /// </summary>
     [EnumType]
     public readonly struct NamespaceType : IEquatable<NamespaceType>
@@ -60,6 +96,42 @@ namespace Pulumi.AzureNative.NotificationHubs
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NamespaceType other && Equals(other);
         public bool Equals(NamespaceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines values for OperationProvisioningState.
+    /// </summary>
+    [EnumType]
+    public readonly struct OperationProvisioningState : IEquatable<OperationProvisioningState>
+    {
+        private readonly string _value;
+
+        private OperationProvisioningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OperationProvisioningState Unknown { get; } = new OperationProvisioningState("Unknown");
+        public static OperationProvisioningState InProgress { get; } = new OperationProvisioningState("InProgress");
+        public static OperationProvisioningState Succeeded { get; } = new OperationProvisioningState("Succeeded");
+        public static OperationProvisioningState Failed { get; } = new OperationProvisioningState("Failed");
+        public static OperationProvisioningState Canceled { get; } = new OperationProvisioningState("Canceled");
+        public static OperationProvisioningState Pending { get; } = new OperationProvisioningState("Pending");
+        public static OperationProvisioningState Disabled { get; } = new OperationProvisioningState("Disabled");
+
+        public static bool operator ==(OperationProvisioningState left, OperationProvisioningState right) => left.Equals(right);
+        public static bool operator !=(OperationProvisioningState left, OperationProvisioningState right) => !left.Equals(right);
+
+        public static explicit operator string(OperationProvisioningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OperationProvisioningState other && Equals(other);
+        public bool Equals(OperationProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -138,7 +210,75 @@ namespace Pulumi.AzureNative.NotificationHubs
     }
 
     /// <summary>
-    /// Name of the notification hub sku
+    /// Type of public network access.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Allowed replication region
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationRegion : IEquatable<ReplicationRegion>
+    {
+        private readonly string _value;
+
+        private ReplicationRegion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationRegion Default { get; } = new ReplicationRegion("Default");
+        public static ReplicationRegion WestUs2 { get; } = new ReplicationRegion("WestUs2");
+        public static ReplicationRegion NorthEurope { get; } = new ReplicationRegion("NorthEurope");
+        public static ReplicationRegion AustraliaEast { get; } = new ReplicationRegion("AustraliaEast");
+        public static ReplicationRegion BrazilSouth { get; } = new ReplicationRegion("BrazilSouth");
+        public static ReplicationRegion SouthEastAsia { get; } = new ReplicationRegion("SouthEastAsia");
+        public static ReplicationRegion SouthAfricaNorth { get; } = new ReplicationRegion("SouthAfricaNorth");
+        public static ReplicationRegion None { get; } = new ReplicationRegion("None");
+
+        public static bool operator ==(ReplicationRegion left, ReplicationRegion right) => left.Equals(right);
+        public static bool operator !=(ReplicationRegion left, ReplicationRegion right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationRegion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationRegion other && Equals(other);
+        public bool Equals(ReplicationRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Namespace SKU name.
     /// </summary>
     [EnumType]
     public readonly struct SkuName : IEquatable<SkuName>
@@ -162,6 +302,37 @@ namespace Pulumi.AzureNative.NotificationHubs
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
         public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Namespace SKU name.
+    /// </summary>
+    [EnumType]
+    public readonly struct ZoneRedundancyPreference : IEquatable<ZoneRedundancyPreference>
+    {
+        private readonly string _value;
+
+        private ZoneRedundancyPreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ZoneRedundancyPreference Disabled { get; } = new ZoneRedundancyPreference("Disabled");
+        public static ZoneRedundancyPreference Enabled { get; } = new ZoneRedundancyPreference("Enabled");
+
+        public static bool operator ==(ZoneRedundancyPreference left, ZoneRedundancyPreference right) => left.Equals(right);
+        public static bool operator !=(ZoneRedundancyPreference left, ZoneRedundancyPreference right) => !left.Equals(right);
+
+        public static explicit operator string(ZoneRedundancyPreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ZoneRedundancyPreference other && Equals(other);
+        public bool Equals(ZoneRedundancyPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

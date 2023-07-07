@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.NotificationHubs
     public static class GetNotificationHubAuthorizationRule
     {
         /// <summary>
-        /// Gets an authorization rule for a NotificationHub by name.
-        /// Azure REST API version: 2017-04-01.
+        /// Response for POST requests that return single SharedAccessAuthorizationRule.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Task<GetNotificationHubAuthorizationRuleResult> InvokeAsync(GetNotificationHubAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubAuthorizationRuleResult>("azure-native:notificationhubs:getNotificationHubAuthorizationRule", args ?? new GetNotificationHubAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets an authorization rule for a NotificationHub by name.
-        /// Azure REST API version: 2017-04-01.
+        /// Response for POST requests that return single SharedAccessAuthorizationRule.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Output<GetNotificationHubAuthorizationRuleResult> Invoke(GetNotificationHubAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubAuthorizationRuleResult>("azure-native:notificationhubs:getNotificationHubAuthorizationRule", args ?? new GetNotificationHubAuthorizationRuleInvokeArgs(), options.WithDefaults());
@@ -30,25 +30,25 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class GetNotificationHubAuthorizationRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// authorization rule name.
+        /// Authorization Rule Name
         /// </summary>
         [Input("authorizationRuleName", required: true)]
         public string AuthorizationRuleName { get; set; } = null!;
 
         /// <summary>
-        /// The namespace name
+        /// Namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// The notification hub name.
+        /// Notification Hub name
         /// </summary>
         [Input("notificationHubName", required: true)]
         public string NotificationHubName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -62,25 +62,25 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class GetNotificationHubAuthorizationRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// authorization rule name.
+        /// Authorization Rule Name
         /// </summary>
         [Input("authorizationRuleName", required: true)]
         public Input<string> AuthorizationRuleName { get; set; } = null!;
 
         /// <summary>
-        /// The namespace name
+        /// Namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// The notification hub name.
+        /// Notification Hub name
         /// </summary>
         [Input("notificationHubName", required: true)]
         public Input<string> NotificationHubName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -96,111 +96,55 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class GetNotificationHubAuthorizationRuleResult
     {
         /// <summary>
-        /// A string that describes the claim type
-        /// </summary>
-        public readonly string ClaimType;
-        /// <summary>
-        /// A string that describes the claim value
-        /// </summary>
-        public readonly string ClaimValue;
-        /// <summary>
-        /// The created time for this rule
-        /// </summary>
-        public readonly string CreatedTime;
-        /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A string that describes the authorization rule.
-        /// </summary>
-        public readonly string KeyName;
-        /// <summary>
-        /// Resource location
+        /// Deprecated - only for compatibility.
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The last modified time for this rule
-        /// </summary>
-        public readonly string ModifiedTime;
-        /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        /// SharedAccessAuthorizationRule properties.
         /// </summary>
-        public readonly string PrimaryKey;
+        public readonly Outputs.SharedAccessAuthorizationRulePropertiesResponse Properties;
         /// <summary>
-        /// The revision number for the rule
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly int Revision;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The rights associated with the rule.
-        /// </summary>
-        public readonly ImmutableArray<string> Rights;
-        /// <summary>
-        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-        /// </summary>
-        public readonly string SecondaryKey;
-        /// <summary>
-        /// The sku of the created namespace
-        /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
-        /// <summary>
-        /// Resource tags
+        /// Deprecated - only for compatibility.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetNotificationHubAuthorizationRuleResult(
-            string claimType,
-
-            string claimValue,
-
-            string createdTime,
-
             string id,
-
-            string keyName,
 
             string? location,
 
-            string modifiedTime,
-
             string name,
 
-            string primaryKey,
+            Outputs.SharedAccessAuthorizationRulePropertiesResponse properties,
 
-            int revision,
-
-            ImmutableArray<string> rights,
-
-            string secondaryKey,
-
-            Outputs.SkuResponse? sku,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            ClaimType = claimType;
-            ClaimValue = claimValue;
-            CreatedTime = createdTime;
             Id = id;
-            KeyName = keyName;
             Location = location;
-            ModifiedTime = modifiedTime;
             Name = name;
-            PrimaryKey = primaryKey;
-            Revision = revision;
-            Rights = rights;
-            SecondaryKey = secondaryKey;
-            Sku = sku;
+            Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }
