@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// VirtualNetworkStatus defines the observed state of virtual networks
+    /// The observed state of virtual networks
     /// </summary>
     [OutputType]
     public sealed class VirtualNetworkStatusResponse
@@ -24,9 +24,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// Descriptive error message
         /// </summary>
         public readonly string? ErrorMessage;
-        /// <summary>
-        /// The provisioning status of the virtual network
-        /// </summary>
         public readonly Outputs.VirtualNetworkStatusResponseProvisioningStatus? ProvisioningStatus;
 
         [OutputConstructor]

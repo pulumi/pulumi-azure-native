@@ -18,12 +18,14 @@ __all__ = [
     'OperatingSystemTypes',
     'OsTypeEnum',
     'PrivateIPAllocationMethodEnum',
+    'ProvisioningAction',
     'ResourceIdentityType',
     'SoftwareAssuranceIntent',
     'SoftwareAssuranceStatus',
     'State',
     'UpdateRunPropertiesState',
     'UpdateSummariesPropertiesState',
+    'VmSizeEnum',
     'WindowsServerSubscription',
 ]
 
@@ -39,7 +41,7 @@ class AvailabilityType(str, Enum):
 
 class CloudInitDataSource(str, Enum):
     """
-    Datasource for the gallery image when provisioning with cloud-init [Azure, NoCloud]
+    Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
     """
     NO_CLOUD = "NoCloud"
     AZURE = "Azure"
@@ -120,7 +122,7 @@ class NetworkTypeEnum(str, Enum):
 
 class OperatingSystemTypes(str, Enum):
     """
-    operating system type that the gallery image uses. Expected to be linux or windows
+    Operating system type that the gallery image uses [Windows, Linux]
     """
     WINDOWS = "Windows"
     LINUX = "Linux"
@@ -140,6 +142,15 @@ class PrivateIPAllocationMethodEnum(str, Enum):
     """
     DYNAMIC = "Dynamic"
     STATIC = "Static"
+
+
+class ProvisioningAction(str, Enum):
+    """
+    The guest agent provisioning action.
+    """
+    INSTALL = "install"
+    UNINSTALL = "uninstall"
+    REPAIR = "repair"
 
 
 class ResourceIdentityType(str, Enum):
@@ -211,6 +222,32 @@ class UpdateSummariesPropertiesState(str, Enum):
     NEEDS_ATTENTION = "NeedsAttention"
     PREPARATION_IN_PROGRESS = "PreparationInProgress"
     PREPARATION_FAILED = "PreparationFailed"
+
+
+class VmSizeEnum(str, Enum):
+    DEFAULT = "Default"
+    STANDARD_A2_V2 = "Standard_A2_v2"
+    STANDARD_A4_V2 = "Standard_A4_v2"
+    STANDARD_D2S_V3 = "Standard_D2s_v3"
+    STANDARD_D4S_V3 = "Standard_D4s_v3"
+    STANDARD_D8S_V3 = "Standard_D8s_v3"
+    STANDARD_D16S_V3 = "Standard_D16s_v3"
+    STANDARD_D32S_V3 = "Standard_D32s_v3"
+    STANDARD_DS2_V2 = "Standard_DS2_v2"
+    STANDARD_DS3_V2 = "Standard_DS3_v2"
+    STANDARD_DS4_V2 = "Standard_DS4_v2"
+    STANDARD_DS5_V2 = "Standard_DS5_v2"
+    STANDARD_DS13_V2 = "Standard_DS13_v2"
+    STANDARD_K8_S_V1 = "Standard_K8S_v1"
+    STANDARD_K8_S2_V1 = "Standard_K8S2_v1"
+    STANDARD_K8_S3_V1 = "Standard_K8S3_v1"
+    STANDARD_K8_S4_V1 = "Standard_K8S4_v1"
+    STANDARD_NK6 = "Standard_NK6"
+    STANDARD_NK12 = "Standard_NK12"
+    STANDARD_NV6 = "Standard_NV6"
+    STANDARD_NV12 = "Standard_NV12"
+    STANDARD_K8_S5_V1 = "Standard_K8S5_v1"
+    CUSTOM = "Custom"
 
 
 class WindowsServerSubscription(str, Enum):

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// storageContainerStatus defines the observed state of storagecontainers
+    /// The observed state of storage containers
     /// </summary>
     [OutputType]
     public sealed class StorageContainerStatusResponse
@@ -32,9 +32,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// Descriptive error message
         /// </summary>
         public readonly string? ErrorMessage;
-        /// <summary>
-        /// The provisioning status of the storage container
-        /// </summary>
         public readonly Outputs.StorageContainerStatusResponseProvisioningStatus? ProvisioningStatus;
 
         [OutputConstructor]

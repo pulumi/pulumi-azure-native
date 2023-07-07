@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
-    /// <summary>
-    /// The provisioning status of the storage container
-    /// </summary>
     [OutputType]
     public sealed class StorageContainerStatusResponseProvisioningStatus
     {

@@ -2054,16 +2054,19 @@ _utilities.register(
    "azure-native:azurestackhci:ArcSetting": "ArcSetting",
    "azure-native:azurestackhci:Cluster": "Cluster",
    "azure-native:azurestackhci:Extension": "Extension",
-   "azure-native:azurestackhci:GalleryimageRetrieve": "GalleryimageRetrieve",
-   "azure-native:azurestackhci:Marketplacegalleryimage": "Marketplacegalleryimage",
-   "azure-native:azurestackhci:NetworkinterfaceRetrieve": "NetworkinterfaceRetrieve",
-   "azure-native:azurestackhci:StoragecontainerRetrieve": "StoragecontainerRetrieve",
+   "azure-native:azurestackhci:GalleryImage": "GalleryImage",
+   "azure-native:azurestackhci:GuestAgent": "GuestAgent",
+   "azure-native:azurestackhci:HybridIdentityMetadatum": "HybridIdentityMetadatum",
+   "azure-native:azurestackhci:MachineExtension": "MachineExtension",
+   "azure-native:azurestackhci:MarketplaceGalleryImage": "MarketplaceGalleryImage",
+   "azure-native:azurestackhci:NetworkInterface": "NetworkInterface",
+   "azure-native:azurestackhci:StorageContainer": "StorageContainer",
    "azure-native:azurestackhci:Update": "Update",
    "azure-native:azurestackhci:UpdateRun": "UpdateRun",
    "azure-native:azurestackhci:UpdateSummary": "UpdateSummary",
-   "azure-native:azurestackhci:VirtualharddiskRetrieve": "VirtualharddiskRetrieve",
-   "azure-native:azurestackhci:VirtualmachineRetrieve": "VirtualmachineRetrieve",
-   "azure-native:azurestackhci:VirtualnetworkRetrieve": "VirtualnetworkRetrieve"
+   "azure-native:azurestackhci:VirtualHardDisk": "VirtualHardDisk",
+   "azure-native:azurestackhci:VirtualMachine": "VirtualMachine",
+   "azure-native:azurestackhci:VirtualNetwork": "VirtualNetwork"
   }
  },
  {

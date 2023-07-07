@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
-    /// <summary>
-    /// The provisioning status of the network interface
-    /// </summary>
     [OutputType]
     public sealed class NetworkInterfaceStatusResponseProvisioningStatus
     {
