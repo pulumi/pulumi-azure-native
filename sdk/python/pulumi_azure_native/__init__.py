@@ -1456,32 +1456,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "appplatform/v20221201",
-  "fqn": "pulumi_azure_native.appplatform.v20221201",
-  "classes": {
-   "azure-native:appplatform/v20221201:ApiPortal": "ApiPortal",
-   "azure-native:appplatform/v20221201:ApiPortalCustomDomain": "ApiPortalCustomDomain",
-   "azure-native:appplatform/v20221201:App": "App",
-   "azure-native:appplatform/v20221201:Binding": "Binding",
-   "azure-native:appplatform/v20221201:BuildServiceAgentPool": "BuildServiceAgentPool",
-   "azure-native:appplatform/v20221201:BuildServiceBuilder": "BuildServiceBuilder",
-   "azure-native:appplatform/v20221201:BuildpackBinding": "BuildpackBinding",
-   "azure-native:appplatform/v20221201:Certificate": "Certificate",
-   "azure-native:appplatform/v20221201:ConfigServer": "ConfigServer",
-   "azure-native:appplatform/v20221201:ConfigurationService": "ConfigurationService",
-   "azure-native:appplatform/v20221201:CustomDomain": "CustomDomain",
-   "azure-native:appplatform/v20221201:Deployment": "Deployment",
-   "azure-native:appplatform/v20221201:Gateway": "Gateway",
-   "azure-native:appplatform/v20221201:GatewayCustomDomain": "GatewayCustomDomain",
-   "azure-native:appplatform/v20221201:GatewayRouteConfig": "GatewayRouteConfig",
-   "azure-native:appplatform/v20221201:MonitoringSetting": "MonitoringSetting",
-   "azure-native:appplatform/v20221201:Service": "Service",
-   "azure-native:appplatform/v20221201:ServiceRegistry": "ServiceRegistry",
-   "azure-native:appplatform/v20221201:Storage": "Storage"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "appplatform/v20230501preview",
   "fqn": "pulumi_azure_native.appplatform.v20230501preview",
   "classes": {

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Application Configuration Service resource
- * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2022-01-01-preview
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
  */
 export class ConfigurationService extends pulumi.CustomResource {
     /**
@@ -73,7 +73,7 @@ export class ConfigurationService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             resourceInputs["configurationServiceName"] = args ? args.configurationServiceName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.configurationServicePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["name"] = undefined /*out*/;

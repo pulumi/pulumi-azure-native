@@ -124,7 +124,7 @@ def get_app(app_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
     Get an App and its properties.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str app_name: The name of the App resource.
@@ -158,7 +158,7 @@ def get_app_output(app_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
     Get an App and its properties.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str app_name: The name of the App resource.

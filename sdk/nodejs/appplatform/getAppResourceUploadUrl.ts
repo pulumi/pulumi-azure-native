@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an resource upload URL for an App, which may be artifacts or source archive.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getAppResourceUploadUrl(args: GetAppResourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResourceUploadUrlResult> {
 
@@ -48,7 +48,7 @@ export interface GetAppResourceUploadUrlResult {
 }
 /**
  * Get an resource upload URL for an App, which may be artifacts or source archive.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getAppResourceUploadUrlOutput(args: GetAppResourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResourceUploadUrlResult> {
     return pulumi.output(args).apply((a: any) => getAppResourceUploadUrl(a, opts))

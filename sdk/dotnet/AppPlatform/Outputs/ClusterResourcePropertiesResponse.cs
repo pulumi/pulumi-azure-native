@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
+        /// The name of the resource group that contains the infrastructure resources
+        /// </summary>
+        public readonly string? InfraResourceGroup;
+        /// <summary>
+        /// The resource Id of the Managed Environment that the Spring Apps instance builds on
+        /// </summary>
+        public readonly string? ManagedEnvironmentId;
+        /// <summary>
+        /// Purchasing 3rd party product of the Service resource.
+        /// </summary>
+        public readonly Outputs.MarketplaceResourceResponse? MarketplaceResource;
+        /// <summary>
         /// Network profile of the Service
         /// </summary>
         public readonly Outputs.NetworkProfileResponse? NetworkProfile;
@@ -50,6 +62,12 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         private ClusterResourcePropertiesResponse(
             string fqdn,
 
+            string? infraResourceGroup,
+
+            string? managedEnvironmentId,
+
+            Outputs.MarketplaceResourceResponse? marketplaceResource,
+
             Outputs.NetworkProfileResponse? networkProfile,
 
             string powerState,
@@ -65,6 +83,9 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
             bool? zoneRedundant)
         {
             Fqdn = fqdn;
+            InfraResourceGroup = infraResourceGroup;
+            ManagedEnvironmentId = managedEnvironmentId;
+            MarketplaceResource = marketplaceResource;
             NetworkProfile = networkProfile;
             PowerState = powerState;
             ProvisioningState = provisioningState;

@@ -100,7 +100,7 @@ def get_build_service_builder(build_service_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildServiceBuilderResult:
     """
     Get a KPack builder.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str build_service_name: The name of the build service resource.
@@ -132,7 +132,7 @@ def get_build_service_builder_output(build_service_name: Optional[pulumi.Input[s
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildServiceBuilderResult]:
     """
     Get a KPack builder.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str build_service_name: The name of the build service resource.

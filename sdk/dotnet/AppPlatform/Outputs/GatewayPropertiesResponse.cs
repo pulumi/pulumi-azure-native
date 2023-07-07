@@ -17,13 +17,29 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class GatewayPropertiesResponse
     {
         /// <summary>
+        /// Collection of addons for Spring Cloud Gateway
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? AddonConfigs;
+        /// <summary>
         /// API metadata property for Spring Cloud Gateway
         /// </summary>
         public readonly Outputs.GatewayApiMetadataPropertiesResponse? ApiMetadataProperties;
         /// <summary>
+        /// Collection of APM type used in Spring Cloud Gateway
+        /// </summary>
+        public readonly ImmutableArray<string> ApmTypes;
+        /// <summary>
+        /// Client-Certification Authentication.
+        /// </summary>
+        public readonly Outputs.GatewayPropertiesResponseClientAuth? ClientAuth;
+        /// <summary>
         /// Cross-Origin Resource Sharing property
         /// </summary>
         public readonly Outputs.GatewayCorsPropertiesResponse? CorsProperties;
+        /// <summary>
+        /// Environment variables of Spring Cloud Gateway
+        /// </summary>
+        public readonly Outputs.GatewayPropertiesResponseEnvironmentVariables? EnvironmentVariables;
         /// <summary>
         /// Indicate if only https is allowed.
         /// </summary>
@@ -59,9 +75,17 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
         [OutputConstructor]
         private GatewayPropertiesResponse(
+            ImmutableDictionary<string, object>? addonConfigs,
+
             Outputs.GatewayApiMetadataPropertiesResponse? apiMetadataProperties,
 
+            ImmutableArray<string> apmTypes,
+
+            Outputs.GatewayPropertiesResponseClientAuth? clientAuth,
+
             Outputs.GatewayCorsPropertiesResponse? corsProperties,
+
+            Outputs.GatewayPropertiesResponseEnvironmentVariables? environmentVariables,
 
             bool? httpsOnly,
 
@@ -79,8 +103,12 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             string url)
         {
+            AddonConfigs = addonConfigs;
             ApiMetadataProperties = apiMetadataProperties;
+            ApmTypes = apmTypes;
+            ClientAuth = clientAuth;
             CorsProperties = corsProperties;
+            EnvironmentVariables = environmentVariables;
             HttpsOnly = httpsOnly;
             Instances = instances;
             OperatorProperties = operatorProperties;

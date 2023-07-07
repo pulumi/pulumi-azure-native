@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     /// </summary>
     public sealed class AzureFileVolumeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If set to true, it will create and mount a dedicated directory for every individual app instance.
+        /// </summary>
+        [Input("enableSubPath")]
+        public Input<bool>? EnableSubPath { get; set; }
+
         [Input("mountOptions")]
         private InputList<string>? _mountOptions;
 
@@ -42,8 +48,8 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         /// <summary>
         /// The share name of the Azure File share.
         /// </summary>
-        [Input("shareName", required: true)]
-        public Input<string> ShareName { get; set; } = null!;
+        [Input("shareName")]
+        public Input<string>? ShareName { get; set; }
 
         /// <summary>
         /// The type of the underlying resource to mount as a persistent disk.
@@ -54,6 +60,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
 
         public AzureFileVolumeArgs()
         {
+            EnableSubPath = false;
         }
         public static new AzureFileVolumeArgs Empty => new AzureFileVolumeArgs();
     }

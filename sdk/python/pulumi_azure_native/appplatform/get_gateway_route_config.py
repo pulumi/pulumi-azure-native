@@ -100,7 +100,7 @@ def get_gateway_route_config(gateway_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayRouteConfigResult:
     """
     Get the Spring Cloud Gateway route configs.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str gateway_name: The name of Spring Cloud Gateway.
@@ -132,7 +132,7 @@ def get_gateway_route_config_output(gateway_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayRouteConfigResult]:
     """
     Get the Spring Cloud Gateway route configs.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str gateway_name: The name of Spring Cloud Gateway.

@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
         /// <summary>
+        /// Allowed origin patterns to make cross-site requests.
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedOriginPatterns;
+        /// <summary>
         /// Allowed origins to make cross-site requests. The special value `*` allows all domains.
         /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
@@ -49,6 +53,8 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             ImmutableArray<string> allowedMethods,
 
+            ImmutableArray<string> allowedOriginPatterns,
+
             ImmutableArray<string> allowedOrigins,
 
             ImmutableArray<string> exposedHeaders,
@@ -58,6 +64,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
             AllowCredentials = allowCredentials;
             AllowedHeaders = allowedHeaders;
             AllowedMethods = allowedMethods;
+            AllowedOriginPatterns = allowedOriginPatterns;
             AllowedOrigins = allowedOrigins;
             ExposedHeaders = exposedHeaders;
             MaxAge = maxAge;

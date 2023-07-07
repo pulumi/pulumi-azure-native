@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get a Binding and its properties.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetBindingResult> InvokeAsync(GetBindingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBindingResult>("azure-native:appplatform:getBinding", args ?? new GetBindingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Binding and its properties.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetBindingResult> Invoke(GetBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBindingResult>("azure-native:appplatform:getBinding", args ?? new GetBindingInvokeArgs(), options.WithDefaults());

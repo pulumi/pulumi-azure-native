@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     public sealed class ServiceVNetAddonsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether the data plane components(log stream, app connect, remote debugging) in vnet injection instance could be accessed from internet.
+        /// </summary>
+        [Input("dataPlanePublicEndpoint")]
+        public Input<bool>? DataPlanePublicEndpoint { get; set; }
+
+        /// <summary>
         /// Indicates whether the log stream in vnet injection instance could be accessed from internet.
         /// </summary>
         [Input("logStreamPublicEndpoint")]
@@ -23,6 +29,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
 
         public ServiceVNetAddonsArgs()
         {
+            DataPlanePublicEndpoint = false;
             LogStreamPublicEndpoint = false;
         }
         public static new ServiceVNetAddonsArgs Empty => new ServiceVNetAddonsArgs();
