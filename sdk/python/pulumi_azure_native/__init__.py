@@ -10809,14 +10809,12 @@ _utilities.register(
   "fqn": "pulumi_azure_native.workloads",
   "classes": {
    "azure-native:workloads:Monitor": "Monitor",
-   "azure-native:workloads:PhpWorkload": "PhpWorkload",
    "azure-native:workloads:ProviderInstance": "ProviderInstance",
    "azure-native:workloads:SAPApplicationServerInstance": "SAPApplicationServerInstance",
    "azure-native:workloads:SAPCentralInstance": "SAPCentralInstance",
    "azure-native:workloads:SAPDatabaseInstance": "SAPDatabaseInstance",
    "azure-native:workloads:SAPVirtualInstance": "SAPVirtualInstance",
-   "azure-native:workloads:SapLandscapeMonitor": "SapLandscapeMonitor",
-   "azure-native:workloads:WordpressInstance": "WordpressInstance"
+   "azure-native:workloads:SapLandscapeMonitor": "SapLandscapeMonitor"
   }
  },
  {

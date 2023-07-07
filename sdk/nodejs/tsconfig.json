@@ -11673,7 +11673,6 @@
         "windowsiot/v20190601/index.ts",
         "windowsiot/v20190601/service.ts",
         "workloads/getMonitor.ts",
-        "workloads/getPhpWorkload.ts",
         "workloads/getProviderInstance.ts",
         "workloads/getSAPApplicationServerInstance.ts",
         "workloads/getSAPAvailabilityZoneDetails.ts",
@@ -11684,10 +11683,8 @@
         "workloads/getSAPSupportedSku.ts",
         "workloads/getSAPVirtualInstance.ts",
         "workloads/getSapLandscapeMonitor.ts",
-        "workloads/getWordpressInstance.ts",
         "workloads/index.ts",
         "workloads/monitor.ts",
-        "workloads/phpWorkload.ts",
         "workloads/providerInstance.ts",
         "workloads/sapLandscapeMonitor.ts",
         "workloads/sapapplicationServerInstance.ts",
@@ -11728,7 +11725,6 @@
         "workloads/v20230401/sapapplicationServerInstance.ts",
         "workloads/v20230401/sapcentralInstance.ts",
         "workloads/v20230401/sapdatabaseInstance.ts",
-        "workloads/v20230401/sapvirtualInstance.ts",
-        "workloads/wordpressInstance.ts"
+        "workloads/v20230401/sapvirtualInstance.ts"
     ]
 }

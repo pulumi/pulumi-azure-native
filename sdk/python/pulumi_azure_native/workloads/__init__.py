@@ -7,7 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_monitor import *
-from .get_php_workload import *
 from .get_provider_instance import *
 from .get_sap_application_server_instance import *
 from .get_sap_availability_zone_details import *
@@ -18,16 +17,13 @@ from .get_sap_landscape_monitor import *
 from .get_sap_sizing_recommendations import *
 from .get_sap_supported_sku import *
 from .get_sap_virtual_instance import *
-from .get_wordpress_instance import *
 from .monitor import *
-from .php_workload import *
 from .provider_instance import *
 from .sap_application_server_instance import *
 from .sap_central_instance import *
 from .sap_database_instance import *
 from .sap_landscape_monitor import *
 from .sap_virtual_instance import *
-from .wordpress_instance import *
 from ._inputs import *
 from . import outputs
 
