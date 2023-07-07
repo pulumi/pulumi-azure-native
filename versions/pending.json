@@ -686,9 +686,7 @@
   ],
   "ServiceFabric": [],
   "ServiceFabricMesh": [],
-  "ServiceLinker": [
-    "2022-11-01-preview"
-  ],
+  "ServiceLinker": [],
   "ServiceNetworking": [],
   "SignalRService": [
     "2023-03-01-preview",

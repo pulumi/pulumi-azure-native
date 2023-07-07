@@ -1019,11 +1019,7 @@ ServiceFabric:
 ServiceFabricMesh:
     tracking: 2018-09-01-preview
 ServiceLinker:
-    tracking: "2022-05-01"
-    additions:
-        Connector: 2022-11-01-preview
-        ConnectorDryrun: 2022-11-01-preview
-        LinkerDryrun: 2022-11-01-preview
+    tracking: 2022-11-01-preview
 ServiceNetworking:
     tracking: 2023-05-01-preview
 SignalRService:

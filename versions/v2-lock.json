@@ -2041,9 +2041,9 @@
   "ServiceLinker": {
     "Connector": "2022-11-01-preview",
     "ConnectorDryrun": "2022-11-01-preview",
-    "Linker": "2022-05-01",
+    "Linker": "2022-11-01-preview",
     "LinkerDryrun": "2022-11-01-preview",
-    "listLinkerConfigurations": "2022-05-01"
+    "listLinkerConfigurations": "2022-11-01-preview"
   },
   "ServiceNetworking": {
     "AssociationsInterface": "2023-05-01-preview",

@@ -521,14 +521,21 @@ ServiceFabricMesh:
   expectTracking: preview
   notes: All versions are previews
 ServiceLinker:
+  notes: |
+    Known as Service Connector. Docs point to latest preview.
+    https://learn.microsoft.com/en-us/rest/api/serviceconnector/
 ServiceNetworking:
   expectTracking: preview
   notes: Only single preview version
 SignalRService:
+  notes: |
+    Docs point to second most recent preview release.
+    https://learn.microsoft.com/en-us/rest/api/signalr/
 SoftwarePlan:
 Solutions:
 Sql:
   preview: exclude
+  expectAdditions: true
   notes: |
     Regular stable versions containing all resources
     Latest release of DatabaseThreatDetectionPolicy, DisasterRecoveryConfiguration and ServerCommunicationLink
@@ -551,6 +558,7 @@ Subscription:
     SubscriptionAlias was renamed to Alias in first stable version.
 Support:
 Synapse:
+  expectAdditions: true
   exclusions:
     # Case corrected in 2021-06-01-preview and now causes type conflicts
     kustoPool: "2021-04-01-preview"
@@ -558,6 +566,7 @@ Synapse:
     SqlPoolsV3: "2020-04-01-preview"
   notes: |
     The two synapse resources sqldatabase and sqlpoolsv3 only exist in 2020-04-01-preview. These were then not included in the next stable version - the v3 suffix was dropped and the sql prefix was dropped.
+    Kusto resources only exist in newer preview version so far but docs mainly reference stable version.
 Syntex:
   expectTracking: preview
   notes: Only single preview version
@@ -566,9 +575,11 @@ TestBase:
   notes: Only preview versions
 TimeSeriesInsights:
   preview: exclude
+  expectAdditions: true
   notes: |
     Docs only reference last stable version:
     https://learn.microsoft.com/en-us/rest/api/time-series-insights/
+    PrivateEndpointConnection only in single version
 VMwareCloudSimple:
 VideoAnalyzer:
   expectTracking: preview
@@ -585,6 +596,9 @@ VisualStudio:
   expectTracking: preview
   notes: Only preview versions
 VoiceServices:
+  notes: |
+    https://learn.microsoft.com/en-us/rest/api/communication/
+    Contact might be deprecated as not covered in the docs.
 Web:
   preview: exclude
   explicit: true
@@ -597,6 +611,7 @@ Web:
     Templates still list Connection, ConnectionGateway and CustomApis:
     https://learn.microsoft.com/en-us/azure/templates/microsoft.web/connections?pivots=deployment-language-bicep
 WebPubSub:
+  expectAdditions: true
 WindowsESU:
   expectTracking: preview
   notes: Only single preview version
