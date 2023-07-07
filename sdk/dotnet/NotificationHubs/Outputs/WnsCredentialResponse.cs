@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
         /// </summary>
         public readonly string? PackageSid;
         /// <summary>
+        /// Description of a NotificationHub WnsCredential.
+        /// </summary>
+        public readonly Outputs.WnsCredentialPropertiesResponse? Properties;
+        /// <summary>
         /// The secret key.
         /// </summary>
         public readonly string? SecretKey;
@@ -33,11 +37,14 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
         private WnsCredentialResponse(
             string? packageSid,
 
+            Outputs.WnsCredentialPropertiesResponse? properties,
+
             string? secretKey,
 
             string? windowsLiveEndpoint)
         {
             PackageSid = packageSid;
+            Properties = properties;
             SecretKey = secretKey;
             WindowsLiveEndpoint = windowsLiveEndpoint;
         }

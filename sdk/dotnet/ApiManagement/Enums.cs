@@ -558,6 +558,39 @@ namespace Pulumi.AzureNative.ApiManagement
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Purpose of debug credential.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayListDebugCredentialsContractPurpose : IEquatable<GatewayListDebugCredentialsContractPurpose>
+    {
+        private readonly string _value;
+
+        private GatewayListDebugCredentialsContractPurpose(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The tracing purpose.
+        /// </summary>
+        public static GatewayListDebugCredentialsContractPurpose Tracing { get; } = new GatewayListDebugCredentialsContractPurpose("tracing");
+
+        public static bool operator ==(GatewayListDebugCredentialsContractPurpose left, GatewayListDebugCredentialsContractPurpose right) => left.Equals(right);
+        public static bool operator !=(GatewayListDebugCredentialsContractPurpose left, GatewayListDebugCredentialsContractPurpose right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayListDebugCredentialsContractPurpose value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayListDebugCredentialsContractPurpose other && Equals(other);
+        public bool Equals(GatewayListDebugCredentialsContractPurpose other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct GrantType : IEquatable<GrantType>
     {

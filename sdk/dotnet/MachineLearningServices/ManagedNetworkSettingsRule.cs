@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:ManagedNetworkSettingsRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:ManagedNetworkSettingsRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

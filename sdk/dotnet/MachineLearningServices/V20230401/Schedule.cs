@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:Schedule"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:Schedule"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:Schedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:Schedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

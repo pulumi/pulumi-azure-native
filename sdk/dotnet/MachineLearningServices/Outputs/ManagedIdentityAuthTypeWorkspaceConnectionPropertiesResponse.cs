@@ -23,6 +23,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? Category;
         public readonly Outputs.WorkspaceConnectionManagedIdentityResponse? Credentials;
+        public readonly string? ExpiryTime;
+        public readonly object? Metadata;
         public readonly string? Target;
         /// <summary>
         /// Value details of the workspace connection.
@@ -41,6 +43,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.WorkspaceConnectionManagedIdentityResponse? credentials,
 
+            string? expiryTime,
+
+            object? metadata,
+
             string? target,
 
             string? value,
@@ -50,6 +56,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             AuthType = authType;
             Category = category;
             Credentials = credentials;
+            ExpiryTime = expiryTime;
+            Metadata = metadata;
             Target = target;
             Value = value;
             ValueFormat = valueFormat;

@@ -187,8 +187,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// Soft delete retention period in days
         /// </summary>
-        [Input("softDeleteRetentionPeriod")]
-        public Input<int>? SoftDeleteRetentionPeriod { get; set; }
+        [Input("softDeleteRetentionPeriodInDays")]
+        public Input<int>? SoftDeleteRetentionPeriodInDays { get; set; }
 
         /// <summary>
         /// ARM ID of the resource to be backed up.

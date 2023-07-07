@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
         /// </summary>
         public readonly string? KeyId;
         /// <summary>
+        /// Description of a NotificationHub ApnsCredential.
+        /// </summary>
+        public readonly Outputs.ApnsCredentialPropertiesResponse? Properties;
+        /// <summary>
         /// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
         /// </summary>
         public readonly string? Thumbprint;
@@ -63,6 +67,8 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
 
             string? keyId,
 
+            Outputs.ApnsCredentialPropertiesResponse? properties,
+
             string? thumbprint,
 
             string? token)
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
             CertificateKey = certificateKey;
             Endpoint = endpoint;
             KeyId = keyId;
+            Properties = properties;
             Thumbprint = thumbprint;
             Token = token;
         }

@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.WebPubSub
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSubPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

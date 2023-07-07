@@ -132,6 +132,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:WorkspaceSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:WorkspaceSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

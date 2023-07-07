@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
         /// </summary>
         public readonly string? MpnsCertificate;
         /// <summary>
+        /// Description of a NotificationHub MpnsCredential.
+        /// </summary>
+        public readonly Outputs.MpnsCredentialPropertiesResponse? Properties;
+        /// <summary>
         /// The MPNS certificate Thumbprint
         /// </summary>
         public readonly string? Thumbprint;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
 
             string? mpnsCertificate,
 
+            Outputs.MpnsCredentialPropertiesResponse? properties,
+
             string? thumbprint)
         {
             CertificateKey = certificateKey;
             MpnsCertificate = mpnsCertificate;
+            Properties = properties;
             Thumbprint = thumbprint;
         }
     }

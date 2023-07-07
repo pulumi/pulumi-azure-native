@@ -1376,6 +1376,36 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct SoftDeleteState : IEquatable<SoftDeleteState>
+    {
+        private readonly string _value;
+
+        private SoftDeleteState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SoftDeleteState Invalid { get; } = new SoftDeleteState("Invalid");
+        public static SoftDeleteState Enabled { get; } = new SoftDeleteState("Enabled");
+        public static SoftDeleteState Disabled { get; } = new SoftDeleteState("Disabled");
+        public static SoftDeleteState AlwaysON { get; } = new SoftDeleteState("AlwaysON");
+
+        public static bool operator ==(SoftDeleteState left, SoftDeleteState right) => left.Equals(right);
+        public static bool operator !=(SoftDeleteState left, SoftDeleteState right) => !left.Equals(right);
+
+        public static explicit operator string(SoftDeleteState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SoftDeleteState other && Equals(other);
+        public bool Equals(SoftDeleteState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The SQL Server license type.
     /// </summary>

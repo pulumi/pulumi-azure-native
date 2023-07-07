@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401.Outputs
         /// <summary>
         /// Soft delete retention period in days
         /// </summary>
-        public readonly int? SoftDeleteRetentionPeriod;
+        public readonly int? SoftDeleteRetentionPeriodInDays;
         /// <summary>
         /// ARM ID of the resource to be backed up.
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401.Outputs
 
             ImmutableArray<string> resourceGuardOperationRequests,
 
-            int? softDeleteRetentionPeriod,
+            int? softDeleteRetentionPeriodInDays,
 
             string? sourceResourceId,
 
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401.Outputs
             ProtectedItemType = protectedItemType;
             ProtectionState = protectionState;
             ResourceGuardOperationRequests = resourceGuardOperationRequests;
-            SoftDeleteRetentionPeriod = softDeleteRetentionPeriod;
+            SoftDeleteRetentionPeriodInDays = softDeleteRetentionPeriodInDays;
             SourceResourceId = sourceResourceId;
             WorkloadType = workloadType;
         }

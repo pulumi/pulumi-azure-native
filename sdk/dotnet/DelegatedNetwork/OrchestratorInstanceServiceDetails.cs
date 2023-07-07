@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
                 {
                     new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"},
                     new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"},
+                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20230518preview:OrchestratorInstanceServiceDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

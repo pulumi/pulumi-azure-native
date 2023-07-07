@@ -68,6 +68,76 @@ namespace Pulumi.AzureNative.NotificationHubs
     }
 
     /// <summary>
+    /// State of Private Endpoint Connection.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateEndpointConnectionProvisioningState : IEquatable<PrivateEndpointConnectionProvisioningState>
+    {
+        private readonly string _value;
+
+        private PrivateEndpointConnectionProvisioningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateEndpointConnectionProvisioningState Unknown { get; } = new PrivateEndpointConnectionProvisioningState("Unknown");
+        public static PrivateEndpointConnectionProvisioningState Succeeded { get; } = new PrivateEndpointConnectionProvisioningState("Succeeded");
+        public static PrivateEndpointConnectionProvisioningState Creating { get; } = new PrivateEndpointConnectionProvisioningState("Creating");
+        public static PrivateEndpointConnectionProvisioningState Updating { get; } = new PrivateEndpointConnectionProvisioningState("Updating");
+        public static PrivateEndpointConnectionProvisioningState UpdatingByProxy { get; } = new PrivateEndpointConnectionProvisioningState("UpdatingByProxy");
+        public static PrivateEndpointConnectionProvisioningState Deleting { get; } = new PrivateEndpointConnectionProvisioningState("Deleting");
+        public static PrivateEndpointConnectionProvisioningState DeletingByProxy { get; } = new PrivateEndpointConnectionProvisioningState("DeletingByProxy");
+        public static PrivateEndpointConnectionProvisioningState Deleted { get; } = new PrivateEndpointConnectionProvisioningState("Deleted");
+
+        public static bool operator ==(PrivateEndpointConnectionProvisioningState left, PrivateEndpointConnectionProvisioningState right) => left.Equals(right);
+        public static bool operator !=(PrivateEndpointConnectionProvisioningState left, PrivateEndpointConnectionProvisioningState right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateEndpointConnectionProvisioningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateEndpointConnectionProvisioningState other && Equals(other);
+        public bool Equals(PrivateEndpointConnectionProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// State of Private Link Connection.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateLinkConnectionStatus : IEquatable<PrivateLinkConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateLinkConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateLinkConnectionStatus Disconnected { get; } = new PrivateLinkConnectionStatus("Disconnected");
+        public static PrivateLinkConnectionStatus Pending { get; } = new PrivateLinkConnectionStatus("Pending");
+        public static PrivateLinkConnectionStatus Approved { get; } = new PrivateLinkConnectionStatus("Approved");
+        public static PrivateLinkConnectionStatus Rejected { get; } = new PrivateLinkConnectionStatus("Rejected");
+
+        public static bool operator ==(PrivateLinkConnectionStatus left, PrivateLinkConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateLinkConnectionStatus left, PrivateLinkConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateLinkConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateLinkConnectionStatus other && Equals(other);
+        public bool Equals(PrivateLinkConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Name of the notification hub sku
     /// </summary>
     [EnumType]

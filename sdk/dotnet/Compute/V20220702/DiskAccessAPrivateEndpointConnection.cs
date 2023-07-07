@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.Compute.V20220702
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:DiskAccessAPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230102:DiskAccessAPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

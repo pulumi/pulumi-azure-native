@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:OpenIdConnectProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:OpenIdConnectProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:OpenIdConnectProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
