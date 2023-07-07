@@ -477,12 +477,16 @@ RecoveryServices:
 RedHatOpenShift:
 Relay:
 ResourceConnector:
+  expectAdditions: true
+  notes: |
+    Can't find any docs
 ResourceGraph:
   expectTracking: preview
   notes: All versions are previews
 ResourceHealth:
-  expectTracking: preview
-  notes: Only single preview version
+  notes: |
+    Now got a stable version!
+    https://learn.microsoft.com/en-us/rest/api/resourcehealth/
 Resources:
   explicit: true
   notes: Not all resources in each release
@@ -502,8 +506,19 @@ SecurityDevOps:
   expectTracking: preview
   notes: Only single preview version
 SecurityInsights:
+  expectAdditions: true
+  notes: |
+    https://learn.microsoft.com/en-us/rest/api/securityinsights/
+    Release notes! https://learn.microsoft.com/en-us/rest/api/securityinsights/api-versions
+    Docs include both stable and preview
 SerialConsole:
 ServiceBus:
+  expectAdditions: true
+  expectTracking: preview
+  notes: |
+    NamespaceIpFilterRule and NamespaceVirtualNetworkRule were only in one specific version
+    Both preview and stable are documented
+    https://learn.microsoft.com/en-us/rest/api/servicebus/
 ServiceFabric:
   expectTracking: preview
   exclusions:
@@ -521,6 +536,7 @@ ServiceFabricMesh:
   expectTracking: preview
   notes: All versions are previews
 ServiceLinker:
+  expectTracking: preview
   notes: |
     Known as Service Connector. Docs point to latest preview.
     https://learn.microsoft.com/en-us/rest/api/serviceconnector/
@@ -528,6 +544,7 @@ ServiceNetworking:
   expectTracking: preview
   notes: Only single preview version
 SignalRService:
+  expectAdditions: true
   notes: |
     Docs point to second most recent preview release.
     https://learn.microsoft.com/en-us/rest/api/signalr/
@@ -596,6 +613,7 @@ VisualStudio:
   expectTracking: preview
   notes: Only preview versions
 VoiceServices:
+  expectAdditions: true
   notes: |
     https://learn.microsoft.com/en-us/rest/api/communication/
     Contact might be deprecated as not covered in the docs.

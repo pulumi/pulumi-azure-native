@@ -1799,10 +1799,10 @@
     "SkusNestedResourceTypeThird": "2021-09-01-preview"
   },
   "Purview": {
-    "Account": "2021-07-01",
+    "Account": "2021-12-01",
     "KafkaConfiguration": "2021-12-01",
-    "PrivateEndpointConnection": "2021-07-01",
-    "listAccountKeys": "2021-07-01",
+    "PrivateEndpointConnection": "2021-12-01",
+    "listAccountKeys": "2021-12-01",
     "listFeatureAccount": "2021-12-01",
     "listFeatureSubscription": "2021-12-01"
   },

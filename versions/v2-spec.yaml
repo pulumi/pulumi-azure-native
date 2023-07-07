@@ -900,11 +900,7 @@ ProfessionalService:
 ProviderHub:
     tracking: 2021-09-01-preview
 Purview:
-    tracking: "2021-07-01"
-    additions:
-        KafkaConfiguration: "2021-12-01"
-        listFeatureAccount: "2021-12-01"
-        listFeatureSubscription: "2021-12-01"
+    tracking: "2021-12-01"
 Quantum:
     tracking: 2022-01-10-preview
 Quota: {}
