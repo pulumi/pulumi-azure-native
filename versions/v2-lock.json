@@ -153,7 +153,9 @@
     "getUserSharedAccessToken": "2022-08-01",
     "listAuthorizationServerSecrets": "2022-08-01",
     "listDelegationSettingSecrets": "2021-08-01",
+    "listGatewayDebugCredentials": "2023-03-01-preview",
     "listGatewayKeys": "2022-08-01",
+    "listGatewayTrace": "2023-03-01-preview",
     "listIdentityProviderSecrets": "2022-08-01",
     "listNamedValue": "2022-08-01",
     "listOpenIdConnectProviderSecrets": "2022-08-01",
@@ -1343,6 +1345,7 @@
     "listFeaturesetVersionFeatures": "2023-02-01-preview",
     "listFeaturesetVersionMaterializationJobs": "2023-04-01-preview",
     "listOnlineEndpointKeys": "2023-04-01",
+    "listWorkspaceConnectionSecrets": "2023-06-01-preview",
     "listWorkspaceKeys": "2023-04-01",
     "listWorkspaceNotebookAccessToken": "2023-04-01",
     "listWorkspaceNotebookKeys": "2023-04-01",
@@ -1478,7 +1481,9 @@
   "MobileNetwork": {
     "AttachedDataNetwork": "2022-11-01",
     "DataNetwork": "2022-11-01",
+    "DiagnosticsPackage": "2023-06-01",
     "MobileNetwork": "2022-11-01",
+    "PacketCapture": "2023-06-01",
     "PacketCoreControlPlane": "2022-11-01",
     "PacketCoreDataPlane": "2022-11-01",
     "Service": "2022-11-01",
@@ -1690,6 +1695,8 @@
     "NamespaceAuthorizationRule": "2017-04-01",
     "NotificationHub": "2017-04-01",
     "NotificationHubAuthorizationRule": "2017-04-01",
+    "PrivateEndpointConnection": "2023-01-01-preview",
+    "getNamespacePnsCredentials": "2023-01-01-preview",
     "getNotificationHubPnsCredentials": "2017-04-01",
     "listNamespaceKeys": "2017-04-01",
     "listNotificationHubKeys": "2017-04-01"
@@ -1795,8 +1802,11 @@
   },
   "Purview": {
     "Account": "2021-07-01",
+    "KafkaConfiguration": "2021-12-01",
     "PrivateEndpointConnection": "2021-07-01",
-    "listAccountKeys": "2021-07-01"
+    "listAccountKeys": "2021-07-01",
+    "listFeatureAccount": "2021-12-01",
+    "listFeatureSubscription": "2021-12-01"
   },
   "Quantum": {
     "Workspace": "2022-01-10-preview"

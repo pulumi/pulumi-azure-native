@@ -63,6 +63,8 @@ ApiManagement:
         WorkspaceTagOperationLink: 2022-09-01-preview
         WorkspaceTagProductLink: 2022-09-01-preview
         listDelegationSettingSecrets: "2021-08-01"
+        listGatewayDebugCredentials: 2023-03-01-preview
+        listGatewayTrace: 2023-03-01-preview
         listWorkspaceNamedValue: 2022-09-01-preview
         listWorkspacePolicyFragmentReferences: 2022-09-01-preview
         listWorkspaceSubscriptionSecrets: 2022-09-01-preview
@@ -601,6 +603,7 @@ MachineLearningServices:
         getFeaturesetVersionFeature: 2023-02-01-preview
         listFeaturesetVersionFeatures: 2023-02-01-preview
         listFeaturesetVersionMaterializationJobs: 2023-04-01-preview
+        listWorkspaceConnectionSecrets: 2023-06-01-preview
 Maintenance:
     tracking: 2022-11-01-preview
 ManagedIdentity:
@@ -685,6 +688,8 @@ MixedReality:
 MobileNetwork:
     tracking: "2022-11-01"
     additions:
+        DiagnosticsPackage: "2023-06-01"
+        PacketCapture: "2023-06-01"
         listMobileNetworkSimIds: 2022-04-01-preview
 Monitor:
     tracking: "2023-04-03"
@@ -852,6 +857,9 @@ NetworkFunction:
     tracking: "2022-11-01"
 NotificationHubs:
     tracking: "2017-04-01"
+    additions:
+        PrivateEndpointConnection: 2023-01-01-preview
+        getNamespacePnsCredentials: 2023-01-01-preview
 OffAzure:
     tracking: "2020-07-07"
 OpenEnergyPlatform:
@@ -915,6 +923,10 @@ ProviderHub:
     tracking: 2021-09-01-preview
 Purview:
     tracking: "2021-07-01"
+    additions:
+        KafkaConfiguration: "2021-12-01"
+        listFeatureAccount: "2021-12-01"
+        listFeatureSubscription: "2021-12-01"
 Quantum:
     tracking: 2022-01-10-preview
 Quota: {}
