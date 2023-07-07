@@ -323,7 +323,9 @@
   "FluidRelay": [],
   "GraphServices": [],
   "GuestConfiguration": [],
-  "HDInsight": [],
+  "HDInsight": [
+    "2023-04-15-preview"
+  ],
   "HanaOnAzure": [],
   "HardwareSecurityModules": [
     "2022-08-31-preview"

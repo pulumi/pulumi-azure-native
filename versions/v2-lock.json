@@ -1027,14 +1027,14 @@
     "GuestConfigurationHCRPAssignment": "2022-01-25"
   },
   "HDInsight": {
-    "Application": "2023-04-15-preview",
-    "Cluster": "2023-04-15-preview",
-    "Extension": "2023-04-15-preview",
-    "ExtensionAzureMonitorStatus": "2023-04-15-preview",
-    "ExtensionMonitoringStatus": "2023-04-15-preview",
-    "PrivateEndpointConnection": "2023-04-15-preview",
-    "getClusterGatewaySettings": "2023-04-15-preview",
-    "listVirtualMachineHosts": "2023-04-15-preview"
+    "Application": "2021-06-01",
+    "Cluster": "2021-06-01",
+    "Extension": "2021-06-01",
+    "ExtensionAzureMonitorStatus": "2021-06-01",
+    "ExtensionMonitoringStatus": "2021-06-01",
+    "PrivateEndpointConnection": "2021-06-01",
+    "getClusterGatewaySettings": "2021-06-01",
+    "listVirtualMachineHosts": "2021-06-01"
   },
   "HanaOnAzure": {
     "ProviderInstance": "2020-02-07-preview",

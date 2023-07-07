@@ -434,7 +434,7 @@ GraphServices:
 GuestConfiguration:
     tracking: "2022-01-25"
 HDInsight:
-    tracking: 2023-04-15-preview
+    tracking: "2021-06-01"
 HanaOnAzure:
     tracking: 2020-02-07-preview
 HardwareSecurityModules:

@@ -268,6 +268,9 @@ GraphServices:
   notes: Only single preview version
 GuestConfiguration:
 HDInsight:
+  notes: |
+    Docs don't include very latest preview yet.
+    https://learn.microsoft.com/en-us/rest/api/hdinsight/
 HanaOnAzure:
   expectTracking: preview
   exclusions:
@@ -276,12 +279,17 @@ HanaOnAzure:
     In 2017 HanaInstance was the top level resource, in 2020 a monitor is created first then a provider instance is created within it
     Only contains preview versions
 HardwareSecurityModules:
+  expectAdditions: true
+  notes: |
+    CloudHsmCluster* in latest preview only. DedicatedHsm not in latest preview
 HealthBot:
   exclusions:
     # Lower-case typo - invoke still there.
     getbot: "2020-10-20"
 HealthcareApis:
 HybridCompute:
+  notes: |
+    https://learn.microsoft.com/en-us/rest/api/hybridcompute/
 HybridConnectivity:
   expectTracking: preview
   notes: Only preview versions
@@ -290,6 +298,8 @@ HybridContainerService:
   notes: Only preview versions
 HybridData:
 HybridNetwork:
+  notes: |
+    https://learn.microsoft.com/en-us/rest/api/hybridnetwork/
 ImportExport:
 Insights:
   explicit: true
@@ -303,10 +313,15 @@ Intune:
   expectTracking: preview
   notes: Only preview versions
 IoTCentral:
+  notes: |
+    https://learn.microsoft.com/en-us/rest/api/iotcentral/
 IoTSecurity:
   expectTracking: preview
   notes: Only single preview version
 KeyVault:
+Kubernetes:
+  notes: |
+    https://learn.microsoft.com/en-us/rest/api/hybridkubernetes/connected-cluster
 KubernetesConfiguration:
 Kusto:
 LabServices:
