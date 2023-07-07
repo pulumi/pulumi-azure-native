@@ -59,20 +59,10 @@ export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
 utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 
-export { GetServerAdministratorArgs, GetServerAdministratorResult, GetServerAdministratorOutputArgs } from "./getServerAdministrator";
-export const getServerAdministrator: typeof import("./getServerAdministrator").getServerAdministrator = null as any;
-export const getServerAdministratorOutput: typeof import("./getServerAdministrator").getServerAdministratorOutput = null as any;
-utilities.lazyLoad(exports, ["getServerAdministrator","getServerAdministratorOutput"], () => require("./getServerAdministrator"));
-
 export { GetServerKeyArgs, GetServerKeyResult, GetServerKeyOutputArgs } from "./getServerKey";
 export const getServerKey: typeof import("./getServerKey").getServerKey = null as any;
 export const getServerKeyOutput: typeof import("./getServerKey").getServerKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getServerKey","getServerKeyOutput"], () => require("./getServerKey"));
-
-export { GetVirtualNetworkRuleArgs, GetVirtualNetworkRuleResult, GetVirtualNetworkRuleOutputArgs } from "./getVirtualNetworkRule";
-export const getVirtualNetworkRule: typeof import("./getVirtualNetworkRule").getVirtualNetworkRule = null as any;
-export const getVirtualNetworkRuleOutput: typeof import("./getVirtualNetworkRule").getVirtualNetworkRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkRule","getVirtualNetworkRuleOutput"], () => require("./getVirtualNetworkRule"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
@@ -84,20 +74,10 @@ export type Server = import("./server").Server;
 export const Server: typeof import("./server").Server = null as any;
 utilities.lazyLoad(exports, ["Server"], () => require("./server"));
 
-export { ServerAdministratorArgs } from "./serverAdministrator";
-export type ServerAdministrator = import("./serverAdministrator").ServerAdministrator;
-export const ServerAdministrator: typeof import("./serverAdministrator").ServerAdministrator = null as any;
-utilities.lazyLoad(exports, ["ServerAdministrator"], () => require("./serverAdministrator"));
-
 export { ServerKeyArgs } from "./serverKey";
 export type ServerKey = import("./serverKey").ServerKey;
 export const ServerKey: typeof import("./serverKey").ServerKey = null as any;
 utilities.lazyLoad(exports, ["ServerKey"], () => require("./serverKey"));
-
-export { VirtualNetworkRuleArgs } from "./virtualNetworkRule";
-export type VirtualNetworkRule = import("./virtualNetworkRule").VirtualNetworkRule;
-export const VirtualNetworkRule: typeof import("./virtualNetworkRule").VirtualNetworkRule = null as any;
-utilities.lazyLoad(exports, ["VirtualNetworkRule"], () => require("./virtualNetworkRule"));
 
 
 // Export enums:
@@ -105,7 +85,6 @@ export * from "../types/enums/dbformysql";
 
 // Export sub-modules:
 import * as v20171201 from "./v20171201";
-import * as v20171201preview from "./v20171201preview";
 import * as v20180601privatepreview from "./v20180601privatepreview";
 import * as v20200701preview from "./v20200701preview";
 import * as v20200701privatepreview from "./v20200701privatepreview";
@@ -117,7 +96,6 @@ import * as v20220930preview from "./v20220930preview";
 
 export {
     v20171201,
-    v20171201preview,
     v20180601privatepreview,
     v20200701preview,
     v20200701privatepreview,
@@ -144,12 +122,8 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:dbformysql:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-native:dbformysql:ServerAdministrator":
-                return new ServerAdministrator(name, <any>undefined, { urn })
             case "azure-native:dbformysql:ServerKey":
                 return new ServerKey(name, <any>undefined, { urn })
-            case "azure-native:dbformysql:VirtualNetworkRule":
-                return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
