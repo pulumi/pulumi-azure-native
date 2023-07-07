@@ -41,11 +41,7 @@
   ],
   "AppComplianceAutomation": [],
   "AppConfiguration": [],
-  "AppPlatform": [
-    "2023-01-01-preview",
-    "2023-03-01-preview",
-    "2023-05-01-preview"
-  ],
+  "AppPlatform": [],
   "Attestation": [
     "2021-06-01-preview"
   ],

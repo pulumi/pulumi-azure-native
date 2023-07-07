@@ -79,18 +79,7 @@ AppComplianceAutomation:
 AppConfiguration:
     tracking: "2023-03-01"
 AppPlatform:
-    tracking: "2022-12-01"
-    additions:
-        Apm: 2023-05-01-preview
-        ApplicationAccelerator: 2023-05-01-preview
-        ApplicationLiveView: 2023-05-01-preview
-        BuildServiceBuild: 2023-05-01-preview
-        ContainerRegistry: 2023-05-01-preview
-        CustomizedAccelerator: 2023-05-01-preview
-        DevToolPortal: 2023-05-01-preview
-        listApmSecretKeys: 2023-05-01-preview
-        listGatewayEnvSecrets: 2023-05-01-preview
-        listServiceGloballyEnabledApms: 2023-05-01-preview
+    tracking: 2023-05-01-preview
 Attestation:
     tracking: "2021-06-01"
 Authorization:
