@@ -23,6 +23,7 @@ class EventHubArgs:
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  message_retention_in_days: Optional[pulumi.Input[float]] = None,
                  partition_count: Optional[pulumi.Input[float]] = None,
+                 retention_description: Optional[pulumi.Input['RetentionDescriptionArgs']] = None,
                  status: Optional[pulumi.Input['EntityStatus']] = None):
         """
         The set of arguments for constructing a EventHub resource.
@@ -32,6 +33,7 @@ class EventHubArgs:
         :param pulumi.Input[str] event_hub_name: The Event Hub name
         :param pulumi.Input[float] message_retention_in_days: Number of days to retain the events for this Event Hub, value should be 1 to 7 days
         :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
+        :param pulumi.Input['RetentionDescriptionArgs'] retention_description: Event Hub retention settings
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -44,6 +46,8 @@ class EventHubArgs:
             pulumi.set(__self__, "message_retention_in_days", message_retention_in_days)
         if partition_count is not None:
             pulumi.set(__self__, "partition_count", partition_count)
+        if retention_description is not None:
+            pulumi.set(__self__, "retention_description", retention_description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -120,6 +124,18 @@ class EventHubArgs:
         pulumi.set(self, "partition_count", value)
 
     @property
+    @pulumi.getter(name="retentionDescription")
+    def retention_description(self) -> Optional[pulumi.Input['RetentionDescriptionArgs']]:
+        """
+        Event Hub retention settings
+        """
+        return pulumi.get(self, "retention_description")
+
+    @retention_description.setter
+    def retention_description(self, value: Optional[pulumi.Input['RetentionDescriptionArgs']]):
+        pulumi.set(self, "retention_description", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['EntityStatus']]:
         """
@@ -143,11 +159,12 @@ class EventHub(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_description: Optional[pulumi.Input[pulumi.InputType['RetentionDescriptionArgs']]] = None,
                  status: Optional[pulumi.Input['EntityStatus']] = None,
                  __props__=None):
         """
         Single item in List or Get Event Hub operation
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,6 +174,7 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
+        :param pulumi.Input[pulumi.InputType['RetentionDescriptionArgs']] retention_description: Event Hub retention settings
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
         """
         ...
@@ -167,7 +185,7 @@ class EventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Event Hub operation
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param EventHubArgs args: The arguments to use to populate this resource's properties.
@@ -190,6 +208,7 @@ class EventHub(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_description: Optional[pulumi.Input[pulumi.InputType['RetentionDescriptionArgs']]] = None,
                  status: Optional[pulumi.Input['EntityStatus']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -210,6 +229,7 @@ class EventHub(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["retention_description"] = retention_description
             __props__.__dict__["status"] = status
             __props__.__dict__["created_at"] = None
             __props__.__dict__["location"] = None
@@ -249,6 +269,7 @@ class EventHub(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["partition_count"] = None
         __props__.__dict__["partition_ids"] = None
+        __props__.__dict__["retention_description"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
@@ -310,6 +331,14 @@ class EventHub(pulumi.CustomResource):
         Current number of shards on the Event Hub.
         """
         return pulumi.get(self, "partition_ids")
+
+    @property
+    @pulumi.getter(name="retentionDescription")
+    def retention_description(self) -> pulumi.Output[Optional['outputs.RetentionDescriptionResponse']]:
+        """
+        Event Hub retention settings
+        """
+        return pulumi.get(self, "retention_description")
 
     @property
     @pulumi.getter

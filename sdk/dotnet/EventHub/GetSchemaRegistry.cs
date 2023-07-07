@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets the details of an EventHub schema group.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Task<GetSchemaRegistryResult> InvokeAsync(GetSchemaRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemaRegistryResult>("azure-native:eventhub:getSchemaRegistry", args ?? new GetSchemaRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of an EventHub schema group.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Output<GetSchemaRegistryResult> Invoke(GetSchemaRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryResult>("azure-native:eventhub:getSchemaRegistry", args ?? new GetSchemaRegistryInvokeArgs(), options.WithDefaults());

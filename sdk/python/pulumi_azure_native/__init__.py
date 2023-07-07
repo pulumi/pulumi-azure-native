@@ -4840,23 +4840,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "eventhub/v20211101",
-  "fqn": "pulumi_azure_native.eventhub.v20211101",
-  "classes": {
-   "azure-native:eventhub/v20211101:Cluster": "Cluster",
-   "azure-native:eventhub/v20211101:ConsumerGroup": "ConsumerGroup",
-   "azure-native:eventhub/v20211101:DisasterRecoveryConfig": "DisasterRecoveryConfig",
-   "azure-native:eventhub/v20211101:EventHub": "EventHub",
-   "azure-native:eventhub/v20211101:EventHubAuthorizationRule": "EventHubAuthorizationRule",
-   "azure-native:eventhub/v20211101:Namespace": "Namespace",
-   "azure-native:eventhub/v20211101:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
-   "azure-native:eventhub/v20211101:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet",
-   "azure-native:eventhub/v20211101:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:eventhub/v20211101:SchemaRegistry": "SchemaRegistry"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "eventhub/v20221001preview",
   "fqn": "pulumi_azure_native.eventhub.v20221001preview",
   "classes": {

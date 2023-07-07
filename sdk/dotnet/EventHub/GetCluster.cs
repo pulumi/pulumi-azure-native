@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets the resource description of the specified Event Hubs Cluster.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the resource description of the specified Event Hubs Cluster.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// A value that indicates whether Scaling is Supported.
+        /// </summary>
+        public readonly bool? SupportsScaling;
+        /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNative.EventHub
 
             string status,
 
+            bool? supportsScaling,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.EventHub
             Name = name;
             Sku = sku;
             Status = status;
+            SupportsScaling = supportsScaling;
             SystemData = systemData;
             Tags = tags;
             Type = type;

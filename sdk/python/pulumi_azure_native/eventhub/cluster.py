@@ -21,6 +21,7 @@ class ClusterArgs:
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['ClusterSkuArgs']] = None,
+                 supports_scaling: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
@@ -28,6 +29,7 @@ class ClusterArgs:
         :param pulumi.Input[str] cluster_name: The name of the Event Hubs Cluster.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['ClusterSkuArgs'] sku: Properties of the cluster SKU.
+        :param pulumi.Input[bool] supports_scaling: A value that indicates whether Scaling is Supported.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -37,6 +39,8 @@ class ClusterArgs:
             pulumi.set(__self__, "location", location)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if supports_scaling is not None:
+            pulumi.set(__self__, "supports_scaling", supports_scaling)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -89,6 +93,18 @@ class ClusterArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="supportsScaling")
+    def supports_scaling(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether Scaling is Supported.
+        """
+        return pulumi.get(self, "supports_scaling")
+
+    @supports_scaling.setter
+    def supports_scaling(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "supports_scaling", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -110,11 +126,12 @@ class Cluster(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
+                 supports_scaling: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Single Event Hubs Cluster resource in List or Get operations.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2018-01-01-preview
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,6 +139,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[pulumi.InputType['ClusterSkuArgs']] sku: Properties of the cluster SKU.
+        :param pulumi.Input[bool] supports_scaling: A value that indicates whether Scaling is Supported.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -132,7 +150,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single Event Hubs Cluster resource in List or Get operations.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2018-01-01-preview
+        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -153,6 +171,7 @@ class Cluster(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
+                 supports_scaling: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -169,6 +188,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["supports_scaling"] = supports_scaling
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
             __props__.__dict__["metric_id"] = None
@@ -207,6 +227,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["supports_scaling"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -260,6 +281,14 @@ class Cluster(pulumi.CustomResource):
         Status of the Cluster resource
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="supportsScaling")
+    def supports_scaling(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether Scaling is Supported.
+        """
+        return pulumi.get(self, "supports_scaling")
 
     @property
     @pulumi.getter(name="systemData")

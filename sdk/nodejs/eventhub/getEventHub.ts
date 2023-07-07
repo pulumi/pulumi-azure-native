@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an Event Hubs description for the specified Event Hub.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
 
@@ -73,6 +73,10 @@ export interface GetEventHubResult {
      */
     readonly partitionIds: string[];
     /**
+     * Event Hub retention settings
+     */
+    readonly retentionDescription?: outputs.eventhub.RetentionDescriptionResponse;
+    /**
      * Enumerates the possible values for the status of the Event Hub.
      */
     readonly status?: string;
@@ -91,7 +95,7 @@ export interface GetEventHubResult {
 }
 /**
  * Gets an Event Hubs description for the specified Event Hub.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubResult> {
     return pulumi.output(args).apply((a: any) => getEventHub(a, opts))

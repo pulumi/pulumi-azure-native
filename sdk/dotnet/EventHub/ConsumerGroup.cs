@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Single item in List or Get Consumer group operation
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:ConsumerGroup")]
     public partial class ConsumerGroup : global::Pulumi.CustomResource

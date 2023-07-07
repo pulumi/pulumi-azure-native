@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single item in a List or Get AuthorizationRule operation
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**

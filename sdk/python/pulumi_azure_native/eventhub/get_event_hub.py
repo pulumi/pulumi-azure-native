@@ -22,7 +22,7 @@ class GetEventHubResult:
     """
     Single item in List or Get Event Hub operation
     """
-    def __init__(__self__, capture_description=None, created_at=None, id=None, location=None, message_retention_in_days=None, name=None, partition_count=None, partition_ids=None, status=None, system_data=None, type=None, updated_at=None):
+    def __init__(__self__, capture_description=None, created_at=None, id=None, location=None, message_retention_in_days=None, name=None, partition_count=None, partition_ids=None, retention_description=None, status=None, system_data=None, type=None, updated_at=None):
         if capture_description and not isinstance(capture_description, dict):
             raise TypeError("Expected argument 'capture_description' to be a dict")
         pulumi.set(__self__, "capture_description", capture_description)
@@ -47,6 +47,9 @@ class GetEventHubResult:
         if partition_ids and not isinstance(partition_ids, list):
             raise TypeError("Expected argument 'partition_ids' to be a list")
         pulumi.set(__self__, "partition_ids", partition_ids)
+        if retention_description and not isinstance(retention_description, dict):
+            raise TypeError("Expected argument 'retention_description' to be a dict")
+        pulumi.set(__self__, "retention_description", retention_description)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -125,6 +128,14 @@ class GetEventHubResult:
         return pulumi.get(self, "partition_ids")
 
     @property
+    @pulumi.getter(name="retentionDescription")
+    def retention_description(self) -> Optional['outputs.RetentionDescriptionResponse']:
+        """
+        Event Hub retention settings
+        """
+        return pulumi.get(self, "retention_description")
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
@@ -171,6 +182,7 @@ class AwaitableGetEventHubResult(GetEventHubResult):
             name=self.name,
             partition_count=self.partition_count,
             partition_ids=self.partition_ids,
+            retention_description=self.retention_description,
             status=self.status,
             system_data=self.system_data,
             type=self.type,
@@ -183,7 +195,7 @@ def get_event_hub(event_hub_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubResult:
     """
     Gets an Event Hubs description for the specified Event Hub.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str event_hub_name: The Event Hub name
@@ -206,6 +218,7 @@ def get_event_hub(event_hub_name: Optional[str] = None,
         name=__ret__.name,
         partition_count=__ret__.partition_count,
         partition_ids=__ret__.partition_ids,
+        retention_description=__ret__.retention_description,
         status=__ret__.status,
         system_data=__ret__.system_data,
         type=__ret__.type,
@@ -219,7 +232,7 @@ def get_event_hub_output(event_hub_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubResult]:
     """
     Gets an Event Hubs description for the specified Event Hub.
-    Azure REST API version: 2021-11-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str event_hub_name: The Event Hub name

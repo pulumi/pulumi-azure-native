@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Single Event Hubs Cluster resource in List or Get operations.
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2018-01-01-preview
+    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -51,6 +51,12 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// A value that indicates whether Scaling is Supported.
+        /// </summary>
+        [Output("supportsScaling")]
+        public Output<bool?> SupportsScaling { get; private set; } = null!;
 
         /// <summary>
         /// The system meta data relating to this resource.
@@ -152,6 +158,12 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ClusterSkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// A value that indicates whether Scaling is Supported.
+        /// </summary>
+        [Input("supportsScaling")]
+        public Input<bool>? SupportsScaling { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
