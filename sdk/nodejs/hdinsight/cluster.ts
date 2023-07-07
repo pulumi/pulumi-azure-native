@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The HDInsight cluster.
- * Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2018-06-01-preview
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2018-06-01-preview
  */
 export class Cluster extends pulumi.CustomResource {
     /**

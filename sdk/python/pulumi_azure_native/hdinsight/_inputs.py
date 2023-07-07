@@ -2125,7 +2125,6 @@ class SshPublicKeyArgs:
 class StorageAccountArgs:
     def __init__(__self__, *,
                  container: Optional[pulumi.Input[str]] = None,
-                 enable_secure_channel: Optional[pulumi.Input[bool]] = None,
                  file_system: Optional[pulumi.Input[str]] = None,
                  fileshare: Optional[pulumi.Input[str]] = None,
                  is_default: Optional[pulumi.Input[bool]] = None,
@@ -2137,7 +2136,6 @@ class StorageAccountArgs:
         """
         The storage Account.
         :param pulumi.Input[str] container: The container in the storage account, only to be specified for WASB storage accounts.
-        :param pulumi.Input[bool] enable_secure_channel: Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
         :param pulumi.Input[str] file_system: The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
         :param pulumi.Input[str] fileshare: The file share name.
         :param pulumi.Input[bool] is_default: Whether or not the storage account is the default storage account.
@@ -2149,8 +2147,6 @@ class StorageAccountArgs:
         """
         if container is not None:
             pulumi.set(__self__, "container", container)
-        if enable_secure_channel is not None:
-            pulumi.set(__self__, "enable_secure_channel", enable_secure_channel)
         if file_system is not None:
             pulumi.set(__self__, "file_system", file_system)
         if fileshare is not None:
@@ -2179,18 +2175,6 @@ class StorageAccountArgs:
     @container.setter
     def container(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "container", value)
-
-    @property
-    @pulumi.getter(name="enableSecureChannel")
-    def enable_secure_channel(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
-        """
-        return pulumi.get(self, "enable_secure_channel")
-
-    @enable_secure_channel.setter
-    def enable_secure_channel(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_secure_channel", value)
 
     @property
     @pulumi.getter(name="fileSystem")

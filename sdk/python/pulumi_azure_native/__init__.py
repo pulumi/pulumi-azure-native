@@ -5002,6 +5002,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "hdinsight/v20210601",
+  "fqn": "pulumi_azure_native.hdinsight.v20210601",
+  "classes": {
+   "azure-native:hdinsight/v20210601:Application": "Application",
+   "azure-native:hdinsight/v20210601:Cluster": "Cluster",
+   "azure-native:hdinsight/v20210601:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "hdinsight/v20230415preview",
   "fqn": "pulumi_azure_native.hdinsight.v20230415preview",
   "classes": {
