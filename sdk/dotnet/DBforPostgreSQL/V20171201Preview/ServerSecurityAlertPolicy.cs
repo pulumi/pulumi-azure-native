@@ -94,7 +94,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:ServerSecurityAlertPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:ServerSecurityAlertPolicy"},
                 },
             };

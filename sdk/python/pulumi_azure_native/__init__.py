@@ -3822,9 +3822,7 @@ _utilities.register(
    "azure-native:dbformysql:FirewallRule": "FirewallRule",
    "azure-native:dbformysql:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:dbformysql:Server": "Server",
-   "azure-native:dbformysql:ServerAdministrator": "ServerAdministrator",
-   "azure-native:dbformysql:ServerKey": "ServerKey",
-   "azure-native:dbformysql:VirtualNetworkRule": "VirtualNetworkRule"
+   "azure-native:dbformysql:ServerKey": "ServerKey"
   }
  },
  {
@@ -3833,15 +3831,6 @@ _utilities.register(
   "fqn": "pulumi_azure_native.dbformysql.v20171201",
   "classes": {
    "azure-native:dbformysql/v20171201:Server": "Server"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "dbformysql/v20171201preview",
-  "fqn": "pulumi_azure_native.dbformysql.v20171201preview",
-  "classes": {
-   "azure-native:dbformysql/v20171201preview:ServerAdministrator": "ServerAdministrator",
-   "azure-native:dbformysql/v20171201preview:VirtualNetworkRule": "VirtualNetworkRule"
   }
  },
  {
@@ -3908,10 +3897,7 @@ _utilities.register(
    "azure-native:dbforpostgresql:Migration": "Migration",
    "azure-native:dbforpostgresql:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:dbforpostgresql:Role": "Role",
-   "azure-native:dbforpostgresql:Server": "Server",
-   "azure-native:dbforpostgresql:ServerAdministrator": "ServerAdministrator",
-   "azure-native:dbforpostgresql:ServerSecurityAlertPolicy": "ServerSecurityAlertPolicy",
-   "azure-native:dbforpostgresql:VirtualNetworkRule": "VirtualNetworkRule"
+   "azure-native:dbforpostgresql:Server": "Server"
   }
  },
  {

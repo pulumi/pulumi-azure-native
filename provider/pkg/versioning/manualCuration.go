@@ -54,7 +54,8 @@ func (curation providerCuration) IsExcluded(resourceName openapi.ResourceName, a
 	if excludedMaxVersion == ExclusionAllVersions {
 		return true, nil
 	}
-	if apiVersion > excludedMaxVersion {
+
+	if openapi.CompareApiVersions(apiVersion, excludedMaxVersion) > 0 {
 		return false, fmt.Errorf("version %s is greater than %s", apiVersion, excludedMaxVersion)
 	}
 	return true, nil

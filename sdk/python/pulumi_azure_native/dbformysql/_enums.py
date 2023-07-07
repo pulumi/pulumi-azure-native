@@ -22,7 +22,7 @@ __all__ = [
 
 class AdministratorType(str, Enum):
     """
-    The type of administrator.
+    Type of the sever administrator.
     """
     ACTIVE_DIRECTORY = "ActiveDirectory"
 

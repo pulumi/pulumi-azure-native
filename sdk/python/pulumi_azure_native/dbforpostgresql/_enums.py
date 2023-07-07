@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'ActiveDirectoryAuthEnum',
-    'AdministratorType',
     'ArmServerKeyType',
     'CancelEnum',
     'CreateMode',
@@ -20,7 +19,6 @@ __all__ = [
     'PrincipalType',
     'PrivateEndpointServiceConnectionStatus',
     'ReplicationRole',
-    'ServerSecurityAlertPolicyState',
     'ServerVersion',
     'SkuTier',
     'StartDataMigrationEnum',
@@ -34,13 +32,6 @@ class ActiveDirectoryAuthEnum(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class AdministratorType(str, Enum):
-    """
-    The type of administrator.
-    """
-    ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
 class ArmServerKeyType(str, Enum):
@@ -155,14 +146,6 @@ class ReplicationRole(str, Enum):
     PRIMARY = "Primary"
     ASYNC_REPLICA = "AsyncReplica"
     GEO_ASYNC_REPLICA = "GeoAsyncReplica"
-
-
-class ServerSecurityAlertPolicyState(str, Enum):
-    """
-    Specifies the state of the policy, whether it is enabled or disabled.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class ServerVersion(str, Enum):

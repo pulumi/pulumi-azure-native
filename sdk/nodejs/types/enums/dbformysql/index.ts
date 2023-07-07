@@ -3,7 +3,6 @@
 
 // Export sub-modules:
 import * as v20171201 from "./v20171201";
-import * as v20171201preview from "./v20171201preview";
 import * as v20180601privatepreview from "./v20180601privatepreview";
 import * as v20200701preview from "./v20200701preview";
 import * as v20200701privatepreview from "./v20200701privatepreview";
@@ -12,7 +11,6 @@ import * as v20220930preview from "./v20220930preview";
 
 export {
     v20171201,
-    v20171201preview,
     v20180601privatepreview,
     v20200701preview,
     v20200701privatepreview,
@@ -25,7 +23,7 @@ export const AdministratorType = {
 } as const;
 
 /**
- * The type of administrator.
+ * Type of the sever administrator.
  */
 export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
 

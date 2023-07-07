@@ -52,7 +52,7 @@ ApiManagement:
     Property: "2019-01-01" # replaced by NamedValue
     TagDescription: "2018-06-01-preview" # renamed to ApiTagDescription
     TenantPolicy: "2016-10-10" # obsolete
-    listTenantAccessGitSecrets: "2019-12-01-preview" # superceded by https://learn.microsoft.com/en-us/rest/api/apimanagement/current-ga/tenant-access/list-secrets?tabs=HTTP
+    listTenantAccessGitSecrets: "2019-12-01" # superceded by https://learn.microsoft.com/en-us/rest/api/apimanagement/current-ga/tenant-access/list-secrets?tabs=HTTP
 App:
 AppComplianceAutomation:
   expectTracking: preview

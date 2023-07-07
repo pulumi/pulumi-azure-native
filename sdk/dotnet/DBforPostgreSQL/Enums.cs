@@ -39,36 +39,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// The type of administrator.
-    /// </summary>
-    [EnumType]
-    public readonly struct AdministratorType : IEquatable<AdministratorType>
-    {
-        private readonly string _value;
-
-        private AdministratorType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AdministratorType ActiveDirectory { get; } = new AdministratorType("ActiveDirectory");
-
-        public static bool operator ==(AdministratorType left, AdministratorType right) => left.Equals(right);
-        public static bool operator !=(AdministratorType left, AdministratorType right) => !left.Equals(right);
-
-        public static explicit operator string(AdministratorType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AdministratorType other && Equals(other);
-        public bool Equals(AdministratorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Data encryption type to depict if it is System Managed vs Azure Key vault.
     /// </summary>
     [EnumType]
@@ -474,37 +444,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ReplicationRole other && Equals(other);
         public bool Equals(ReplicationRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies the state of the policy, whether it is enabled or disabled.
-    /// </summary>
-    [EnumType]
-    public readonly struct ServerSecurityAlertPolicyState : IEquatable<ServerSecurityAlertPolicyState>
-    {
-        private readonly string _value;
-
-        private ServerSecurityAlertPolicyState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ServerSecurityAlertPolicyState Enabled { get; } = new ServerSecurityAlertPolicyState("Enabled");
-        public static ServerSecurityAlertPolicyState Disabled { get; } = new ServerSecurityAlertPolicyState("Disabled");
-
-        public static bool operator ==(ServerSecurityAlertPolicyState left, ServerSecurityAlertPolicyState right) => left.Equals(right);
-        public static bool operator !=(ServerSecurityAlertPolicyState left, ServerSecurityAlertPolicyState right) => !left.Equals(right);
-
-        public static explicit operator string(ServerSecurityAlertPolicyState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServerSecurityAlertPolicyState other && Equals(other);
-        public bool Equals(ServerSecurityAlertPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

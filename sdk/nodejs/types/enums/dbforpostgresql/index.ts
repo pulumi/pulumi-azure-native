@@ -42,15 +42,6 @@ export const ActiveDirectoryAuthEnum = {
  */
 export type ActiveDirectoryAuthEnum = (typeof ActiveDirectoryAuthEnum)[keyof typeof ActiveDirectoryAuthEnum];
 
-export const AdministratorType = {
-    ActiveDirectory: "ActiveDirectory",
-} as const;
-
-/**
- * The type of administrator.
- */
-export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
-
 export const ArmServerKeyType = {
     SystemManaged: "SystemManaged",
     AzureKeyVault: "AzureKeyVault",
@@ -190,16 +181,6 @@ export const ReplicationRole = {
  * Replication role of the server
  */
 export type ReplicationRole = (typeof ReplicationRole)[keyof typeof ReplicationRole];
-
-export const ServerSecurityAlertPolicyState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Specifies the state of the policy, whether it is enabled or disabled.
- */
-export type ServerSecurityAlertPolicyState = (typeof ServerSecurityAlertPolicyState)[keyof typeof ServerSecurityAlertPolicyState];
 
 export const ServerVersion = {
     ServerVersion_14: "14",
