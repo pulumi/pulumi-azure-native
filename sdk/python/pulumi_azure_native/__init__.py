@@ -9283,14 +9283,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "servicelinker/v20220501",
-  "fqn": "pulumi_azure_native.servicelinker.v20220501",
-  "classes": {
-   "azure-native:servicelinker/v20220501:Linker": "Linker"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "servicelinker/v20221101preview",
   "fqn": "pulumi_azure_native.servicelinker.v20221101preview",
   "classes": {
