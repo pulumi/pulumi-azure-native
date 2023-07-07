@@ -14,7 +14,6 @@ from .domain import *
 from .domain_event_subscription import *
 from .domain_topic import *
 from .domain_topic_event_subscription import *
-from .event_channel import *
 from .event_subscription import *
 from .get_ca_certificate import *
 from .get_channel import *
@@ -29,7 +28,6 @@ from .get_domain_topic import *
 from .get_domain_topic_event_subscription import *
 from .get_domain_topic_event_subscription_delivery_attributes import *
 from .get_domain_topic_event_subscription_full_url import *
-from .get_event_channel import *
 from .get_event_subscription import *
 from .get_event_subscription_delivery_attributes import *
 from .get_event_subscription_full_url import *

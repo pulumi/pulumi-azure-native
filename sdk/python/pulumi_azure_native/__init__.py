@@ -744,7 +744,6 @@ _utilities.register(
    "azure-native:agfoodplatform:DataConnector": "DataConnector",
    "azure-native:agfoodplatform:DataManagerForAgricultureResource": "DataManagerForAgricultureResource",
    "azure-native:agfoodplatform:Extension": "Extension",
-   "azure-native:agfoodplatform:FarmBeatsModel": "FarmBeatsModel",
    "azure-native:agfoodplatform:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:agfoodplatform:Solution": "Solution"
   }
@@ -3798,8 +3797,7 @@ _utilities.register(
    "azure-native:dbformysql:Database": "Database",
    "azure-native:dbformysql:FirewallRule": "FirewallRule",
    "azure-native:dbformysql:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:dbformysql:Server": "Server",
-   "azure-native:dbformysql:ServerKey": "ServerKey"
+   "azure-native:dbformysql:Server": "Server"
   }
  },
  {
@@ -3826,8 +3824,7 @@ _utilities.register(
   "mod": "dbformysql/v20200701preview",
   "fqn": "pulumi_azure_native.dbformysql.v20200701preview",
   "classes": {
-   "azure-native:dbformysql/v20200701preview:Server": "Server",
-   "azure-native:dbformysql/v20200701preview:ServerKey": "ServerKey"
+   "azure-native:dbformysql/v20200701preview:Server": "Server"
   }
  },
  {
@@ -4692,7 +4689,6 @@ _utilities.register(
    "azure-native:eventgrid:DomainEventSubscription": "DomainEventSubscription",
    "azure-native:eventgrid:DomainTopic": "DomainTopic",
    "azure-native:eventgrid:DomainTopicEventSubscription": "DomainTopicEventSubscription",
-   "azure-native:eventgrid:EventChannel": "EventChannel",
    "azure-native:eventgrid:EventSubscription": "EventSubscription",
    "azure-native:eventgrid:Namespace": "Namespace",
    "azure-native:eventgrid:NamespaceTopic": "NamespaceTopic",

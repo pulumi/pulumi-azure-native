@@ -31,10 +31,10 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
 
 class PublicNetworkAccess(str, Enum):
     """
-    Property to allow or block public traffic for an Azure FarmBeats resource.
+    Property to allow or block public traffic for an Azure Data Manager For Agriculture resource.
     """
     ENABLED = "Enabled"
-    HYBRID = "Hybrid"
+    DISABLED = "Disabled"
 
 
 class ResourceIdentityType(str, Enum):
