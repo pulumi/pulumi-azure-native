@@ -556,7 +556,7 @@ namespace Pulumi.AzureNative.App.V20230401Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TriggerType Scheduled { get; } = new TriggerType("Scheduled");
+        public static TriggerType Schedule { get; } = new TriggerType("Schedule");
         public static TriggerType Event { get; } = new TriggerType("Event");
         public static TriggerType Manual { get; } = new TriggerType("Manual");
 

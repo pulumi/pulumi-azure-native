@@ -375,6 +375,11 @@ export const listOnlineEndpointKeys: typeof import("./listOnlineEndpointKeys").l
 export const listOnlineEndpointKeysOutput: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listOnlineEndpointKeys","listOnlineEndpointKeysOutput"], () => require("./listOnlineEndpointKeys"));
 
+export { ListWorkspaceConnectionSecretsArgs, ListWorkspaceConnectionSecretsResult, ListWorkspaceConnectionSecretsOutputArgs } from "./listWorkspaceConnectionSecrets";
+export const listWorkspaceConnectionSecrets: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecrets = null as any;
+export const listWorkspaceConnectionSecretsOutput: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkspaceConnectionSecrets","listWorkspaceConnectionSecretsOutput"], () => require("./listWorkspaceConnectionSecrets"));
+
 export { ListWorkspaceKeysArgs, ListWorkspaceKeysResult, ListWorkspaceKeysOutputArgs } from "./listWorkspaceKeys";
 export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspaceKeys = null as any;
 export const listWorkspaceKeysOutput: typeof import("./listWorkspaceKeys").listWorkspaceKeysOutput = null as any;
@@ -521,6 +526,7 @@ import * as v20220201preview from "./v20220201preview";
 import * as v20230201preview from "./v20230201preview";
 import * as v20230401 from "./v20230401";
 import * as v20230401preview from "./v20230401preview";
+import * as v20230601preview from "./v20230601preview";
 
 export {
     v20200501preview,
@@ -534,6 +540,7 @@ export {
     v20230201preview,
     v20230401,
     v20230401preview,
+    v20230601preview,
 };
 
 const _module = {

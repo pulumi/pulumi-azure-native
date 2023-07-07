@@ -20,11 +20,26 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401.Outputs
         /// Immutability Settings of a vault
         /// </summary>
         public readonly Outputs.ImmutabilitySettingsResponse? ImmutabilitySettings;
+        /// <summary>
+        /// MUA Settings of a vault
+        /// </summary>
+        public readonly string MultiUserAuthorization;
+        /// <summary>
+        /// Soft delete Settings of a vault
+        /// </summary>
+        public readonly Outputs.SoftDeleteSettingsResponse? SoftDeleteSettings;
 
         [OutputConstructor]
-        private SecuritySettingsResponse(Outputs.ImmutabilitySettingsResponse? immutabilitySettings)
+        private SecuritySettingsResponse(
+            Outputs.ImmutabilitySettingsResponse? immutabilitySettings,
+
+            string multiUserAuthorization,
+
+            Outputs.SoftDeleteSettingsResponse? softDeleteSettings)
         {
             ImmutabilitySettings = immutabilitySettings;
+            MultiUserAuthorization = multiUserAuthorization;
+            SoftDeleteSettings = softDeleteSettings;
         }
     }
 }

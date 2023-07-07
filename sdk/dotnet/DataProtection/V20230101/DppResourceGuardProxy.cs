@@ -69,6 +69,7 @@ namespace Pulumi.AzureNative.DataProtection.V20230101
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221001preview:DppResourceGuardProxy"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221101preview:DppResourceGuardProxy"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230401preview:DppResourceGuardProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230501:DppResourceGuardProxy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

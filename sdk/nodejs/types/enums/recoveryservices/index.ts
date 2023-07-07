@@ -518,6 +518,15 @@ export const SkuName = {
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
+export const SoftDeleteState = {
+    Invalid: "Invalid",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    AlwaysON: "AlwaysON",
+} as const;
+
+export type SoftDeleteState = (typeof SoftDeleteState)[keyof typeof SoftDeleteState];
+
 export const SqlServerLicenseType = {
     NotSpecified: "NotSpecified",
     NoLicenseType: "NoLicenseType",

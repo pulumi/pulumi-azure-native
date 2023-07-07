@@ -16,6 +16,8 @@ __all__ = [
     'BaiduCredentialArgs',
     'GcmCredentialArgs',
     'MpnsCredentialArgs',
+    'PrivateEndpointConnectionPropertiesArgs',
+    'RemotePrivateLinkServiceConnectionStateArgs',
     'SharedAccessAuthorizationRulePropertiesArgs',
     'SkuArgs',
     'WnsCredentialArgs',
@@ -363,6 +365,70 @@ class MpnsCredentialArgs:
     @thumbprint.setter
     def thumbprint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "thumbprint", value)
+
+
+@pulumi.input_type
+class PrivateEndpointConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: Optional[pulumi.Input['RemotePrivateLinkServiceConnectionStateArgs']] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionProvisioningState']]] = None):
+        """
+        Private Endpoint Connection properties.
+        :param pulumi.Input['RemotePrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: State of the Private Link Service connection.
+        :param pulumi.Input[Union[str, 'PrivateEndpointConnectionProvisioningState']] provisioning_state: State of Private Endpoint Connection.
+        """
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['RemotePrivateLinkServiceConnectionStateArgs']]:
+        """
+        State of the Private Link Service connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['RemotePrivateLinkServiceConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionProvisioningState']]]:
+        """
+        State of Private Endpoint Connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
+
+
+@pulumi.input_type
+class RemotePrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]] = None):
+        """
+        State of the Private Link Service connection.
+        :param pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']] status: State of Private Link Connection.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]]:
+        """
+        State of Private Link Connection.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

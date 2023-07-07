@@ -59,6 +59,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220901Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:ProductGroupLink"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:ProductGroupLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

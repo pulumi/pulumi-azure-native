@@ -15,15 +15,35 @@ export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
+export { GetKafkaConfigurationArgs, GetKafkaConfigurationResult, GetKafkaConfigurationOutputArgs } from "./getKafkaConfiguration";
+export const getKafkaConfiguration: typeof import("./getKafkaConfiguration").getKafkaConfiguration = null as any;
+export const getKafkaConfigurationOutput: typeof import("./getKafkaConfiguration").getKafkaConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getKafkaConfiguration","getKafkaConfigurationOutput"], () => require("./getKafkaConfiguration"));
+
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
+export { KafkaConfigurationArgs } from "./kafkaConfiguration";
+export type KafkaConfiguration = import("./kafkaConfiguration").KafkaConfiguration;
+export const KafkaConfiguration: typeof import("./kafkaConfiguration").KafkaConfiguration = null as any;
+utilities.lazyLoad(exports, ["KafkaConfiguration"], () => require("./kafkaConfiguration"));
+
 export { ListAccountKeysArgs, ListAccountKeysResult, ListAccountKeysOutputArgs } from "./listAccountKeys";
 export const listAccountKeys: typeof import("./listAccountKeys").listAccountKeys = null as any;
 export const listAccountKeysOutput: typeof import("./listAccountKeys").listAccountKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listAccountKeys","listAccountKeysOutput"], () => require("./listAccountKeys"));
+
+export { ListFeatureAccountArgs, ListFeatureAccountResult, ListFeatureAccountOutputArgs } from "./listFeatureAccount";
+export const listFeatureAccount: typeof import("./listFeatureAccount").listFeatureAccount = null as any;
+export const listFeatureAccountOutput: typeof import("./listFeatureAccount").listFeatureAccountOutput = null as any;
+utilities.lazyLoad(exports, ["listFeatureAccount","listFeatureAccountOutput"], () => require("./listFeatureAccount"));
+
+export { ListFeatureSubscriptionArgs, ListFeatureSubscriptionResult, ListFeatureSubscriptionOutputArgs } from "./listFeatureSubscription";
+export const listFeatureSubscription: typeof import("./listFeatureSubscription").listFeatureSubscription = null as any;
+export const listFeatureSubscriptionOutput: typeof import("./listFeatureSubscription").listFeatureSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["listFeatureSubscription","listFeatureSubscriptionOutput"], () => require("./listFeatureSubscription"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
@@ -37,10 +57,12 @@ export * from "../types/enums/purview";
 // Export sub-modules:
 import * as v20201201preview from "./v20201201preview";
 import * as v20210701 from "./v20210701";
+import * as v20211201 from "./v20211201";
 
 export {
     v20201201preview,
     v20210701,
+    v20211201,
 };
 
 const _module = {
@@ -49,6 +71,8 @@ const _module = {
         switch (type) {
             case "azure-native:purview:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "azure-native:purview:KafkaConfiguration":
+                return new KafkaConfiguration(name, <any>undefined, { urn })
             case "azure-native:purview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:

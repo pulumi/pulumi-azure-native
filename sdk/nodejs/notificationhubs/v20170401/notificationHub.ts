@@ -139,7 +139,7 @@ export class NotificationHub extends pulumi.CustomResource {
             resourceInputs["wnsCredential"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs:NotificationHub" }, { type: "azure-native:notificationhubs/v20140901:NotificationHub" }, { type: "azure-native:notificationhubs/v20160301:NotificationHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs:NotificationHub" }, { type: "azure-native:notificationhubs/v20140901:NotificationHub" }, { type: "azure-native:notificationhubs/v20160301:NotificationHub" }, { type: "azure-native:notificationhubs/v20230101preview:NotificationHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationHub.__pulumiType, name, resourceInputs, opts);
     }

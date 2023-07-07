@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("immutabilitySettings")]
         public Input<Inputs.ImmutabilitySettingsArgs>? ImmutabilitySettings { get; set; }
 
+        /// <summary>
+        /// Soft delete Settings of a vault
+        /// </summary>
+        [Input("softDeleteSettings")]
+        public Input<Inputs.SoftDeleteSettingsArgs>? SoftDeleteSettings { get; set; }
+
         public SecuritySettingsArgs()
         {
         }

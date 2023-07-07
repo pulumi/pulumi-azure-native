@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
         /// Baidu Secret Key
         /// </summary>
         public readonly string? BaiduSecretKey;
+        /// <summary>
+        /// Description of a NotificationHub BaiduCredential.
+        /// </summary>
+        public readonly Outputs.BaiduCredentialPropertiesResponse? Properties;
 
         [OutputConstructor]
         private BaiduCredentialResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
 
             string? baiduEndPoint,
 
-            string? baiduSecretKey)
+            string? baiduSecretKey,
+
+            Outputs.BaiduCredentialPropertiesResponse? properties)
         {
             BaiduApiKey = baiduApiKey;
             BaiduEndPoint = baiduEndPoint;
             BaiduSecretKey = baiduSecretKey;
+            Properties = properties;
         }
     }
 }

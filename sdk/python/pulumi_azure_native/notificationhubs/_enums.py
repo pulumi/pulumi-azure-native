@@ -7,6 +7,8 @@ from enum import Enum
 __all__ = [
     'AccessRights',
     'NamespaceType',
+    'PrivateEndpointConnectionProvisioningState',
+    'PrivateLinkConnectionStatus',
     'SkuName',
 ]
 
@@ -23,6 +25,30 @@ class NamespaceType(str, Enum):
     """
     MESSAGING = "Messaging"
     NOTIFICATION_HUB = "NotificationHub"
+
+
+class PrivateEndpointConnectionProvisioningState(str, Enum):
+    """
+    State of Private Endpoint Connection.
+    """
+    UNKNOWN = "Unknown"
+    SUCCEEDED = "Succeeded"
+    CREATING = "Creating"
+    UPDATING = "Updating"
+    UPDATING_BY_PROXY = "UpdatingByProxy"
+    DELETING = "Deleting"
+    DELETING_BY_PROXY = "DeletingByProxy"
+    DELETED = "Deleted"
+
+
+class PrivateLinkConnectionStatus(str, Enum):
+    """
+    State of Private Link Connection.
+    """
+    DISCONNECTED = "Disconnected"
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 class SkuName(str, Enum):

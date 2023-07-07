@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20210315 from "./v20210315";
+import * as v20230518preview from "./v20230518preview";
 
 export {
     v20210315,
+    v20230518preview,
 };
 
 export const OrchestratorKind = {

@@ -139,6 +139,7 @@ namespace Pulumi.AzureNative.Kusto.V20221229
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:CosmosDbDataConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:CosmosDbDataConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:CosmosDbDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:CosmosDbDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly Outputs.ErrorDetailResponse? ErrorDetail;
         /// <summary>
+        /// Dictionary to store the count of ProtectableItems with key POType.
+        /// </summary>
+        public readonly object ProtectableItemCount;
+        /// <summary>
         /// Status for the Inquiry Validation.
         /// </summary>
         public readonly string? Status;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             Outputs.ErrorDetailResponse? errorDetail,
 
+            object protectableItemCount,
+
             string? status)
         {
             AdditionalDetail = additionalDetail;
             ErrorDetail = errorDetail;
+            ProtectableItemCount = protectableItemCount;
             Status = status;
         }
     }

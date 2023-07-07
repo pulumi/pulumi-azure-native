@@ -192,7 +192,7 @@ class TriggerType(str, Enum):
     """
     Trigger type of the job
     """
-    SCHEDULED = "Scheduled"
+    SCHEDULE = "Schedule"
     EVENT = "Event"
     MANUAL = "Manual"
 

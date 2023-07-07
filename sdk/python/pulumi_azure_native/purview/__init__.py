@@ -8,8 +8,12 @@ import typing
 from ._enums import *
 from .account import *
 from .get_account import *
+from .get_kafka_configuration import *
 from .get_private_endpoint_connection import *
+from .kafka_configuration import *
 from .list_account_keys import *
+from .list_feature_account import *
+from .list_feature_subscription import *
 from .private_endpoint_connection import *
 from ._inputs import *
 from . import outputs
@@ -20,7 +24,10 @@ if typing.TYPE_CHECKING:
     v20201201preview = __v20201201preview
     import pulumi_azure_native.purview.v20210701 as __v20210701
     v20210701 = __v20210701
+    import pulumi_azure_native.purview.v20211201 as __v20211201
+    v20211201 = __v20211201
 else:
     v20201201preview = _utilities.lazy_import('pulumi_azure_native.purview.v20201201preview')
     v20210701 = _utilities.lazy_import('pulumi_azure_native.purview.v20210701')
+    v20211201 = _utilities.lazy_import('pulumi_azure_native.purview.v20211201')
 

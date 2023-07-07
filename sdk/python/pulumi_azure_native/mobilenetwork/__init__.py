@@ -8,9 +8,12 @@ import typing
 from ._enums import *
 from .attached_data_network import *
 from .data_network import *
+from .diagnostics_package import *
 from .get_attached_data_network import *
 from .get_data_network import *
+from .get_diagnostics_package import *
 from .get_mobile_network import *
+from .get_packet_capture import *
 from .get_packet_core_control_plane import *
 from .get_packet_core_data_plane import *
 from .get_service import *
@@ -21,6 +24,7 @@ from .get_site import *
 from .get_slice import *
 from .list_mobile_network_sim_ids import *
 from .mobile_network import *
+from .packet_capture import *
 from .packet_core_control_plane import *
 from .packet_core_data_plane import *
 from .service import *
@@ -40,8 +44,11 @@ if typing.TYPE_CHECKING:
     v20220401preview = __v20220401preview
     import pulumi_azure_native.mobilenetwork.v20221101 as __v20221101
     v20221101 = __v20221101
+    import pulumi_azure_native.mobilenetwork.v20230601 as __v20230601
+    v20230601 = __v20230601
 else:
     v20220301preview = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20220301preview')
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20220401preview')
     v20221101 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20221101')
+    v20230601 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20230601')
 

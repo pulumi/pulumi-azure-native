@@ -4,11 +4,55 @@
 // Export sub-modules:
 import * as v20201201preview from "./v20201201preview";
 import * as v20210701 from "./v20210701";
+import * as v20211201 from "./v20211201";
 
 export {
     v20201201preview,
     v20210701,
+    v20211201,
 };
+
+export const CredentialsType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * Identity Type.
+ */
+export type CredentialsType = (typeof CredentialsType)[keyof typeof CredentialsType];
+
+export const EventHubType = {
+    Notification: "Notification",
+    Hook: "Hook",
+} as const;
+
+/**
+ * The event hub type.
+ */
+export type EventHubType = (typeof EventHubType)[keyof typeof EventHubType];
+
+export const EventStreamingState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * The state of the event streaming service
+ */
+export type EventStreamingState = (typeof EventStreamingState)[keyof typeof EventStreamingState];
+
+export const EventStreamingType = {
+    None: "None",
+    Managed: "Managed",
+    Azure: "Azure",
+} as const;
+
+/**
+ * The event streaming service type
+ */
+export type EventStreamingType = (typeof EventStreamingType)[keyof typeof EventStreamingType];
 
 export const PublicNetworkAccess = {
     NotSpecified: "NotSpecified",

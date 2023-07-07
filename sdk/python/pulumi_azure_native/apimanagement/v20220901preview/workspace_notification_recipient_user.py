@@ -170,7 +170,7 @@ class WorkspaceNotificationRecipientUser(pulumi.CustomResource):
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceNotificationRecipientUser")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceNotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceNotificationRecipientUser")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceNotificationRecipientUser, __self__).__init__(
             'azure-native:apimanagement/v20220901preview:WorkspaceNotificationRecipientUser',

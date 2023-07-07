@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401.Outputs
         /// <summary>
         /// Soft delete retention period in days
         /// </summary>
-        public readonly int? SoftDeleteRetentionPeriod;
+        public readonly int? SoftDeleteRetentionPeriodInDays;
         /// <summary>
         /// Loosely coupled (type, value) associations (example - parent of a protected item)
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401.Outputs
 
             ImmutableArray<string> resourceGuardOperationRequests,
 
-            int? softDeleteRetentionPeriod,
+            int? softDeleteRetentionPeriodInDays,
 
             ImmutableDictionary<string, string>? sourceAssociations,
 
@@ -184,7 +184,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401.Outputs
             ProtectedItemType = protectedItemType;
             ProtectionState = protectionState;
             ResourceGuardOperationRequests = resourceGuardOperationRequests;
-            SoftDeleteRetentionPeriod = softDeleteRetentionPeriod;
+            SoftDeleteRetentionPeriodInDays = softDeleteRetentionPeriodInDays;
             SourceAssociations = sourceAssociations;
             SourceResourceId = sourceResourceId;
             WorkloadType = workloadType;

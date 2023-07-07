@@ -12,6 +12,7 @@ import * as v20201201 from "./v20201201";
 import * as v20210401preview from "./v20210401preview";
 import * as v20220801 from "./v20220801";
 import * as v20220901preview from "./v20220901preview";
+import * as v20230301preview from "./v20230301preview";
 
 export {
     v20161010,
@@ -24,6 +25,7 @@ export {
     v20210401preview,
     v20220801,
     v20220901preview,
+    v20230301preview,
 };
 
 export const AlwaysLog = {
@@ -261,6 +263,18 @@ export const DataMaskingMode = {
  * Data masking mode.
  */
 export type DataMaskingMode = (typeof DataMaskingMode)[keyof typeof DataMaskingMode];
+
+export const GatewayListDebugCredentialsContractPurpose = {
+    /**
+     * The tracing purpose.
+     */
+    Tracing: "tracing",
+} as const;
+
+/**
+ * Purpose of debug credential.
+ */
+export type GatewayListDebugCredentialsContractPurpose = (typeof GatewayListDebugCredentialsContractPurpose)[keyof typeof GatewayListDebugCredentialsContractPurpose];
 
 export const GrantType = {
     /**

@@ -32,7 +32,8 @@
     "2021-12-01-preview",
     "2022-04-01-preview",
     "2022-08-01",
-    "2022-09-01-preview"
+    "2022-09-01-preview",
+    "2023-03-01-preview"
   ],
   "App": [
     "2022-11-01-preview",
@@ -129,6 +130,7 @@
     "2022-08-01",
     "2022-09-04",
     "2022-11-01",
+    "2023-01-02",
     "2023-03-01"
   ],
   "ConfidentialLedger": [
@@ -292,14 +294,17 @@
     "2022-03-30-preview"
   ],
   "DataProtection": [
-    "2023-04-01-preview"
+    "2023-04-01-preview",
+    "2023-05-01"
   ],
   "DataShare": [],
   "Databricks": [
     "2023-05-01"
   ],
   "Datadog": [],
-  "DelegatedNetwork": [],
+  "DelegatedNetwork": [
+    "2023-05-18-preview"
+  ],
   "DeploymentManager": [],
   "DesktopVirtualization": [
     "2022-10-14-preview"
@@ -465,7 +470,8 @@
     "2022-02-01",
     "2022-07-07",
     "2022-11-11",
-    "2022-12-29"
+    "2022-12-29",
+    "2023-05-02"
   ],
   "LabServices": [
     "2021-10-01-preview",
@@ -505,7 +511,8 @@
     "2022-12-01-preview",
     "2023-02-01-preview",
     "2023-04-01",
-    "2023-04-01-preview"
+    "2023-04-01-preview",
+    "2023-06-01-preview"
   ],
   "Maintenance": [],
   "ManagedIdentity": [
@@ -555,7 +562,8 @@
     "2021-03-01-preview"
   ],
   "MobileNetwork": [
-    "2022-11-01"
+    "2022-11-01",
+    "2023-06-01"
   ],
   "Monitor": [],
   "NetApp": [],
@@ -602,7 +610,9 @@
     "2023-05-01-preview"
   ],
   "NetworkFunction": [],
-  "NotificationHubs": [],
+  "NotificationHubs": [
+    "2023-01-01-preview"
+  ],
   "OffAzure": [],
   "OpenEnergyPlatform": [],
   "OperationalInsights": [
@@ -635,7 +645,9 @@
   "PowerPlatform": [],
   "ProfessionalService": [],
   "ProviderHub": [],
-  "Purview": [],
+  "Purview": [
+    "2021-12-01"
+  ],
   "Quantum": [],
   "Quota": [],
   "RecommendationsService": [
@@ -713,7 +725,8 @@
   ],
   "ServiceNetworking": [],
   "SignalRService": [
-    "2023-03-01-preview"
+    "2023-03-01-preview",
+    "2023-06-01-preview"
   ],
   "SoftwarePlan": [],
   "Solutions": [],
@@ -794,7 +807,8 @@
     "2022-09-01"
   ],
   "WebPubSub": [
-    "2023-03-01-preview"
+    "2023-03-01-preview",
+    "2023-06-01-preview"
   ],
   "WindowsESU": [],
   "WindowsIoT": [],

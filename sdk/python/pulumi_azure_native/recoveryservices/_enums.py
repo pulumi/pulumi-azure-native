@@ -46,6 +46,7 @@ __all__ = [
     'SecurityType',
     'SetMultiVmSyncStatus',
     'SkuName',
+    'SoftDeleteState',
     'SqlServerLicenseType',
     'TieringMode',
     'VaultSubResourceType',
@@ -479,6 +480,13 @@ class SkuName(str, Enum):
     """
     STANDARD = "Standard"
     RS0 = "RS0"
+
+
+class SoftDeleteState(str, Enum):
+    INVALID = "Invalid"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    ALWAYS_ON = "AlwaysON"
 
 
 class SqlServerLicenseType(str, Enum):

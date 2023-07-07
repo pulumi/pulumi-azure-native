@@ -145,6 +145,7 @@ __all__ = [
     'SimpleSchedulePolicyV2Args',
     'SimpleSchedulePolicyArgs',
     'SkuArgs',
+    'SoftDeleteSettingsArgs',
     'StorageMappingInputPropertiesArgs',
     'SubProtectionPolicyArgs',
     'TieringPolicyArgs',
@@ -1562,7 +1563,7 @@ class AzureFileshareProtectedItemArgs:
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  protection_status: Optional[pulumi.Input[str]] = None,
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 soft_delete_retention_period: Optional[pulumi.Input[int]] = None,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Azure File Share workload-specific backup item.
@@ -1588,7 +1589,7 @@ class AzureFileshareProtectedItemArgs:
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] protection_status: Backup status of this backup item.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
-        :param pulumi.Input[int] soft_delete_retention_period: Soft delete retention period in days
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
         pulumi.set(__self__, "protected_item_type", 'AzureFileShareProtectedItem')
@@ -1632,8 +1633,8 @@ class AzureFileshareProtectedItemArgs:
             pulumi.set(__self__, "protection_status", protection_status)
         if resource_guard_operation_requests is not None:
             pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
-        if soft_delete_retention_period is not None:
-            pulumi.set(__self__, "soft_delete_retention_period", soft_delete_retention_period)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
 
@@ -1891,16 +1892,16 @@ class AzureFileshareProtectedItemArgs:
         pulumi.set(self, "resource_guard_operation_requests", value)
 
     @property
-    @pulumi.getter(name="softDeleteRetentionPeriod")
-    def soft_delete_retention_period(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Soft delete retention period in days
         """
-        return pulumi.get(self, "soft_delete_retention_period")
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
 
-    @soft_delete_retention_period.setter
-    def soft_delete_retention_period(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "soft_delete_retention_period", value)
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="sourceResourceId")
@@ -2097,7 +2098,7 @@ class AzureIaaSClassicComputeVMProtectedItemArgs:
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  protection_status: Optional[pulumi.Input[str]] = None,
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 soft_delete_retention_period: Optional[pulumi.Input[int]] = None,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         IaaS VM workload-specific backup item representing the Classic Compute VM.
@@ -2122,7 +2123,7 @@ class AzureIaaSClassicComputeVMProtectedItemArgs:
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] protection_status: Backup status of this backup item.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
-        :param pulumi.Input[int] soft_delete_retention_period: Soft delete retention period in days
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
         pulumi.set(__self__, "protected_item_type", 'Microsoft.ClassicCompute/virtualMachines')
@@ -2164,8 +2165,8 @@ class AzureIaaSClassicComputeVMProtectedItemArgs:
             pulumi.set(__self__, "protection_status", protection_status)
         if resource_guard_operation_requests is not None:
             pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
-        if soft_delete_retention_period is not None:
-            pulumi.set(__self__, "soft_delete_retention_period", soft_delete_retention_period)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
 
@@ -2411,16 +2412,16 @@ class AzureIaaSClassicComputeVMProtectedItemArgs:
         pulumi.set(self, "resource_guard_operation_requests", value)
 
     @property
-    @pulumi.getter(name="softDeleteRetentionPeriod")
-    def soft_delete_retention_period(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Soft delete retention period in days
         """
-        return pulumi.get(self, "soft_delete_retention_period")
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
 
-    @soft_delete_retention_period.setter
-    def soft_delete_retention_period(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "soft_delete_retention_period", value)
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="sourceResourceId")
@@ -2617,7 +2618,7 @@ class AzureIaaSComputeVMProtectedItemArgs:
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  protection_status: Optional[pulumi.Input[str]] = None,
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 soft_delete_retention_period: Optional[pulumi.Input[int]] = None,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
@@ -2642,7 +2643,7 @@ class AzureIaaSComputeVMProtectedItemArgs:
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] protection_status: Backup status of this backup item.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
-        :param pulumi.Input[int] soft_delete_retention_period: Soft delete retention period in days
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
         pulumi.set(__self__, "protected_item_type", 'Microsoft.Compute/virtualMachines')
@@ -2684,8 +2685,8 @@ class AzureIaaSComputeVMProtectedItemArgs:
             pulumi.set(__self__, "protection_status", protection_status)
         if resource_guard_operation_requests is not None:
             pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
-        if soft_delete_retention_period is not None:
-            pulumi.set(__self__, "soft_delete_retention_period", soft_delete_retention_period)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
 
@@ -2931,16 +2932,16 @@ class AzureIaaSComputeVMProtectedItemArgs:
         pulumi.set(self, "resource_guard_operation_requests", value)
 
     @property
-    @pulumi.getter(name="softDeleteRetentionPeriod")
-    def soft_delete_retention_period(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Soft delete retention period in days
         """
-        return pulumi.get(self, "soft_delete_retention_period")
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
 
-    @soft_delete_retention_period.setter
-    def soft_delete_retention_period(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "soft_delete_retention_period", value)
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="sourceResourceId")
@@ -3082,7 +3083,7 @@ class AzureIaaSVMProtectedItemArgs:
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  protection_status: Optional[pulumi.Input[str]] = None,
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 soft_delete_retention_period: Optional[pulumi.Input[int]] = None,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         IaaS VM workload-specific backup item.
@@ -3107,7 +3108,7 @@ class AzureIaaSVMProtectedItemArgs:
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] protection_status: Backup status of this backup item.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
-        :param pulumi.Input[int] soft_delete_retention_period: Soft delete retention period in days
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
         pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
@@ -3149,8 +3150,8 @@ class AzureIaaSVMProtectedItemArgs:
             pulumi.set(__self__, "protection_status", protection_status)
         if resource_guard_operation_requests is not None:
             pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
-        if soft_delete_retention_period is not None:
-            pulumi.set(__self__, "soft_delete_retention_period", soft_delete_retention_period)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
 
@@ -3396,16 +3397,16 @@ class AzureIaaSVMProtectedItemArgs:
         pulumi.set(self, "resource_guard_operation_requests", value)
 
     @property
-    @pulumi.getter(name="softDeleteRetentionPeriod")
-    def soft_delete_retention_period(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Soft delete retention period in days
         """
-        return pulumi.get(self, "soft_delete_retention_period")
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
 
-    @soft_delete_retention_period.setter
-    def soft_delete_retention_period(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "soft_delete_retention_period", value)
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="sourceResourceId")
@@ -4209,7 +4210,7 @@ class AzureSqlProtectedItemArgs:
                  protected_item_data_id: Optional[pulumi.Input[str]] = None,
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectedItemState']]] = None,
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 soft_delete_retention_period: Optional[pulumi.Input[int]] = None,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Azure SQL workload-specific backup item.
@@ -4231,7 +4232,7 @@ class AzureSqlProtectedItemArgs:
         :param pulumi.Input[str] protected_item_data_id: Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
         :param pulumi.Input[Union[str, 'ProtectedItemState']] protection_state: Backup state of the backed up item.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
-        :param pulumi.Input[int] soft_delete_retention_period: Soft delete retention period in days
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
         pulumi.set(__self__, "protected_item_type", 'Microsoft.Sql/servers/databases')
@@ -4267,8 +4268,8 @@ class AzureSqlProtectedItemArgs:
             pulumi.set(__self__, "protection_state", protection_state)
         if resource_guard_operation_requests is not None:
             pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
-        if soft_delete_retention_period is not None:
-            pulumi.set(__self__, "soft_delete_retention_period", soft_delete_retention_period)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
 
@@ -4478,16 +4479,16 @@ class AzureSqlProtectedItemArgs:
         pulumi.set(self, "resource_guard_operation_requests", value)
 
     @property
-    @pulumi.getter(name="softDeleteRetentionPeriod")
-    def soft_delete_retention_period(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Soft delete retention period in days
         """
-        return pulumi.get(self, "soft_delete_retention_period")
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
 
-    @soft_delete_retention_period.setter
-    def soft_delete_retention_period(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "soft_delete_retention_period", value)
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="sourceResourceId")
@@ -5145,7 +5146,7 @@ class AzureVmWorkloadProtectedItemArgs:
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 soft_delete_retention_period: Optional[pulumi.Input[int]] = None,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Azure VM workload-specific protected item.
@@ -5175,7 +5176,7 @@ class AzureVmWorkloadProtectedItemArgs:
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param pulumi.Input[str] server_name: Host/Cluster Name for instance or AG
-        :param pulumi.Input[int] soft_delete_retention_period: Soft delete retention period in days
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
@@ -5227,8 +5228,8 @@ class AzureVmWorkloadProtectedItemArgs:
             pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
-        if soft_delete_retention_period is not None:
-            pulumi.set(__self__, "soft_delete_retention_period", soft_delete_retention_period)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
 
@@ -5534,16 +5535,16 @@ class AzureVmWorkloadProtectedItemArgs:
         pulumi.set(self, "server_name", value)
 
     @property
-    @pulumi.getter(name="softDeleteRetentionPeriod")
-    def soft_delete_retention_period(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Soft delete retention period in days
         """
-        return pulumi.get(self, "soft_delete_retention_period")
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
 
-    @soft_delete_retention_period.setter
-    def soft_delete_retention_period(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "soft_delete_retention_period", value)
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="sourceResourceId")
@@ -5707,7 +5708,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 soft_delete_retention_period: Optional[pulumi.Input[int]] = None,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Azure VM workload-specific protected item representing SAP ASE Database.
@@ -5737,7 +5738,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param pulumi.Input[str] server_name: Host/Cluster Name for instance or AG
-        :param pulumi.Input[int] soft_delete_retention_period: Soft delete retention period in days
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPAseDatabase')
@@ -5789,8 +5790,8 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
             pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
-        if soft_delete_retention_period is not None:
-            pulumi.set(__self__, "soft_delete_retention_period", soft_delete_retention_period)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
 
@@ -6096,16 +6097,16 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
         pulumi.set(self, "server_name", value)
 
     @property
-    @pulumi.getter(name="softDeleteRetentionPeriod")
-    def soft_delete_retention_period(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Soft delete retention period in days
         """
-        return pulumi.get(self, "soft_delete_retention_period")
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
 
-    @soft_delete_retention_period.setter
-    def soft_delete_retention_period(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "soft_delete_retention_period", value)
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="sourceResourceId")
@@ -6148,7 +6149,7 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs:
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 soft_delete_retention_period: Optional[pulumi.Input[int]] = None,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Azure VM workload-specific protected item representing SAP HANA DBInstance.
@@ -6178,7 +6179,7 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs:
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param pulumi.Input[str] server_name: Host/Cluster Name for instance or AG
-        :param pulumi.Input[int] soft_delete_retention_period: Soft delete retention period in days
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPHanaDBInstance')
@@ -6230,8 +6231,8 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs:
             pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
-        if soft_delete_retention_period is not None:
-            pulumi.set(__self__, "soft_delete_retention_period", soft_delete_retention_period)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
 
@@ -6537,16 +6538,16 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs:
         pulumi.set(self, "server_name", value)
 
     @property
-    @pulumi.getter(name="softDeleteRetentionPeriod")
-    def soft_delete_retention_period(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Soft delete retention period in days
         """
-        return pulumi.get(self, "soft_delete_retention_period")
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
 
-    @soft_delete_retention_period.setter
-    def soft_delete_retention_period(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "soft_delete_retention_period", value)
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="sourceResourceId")
@@ -6589,7 +6590,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 soft_delete_retention_period: Optional[pulumi.Input[int]] = None,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Azure VM workload-specific protected item representing SAP HANA Database.
@@ -6619,7 +6620,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param pulumi.Input[str] server_name: Host/Cluster Name for instance or AG
-        :param pulumi.Input[int] soft_delete_retention_period: Soft delete retention period in days
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPHanaDatabase')
@@ -6671,8 +6672,8 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
             pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
-        if soft_delete_retention_period is not None:
-            pulumi.set(__self__, "soft_delete_retention_period", soft_delete_retention_period)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
 
@@ -6978,16 +6979,16 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
         pulumi.set(self, "server_name", value)
 
     @property
-    @pulumi.getter(name="softDeleteRetentionPeriod")
-    def soft_delete_retention_period(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Soft delete retention period in days
         """
-        return pulumi.get(self, "soft_delete_retention_period")
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
 
-    @soft_delete_retention_period.setter
-    def soft_delete_retention_period(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "soft_delete_retention_period", value)
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="sourceResourceId")
@@ -7030,7 +7031,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 soft_delete_retention_period: Optional[pulumi.Input[int]] = None,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Azure VM workload-specific protected item representing SQL Database.
@@ -7060,7 +7061,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param pulumi.Input[str] server_name: Host/Cluster Name for instance or AG
-        :param pulumi.Input[int] soft_delete_retention_period: Soft delete retention period in days
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSQLDatabase')
@@ -7112,8 +7113,8 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
             pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
-        if soft_delete_retention_period is not None:
-            pulumi.set(__self__, "soft_delete_retention_period", soft_delete_retention_period)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
 
@@ -7419,16 +7420,16 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
         pulumi.set(self, "server_name", value)
 
     @property
-    @pulumi.getter(name="softDeleteRetentionPeriod")
-    def soft_delete_retention_period(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Soft delete retention period in days
         """
-        return pulumi.get(self, "soft_delete_retention_period")
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
 
-    @soft_delete_retention_period.setter
-    def soft_delete_retention_period(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "soft_delete_retention_period", value)
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="sourceResourceId")
@@ -8694,7 +8695,7 @@ class DPMProtectedItemArgs:
                  policy_name: Optional[pulumi.Input[str]] = None,
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectedItemState']]] = None,
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 soft_delete_retention_period: Optional[pulumi.Input[int]] = None,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Additional information on Backup engine specific backup item.
@@ -8717,7 +8718,7 @@ class DPMProtectedItemArgs:
         :param pulumi.Input[str] policy_name: Name of the policy used for protection
         :param pulumi.Input[Union[str, 'ProtectedItemState']] protection_state: Protection state of the backup engine
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
-        :param pulumi.Input[int] soft_delete_retention_period: Soft delete retention period in days
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
         pulumi.set(__self__, "protected_item_type", 'DPMProtectedItem')
@@ -8755,8 +8756,8 @@ class DPMProtectedItemArgs:
             pulumi.set(__self__, "protection_state", protection_state)
         if resource_guard_operation_requests is not None:
             pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
-        if soft_delete_retention_period is not None:
-            pulumi.set(__self__, "soft_delete_retention_period", soft_delete_retention_period)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
 
@@ -8978,16 +8979,16 @@ class DPMProtectedItemArgs:
         pulumi.set(self, "resource_guard_operation_requests", value)
 
     @property
-    @pulumi.getter(name="softDeleteRetentionPeriod")
-    def soft_delete_retention_period(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Soft delete retention period in days
         """
-        return pulumi.get(self, "soft_delete_retention_period")
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
 
-    @soft_delete_retention_period.setter
-    def soft_delete_retention_period(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "soft_delete_retention_period", value)
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="sourceResourceId")
@@ -9962,7 +9963,7 @@ class GenericProtectedItemArgs:
                  protected_item_id: Optional[pulumi.Input[float]] = None,
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 soft_delete_retention_period: Optional[pulumi.Input[int]] = None,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  source_associations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
@@ -9987,7 +9988,7 @@ class GenericProtectedItemArgs:
         :param pulumi.Input[float] protected_item_id: Data Plane Service ID of the protected item.
         :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
-        :param pulumi.Input[int] soft_delete_retention_period: Soft delete retention period in days
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] source_associations: Loosely coupled (type, value) associations (example - parent of a protected item)
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
@@ -10028,8 +10029,8 @@ class GenericProtectedItemArgs:
             pulumi.set(__self__, "protection_state", protection_state)
         if resource_guard_operation_requests is not None:
             pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
-        if soft_delete_retention_period is not None:
-            pulumi.set(__self__, "soft_delete_retention_period", soft_delete_retention_period)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_associations is not None:
             pulumi.set(__self__, "source_associations", source_associations)
         if source_resource_id is not None:
@@ -10265,16 +10266,16 @@ class GenericProtectedItemArgs:
         pulumi.set(self, "resource_guard_operation_requests", value)
 
     @property
-    @pulumi.getter(name="softDeleteRetentionPeriod")
-    def soft_delete_retention_period(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Soft delete retention period in days
         """
-        return pulumi.get(self, "soft_delete_retention_period")
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
 
-    @soft_delete_retention_period.setter
-    def soft_delete_retention_period(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "soft_delete_retention_period", value)
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="sourceAssociations")
@@ -14217,7 +14218,7 @@ class MabFileFolderProtectedItemArgs:
                  policy_name: Optional[pulumi.Input[str]] = None,
                  protection_state: Optional[pulumi.Input[str]] = None,
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 soft_delete_retention_period: Optional[pulumi.Input[int]] = None,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         MAB workload-specific backup item.
@@ -14243,7 +14244,7 @@ class MabFileFolderProtectedItemArgs:
         :param pulumi.Input[str] policy_name: Name of the policy used for protection
         :param pulumi.Input[str] protection_state: Protected, ProtectionStopped, IRPending or ProtectionError
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
-        :param pulumi.Input[int] soft_delete_retention_period: Soft delete retention period in days
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
         pulumi.set(__self__, "protected_item_type", 'MabFileFolderProtectedItem')
@@ -14287,8 +14288,8 @@ class MabFileFolderProtectedItemArgs:
             pulumi.set(__self__, "protection_state", protection_state)
         if resource_guard_operation_requests is not None:
             pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
-        if soft_delete_retention_period is not None:
-            pulumi.set(__self__, "soft_delete_retention_period", soft_delete_retention_period)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
 
@@ -14546,16 +14547,16 @@ class MabFileFolderProtectedItemArgs:
         pulumi.set(self, "resource_guard_operation_requests", value)
 
     @property
-    @pulumi.getter(name="softDeleteRetentionPeriod")
-    def soft_delete_retention_period(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Soft delete retention period in days
         """
-        return pulumi.get(self, "soft_delete_retention_period")
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
 
-    @soft_delete_retention_period.setter
-    def soft_delete_retention_period(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "soft_delete_retention_period", value)
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="sourceResourceId")
@@ -15542,13 +15543,17 @@ class RetentionDurationArgs:
 @pulumi.input_type
 class SecuritySettingsArgs:
     def __init__(__self__, *,
-                 immutability_settings: Optional[pulumi.Input['ImmutabilitySettingsArgs']] = None):
+                 immutability_settings: Optional[pulumi.Input['ImmutabilitySettingsArgs']] = None,
+                 soft_delete_settings: Optional[pulumi.Input['SoftDeleteSettingsArgs']] = None):
         """
         Security Settings of the vault
         :param pulumi.Input['ImmutabilitySettingsArgs'] immutability_settings: Immutability Settings of a vault
+        :param pulumi.Input['SoftDeleteSettingsArgs'] soft_delete_settings: Soft delete Settings of a vault
         """
         if immutability_settings is not None:
             pulumi.set(__self__, "immutability_settings", immutability_settings)
+        if soft_delete_settings is not None:
+            pulumi.set(__self__, "soft_delete_settings", soft_delete_settings)
 
     @property
     @pulumi.getter(name="immutabilitySettings")
@@ -15561,6 +15566,18 @@ class SecuritySettingsArgs:
     @immutability_settings.setter
     def immutability_settings(self, value: Optional[pulumi.Input['ImmutabilitySettingsArgs']]):
         pulumi.set(self, "immutability_settings", value)
+
+    @property
+    @pulumi.getter(name="softDeleteSettings")
+    def soft_delete_settings(self) -> Optional[pulumi.Input['SoftDeleteSettingsArgs']]:
+        """
+        Soft delete Settings of a vault
+        """
+        return pulumi.get(self, "soft_delete_settings")
+
+    @soft_delete_settings.setter
+    def soft_delete_settings(self, value: Optional[pulumi.Input['SoftDeleteSettingsArgs']]):
+        pulumi.set(self, "soft_delete_settings", value)
 
 
 @pulumi.input_type
@@ -15941,6 +15958,42 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class SoftDeleteSettingsArgs:
+    def __init__(__self__, *,
+                 soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
+                 soft_delete_state: Optional[pulumi.Input[Union[str, 'SoftDeleteState']]] = None):
+        """
+        Soft delete Settings of vault
+        :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
+        """
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
+        if soft_delete_state is not None:
+            pulumi.set(__self__, "soft_delete_state", soft_delete_state)
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @soft_delete_retention_period_in_days.setter
+    def soft_delete_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_period_in_days", value)
+
+    @property
+    @pulumi.getter(name="softDeleteState")
+    def soft_delete_state(self) -> Optional[pulumi.Input[Union[str, 'SoftDeleteState']]]:
+        return pulumi.get(self, "soft_delete_state")
+
+    @soft_delete_state.setter
+    def soft_delete_state(self, value: Optional[pulumi.Input[Union[str, 'SoftDeleteState']]]):
+        pulumi.set(self, "soft_delete_state", value)
 
 
 @pulumi.input_type

@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20170401 from "./v20170401";
+import * as v20230101preview from "./v20230101preview";
 
 export {
     v20170401,
+    v20230101preview,
 };
 
 export const AccessRights = {
@@ -25,6 +27,34 @@ export const NamespaceType = {
  * The namespace type.
  */
 export type NamespaceType = (typeof NamespaceType)[keyof typeof NamespaceType];
+
+export const PrivateEndpointConnectionProvisioningState = {
+    Unknown: "Unknown",
+    Succeeded: "Succeeded",
+    Creating: "Creating",
+    Updating: "Updating",
+    UpdatingByProxy: "UpdatingByProxy",
+    Deleting: "Deleting",
+    DeletingByProxy: "DeletingByProxy",
+    Deleted: "Deleted",
+} as const;
+
+/**
+ * State of Private Endpoint Connection.
+ */
+export type PrivateEndpointConnectionProvisioningState = (typeof PrivateEndpointConnectionProvisioningState)[keyof typeof PrivateEndpointConnectionProvisioningState];
+
+export const PrivateLinkConnectionStatus = {
+    Disconnected: "Disconnected",
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * State of Private Link Connection.
+ */
+export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
 
 export const SkuName = {
     Free: "Free",
