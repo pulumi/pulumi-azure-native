@@ -75,7 +75,7 @@ class GetSimPolicyResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -107,7 +107,7 @@ class GetSimPolicyResult:
     @pulumi.getter(name="registrationTimer")
     def registration_timer(self) -> Optional[int]:
         """
-        Interval for the UE periodic registration update procedure, in seconds.
+        UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
         """
         return pulumi.get(self, "registration_timer")
 
@@ -195,7 +195,7 @@ def get_sim_policy(mobile_network_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimPolicyResult:
     """
     Gets information about the specified SIM policy.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-06-01.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -232,7 +232,7 @@ def get_sim_policy_output(mobile_network_name: Optional[pulumi.Input[str]] = Non
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimPolicyResult]:
     """
     Gets information about the specified SIM policy.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-06-01.
 
 
     :param str mobile_network_name: The name of the mobile network.

@@ -22,6 +22,7 @@ __all__ = [
     'CustomLocationResourceIdResponse',
     'DataNetworkConfigurationResponse',
     'DataNetworkResourceIdResponse',
+    'DiagnosticsUploadConfigurationResponse',
     'HttpsServerCertificateResponse',
     'InstallationResponse',
     'InterfacePropertiesResponse',
@@ -448,6 +449,45 @@ class DataNetworkResourceIdResponse(dict):
 
 
 @pulumi.output_type
+class DiagnosticsUploadConfigurationResponse(dict):
+    """
+    Configuration for uploading packet core diagnostics.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountContainerUrl":
+            suggest = "storage_account_container_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticsUploadConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticsUploadConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticsUploadConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_account_container_url: str):
+        """
+        Configuration for uploading packet core diagnostics.
+        :param str storage_account_container_url: The Storage Account Container URL to upload diagnostics to.
+        """
+        pulumi.set(__self__, "storage_account_container_url", storage_account_container_url)
+
+    @property
+    @pulumi.getter(name="storageAccountContainerUrl")
+    def storage_account_container_url(self) -> str:
+        """
+        The Storage Account Container URL to upload diagnostics to.
+        """
+        return pulumi.get(self, "storage_account_container_url")
+
+
+@pulumi.output_type
 class HttpsServerCertificateResponse(dict):
     """
     HTTPS server certificate configuration.
@@ -502,22 +542,51 @@ class InstallationResponse(dict):
     """
     The installation state of the packet core.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reinstallRequired":
+            suggest = "reinstall_required"
+        elif key == "desiredState":
+            suggest = "desired_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstallationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstallationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstallationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 operation: Optional['outputs.AsyncOperationIdResponse'] = None,
-                 state: Optional[str] = None):
+                 operation: 'outputs.AsyncOperationIdResponse',
+                 reasons: Sequence[str],
+                 reinstall_required: str,
+                 state: str,
+                 desired_state: Optional[str] = None):
         """
         The installation state of the packet core.
         :param 'AsyncOperationIdResponse' operation: A reference to an in-progress installation operation
+        :param Sequence[str] reasons: Reason(s) for the current installation state of the packet core.
+        :param str reinstall_required: Whether a reinstall of the packet core is required to pick up the latest configuration changes.
         :param str state: Installation state
+        :param str desired_state: The desired installation state
         """
-        if operation is not None:
-            pulumi.set(__self__, "operation", operation)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "reasons", reasons)
+        pulumi.set(__self__, "reinstall_required", reinstall_required)
+        pulumi.set(__self__, "state", state)
+        if desired_state is None:
+            desired_state = 'Installed'
+        if desired_state is not None:
+            pulumi.set(__self__, "desired_state", desired_state)
 
     @property
     @pulumi.getter
-    def operation(self) -> Optional['outputs.AsyncOperationIdResponse']:
+    def operation(self) -> 'outputs.AsyncOperationIdResponse':
         """
         A reference to an in-progress installation operation
         """
@@ -525,11 +594,35 @@ class InstallationResponse(dict):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def reasons(self) -> Sequence[str]:
+        """
+        Reason(s) for the current installation state of the packet core.
+        """
+        return pulumi.get(self, "reasons")
+
+    @property
+    @pulumi.getter(name="reinstallRequired")
+    def reinstall_required(self) -> str:
+        """
+        Whether a reinstall of the packet core is required to pick up the latest configuration changes.
+        """
+        return pulumi.get(self, "reinstall_required")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         Installation state
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="desiredState")
+    def desired_state(self) -> Optional[str]:
+        """
+        The desired installation state
+        """
+        return pulumi.get(self, "desired_state")
 
 
 @pulumi.output_type
@@ -708,16 +801,12 @@ class LocalDiagnosticsAccessConfigurationResponse(dict):
 @pulumi.output_type
 class ManagedServiceIdentityResponse(dict):
     """
-    Managed service identity (system assigned and/or user assigned identities)
+    Managed service identity (User assigned identity)
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentities":
+        if key == "userAssignedIdentities":
             suggest = "user_assigned_identities"
 
         if suggest:
@@ -732,44 +821,22 @@ class ManagedServiceIdentityResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 principal_id: str,
-                 tenant_id: str,
                  type: str,
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
-        Managed service identity (system assigned and/or user assigned identities)
-        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        Managed service identity (User assigned identity)
+        :param str type: Type of managed service identity (currently only UserAssigned allowed).
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
             pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        Type of managed service identity (currently only UserAssigned allowed).
         """
         return pulumi.get(self, "type")
 

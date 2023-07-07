@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified SIM group.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-06-01.
  */
 export function getSimGroup(args: GetSimGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSimGroupResult> {
 
@@ -40,7 +40,7 @@ export interface GetSimGroupResult {
      */
     readonly encryptionKey?: outputs.mobilenetwork.KeyVaultKeyResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -78,7 +78,7 @@ export interface GetSimGroupResult {
 }
 /**
  * Gets information about the specified SIM group.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-06-01.
  */
 export function getSimGroupOutput(args: GetSimGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimGroupResult> {
     return pulumi.output(args).apply((a: any) => getSimGroup(a, opts))

@@ -19,7 +19,9 @@ __all__ = [
     'CustomLocationResourceIdArgs',
     'DataNetworkConfigurationArgs',
     'DataNetworkResourceIdArgs',
+    'DiagnosticsUploadConfigurationArgs',
     'HttpsServerCertificateArgs',
+    'InstallationArgs',
     'InterfacePropertiesArgs',
     'KeyVaultKeyArgs',
     'LocalDiagnosticsAccessConfigurationArgs',
@@ -399,6 +401,29 @@ class DataNetworkResourceIdArgs:
 
 
 @pulumi.input_type
+class DiagnosticsUploadConfigurationArgs:
+    def __init__(__self__, *,
+                 storage_account_container_url: pulumi.Input[str]):
+        """
+        Configuration for uploading packet core diagnostics.
+        :param pulumi.Input[str] storage_account_container_url: The Storage Account Container URL to upload diagnostics to.
+        """
+        pulumi.set(__self__, "storage_account_container_url", storage_account_container_url)
+
+    @property
+    @pulumi.getter(name="storageAccountContainerUrl")
+    def storage_account_container_url(self) -> pulumi.Input[str]:
+        """
+        The Storage Account Container URL to upload diagnostics to.
+        """
+        return pulumi.get(self, "storage_account_container_url")
+
+    @storage_account_container_url.setter
+    def storage_account_container_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_container_url", value)
+
+
+@pulumi.input_type
 class HttpsServerCertificateArgs:
     def __init__(__self__, *,
                  certificate_url: pulumi.Input[str]):
@@ -419,6 +444,32 @@ class HttpsServerCertificateArgs:
     @certificate_url.setter
     def certificate_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "certificate_url", value)
+
+
+@pulumi.input_type
+class InstallationArgs:
+    def __init__(__self__, *,
+                 desired_state: Optional[pulumi.Input[Union[str, 'DesiredInstallationState']]] = None):
+        """
+        The installation state of the packet core.
+        :param pulumi.Input[Union[str, 'DesiredInstallationState']] desired_state: The desired installation state
+        """
+        if desired_state is None:
+            desired_state = 'Installed'
+        if desired_state is not None:
+            pulumi.set(__self__, "desired_state", desired_state)
+
+    @property
+    @pulumi.getter(name="desiredState")
+    def desired_state(self) -> Optional[pulumi.Input[Union[str, 'DesiredInstallationState']]]:
+        """
+        The desired installation state
+        """
+        return pulumi.get(self, "desired_state")
+
+    @desired_state.setter
+    def desired_state(self, value: Optional[pulumi.Input[Union[str, 'DesiredInstallationState']]]):
+        pulumi.set(self, "desired_state", value)
 
 
 @pulumi.input_type
@@ -562,8 +613,8 @@ class ManagedServiceIdentityArgs:
                  type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        Managed service identity (system assigned and/or user assigned identities)
-        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        Managed service identity (User assigned identity)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (currently only UserAssigned allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         pulumi.set(__self__, "type", type)
@@ -574,7 +625,7 @@ class ManagedServiceIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
         """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        Type of managed service identity (currently only UserAssigned allowed).
         """
         return pulumi.get(self, "type")
 

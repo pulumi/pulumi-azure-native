@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Packet core control plane resource.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
+ * Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
  */
 export class PacketCoreControlPlane extends pulumi.CustomResource {
     /**
@@ -47,13 +47,21 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
      */
     public readonly coreNetworkTechnology!: pulumi.Output<string | undefined>;
     /**
+     * Configuration for uploading packet core diagnostics
+     */
+    public readonly diagnosticsUpload!: pulumi.Output<outputs.mobilenetwork.DiagnosticsUploadConfigurationResponse | undefined>;
+    /**
      * The identity used to retrieve the ingress certificate from Azure key vault.
      */
     public readonly identity!: pulumi.Output<outputs.mobilenetwork.ManagedServiceIdentityResponse | undefined>;
     /**
      * The installation state of the packet core control plane resource.
      */
-    public /*out*/ readonly installation!: pulumi.Output<outputs.mobilenetwork.InstallationResponse>;
+    public readonly installation!: pulumi.Output<outputs.mobilenetwork.InstallationResponse | undefined>;
+    /**
+     * The currently installed version of the packet core software.
+     */
+    public /*out*/ readonly installedVersion!: pulumi.Output<string>;
     /**
      * Settings to allow interoperability with third party components e.g. RANs and UEs.
      */
@@ -107,7 +115,7 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
      */
     public readonly ueMtu!: pulumi.Output<number | undefined>;
     /**
-     * The version of the packet core software that is deployed.
+     * The desired version of the packet core software.
      */
     public readonly version!: pulumi.Output<string | undefined>;
 
@@ -142,7 +150,9 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
             }
             resourceInputs["controlPlaneAccessInterface"] = args ? args.controlPlaneAccessInterface : undefined;
             resourceInputs["coreNetworkTechnology"] = args ? args.coreNetworkTechnology : undefined;
+            resourceInputs["diagnosticsUpload"] = args ? args.diagnosticsUpload : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["installation"] = args ? (args.installation ? pulumi.output(args.installation).apply(inputs.mobilenetwork.installationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["interopSettings"] = args ? args.interopSettings : undefined;
             resourceInputs["localDiagnosticsAccess"] = args ? args.localDiagnosticsAccess : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -154,7 +164,7 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["ueMtu"] = (args ? args.ueMtu : undefined) ?? 1440;
             resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["installation"] = undefined /*out*/;
+            resourceInputs["installedVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["rollbackVersion"] = undefined /*out*/;
@@ -163,8 +173,10 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
         } else {
             resourceInputs["controlPlaneAccessInterface"] = undefined /*out*/;
             resourceInputs["coreNetworkTechnology"] = undefined /*out*/;
+            resourceInputs["diagnosticsUpload"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["installation"] = undefined /*out*/;
+            resourceInputs["installedVersion"] = undefined /*out*/;
             resourceInputs["interopSettings"] = undefined /*out*/;
             resourceInputs["localDiagnosticsAccess"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -200,9 +212,17 @@ export interface PacketCoreControlPlaneArgs {
      */
     coreNetworkTechnology?: pulumi.Input<string | enums.mobilenetwork.CoreNetworkType>;
     /**
+     * Configuration for uploading packet core diagnostics
+     */
+    diagnosticsUpload?: pulumi.Input<inputs.mobilenetwork.DiagnosticsUploadConfigurationArgs>;
+    /**
      * The identity used to retrieve the ingress certificate from Azure key vault.
      */
     identity?: pulumi.Input<inputs.mobilenetwork.ManagedServiceIdentityArgs>;
+    /**
+     * The installation state of the packet core control plane resource.
+     */
+    installation?: pulumi.Input<inputs.mobilenetwork.InstallationArgs>;
     /**
      * Settings to allow interoperability with third party components e.g. RANs and UEs.
      */
@@ -244,7 +264,7 @@ export interface PacketCoreControlPlaneArgs {
      */
     ueMtu?: pulumi.Input<number>;
     /**
-     * The version of the packet core software that is deployed.
+     * The desired version of the packet core software.
      */
     version?: pulumi.Input<string>;
 }

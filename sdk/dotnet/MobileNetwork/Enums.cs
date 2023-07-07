@@ -114,6 +114,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// EPC / 4G core
         /// </summary>
         public static CoreNetworkType EPC { get; } = new CoreNetworkType("EPC");
+        /// <summary>
+        /// Combined EPC / 4G and 5G core
+        /// </summary>
+        public static CoreNetworkType EPC_5GC { get; } = new CoreNetworkType("EPC + 5GC");
 
         public static bool operator ==(CoreNetworkType left, CoreNetworkType right) => left.Equals(right);
         public static bool operator !=(CoreNetworkType left, CoreNetworkType right) => !left.Equals(right);
@@ -131,7 +135,44 @@ namespace Pulumi.AzureNative.MobileNetwork
     }
 
     /// <summary>
-    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// The desired installation state
+    /// </summary>
+    [EnumType]
+    public readonly struct DesiredInstallationState : IEquatable<DesiredInstallationState>
+    {
+        private readonly string _value;
+
+        private DesiredInstallationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Don't install the packet core.
+        /// </summary>
+        public static DesiredInstallationState Uninstalled { get; } = new DesiredInstallationState("Uninstalled");
+        /// <summary>
+        /// Install the packet core.
+        /// </summary>
+        public static DesiredInstallationState Installed { get; } = new DesiredInstallationState("Installed");
+
+        public static bool operator ==(DesiredInstallationState left, DesiredInstallationState right) => left.Equals(right);
+        public static bool operator !=(DesiredInstallationState left, DesiredInstallationState right) => !left.Equals(right);
+
+        public static explicit operator string(DesiredInstallationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DesiredInstallationState other && Equals(other);
+        public bool Equals(DesiredInstallationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (currently only UserAssigned allowed).
     /// </summary>
     [EnumType]
     public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
@@ -144,9 +185,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         }
 
         public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
-        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
         public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
-        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
         public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);

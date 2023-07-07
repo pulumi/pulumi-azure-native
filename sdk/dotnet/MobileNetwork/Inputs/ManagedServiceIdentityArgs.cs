@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
 {
 
     /// <summary>
-    /// Managed service identity (system assigned and/or user assigned identities)
+    /// Managed service identity (User assigned identity)
     /// </summary>
     public sealed class ManagedServiceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        /// Type of managed service identity (currently only UserAssigned allowed).
         /// </summary>
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.ManagedServiceIdentityType> Type { get; set; } = null!;

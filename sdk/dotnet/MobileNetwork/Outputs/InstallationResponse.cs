@@ -17,21 +17,42 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
     public sealed class InstallationResponse
     {
         /// <summary>
+        /// The desired installation state
+        /// </summary>
+        public readonly string? DesiredState;
+        /// <summary>
         /// A reference to an in-progress installation operation
         /// </summary>
-        public readonly Outputs.AsyncOperationIdResponse? Operation;
+        public readonly Outputs.AsyncOperationIdResponse Operation;
+        /// <summary>
+        /// Reason(s) for the current installation state of the packet core.
+        /// </summary>
+        public readonly ImmutableArray<string> Reasons;
+        /// <summary>
+        /// Whether a reinstall of the packet core is required to pick up the latest configuration changes.
+        /// </summary>
+        public readonly string ReinstallRequired;
         /// <summary>
         /// Installation state
         /// </summary>
-        public readonly string? State;
+        public readonly string State;
 
         [OutputConstructor]
         private InstallationResponse(
-            Outputs.AsyncOperationIdResponse? operation,
+            string? desiredState,
 
-            string? state)
+            Outputs.AsyncOperationIdResponse operation,
+
+            ImmutableArray<string> reasons,
+
+            string reinstallRequired,
+
+            string state)
         {
+            DesiredState = desiredState;
             Operation = operation;
+            Reasons = reasons;
+            ReinstallRequired = reinstallRequired;
             State = state;
         }
     }

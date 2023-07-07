@@ -22,13 +22,16 @@ class GetPacketCoreControlPlaneResult:
     """
     Packet core control plane resource.
     """
-    def __init__(__self__, control_plane_access_interface=None, core_network_technology=None, id=None, identity=None, installation=None, interop_settings=None, local_diagnostics_access=None, location=None, name=None, platform=None, provisioning_state=None, rollback_version=None, sites=None, sku=None, system_data=None, tags=None, type=None, ue_mtu=None, version=None):
+    def __init__(__self__, control_plane_access_interface=None, core_network_technology=None, diagnostics_upload=None, id=None, identity=None, installation=None, installed_version=None, interop_settings=None, local_diagnostics_access=None, location=None, name=None, platform=None, provisioning_state=None, rollback_version=None, sites=None, sku=None, system_data=None, tags=None, type=None, ue_mtu=None, version=None):
         if control_plane_access_interface and not isinstance(control_plane_access_interface, dict):
             raise TypeError("Expected argument 'control_plane_access_interface' to be a dict")
         pulumi.set(__self__, "control_plane_access_interface", control_plane_access_interface)
         if core_network_technology and not isinstance(core_network_technology, str):
             raise TypeError("Expected argument 'core_network_technology' to be a str")
         pulumi.set(__self__, "core_network_technology", core_network_technology)
+        if diagnostics_upload and not isinstance(diagnostics_upload, dict):
+            raise TypeError("Expected argument 'diagnostics_upload' to be a dict")
+        pulumi.set(__self__, "diagnostics_upload", diagnostics_upload)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,6 +41,9 @@ class GetPacketCoreControlPlaneResult:
         if installation and not isinstance(installation, dict):
             raise TypeError("Expected argument 'installation' to be a dict")
         pulumi.set(__self__, "installation", installation)
+        if installed_version and not isinstance(installed_version, str):
+            raise TypeError("Expected argument 'installed_version' to be a str")
+        pulumi.set(__self__, "installed_version", installed_version)
         if interop_settings and not isinstance(interop_settings, dict):
             raise TypeError("Expected argument 'interop_settings' to be a dict")
         pulumi.set(__self__, "interop_settings", interop_settings)
@@ -98,10 +104,18 @@ class GetPacketCoreControlPlaneResult:
         return pulumi.get(self, "core_network_technology")
 
     @property
+    @pulumi.getter(name="diagnosticsUpload")
+    def diagnostics_upload(self) -> Optional['outputs.DiagnosticsUploadConfigurationResponse']:
+        """
+        Configuration for uploading packet core diagnostics
+        """
+        return pulumi.get(self, "diagnostics_upload")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -115,11 +129,19 @@ class GetPacketCoreControlPlaneResult:
 
     @property
     @pulumi.getter
-    def installation(self) -> 'outputs.InstallationResponse':
+    def installation(self) -> Optional['outputs.InstallationResponse']:
         """
         The installation state of the packet core control plane resource.
         """
         return pulumi.get(self, "installation")
+
+    @property
+    @pulumi.getter(name="installedVersion")
+    def installed_version(self) -> str:
+        """
+        The currently installed version of the packet core software.
+        """
+        return pulumi.get(self, "installed_version")
 
     @property
     @pulumi.getter(name="interopSettings")
@@ -229,7 +251,7 @@ class GetPacketCoreControlPlaneResult:
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        The version of the packet core software that is deployed.
+        The desired version of the packet core software.
         """
         return pulumi.get(self, "version")
 
@@ -242,9 +264,11 @@ class AwaitableGetPacketCoreControlPlaneResult(GetPacketCoreControlPlaneResult):
         return GetPacketCoreControlPlaneResult(
             control_plane_access_interface=self.control_plane_access_interface,
             core_network_technology=self.core_network_technology,
+            diagnostics_upload=self.diagnostics_upload,
             id=self.id,
             identity=self.identity,
             installation=self.installation,
+            installed_version=self.installed_version,
             interop_settings=self.interop_settings,
             local_diagnostics_access=self.local_diagnostics_access,
             location=self.location,
@@ -266,7 +290,7 @@ def get_packet_core_control_plane(packet_core_control_plane_name: Optional[str] 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCoreControlPlaneResult:
     """
     Gets information about the specified packet core control plane.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-06-01.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.
@@ -281,9 +305,11 @@ def get_packet_core_control_plane(packet_core_control_plane_name: Optional[str] 
     return AwaitableGetPacketCoreControlPlaneResult(
         control_plane_access_interface=__ret__.control_plane_access_interface,
         core_network_technology=__ret__.core_network_technology,
+        diagnostics_upload=__ret__.diagnostics_upload,
         id=__ret__.id,
         identity=__ret__.identity,
         installation=__ret__.installation,
+        installed_version=__ret__.installed_version,
         interop_settings=__ret__.interop_settings,
         local_diagnostics_access=__ret__.local_diagnostics_access,
         location=__ret__.location,
@@ -306,7 +332,7 @@ def get_packet_core_control_plane_output(packet_core_control_plane_name: Optiona
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPacketCoreControlPlaneResult]:
     """
     Gets information about the specified packet core control plane.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-06-01.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.
