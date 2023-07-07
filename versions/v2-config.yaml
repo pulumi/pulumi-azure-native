@@ -313,7 +313,9 @@ LabServices:
   exclusions:
     Lab: "2018-10-15"
     User: "2018-10-15"
-  notes: version 2018-10-15 is replaced by the newer one
+  notes: |
+    We only exclude older version of these resources to avoid path conflicts
+    https://learn.microsoft.com/en-us/rest/api/labservices/labs
 LoadTestService:
 Logic:
   expectAdditions: true
@@ -367,10 +369,10 @@ MachineLearningServices:
     # Renamed to listWorkspaceStorageAccountKeys
     listStorageAccountKeys: "2021-04-01"
   notes: |
-    MachineLearningCompute renamed to Compute.
-    The REST API docs only lists 2023-04-01
-    so can assume older additions aren't generally needed
     https://learn.microsoft.com/en-us/rest/api/azureml/
+    MachineLearningCompute renamed to Compute.
+    We only exclude older versions of linked workspace to avoid path conflicts. The preview versions are fine.
+    https://learn.microsoft.com/en-us/azure/templates/microsoft.machinelearningservices/workspaces/linkedworkspaces
 Maintenance:
   expectTracking: preview
   notes: No stable version since 2021
