@@ -124,15 +124,7 @@ AutonomousDevelopmentPlatform:
 AzureActiveDirectory:
     tracking: "2021-04-01"
 AzureArcData:
-    tracking: 2023-03-15-preview
-    additions:
-        ActiveDirectoryConnector: 2023-01-15-preview
-        DataController: 2023-01-15-preview
-        FailoverGroup: 2023-01-15-preview
-        PostgresInstance: 2023-01-15-preview
-        SqlManagedInstance: 2023-01-15-preview
-        SqlServerDatabase: 2023-01-15-preview
-        SqlServerInstance: 2023-01-15-preview
+    tracking: 2023-01-15-preview
 AzureData:
     tracking: 2019-07-24-preview
 AzureSphere:
