@@ -243,11 +243,6 @@
     "2020-01-01-privatepreview"
   ],
   "DBforMySQL": [
-    "2018-06-01",
-    "2018-06-01-privatepreview",
-    "2020-01-01",
-    "2020-01-01-privatepreview",
-    "2020-07-01-preview",
     "2020-07-01-privatepreview",
     "2021-05-01",
     "2021-05-01-preview",
@@ -256,24 +251,6 @@
     "2022-09-30-preview"
   ],
   "DBforPostgreSQL": [
-    "2018-06-01",
-    "2018-06-01-privatepreview",
-    "2020-01-01",
-    "2020-01-01-privatepreview",
-    "2020-02-14-preview",
-    "2020-02-14-privatepreview",
-    "2020-10-05-privatepreview",
-    "2020-11-05-preview",
-    "2021-03-31-privatepreview",
-    "2021-04-10-privatepreview",
-    "2021-06-01",
-    "2021-06-01-preview",
-    "2021-06-15-privatepreview",
-    "2022-01-20-preview",
-    "2022-03-08-preview",
-    "2022-03-08-privatepreview",
-    "2022-05-01-preview",
-    "2022-11-08",
     "2022-12-01",
     "2023-03-01-preview"
   ],

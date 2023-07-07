@@ -629,9 +629,7 @@
     "FirewallRule": "2022-01-01",
     "PrivateEndpointConnection": "2022-09-30-preview",
     "Server": "2022-01-01",
-    "ServerAdministrator": "2017-12-01-preview",
     "ServerKey": "2020-07-01-preview",
-    "VirtualNetworkRule": "2017-12-01-preview",
     "getGetPrivateDnsZoneSuffixExecute": "2022-01-01"
   },
   "DBforPostgreSQL": {
@@ -644,9 +642,6 @@
     "PrivateEndpointConnection": "2022-11-08",
     "Role": "2022-11-08",
     "Server": "2022-12-01",
-    "ServerAdministrator": "2017-12-01-preview",
-    "ServerSecurityAlertPolicy": "2017-12-01-preview",
-    "VirtualNetworkRule": "2017-12-01-preview",
     "getGetPrivateDnsZoneSuffixExecute": "2022-12-01"
   },
   "Dashboard": {

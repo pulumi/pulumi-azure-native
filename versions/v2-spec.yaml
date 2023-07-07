@@ -308,9 +308,7 @@ DBforMySQL:
     tracking: "2022-01-01"
     additions:
         PrivateEndpointConnection: 2022-09-30-preview
-        ServerAdministrator: 2017-12-01-preview
         ServerKey: 2020-07-01-preview
-        VirtualNetworkRule: 2017-12-01-preview
 DBforPostgreSQL:
     tracking: "2022-12-01"
     additions:
@@ -318,9 +316,6 @@ DBforPostgreSQL:
         Migration: 2023-03-01-preview
         PrivateEndpointConnection: "2022-11-08"
         Role: "2022-11-08"
-        ServerAdministrator: 2017-12-01-preview
-        ServerSecurityAlertPolicy: 2017-12-01-preview
-        VirtualNetworkRule: 2017-12-01-preview
 Dashboard:
     tracking: "2022-08-01"
 DataBox:
