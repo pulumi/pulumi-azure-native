@@ -424,6 +424,9 @@ NetworkCloud:
   notes: Only single preview version
 NetworkFunction:
 NotificationHubs:
+  notes: |
+    https://learn.microsoft.com/en-us/rest/api/notificationhubs/notification-hubs
+    Docs point to latest preview
 OffAzure:
   notes: Part of migrate https://learn.microsoft.com/en-us/rest/api/migrate/
 OpenEnergyPlatform:
@@ -464,6 +467,9 @@ ProfessionalService:
   expectTracking: preview
   notes: Only single preview version
 ProviderHub:
+  expectTracking: preview
+  notes: |
+    Can't find any docs
 Purview:
 Quantum:
   expectTracking: preview

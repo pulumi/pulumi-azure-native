@@ -576,9 +576,7 @@
     "2023-05-01-preview"
   ],
   "NetworkFunction": [],
-  "NotificationHubs": [
-    "2023-01-01-preview"
-  ],
+  "NotificationHubs": [],
   "OffAzure": [],
   "OpenEnergyPlatform": [],
   "OperationalInsights": [
