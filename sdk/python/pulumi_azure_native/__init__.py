@@ -10423,6 +10423,7 @@ _utilities.register(
    "azure-native:web:WebAppDiagnosticLogsConfiguration": "WebAppDiagnosticLogsConfiguration",
    "azure-native:web:WebAppDomainOwnershipIdentifier": "WebAppDomainOwnershipIdentifier",
    "azure-native:web:WebAppDomainOwnershipIdentifierSlot": "WebAppDomainOwnershipIdentifierSlot",
+   "azure-native:web:WebAppFtpAllowed": "WebAppFtpAllowed",
    "azure-native:web:WebAppFunction": "WebAppFunction",
    "azure-native:web:WebAppHostNameBinding": "WebAppHostNameBinding",
    "azure-native:web:WebAppHostNameBindingSlot": "WebAppHostNameBindingSlot",
@@ -10439,6 +10440,7 @@ _utilities.register(
    "azure-native:web:WebAppPublicCertificateSlot": "WebAppPublicCertificateSlot",
    "azure-native:web:WebAppRelayServiceConnection": "WebAppRelayServiceConnection",
    "azure-native:web:WebAppRelayServiceConnectionSlot": "WebAppRelayServiceConnectionSlot",
+   "azure-native:web:WebAppScmAllowed": "WebAppScmAllowed",
    "azure-native:web:WebAppSiteExtension": "WebAppSiteExtension",
    "azure-native:web:WebAppSiteExtensionSlot": "WebAppSiteExtensionSlot",
    "azure-native:web:WebAppSitePushSettings": "WebAppSitePushSettings",
@@ -10521,7 +10523,27 @@ _utilities.register(
   "mod": "web/v20190801",
   "fqn": "pulumi_azure_native.web.v20190801",
   "classes": {
-   "azure-native:web/v20190801:AppServiceEnvironment": "AppServiceEnvironment"
+   "azure-native:web/v20190801:AppServiceEnvironment": "AppServiceEnvironment",
+   "azure-native:web/v20190801:WebAppFtpAllowed": "WebAppFtpAllowed",
+   "azure-native:web/v20190801:WebAppScmAllowed": "WebAppScmAllowed"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "web/v20200601",
+  "fqn": "pulumi_azure_native.web.v20200601",
+  "classes": {
+   "azure-native:web/v20200601:WebAppFtpAllowed": "WebAppFtpAllowed",
+   "azure-native:web/v20200601:WebAppScmAllowed": "WebAppScmAllowed"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "web/v20200901",
+  "fqn": "pulumi_azure_native.web.v20200901",
+  "classes": {
+   "azure-native:web/v20200901:WebAppFtpAllowed": "WebAppFtpAllowed",
+   "azure-native:web/v20200901:WebAppScmAllowed": "WebAppScmAllowed"
   }
  },
  {
@@ -10552,6 +10574,7 @@ _utilities.register(
    "azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration": "WebAppDiagnosticLogsConfiguration",
    "azure-native:web/v20201001:WebAppDomainOwnershipIdentifier": "WebAppDomainOwnershipIdentifier",
    "azure-native:web/v20201001:WebAppDomainOwnershipIdentifierSlot": "WebAppDomainOwnershipIdentifierSlot",
+   "azure-native:web/v20201001:WebAppFtpAllowed": "WebAppFtpAllowed",
    "azure-native:web/v20201001:WebAppFunction": "WebAppFunction",
    "azure-native:web/v20201001:WebAppHostNameBinding": "WebAppHostNameBinding",
    "azure-native:web/v20201001:WebAppHostNameBindingSlot": "WebAppHostNameBindingSlot",
@@ -10567,6 +10590,7 @@ _utilities.register(
    "azure-native:web/v20201001:WebAppPublicCertificateSlot": "WebAppPublicCertificateSlot",
    "azure-native:web/v20201001:WebAppRelayServiceConnection": "WebAppRelayServiceConnection",
    "azure-native:web/v20201001:WebAppRelayServiceConnectionSlot": "WebAppRelayServiceConnectionSlot",
+   "azure-native:web/v20201001:WebAppScmAllowed": "WebAppScmAllowed",
    "azure-native:web/v20201001:WebAppSiteExtension": "WebAppSiteExtension",
    "azure-native:web/v20201001:WebAppSiteExtensionSlot": "WebAppSiteExtensionSlot",
    "azure-native:web/v20201001:WebAppSitePushSettings": "WebAppSitePushSettings",
@@ -10583,10 +10607,30 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "web/v20201201",
+  "fqn": "pulumi_azure_native.web.v20201201",
+  "classes": {
+   "azure-native:web/v20201201:WebAppFtpAllowed": "WebAppFtpAllowed",
+   "azure-native:web/v20201201:WebAppScmAllowed": "WebAppScmAllowed"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "web/v20210101",
+  "fqn": "pulumi_azure_native.web.v20210101",
+  "classes": {
+   "azure-native:web/v20210101:WebAppFtpAllowed": "WebAppFtpAllowed",
+   "azure-native:web/v20210101:WebAppScmAllowed": "WebAppScmAllowed"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "web/v20210115",
   "fqn": "pulumi_azure_native.web.v20210115",
   "classes": {
-   "azure-native:web/v20210115:AppServiceEnvironment": "AppServiceEnvironment"
+   "azure-native:web/v20210115:AppServiceEnvironment": "AppServiceEnvironment",
+   "azure-native:web/v20210115:WebAppFtpAllowed": "WebAppFtpAllowed",
+   "azure-native:web/v20210115:WebAppScmAllowed": "WebAppScmAllowed"
   }
  },
  {
@@ -10596,7 +10640,27 @@ _utilities.register(
   "classes": {
    "azure-native:web/v20210201:StaticSite": "StaticSite",
    "azure-native:web/v20210201:WebAppAuthSettingsV2": "WebAppAuthSettingsV2",
-   "azure-native:web/v20210201:WebAppAuthSettingsV2Slot": "WebAppAuthSettingsV2Slot"
+   "azure-native:web/v20210201:WebAppAuthSettingsV2Slot": "WebAppAuthSettingsV2Slot",
+   "azure-native:web/v20210201:WebAppFtpAllowed": "WebAppFtpAllowed",
+   "azure-native:web/v20210201:WebAppScmAllowed": "WebAppScmAllowed"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "web/v20210301",
+  "fqn": "pulumi_azure_native.web.v20210301",
+  "classes": {
+   "azure-native:web/v20210301:WebAppFtpAllowed": "WebAppFtpAllowed",
+   "azure-native:web/v20210301:WebAppScmAllowed": "WebAppScmAllowed"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "web/v20220301",
+  "fqn": "pulumi_azure_native.web.v20220301",
+  "classes": {
+   "azure-native:web/v20220301:WebAppFtpAllowed": "WebAppFtpAllowed",
+   "azure-native:web/v20220301:WebAppScmAllowed": "WebAppScmAllowed"
   }
  },
  {
@@ -10636,6 +10700,7 @@ _utilities.register(
    "azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration": "WebAppDiagnosticLogsConfiguration",
    "azure-native:web/v20220901:WebAppDomainOwnershipIdentifier": "WebAppDomainOwnershipIdentifier",
    "azure-native:web/v20220901:WebAppDomainOwnershipIdentifierSlot": "WebAppDomainOwnershipIdentifierSlot",
+   "azure-native:web/v20220901:WebAppFtpAllowed": "WebAppFtpAllowed",
    "azure-native:web/v20220901:WebAppFunction": "WebAppFunction",
    "azure-native:web/v20220901:WebAppHostNameBinding": "WebAppHostNameBinding",
    "azure-native:web/v20220901:WebAppHostNameBindingSlot": "WebAppHostNameBindingSlot",
@@ -10652,6 +10717,7 @@ _utilities.register(
    "azure-native:web/v20220901:WebAppPublicCertificateSlot": "WebAppPublicCertificateSlot",
    "azure-native:web/v20220901:WebAppRelayServiceConnection": "WebAppRelayServiceConnection",
    "azure-native:web/v20220901:WebAppRelayServiceConnectionSlot": "WebAppRelayServiceConnectionSlot",
+   "azure-native:web/v20220901:WebAppScmAllowed": "WebAppScmAllowed",
    "azure-native:web/v20220901:WebAppSiteExtension": "WebAppSiteExtension",
    "azure-native:web/v20220901:WebAppSiteExtensionSlot": "WebAppSiteExtensionSlot",
    "azure-native:web/v20220901:WebAppSitePushSettings": "WebAppSitePushSettings",

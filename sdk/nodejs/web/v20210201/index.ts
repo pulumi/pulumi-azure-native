@@ -10,6 +10,16 @@ export const getStaticSite: typeof import("./getStaticSite").getStaticSite = nul
 export const getStaticSiteOutput: typeof import("./getStaticSite").getStaticSiteOutput = null as any;
 utilities.lazyLoad(exports, ["getStaticSite","getStaticSiteOutput"], () => require("./getStaticSite"));
 
+export { GetWebAppFtpAllowedArgs, GetWebAppFtpAllowedResult, GetWebAppFtpAllowedOutputArgs } from "./getWebAppFtpAllowed";
+export const getWebAppFtpAllowed: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowed = null as any;
+export const getWebAppFtpAllowedOutput: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowedOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppFtpAllowed","getWebAppFtpAllowedOutput"], () => require("./getWebAppFtpAllowed"));
+
+export { GetWebAppScmAllowedArgs, GetWebAppScmAllowedResult, GetWebAppScmAllowedOutputArgs } from "./getWebAppScmAllowed";
+export const getWebAppScmAllowed: typeof import("./getWebAppScmAllowed").getWebAppScmAllowed = null as any;
+export const getWebAppScmAllowedOutput: typeof import("./getWebAppScmAllowed").getWebAppScmAllowedOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppScmAllowed","getWebAppScmAllowedOutput"], () => require("./getWebAppScmAllowed"));
+
 export { ListSiteIdentifiersAssignedToHostNameArgs, ListSiteIdentifiersAssignedToHostNameResult, ListSiteIdentifiersAssignedToHostNameOutputArgs } from "./listSiteIdentifiersAssignedToHostName";
 export const listSiteIdentifiersAssignedToHostName: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostName = null as any;
 export const listSiteIdentifiersAssignedToHostNameOutput: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostNameOutput = null as any;
@@ -65,6 +75,16 @@ export type WebAppAuthSettingsV2Slot = import("./webAppAuthSettingsV2Slot").WebA
 export const WebAppAuthSettingsV2Slot: typeof import("./webAppAuthSettingsV2Slot").WebAppAuthSettingsV2Slot = null as any;
 utilities.lazyLoad(exports, ["WebAppAuthSettingsV2Slot"], () => require("./webAppAuthSettingsV2Slot"));
 
+export { WebAppFtpAllowedArgs } from "./webAppFtpAllowed";
+export type WebAppFtpAllowed = import("./webAppFtpAllowed").WebAppFtpAllowed;
+export const WebAppFtpAllowed: typeof import("./webAppFtpAllowed").WebAppFtpAllowed = null as any;
+utilities.lazyLoad(exports, ["WebAppFtpAllowed"], () => require("./webAppFtpAllowed"));
+
+export { WebAppScmAllowedArgs } from "./webAppScmAllowed";
+export type WebAppScmAllowed = import("./webAppScmAllowed").WebAppScmAllowed;
+export const WebAppScmAllowed: typeof import("./webAppScmAllowed").WebAppScmAllowed = null as any;
+utilities.lazyLoad(exports, ["WebAppScmAllowed"], () => require("./webAppScmAllowed"));
+
 
 // Export enums:
 export * from "../../types/enums/web/v20210201";
@@ -79,6 +99,10 @@ const _module = {
                 return new WebAppAuthSettingsV2(name, <any>undefined, { urn })
             case "azure-native:web/v20210201:WebAppAuthSettingsV2Slot":
                 return new WebAppAuthSettingsV2Slot(name, <any>undefined, { urn })
+            case "azure-native:web/v20210201:WebAppFtpAllowed":
+                return new WebAppFtpAllowed(name, <any>undefined, { urn })
+            case "azure-native:web/v20210201:WebAppScmAllowed":
+                return new WebAppScmAllowed(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

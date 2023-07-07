@@ -22,8 +22,6 @@ make ensure
 make build
 ```
 
-Add the `bin` folder to your `$PATH` or copy the `bin/pulumi-resource-azurerm` file to another location in your `$PATH`.
-
 Note: When building via make, go workspaces are ignored.
 
 ### Running a nodejs example
@@ -31,6 +29,7 @@ Note: When building via make, go workspaces are ignored.
 Navigate to one of the `examples` and run Pulumi:
 
 ```bash
+make install
 cd ./examples/simple
 yarn link @pulumi/azure-native
 pulumi up
