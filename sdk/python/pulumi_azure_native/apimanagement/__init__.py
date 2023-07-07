@@ -125,6 +125,7 @@ from .group_user import *
 from .identity_provider import *
 from .list_authorization_server_secrets import *
 from .list_delegation_setting_secrets import *
+from .list_gateway_debug_credentials import *
 from .list_gateway_keys import *
 from .list_identity_provider_secrets import *
 from .list_named_value import *
@@ -220,6 +221,8 @@ if typing.TYPE_CHECKING:
     v20220801 = __v20220801
     import pulumi_azure_native.apimanagement.v20220901preview as __v20220901preview
     v20220901preview = __v20220901preview
+    import pulumi_azure_native.apimanagement.v20230301preview as __v20230301preview
+    v20230301preview = __v20230301preview
 else:
     v20161010 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20161010')
     v20170301 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20170301')
@@ -236,4 +239,5 @@ else:
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20220401preview')
     v20220801 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20220801')
     v20220901preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20220901preview')
+    v20230301preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20230301preview')
 

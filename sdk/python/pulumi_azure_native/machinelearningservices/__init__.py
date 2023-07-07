@@ -80,6 +80,7 @@ from .list_datastore_secrets import *
 from .list_featureset_version_features import *
 from .list_featureset_version_materialization_jobs import *
 from .list_online_endpoint_keys import *
+from .list_workspace_connection_secrets import *
 from .list_workspace_keys import *
 from .list_workspace_notebook_access_token import *
 from .list_workspace_notebook_keys import *
@@ -133,6 +134,8 @@ if typing.TYPE_CHECKING:
     v20230401 = __v20230401
     import pulumi_azure_native.machinelearningservices.v20230401preview as __v20230401preview
     v20230401preview = __v20230401preview
+    import pulumi_azure_native.machinelearningservices.v20230601preview as __v20230601preview
+    v20230601preview = __v20230601preview
 else:
     v20200501preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200501preview')
     v20200515preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200515preview')
@@ -145,4 +148,5 @@ else:
     v20230201preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230201preview')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230401')
     v20230401preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230401preview')
+    v20230601preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230601preview')
 

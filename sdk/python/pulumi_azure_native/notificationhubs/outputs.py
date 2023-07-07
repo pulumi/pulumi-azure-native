@@ -8,18 +8,99 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AdmCredentialPropertiesResponse',
     'AdmCredentialResponse',
+    'ApnsCredentialPropertiesResponse',
     'ApnsCredentialResponse',
+    'BaiduCredentialPropertiesResponse',
     'BaiduCredentialResponse',
+    'BrowserCredentialPropertiesResponse',
+    'BrowserCredentialResponse',
+    'GcmCredentialPropertiesResponse',
     'GcmCredentialResponse',
+    'MpnsCredentialPropertiesResponse',
     'MpnsCredentialResponse',
+    'PnsCredentialsResponse',
+    'PrivateEndpointConnectionPropertiesResponse',
+    'RemotePrivateEndpointConnectionResponse',
+    'RemotePrivateLinkServiceConnectionStateResponse',
     'SharedAccessAuthorizationRulePropertiesResponse',
     'SkuResponse',
+    'SystemDataResponse',
+    'WnsCredentialPropertiesResponse',
     'WnsCredentialResponse',
+    'XiaomiCredentialPropertiesResponse',
+    'XiaomiCredentialResponse',
 ]
+
+@pulumi.output_type
+class AdmCredentialPropertiesResponse(dict):
+    """
+    Description of a NotificationHub AdmCredential.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authTokenUrl":
+            suggest = "auth_token_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdmCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdmCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdmCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_token_url: str,
+                 client_id: str,
+                 client_secret: str):
+        """
+        Description of a NotificationHub AdmCredential.
+        :param str auth_token_url: Gets or sets the URL of the authorization token.
+        :param str client_id: Gets or sets the client identifier.
+        :param str client_secret: Gets or sets the credential secret access key.
+        """
+        pulumi.set(__self__, "auth_token_url", auth_token_url)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @property
+    @pulumi.getter(name="authTokenUrl")
+    def auth_token_url(self) -> str:
+        """
+        Gets or sets the URL of the authorization token.
+        """
+        return pulumi.get(self, "auth_token_url")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Gets or sets the client identifier.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> str:
+        """
+        Gets or sets the credential secret access key.
+        """
+        return pulumi.get(self, "client_secret")
+
 
 @pulumi.output_type
 class AdmCredentialResponse(dict):
@@ -50,12 +131,14 @@ class AdmCredentialResponse(dict):
     def __init__(__self__, *,
                  auth_token_url: Optional[str] = None,
                  client_id: Optional[str] = None,
-                 client_secret: Optional[str] = None):
+                 client_secret: Optional[str] = None,
+                 properties: Optional['outputs.AdmCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub AdmCredential.
         :param str auth_token_url: The URL of the authorization token.
         :param str client_id: The client identifier.
         :param str client_secret: The credential secret access key.
+        :param 'AdmCredentialPropertiesResponse' properties: Description of a NotificationHub AdmCredential.
         """
         if auth_token_url is not None:
             pulumi.set(__self__, "auth_token_url", auth_token_url)
@@ -63,6 +146,8 @@ class AdmCredentialResponse(dict):
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="authTokenUrl")
@@ -87,6 +172,151 @@ class AdmCredentialResponse(dict):
         The credential secret access key.
         """
         return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.AdmCredentialPropertiesResponse']:
+        """
+        Description of a NotificationHub AdmCredential.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class ApnsCredentialPropertiesResponse(dict):
+    """
+    Description of a NotificationHub ApnsCredential.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apnsCertificate":
+            suggest = "apns_certificate"
+        elif key == "appId":
+            suggest = "app_id"
+        elif key == "appName":
+            suggest = "app_name"
+        elif key == "certificateKey":
+            suggest = "certificate_key"
+        elif key == "keyId":
+            suggest = "key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApnsCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApnsCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApnsCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint: str,
+                 apns_certificate: Optional[str] = None,
+                 app_id: Optional[str] = None,
+                 app_name: Optional[str] = None,
+                 certificate_key: Optional[str] = None,
+                 key_id: Optional[str] = None,
+                 thumbprint: Optional[str] = None,
+                 token: Optional[str] = None):
+        """
+        Description of a NotificationHub ApnsCredential.
+        :param str endpoint: Gets or sets the endpoint of this credential.
+        :param str apns_certificate: Gets or sets the APNS certificate.
+        :param str app_id: Gets or sets the issuer (iss) registered claim key, whose value is
+               your 10-character Team ID, obtained from your developer account
+        :param str app_name: Gets or sets the name of the application
+        :param str certificate_key: Gets or sets the certificate key.
+        :param str key_id: Gets or sets a 10-character key identifier (kid) key, obtained from
+               your developer account
+        :param str thumbprint: Gets or sets the APNS certificate Thumbprint
+        :param str token: Gets or sets provider Authentication Token, obtained through your
+               developer account
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        if apns_certificate is not None:
+            pulumi.set(__self__, "apns_certificate", apns_certificate)
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if app_name is not None:
+            pulumi.set(__self__, "app_name", app_name)
+        if certificate_key is not None:
+            pulumi.set(__self__, "certificate_key", certificate_key)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+        if token is not None:
+            pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        Gets or sets the endpoint of this credential.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="apnsCertificate")
+    def apns_certificate(self) -> Optional[str]:
+        """
+        Gets or sets the APNS certificate.
+        """
+        return pulumi.get(self, "apns_certificate")
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[str]:
+        """
+        Gets or sets the issuer (iss) registered claim key, whose value is
+        your 10-character Team ID, obtained from your developer account
+        """
+        return pulumi.get(self, "app_id")
+
+    @property
+    @pulumi.getter(name="appName")
+    def app_name(self) -> Optional[str]:
+        """
+        Gets or sets the name of the application
+        """
+        return pulumi.get(self, "app_name")
+
+    @property
+    @pulumi.getter(name="certificateKey")
+    def certificate_key(self) -> Optional[str]:
+        """
+        Gets or sets the certificate key.
+        """
+        return pulumi.get(self, "certificate_key")
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[str]:
+        """
+        Gets or sets a 10-character key identifier (kid) key, obtained from
+        your developer account
+        """
+        return pulumi.get(self, "key_id")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        Gets or sets the APNS certificate Thumbprint
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter
+    def token(self) -> Optional[str]:
+        """
+        Gets or sets provider Authentication Token, obtained through your
+        developer account
+        """
+        return pulumi.get(self, "token")
 
 
 @pulumi.output_type
@@ -126,6 +356,7 @@ class ApnsCredentialResponse(dict):
                  certificate_key: Optional[str] = None,
                  endpoint: Optional[str] = None,
                  key_id: Optional[str] = None,
+                 properties: Optional['outputs.ApnsCredentialPropertiesResponse'] = None,
                  thumbprint: Optional[str] = None,
                  token: Optional[str] = None):
         """
@@ -136,6 +367,7 @@ class ApnsCredentialResponse(dict):
         :param str certificate_key: The APNS certificate password if it exists.
         :param str endpoint: The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
         :param str key_id: A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
+        :param 'ApnsCredentialPropertiesResponse' properties: Description of a NotificationHub ApnsCredential.
         :param str thumbprint: The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
         :param str token: Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
         """
@@ -151,6 +383,8 @@ class ApnsCredentialResponse(dict):
             pulumi.set(__self__, "endpoint", endpoint)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if thumbprint is not None:
             pulumi.set(__self__, "thumbprint", thumbprint)
         if token is not None:
@@ -206,6 +440,14 @@ class ApnsCredentialResponse(dict):
 
     @property
     @pulumi.getter
+    def properties(self) -> Optional['outputs.ApnsCredentialPropertiesResponse']:
+        """
+        Description of a NotificationHub ApnsCredential.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def thumbprint(self) -> Optional[str]:
         """
         The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
@@ -219,6 +461,71 @@ class ApnsCredentialResponse(dict):
         Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
         """
         return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class BaiduCredentialPropertiesResponse(dict):
+    """
+    Description of a NotificationHub BaiduCredential.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baiduApiKey":
+            suggest = "baidu_api_key"
+        elif key == "baiduEndPoint":
+            suggest = "baidu_end_point"
+        elif key == "baiduSecretKey":
+            suggest = "baidu_secret_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BaiduCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BaiduCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BaiduCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 baidu_api_key: str,
+                 baidu_end_point: str,
+                 baidu_secret_key: str):
+        """
+        Description of a NotificationHub BaiduCredential.
+        :param str baidu_api_key: Gets or sets baidu Api Key.
+        :param str baidu_end_point: Gets or sets baidu Endpoint.
+        :param str baidu_secret_key: Gets or sets baidu Secret Key
+        """
+        pulumi.set(__self__, "baidu_api_key", baidu_api_key)
+        pulumi.set(__self__, "baidu_end_point", baidu_end_point)
+        pulumi.set(__self__, "baidu_secret_key", baidu_secret_key)
+
+    @property
+    @pulumi.getter(name="baiduApiKey")
+    def baidu_api_key(self) -> str:
+        """
+        Gets or sets baidu Api Key.
+        """
+        return pulumi.get(self, "baidu_api_key")
+
+    @property
+    @pulumi.getter(name="baiduEndPoint")
+    def baidu_end_point(self) -> str:
+        """
+        Gets or sets baidu Endpoint.
+        """
+        return pulumi.get(self, "baidu_end_point")
+
+    @property
+    @pulumi.getter(name="baiduSecretKey")
+    def baidu_secret_key(self) -> str:
+        """
+        Gets or sets baidu Secret Key
+        """
+        return pulumi.get(self, "baidu_secret_key")
 
 
 @pulumi.output_type
@@ -250,12 +557,14 @@ class BaiduCredentialResponse(dict):
     def __init__(__self__, *,
                  baidu_api_key: Optional[str] = None,
                  baidu_end_point: Optional[str] = None,
-                 baidu_secret_key: Optional[str] = None):
+                 baidu_secret_key: Optional[str] = None,
+                 properties: Optional['outputs.BaiduCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub BaiduCredential.
         :param str baidu_api_key: Baidu Api Key.
         :param str baidu_end_point: Baidu Endpoint.
         :param str baidu_secret_key: Baidu Secret Key
+        :param 'BaiduCredentialPropertiesResponse' properties: Description of a NotificationHub BaiduCredential.
         """
         if baidu_api_key is not None:
             pulumi.set(__self__, "baidu_api_key", baidu_api_key)
@@ -263,6 +572,8 @@ class BaiduCredentialResponse(dict):
             pulumi.set(__self__, "baidu_end_point", baidu_end_point)
         if baidu_secret_key is not None:
             pulumi.set(__self__, "baidu_secret_key", baidu_secret_key)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="baiduApiKey")
@@ -287,6 +598,133 @@ class BaiduCredentialResponse(dict):
         Baidu Secret Key
         """
         return pulumi.get(self, "baidu_secret_key")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.BaiduCredentialPropertiesResponse']:
+        """
+        Description of a NotificationHub BaiduCredential.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class BrowserCredentialPropertiesResponse(dict):
+    """
+    Description of a NotificationHub BrowserCredential.
+    """
+    def __init__(__self__, *,
+                 subject: str,
+                 vapid_private_key: str,
+                 vapid_public_key: str):
+        """
+        Description of a NotificationHub BrowserCredential.
+        :param str subject: Gets or sets web push subject.
+        :param str vapid_private_key: Gets or sets VAPID private key.
+        :param str vapid_public_key: Gets or sets VAPID public key.
+        """
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "vapid_private_key", vapid_private_key)
+        pulumi.set(__self__, "vapid_public_key", vapid_public_key)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> str:
+        """
+        Gets or sets web push subject.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter(name="vapidPrivateKey")
+    def vapid_private_key(self) -> str:
+        """
+        Gets or sets VAPID private key.
+        """
+        return pulumi.get(self, "vapid_private_key")
+
+    @property
+    @pulumi.getter(name="vapidPublicKey")
+    def vapid_public_key(self) -> str:
+        """
+        Gets or sets VAPID public key.
+        """
+        return pulumi.get(self, "vapid_public_key")
+
+
+@pulumi.output_type
+class BrowserCredentialResponse(dict):
+    """
+    Description of a NotificationHub BrowserCredential.
+    """
+    def __init__(__self__, *,
+                 properties: 'outputs.BrowserCredentialPropertiesResponse'):
+        """
+        Description of a NotificationHub BrowserCredential.
+        :param 'BrowserCredentialPropertiesResponse' properties: Description of a NotificationHub BrowserCredential.
+        """
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.BrowserCredentialPropertiesResponse':
+        """
+        Description of a NotificationHub BrowserCredential.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class GcmCredentialPropertiesResponse(dict):
+    """
+    Description of a NotificationHub GcmCredential.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "googleApiKey":
+            suggest = "google_api_key"
+        elif key == "gcmEndpoint":
+            suggest = "gcm_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GcmCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GcmCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GcmCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 google_api_key: str,
+                 gcm_endpoint: Optional[str] = None):
+        """
+        Description of a NotificationHub GcmCredential.
+        :param str google_api_key: Gets or sets the Google API key.
+        :param str gcm_endpoint: Gets or sets the GCM endpoint.
+        """
+        pulumi.set(__self__, "google_api_key", google_api_key)
+        if gcm_endpoint is not None:
+            pulumi.set(__self__, "gcm_endpoint", gcm_endpoint)
+
+    @property
+    @pulumi.getter(name="googleApiKey")
+    def google_api_key(self) -> str:
+        """
+        Gets or sets the Google API key.
+        """
+        return pulumi.get(self, "google_api_key")
+
+    @property
+    @pulumi.getter(name="gcmEndpoint")
+    def gcm_endpoint(self) -> Optional[str]:
+        """
+        Gets or sets the GCM endpoint.
+        """
+        return pulumi.get(self, "gcm_endpoint")
 
 
 @pulumi.output_type
@@ -315,16 +753,20 @@ class GcmCredentialResponse(dict):
 
     def __init__(__self__, *,
                  gcm_endpoint: Optional[str] = None,
-                 google_api_key: Optional[str] = None):
+                 google_api_key: Optional[str] = None,
+                 properties: Optional['outputs.GcmCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub GcmCredential.
         :param str gcm_endpoint: The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
         :param str google_api_key: The Google API key.
+        :param 'GcmCredentialPropertiesResponse' properties: Description of a NotificationHub GcmCredential.
         """
         if gcm_endpoint is not None:
             pulumi.set(__self__, "gcm_endpoint", gcm_endpoint)
         if google_api_key is not None:
             pulumi.set(__self__, "google_api_key", google_api_key)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="gcmEndpoint")
@@ -341,6 +783,77 @@ class GcmCredentialResponse(dict):
         The Google API key.
         """
         return pulumi.get(self, "google_api_key")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.GcmCredentialPropertiesResponse']:
+        """
+        Description of a NotificationHub GcmCredential.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class MpnsCredentialPropertiesResponse(dict):
+    """
+    Description of a NotificationHub MpnsCredential.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateKey":
+            suggest = "certificate_key"
+        elif key == "mpnsCertificate":
+            suggest = "mpns_certificate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MpnsCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MpnsCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MpnsCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_key: str,
+                 mpns_certificate: str,
+                 thumbprint: str):
+        """
+        Description of a NotificationHub MpnsCredential.
+        :param str certificate_key: Gets or sets the certificate key for this credential.
+        :param str mpns_certificate: Gets or sets the MPNS certificate.
+        :param str thumbprint: Gets or sets the MPNS certificate Thumbprint
+        """
+        pulumi.set(__self__, "certificate_key", certificate_key)
+        pulumi.set(__self__, "mpns_certificate", mpns_certificate)
+        pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="certificateKey")
+    def certificate_key(self) -> str:
+        """
+        Gets or sets the certificate key for this credential.
+        """
+        return pulumi.get(self, "certificate_key")
+
+    @property
+    @pulumi.getter(name="mpnsCertificate")
+    def mpns_certificate(self) -> str:
+        """
+        Gets or sets the MPNS certificate.
+        """
+        return pulumi.get(self, "mpns_certificate")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        """
+        Gets or sets the MPNS certificate Thumbprint
+        """
+        return pulumi.get(self, "thumbprint")
 
 
 @pulumi.output_type
@@ -370,17 +883,21 @@ class MpnsCredentialResponse(dict):
     def __init__(__self__, *,
                  certificate_key: Optional[str] = None,
                  mpns_certificate: Optional[str] = None,
+                 properties: Optional['outputs.MpnsCredentialPropertiesResponse'] = None,
                  thumbprint: Optional[str] = None):
         """
         Description of a NotificationHub MpnsCredential.
         :param str certificate_key: The certificate key for this credential.
         :param str mpns_certificate: The MPNS certificate.
+        :param 'MpnsCredentialPropertiesResponse' properties: Description of a NotificationHub MpnsCredential.
         :param str thumbprint: The MPNS certificate Thumbprint
         """
         if certificate_key is not None:
             pulumi.set(__self__, "certificate_key", certificate_key)
         if mpns_certificate is not None:
             pulumi.set(__self__, "mpns_certificate", mpns_certificate)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if thumbprint is not None:
             pulumi.set(__self__, "thumbprint", thumbprint)
 
@@ -402,11 +919,291 @@ class MpnsCredentialResponse(dict):
 
     @property
     @pulumi.getter
+    def properties(self) -> Optional['outputs.MpnsCredentialPropertiesResponse']:
+        """
+        Description of a NotificationHub MpnsCredential.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
     def thumbprint(self) -> Optional[str]:
         """
         The MPNS certificate Thumbprint
         """
         return pulumi.get(self, "thumbprint")
+
+
+@pulumi.output_type
+class PnsCredentialsResponse(dict):
+    """
+    Collection of Notification Hub or Notification Hub Namespace PNS credentials.
+    """
+    def __init__(__self__, *,
+                 adm_credential: Optional['outputs.AdmCredentialResponse'] = None,
+                 apns_credential: Optional['outputs.ApnsCredentialResponse'] = None,
+                 baidu_credential: Optional['outputs.BaiduCredentialResponse'] = None,
+                 browser_credential: Optional['outputs.BrowserCredentialResponse'] = None,
+                 gcm_credential: Optional['outputs.GcmCredentialResponse'] = None,
+                 mpns_credential: Optional['outputs.MpnsCredentialResponse'] = None,
+                 wns_credential: Optional['outputs.WnsCredentialResponse'] = None,
+                 xiaomi_credential: Optional['outputs.XiaomiCredentialResponse'] = None):
+        """
+        Collection of Notification Hub or Notification Hub Namespace PNS credentials.
+        :param 'AdmCredentialResponse' adm_credential: Description of a NotificationHub AdmCredential.
+        :param 'ApnsCredentialResponse' apns_credential: Description of a NotificationHub ApnsCredential.
+        :param 'BaiduCredentialResponse' baidu_credential: Description of a NotificationHub BaiduCredential.
+        :param 'BrowserCredentialResponse' browser_credential: Description of a NotificationHub BrowserCredential.
+        :param 'GcmCredentialResponse' gcm_credential: Description of a NotificationHub GcmCredential.
+        :param 'MpnsCredentialResponse' mpns_credential: Description of a NotificationHub MpnsCredential.
+        :param 'WnsCredentialResponse' wns_credential: Description of a NotificationHub WnsCredential.
+        :param 'XiaomiCredentialResponse' xiaomi_credential: Description of a NotificationHub XiaomiCredential.
+        """
+        if adm_credential is not None:
+            pulumi.set(__self__, "adm_credential", adm_credential)
+        if apns_credential is not None:
+            pulumi.set(__self__, "apns_credential", apns_credential)
+        if baidu_credential is not None:
+            pulumi.set(__self__, "baidu_credential", baidu_credential)
+        if browser_credential is not None:
+            pulumi.set(__self__, "browser_credential", browser_credential)
+        if gcm_credential is not None:
+            pulumi.set(__self__, "gcm_credential", gcm_credential)
+        if mpns_credential is not None:
+            pulumi.set(__self__, "mpns_credential", mpns_credential)
+        if wns_credential is not None:
+            pulumi.set(__self__, "wns_credential", wns_credential)
+        if xiaomi_credential is not None:
+            pulumi.set(__self__, "xiaomi_credential", xiaomi_credential)
+
+    @property
+    @pulumi.getter(name="admCredential")
+    def adm_credential(self) -> Optional['outputs.AdmCredentialResponse']:
+        """
+        Description of a NotificationHub AdmCredential.
+        """
+        return pulumi.get(self, "adm_credential")
+
+    @property
+    @pulumi.getter(name="apnsCredential")
+    def apns_credential(self) -> Optional['outputs.ApnsCredentialResponse']:
+        """
+        Description of a NotificationHub ApnsCredential.
+        """
+        return pulumi.get(self, "apns_credential")
+
+    @property
+    @pulumi.getter(name="baiduCredential")
+    def baidu_credential(self) -> Optional['outputs.BaiduCredentialResponse']:
+        """
+        Description of a NotificationHub BaiduCredential.
+        """
+        return pulumi.get(self, "baidu_credential")
+
+    @property
+    @pulumi.getter(name="browserCredential")
+    def browser_credential(self) -> Optional['outputs.BrowserCredentialResponse']:
+        """
+        Description of a NotificationHub BrowserCredential.
+        """
+        return pulumi.get(self, "browser_credential")
+
+    @property
+    @pulumi.getter(name="gcmCredential")
+    def gcm_credential(self) -> Optional['outputs.GcmCredentialResponse']:
+        """
+        Description of a NotificationHub GcmCredential.
+        """
+        return pulumi.get(self, "gcm_credential")
+
+    @property
+    @pulumi.getter(name="mpnsCredential")
+    def mpns_credential(self) -> Optional['outputs.MpnsCredentialResponse']:
+        """
+        Description of a NotificationHub MpnsCredential.
+        """
+        return pulumi.get(self, "mpns_credential")
+
+    @property
+    @pulumi.getter(name="wnsCredential")
+    def wns_credential(self) -> Optional['outputs.WnsCredentialResponse']:
+        """
+        Description of a NotificationHub WnsCredential.
+        """
+        return pulumi.get(self, "wns_credential")
+
+    @property
+    @pulumi.getter(name="xiaomiCredential")
+    def xiaomi_credential(self) -> Optional['outputs.XiaomiCredentialResponse']:
+        """
+        Description of a NotificationHub XiaomiCredential.
+        """
+        return pulumi.get(self, "xiaomi_credential")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionPropertiesResponse(dict):
+    """
+    Private Endpoint Connection properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Sequence[str],
+                 private_endpoint: Optional['outputs.RemotePrivateEndpointConnectionResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.RemotePrivateLinkServiceConnectionStateResponse'] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        Private Endpoint Connection properties.
+        :param Sequence[str] group_ids: List of group ids. For Notification Hubs, it always contains a single "namespace" element.
+        :param 'RemotePrivateEndpointConnectionResponse' private_endpoint: Represents a Private Endpoint that is connected to Notification Hubs namespace using Private Endpoint Connection.
+        :param 'RemotePrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: State of the Private Link Service connection.
+        :param str provisioning_state: State of Private Endpoint Connection.
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        List of group ids. For Notification Hubs, it always contains a single "namespace" element.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.RemotePrivateEndpointConnectionResponse']:
+        """
+        Represents a Private Endpoint that is connected to Notification Hubs namespace using Private Endpoint Connection.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.RemotePrivateLinkServiceConnectionStateResponse']:
+        """
+        State of the Private Link Service connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        State of Private Endpoint Connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class RemotePrivateEndpointConnectionResponse(dict):
+    """
+    Represents a Private Endpoint that is connected to Notification Hubs namespace using Private Endpoint Connection.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Represents a Private Endpoint that is connected to Notification Hubs namespace using Private Endpoint Connection.
+        :param str id: ARM resource ID of the Private Endpoint. This may belong to different subscription and resource group than a Notification Hubs namespace.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ARM resource ID of the Private Endpoint. This may belong to different subscription and resource group than a Notification Hubs namespace.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class RemotePrivateLinkServiceConnectionStateResponse(dict):
+    """
+    State of the Private Link Service connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemotePrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemotePrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemotePrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_required: str,
+                 description: str,
+                 status: Optional[str] = None):
+        """
+        State of the Private Link Service connection.
+        :param str actions_required: Human-friendly description of required actions.
+        :param str description: Human-friendly description.
+        :param str status: State of Private Link Connection.
+        """
+        pulumi.set(__self__, "actions_required", actions_required)
+        pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> str:
+        """
+        Human-friendly description of required actions.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Human-friendly description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        State of Private Link Connection.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -620,6 +1417,212 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class WnsCredentialPropertiesResponse(dict):
+    """
+    Description of a NotificationHub WnsCredential.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateKey":
+            suggest = "certificate_key"
+        elif key == "packageSid":
+            suggest = "package_sid"
+        elif key == "secretKey":
+            suggest = "secret_key"
+        elif key == "windowsLiveEndpoint":
+            suggest = "windows_live_endpoint"
+        elif key == "wnsCertificate":
+            suggest = "wns_certificate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WnsCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WnsCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WnsCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_key: Optional[str] = None,
+                 package_sid: Optional[str] = None,
+                 secret_key: Optional[str] = None,
+                 windows_live_endpoint: Optional[str] = None,
+                 wns_certificate: Optional[str] = None):
+        """
+        Description of a NotificationHub WnsCredential.
+        :param str certificate_key: Ges or sets the WNS Certificate Key.
+        :param str package_sid: Gets or sets the package ID for this credential.
+        :param str secret_key: Gets or sets the secret key.
+        :param str windows_live_endpoint: Gets or sets the Windows Live endpoint.
+        :param str wns_certificate: Gets or sets the WNS Certificate.
+        """
+        if certificate_key is not None:
+            pulumi.set(__self__, "certificate_key", certificate_key)
+        if package_sid is not None:
+            pulumi.set(__self__, "package_sid", package_sid)
+        if secret_key is not None:
+            pulumi.set(__self__, "secret_key", secret_key)
+        if windows_live_endpoint is not None:
+            pulumi.set(__self__, "windows_live_endpoint", windows_live_endpoint)
+        if wns_certificate is not None:
+            pulumi.set(__self__, "wns_certificate", wns_certificate)
+
+    @property
+    @pulumi.getter(name="certificateKey")
+    def certificate_key(self) -> Optional[str]:
+        """
+        Ges or sets the WNS Certificate Key.
+        """
+        return pulumi.get(self, "certificate_key")
+
+    @property
+    @pulumi.getter(name="packageSid")
+    def package_sid(self) -> Optional[str]:
+        """
+        Gets or sets the package ID for this credential.
+        """
+        return pulumi.get(self, "package_sid")
+
+    @property
+    @pulumi.getter(name="secretKey")
+    def secret_key(self) -> Optional[str]:
+        """
+        Gets or sets the secret key.
+        """
+        return pulumi.get(self, "secret_key")
+
+    @property
+    @pulumi.getter(name="windowsLiveEndpoint")
+    def windows_live_endpoint(self) -> Optional[str]:
+        """
+        Gets or sets the Windows Live endpoint.
+        """
+        return pulumi.get(self, "windows_live_endpoint")
+
+    @property
+    @pulumi.getter(name="wnsCertificate")
+    def wns_certificate(self) -> Optional[str]:
+        """
+        Gets or sets the WNS Certificate.
+        """
+        return pulumi.get(self, "wns_certificate")
+
+
+@pulumi.output_type
 class WnsCredentialResponse(dict):
     """
     Description of a NotificationHub WnsCredential.
@@ -647,16 +1650,20 @@ class WnsCredentialResponse(dict):
 
     def __init__(__self__, *,
                  package_sid: Optional[str] = None,
+                 properties: Optional['outputs.WnsCredentialPropertiesResponse'] = None,
                  secret_key: Optional[str] = None,
                  windows_live_endpoint: Optional[str] = None):
         """
         Description of a NotificationHub WnsCredential.
         :param str package_sid: The package ID for this credential.
+        :param 'WnsCredentialPropertiesResponse' properties: Description of a NotificationHub WnsCredential.
         :param str secret_key: The secret key.
         :param str windows_live_endpoint: The Windows Live endpoint.
         """
         if package_sid is not None:
             pulumi.set(__self__, "package_sid", package_sid)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
         if windows_live_endpoint is not None:
@@ -669,6 +1676,14 @@ class WnsCredentialResponse(dict):
         The package ID for this credential.
         """
         return pulumi.get(self, "package_sid")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.WnsCredentialPropertiesResponse']:
+        """
+        Description of a NotificationHub WnsCredential.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="secretKey")
@@ -685,5 +1700,62 @@ class WnsCredentialResponse(dict):
         The Windows Live endpoint.
         """
         return pulumi.get(self, "windows_live_endpoint")
+
+
+@pulumi.output_type
+class XiaomiCredentialPropertiesResponse(dict):
+    """
+    Description of a NotificationHub XiaomiCredentialProperties.
+    """
+    def __init__(__self__, *,
+                 app_secret: Optional[str] = None,
+                 endpoint: Optional[str] = None):
+        """
+        Description of a NotificationHub XiaomiCredentialProperties.
+        :param str app_secret: Gets or sets app secret.
+        :param str endpoint: Gets or sets xiaomi service endpoint.
+        """
+        if app_secret is not None:
+            pulumi.set(__self__, "app_secret", app_secret)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> Optional[str]:
+        """
+        Gets or sets app secret.
+        """
+        return pulumi.get(self, "app_secret")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[str]:
+        """
+        Gets or sets xiaomi service endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+
+@pulumi.output_type
+class XiaomiCredentialResponse(dict):
+    """
+    Description of a NotificationHub XiaomiCredential.
+    """
+    def __init__(__self__, *,
+                 properties: 'outputs.XiaomiCredentialPropertiesResponse'):
+        """
+        Description of a NotificationHub XiaomiCredential.
+        :param 'XiaomiCredentialPropertiesResponse' properties: Description of a NotificationHub XiaomiCredentialProperties.
+        """
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.XiaomiCredentialPropertiesResponse':
+        """
+        Description of a NotificationHub XiaomiCredentialProperties.
+        """
+        return pulumi.get(self, "properties")
 
 

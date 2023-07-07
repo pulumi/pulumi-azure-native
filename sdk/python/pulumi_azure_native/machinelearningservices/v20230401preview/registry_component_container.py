@@ -152,7 +152,7 @@ class RegistryComponentContainer(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:RegistryComponentContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:RegistryComponentContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:RegistryComponentContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:RegistryComponentContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:RegistryComponentContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:RegistryComponentContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:RegistryComponentContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:RegistryComponentContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:RegistryComponentContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:RegistryComponentContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:RegistryComponentContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegistryComponentContainer, __self__).__init__(
             'azure-native:machinelearningservices/v20230401preview:RegistryComponentContainer',

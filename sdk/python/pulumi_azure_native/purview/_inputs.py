@@ -11,10 +11,51 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CredentialsArgs',
     'IdentityArgs',
     'PrivateEndpointArgs',
     'PrivateLinkServiceConnectionStateArgs',
 ]
+
+@pulumi.input_type
+class CredentialsArgs:
+    def __init__(__self__, *,
+                 identity_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'CredentialsType']]] = None):
+        """
+        Credentials to access the event streaming service attached to the purview account.
+        :param pulumi.Input[str] identity_id: Identity identifier for UserAssign type.
+        :param pulumi.Input[Union[str, 'CredentialsType']] type: Identity Type.
+        """
+        if identity_id is not None:
+            pulumi.set(__self__, "identity_id", identity_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identity identifier for UserAssign type.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @identity_id.setter
+    def identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'CredentialsType']]]:
+        """
+        Identity Type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'CredentialsType']]]):
+        pulumi.set(self, "type", value)
+
 
 @pulumi.input_type
 class IdentityArgs:

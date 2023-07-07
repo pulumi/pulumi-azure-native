@@ -20,6 +20,7 @@ __all__ = [
     'Confirmation',
     'ContentFormat',
     'DataMaskingMode',
+    'GatewayListDebugCredentialsContractPurpose',
     'GrantType',
     'GroupType',
     'HostnameType',
@@ -254,6 +255,16 @@ class DataMaskingMode(str, Enum):
     HIDE = "Hide"
     """
     Hide the presence of an entity.
+    """
+
+
+class GatewayListDebugCredentialsContractPurpose(str, Enum):
+    """
+    Purpose of debug credential.
+    """
+    TRACING = "tracing"
+    """
+    The tracing purpose.
     """
 
 

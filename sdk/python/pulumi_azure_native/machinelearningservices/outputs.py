@@ -14,6 +14,7 @@ from ._enums import *
 __all__ = [
     'AKSResponse',
     'AKSSchemaResponseProperties',
+    'AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse',
     'AccountKeyDatastoreCredentialsResponse',
     'AcrDetailsResponse',
     'AksNetworkingConfigurationResponse',
@@ -22,6 +23,7 @@ __all__ = [
     'AmlComputePropertiesResponse',
     'AmlComputeResponse',
     'AmlTokenResponse',
+    'ApiKeyAuthWorkspaceConnectionPropertiesResponse',
     'ArmResourceIdResponse',
     'AssignedUserResponse',
     'AutoDeleteSettingResponse',
@@ -83,6 +85,8 @@ __all__ = [
     'CronResponse',
     'CronTriggerResponse',
     'CustomForecastHorizonResponse',
+    'CustomKeysResponse',
+    'CustomKeysWorkspaceConnectionPropertiesResponse',
     'CustomModelJobInputResponse',
     'CustomModelJobOutputResponse',
     'CustomNCrossValidationsResponse',
@@ -240,6 +244,7 @@ __all__ = [
     'ScriptsToExecuteResponse',
     'SecretConfigurationResponse',
     'ServiceManagedResourcesSettingsResponse',
+    'ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse',
     'ServicePrincipalDatastoreCredentialsResponse',
     'ServiceTagDestinationResponse',
     'ServiceTagOutboundRuleResponse',
@@ -289,8 +294,11 @@ __all__ = [
     'VirtualMachineSshCredentialsResponse',
     'VolumeDefinitionResponse',
     'VolumeOptionsResponse',
+    'WorkspaceConnectionAccessKeyResponse',
+    'WorkspaceConnectionApiKeyResponse',
     'WorkspaceConnectionManagedIdentityResponse',
     'WorkspaceConnectionPersonalAccessTokenResponse',
+    'WorkspaceConnectionServicePrincipalResponse',
     'WorkspaceConnectionSharedAccessSignatureResponse',
     'WorkspaceConnectionUsernamePasswordResponse',
 ]
@@ -620,6 +628,70 @@ class AKSSchemaResponseProperties(dict):
         SSL configuration
         """
         return pulumi.get(self, "ssl_configuration")
+
+
+@pulumi.output_type
+class AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 auth_type: str,
+                 category: Optional[str] = None,
+                 credentials: Optional['outputs.WorkspaceConnectionAccessKeyResponse'] = None,
+                 expiry_time: Optional[str] = None,
+                 metadata: Optional[Any] = None,
+                 target: Optional[str] = None):
+        """
+        :param str auth_type: Authentication type of the connection target
+               Expected value is 'AccessKey'.
+        :param str category: Category of the connection
+        """
+        pulumi.set(__self__, "auth_type", 'AccessKey')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        Authentication type of the connection target
+        Expected value is 'AccessKey'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.WorkspaceConnectionAccessKeyResponse']:
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -1388,6 +1460,116 @@ class AmlTokenResponse(dict):
         Expected value is 'AMLToken'.
         """
         return pulumi.get(self, "identity_type")
+
+
+@pulumi.output_type
+class ApiKeyAuthWorkspaceConnectionPropertiesResponse(dict):
+    """
+    This connection type covers the generic ApiKey auth connection categories, for examples:
+    AzureOpenAI:
+        Category:= AzureOpenAI
+        AuthType:= ApiKey (as type discriminator)
+        Credentials:= {ApiKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+        Target:= {ApiBase}
+                
+    CognitiveService:
+        Category:= CognitiveService
+        AuthType:= ApiKey (as type discriminator)
+        Credentials:= {SubscriptionKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+        Target:= ServiceRegion={serviceRegion}
+                
+    CognitiveSearch:
+        Category:= CognitiveSearch
+        AuthType:= ApiKey (as type discriminator)
+        Credentials:= {Key} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+        Target:= {Endpoint}
+                
+    Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
+    """
+    def __init__(__self__, *,
+                 auth_type: str,
+                 category: Optional[str] = None,
+                 credentials: Optional['outputs.WorkspaceConnectionApiKeyResponse'] = None,
+                 expiry_time: Optional[str] = None,
+                 metadata: Optional[Any] = None,
+                 target: Optional[str] = None):
+        """
+        This connection type covers the generic ApiKey auth connection categories, for examples:
+        AzureOpenAI:
+            Category:= AzureOpenAI
+            AuthType:= ApiKey (as type discriminator)
+            Credentials:= {ApiKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+            Target:= {ApiBase}
+                    
+        CognitiveService:
+            Category:= CognitiveService
+            AuthType:= ApiKey (as type discriminator)
+            Credentials:= {SubscriptionKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+            Target:= ServiceRegion={serviceRegion}
+                    
+        CognitiveSearch:
+            Category:= CognitiveSearch
+            AuthType:= ApiKey (as type discriminator)
+            Credentials:= {Key} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+            Target:= {Endpoint}
+                    
+        Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
+        :param str auth_type: Authentication type of the connection target
+               Expected value is 'ApiKey'.
+        :param str category: Category of the connection
+        :param 'WorkspaceConnectionApiKeyResponse' credentials: Api key object for workspace connection credential.
+        """
+        pulumi.set(__self__, "auth_type", 'ApiKey')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        Authentication type of the connection target
+        Expected value is 'ApiKey'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.WorkspaceConnectionApiKeyResponse']:
+        """
+        Api key object for workspace connection credential.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -7990,6 +8172,105 @@ class CustomForecastHorizonResponse(dict):
         [Required] Forecast horizon value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CustomKeysResponse(dict):
+    """
+    Custom Keys credential object
+    """
+    def __init__(__self__, *,
+                 keys: Optional[Mapping[str, str]] = None):
+        """
+        Custom Keys credential object
+        """
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "keys")
+
+
+@pulumi.output_type
+class CustomKeysWorkspaceConnectionPropertiesResponse(dict):
+    """
+    Category:= CustomKeys
+    AuthType:= CustomKeys (as type discriminator)
+    Credentials:= {CustomKeys} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.CustomKeys
+    Target:= {any value}
+    Use Metadata property bag for ApiVersion and other metadata fields
+    """
+    def __init__(__self__, *,
+                 auth_type: str,
+                 category: Optional[str] = None,
+                 credentials: Optional['outputs.CustomKeysResponse'] = None,
+                 expiry_time: Optional[str] = None,
+                 metadata: Optional[Any] = None,
+                 target: Optional[str] = None):
+        """
+        Category:= CustomKeys
+        AuthType:= CustomKeys (as type discriminator)
+        Credentials:= {CustomKeys} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.CustomKeys
+        Target:= {any value}
+        Use Metadata property bag for ApiVersion and other metadata fields
+        :param str auth_type: Authentication type of the connection target
+               Expected value is 'CustomKeys'.
+        :param str category: Category of the connection
+        :param 'CustomKeysResponse' credentials: Custom Keys credential object
+        """
+        pulumi.set(__self__, "auth_type", 'CustomKeys')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        Authentication type of the connection target
+        Expected value is 'CustomKeys'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.CustomKeysResponse']:
+        """
+        Custom Keys credential object
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -19327,6 +19608,8 @@ class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         suggest = None
         if key == "authType":
             suggest = "auth_type"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
         elif key == "valueFormat":
             suggest = "value_format"
 
@@ -19345,6 +19628,8 @@ class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse(dict):
                  auth_type: str,
                  category: Optional[str] = None,
                  credentials: Optional['outputs.WorkspaceConnectionManagedIdentityResponse'] = None,
+                 expiry_time: Optional[str] = None,
+                 metadata: Optional[Any] = None,
                  target: Optional[str] = None,
                  value: Optional[str] = None,
                  value_format: Optional[str] = None):
@@ -19360,6 +19645,10 @@ class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse(dict):
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if target is not None:
             pulumi.set(__self__, "target", target)
         if value is not None:
@@ -19388,6 +19677,16 @@ class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse(dict):
     @pulumi.getter
     def credentials(self) -> Optional['outputs.WorkspaceConnectionManagedIdentityResponse']:
         return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter
@@ -20586,6 +20885,8 @@ class NoneAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         suggest = None
         if key == "authType":
             suggest = "auth_type"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
         elif key == "valueFormat":
             suggest = "value_format"
 
@@ -20603,6 +20904,8 @@ class NoneAuthTypeWorkspaceConnectionPropertiesResponse(dict):
     def __init__(__self__, *,
                  auth_type: str,
                  category: Optional[str] = None,
+                 expiry_time: Optional[str] = None,
+                 metadata: Optional[Any] = None,
                  target: Optional[str] = None,
                  value: Optional[str] = None,
                  value_format: Optional[str] = None):
@@ -20616,6 +20919,10 @@ class NoneAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         pulumi.set(__self__, "auth_type", 'None')
         if category is not None:
             pulumi.set(__self__, "category", category)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if target is not None:
             pulumi.set(__self__, "target", target)
         if value is not None:
@@ -20639,6 +20946,16 @@ class NoneAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         Category of the connection
         """
         return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter
@@ -21225,6 +21542,8 @@ class PATAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         suggest = None
         if key == "authType":
             suggest = "auth_type"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
         elif key == "valueFormat":
             suggest = "value_format"
 
@@ -21243,6 +21562,8 @@ class PATAuthTypeWorkspaceConnectionPropertiesResponse(dict):
                  auth_type: str,
                  category: Optional[str] = None,
                  credentials: Optional['outputs.WorkspaceConnectionPersonalAccessTokenResponse'] = None,
+                 expiry_time: Optional[str] = None,
+                 metadata: Optional[Any] = None,
                  target: Optional[str] = None,
                  value: Optional[str] = None,
                  value_format: Optional[str] = None):
@@ -21258,6 +21579,10 @@ class PATAuthTypeWorkspaceConnectionPropertiesResponse(dict):
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if target is not None:
             pulumi.set(__self__, "target", target)
         if value is not None:
@@ -21286,6 +21611,16 @@ class PATAuthTypeWorkspaceConnectionPropertiesResponse(dict):
     @pulumi.getter
     def credentials(self) -> Optional['outputs.WorkspaceConnectionPersonalAccessTokenResponse']:
         return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter
@@ -23524,6 +23859,8 @@ class SASAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         suggest = None
         if key == "authType":
             suggest = "auth_type"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
         elif key == "valueFormat":
             suggest = "value_format"
 
@@ -23542,6 +23879,8 @@ class SASAuthTypeWorkspaceConnectionPropertiesResponse(dict):
                  auth_type: str,
                  category: Optional[str] = None,
                  credentials: Optional['outputs.WorkspaceConnectionSharedAccessSignatureResponse'] = None,
+                 expiry_time: Optional[str] = None,
+                 metadata: Optional[Any] = None,
                  target: Optional[str] = None,
                  value: Optional[str] = None,
                  value_format: Optional[str] = None):
@@ -23557,6 +23896,10 @@ class SASAuthTypeWorkspaceConnectionPropertiesResponse(dict):
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if target is not None:
             pulumi.set(__self__, "target", target)
         if value is not None:
@@ -23585,6 +23928,16 @@ class SASAuthTypeWorkspaceConnectionPropertiesResponse(dict):
     @pulumi.getter
     def credentials(self) -> Optional['outputs.WorkspaceConnectionSharedAccessSignatureResponse']:
         return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter
@@ -24127,6 +24480,70 @@ class ServiceManagedResourcesSettingsResponse(dict):
         The settings for the service managed cosmosdb account.
         """
         return pulumi.get(self, "cosmos_db")
+
+
+@pulumi.output_type
+class ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse(dict):
+    def __init__(__self__, *,
+                 auth_type: str,
+                 category: Optional[str] = None,
+                 credentials: Optional['outputs.WorkspaceConnectionServicePrincipalResponse'] = None,
+                 expiry_time: Optional[str] = None,
+                 metadata: Optional[Any] = None,
+                 target: Optional[str] = None):
+        """
+        :param str auth_type: Authentication type of the connection target
+               Expected value is 'ServicePrincipal'.
+        :param str category: Category of the connection
+        """
+        pulumi.set(__self__, "auth_type", 'ServicePrincipal')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        Authentication type of the connection target
+        Expected value is 'ServicePrincipal'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.WorkspaceConnectionServicePrincipalResponse']:
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -28019,6 +28436,8 @@ class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         suggest = None
         if key == "authType":
             suggest = "auth_type"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
         elif key == "valueFormat":
             suggest = "value_format"
 
@@ -28037,6 +28456,8 @@ class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse(dict):
                  auth_type: str,
                  category: Optional[str] = None,
                  credentials: Optional['outputs.WorkspaceConnectionUsernamePasswordResponse'] = None,
+                 expiry_time: Optional[str] = None,
+                 metadata: Optional[Any] = None,
                  target: Optional[str] = None,
                  value: Optional[str] = None,
                  value_format: Optional[str] = None):
@@ -28052,6 +28473,10 @@ class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse(dict):
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if target is not None:
             pulumi.set(__self__, "target", target)
         if value is not None:
@@ -28080,6 +28505,16 @@ class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse(dict):
     @pulumi.getter
     def credentials(self) -> Optional['outputs.WorkspaceConnectionUsernamePasswordResponse']:
         return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter
@@ -28625,6 +29060,46 @@ class VolumeOptionsResponse(dict):
 
 
 @pulumi.output_type
+class WorkspaceConnectionAccessKeyResponse(dict):
+    def __init__(__self__, *,
+                 access_key_id: Optional[str] = None,
+                 secret_access_key: Optional[str] = None):
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
+        if secret_access_key is not None:
+            pulumi.set(__self__, "secret_access_key", secret_access_key)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "access_key_id")
+
+    @property
+    @pulumi.getter(name="secretAccessKey")
+    def secret_access_key(self) -> Optional[str]:
+        return pulumi.get(self, "secret_access_key")
+
+
+@pulumi.output_type
+class WorkspaceConnectionApiKeyResponse(dict):
+    """
+    Api key object for workspace connection credential.
+    """
+    def __init__(__self__, *,
+                 key: Optional[str] = None):
+        """
+        Api key object for workspace connection credential.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+
+@pulumi.output_type
 class WorkspaceConnectionManagedIdentityResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -28675,6 +29150,35 @@ class WorkspaceConnectionPersonalAccessTokenResponse(dict):
     @pulumi.getter
     def pat(self) -> Optional[str]:
         return pulumi.get(self, "pat")
+
+
+@pulumi.output_type
+class WorkspaceConnectionServicePrincipalResponse(dict):
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
