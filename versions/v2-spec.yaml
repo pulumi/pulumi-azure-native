@@ -1230,6 +1230,3 @@ WindowsIoT:
 WorkloadMonitor: {}
 Workloads:
     tracking: "2023-04-01"
-    additions:
-        PhpWorkload: 2021-12-01-preview
-        WordpressInstance: 2021-12-01-preview

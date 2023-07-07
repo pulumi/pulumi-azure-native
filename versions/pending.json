@@ -779,8 +779,5 @@
   "WindowsESU": [],
   "WindowsIoT": [],
   "WorkloadMonitor": [],
-  "Workloads": [
-    "2022-11-01-preview",
-    "2023-04-01"
-  ]
+  "Workloads": []
 }

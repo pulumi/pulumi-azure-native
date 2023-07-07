@@ -603,5 +603,12 @@ WindowsESU:
 WindowsIoT:
 WorkloadMonitor:
 Workloads:
-
+  exclusions:
+    PhpWorkload: 2021-12-01-preview
+    WordpressInstance: 2021-12-01-preview
+  notes: |
+    https://learn.microsoft.com/en-us/rest/api/workloads/
+    2022-11-01-preview recommended.
+    2021-12-01-preview being retired.
+    PhpWorkload and WordpressInstance don't exist in other versions so we'll exclude them.
 ---
