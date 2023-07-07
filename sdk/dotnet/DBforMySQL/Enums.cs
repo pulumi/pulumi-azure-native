@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
-    /// The type of administrator.
+    /// Type of the sever administrator.
     /// </summary>
     [EnumType]
     public readonly struct AdministratorType : IEquatable<AdministratorType>
