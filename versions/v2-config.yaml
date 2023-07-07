@@ -34,7 +34,9 @@ Advisor:
 AgFoodPlatform:
   expectTracking: preview
   notes: Only preview versions
-  # TODO: Why are we missing PrometheusRuleGroup?
+  exclusions:
+    FarmBeatsModel: "2021-09-01-preview"
+# TODO: Why are we missing PrometheusRuleGroup?
 AlertsManagement:
   expectAdditions: true
   exclusions:
@@ -54,6 +56,7 @@ ApiManagement:
     TenantPolicy: "2016-10-10" # obsolete
     listTenantAccessGitSecrets: "2019-12-01" # superceded by https://learn.microsoft.com/en-us/rest/api/apimanagement/current-ga/tenant-access/list-secrets?tabs=HTTP
 App:
+  expectAdditions: true
 AppComplianceAutomation:
   expectTracking: preview
   notes: Only one preview version
@@ -61,12 +64,20 @@ AppConfiguration:
   exclusions:
     listConfigurationStoreKeyValue: "2020-06-01" # was renamed to KeyValues_ListByConfigurationStore, endpoint from listKeyValue to keyValues
 AppPlatform:
+  notes: |
+    AppPlatform is also called "Azure Spring Apps".
+    Official REST docs refer to latest preview.
+    https://learn.microsoft.com/en-us/rest/api/azurespringcloud/
 Attestation:
 Authorization:
   expectAdditions: true
   folders: ["authorization", "resources"]
   notes: "For ManagementLocks, the docs say 2016-09-01 which is not the latest stable https://learn.microsoft.com/en-us/rest/api/resources/management-locks"
 Automanage:
+  expectAdditions: true
+  notes: |
+    The Account resource only exists in an old preview version but is still used according to the docs:
+    https://learn.microsoft.com/en-us/azure/automation/quickstart-create-automation-account-template
 Automation:
   expectAdditions: true
   notes: |
@@ -136,6 +147,8 @@ Communication:
   notes: Only previews after initial 2020 stable release
 Compute:
   explicit: true
+ConfidentialLedger:
+  expectAdditions: true
 ConnectedVMwarevSphere:
   expectTracking: preview
   notes: Only preview versions
@@ -173,11 +186,13 @@ DBforMySQL:
     "PrivateEndpointConnection": "2018-06-01"
     "Server": "2017-12-01"
     "ServerAdministrator": "2017-12-01"
-    "ServerKey": "2020-01-01"
+    "ServerKey": "2020-07-01-preview"
     "VirtualNetworkRule": "2017-12-01"
+  expectAdditions: true
   notes: |
     "Single Server" is being retired so we don't include it in the defaults
     https://learn.microsoft.com/en-us/azure/mysql/single-server/whats-happening-to-mysql-single-server
+    "ExpectAdditions" is to include the new PrivateEndpointConnection added in 2022-09-30-preview.
 DBforPostgreSQL:
   exclusions:
     "Configuration": "2017-12-01"
@@ -189,15 +204,21 @@ DBforPostgreSQL:
     "ServerKey": "2020-01-01"
     "ServerSecurityAlertPolicy": "2017-12-01"
     "VirtualNetworkRule": "2017-12-01"
+  expectAdditions: true
   notes: |
     "Single Server" is being retired so we don't include it in the defaults
     https://learn.microsoft.com/en-us/azure/postgresql/single-server/whats-happening-to-postgresql-single-server
     Note that the single server PrivateEndpointConnection was deprecated but another
     PrivateEndpointConnection was introduced in postgresqlhsc 2022-11-08.
+    Expecting additions because postgresqlhsc is a different product under the same namespace,
+    and its latest API version is 2022-11-08.
   folders: ["postgresql", "postgresqlhsc"]
 Dashboard: 
 DataBox:
 DataBoxEdge:
+  exclusions:
+    # oddly named and undocumented
+    getMarketplaceImageSasTokenSASToken: 2023-01-01-preview
 DataCatalog:
 DataFactory:
 DataLakeAnalytics:
@@ -205,15 +226,18 @@ DataLakeAnalytics:
   notes: Last stable was 2016, latest preview is 2019
 DataLakeStore:
 DataMigration:
+  expectAdditions: true
 DataProtection:
 DataShare:
 Databricks:
+  expectAdditions: true # newer API version 2023-05-01 added new file accessconnector.json
 Datadog:
 DelegatedNetwork:
 DeploymentManager:
   expectTracking: preview
   notes: Only preview versions
 DesktopVirtualization:
+  expectAdditions: true  # recent development happened in preview versions
 DevCenter:
   expectTracking: preview
   notes: Only preview versions
@@ -230,6 +254,11 @@ Devices:
     Split between iothub, eventgrid and deviceprovisioningservices folders
 DigitalTwins:
 DocumentDB:
+  expectAdditions: true
+  notes: |
+    Some new features like Mongo clusters on vcore are only available in preview
+    versions but are documented, e.g.
+    https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/quickstart-bicep?tabs=azure-cli
 DomainRegistration:
 Dynamics365Fraudprotection:
   expectTracking: preview
@@ -240,13 +269,14 @@ Easm:
   expectTracking: preview
   notes: Only single preview version
 EdgeOrder:
+  expectTracking: preview
 EdgeOrderPartner:
   notes: POST based APIs
 Education:
   expectTracking: preview
   notes: Only single preview version
 Elastic:
-  expectTracking: preview
+  expectAdditions: true  # getOrganizationElasticToAzureSubscriptionMapping in latest preview
   notes: Only previews since original launch stable version in 2020
 ElasticSan:
   expectTracking: preview
@@ -256,6 +286,10 @@ EngagementFabric:
   notes: Only single preview version
 EnterpriseKnowledgeGraph:
 EventGrid:
+  expectAdditions: true
+  exclusions:
+    EventChannel: 2021-10-15-preview  # legacy
+  notes: There are many additions in 2023-06-01-preview but it doesn't replace the stable version.
 EventHub:
 ExtendedLocation:
 Features:

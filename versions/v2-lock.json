@@ -43,7 +43,6 @@
     "DataConnector": "2023-06-01-preview",
     "DataManagerForAgricultureResource": "2023-06-01-preview",
     "Extension": "2023-06-01-preview",
-    "FarmBeatsModel": "2021-09-01-preview",
     "PrivateEndpointConnection": "2023-06-01-preview",
     "Solution": "2023-06-01-preview"
   },
@@ -632,7 +631,6 @@
     "FirewallRule": "2022-01-01",
     "PrivateEndpointConnection": "2022-09-30-preview",
     "Server": "2022-01-01",
-    "ServerKey": "2020-07-01-preview",
     "getGetPrivateDnsZoneSuffixExecute": "2022-01-01"
   },
   "DBforPostgreSQL": {
@@ -669,7 +667,6 @@
     "Trigger": "2022-03-01",
     "User": "2022-03-01",
     "getDeviceExtendedInformation": "2022-03-01",
-    "getMarketplaceImageSasTokenSASToken": "2023-01-01-preview",
     "listOrderDCAccessCode": "2022-03-01"
   },
   "DataCatalog": {
@@ -951,7 +948,6 @@
     "DomainEventSubscription": "2022-06-15",
     "DomainTopic": "2022-06-15",
     "DomainTopicEventSubscription": "2022-06-15",
-    "EventChannel": "2021-10-15-preview",
     "EventSubscription": "2022-06-15",
     "Namespace": "2023-06-01-preview",
     "NamespaceTopic": "2023-06-01-preview",

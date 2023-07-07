@@ -10,9 +10,7 @@
   ],
   "Addons": [],
   "Advisor": [],
-  "AgFoodPlatform": [
-    "2023-06-01-preview"
-  ],
+  "AgFoodPlatform": [],
   "AlertsManagement": [
     "2019-06-01",
     "2021-04-01",
@@ -232,11 +230,6 @@
     "2020-01-01-privatepreview"
   ],
   "DBforMySQL": [
-    "2020-07-01-privatepreview",
-    "2021-05-01",
-    "2021-05-01-preview",
-    "2021-12-01-preview",
-    "2022-01-01",
     "2022-09-30-preview"
   ],
   "DBforPostgreSQL": [
@@ -305,8 +298,6 @@
   "EngagementFabric": [],
   "EnterpriseKnowledgeGraph": [],
   "EventGrid": [
-    "2021-12-01",
-    "2022-06-15",
     "2023-06-01-preview"
   ],
   "EventHub": [

@@ -16,8 +16,6 @@ Advisor:
     tracking: "2023-01-01"
 AgFoodPlatform:
     tracking: 2023-06-01-preview
-    additions:
-        FarmBeatsModel: 2021-09-01-preview
 AlertsManagement:
     tracking: "2023-03-01"
     additions:
@@ -292,7 +290,6 @@ DBforMySQL:
     tracking: "2022-01-01"
     additions:
         PrivateEndpointConnection: 2022-09-30-preview
-        ServerKey: 2020-07-01-preview
 DBforPostgreSQL:
     tracking: "2022-12-01"
     additions:
@@ -306,8 +303,6 @@ DataBox:
     tracking: "2022-12-01"
 DataBoxEdge:
     tracking: "2022-03-01"
-    additions:
-        getMarketplaceImageSasTokenSASToken: 2023-01-01-preview
 DataCatalog:
     tracking: "2016-03-30"
 DataFactory:
@@ -407,7 +402,6 @@ EventGrid:
         CaCertificate: 2023-06-01-preview
         Client: 2023-06-01-preview
         ClientGroup: 2023-06-01-preview
-        EventChannel: 2021-10-15-preview
         Namespace: 2023-06-01-preview
         NamespaceTopic: 2023-06-01-preview
         NamespaceTopicEventSubscription: 2023-06-01-preview
