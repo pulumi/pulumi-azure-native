@@ -73,7 +73,7 @@ def get_cluster_gateway_settings(cluster_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterGatewaySettingsResult:
     """
     Gets the gateway settings for the specified cluster.
-    Azure REST API version: 2023-04-15-preview.
+    Azure REST API version: 2021-06-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -97,7 +97,7 @@ def get_cluster_gateway_settings_output(cluster_name: Optional[pulumi.Input[str]
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterGatewaySettingsResult]:
     """
     Gets the gateway settings for the specified cluster.
-    Azure REST API version: 2023-04-15-preview.
+    Azure REST API version: 2021-06-01.
 
 
     :param str cluster_name: The name of the cluster.

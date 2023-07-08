@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get the certificate resource.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:appplatform:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the certificate resource.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:appplatform:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());

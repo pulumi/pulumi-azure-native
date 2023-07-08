@@ -17,36 +17,14 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
     public sealed class WnsCredentialResponse
     {
         /// <summary>
-        /// The package ID for this credential.
-        /// </summary>
-        public readonly string? PackageSid;
-        /// <summary>
         /// Description of a NotificationHub WnsCredential.
         /// </summary>
-        public readonly Outputs.WnsCredentialPropertiesResponse? Properties;
-        /// <summary>
-        /// The secret key.
-        /// </summary>
-        public readonly string? SecretKey;
-        /// <summary>
-        /// The Windows Live endpoint.
-        /// </summary>
-        public readonly string? WindowsLiveEndpoint;
+        public readonly Outputs.WnsCredentialPropertiesResponse Properties;
 
         [OutputConstructor]
-        private WnsCredentialResponse(
-            string? packageSid,
-
-            Outputs.WnsCredentialPropertiesResponse? properties,
-
-            string? secretKey,
-
-            string? windowsLiveEndpoint)
+        private WnsCredentialResponse(Outputs.WnsCredentialPropertiesResponse properties)
         {
-            PackageSid = packageSid;
             Properties = properties;
-            SecretKey = secretKey;
-            WindowsLiveEndpoint = windowsLiveEndpoint;
         }
     }
 }

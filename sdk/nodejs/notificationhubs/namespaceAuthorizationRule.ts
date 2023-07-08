@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Description of a Namespace AuthorizationRules.
- * Azure REST API version: 2017-04-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Response for POST requests that return single SharedAccessAuthorizationRule.
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -39,59 +39,27 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     }
 
     /**
-     * A string that describes the claim type
+     * Deprecated - only for compatibility.
      */
-    public /*out*/ readonly claimType!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * A string that describes the claim value
-     */
-    public /*out*/ readonly claimValue!: pulumi.Output<string>;
-    /**
-     * The created time for this rule
-     */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
-     * A string that describes the authorization rule.
-     */
-    public /*out*/ readonly keyName!: pulumi.Output<string>;
-    /**
-     * Resource location
-     */
-    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * The last modified time for this rule
-     */
-    public /*out*/ readonly modifiedTime!: pulumi.Output<string>;
-    /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * A base64-encoded 256-bit primary key for signing and validating the SAS token.
+     * SharedAccessAuthorizationRule properties.
      */
-    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.notificationhubs.SharedAccessAuthorizationRulePropertiesResponse>;
     /**
-     * The revision number for the rule
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly revision!: pulumi.Output<number>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.notificationhubs.SystemDataResponse>;
     /**
-     * The rights associated with the rule.
+     * Deprecated - only for compatibility.
      */
-    public /*out*/ readonly rights!: pulumi.Output<string[] | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A base64-encoded 256-bit primary key for signing and validating the SAS token.
-     */
-    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
-    /**
-     * The sku of the created namespace
-     */
-    public /*out*/ readonly sku!: pulumi.Output<outputs.notificationhubs.SkuResponse | undefined>;
-    /**
-     * Resource tags
-     */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -109,43 +77,23 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.properties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'properties'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["claimType"] = undefined /*out*/;
-            resourceInputs["claimValue"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
-            resourceInputs["keyName"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["modifiedTime"] = undefined /*out*/;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["primaryKey"] = undefined /*out*/;
-            resourceInputs["revision"] = undefined /*out*/;
-            resourceInputs["rights"] = undefined /*out*/;
-            resourceInputs["secondaryKey"] = undefined /*out*/;
-            resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["claimType"] = undefined /*out*/;
-            resourceInputs["claimValue"] = undefined /*out*/;
-            resourceInputs["createdTime"] = undefined /*out*/;
-            resourceInputs["keyName"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["modifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["primaryKey"] = undefined /*out*/;
-            resourceInputs["revision"] = undefined /*out*/;
-            resourceInputs["rights"] = undefined /*out*/;
-            resourceInputs["secondaryKey"] = undefined /*out*/;
-            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -161,19 +109,27 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
  */
 export interface NamespaceAuthorizationRuleArgs {
     /**
-     * Authorization Rule Name.
+     * Authorization Rule Name
      */
     authorizationRuleName?: pulumi.Input<string>;
     /**
-     * The namespace name.
+     * Deprecated - only for compatibility.
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * Namespace name
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * Properties of the Namespace AuthorizationRules.
+     * SharedAccessAuthorizationRule properties.
      */
-    properties: pulumi.Input<inputs.notificationhubs.SharedAccessAuthorizationRulePropertiesArgs>;
+    properties?: pulumi.Input<inputs.notificationhubs.SharedAccessAuthorizationRulePropertiesArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Deprecated - only for compatibility.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

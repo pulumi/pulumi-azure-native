@@ -16,37 +16,39 @@ __all__ = [
     'ExtendedLocationArgs',
     'GalleryImageIdentifierArgs',
     'GalleryImageVersionArgs',
+    'GuestCredentialArgs',
+    'HttpProxyConfigurationArgs',
+    'IPConfigurationPropertiesArgs',
+    'IPConfigurationSubnetArgs',
+    'IPConfigurationArgs',
     'IPPoolArgs',
     'IdentityArgs',
     'InterfaceDNSSettingsArgs',
-    'IpConfigurationPropertiesArgs',
-    'IpConfigurationSubnetArgs',
-    'IpConfigurationArgs',
     'SoftwareAssurancePropertiesArgs',
     'StepArgs',
-    'StoragecontainersExtendedLocationArgs',
     'UpdatePrerequisiteArgs',
-    'VirtualmachinesPropertiesDataDisksArgs',
-    'VirtualmachinesPropertiesDynamicMemoryConfigArgs',
-    'VirtualmachinesPropertiesHardwareProfileArgs',
-    'VirtualmachinesPropertiesImageReferenceArgs',
-    'VirtualmachinesPropertiesLinuxConfigurationArgs',
-    'VirtualmachinesPropertiesNetworkInterfacesArgs',
-    'VirtualmachinesPropertiesNetworkProfileArgs',
-    'VirtualmachinesPropertiesOsDiskArgs',
-    'VirtualmachinesPropertiesOsProfileArgs',
-    'VirtualmachinesPropertiesPublicKeysPublicKeysArgs',
-    'VirtualmachinesPropertiesPublicKeysArgs',
-    'VirtualmachinesPropertiesSecurityProfileArgs',
-    'VirtualmachinesPropertiesSshSshArgs',
-    'VirtualmachinesPropertiesSshArgs',
-    'VirtualmachinesPropertiesStorageProfileArgs',
-    'VirtualmachinesPropertiesUefiSettingsArgs',
-    'VirtualmachinesPropertiesWindowsConfigurationArgs',
-    'VirtualnetworksPropertiesIpConfigurationReferencesArgs',
-    'VirtualnetworksPropertiesRouteTableArgs',
-    'VirtualnetworksPropertiesRoutesArgs',
-    'VirtualnetworksPropertiesSubnetsArgs',
+    'VirtualMachinePropertiesDataDisksArgs',
+    'VirtualMachinePropertiesDynamicMemoryConfigArgs',
+    'VirtualMachinePropertiesHardwareProfileArgs',
+    'VirtualMachinePropertiesImageReferenceArgs',
+    'VirtualMachinePropertiesLinuxConfigurationArgs',
+    'VirtualMachinePropertiesNetworkInterfacesArgs',
+    'VirtualMachinePropertiesNetworkProfileArgs',
+    'VirtualMachinePropertiesOsDiskArgs',
+    'VirtualMachinePropertiesOsProfileArgs',
+    'VirtualMachinePropertiesPublicKeysPublicKeysArgs',
+    'VirtualMachinePropertiesPublicKeysArgs',
+    'VirtualMachinePropertiesSecurityProfileArgs',
+    'VirtualMachinePropertiesSshSshArgs',
+    'VirtualMachinePropertiesSshArgs',
+    'VirtualMachinePropertiesStorageProfileArgs',
+    'VirtualMachinePropertiesUefiSettingsArgs',
+    'VirtualMachinePropertiesWindowsConfigurationArgs',
+    'VirtualNetworkPropertiesDhcpOptionsArgs',
+    'VirtualNetworkPropertiesIpConfigurationReferencesArgs',
+    'VirtualNetworkPropertiesRouteTableArgs',
+    'VirtualNetworkPropertiesRoutesArgs',
+    'VirtualNetworkPropertiesSubnetsArgs',
 ]
 
 @pulumi.input_type
@@ -231,6 +233,206 @@ class GalleryImageVersionArgs:
 
 
 @pulumi.input_type
+class GuestCredentialArgs:
+    def __init__(__self__, *,
+                 password: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Username / Password Credentials to connect to guest.
+        :param pulumi.Input[str] password: The password to connect with the guest.
+        :param pulumi.Input[str] username: The username to connect with the guest.
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password to connect with the guest.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username to connect with the guest.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class HttpProxyConfigurationArgs:
+    def __init__(__self__, *,
+                 https_proxy: Optional[pulumi.Input[str]] = None):
+        """
+        HTTP Proxy configuration for the VM.
+        :param pulumi.Input[str] https_proxy: The httpsProxy url.
+        """
+        if https_proxy is not None:
+            pulumi.set(__self__, "https_proxy", https_proxy)
+
+    @property
+    @pulumi.getter(name="httpsProxy")
+    def https_proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The httpsProxy url.
+        """
+        return pulumi.get(self, "https_proxy")
+
+    @https_proxy.setter
+    def https_proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_proxy", value)
+
+
+@pulumi.input_type
+class IPConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 prefix_length: Optional[pulumi.Input[str]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
+                 private_ip_allocation_method: Optional[pulumi.Input[Union[str, 'PrivateIPAllocationMethodEnum']]] = None,
+                 subnet: Optional[pulumi.Input['IPConfigurationSubnetArgs']] = None):
+        """
+        InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
+        :param pulumi.Input[str] prefix_length: prefixLength for network interface
+        :param pulumi.Input[str] private_ip_address: PrivateIPAddress - Private IP address of the IP configuration.
+        :param pulumi.Input[Union[str, 'PrivateIPAllocationMethodEnum']] private_ip_allocation_method: PrivateIPAllocationMethod - The private IP address allocation method. Possible values include: 'Static', 'Dynamic'
+        :param pulumi.Input['IPConfigurationSubnetArgs'] subnet: Subnet - Name of Subnet bound to the IP configuration.
+        """
+        if prefix_length is not None:
+            pulumi.set(__self__, "prefix_length", prefix_length)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter(name="prefixLength")
+    def prefix_length(self) -> Optional[pulumi.Input[str]]:
+        """
+        prefixLength for network interface
+        """
+        return pulumi.get(self, "prefix_length")
+
+    @prefix_length.setter
+    def prefix_length(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_length", value)
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        PrivateIPAddress - Private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[pulumi.Input[Union[str, 'PrivateIPAllocationMethodEnum']]]:
+        """
+        PrivateIPAllocationMethod - The private IP address allocation method. Possible values include: 'Static', 'Dynamic'
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @private_ip_allocation_method.setter
+    def private_ip_allocation_method(self, value: Optional[pulumi.Input[Union[str, 'PrivateIPAllocationMethodEnum']]]):
+        pulumi.set(self, "private_ip_allocation_method", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['IPConfigurationSubnetArgs']]:
+        """
+        Subnet - Name of Subnet bound to the IP configuration.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['IPConfigurationSubnetArgs']]):
+        pulumi.set(self, "subnet", value)
+
+
+@pulumi.input_type
+class IPConfigurationSubnetArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Subnet - Name of Subnet bound to the IP configuration.
+        :param pulumi.Input[str] id: ID - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class IPConfigurationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['IPConfigurationPropertiesArgs']] = None):
+        """
+        InterfaceIPConfiguration iPConfiguration in a network interface.
+        :param pulumi.Input[str] name: Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input['IPConfigurationPropertiesArgs'] properties: InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['IPConfigurationPropertiesArgs']]:
+        """
+        InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['IPConfigurationPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
 class IPPoolArgs:
     def __init__(__self__, *,
                  end: Optional[pulumi.Input[str]] = None,
@@ -330,142 +532,6 @@ class InterfaceDNSSettingsArgs:
     @dns_servers.setter
     def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_servers", value)
-
-
-@pulumi.input_type
-class IpConfigurationPropertiesArgs:
-    def __init__(__self__, *,
-                 prefix_length: Optional[pulumi.Input[str]] = None,
-                 private_ip_address: Optional[pulumi.Input[str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[Union[str, 'PrivateIPAllocationMethodEnum']]] = None,
-                 subnet: Optional[pulumi.Input['IpConfigurationSubnetArgs']] = None):
-        """
-        InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
-        :param pulumi.Input[str] prefix_length: prefixLength for network interface
-        :param pulumi.Input[str] private_ip_address: PrivateIPAddress - Private IP address of the IP configuration.
-        :param pulumi.Input[Union[str, 'PrivateIPAllocationMethodEnum']] private_ip_allocation_method: PrivateIPAllocationMethod - The private IP address allocation method. Possible values include: 'Static', 'Dynamic'
-        :param pulumi.Input['IpConfigurationSubnetArgs'] subnet: Subnet - Name of Subnet bound to the IP configuration.
-        """
-        if prefix_length is not None:
-            pulumi.set(__self__, "prefix_length", prefix_length)
-        if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
-        if private_ip_allocation_method is not None:
-            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
-        if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
-
-    @property
-    @pulumi.getter(name="prefixLength")
-    def prefix_length(self) -> Optional[pulumi.Input[str]]:
-        """
-        prefixLength for network interface
-        """
-        return pulumi.get(self, "prefix_length")
-
-    @prefix_length.setter
-    def prefix_length(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "prefix_length", value)
-
-    @property
-    @pulumi.getter(name="privateIPAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        PrivateIPAddress - Private IP address of the IP configuration.
-        """
-        return pulumi.get(self, "private_ip_address")
-
-    @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "private_ip_address", value)
-
-    @property
-    @pulumi.getter(name="privateIPAllocationMethod")
-    def private_ip_allocation_method(self) -> Optional[pulumi.Input[Union[str, 'PrivateIPAllocationMethodEnum']]]:
-        """
-        PrivateIPAllocationMethod - The private IP address allocation method. Possible values include: 'Static', 'Dynamic'
-        """
-        return pulumi.get(self, "private_ip_allocation_method")
-
-    @private_ip_allocation_method.setter
-    def private_ip_allocation_method(self, value: Optional[pulumi.Input[Union[str, 'PrivateIPAllocationMethodEnum']]]):
-        pulumi.set(self, "private_ip_allocation_method", value)
-
-    @property
-    @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['IpConfigurationSubnetArgs']]:
-        """
-        Subnet - Name of Subnet bound to the IP configuration.
-        """
-        return pulumi.get(self, "subnet")
-
-    @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['IpConfigurationSubnetArgs']]):
-        pulumi.set(self, "subnet", value)
-
-
-@pulumi.input_type
-class IpConfigurationSubnetArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Subnet - Name of Subnet bound to the IP configuration.
-        :param pulumi.Input[str] id: ID - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
-class IpConfigurationArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['IpConfigurationPropertiesArgs']] = None):
-        """
-        InterfaceIPConfiguration iPConfiguration in a network interface.
-        :param pulumi.Input[str] name: Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input['IpConfigurationPropertiesArgs'] properties: InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['IpConfigurationPropertiesArgs']]:
-        """
-        InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['IpConfigurationPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -645,45 +711,6 @@ class StepArgs:
 
 
 @pulumi.input_type
-class StoragecontainersExtendedLocationArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The extended location name.
-        :param pulumi.Input[str] type: The extended location type.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The extended location name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The extended location type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
 class UpdatePrerequisiteArgs:
     def __init__(__self__, *,
                  package_name: Optional[pulumi.Input[str]] = None,
@@ -740,56 +767,68 @@ class UpdatePrerequisiteArgs:
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesDataDisksArgs:
+class VirtualMachinePropertiesDataDisksArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: Resource ID of the data disk
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of the data disk
+        """
+        return pulumi.get(self, "id")
 
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesDynamicMemoryConfigArgs:
+class VirtualMachinePropertiesDynamicMemoryConfigArgs:
     def __init__(__self__, *,
-                 maximum_memory_gb: Optional[pulumi.Input[float]] = None,
-                 minimum_memory_gb: Optional[pulumi.Input[float]] = None,
+                 maximum_memory_mb: Optional[pulumi.Input[float]] = None,
+                 minimum_memory_mb: Optional[pulumi.Input[float]] = None,
                  target_memory_buffer: Optional[pulumi.Input[int]] = None):
-        if maximum_memory_gb is not None:
-            pulumi.set(__self__, "maximum_memory_gb", maximum_memory_gb)
-        if minimum_memory_gb is not None:
-            pulumi.set(__self__, "minimum_memory_gb", minimum_memory_gb)
+        """
+        :param pulumi.Input[int] target_memory_buffer: Defines the amount of extra memory that should be reserved for a virtual machine at runtime, as a percentage of the total memory that the virtual machine is thought to need. This only applies to virtual systems with dynamic memory enabled. This property can be in the range of 5 to 2000.
+        """
+        if maximum_memory_mb is not None:
+            pulumi.set(__self__, "maximum_memory_mb", maximum_memory_mb)
+        if minimum_memory_mb is not None:
+            pulumi.set(__self__, "minimum_memory_mb", minimum_memory_mb)
         if target_memory_buffer is not None:
             pulumi.set(__self__, "target_memory_buffer", target_memory_buffer)
 
     @property
-    @pulumi.getter(name="maximumMemoryGB")
-    def maximum_memory_gb(self) -> Optional[pulumi.Input[float]]:
-        return pulumi.get(self, "maximum_memory_gb")
+    @pulumi.getter(name="maximumMemoryMB")
+    def maximum_memory_mb(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "maximum_memory_mb")
 
-    @maximum_memory_gb.setter
-    def maximum_memory_gb(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "maximum_memory_gb", value)
+    @maximum_memory_mb.setter
+    def maximum_memory_mb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "maximum_memory_mb", value)
 
     @property
-    @pulumi.getter(name="minimumMemoryGB")
-    def minimum_memory_gb(self) -> Optional[pulumi.Input[float]]:
-        return pulumi.get(self, "minimum_memory_gb")
+    @pulumi.getter(name="minimumMemoryMB")
+    def minimum_memory_mb(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "minimum_memory_mb")
 
-    @minimum_memory_gb.setter
-    def minimum_memory_gb(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "minimum_memory_gb", value)
+    @minimum_memory_mb.setter
+    def minimum_memory_mb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "minimum_memory_mb", value)
 
     @property
     @pulumi.getter(name="targetMemoryBuffer")
     def target_memory_buffer(self) -> Optional[pulumi.Input[int]]:
+        """
+        Defines the amount of extra memory that should be reserved for a virtual machine at runtime, as a percentage of the total memory that the virtual machine is thought to need. This only applies to virtual systems with dynamic memory enabled. This property can be in the range of 5 to 2000.
+        """
         return pulumi.get(self, "target_memory_buffer")
 
     @target_memory_buffer.setter
@@ -798,21 +837,21 @@ class VirtualmachinesPropertiesDynamicMemoryConfigArgs:
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesHardwareProfileArgs:
+class VirtualMachinePropertiesHardwareProfileArgs:
     def __init__(__self__, *,
-                 dynamic_memory_config: Optional[pulumi.Input['VirtualmachinesPropertiesDynamicMemoryConfigArgs']] = None,
-                 memory_gb: Optional[pulumi.Input[int]] = None,
+                 dynamic_memory_config: Optional[pulumi.Input['VirtualMachinePropertiesDynamicMemoryConfigArgs']] = None,
+                 memory_mb: Optional[pulumi.Input[float]] = None,
                  processors: Optional[pulumi.Input[int]] = None,
-                 vm_size: Optional[pulumi.Input[str]] = None):
+                 vm_size: Optional[pulumi.Input[Union[str, 'VmSizeEnum']]] = None):
         """
         HardwareProfile - Specifies the hardware settings for the virtual machine.
-        :param pulumi.Input[int] memory_gb: RAM in gb for the virtual machine
+        :param pulumi.Input[float] memory_mb: RAM in MB for the virtual machine
         :param pulumi.Input[int] processors: number of processors for the virtual machine
         """
         if dynamic_memory_config is not None:
             pulumi.set(__self__, "dynamic_memory_config", dynamic_memory_config)
-        if memory_gb is not None:
-            pulumi.set(__self__, "memory_gb", memory_gb)
+        if memory_mb is not None:
+            pulumi.set(__self__, "memory_mb", memory_mb)
         if processors is not None:
             pulumi.set(__self__, "processors", processors)
         if vm_size is None:
@@ -822,24 +861,24 @@ class VirtualmachinesPropertiesHardwareProfileArgs:
 
     @property
     @pulumi.getter(name="dynamicMemoryConfig")
-    def dynamic_memory_config(self) -> Optional[pulumi.Input['VirtualmachinesPropertiesDynamicMemoryConfigArgs']]:
+    def dynamic_memory_config(self) -> Optional[pulumi.Input['VirtualMachinePropertiesDynamicMemoryConfigArgs']]:
         return pulumi.get(self, "dynamic_memory_config")
 
     @dynamic_memory_config.setter
-    def dynamic_memory_config(self, value: Optional[pulumi.Input['VirtualmachinesPropertiesDynamicMemoryConfigArgs']]):
+    def dynamic_memory_config(self, value: Optional[pulumi.Input['VirtualMachinePropertiesDynamicMemoryConfigArgs']]):
         pulumi.set(self, "dynamic_memory_config", value)
 
     @property
-    @pulumi.getter(name="memoryGB")
-    def memory_gb(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="memoryMB")
+    def memory_mb(self) -> Optional[pulumi.Input[float]]:
         """
-        RAM in gb for the virtual machine
+        RAM in MB for the virtual machine
         """
-        return pulumi.get(self, "memory_gb")
+        return pulumi.get(self, "memory_mb")
 
-    @memory_gb.setter
-    def memory_gb(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "memory_gb", value)
+    @memory_mb.setter
+    def memory_mb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "memory_mb", value)
 
     @property
     @pulumi.getter
@@ -855,49 +894,49 @@ class VirtualmachinesPropertiesHardwareProfileArgs:
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[str]]:
+    def vm_size(self) -> Optional[pulumi.Input[Union[str, 'VmSizeEnum']]]:
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[str]]):
+    def vm_size(self, value: Optional[pulumi.Input[Union[str, 'VmSizeEnum']]]):
         pulumi.set(self, "vm_size", value)
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesImageReferenceArgs:
+class VirtualMachinePropertiesImageReferenceArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 id: Optional[pulumi.Input[str]] = None):
         """
         Which Image to use for the virtual machine
-        :param pulumi.Input[str] name: Name - Name of the image
+        :param pulumi.Input[str] id: Resource ID of the image
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Name - Name of the image
+        Resource ID of the image
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "id")
 
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesLinuxConfigurationArgs:
+class VirtualMachinePropertiesLinuxConfigurationArgs:
     def __init__(__self__, *,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
-                 ssh: Optional[pulumi.Input['VirtualmachinesPropertiesSshArgs']] = None):
+                 ssh: Optional[pulumi.Input['VirtualMachinePropertiesSshArgs']] = None):
         """
         LinuxConfiguration - linux specific configuration values for the virtual machine
         :param pulumi.Input[bool] disable_password_authentication: DisablePasswordAuthentication - whether password authentication should be disabled
         :param pulumi.Input[bool] provision_vm_agent: Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process.
-        :param pulumi.Input['VirtualmachinesPropertiesSshArgs'] ssh: SSH - contains settings related to ssh configuration
+        :param pulumi.Input['VirtualMachinePropertiesSshArgs'] ssh: SSH - contains settings related to ssh configuration
         """
         if disable_password_authentication is not None:
             pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
@@ -932,19 +971,19 @@ class VirtualmachinesPropertiesLinuxConfigurationArgs:
 
     @property
     @pulumi.getter
-    def ssh(self) -> Optional[pulumi.Input['VirtualmachinesPropertiesSshArgs']]:
+    def ssh(self) -> Optional[pulumi.Input['VirtualMachinePropertiesSshArgs']]:
         """
         SSH - contains settings related to ssh configuration
         """
         return pulumi.get(self, "ssh")
 
     @ssh.setter
-    def ssh(self, value: Optional[pulumi.Input['VirtualmachinesPropertiesSshArgs']]):
+    def ssh(self, value: Optional[pulumi.Input['VirtualMachinePropertiesSshArgs']]):
         pulumi.set(self, "ssh", value)
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesNetworkInterfacesArgs:
+class VirtualMachinePropertiesNetworkInterfacesArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
         """
@@ -967,36 +1006,36 @@ class VirtualmachinesPropertiesNetworkInterfacesArgs:
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesNetworkProfileArgs:
+class VirtualMachinePropertiesNetworkProfileArgs:
     def __init__(__self__, *,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesNetworkInterfacesArgs']]]] = None):
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesNetworkInterfacesArgs']]]] = None):
         """
         NetworkProfile - describes the network configuration the virtual machine
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesNetworkInterfacesArgs']]] network_interfaces: NetworkInterfaces - list of network interfaces to be attached to the virtual machine
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesNetworkInterfacesArgs']]] network_interfaces: NetworkInterfaces - list of network interfaces to be attached to the virtual machine
         """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesNetworkInterfacesArgs']]]]:
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesNetworkInterfacesArgs']]]]:
         """
         NetworkInterfaces - list of network interfaces to be attached to the virtual machine
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesNetworkInterfacesArgs']]]]):
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesNetworkInterfacesArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesOsDiskArgs:
+class VirtualMachinePropertiesOsDiskArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
         """
         VHD to attach as OS disk
-        :param pulumi.Input[str] id: Specifies the virtual hard disk's ID
+        :param pulumi.Input[str] id: Resource ID of the OS disk
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -1005,7 +1044,7 @@ class VirtualmachinesPropertiesOsDiskArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the virtual hard disk's ID
+        Resource ID of the OS disk
         """
         return pulumi.get(self, "id")
 
@@ -1015,22 +1054,22 @@ class VirtualmachinesPropertiesOsDiskArgs:
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesOsProfileArgs:
+class VirtualMachinePropertiesOsProfileArgs:
     def __init__(__self__, *,
                  admin_password: Optional[pulumi.Input[str]] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
-                 linux_configuration: Optional[pulumi.Input['VirtualmachinesPropertiesLinuxConfigurationArgs']] = None,
+                 linux_configuration: Optional[pulumi.Input['VirtualMachinePropertiesLinuxConfigurationArgs']] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OsTypeEnum']]] = None,
-                 windows_configuration: Optional[pulumi.Input['VirtualmachinesPropertiesWindowsConfigurationArgs']] = None):
+                 windows_configuration: Optional[pulumi.Input['VirtualMachinePropertiesWindowsConfigurationArgs']] = None):
         """
         OsProfile - describes the configuration of the operating system and sets login data
         :param pulumi.Input[str] admin_password: AdminPassword - admin password
         :param pulumi.Input[str] admin_username: AdminUsername - admin username
         :param pulumi.Input[str] computer_name: ComputerName - name of the compute
-        :param pulumi.Input['VirtualmachinesPropertiesLinuxConfigurationArgs'] linux_configuration: LinuxConfiguration - linux specific configuration values for the virtual machine
+        :param pulumi.Input['VirtualMachinePropertiesLinuxConfigurationArgs'] linux_configuration: LinuxConfiguration - linux specific configuration values for the virtual machine
         :param pulumi.Input[Union[str, 'OsTypeEnum']] os_type: OsType - string specifying whether the OS is Linux or Windows
-        :param pulumi.Input['VirtualmachinesPropertiesWindowsConfigurationArgs'] windows_configuration: Windows Configuration for the virtual machine 
+        :param pulumi.Input['VirtualMachinePropertiesWindowsConfigurationArgs'] windows_configuration: Windows Configuration for the virtual machine 
         """
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
@@ -1083,14 +1122,14 @@ class VirtualmachinesPropertiesOsProfileArgs:
 
     @property
     @pulumi.getter(name="linuxConfiguration")
-    def linux_configuration(self) -> Optional[pulumi.Input['VirtualmachinesPropertiesLinuxConfigurationArgs']]:
+    def linux_configuration(self) -> Optional[pulumi.Input['VirtualMachinePropertiesLinuxConfigurationArgs']]:
         """
         LinuxConfiguration - linux specific configuration values for the virtual machine
         """
         return pulumi.get(self, "linux_configuration")
 
     @linux_configuration.setter
-    def linux_configuration(self, value: Optional[pulumi.Input['VirtualmachinesPropertiesLinuxConfigurationArgs']]):
+    def linux_configuration(self, value: Optional[pulumi.Input['VirtualMachinePropertiesLinuxConfigurationArgs']]):
         pulumi.set(self, "linux_configuration", value)
 
     @property
@@ -1107,19 +1146,19 @@ class VirtualmachinesPropertiesOsProfileArgs:
 
     @property
     @pulumi.getter(name="windowsConfiguration")
-    def windows_configuration(self) -> Optional[pulumi.Input['VirtualmachinesPropertiesWindowsConfigurationArgs']]:
+    def windows_configuration(self) -> Optional[pulumi.Input['VirtualMachinePropertiesWindowsConfigurationArgs']]:
         """
         Windows Configuration for the virtual machine 
         """
         return pulumi.get(self, "windows_configuration")
 
     @windows_configuration.setter
-    def windows_configuration(self, value: Optional[pulumi.Input['VirtualmachinesPropertiesWindowsConfigurationArgs']]):
+    def windows_configuration(self, value: Optional[pulumi.Input['VirtualMachinePropertiesWindowsConfigurationArgs']]):
         pulumi.set(self, "windows_configuration", value)
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesPublicKeysPublicKeysArgs:
+class VirtualMachinePropertiesPublicKeysPublicKeysArgs:
     def __init__(__self__, *,
                  key_data: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None):
@@ -1158,7 +1197,7 @@ class VirtualmachinesPropertiesPublicKeysPublicKeysArgs:
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesPublicKeysArgs:
+class VirtualMachinePropertiesPublicKeysArgs:
     def __init__(__self__, *,
                  key_data: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None):
@@ -1197,10 +1236,10 @@ class VirtualmachinesPropertiesPublicKeysArgs:
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesSecurityProfileArgs:
+class VirtualMachinePropertiesSecurityProfileArgs:
     def __init__(__self__, *,
                  enable_tpm: Optional[pulumi.Input[bool]] = None,
-                 uefi_settings: Optional[pulumi.Input['VirtualmachinesPropertiesUefiSettingsArgs']] = None):
+                 uefi_settings: Optional[pulumi.Input['VirtualMachinePropertiesUefiSettingsArgs']] = None):
         """
         SecurityProfile - Specifies the security settings for the virtual machine.
         """
@@ -1222,75 +1261,75 @@ class VirtualmachinesPropertiesSecurityProfileArgs:
 
     @property
     @pulumi.getter(name="uefiSettings")
-    def uefi_settings(self) -> Optional[pulumi.Input['VirtualmachinesPropertiesUefiSettingsArgs']]:
+    def uefi_settings(self) -> Optional[pulumi.Input['VirtualMachinePropertiesUefiSettingsArgs']]:
         return pulumi.get(self, "uefi_settings")
 
     @uefi_settings.setter
-    def uefi_settings(self, value: Optional[pulumi.Input['VirtualmachinesPropertiesUefiSettingsArgs']]):
+    def uefi_settings(self, value: Optional[pulumi.Input['VirtualMachinePropertiesUefiSettingsArgs']]):
         pulumi.set(self, "uefi_settings", value)
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesSshSshArgs:
+class VirtualMachinePropertiesSshSshArgs:
     def __init__(__self__, *,
-                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesPublicKeysPublicKeysArgs']]]] = None):
+                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysPublicKeysArgs']]]] = None):
         """
         SSH Configuration
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesPublicKeysPublicKeysArgs']]] public_keys: PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysPublicKeysArgs']]] public_keys: PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesPublicKeysPublicKeysArgs']]]]:
+    def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysPublicKeysArgs']]]]:
         """
         PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
         """
         return pulumi.get(self, "public_keys")
 
     @public_keys.setter
-    def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesPublicKeysPublicKeysArgs']]]]):
+    def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysPublicKeysArgs']]]]):
         pulumi.set(self, "public_keys", value)
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesSshArgs:
+class VirtualMachinePropertiesSshArgs:
     def __init__(__self__, *,
-                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesPublicKeysArgs']]]] = None):
+                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysArgs']]]] = None):
         """
         SSH - contains settings related to ssh configuration
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesPublicKeysArgs']]] public_keys: PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysArgs']]] public_keys: PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesPublicKeysArgs']]]]:
+    def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysArgs']]]]:
         """
         PublicKeys - The list of SSH public keys used to authenticate with linux based VMs.
         """
         return pulumi.get(self, "public_keys")
 
     @public_keys.setter
-    def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesPublicKeysArgs']]]]):
+    def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesPublicKeysArgs']]]]):
         pulumi.set(self, "public_keys", value)
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesStorageProfileArgs:
+class VirtualMachinePropertiesStorageProfileArgs:
     def __init__(__self__, *,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesDataDisksArgs']]]] = None,
-                 image_reference: Optional[pulumi.Input['VirtualmachinesPropertiesImageReferenceArgs']] = None,
-                 os_disk: Optional[pulumi.Input['VirtualmachinesPropertiesOsDiskArgs']] = None,
-                 vm_config_container_name: Optional[pulumi.Input[str]] = None):
+                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesDataDisksArgs']]]] = None,
+                 image_reference: Optional[pulumi.Input['VirtualMachinePropertiesImageReferenceArgs']] = None,
+                 os_disk: Optional[pulumi.Input['VirtualMachinePropertiesOsDiskArgs']] = None,
+                 vm_config_storage_path_id: Optional[pulumi.Input[str]] = None):
         """
         StorageProfile - contains information about the disks and storage information for the virtual machine
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesDataDisksArgs']]] data_disks: adds data disks to the virtual machine
-        :param pulumi.Input['VirtualmachinesPropertiesImageReferenceArgs'] image_reference: Which Image to use for the virtual machine
-        :param pulumi.Input['VirtualmachinesPropertiesOsDiskArgs'] os_disk: VHD to attach as OS disk
-        :param pulumi.Input[str] vm_config_container_name: Name of the storage container that hosts the VM configuration file
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesDataDisksArgs']]] data_disks: adds data disks to the virtual machine
+        :param pulumi.Input['VirtualMachinePropertiesImageReferenceArgs'] image_reference: Which Image to use for the virtual machine
+        :param pulumi.Input['VirtualMachinePropertiesOsDiskArgs'] os_disk: VHD to attach as OS disk
+        :param pulumi.Input[str] vm_config_storage_path_id: Id of the storage container that hosts the VM configuration file
         """
         if data_disks is not None:
             pulumi.set(__self__, "data_disks", data_disks)
@@ -1298,60 +1337,60 @@ class VirtualmachinesPropertiesStorageProfileArgs:
             pulumi.set(__self__, "image_reference", image_reference)
         if os_disk is not None:
             pulumi.set(__self__, "os_disk", os_disk)
-        if vm_config_container_name is not None:
-            pulumi.set(__self__, "vm_config_container_name", vm_config_container_name)
+        if vm_config_storage_path_id is not None:
+            pulumi.set(__self__, "vm_config_storage_path_id", vm_config_storage_path_id)
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesDataDisksArgs']]]]:
+    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesDataDisksArgs']]]]:
         """
         adds data disks to the virtual machine
         """
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualmachinesPropertiesDataDisksArgs']]]]):
+    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesDataDisksArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @property
     @pulumi.getter(name="imageReference")
-    def image_reference(self) -> Optional[pulumi.Input['VirtualmachinesPropertiesImageReferenceArgs']]:
+    def image_reference(self) -> Optional[pulumi.Input['VirtualMachinePropertiesImageReferenceArgs']]:
         """
         Which Image to use for the virtual machine
         """
         return pulumi.get(self, "image_reference")
 
     @image_reference.setter
-    def image_reference(self, value: Optional[pulumi.Input['VirtualmachinesPropertiesImageReferenceArgs']]):
+    def image_reference(self, value: Optional[pulumi.Input['VirtualMachinePropertiesImageReferenceArgs']]):
         pulumi.set(self, "image_reference", value)
 
     @property
     @pulumi.getter(name="osDisk")
-    def os_disk(self) -> Optional[pulumi.Input['VirtualmachinesPropertiesOsDiskArgs']]:
+    def os_disk(self) -> Optional[pulumi.Input['VirtualMachinePropertiesOsDiskArgs']]:
         """
         VHD to attach as OS disk
         """
         return pulumi.get(self, "os_disk")
 
     @os_disk.setter
-    def os_disk(self, value: Optional[pulumi.Input['VirtualmachinesPropertiesOsDiskArgs']]):
+    def os_disk(self, value: Optional[pulumi.Input['VirtualMachinePropertiesOsDiskArgs']]):
         pulumi.set(self, "os_disk", value)
 
     @property
-    @pulumi.getter(name="vmConfigContainerName")
-    def vm_config_container_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="vmConfigStoragePathId")
+    def vm_config_storage_path_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the storage container that hosts the VM configuration file
+        Id of the storage container that hosts the VM configuration file
         """
-        return pulumi.get(self, "vm_config_container_name")
+        return pulumi.get(self, "vm_config_storage_path_id")
 
-    @vm_config_container_name.setter
-    def vm_config_container_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vm_config_container_name", value)
+    @vm_config_storage_path_id.setter
+    def vm_config_storage_path_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_config_storage_path_id", value)
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesUefiSettingsArgs:
+class VirtualMachinePropertiesUefiSettingsArgs:
     def __init__(__self__, *,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -1376,17 +1415,17 @@ class VirtualmachinesPropertiesUefiSettingsArgs:
 
 
 @pulumi.input_type
-class VirtualmachinesPropertiesWindowsConfigurationArgs:
+class VirtualMachinePropertiesWindowsConfigurationArgs:
     def __init__(__self__, *,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
-                 ssh: Optional[pulumi.Input['VirtualmachinesPropertiesSshSshArgs']] = None,
+                 ssh: Optional[pulumi.Input['VirtualMachinePropertiesSshSshArgs']] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
         Windows Configuration for the virtual machine 
         :param pulumi.Input[bool] enable_automatic_updates: Whether to EnableAutomaticUpdates on the machine
         :param pulumi.Input[bool] provision_vm_agent: Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine creation process.
-        :param pulumi.Input['VirtualmachinesPropertiesSshSshArgs'] ssh: SSH Configuration
+        :param pulumi.Input['VirtualMachinePropertiesSshSshArgs'] ssh: SSH Configuration
         :param pulumi.Input[str] time_zone: TimeZone for the virtual machine
         """
         if enable_automatic_updates is not None:
@@ -1424,14 +1463,14 @@ class VirtualmachinesPropertiesWindowsConfigurationArgs:
 
     @property
     @pulumi.getter
-    def ssh(self) -> Optional[pulumi.Input['VirtualmachinesPropertiesSshSshArgs']]:
+    def ssh(self) -> Optional[pulumi.Input['VirtualMachinePropertiesSshSshArgs']]:
         """
         SSH Configuration
         """
         return pulumi.get(self, "ssh")
 
     @ssh.setter
-    def ssh(self, value: Optional[pulumi.Input['VirtualmachinesPropertiesSshSshArgs']]):
+    def ssh(self, value: Optional[pulumi.Input['VirtualMachinePropertiesSshSshArgs']]):
         pulumi.set(self, "ssh", value)
 
     @property
@@ -1448,7 +1487,31 @@ class VirtualmachinesPropertiesWindowsConfigurationArgs:
 
 
 @pulumi.input_type
-class VirtualnetworksPropertiesIpConfigurationReferencesArgs:
+class VirtualNetworkPropertiesDhcpOptionsArgs:
+    def __init__(__self__, *,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: The list of DNS servers IP addresses.
+        """
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of DNS servers IP addresses.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_servers", value)
+
+
+@pulumi.input_type
+class VirtualNetworkPropertiesIpConfigurationReferencesArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
         """
@@ -1472,17 +1535,17 @@ class VirtualnetworksPropertiesIpConfigurationReferencesArgs:
 
 
 @pulumi.input_type
-class VirtualnetworksPropertiesRouteTableArgs:
+class VirtualNetworkPropertiesRouteTableArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualnetworksPropertiesRoutesArgs']]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesRoutesArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         RouteTable for the subnet
         :param pulumi.Input[str] id: Etag - Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] name: Name - READ-ONLY; Resource name.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualnetworksPropertiesRoutesArgs']]] routes: Routes - Collection of routes contained within a route table.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesRoutesArgs']]] routes: Routes - Collection of routes contained within a route table.
         :param pulumi.Input[str] type: Type - READ-ONLY; Resource type.
         """
         if id is not None:
@@ -1520,14 +1583,14 @@ class VirtualnetworksPropertiesRouteTableArgs:
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualnetworksPropertiesRoutesArgs']]]]:
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesRoutesArgs']]]]:
         """
         Routes - Collection of routes contained within a route table.
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualnetworksPropertiesRoutesArgs']]]]):
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesRoutesArgs']]]]):
         pulumi.set(self, "routes", value)
 
     @property
@@ -1544,7 +1607,7 @@ class VirtualnetworksPropertiesRouteTableArgs:
 
 
 @pulumi.input_type
-class VirtualnetworksPropertiesRoutesArgs:
+class VirtualNetworkPropertiesRoutesArgs:
     def __init__(__self__, *,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1600,25 +1663,25 @@ class VirtualnetworksPropertiesRoutesArgs:
 
 
 @pulumi.input_type
-class VirtualnetworksPropertiesSubnetsArgs:
+class VirtualNetworkPropertiesSubnetsArgs:
     def __init__(__self__, *,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_allocation_method: Optional[pulumi.Input[Union[str, 'IpAllocationMethodEnum']]] = None,
-                 ip_configuration_references: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualnetworksPropertiesIpConfigurationReferencesArgs']]]] = None,
+                 ip_configuration_references: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesIpConfigurationReferencesArgs']]]] = None,
                  ip_pools: Optional[pulumi.Input[Sequence[pulumi.Input['IPPoolArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 route_table: Optional[pulumi.Input['VirtualnetworksPropertiesRouteTableArgs']] = None,
+                 route_table: Optional[pulumi.Input['VirtualNetworkPropertiesRouteTableArgs']] = None,
                  vlan: Optional[pulumi.Input[int]] = None):
         """
         Subnet subnet in a virtual network resource.
         :param pulumi.Input[str] address_prefix: Cidr for this subnet - IPv4, IPv6
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: AddressPrefixes - List of address prefixes for the subnet.
         :param pulumi.Input[Union[str, 'IpAllocationMethodEnum']] ip_allocation_method: IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualnetworksPropertiesIpConfigurationReferencesArgs']]] ip_configuration_references: IPConfigurationReferences - list of IPConfigurationReferences
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesIpConfigurationReferencesArgs']]] ip_configuration_references: IPConfigurationReferences - list of IPConfigurationReferences
         :param pulumi.Input[Sequence[pulumi.Input['IPPoolArgs']]] ip_pools: network associated pool of IP Addresses
         :param pulumi.Input[str] name: Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input['VirtualnetworksPropertiesRouteTableArgs'] route_table: RouteTable for the subnet
+        :param pulumi.Input['VirtualNetworkPropertiesRouteTableArgs'] route_table: RouteTable for the subnet
         :param pulumi.Input[int] vlan: Vlan to use for the subnet
         """
         if address_prefix is not None:
@@ -1676,14 +1739,14 @@ class VirtualnetworksPropertiesSubnetsArgs:
 
     @property
     @pulumi.getter(name="ipConfigurationReferences")
-    def ip_configuration_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualnetworksPropertiesIpConfigurationReferencesArgs']]]]:
+    def ip_configuration_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesIpConfigurationReferencesArgs']]]]:
         """
         IPConfigurationReferences - list of IPConfigurationReferences
         """
         return pulumi.get(self, "ip_configuration_references")
 
     @ip_configuration_references.setter
-    def ip_configuration_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualnetworksPropertiesIpConfigurationReferencesArgs']]]]):
+    def ip_configuration_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesIpConfigurationReferencesArgs']]]]):
         pulumi.set(self, "ip_configuration_references", value)
 
     @property
@@ -1712,14 +1775,14 @@ class VirtualnetworksPropertiesSubnetsArgs:
 
     @property
     @pulumi.getter(name="routeTable")
-    def route_table(self) -> Optional[pulumi.Input['VirtualnetworksPropertiesRouteTableArgs']]:
+    def route_table(self) -> Optional[pulumi.Input['VirtualNetworkPropertiesRouteTableArgs']]:
         """
         RouteTable for the subnet
         """
         return pulumi.get(self, "route_table")
 
     @route_table.setter
-    def route_table(self, value: Optional[pulumi.Input['VirtualnetworksPropertiesRouteTableArgs']]):
+    def route_table(self, value: Optional[pulumi.Input['VirtualNetworkPropertiesRouteTableArgs']]):
         pulumi.set(self, "route_table", value)
 
     @property

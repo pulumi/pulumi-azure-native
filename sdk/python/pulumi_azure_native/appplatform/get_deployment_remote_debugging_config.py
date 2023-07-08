@@ -63,7 +63,7 @@ def get_deployment_remote_debugging_config(app_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentRemoteDebuggingConfigResult:
     """
     Get remote debugging config.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str app_name: The name of the App resource.
@@ -92,7 +92,7 @@ def get_deployment_remote_debugging_config_output(app_name: Optional[pulumi.Inpu
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentRemoteDebuggingConfigResult]:
     """
     Get remote debugging config.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str app_name: The name of the App resource.

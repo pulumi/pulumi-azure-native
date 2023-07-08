@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// SIM policy resource.
-    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
+    /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:SimPolicy")]
     public partial class SimPolicy : global::Pulumi.CustomResource
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Interval for the UE periodic registration update procedure, in seconds.
+        /// UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
         /// </summary>
         [Output("registrationTimer")]
         public Output<int?> RegistrationTimer { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string> MobileNetworkName { get; set; } = null!;
 
         /// <summary>
-        /// Interval for the UE periodic registration update procedure, in seconds.
+        /// UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
         /// </summary>
         [Input("registrationTimer")]
         public Input<int>? RegistrationTimer { get; set; }

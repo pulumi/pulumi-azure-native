@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         public Input<string>? Container { get; set; }
 
         /// <summary>
-        /// Enable secure channel or not, it's an optional field. Default value is false when cluster version &lt; 5.1 and true when cluster version &gt;= 5.1 , 
-        /// </summary>
-        [Input("enableSecureChannel")]
-        public Input<bool>? EnableSecureChannel { get; set; }
-
-        /// <summary>
         /// The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
         /// </summary>
         [Input("fileSystem")]

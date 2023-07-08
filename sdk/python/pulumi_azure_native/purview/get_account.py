@@ -22,7 +22,10 @@ class GetAccountResult:
     """
     Account resource
     """
-    def __init__(__self__, cloud_connectors=None, created_at=None, created_by=None, created_by_object_id=None, endpoints=None, friendly_name=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_resources=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_status=None, cloud_connectors=None, created_at=None, created_by=None, created_by_object_id=None, endpoints=None, friendly_name=None, id=None, identity=None, location=None, managed_event_hub_state=None, managed_resource_group_name=None, managed_resources=None, managed_resources_public_network_access=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, type=None):
+        if account_status and not isinstance(account_status, dict):
+            raise TypeError("Expected argument 'account_status' to be a dict")
+        pulumi.set(__self__, "account_status", account_status)
         if cloud_connectors and not isinstance(cloud_connectors, dict):
             raise TypeError("Expected argument 'cloud_connectors' to be a dict")
         pulumi.set(__self__, "cloud_connectors", cloud_connectors)
@@ -50,12 +53,18 @@ class GetAccountResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_event_hub_state and not isinstance(managed_event_hub_state, str):
+            raise TypeError("Expected argument 'managed_event_hub_state' to be a str")
+        pulumi.set(__self__, "managed_event_hub_state", managed_event_hub_state)
         if managed_resource_group_name and not isinstance(managed_resource_group_name, str):
             raise TypeError("Expected argument 'managed_resource_group_name' to be a str")
         pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
         if managed_resources and not isinstance(managed_resources, dict):
             raise TypeError("Expected argument 'managed_resources' to be a dict")
         pulumi.set(__self__, "managed_resources", managed_resources)
+        if managed_resources_public_network_access and not isinstance(managed_resources_public_network_access, str):
+            raise TypeError("Expected argument 'managed_resources_public_network_access' to be a str")
+        pulumi.set(__self__, "managed_resources_public_network_access", managed_resources_public_network_access)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -80,6 +89,14 @@ class GetAccountResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountStatus")
+    def account_status(self) -> 'outputs.AccountPropertiesResponseAccountStatus':
+        """
+        Gets or sets the status of the account.
+        """
+        return pulumi.get(self, "account_status")
 
     @property
     @pulumi.getter(name="cloudConnectors")
@@ -155,6 +172,14 @@ class GetAccountResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedEventHubState")
+    def managed_event_hub_state(self) -> Optional[str]:
+        """
+         Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+        """
+        return pulumi.get(self, "managed_event_hub_state")
+
+    @property
     @pulumi.getter(name="managedResourceGroupName")
     def managed_resource_group_name(self) -> Optional[str]:
         """
@@ -169,6 +194,14 @@ class GetAccountResult:
         Gets the resource identifiers of the managed resources.
         """
         return pulumi.get(self, "managed_resources")
+
+    @property
+    @pulumi.getter(name="managedResourcesPublicNetworkAccess")
+    def managed_resources_public_network_access(self) -> Optional[str]:
+        """
+        Gets or sets the public network access for managed resources.
+        """
+        return pulumi.get(self, "managed_resources_public_network_access")
 
     @property
     @pulumi.getter
@@ -241,6 +274,7 @@ class AwaitableGetAccountResult(GetAccountResult):
         if False:
             yield self
         return GetAccountResult(
+            account_status=self.account_status,
             cloud_connectors=self.cloud_connectors,
             created_at=self.created_at,
             created_by=self.created_by,
@@ -250,8 +284,10 @@ class AwaitableGetAccountResult(GetAccountResult):
             id=self.id,
             identity=self.identity,
             location=self.location,
+            managed_event_hub_state=self.managed_event_hub_state,
             managed_resource_group_name=self.managed_resource_group_name,
             managed_resources=self.managed_resources,
+            managed_resources_public_network_access=self.managed_resources_public_network_access,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
@@ -267,7 +303,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Get an account
-    Azure REST API version: 2021-07-01.
+    Azure REST API version: 2021-12-01.
 
 
     :param str account_name: The name of the account.
@@ -280,6 +316,7 @@ def get_account(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:purview:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
+        account_status=__ret__.account_status,
         cloud_connectors=__ret__.cloud_connectors,
         created_at=__ret__.created_at,
         created_by=__ret__.created_by,
@@ -289,8 +326,10 @@ def get_account(account_name: Optional[str] = None,
         id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
+        managed_event_hub_state=__ret__.managed_event_hub_state,
         managed_resource_group_name=__ret__.managed_resource_group_name,
         managed_resources=__ret__.managed_resources,
+        managed_resources_public_network_access=__ret__.managed_resources_public_network_access,
         name=__ret__.name,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
@@ -307,7 +346,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Get an account
-    Azure REST API version: 2021-07-01.
+    Azure REST API version: 2021-12-01.
 
 
     :param str account_name: The name of the account.

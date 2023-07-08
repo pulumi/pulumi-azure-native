@@ -51,7 +51,7 @@ def list_build_service_builder_deployments(build_service_name: Optional[str] = N
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBuildServiceBuilderDeploymentsResult:
     """
     List deployments that are using the builder.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str build_service_name: The name of the build service resource.
@@ -79,7 +79,7 @@ def list_build_service_builder_deployments_output(build_service_name: Optional[p
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBuildServiceBuilderDeploymentsResult]:
     """
     List deployments that are using the builder.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str build_service_name: The name of the build service resource.

@@ -718,7 +718,7 @@ class SensorIntegrationResponse(dict):
         """
         Sensor integration request model.
         :param str provisioning_state: Sensor integration instance provisioning state.
-        :param str enabled: Sensor integration enable state. Allowed values are True, None
+        :param str enabled: Sensor integration enable state.
         :param 'ErrorResponseResponse' provisioning_info: Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -739,7 +739,7 @@ class SensorIntegrationResponse(dict):
     @pulumi.getter
     def enabled(self) -> Optional[str]:
         """
-        Sensor integration enable state. Allowed values are True, None
+        Sensor integration enable state.
         """
         return pulumi.get(self, "enabled")
 

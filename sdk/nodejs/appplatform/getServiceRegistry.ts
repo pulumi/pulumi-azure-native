@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Service Registry and its properties.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getServiceRegistry(args: GetServiceRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRegistryResult> {
 
@@ -63,7 +63,7 @@ export interface GetServiceRegistryResult {
 }
 /**
  * Get the Service Registry and its properties.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getServiceRegistryOutput(args: GetServiceRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRegistryResult> {
     return pulumi.output(args).apply((a: any) => getServiceRegistry(a, opts))

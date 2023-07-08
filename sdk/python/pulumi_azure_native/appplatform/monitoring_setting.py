@@ -78,7 +78,7 @@ class MonitoringSetting(pulumi.CustomResource):
                  __props__=None):
         """
         Monitoring Setting resource
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-07-01
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -94,7 +94,7 @@ class MonitoringSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Monitoring Setting resource
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-07-01
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
 
         :param str resource_name: The name of the resource.
         :param MonitoringSettingArgs args: The arguments to use to populate this resource's properties.

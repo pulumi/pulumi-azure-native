@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets an Event Hubs description for the specified Event Hub.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure-native:eventhub:getEventHub", args ?? new GetEventHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Event Hubs description for the specified Event Hub.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Output<GetEventHubResult> Invoke(GetEventHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure-native:eventhub:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithDefaults());
@@ -116,6 +116,10 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly ImmutableArray<string> PartitionIds;
         /// <summary>
+        /// Event Hub retention settings
+        /// </summary>
+        public readonly Outputs.RetentionDescriptionResponse? RetentionDescription;
+        /// <summary>
         /// Enumerates the possible values for the status of the Event Hub.
         /// </summary>
         public readonly string? Status;
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.EventHub
 
             ImmutableArray<string> partitionIds,
 
+            Outputs.RetentionDescriptionResponse? retentionDescription,
+
             string? status,
 
             Outputs.SystemDataResponse systemData,
@@ -166,6 +172,7 @@ namespace Pulumi.AzureNative.EventHub
             Name = name;
             PartitionCount = partitionCount;
             PartitionIds = partitionIds;
+            RetentionDescription = retentionDescription;
             Status = status;
             SystemData = systemData;
             Type = type;

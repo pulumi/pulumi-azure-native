@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// The download status of the marketplace gallery image
+    /// The download status of the gallery image
     /// </summary>
     [OutputType]
     public sealed class MarketplaceGalleryImageStatusResponseDownloadStatus

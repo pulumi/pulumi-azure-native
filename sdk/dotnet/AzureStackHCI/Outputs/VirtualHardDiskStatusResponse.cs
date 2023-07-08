@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// VirtualHardDiskStatus defines the observed state of virtualharddisks
+    /// The observed state of virtual hard disks
     /// </summary>
     [OutputType]
     public sealed class VirtualHardDiskStatusResponse
@@ -24,9 +24,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// Descriptive error message
         /// </summary>
         public readonly string? ErrorMessage;
-        /// <summary>
-        /// The provisioning status of the virtual hard disk
-        /// </summary>
         public readonly Outputs.VirtualHardDiskStatusResponseProvisioningStatus? ProvisioningStatus;
 
         [OutputConstructor]

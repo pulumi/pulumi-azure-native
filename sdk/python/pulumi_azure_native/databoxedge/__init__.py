@@ -22,7 +22,6 @@ from .get_file_event_trigger import *
 from .get_io_t_addon import *
 from .get_io_t_role import *
 from .get_kubernetes_role import *
-from .get_marketplace_image_sas_token_sas_token import *
 from .get_mec_role import *
 from .get_monitoring_config import *
 from .get_order import *

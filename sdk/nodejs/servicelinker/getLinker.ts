@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns Linker resource for a given name.
- * Azure REST API version: 2022-05-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getLinker(args: GetLinkerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkerResult> {
 
@@ -38,11 +38,15 @@ export interface GetLinkerResult {
     /**
      * The authentication type.
      */
-    readonly authInfo?: outputs.servicelinker.SecretAuthInfoResponse | outputs.servicelinker.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.UserAssignedIdentityAuthInfoResponse;
+    readonly authInfo?: outputs.servicelinker.AccessKeyInfoBaseResponse | outputs.servicelinker.SecretAuthInfoResponse | outputs.servicelinker.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.UserAccountAuthInfoResponse | outputs.servicelinker.UserAssignedIdentityAuthInfoResponse;
     /**
      * The application client type
      */
     readonly clientType?: string;
+    /**
+     * The connection information consumed by applications, including secrets, connection strings.
+     */
+    readonly configurationInfo?: outputs.servicelinker.ConfigurationInfoResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -56,6 +60,10 @@ export interface GetLinkerResult {
      */
     readonly provisioningState: string;
     /**
+     * The network solution.
+     */
+    readonly publicNetworkSolution?: outputs.servicelinker.PublicNetworkSolutionResponse;
+    /**
      * connection scope in source service.
      */
     readonly scope?: string;
@@ -64,13 +72,13 @@ export interface GetLinkerResult {
      */
     readonly secretStore?: outputs.servicelinker.SecretStoreResponse;
     /**
-     * The system data.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.servicelinker.SystemDataResponse;
     /**
      * The target service properties
      */
-    readonly targetService?: outputs.servicelinker.AzureResourceResponse | outputs.servicelinker.ConfluentBootstrapServerResponse | outputs.servicelinker.ConfluentSchemaRegistryResponse;
+    readonly targetService?: outputs.servicelinker.AzureResourceResponse | outputs.servicelinker.ConfluentBootstrapServerResponse | outputs.servicelinker.ConfluentSchemaRegistryResponse | outputs.servicelinker.SelfHostedServerResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -82,7 +90,7 @@ export interface GetLinkerResult {
 }
 /**
  * Returns Linker resource for a given name.
- * Azure REST API version: 2022-05-01.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function getLinkerOutput(args: GetLinkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerResult> {
     return pulumi.output(args).apply((a: any) => getLinker(a, opts))

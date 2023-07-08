@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, object>? AddonConfigs;
         /// <summary>
+        /// Collection of ApmReferences
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApmReferenceResponse> Apms;
+        /// <summary>
         /// Container liveness and readiness probe settings
         /// </summary>
         public readonly Outputs.ContainerProbeSettingsResponse? ContainerProbeSettings;
@@ -41,6 +45,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly Outputs.ResourceRequestsResponse? ResourceRequests;
         /// <summary>
+        /// Scaling properties for the Azure Spring Apps App Instance.
+        /// </summary>
+        public readonly Outputs.ScaleResponse? Scale;
+        /// <summary>
         /// StartupProbe indicates that the App Instance has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a App Instance's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
         /// </summary>
         public readonly Outputs.ProbeResponse? StartupProbe;
@@ -53,6 +61,8 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         private DeploymentSettingsResponse(
             ImmutableDictionary<string, object>? addonConfigs,
 
+            ImmutableArray<Outputs.ApmReferenceResponse> apms,
+
             Outputs.ContainerProbeSettingsResponse? containerProbeSettings,
 
             ImmutableDictionary<string, string>? environmentVariables,
@@ -63,16 +73,20 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             Outputs.ResourceRequestsResponse? resourceRequests,
 
+            Outputs.ScaleResponse? scale,
+
             Outputs.ProbeResponse? startupProbe,
 
             int? terminationGracePeriodSeconds)
         {
             AddonConfigs = addonConfigs;
+            Apms = apms;
             ContainerProbeSettings = containerProbeSettings;
             EnvironmentVariables = environmentVariables;
             LivenessProbe = livenessProbe;
             ReadinessProbe = readinessProbe;
             ResourceRequests = resourceRequests;
+            Scale = scale;
             StartupProbe = startupProbe;
             TerminationGracePeriodSeconds = terminationGracePeriodSeconds;
         }

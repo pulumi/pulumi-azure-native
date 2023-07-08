@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Gets information about the specified packet core control plane.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-06-01.
         /// </summary>
         public static Task<GetPacketCoreControlPlaneResult> InvokeAsync(GetPacketCoreControlPlaneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCoreControlPlaneResult>("azure-native:mobilenetwork:getPacketCoreControlPlane", args ?? new GetPacketCoreControlPlaneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified packet core control plane.
-        /// Azure REST API version: 2022-11-01.
+        /// Azure REST API version: 2023-06-01.
         /// </summary>
         public static Output<GetPacketCoreControlPlaneResult> Invoke(GetPacketCoreControlPlaneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCoreControlPlaneResult>("azure-native:mobilenetwork:getPacketCoreControlPlane", args ?? new GetPacketCoreControlPlaneInvokeArgs(), options.WithDefaults());
@@ -80,7 +80,11 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string? CoreNetworkTechnology;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Configuration for uploading packet core diagnostics
+        /// </summary>
+        public readonly Outputs.DiagnosticsUploadConfigurationResponse? DiagnosticsUpload;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -90,7 +94,11 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// The installation state of the packet core control plane resource.
         /// </summary>
-        public readonly Outputs.InstallationResponse Installation;
+        public readonly Outputs.InstallationResponse? Installation;
+        /// <summary>
+        /// The currently installed version of the packet core software.
+        /// </summary>
+        public readonly string InstalledVersion;
         /// <summary>
         /// Settings to allow interoperability with third party components e.g. RANs and UEs.
         /// </summary>
@@ -144,7 +152,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly int? UeMtu;
         /// <summary>
-        /// The version of the packet core software that is deployed.
+        /// The desired version of the packet core software.
         /// </summary>
         public readonly string? Version;
 
@@ -154,11 +162,15 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string? coreNetworkTechnology,
 
+            Outputs.DiagnosticsUploadConfigurationResponse? diagnosticsUpload,
+
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
 
-            Outputs.InstallationResponse installation,
+            Outputs.InstallationResponse? installation,
+
+            string installedVersion,
 
             object? interopSettings,
 
@@ -190,9 +202,11 @@ namespace Pulumi.AzureNative.MobileNetwork
         {
             ControlPlaneAccessInterface = controlPlaneAccessInterface;
             CoreNetworkTechnology = coreNetworkTechnology;
+            DiagnosticsUpload = diagnosticsUpload;
             Id = id;
             Identity = identity;
             Installation = installation;
+            InstalledVersion = installedVersion;
             InteropSettings = interopSettings;
             LocalDiagnosticsAccess = localDiagnosticsAccess;
             Location = location;

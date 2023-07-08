@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Deployment resource payload
- * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-07-01
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
  */
 export class Deployment extends pulumi.CustomResource {
     /**

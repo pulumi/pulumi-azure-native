@@ -23,6 +23,7 @@ __all__ = [
     'NWRuleSetVirtualNetworkRulesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
+    'RetentionDescriptionResponse',
     'SkuResponse',
     'SubnetResponse',
     'SystemDataResponse',
@@ -800,6 +801,74 @@ class PrivateEndpointResponse(dict):
         The ARM identifier for Private Endpoint.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class RetentionDescriptionResponse(dict):
+    """
+    Properties to configure retention settings for the  eventhub
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cleanupPolicy":
+            suggest = "cleanup_policy"
+        elif key == "retentionTimeInHours":
+            suggest = "retention_time_in_hours"
+        elif key == "tombstoneRetentionTimeInHours":
+            suggest = "tombstone_retention_time_in_hours"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RetentionDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RetentionDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RetentionDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cleanup_policy: Optional[str] = None,
+                 retention_time_in_hours: Optional[float] = None,
+                 tombstone_retention_time_in_hours: Optional[int] = None):
+        """
+        Properties to configure retention settings for the  eventhub
+        :param str cleanup_policy: Enumerates the possible values for cleanup policy
+        :param float retention_time_in_hours: Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
+        :param int tombstone_retention_time_in_hours: Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
+        """
+        if cleanup_policy is not None:
+            pulumi.set(__self__, "cleanup_policy", cleanup_policy)
+        if retention_time_in_hours is not None:
+            pulumi.set(__self__, "retention_time_in_hours", retention_time_in_hours)
+        if tombstone_retention_time_in_hours is not None:
+            pulumi.set(__self__, "tombstone_retention_time_in_hours", tombstone_retention_time_in_hours)
+
+    @property
+    @pulumi.getter(name="cleanupPolicy")
+    def cleanup_policy(self) -> Optional[str]:
+        """
+        Enumerates the possible values for cleanup policy
+        """
+        return pulumi.get(self, "cleanup_policy")
+
+    @property
+    @pulumi.getter(name="retentionTimeInHours")
+    def retention_time_in_hours(self) -> Optional[float]:
+        """
+        Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
+        """
+        return pulumi.get(self, "retention_time_in_hours")
+
+    @property
+    @pulumi.getter(name="tombstoneRetentionTimeInHours")
+    def tombstone_retention_time_in_hours(self) -> Optional[int]:
+        """
+        Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
+        """
+        return pulumi.get(self, "tombstone_retention_time_in_hours")
 
 
 @pulumi.output_type

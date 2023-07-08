@@ -3,12 +3,10 @@
 
 // Export sub-modules:
 import * as v20180101preview from "./v20180101preview";
-import * as v20211101 from "./v20211101";
 import * as v20221001preview from "./v20221001preview";
 
 export {
     v20180101preview,
-    v20211101,
     v20221001preview,
 };
 
@@ -28,6 +26,16 @@ export const ApplicationGroupPolicyType = {
  * Application Group Policy types
  */
 export type ApplicationGroupPolicyType = (typeof ApplicationGroupPolicyType)[keyof typeof ApplicationGroupPolicyType];
+
+export const CleanupPolicyRetentionDescription = {
+    Delete: "Delete",
+    Compact: "Compact",
+} as const;
+
+/**
+ * Enumerates the possible values for cleanup policy
+ */
+export type CleanupPolicyRetentionDescription = (typeof CleanupPolicyRetentionDescription)[keyof typeof CleanupPolicyRetentionDescription];
 
 export const ClusterSkuName = {
     Dedicated: "Dedicated",
@@ -153,13 +161,25 @@ export const PrivateLinkConnectionStatus = {
  */
 export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
 
-export const PublicNetworkAccessFlag = {
+export const PublicNetworkAccess = {
     Enabled: "Enabled",
     Disabled: "Disabled",
+    SecuredByPerimeter: "SecuredByPerimeter",
 } as const;
 
 /**
  * This determines if traffic is allowed over public network. By default it is enabled.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const PublicNetworkAccessFlag = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    SecuredByPerimeter: "SecuredByPerimeter",
+} as const;
+
+/**
+ * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
  */
 export type PublicNetworkAccessFlag = (typeof PublicNetworkAccessFlag)[keyof typeof PublicNetworkAccessFlag];
 
@@ -199,3 +219,14 @@ export const SkuTier = {
  * The billing tier of this particular SKU.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+
+export const TlsVersion = {
+    TlsVersion_1_0: "1.0",
+    TlsVersion_1_1: "1.1",
+    TlsVersion_1_2: "1.2",
+} as const;
+
+/**
+ * The minimum TLS version for the cluster to support, e.g. '1.2'
+ */
+export type TlsVersion = (typeof TlsVersion)[keyof typeof TlsVersion];

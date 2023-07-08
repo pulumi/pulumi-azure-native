@@ -8,6 +8,7 @@ __all__ = [
     'AuthenticationType',
     'BillingSku',
     'CoreNetworkType',
+    'DesiredInstallationState',
     'ManagedServiceIdentityType',
     'NaptEnabled',
     'PduSessionType',
@@ -71,16 +72,32 @@ class CoreNetworkType(str, Enum):
     """
     EPC / 4G core
     """
+    EP_C_5_GC = "EPC + 5GC"
+    """
+    Combined EPC / 4G and 5G core
+    """
+
+
+class DesiredInstallationState(str, Enum):
+    """
+    The desired installation state
+    """
+    UNINSTALLED = "Uninstalled"
+    """
+    Don't install the packet core.
+    """
+    INSTALLED = "Installed"
+    """
+    Install the packet core.
+    """
 
 
 class ManagedServiceIdentityType(str, Enum):
     """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    Type of managed service identity (currently only UserAssigned allowed).
     """
     NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class NaptEnabled(str, Enum):

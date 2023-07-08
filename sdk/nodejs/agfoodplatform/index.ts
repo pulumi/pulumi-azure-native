@@ -20,11 +20,6 @@ export type Extension = import("./extension").Extension;
 export const Extension: typeof import("./extension").Extension = null as any;
 utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
 
-export { FarmBeatsModelArgs } from "./farmBeatsModel";
-export type FarmBeatsModel = import("./farmBeatsModel").FarmBeatsModel;
-export const FarmBeatsModel: typeof import("./farmBeatsModel").FarmBeatsModel = null as any;
-utilities.lazyLoad(exports, ["FarmBeatsModel"], () => require("./farmBeatsModel"));
-
 export { GetDataConnectorArgs, GetDataConnectorResult, GetDataConnectorOutputArgs } from "./getDataConnector";
 export const getDataConnector: typeof import("./getDataConnector").getDataConnector = null as any;
 export const getDataConnectorOutput: typeof import("./getDataConnector").getDataConnectorOutput = null as any;
@@ -39,11 +34,6 @@ export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./
 export const getExtension: typeof import("./getExtension").getExtension = null as any;
 export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
 utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
-
-export { GetFarmBeatsModelArgs, GetFarmBeatsModelResult, GetFarmBeatsModelOutputArgs } from "./getFarmBeatsModel";
-export const getFarmBeatsModel: typeof import("./getFarmBeatsModel").getFarmBeatsModel = null as any;
-export const getFarmBeatsModelOutput: typeof import("./getFarmBeatsModel").getFarmBeatsModelOutput = null as any;
-utilities.lazyLoad(exports, ["getFarmBeatsModel","getFarmBeatsModelOutput"], () => require("./getFarmBeatsModel"));
 
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
@@ -90,8 +80,6 @@ const _module = {
                 return new DataManagerForAgricultureResource(name, <any>undefined, { urn })
             case "azure-native:agfoodplatform:Extension":
                 return new Extension(name, <any>undefined, { urn })
-            case "azure-native:agfoodplatform:FarmBeatsModel":
-                return new FarmBeatsModel(name, <any>undefined, { urn })
             case "azure-native:agfoodplatform:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:agfoodplatform:Solution":

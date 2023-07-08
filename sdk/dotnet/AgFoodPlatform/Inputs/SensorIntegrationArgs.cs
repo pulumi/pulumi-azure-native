@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.Inputs
     public sealed class SensorIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sensor integration enable state. Allowed values are True, None
+        /// Sensor integration enable state.
         /// </summary>
         [Input("enabled")]
         public Input<string>? Enabled { get; set; }

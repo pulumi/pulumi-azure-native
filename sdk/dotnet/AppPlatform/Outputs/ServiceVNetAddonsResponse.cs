@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class ServiceVNetAddonsResponse
     {
         /// <summary>
+        /// Indicates whether the data plane components(log stream, app connect, remote debugging) in vnet injection instance could be accessed from internet.
+        /// </summary>
+        public readonly bool? DataPlanePublicEndpoint;
+        /// <summary>
         /// Indicates whether the log stream in vnet injection instance could be accessed from internet.
         /// </summary>
         public readonly bool? LogStreamPublicEndpoint;
 
         [OutputConstructor]
-        private ServiceVNetAddonsResponse(bool? logStreamPublicEndpoint)
+        private ServiceVNetAddonsResponse(
+            bool? dataPlanePublicEndpoint,
+
+            bool? logStreamPublicEndpoint)
         {
+            DataPlanePublicEndpoint = dataPlanePublicEndpoint;
             LogStreamPublicEndpoint = logStreamPublicEndpoint;
         }
     }

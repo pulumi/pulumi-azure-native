@@ -63,7 +63,7 @@ class GetSliceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -147,7 +147,7 @@ def get_slice(mobile_network_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSliceResult:
     """
     Gets information about the specified network slice.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-06-01.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -180,7 +180,7 @@ def get_slice_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSliceResult]:
     """
     Gets information about the specified network slice.
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2023-06-01.
 
 
     :param str mobile_network_name: The name of the mobile network.

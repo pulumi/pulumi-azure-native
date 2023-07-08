@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// NetworkInterfaceStatus defines the observed state of network interfaces
+    /// The observed state of network interfaces
     /// </summary>
     [OutputType]
     public sealed class NetworkInterfaceStatusResponse
@@ -24,9 +24,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// Descriptive error message
         /// </summary>
         public readonly string? ErrorMessage;
-        /// <summary>
-        /// The provisioning status of the network interface
-        /// </summary>
         public readonly Outputs.NetworkInterfaceStatusResponseProvisioningStatus? ProvisioningStatus;
 
         [OutputConstructor]

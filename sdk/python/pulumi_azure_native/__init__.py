@@ -744,7 +744,6 @@ _utilities.register(
    "azure-native:agfoodplatform:DataConnector": "DataConnector",
    "azure-native:agfoodplatform:DataManagerForAgricultureResource": "DataManagerForAgricultureResource",
    "azure-native:agfoodplatform:Extension": "Extension",
-   "azure-native:agfoodplatform:FarmBeatsModel": "FarmBeatsModel",
    "azure-native:agfoodplatform:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:agfoodplatform:Solution": "Solution"
   }
@@ -1456,32 +1455,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "appplatform/v20221201",
-  "fqn": "pulumi_azure_native.appplatform.v20221201",
-  "classes": {
-   "azure-native:appplatform/v20221201:ApiPortal": "ApiPortal",
-   "azure-native:appplatform/v20221201:ApiPortalCustomDomain": "ApiPortalCustomDomain",
-   "azure-native:appplatform/v20221201:App": "App",
-   "azure-native:appplatform/v20221201:Binding": "Binding",
-   "azure-native:appplatform/v20221201:BuildServiceAgentPool": "BuildServiceAgentPool",
-   "azure-native:appplatform/v20221201:BuildServiceBuilder": "BuildServiceBuilder",
-   "azure-native:appplatform/v20221201:BuildpackBinding": "BuildpackBinding",
-   "azure-native:appplatform/v20221201:Certificate": "Certificate",
-   "azure-native:appplatform/v20221201:ConfigServer": "ConfigServer",
-   "azure-native:appplatform/v20221201:ConfigurationService": "ConfigurationService",
-   "azure-native:appplatform/v20221201:CustomDomain": "CustomDomain",
-   "azure-native:appplatform/v20221201:Deployment": "Deployment",
-   "azure-native:appplatform/v20221201:Gateway": "Gateway",
-   "azure-native:appplatform/v20221201:GatewayCustomDomain": "GatewayCustomDomain",
-   "azure-native:appplatform/v20221201:GatewayRouteConfig": "GatewayRouteConfig",
-   "azure-native:appplatform/v20221201:MonitoringSetting": "MonitoringSetting",
-   "azure-native:appplatform/v20221201:Service": "Service",
-   "azure-native:appplatform/v20221201:ServiceRegistry": "ServiceRegistry",
-   "azure-native:appplatform/v20221201:Storage": "Storage"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "appplatform/v20230501preview",
   "fqn": "pulumi_azure_native.appplatform.v20230501preview",
   "classes": {
@@ -2080,16 +2053,19 @@ _utilities.register(
    "azure-native:azurestackhci:ArcSetting": "ArcSetting",
    "azure-native:azurestackhci:Cluster": "Cluster",
    "azure-native:azurestackhci:Extension": "Extension",
-   "azure-native:azurestackhci:GalleryimageRetrieve": "GalleryimageRetrieve",
-   "azure-native:azurestackhci:Marketplacegalleryimage": "Marketplacegalleryimage",
-   "azure-native:azurestackhci:NetworkinterfaceRetrieve": "NetworkinterfaceRetrieve",
-   "azure-native:azurestackhci:StoragecontainerRetrieve": "StoragecontainerRetrieve",
+   "azure-native:azurestackhci:GalleryImage": "GalleryImage",
+   "azure-native:azurestackhci:GuestAgent": "GuestAgent",
+   "azure-native:azurestackhci:HybridIdentityMetadatum": "HybridIdentityMetadatum",
+   "azure-native:azurestackhci:MachineExtension": "MachineExtension",
+   "azure-native:azurestackhci:MarketplaceGalleryImage": "MarketplaceGalleryImage",
+   "azure-native:azurestackhci:NetworkInterface": "NetworkInterface",
+   "azure-native:azurestackhci:StorageContainer": "StorageContainer",
    "azure-native:azurestackhci:Update": "Update",
    "azure-native:azurestackhci:UpdateRun": "UpdateRun",
    "azure-native:azurestackhci:UpdateSummary": "UpdateSummary",
-   "azure-native:azurestackhci:VirtualharddiskRetrieve": "VirtualharddiskRetrieve",
-   "azure-native:azurestackhci:VirtualmachineRetrieve": "VirtualmachineRetrieve",
-   "azure-native:azurestackhci:VirtualnetworkRetrieve": "VirtualnetworkRetrieve"
+   "azure-native:azurestackhci:VirtualHardDisk": "VirtualHardDisk",
+   "azure-native:azurestackhci:VirtualMachine": "VirtualMachine",
+   "azure-native:azurestackhci:VirtualNetwork": "VirtualNetwork"
   }
  },
  {
@@ -3821,8 +3797,7 @@ _utilities.register(
    "azure-native:dbformysql:Database": "Database",
    "azure-native:dbformysql:FirewallRule": "FirewallRule",
    "azure-native:dbformysql:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:dbformysql:Server": "Server",
-   "azure-native:dbformysql:ServerKey": "ServerKey"
+   "azure-native:dbformysql:Server": "Server"
   }
  },
  {
@@ -3849,8 +3824,7 @@ _utilities.register(
   "mod": "dbformysql/v20200701preview",
   "fqn": "pulumi_azure_native.dbformysql.v20200701preview",
   "classes": {
-   "azure-native:dbformysql/v20200701preview:Server": "Server",
-   "azure-native:dbformysql/v20200701preview:ServerKey": "ServerKey"
+   "azure-native:dbformysql/v20200701preview:Server": "Server"
   }
  },
  {
@@ -4715,7 +4689,6 @@ _utilities.register(
    "azure-native:eventgrid:DomainEventSubscription": "DomainEventSubscription",
    "azure-native:eventgrid:DomainTopic": "DomainTopic",
    "azure-native:eventgrid:DomainTopicEventSubscription": "DomainTopicEventSubscription",
-   "azure-native:eventgrid:EventChannel": "EventChannel",
    "azure-native:eventgrid:EventSubscription": "EventSubscription",
    "azure-native:eventgrid:Namespace": "Namespace",
    "azure-native:eventgrid:NamespaceTopic": "NamespaceTopic",
@@ -4836,23 +4809,6 @@ _utilities.register(
   "classes": {
    "azure-native:eventhub/v20180101preview:NamespaceIpFilterRule": "NamespaceIpFilterRule",
    "azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule": "NamespaceVirtualNetworkRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "eventhub/v20211101",
-  "fqn": "pulumi_azure_native.eventhub.v20211101",
-  "classes": {
-   "azure-native:eventhub/v20211101:Cluster": "Cluster",
-   "azure-native:eventhub/v20211101:ConsumerGroup": "ConsumerGroup",
-   "azure-native:eventhub/v20211101:DisasterRecoveryConfig": "DisasterRecoveryConfig",
-   "azure-native:eventhub/v20211101:EventHub": "EventHub",
-   "azure-native:eventhub/v20211101:EventHubAuthorizationRule": "EventHubAuthorizationRule",
-   "azure-native:eventhub/v20211101:Namespace": "Namespace",
-   "azure-native:eventhub/v20211101:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
-   "azure-native:eventhub/v20211101:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet",
-   "azure-native:eventhub/v20211101:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:eventhub/v20211101:SchemaRegistry": "SchemaRegistry"
   }
  },
  {
@@ -5038,6 +4994,16 @@ _utilities.register(
    "azure-native:hdinsight:Application": "Application",
    "azure-native:hdinsight:Cluster": "Cluster",
    "azure-native:hdinsight:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hdinsight/v20210601",
+  "fqn": "pulumi_azure_native.hdinsight.v20210601",
+  "classes": {
+   "azure-native:hdinsight/v20210601:Application": "Application",
+   "azure-native:hdinsight/v20210601:Cluster": "Cluster",
+   "azure-native:hdinsight/v20210601:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -9323,14 +9289,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "servicelinker/v20220501",
-  "fqn": "pulumi_azure_native.servicelinker.v20220501",
-  "classes": {
-   "azure-native:servicelinker/v20220501:Linker": "Linker"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "servicelinker/v20221101preview",
   "fqn": "pulumi_azure_native.servicelinker.v20221101preview",
   "classes": {
@@ -10849,14 +10807,12 @@ _utilities.register(
   "fqn": "pulumi_azure_native.workloads",
   "classes": {
    "azure-native:workloads:Monitor": "Monitor",
-   "azure-native:workloads:PhpWorkload": "PhpWorkload",
    "azure-native:workloads:ProviderInstance": "ProviderInstance",
    "azure-native:workloads:SAPApplicationServerInstance": "SAPApplicationServerInstance",
    "azure-native:workloads:SAPCentralInstance": "SAPCentralInstance",
    "azure-native:workloads:SAPDatabaseInstance": "SAPDatabaseInstance",
    "azure-native:workloads:SAPVirtualInstance": "SAPVirtualInstance",
-   "azure-native:workloads:SapLandscapeMonitor": "SapLandscapeMonitor",
-   "azure-native:workloads:WordpressInstance": "WordpressInstance"
+   "azure-native:workloads:SapLandscapeMonitor": "SapLandscapeMonitor"
   }
  },
  {

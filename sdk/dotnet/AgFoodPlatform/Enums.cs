@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     }
 
     /// <summary>
-    /// Property to allow or block public traffic for an Azure FarmBeats resource.
+    /// Property to allow or block public traffic for an Azure Data Manager For Agriculture resource.
     /// </summary>
     [EnumType]
     public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         }
 
         public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
-        public static PublicNetworkAccess Hybrid { get; } = new PublicNetworkAccess("Hybrid");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
 
         public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
         public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);

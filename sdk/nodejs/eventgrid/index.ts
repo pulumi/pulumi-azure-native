@@ -45,11 +45,6 @@ export type DomainTopicEventSubscription = import("./domainTopicEventSubscriptio
 export const DomainTopicEventSubscription: typeof import("./domainTopicEventSubscription").DomainTopicEventSubscription = null as any;
 utilities.lazyLoad(exports, ["DomainTopicEventSubscription"], () => require("./domainTopicEventSubscription"));
 
-export { EventChannelArgs } from "./eventChannel";
-export type EventChannel = import("./eventChannel").EventChannel;
-export const EventChannel: typeof import("./eventChannel").EventChannel = null as any;
-utilities.lazyLoad(exports, ["EventChannel"], () => require("./eventChannel"));
-
 export { EventSubscriptionArgs } from "./eventSubscription";
 export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
@@ -119,11 +114,6 @@ export { GetDomainTopicEventSubscriptionFullUrlArgs, GetDomainTopicEventSubscrip
 export const getDomainTopicEventSubscriptionFullUrl: typeof import("./getDomainTopicEventSubscriptionFullUrl").getDomainTopicEventSubscriptionFullUrl = null as any;
 export const getDomainTopicEventSubscriptionFullUrlOutput: typeof import("./getDomainTopicEventSubscriptionFullUrl").getDomainTopicEventSubscriptionFullUrlOutput = null as any;
 utilities.lazyLoad(exports, ["getDomainTopicEventSubscriptionFullUrl","getDomainTopicEventSubscriptionFullUrlOutput"], () => require("./getDomainTopicEventSubscriptionFullUrl"));
-
-export { GetEventChannelArgs, GetEventChannelResult, GetEventChannelOutputArgs } from "./getEventChannel";
-export const getEventChannel: typeof import("./getEventChannel").getEventChannel = null as any;
-export const getEventChannelOutput: typeof import("./getEventChannel").getEventChannelOutput = null as any;
-utilities.lazyLoad(exports, ["getEventChannel","getEventChannelOutput"], () => require("./getEventChannel"));
 
 export { GetEventSubscriptionArgs, GetEventSubscriptionResult, GetEventSubscriptionOutputArgs } from "./getEventSubscription";
 export const getEventSubscription: typeof import("./getEventSubscription").getEventSubscription = null as any;
@@ -392,8 +382,6 @@ const _module = {
                 return new DomainTopic(name, <any>undefined, { urn })
             case "azure-native:eventgrid:DomainTopicEventSubscription":
                 return new DomainTopicEventSubscription(name, <any>undefined, { urn })
-            case "azure-native:eventgrid:EventChannel":
-                return new EventChannel(name, <any>undefined, { urn })
             case "azure-native:eventgrid:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
             case "azure-native:eventgrid:Namespace":

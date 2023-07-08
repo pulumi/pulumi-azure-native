@@ -20,48 +20,24 @@ __all__ = [
 @pulumi.output_type
 class GetNamespaceAuthorizationRuleResult:
     """
-    Description of a Namespace AuthorizationRules.
+    Response for POST requests that return single SharedAccessAuthorizationRule.
     """
-    def __init__(__self__, claim_type=None, claim_value=None, created_time=None, id=None, key_name=None, location=None, modified_time=None, name=None, primary_key=None, revision=None, rights=None, secondary_key=None, sku=None, tags=None, type=None):
-        if claim_type and not isinstance(claim_type, str):
-            raise TypeError("Expected argument 'claim_type' to be a str")
-        pulumi.set(__self__, "claim_type", claim_type)
-        if claim_value and not isinstance(claim_value, str):
-            raise TypeError("Expected argument 'claim_value' to be a str")
-        pulumi.set(__self__, "claim_value", claim_value)
-        if created_time and not isinstance(created_time, str):
-            raise TypeError("Expected argument 'created_time' to be a str")
-        pulumi.set(__self__, "created_time", created_time)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if key_name and not isinstance(key_name, str):
-            raise TypeError("Expected argument 'key_name' to be a str")
-        pulumi.set(__self__, "key_name", key_name)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if modified_time and not isinstance(modified_time, str):
-            raise TypeError("Expected argument 'modified_time' to be a str")
-        pulumi.set(__self__, "modified_time", modified_time)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if primary_key and not isinstance(primary_key, str):
-            raise TypeError("Expected argument 'primary_key' to be a str")
-        pulumi.set(__self__, "primary_key", primary_key)
-        if revision and not isinstance(revision, int):
-            raise TypeError("Expected argument 'revision' to be a int")
-        pulumi.set(__self__, "revision", revision)
-        if rights and not isinstance(rights, list):
-            raise TypeError("Expected argument 'rights' to be a list")
-        pulumi.set(__self__, "rights", rights)
-        if secondary_key and not isinstance(secondary_key, str):
-            raise TypeError("Expected argument 'secondary_key' to be a str")
-        pulumi.set(__self__, "secondary_key", secondary_key)
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        pulumi.set(__self__, "sku", sku)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -70,114 +46,50 @@ class GetNamespaceAuthorizationRuleResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="claimType")
-    def claim_type(self) -> str:
-        """
-        A string that describes the claim type
-        """
-        return pulumi.get(self, "claim_type")
-
-    @property
-    @pulumi.getter(name="claimValue")
-    def claim_value(self) -> str:
-        """
-        A string that describes the claim value
-        """
-        return pulumi.get(self, "claim_value")
-
-    @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
-        """
-        The created time for this rule
-        """
-        return pulumi.get(self, "created_time")
-
-    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
-        """
-        A string that describes the authorization rule.
-        """
-        return pulumi.get(self, "key_name")
 
     @property
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        Resource location
+        Deprecated - only for compatibility.
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="modifiedTime")
-    def modified_time(self) -> str:
-        """
-        The last modified time for this rule
-        """
-        return pulumi.get(self, "modified_time")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> str:
-        """
-        A base64-encoded 256-bit primary key for signing and validating the SAS token.
-        """
-        return pulumi.get(self, "primary_key")
-
-    @property
     @pulumi.getter
-    def revision(self) -> int:
+    def properties(self) -> 'outputs.SharedAccessAuthorizationRulePropertiesResponse':
         """
-        The revision number for the rule
+        SharedAccessAuthorizationRule properties.
         """
-        return pulumi.get(self, "revision")
+        return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter
-    def rights(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The rights associated with the rule.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
-        return pulumi.get(self, "rights")
-
-    @property
-    @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> str:
-        """
-        A base64-encoded 256-bit primary key for signing and validating the SAS token.
-        """
-        return pulumi.get(self, "secondary_key")
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
-        """
-        The sku of the created namespace
-        """
-        return pulumi.get(self, "sku")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Deprecated - only for compatibility.
         """
         return pulumi.get(self, "tags")
 
@@ -185,7 +97,7 @@ class GetNamespaceAuthorizationRuleResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -196,19 +108,11 @@ class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRule
         if False:
             yield self
         return GetNamespaceAuthorizationRuleResult(
-            claim_type=self.claim_type,
-            claim_value=self.claim_value,
-            created_time=self.created_time,
             id=self.id,
-            key_name=self.key_name,
             location=self.location,
-            modified_time=self.modified_time,
             name=self.name,
-            primary_key=self.primary_key,
-            revision=self.revision,
-            rights=self.rights,
-            secondary_key=self.secondary_key,
-            sku=self.sku,
+            properties=self.properties,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -218,13 +122,13 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceAuthorizationRuleResult:
     """
-    Gets an authorization rule for a namespace by name.
-    Azure REST API version: 2017-04-01.
+    Response for POST requests that return single SharedAccessAuthorizationRule.
+    Azure REST API version: 2023-01-01-preview.
 
 
-    :param str authorization_rule_name: Authorization rule name.
-    :param str namespace_name: The namespace name
-    :param str resource_group_name: The name of the resource group.
+    :param str authorization_rule_name: Authorization Rule Name
+    :param str namespace_name: Namespace name
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
@@ -234,19 +138,11 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:notificationhubs:getNamespaceAuthorizationRule', __args__, opts=opts, typ=GetNamespaceAuthorizationRuleResult).value
 
     return AwaitableGetNamespaceAuthorizationRuleResult(
-        claim_type=__ret__.claim_type,
-        claim_value=__ret__.claim_value,
-        created_time=__ret__.created_time,
         id=__ret__.id,
-        key_name=__ret__.key_name,
         location=__ret__.location,
-        modified_time=__ret__.modified_time,
         name=__ret__.name,
-        primary_key=__ret__.primary_key,
-        revision=__ret__.revision,
-        rights=__ret__.rights,
-        secondary_key=__ret__.secondary_key,
-        sku=__ret__.sku,
+        properties=__ret__.properties,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -257,12 +153,12 @@ def get_namespace_authorization_rule_output(authorization_rule_name: Optional[pu
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceAuthorizationRuleResult]:
     """
-    Gets an authorization rule for a namespace by name.
-    Azure REST API version: 2017-04-01.
+    Response for POST requests that return single SharedAccessAuthorizationRule.
+    Azure REST API version: 2023-01-01-preview.
 
 
-    :param str authorization_rule_name: Authorization rule name.
-    :param str namespace_name: The namespace name
-    :param str resource_group_name: The name of the resource group.
+    :param str authorization_rule_name: Authorization Rule Name
+    :param str namespace_name: Namespace name
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

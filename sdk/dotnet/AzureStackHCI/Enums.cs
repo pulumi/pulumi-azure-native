@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
-    /// Datasource for the gallery image when provisioning with cloud-init [Azure, NoCloud]
+    /// Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
     /// </summary>
     [EnumType]
     public readonly struct CloudInitDataSource : IEquatable<CloudInitDataSource>
@@ -328,7 +328,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
-    /// operating system type that the gallery image uses. Expected to be linux or windows
+    /// Operating system type that the gallery image uses [Windows, Linux]
     /// </summary>
     [EnumType]
     public readonly struct OperatingSystemTypes : IEquatable<OperatingSystemTypes>
@@ -413,6 +413,38 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrivateIPAllocationMethodEnum other && Equals(other);
         public bool Equals(PrivateIPAllocationMethodEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The guest agent provisioning action.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProvisioningAction : IEquatable<ProvisioningAction>
+    {
+        private readonly string _value;
+
+        private ProvisioningAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProvisioningAction Install { get; } = new ProvisioningAction("install");
+        public static ProvisioningAction Uninstall { get; } = new ProvisioningAction("uninstall");
+        public static ProvisioningAction Repair { get; } = new ProvisioningAction("repair");
+
+        public static bool operator ==(ProvisioningAction left, ProvisioningAction right) => left.Equals(right);
+        public static bool operator !=(ProvisioningAction left, ProvisioningAction right) => !left.Equals(right);
+
+        public static explicit operator string(ProvisioningAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProvisioningAction other && Equals(other);
+        public bool Equals(ProvisioningAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -622,6 +654,55 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UpdateSummariesPropertiesState other && Equals(other);
         public bool Equals(UpdateSummariesPropertiesState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VmSizeEnum : IEquatable<VmSizeEnum>
+    {
+        private readonly string _value;
+
+        private VmSizeEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VmSizeEnum Default { get; } = new VmSizeEnum("Default");
+        public static VmSizeEnum Standard_A2_v2 { get; } = new VmSizeEnum("Standard_A2_v2");
+        public static VmSizeEnum Standard_A4_v2 { get; } = new VmSizeEnum("Standard_A4_v2");
+        public static VmSizeEnum Standard_D2s_v3 { get; } = new VmSizeEnum("Standard_D2s_v3");
+        public static VmSizeEnum Standard_D4s_v3 { get; } = new VmSizeEnum("Standard_D4s_v3");
+        public static VmSizeEnum Standard_D8s_v3 { get; } = new VmSizeEnum("Standard_D8s_v3");
+        public static VmSizeEnum Standard_D16s_v3 { get; } = new VmSizeEnum("Standard_D16s_v3");
+        public static VmSizeEnum Standard_D32s_v3 { get; } = new VmSizeEnum("Standard_D32s_v3");
+        public static VmSizeEnum Standard_DS2_v2 { get; } = new VmSizeEnum("Standard_DS2_v2");
+        public static VmSizeEnum Standard_DS3_v2 { get; } = new VmSizeEnum("Standard_DS3_v2");
+        public static VmSizeEnum Standard_DS4_v2 { get; } = new VmSizeEnum("Standard_DS4_v2");
+        public static VmSizeEnum Standard_DS5_v2 { get; } = new VmSizeEnum("Standard_DS5_v2");
+        public static VmSizeEnum Standard_DS13_v2 { get; } = new VmSizeEnum("Standard_DS13_v2");
+        public static VmSizeEnum Standard_K8S_v1 { get; } = new VmSizeEnum("Standard_K8S_v1");
+        public static VmSizeEnum Standard_K8S2_v1 { get; } = new VmSizeEnum("Standard_K8S2_v1");
+        public static VmSizeEnum Standard_K8S3_v1 { get; } = new VmSizeEnum("Standard_K8S3_v1");
+        public static VmSizeEnum Standard_K8S4_v1 { get; } = new VmSizeEnum("Standard_K8S4_v1");
+        public static VmSizeEnum Standard_NK6 { get; } = new VmSizeEnum("Standard_NK6");
+        public static VmSizeEnum Standard_NK12 { get; } = new VmSizeEnum("Standard_NK12");
+        public static VmSizeEnum Standard_NV6 { get; } = new VmSizeEnum("Standard_NV6");
+        public static VmSizeEnum Standard_NV12 { get; } = new VmSizeEnum("Standard_NV12");
+        public static VmSizeEnum Standard_K8S5_v1 { get; } = new VmSizeEnum("Standard_K8S5_v1");
+        public static VmSizeEnum Custom { get; } = new VmSizeEnum("Custom");
+
+        public static bool operator ==(VmSizeEnum left, VmSizeEnum right) => left.Equals(right);
+        public static bool operator !=(VmSizeEnum left, VmSizeEnum right) => !left.Equals(right);
+
+        public static explicit operator string(VmSizeEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VmSizeEnum other && Equals(other);
+        public bool Equals(VmSizeEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -16,8 +16,6 @@ Advisor:
     tracking: "2023-01-01"
 AgFoodPlatform:
     tracking: 2023-06-01-preview
-    additions:
-        FarmBeatsModel: 2021-09-01-preview
 AlertsManagement:
     tracking: "2023-03-01"
     additions:
@@ -79,18 +77,7 @@ AppComplianceAutomation:
 AppConfiguration:
     tracking: "2023-03-01"
 AppPlatform:
-    tracking: "2022-12-01"
-    additions:
-        Apm: 2023-05-01-preview
-        ApplicationAccelerator: 2023-05-01-preview
-        ApplicationLiveView: 2023-05-01-preview
-        BuildServiceBuild: 2023-05-01-preview
-        ContainerRegistry: 2023-05-01-preview
-        CustomizedAccelerator: 2023-05-01-preview
-        DevToolPortal: 2023-05-01-preview
-        listApmSecretKeys: 2023-05-01-preview
-        listGatewayEnvSecrets: 2023-05-01-preview
-        listServiceGloballyEnabledApms: 2023-05-01-preview
+    tracking: 2023-05-01-preview
 Attestation:
     tracking: "2021-06-01"
 Authorization:
@@ -135,15 +122,7 @@ AutonomousDevelopmentPlatform:
 AzureActiveDirectory:
     tracking: "2021-04-01"
 AzureArcData:
-    tracking: 2023-03-15-preview
-    additions:
-        ActiveDirectoryConnector: 2023-01-15-preview
-        DataController: 2023-01-15-preview
-        FailoverGroup: 2023-01-15-preview
-        PostgresInstance: 2023-01-15-preview
-        SqlManagedInstance: 2023-01-15-preview
-        SqlServerDatabase: 2023-01-15-preview
-        SqlServerInstance: 2023-01-15-preview
+    tracking: 2023-01-15-preview
 AzureData:
     tracking: 2019-07-24-preview
 AzureSphere:
@@ -155,13 +134,16 @@ AzureStack:
 AzureStackHCI:
     tracking: "2023-03-01"
     additions:
-        galleryimageRetrieve: 2021-09-01-preview
-        marketplacegalleryimage: 2021-09-01-preview
-        networkinterfaceRetrieve: 2021-09-01-preview
-        storagecontainerRetrieve: 2021-09-01-preview
-        virtualharddiskRetrieve: 2021-09-01-preview
-        virtualmachineRetrieve: 2021-09-01-preview
-        virtualnetworkRetrieve: 2021-09-01-preview
+        GalleryImage: 2022-12-15-preview
+        GuestAgent: 2022-12-15-preview
+        HybridIdentityMetadatum: 2022-12-15-preview
+        MachineExtension: 2022-12-15-preview
+        MarketplaceGalleryImage: 2022-12-15-preview
+        NetworkInterface: 2022-12-15-preview
+        StorageContainer: 2022-12-15-preview
+        VirtualHardDisk: 2022-12-15-preview
+        VirtualMachine: 2022-12-15-preview
+        VirtualNetwork: 2022-12-15-preview
 BareMetalInfrastructure:
     tracking: "2023-04-06"
 Batch:
@@ -308,7 +290,6 @@ DBforMySQL:
     tracking: "2022-01-01"
     additions:
         PrivateEndpointConnection: 2022-09-30-preview
-        ServerKey: 2020-07-01-preview
 DBforPostgreSQL:
     tracking: "2022-12-01"
     additions:
@@ -322,8 +303,6 @@ DataBox:
     tracking: "2022-12-01"
 DataBoxEdge:
     tracking: "2022-03-01"
-    additions:
-        getMarketplaceImageSasTokenSASToken: 2023-01-01-preview
 DataCatalog:
     tracking: "2016-03-30"
 DataFactory:
@@ -423,7 +402,6 @@ EventGrid:
         CaCertificate: 2023-06-01-preview
         Client: 2023-06-01-preview
         ClientGroup: 2023-06-01-preview
-        EventChannel: 2021-10-15-preview
         Namespace: 2023-06-01-preview
         NamespaceTopic: 2023-06-01-preview
         NamespaceTopicEventSubscription: 2023-06-01-preview
@@ -433,9 +411,8 @@ EventGrid:
         listNamespaceSharedAccessKeys: 2023-06-01-preview
         listNamespaceTopicSharedAccessKeys: 2023-06-01-preview
 EventHub:
-    tracking: "2021-11-01"
+    tracking: 2022-10-01-preview
     additions:
-        ApplicationGroup: 2022-10-01-preview
         NamespaceIpFilterRule: 2018-01-01-preview
         NamespaceVirtualNetworkRule: 2018-01-01-preview
 ExtendedLocation:
@@ -451,7 +428,7 @@ GraphServices:
 GuestConfiguration:
     tracking: "2022-01-25"
 HDInsight:
-    tracking: 2023-04-15-preview
+    tracking: "2021-06-01"
 HanaOnAzure:
     tracking: 2020-02-07-preview
 HardwareSecurityModules:
@@ -681,10 +658,8 @@ MixedReality:
         ObjectAnchorsAccount: 2021-03-01-preview
         listObjectAnchorsAccountKeys: 2021-03-01-preview
 MobileNetwork:
-    tracking: "2022-11-01"
+    tracking: "2023-06-01"
     additions:
-        DiagnosticsPackage: "2023-06-01"
-        PacketCapture: "2023-06-01"
         listMobileNetworkSimIds: 2022-04-01-preview
 Monitor:
     tracking: "2023-04-03"
@@ -851,10 +826,7 @@ NetworkCloud:
 NetworkFunction:
     tracking: "2022-11-01"
 NotificationHubs:
-    tracking: "2017-04-01"
-    additions:
-        PrivateEndpointConnection: 2023-01-01-preview
-        getNamespacePnsCredentials: 2023-01-01-preview
+    tracking: 2023-01-01-preview
 OffAzure:
     tracking: "2020-07-07"
 OpenEnergyPlatform:
@@ -917,11 +889,7 @@ ProfessionalService:
 ProviderHub:
     tracking: 2021-09-01-preview
 Purview:
-    tracking: "2021-07-01"
-    additions:
-        KafkaConfiguration: "2021-12-01"
-        listFeatureAccount: "2021-12-01"
-        listFeatureSubscription: "2021-12-01"
+    tracking: "2021-12-01"
 Quantum:
     tracking: 2022-01-10-preview
 Quota: {}
@@ -1036,11 +1004,7 @@ ServiceFabric:
 ServiceFabricMesh:
     tracking: 2018-09-01-preview
 ServiceLinker:
-    tracking: "2022-05-01"
-    additions:
-        Connector: 2022-11-01-preview
-        ConnectorDryrun: 2022-11-01-preview
-        LinkerDryrun: 2022-11-01-preview
+    tracking: 2022-11-01-preview
 ServiceNetworking:
     tracking: 2023-05-01-preview
 SignalRService:
@@ -1247,6 +1211,3 @@ WindowsIoT:
 WorkloadMonitor: {}
 Workloads:
     tracking: "2023-04-01"
-    additions:
-        PhpWorkload: 2021-12-01-preview
-        WordpressInstance: 2021-12-01-preview

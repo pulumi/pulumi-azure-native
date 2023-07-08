@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets the Primary and Secondary ConnectionStrings to the NotificationHub
- * Azure REST API version: 2017-04-01.
+ * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function listNotificationHubKeys(args: ListNotificationHubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNotificationHubKeysResult> {
 
@@ -21,51 +21,52 @@ export function listNotificationHubKeys(args: ListNotificationHubKeysArgs, opts?
 
 export interface ListNotificationHubKeysArgs {
     /**
-     * The connection string of the NotificationHub for the specified authorizationRule.
+     * Authorization Rule Name
      */
     authorizationRuleName: string;
     /**
-     * The namespace name.
+     * Namespace name
      */
     namespaceName: string;
     /**
-     * The notification hub name.
+     * Notification Hub name
      */
     notificationHubName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
 
 /**
- * Namespace/NotificationHub Connection String
+ * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
  */
 export interface ListNotificationHubKeysResult {
     /**
-     * KeyName of the created AuthorizationRule
+     * Gets or sets keyName of the created AuthorizationRule
      */
-    readonly keyName?: string;
+    readonly keyName: string;
     /**
-     * PrimaryConnectionString of the AuthorizationRule.
+     * Gets or sets primaryConnectionString of the AuthorizationRule.
      */
-    readonly primaryConnectionString?: string;
+    readonly primaryConnectionString: string;
     /**
-     * PrimaryKey of the created AuthorizationRule.
+     * Gets or sets primaryKey of the created AuthorizationRule.
      */
-    readonly primaryKey?: string;
+    readonly primaryKey: string;
     /**
-     * SecondaryConnectionString of the created AuthorizationRule
+     * Gets or sets secondaryConnectionString of the created
+     * AuthorizationRule
      */
-    readonly secondaryConnectionString?: string;
+    readonly secondaryConnectionString: string;
     /**
-     * SecondaryKey of the created AuthorizationRule
+     * Gets or sets secondaryKey of the created AuthorizationRule
      */
-    readonly secondaryKey?: string;
+    readonly secondaryKey: string;
 }
 /**
- * Gets the Primary and Secondary ConnectionStrings to the NotificationHub
- * Azure REST API version: 2017-04-01.
+ * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function listNotificationHubKeysOutput(args: ListNotificationHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotificationHubKeysResult> {
     return pulumi.output(args).apply((a: any) => listNotificationHubKeys(a, opts))
@@ -73,19 +74,19 @@ export function listNotificationHubKeysOutput(args: ListNotificationHubKeysOutpu
 
 export interface ListNotificationHubKeysOutputArgs {
     /**
-     * The connection string of the NotificationHub for the specified authorizationRule.
+     * Authorization Rule Name
      */
     authorizationRuleName: pulumi.Input<string>;
     /**
-     * The namespace name.
+     * Namespace name
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * The notification hub name.
+     * Notification Hub name
      */
     notificationHubName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

@@ -14,7 +14,6 @@ __all__ = [
     'ManagedServiceIdentityType',
     'PrivateEndpointServiceConnectionStatus',
     'ReplicationRole',
-    'ServerKeyType',
     'ServerVersion',
     'SkuTier',
 ]
@@ -93,13 +92,6 @@ class ReplicationRole(str, Enum):
     NONE = "None"
     SOURCE = "Source"
     REPLICA = "Replica"
-
-
-class ServerKeyType(str, Enum):
-    """
-    The key type like 'AzureKeyVault'.
-    """
-    AZURE_KEY_VAULT = "AzureKeyVault"
 
 
 class ServerVersion(str, Enum):

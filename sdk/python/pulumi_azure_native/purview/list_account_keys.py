@@ -61,7 +61,7 @@ def list_account_keys(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccountKeysResult:
     """
     List the authorization keys associated with this account.
-    Azure REST API version: 2021-07-01.
+    Azure REST API version: 2021-12-01.
 
 
     :param str account_name: The name of the account.
@@ -84,7 +84,7 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
     """
     List the authorization keys associated with this account.
-    Azure REST API version: 2021-07-01.
+    Azure REST API version: 2021-12-01.
 
 
     :param str account_name: The name of the account.

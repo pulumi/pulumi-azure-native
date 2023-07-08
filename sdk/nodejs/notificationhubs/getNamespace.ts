@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Returns the description for the specified namespace.
- * Azure REST API version: 2017-04-01.
+ * Notification Hubs Namespace Resource.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
 
@@ -22,99 +22,55 @@ export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions
 
 export interface GetNamespaceArgs {
     /**
-     * The namespace name.
+     * Namespace name
      */
     namespaceName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
 
 /**
- * Description of a Namespace resource.
+ * Notification Hubs Namespace Resource.
  */
 export interface GetNamespaceResult {
     /**
-     * The time the namespace was created.
-     */
-    readonly createdAt?: string;
-    /**
-     * Whether or not the namespace is set as Critical.
-     */
-    readonly critical?: boolean;
-    /**
-     * Data center for the namespace
-     */
-    readonly dataCenter?: string;
-    /**
-     * Whether or not the namespace is currently enabled.
-     */
-    readonly enabled?: boolean;
-    /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
-    readonly location?: string;
+    readonly location: string;
     /**
-     * Identifier for Azure Insights metrics
-     */
-    readonly metricId: string;
-    /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * The namespace type.
+     * Represents namespace properties.
      */
-    readonly namespaceType?: string;
+    readonly properties: outputs.notificationhubs.NamespacePropertiesResponse;
     /**
-     * Provisioning state of the Namespace.
+     * The Sku description for a namespace
      */
-    readonly provisioningState?: string;
+    readonly sku: outputs.notificationhubs.SkuResponse;
     /**
-     * Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly region?: string;
+    readonly systemData: outputs.notificationhubs.SystemDataResponse;
     /**
-     * ScaleUnit where the namespace gets created
-     */
-    readonly scaleUnit?: string;
-    /**
-     * Endpoint you can use to perform NotificationHub operations.
-     */
-    readonly serviceBusEndpoint?: string;
-    /**
-     * The sku of the created namespace
-     */
-    readonly sku?: outputs.notificationhubs.SkuResponse;
-    /**
-     * Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-     */
-    readonly status?: string;
-    /**
-     * The Id of the Azure subscription associated with the namespace.
-     */
-    readonly subscriptionId?: string;
-    /**
-     * Resource tags
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The time the namespace was updated.
-     */
-    readonly updatedAt?: string;
 }
 /**
- * Returns the description for the specified namespace.
- * Azure REST API version: 2017-04-01.
+ * Notification Hubs Namespace Resource.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))
@@ -122,11 +78,11 @@ export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.I
 
 export interface GetNamespaceOutputArgs {
     /**
-     * The namespace name.
+     * Namespace name
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

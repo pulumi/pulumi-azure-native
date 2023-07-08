@@ -16,6 +16,24 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     public sealed class ClusterResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the resource group that contains the infrastructure resources
+        /// </summary>
+        [Input("infraResourceGroup")]
+        public Input<string>? InfraResourceGroup { get; set; }
+
+        /// <summary>
+        /// The resource Id of the Managed Environment that the Spring Apps instance builds on
+        /// </summary>
+        [Input("managedEnvironmentId")]
+        public Input<string>? ManagedEnvironmentId { get; set; }
+
+        /// <summary>
+        /// Purchasing 3rd party product of the Service resource.
+        /// </summary>
+        [Input("marketplaceResource")]
+        public Input<Inputs.MarketplaceResourceArgs>? MarketplaceResource { get; set; }
+
+        /// <summary>
         /// Network profile of the Service
         /// </summary>
         [Input("networkProfile")]

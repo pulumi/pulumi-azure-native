@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// MarketplaceGalleryImageStatus defines the observed state of marketplacegalleryimages
+    /// The observed state of marketplace gallery images
     /// </summary>
     [OutputType]
     public sealed class MarketplaceGalleryImageStatusResponse
     {
         /// <summary>
-        /// The download status of the marketplace gallery image
+        /// The download status of the gallery image
         /// </summary>
         public readonly Outputs.MarketplaceGalleryImageStatusResponseDownloadStatus? DownloadStatus;
         /// <summary>
-        /// Marketplace gallery image provisioning error code
+        /// MarketplaceGalleryImage provisioning error code
         /// </summary>
         public readonly string? ErrorCode;
         /// <summary>
@@ -32,9 +32,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// The progress of the operation in percentage
         /// </summary>
         public readonly double? ProgressPercentage;
-        /// <summary>
-        /// The provisioning status of the marketplace gallery image
-        /// </summary>
         public readonly Outputs.MarketplaceGalleryImageStatusResponseProvisioningStatus? ProvisioningStatus;
 
         [OutputConstructor]

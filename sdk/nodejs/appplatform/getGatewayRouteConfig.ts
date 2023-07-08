@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Spring Cloud Gateway route configs.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getGatewayRouteConfig(args: GetGatewayRouteConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayRouteConfigResult> {
 
@@ -68,7 +68,7 @@ export interface GetGatewayRouteConfigResult {
 }
 /**
  * Get the Spring Cloud Gateway route configs.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getGatewayRouteConfigOutput(args: GetGatewayRouteConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteConfigResult> {
     return pulumi.output(args).apply((a: any) => getGatewayRouteConfig(a, opts))

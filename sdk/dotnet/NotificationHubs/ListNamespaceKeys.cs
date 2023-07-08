@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.NotificationHubs
     public static class ListNamespaceKeys
     {
         /// <summary>
-        /// Gets the Primary and Secondary ConnectionStrings to the namespace 
-        /// Azure REST API version: 2017-04-01.
+        /// Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:notificationhubs:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the Primary and Secondary ConnectionStrings to the namespace 
-        /// Azure REST API version: 2017-04-01.
+        /// Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:notificationhubs:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithDefaults());
@@ -30,19 +30,19 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class ListNamespaceKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The connection string of the namespace for the specified authorizationRule.
+        /// Authorization Rule Name
         /// </summary>
         [Input("authorizationRuleName", required: true)]
         public string AuthorizationRuleName { get; set; } = null!;
 
         /// <summary>
-        /// The namespace name.
+        /// Namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -56,19 +56,19 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class ListNamespaceKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The connection string of the namespace for the specified authorizationRule.
+        /// Authorization Rule Name
         /// </summary>
         [Input("authorizationRuleName", required: true)]
         public Input<string> AuthorizationRuleName { get; set; } = null!;
 
         /// <summary>
-        /// The namespace name.
+        /// Namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -84,37 +84,38 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class ListNamespaceKeysResult
     {
         /// <summary>
-        /// KeyName of the created AuthorizationRule
+        /// Gets or sets keyName of the created AuthorizationRule
         /// </summary>
-        public readonly string? KeyName;
+        public readonly string KeyName;
         /// <summary>
-        /// PrimaryConnectionString of the AuthorizationRule.
+        /// Gets or sets primaryConnectionString of the AuthorizationRule.
         /// </summary>
-        public readonly string? PrimaryConnectionString;
+        public readonly string PrimaryConnectionString;
         /// <summary>
-        /// PrimaryKey of the created AuthorizationRule.
+        /// Gets or sets primaryKey of the created AuthorizationRule.
         /// </summary>
-        public readonly string? PrimaryKey;
+        public readonly string PrimaryKey;
         /// <summary>
-        /// SecondaryConnectionString of the created AuthorizationRule
+        /// Gets or sets secondaryConnectionString of the created
+        /// AuthorizationRule
         /// </summary>
-        public readonly string? SecondaryConnectionString;
+        public readonly string SecondaryConnectionString;
         /// <summary>
-        /// SecondaryKey of the created AuthorizationRule
+        /// Gets or sets secondaryKey of the created AuthorizationRule
         /// </summary>
-        public readonly string? SecondaryKey;
+        public readonly string SecondaryKey;
 
         [OutputConstructor]
         private ListNamespaceKeysResult(
-            string? keyName,
+            string keyName,
 
-            string? primaryConnectionString,
+            string primaryConnectionString,
 
-            string? primaryKey,
+            string primaryKey,
 
-            string? secondaryConnectionString,
+            string secondaryConnectionString,
 
-            string? secondaryKey)
+            string secondaryKey)
         {
             KeyName = keyName;
             PrimaryConnectionString = primaryConnectionString;

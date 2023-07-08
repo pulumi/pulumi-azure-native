@@ -111,15 +111,6 @@ export const ReplicationRole = {
  */
 export type ReplicationRole = (typeof ReplicationRole)[keyof typeof ReplicationRole];
 
-export const ServerKeyType = {
-    AzureKeyVault: "AzureKeyVault",
-} as const;
-
-/**
- * The key type like 'AzureKeyVault'.
- */
-export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
-
 export const ServerVersion = {
     ServerVersion_5_7: "5.7",
     ServerVersion_8_0_21: "8.0.21",

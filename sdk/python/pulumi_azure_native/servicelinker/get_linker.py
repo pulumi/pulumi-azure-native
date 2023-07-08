@@ -22,13 +22,16 @@ class GetLinkerResult:
     """
     Linker of source and target resource
     """
-    def __init__(__self__, auth_info=None, client_type=None, id=None, name=None, provisioning_state=None, scope=None, secret_store=None, system_data=None, target_service=None, type=None, v_net_solution=None):
+    def __init__(__self__, auth_info=None, client_type=None, configuration_info=None, id=None, name=None, provisioning_state=None, public_network_solution=None, scope=None, secret_store=None, system_data=None, target_service=None, type=None, v_net_solution=None):
         if auth_info and not isinstance(auth_info, dict):
             raise TypeError("Expected argument 'auth_info' to be a dict")
         pulumi.set(__self__, "auth_info", auth_info)
         if client_type and not isinstance(client_type, str):
             raise TypeError("Expected argument 'client_type' to be a str")
         pulumi.set(__self__, "client_type", client_type)
+        if configuration_info and not isinstance(configuration_info, dict):
+            raise TypeError("Expected argument 'configuration_info' to be a dict")
+        pulumi.set(__self__, "configuration_info", configuration_info)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,6 +41,9 @@ class GetLinkerResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_solution and not isinstance(public_network_solution, dict):
+            raise TypeError("Expected argument 'public_network_solution' to be a dict")
+        pulumi.set(__self__, "public_network_solution", public_network_solution)
         if scope and not isinstance(scope, str):
             raise TypeError("Expected argument 'scope' to be a str")
         pulumi.set(__self__, "scope", scope)
@@ -74,6 +80,14 @@ class GetLinkerResult:
         return pulumi.get(self, "client_type")
 
     @property
+    @pulumi.getter(name="configurationInfo")
+    def configuration_info(self) -> Optional['outputs.ConfigurationInfoResponse']:
+        """
+        The connection information consumed by applications, including secrets, connection strings.
+        """
+        return pulumi.get(self, "configuration_info")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -98,6 +112,14 @@ class GetLinkerResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="publicNetworkSolution")
+    def public_network_solution(self) -> Optional['outputs.PublicNetworkSolutionResponse']:
+        """
+        The network solution.
+        """
+        return pulumi.get(self, "public_network_solution")
+
+    @property
     @pulumi.getter
     def scope(self) -> Optional[str]:
         """
@@ -117,7 +139,7 @@ class GetLinkerResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system data.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -154,9 +176,11 @@ class AwaitableGetLinkerResult(GetLinkerResult):
         return GetLinkerResult(
             auth_info=self.auth_info,
             client_type=self.client_type,
+            configuration_info=self.configuration_info,
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            public_network_solution=self.public_network_solution,
             scope=self.scope,
             secret_store=self.secret_store,
             system_data=self.system_data,
@@ -170,7 +194,7 @@ def get_linker(linker_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkerResult:
     """
     Returns Linker resource for a given name.
-    Azure REST API version: 2022-05-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str linker_name: The name Linker resource.
@@ -185,9 +209,11 @@ def get_linker(linker_name: Optional[str] = None,
     return AwaitableGetLinkerResult(
         auth_info=__ret__.auth_info,
         client_type=__ret__.client_type,
+        configuration_info=__ret__.configuration_info,
         id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        public_network_solution=__ret__.public_network_solution,
         scope=__ret__.scope,
         secret_store=__ret__.secret_store,
         system_data=__ret__.system_data,
@@ -202,7 +228,7 @@ def get_linker_output(linker_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkerResult]:
     """
     Returns Linker resource for a given name.
-    Azure REST API version: 2022-05-01.
+    Azure REST API version: 2022-11-01-preview.
 
 
     :param str linker_name: The name Linker resource.

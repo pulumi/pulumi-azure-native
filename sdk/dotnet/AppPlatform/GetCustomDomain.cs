@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get the custom domain of one lifecycle application.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:appplatform:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the custom domain of one lifecycle application.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetCustomDomainResult> Invoke(GetCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:appplatform:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithDefaults());

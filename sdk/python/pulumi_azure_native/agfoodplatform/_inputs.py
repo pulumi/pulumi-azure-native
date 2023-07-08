@@ -303,7 +303,7 @@ class SensorIntegrationArgs:
                  enabled: Optional[pulumi.Input[str]] = None):
         """
         Sensor integration request model.
-        :param pulumi.Input[str] enabled: Sensor integration enable state. Allowed values are True, None
+        :param pulumi.Input[str] enabled: Sensor integration enable state.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -312,7 +312,7 @@ class SensorIntegrationArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[str]]:
         """
-        Sensor integration enable state. Allowed values are True, None
+        Sensor integration enable state.
         """
         return pulumi.get(self, "enabled")
 

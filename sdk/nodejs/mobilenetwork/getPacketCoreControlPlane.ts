@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified packet core control plane.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-06-01.
  */
 export function getPacketCoreControlPlane(args: GetPacketCoreControlPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCoreControlPlaneResult> {
 
@@ -44,7 +44,11 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly coreNetworkTechnology?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Configuration for uploading packet core diagnostics
+     */
+    readonly diagnosticsUpload?: outputs.mobilenetwork.DiagnosticsUploadConfigurationResponse;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -54,7 +58,11 @@ export interface GetPacketCoreControlPlaneResult {
     /**
      * The installation state of the packet core control plane resource.
      */
-    readonly installation: outputs.mobilenetwork.InstallationResponse;
+    readonly installation?: outputs.mobilenetwork.InstallationResponse;
+    /**
+     * The currently installed version of the packet core software.
+     */
+    readonly installedVersion: string;
     /**
      * Settings to allow interoperability with third party components e.g. RANs and UEs.
      */
@@ -108,13 +116,13 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly ueMtu?: number;
     /**
-     * The version of the packet core software that is deployed.
+     * The desired version of the packet core software.
      */
     readonly version?: string;
 }
 /**
  * Gets information about the specified packet core control plane.
- * Azure REST API version: 2022-11-01.
+ * Azure REST API version: 2023-06-01.
  */
 export function getPacketCoreControlPlaneOutput(args: GetPacketCoreControlPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCoreControlPlaneResult> {
     return pulumi.output(args).apply((a: any) => getPacketCoreControlPlane(a, opts))

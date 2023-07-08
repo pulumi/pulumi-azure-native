@@ -100,7 +100,7 @@ def get_build_service_agent_pool(agent_pool_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildServiceAgentPoolResult:
     """
     Get build service agent pool.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str agent_pool_name: The name of the build service agent pool resource.
@@ -132,7 +132,7 @@ def get_build_service_agent_pool_output(agent_pool_name: Optional[pulumi.Input[s
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildServiceAgentPoolResult]:
     """
     Get build service agent pool.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str agent_pool_name: The name of the build service agent pool resource.

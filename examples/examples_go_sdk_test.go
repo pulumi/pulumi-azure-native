@@ -35,10 +35,7 @@ func TestAccSimpleGoSdk(t *testing.T) {
 
 func TestFunctionScmFtpDeletion(t *testing.T) {
 	skipIfShort(t)
-	test := getGoBaseOptionsSdk(t).
-		With(integration.ProgramTestOptions{
-			Dir: testDir(t, "go-function-scm-ftp-deletion"),
-		})
+	test := getGoBaseOptionsSdk(t, testDir(t, "go-function-scm-ftp-deletion"))
 
 	integration.ProgramTest(t, &test)
 }

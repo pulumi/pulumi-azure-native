@@ -11,21 +11,13 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// Managed service identity (system assigned and/or user assigned identities)
+    /// Managed service identity (User assigned identity)
     /// </summary>
     [OutputType]
     public sealed class ManagedServiceIdentityResponse
     {
         /// <summary>
-        /// The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        /// </summary>
-        public readonly string PrincipalId;
-        /// <summary>
-        /// The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        /// </summary>
-        public readonly string TenantId;
-        /// <summary>
-        /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        /// Type of managed service identity (currently only UserAssigned allowed).
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -35,16 +27,10 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 
         [OutputConstructor]
         private ManagedServiceIdentityResponse(
-            string principalId,
-
-            string tenantId,
-
             string type,
 
             ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
-            PrincipalId = principalId;
-            TenantId = tenantId;
             Type = type;
             UserAssignedIdentities = userAssignedIdentities;
         }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single item in List or Get Event Hub operation
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class EventHub extends pulumi.CustomResource {
     /**
@@ -67,6 +67,10 @@ export class EventHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly partitionIds!: pulumi.Output<string[]>;
     /**
+     * Event Hub retention settings
+     */
+    public readonly retentionDescription!: pulumi.Output<outputs.eventhub.RetentionDescriptionResponse | undefined>;
+    /**
      * Enumerates the possible values for the status of the Event Hub.
      */
     public readonly status!: pulumi.Output<string | undefined>;
@@ -106,6 +110,7 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionDescription"] = args ? args.retentionDescription : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -122,6 +127,7 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["partitionCount"] = undefined /*out*/;
             resourceInputs["partitionIds"] = undefined /*out*/;
+            resourceInputs["retentionDescription"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -162,6 +168,10 @@ export interface EventHubArgs {
      * Name of the resource group within the azure subscription.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Event Hub retention settings
+     */
+    retentionDescription?: pulumi.Input<inputs.eventhub.RetentionDescriptionArgs>;
     /**
      * Enumerates the possible values for the status of the Event Hub.
      */

@@ -45,9 +45,11 @@ utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./priv
 export * from "../types/enums/hdinsight";
 
 // Export sub-modules:
+import * as v20210601 from "./v20210601";
 import * as v20230415preview from "./v20230415preview";
 
 export {
+    v20210601,
     v20230415preview,
 };
 

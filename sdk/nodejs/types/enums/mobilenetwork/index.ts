@@ -67,6 +67,10 @@ export const CoreNetworkType = {
      * EPC / 4G core
      */
     EPC: "EPC",
+    /**
+     * Combined EPC / 4G and 5G core
+     */
+    EPC_5GC: "EPC + 5GC",
 } as const;
 
 /**
@@ -74,15 +78,29 @@ export const CoreNetworkType = {
  */
 export type CoreNetworkType = (typeof CoreNetworkType)[keyof typeof CoreNetworkType];
 
-export const ManagedServiceIdentityType = {
-    None: "None",
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+export const DesiredInstallationState = {
+    /**
+     * Don't install the packet core.
+     */
+    Uninstalled: "Uninstalled",
+    /**
+     * Install the packet core.
+     */
+    Installed: "Installed",
 } as const;
 
 /**
- * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ * The desired installation state
+ */
+export type DesiredInstallationState = (typeof DesiredInstallationState)[keyof typeof DesiredInstallationState];
+
+export const ManagedServiceIdentityType = {
+    None: "None",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (currently only UserAssigned allowed).
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 

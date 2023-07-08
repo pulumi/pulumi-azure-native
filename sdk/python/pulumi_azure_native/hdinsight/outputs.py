@@ -3023,9 +3023,7 @@ class StorageAccountResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "enableSecureChannel":
-            suggest = "enable_secure_channel"
-        elif key == "fileSystem":
+        if key == "fileSystem":
             suggest = "file_system"
         elif key == "isDefault":
             suggest = "is_default"
@@ -3047,7 +3045,6 @@ class StorageAccountResponse(dict):
 
     def __init__(__self__, *,
                  container: Optional[str] = None,
-                 enable_secure_channel: Optional[bool] = None,
                  file_system: Optional[str] = None,
                  fileshare: Optional[str] = None,
                  is_default: Optional[bool] = None,
@@ -3059,7 +3056,6 @@ class StorageAccountResponse(dict):
         """
         The storage Account.
         :param str container: The container in the storage account, only to be specified for WASB storage accounts.
-        :param bool enable_secure_channel: Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
         :param str file_system: The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
         :param str fileshare: The file share name.
         :param bool is_default: Whether or not the storage account is the default storage account.
@@ -3071,8 +3067,6 @@ class StorageAccountResponse(dict):
         """
         if container is not None:
             pulumi.set(__self__, "container", container)
-        if enable_secure_channel is not None:
-            pulumi.set(__self__, "enable_secure_channel", enable_secure_channel)
         if file_system is not None:
             pulumi.set(__self__, "file_system", file_system)
         if fileshare is not None:
@@ -3097,14 +3091,6 @@ class StorageAccountResponse(dict):
         The container in the storage account, only to be specified for WASB storage accounts.
         """
         return pulumi.get(self, "container")
-
-    @property
-    @pulumi.getter(name="enableSecureChannel")
-    def enable_secure_channel(self) -> Optional[bool]:
-        """
-        Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1 , 
-        """
-        return pulumi.get(self, "enable_secure_channel")
 
     @property
     @pulumi.getter(name="fileSystem")

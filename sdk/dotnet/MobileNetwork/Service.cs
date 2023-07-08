@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Service resource. Must be created in the same location as its parent mobile network.
-    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
+    /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:Service")]
     public partial class Service : global::Pulumi.CustomResource

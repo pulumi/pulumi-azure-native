@@ -15,17 +15,31 @@ namespace Pulumi.AzureNative.NotificationHubs.Inputs
     /// </summary>
     public sealed class SharedAccessAuthorizationRulePropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("rights")]
-        private InputList<Pulumi.AzureNative.NotificationHubs.AccessRights>? _rights;
+        /// <summary>
+        /// Gets a base64-encoded 256-bit primary key for signing and
+        /// validating the SAS token.
+        /// </summary>
+        [Input("primaryKey")]
+        public Input<string>? PrimaryKey { get; set; }
+
+        [Input("rights", required: true)]
+        private InputList<Union<string, Pulumi.AzureNative.NotificationHubs.AccessRights>>? _rights;
 
         /// <summary>
-        /// The rights associated with the rule.
+        /// Gets or sets the rights associated with the rule.
         /// </summary>
-        public InputList<Pulumi.AzureNative.NotificationHubs.AccessRights> Rights
+        public InputList<Union<string, Pulumi.AzureNative.NotificationHubs.AccessRights>> Rights
         {
-            get => _rights ?? (_rights = new InputList<Pulumi.AzureNative.NotificationHubs.AccessRights>());
+            get => _rights ?? (_rights = new InputList<Union<string, Pulumi.AzureNative.NotificationHubs.AccessRights>>());
             set => _rights = value;
         }
+
+        /// <summary>
+        /// Gets a base64-encoded 256-bit primary key for signing and
+        /// validating the SAS token.
+        /// </summary>
+        [Input("secondaryKey")]
+        public Input<string>? SecondaryKey { get; set; }
 
         public SharedAccessAuthorizationRulePropertiesArgs()
         {

@@ -17,10 +17,8 @@ from .get_firewall_rule import *
 from .get_get_private_dns_zone_suffix_execute import *
 from .get_private_endpoint_connection import *
 from .get_server import *
-from .get_server_key import *
 from .private_endpoint_connection import *
 from .server import *
-from .server_key import *
 from ._inputs import *
 from . import outputs
 

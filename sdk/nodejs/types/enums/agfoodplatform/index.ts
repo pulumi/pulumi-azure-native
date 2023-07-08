@@ -35,11 +35,11 @@ export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServ
 
 export const PublicNetworkAccess = {
     Enabled: "Enabled",
-    Hybrid: "Hybrid",
+    Disabled: "Disabled",
 } as const;
 
 /**
- * Property to allow or block public traffic for an Azure FarmBeats resource.
+ * Property to allow or block public traffic for an Azure Data Manager For Agriculture resource.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 

@@ -17,23 +17,23 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
     public sealed class SkuResponse
     {
         /// <summary>
-        /// The capacity of the resource
+        /// Gets or sets the capacity of the resource
         /// </summary>
         public readonly int? Capacity;
         /// <summary>
-        /// The Sku Family
+        /// Gets or sets the Sku Family
         /// </summary>
         public readonly string? Family;
         /// <summary>
-        /// Name of the notification hub sku
+        /// Namespace SKU name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Sku size
+        /// Gets or sets the Sku size
         /// </summary>
         public readonly string? Size;
         /// <summary>
-        /// The tier of particular sku
+        /// Gets or sets the tier of particular sku
         /// </summary>
         public readonly string? Tier;
 

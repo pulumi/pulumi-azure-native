@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// GalleryImageStatus defines the observed state of galleryimages
+    /// The observed state of gallery images
     /// </summary>
     [OutputType]
     public sealed class GalleryImageStatusResponse
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly Outputs.GalleryImageStatusResponseDownloadStatus? DownloadStatus;
         /// <summary>
-        /// Gallery image provisioning error code
+        /// GalleryImage provisioning error code
         /// </summary>
         public readonly string? ErrorCode;
         /// <summary>
@@ -32,9 +32,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// The progress of the operation in percentage
         /// </summary>
         public readonly double? ProgressPercentage;
-        /// <summary>
-        /// The provisioning status of the gallery image
-        /// </summary>
         public readonly Outputs.GalleryImageStatusResponseProvisioningStatus? ProvisioningStatus;
 
         [OutputConstructor]

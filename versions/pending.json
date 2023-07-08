@@ -10,9 +10,7 @@
   ],
   "Addons": [],
   "Advisor": [],
-  "AgFoodPlatform": [
-    "2023-06-01-preview"
-  ],
+  "AgFoodPlatform": [],
   "AlertsManagement": [
     "2019-06-01",
     "2021-04-01",
@@ -41,11 +39,7 @@
   ],
   "AppComplianceAutomation": [],
   "AppConfiguration": [],
-  "AppPlatform": [
-    "2023-01-01-preview",
-    "2023-03-01-preview",
-    "2023-05-01-preview"
-  ],
+  "AppPlatform": [],
   "Attestation": [
     "2021-06-01-preview"
   ],
@@ -91,13 +85,6 @@
     "2022-06-01"
   ],
   "AzureStackHCI": [
-    "2022-01-01",
-    "2022-03-01",
-    "2022-05-01",
-    "2022-09-01",
-    "2022-10-01",
-    "2022-12-01",
-    "2022-12-15-preview",
     "2023-02-01",
     "2023-03-01"
   ],
@@ -243,11 +230,6 @@
     "2020-01-01-privatepreview"
   ],
   "DBforMySQL": [
-    "2020-07-01-privatepreview",
-    "2021-05-01",
-    "2021-05-01-preview",
-    "2021-12-01-preview",
-    "2022-01-01",
     "2022-09-30-preview"
   ],
   "DBforPostgreSQL": [
@@ -316,8 +298,6 @@
   "EngagementFabric": [],
   "EnterpriseKnowledgeGraph": [],
   "EventGrid": [
-    "2021-12-01",
-    "2022-06-15",
     "2023-06-01-preview"
   ],
   "EventHub": [
@@ -334,7 +314,9 @@
   "FluidRelay": [],
   "GraphServices": [],
   "GuestConfiguration": [],
-  "HDInsight": [],
+  "HDInsight": [
+    "2023-04-15-preview"
+  ],
   "HanaOnAzure": [],
   "HardwareSecurityModules": [
     "2022-08-31-preview"
@@ -587,9 +569,7 @@
     "2023-05-01-preview"
   ],
   "NetworkFunction": [],
-  "NotificationHubs": [
-    "2023-01-01-preview"
-  ],
+  "NotificationHubs": [],
   "OffAzure": [],
   "OpenEnergyPlatform": [],
   "OperationalInsights": [
@@ -622,9 +602,7 @@
   "PowerPlatform": [],
   "ProfessionalService": [],
   "ProviderHub": [],
-  "Purview": [
-    "2021-12-01"
-  ],
+  "Purview": [],
   "Quantum": [],
   "Quota": [],
   "RecommendationsService": [
@@ -697,9 +675,7 @@
   ],
   "ServiceFabric": [],
   "ServiceFabricMesh": [],
-  "ServiceLinker": [
-    "2022-11-01-preview"
-  ],
+  "ServiceLinker": [],
   "ServiceNetworking": [],
   "SignalRService": [
     "2023-03-01-preview",
@@ -790,8 +766,5 @@
   "WindowsESU": [],
   "WindowsIoT": [],
   "WorkloadMonitor": [],
-  "Workloads": [
-    "2022-11-01-preview",
-    "2023-04-01"
-  ]
+  "Workloads": []
 }

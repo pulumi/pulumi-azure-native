@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Packet core control plane resource.
-    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
+    /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:PacketCoreControlPlane")]
     public partial class PacketCoreControlPlane : global::Pulumi.CustomResource
@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string?> CoreNetworkTechnology { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration for uploading packet core diagnostics
+        /// </summary>
+        [Output("diagnosticsUpload")]
+        public Output<Outputs.DiagnosticsUploadConfigurationResponse?> DiagnosticsUpload { get; private set; } = null!;
+
+        /// <summary>
         /// The identity used to retrieve the ingress certificate from Azure key vault.
         /// </summary>
         [Output("identity")]
@@ -38,7 +44,13 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// The installation state of the packet core control plane resource.
         /// </summary>
         [Output("installation")]
-        public Output<Outputs.InstallationResponse> Installation { get; private set; } = null!;
+        public Output<Outputs.InstallationResponse?> Installation { get; private set; } = null!;
+
+        /// <summary>
+        /// The currently installed version of the packet core software.
+        /// </summary>
+        [Output("installedVersion")]
+        public Output<string> InstalledVersion { get; private set; } = null!;
 
         /// <summary>
         /// Settings to allow interoperability with third party components e.g. RANs and UEs.
@@ -119,7 +131,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<int?> UeMtu { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the packet core software that is deployed.
+        /// The desired version of the packet core software.
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -189,10 +201,22 @@ namespace Pulumi.AzureNative.MobileNetwork
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CoreNetworkType>? CoreNetworkTechnology { get; set; }
 
         /// <summary>
+        /// Configuration for uploading packet core diagnostics
+        /// </summary>
+        [Input("diagnosticsUpload")]
+        public Input<Inputs.DiagnosticsUploadConfigurationArgs>? DiagnosticsUpload { get; set; }
+
+        /// <summary>
         /// The identity used to retrieve the ingress certificate from Azure key vault.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The installation state of the packet core control plane resource.
+        /// </summary>
+        [Input("installation")]
+        public Input<Inputs.InstallationArgs>? Installation { get; set; }
 
         /// <summary>
         /// Settings to allow interoperability with third party components e.g. RANs and UEs.
@@ -267,7 +291,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<int>? UeMtu { get; set; }
 
         /// <summary>
-        /// The version of the packet core software that is deployed.
+        /// The desired version of the packet core software.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

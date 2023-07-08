@@ -10,18 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
-    /// <summary>
-    /// The provisioning status of the marketplace gallery image
-    /// </summary>
     [OutputType]
     public sealed class MarketplaceGalleryImageStatusResponseProvisioningStatus
     {
         /// <summary>
-        /// The ID of the operation performed on the marketplace gallery image
+        /// The ID of the operation performed on the gallery image
         /// </summary>
         public readonly string? OperationId;
         /// <summary>
-        /// The status of the operation performed on the marketplace gallery image [Succeeded, Failed, InProgress]
+        /// The status of the operation performed on the gallery image [Succeeded, Failed, InProgress]
         /// </summary>
         public readonly string? Status;
 

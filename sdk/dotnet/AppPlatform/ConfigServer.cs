@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Config Server resource
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-07-01
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:ConfigServer")]
     public partial class ConfigServer : global::Pulumi.CustomResource

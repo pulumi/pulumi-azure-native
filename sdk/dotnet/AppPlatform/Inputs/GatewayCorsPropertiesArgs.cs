@@ -45,6 +45,18 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
             set => _allowedMethods = value;
         }
 
+        [Input("allowedOriginPatterns")]
+        private InputList<string>? _allowedOriginPatterns;
+
+        /// <summary>
+        /// Allowed origin patterns to make cross-site requests.
+        /// </summary>
+        public InputList<string> AllowedOriginPatterns
+        {
+            get => _allowedOriginPatterns ?? (_allowedOriginPatterns = new InputList<string>());
+            set => _allowedOriginPatterns = value;
+        }
+
         [Input("allowedOrigins")]
         private InputList<string>? _allowedOrigins;
 

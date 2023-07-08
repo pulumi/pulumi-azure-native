@@ -134,6 +134,70 @@ namespace Pulumi.AzureNative.Purview
     }
 
     /// <summary>
+    ///  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedEventHubState : IEquatable<ManagedEventHubState>
+    {
+        private readonly string _value;
+
+        private ManagedEventHubState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedEventHubState NotSpecified { get; } = new ManagedEventHubState("NotSpecified");
+        public static ManagedEventHubState Disabled { get; } = new ManagedEventHubState("Disabled");
+        public static ManagedEventHubState Enabled { get; } = new ManagedEventHubState("Enabled");
+
+        public static bool operator ==(ManagedEventHubState left, ManagedEventHubState right) => left.Equals(right);
+        public static bool operator !=(ManagedEventHubState left, ManagedEventHubState right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedEventHubState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedEventHubState other && Equals(other);
+        public bool Equals(ManagedEventHubState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the public network access for managed resources.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedResourcesPublicNetworkAccess : IEquatable<ManagedResourcesPublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private ManagedResourcesPublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedResourcesPublicNetworkAccess NotSpecified { get; } = new ManagedResourcesPublicNetworkAccess("NotSpecified");
+        public static ManagedResourcesPublicNetworkAccess Enabled { get; } = new ManagedResourcesPublicNetworkAccess("Enabled");
+        public static ManagedResourcesPublicNetworkAccess Disabled { get; } = new ManagedResourcesPublicNetworkAccess("Disabled");
+
+        public static bool operator ==(ManagedResourcesPublicNetworkAccess left, ManagedResourcesPublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(ManagedResourcesPublicNetworkAccess left, ManagedResourcesPublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedResourcesPublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedResourcesPublicNetworkAccess other && Equals(other);
+        public bool Equals(ManagedResourcesPublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Gets or sets the public network access.
     /// </summary>
     [EnumType]

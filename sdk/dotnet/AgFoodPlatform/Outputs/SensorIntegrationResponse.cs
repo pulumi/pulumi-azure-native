@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.Outputs
     public sealed class SensorIntegrationResponse
     {
         /// <summary>
-        /// Sensor integration enable state. Allowed values are True, None
+        /// Sensor integration enable state.
         /// </summary>
         public readonly string? Enabled;
         /// <summary>

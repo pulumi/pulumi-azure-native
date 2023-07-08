@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Single Namespace item in List or Get Operation
-    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
+    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
@@ -83,6 +83,12 @@ namespace Pulumi.AzureNative.EventHub
         public Output<string> MetricId { get; private set; } = null!;
 
         /// <summary>
+        /// The minimum TLS version for the cluster to support, e.g. '1.2'
+        /// </summary>
+        [Output("minimumTlsVersion")]
+        public Output<string?> MinimumTlsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -99,6 +105,12 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Endpoint you can use to perform Service Bus operations.
@@ -260,6 +272,12 @@ namespace Pulumi.AzureNative.EventHub
         public Input<int>? MaximumThroughputUnits { get; set; }
 
         /// <summary>
+        /// The minimum TLS version for the cluster to support, e.g. '1.2'
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public InputUnion<string, Pulumi.AzureNative.EventHub.TlsVersion>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
         /// The Namespace name
         /// </summary>
         [Input("namespaceName")]
@@ -276,6 +294,12 @@ namespace Pulumi.AzureNative.EventHub
             get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
             set => _privateEndpointConnections = value;
         }
+
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.EventHub.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Name of the resource group within the azure subscription.
@@ -309,6 +333,7 @@ namespace Pulumi.AzureNative.EventHub
 
         public NamespaceArgs()
         {
+            PublicNetworkAccess = "Enabled";
         }
         public static new NamespaceArgs Empty => new NamespaceArgs();
     }

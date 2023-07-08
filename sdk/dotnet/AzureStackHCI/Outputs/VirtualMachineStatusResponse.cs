@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// VirtualMachineStatus defines the observed state of virtualmachines
+    /// The observed state of virtual machines
     /// </summary>
     [OutputType]
     public sealed class VirtualMachineStatusResponse
@@ -28,9 +28,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// The power state of the virtual machine
         /// </summary>
         public readonly string? PowerState;
-        /// <summary>
-        /// The provisioning status of the virtual machine
-        /// </summary>
         public readonly Outputs.VirtualMachineStatusResponseProvisioningStatus? ProvisioningStatus;
 
         [OutputConstructor]

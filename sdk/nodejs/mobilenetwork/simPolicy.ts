@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SIM policy resource.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
+ * Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
  */
 export class SimPolicy extends pulumi.CustomResource {
     /**
@@ -55,7 +55,7 @@ export class SimPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Interval for the UE periodic registration update procedure, in seconds.
+     * UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
      */
     public readonly registrationTimer!: pulumi.Output<number | undefined>;
     /**
@@ -166,7 +166,7 @@ export interface SimPolicyArgs {
      */
     mobileNetworkName: pulumi.Input<string>;
     /**
-     * Interval for the UE periodic registration update procedure, in seconds.
+     * UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
      */
     registrationTimer?: pulumi.Input<number>;
     /**

@@ -35,7 +35,7 @@ class SimPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SliceConfigurationArgs']]] slice_configurations: The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         :param pulumi.Input['AmbrArgs'] ue_ambr: Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[int] registration_timer: Interval for the UE periodic registration update procedure, in seconds.
+        :param pulumi.Input[int] registration_timer: UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
         :param pulumi.Input[int] rfsp_index: RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
         :param pulumi.Input[str] sim_policy_name: The name of the SIM policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -134,7 +134,7 @@ class SimPolicyArgs:
     @pulumi.getter(name="registrationTimer")
     def registration_timer(self) -> Optional[pulumi.Input[int]]:
         """
-        Interval for the UE periodic registration update procedure, in seconds.
+        UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
         """
         return pulumi.get(self, "registration_timer")
 
@@ -197,14 +197,14 @@ class SimPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         SIM policy resource.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
+        Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SliceResourceIdArgs']] default_slice: The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mobile_network_name: The name of the mobile network.
-        :param pulumi.Input[int] registration_timer: Interval for the UE periodic registration update procedure, in seconds.
+        :param pulumi.Input[int] registration_timer: UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] rfsp_index: RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
         :param pulumi.Input[str] sim_policy_name: The name of the SIM policy.
@@ -220,7 +220,7 @@ class SimPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SIM policy resource.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
+        Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param SimPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -357,7 +357,7 @@ class SimPolicy(pulumi.CustomResource):
     @pulumi.getter(name="registrationTimer")
     def registration_timer(self) -> pulumi.Output[Optional[int]]:
         """
-        Interval for the UE periodic registration update procedure, in seconds.
+        UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
         """
         return pulumi.get(self, "registration_timer")
 

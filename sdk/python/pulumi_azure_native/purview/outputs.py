@@ -12,11 +12,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccountPropertiesResponseAccountStatus',
     'AccountPropertiesResponseEndpoints',
     'AccountPropertiesResponseManagedResources',
     'AccountResponseSku',
+    'AccountStatusResponseErrorDetails',
     'CloudConnectorsResponse',
     'CredentialsResponse',
+    'ErrorModelResponse',
     'IdentityResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -25,6 +28,58 @@ __all__ = [
     'TrackedResourceResponseSystemData',
     'UserAssignedIdentityResponse',
 ]
+
+@pulumi.output_type
+class AccountPropertiesResponseAccountStatus(dict):
+    """
+    Gets or sets the status of the account.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountProvisioningState":
+            suggest = "account_provisioning_state"
+        elif key == "errorDetails":
+            suggest = "error_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountPropertiesResponseAccountStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountPropertiesResponseAccountStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountPropertiesResponseAccountStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_provisioning_state: str,
+                 error_details: 'outputs.AccountStatusResponseErrorDetails'):
+        """
+        Gets or sets the status of the account.
+        :param str account_provisioning_state: Gets the account status code.
+        :param 'AccountStatusResponseErrorDetails' error_details: Gets the account error details.
+        """
+        pulumi.set(__self__, "account_provisioning_state", account_provisioning_state)
+        pulumi.set(__self__, "error_details", error_details)
+
+    @property
+    @pulumi.getter(name="accountProvisioningState")
+    def account_provisioning_state(self) -> str:
+        """
+        Gets the account status code.
+        """
+        return pulumi.get(self, "account_provisioning_state")
+
+    @property
+    @pulumi.getter(name="errorDetails")
+    def error_details(self) -> 'outputs.AccountStatusResponseErrorDetails':
+        """
+        Gets the account error details.
+        """
+        return pulumi.get(self, "error_details")
+
 
 @pulumi.output_type
 class AccountPropertiesResponseEndpoints(dict):
@@ -171,6 +226,61 @@ class AccountResponseSku(dict):
 
 
 @pulumi.output_type
+class AccountStatusResponseErrorDetails(dict):
+    """
+    Gets the account error details.
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 details: Sequence['outputs.ErrorModelResponse'],
+                 message: str,
+                 target: str):
+        """
+        Gets the account error details.
+        :param str code: Gets or sets the code.
+        :param Sequence['ErrorModelResponse'] details: Gets or sets the details.
+        :param str message: Gets or sets the messages.
+        :param str target: Gets or sets the target.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Gets or sets the code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorModelResponse']:
+        """
+        Gets or sets the details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Gets or sets the messages.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        Gets or sets the target.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
 class CloudConnectorsResponse(dict):
     """
     External Cloud Service connectors
@@ -264,6 +374,61 @@ class CredentialsResponse(dict):
 
 
 @pulumi.output_type
+class ErrorModelResponse(dict):
+    """
+    Default error model
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 details: Sequence['outputs.ErrorModelResponse'],
+                 message: str,
+                 target: str):
+        """
+        Default error model
+        :param str code: Gets or sets the code.
+        :param Sequence['ErrorModelResponse'] details: Gets or sets the details.
+        :param str message: Gets or sets the messages.
+        :param str target: Gets or sets the target.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Gets or sets the code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorModelResponse']:
+        """
+        Gets or sets the details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Gets or sets the messages.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        Gets or sets the target.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
 class IdentityResponse(dict):
     """
     The Managed Identity of the resource
@@ -351,6 +516,8 @@ class PrivateEndpointConnectionResponse(dict):
         suggest = None
         if key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
         elif key == "privateLinkServiceConnectionState":
@@ -371,6 +538,7 @@ class PrivateEndpointConnectionResponse(dict):
                  id: str,
                  name: str,
                  provisioning_state: str,
+                 system_data: 'outputs.ProxyResourceResponseSystemData',
                  type: str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
@@ -379,6 +547,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param str id: Gets or sets the identifier.
         :param str name: Gets or sets the name.
         :param str provisioning_state: The provisioning state.
+        :param 'ProxyResourceResponseSystemData' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: Gets or sets the type.
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint information.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The private link service connection state.
@@ -386,6 +555,7 @@ class PrivateEndpointConnectionResponse(dict):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -415,6 +585,14 @@ class PrivateEndpointConnectionResponse(dict):
         The provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.ProxyResourceResponseSystemData':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
