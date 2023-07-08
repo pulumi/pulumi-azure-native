@@ -389,4 +389,4 @@ jobs:
         uses: goreleaser/goreleaser-action@v2
         with:
           args: -p 1 -f .goreleaser.arm2pulumi.yml release --rm-dist --timeout 60m0s
-          version: latest
+          version: 1.18.2
