@@ -1214,13 +1214,11 @@ func GoModVersion(packageVersion *semver.Version) string {
 		return "latest"
 	}
 	buildVersion := *packageVersion
-	// Only include patch Pre (the first Pre), if set.
-	if buildVersion.Pre != nil {
+	// If the version has a prerelease with a build number like 0+9fa804e8, make if Go-compatible by simplifying to 9fa804e8.
+	if buildVersion.Pre != nil && buildVersion.Build != nil {
 		buildVersion.Pre = buildVersion.Pre[:1]
-		if buildVersion.Build != nil {
-			for _, build := range buildVersion.Build {
-				buildVersion.Pre = append(buildVersion.Pre, semver.PRVersion{VersionStr: build})
-			}
+		for _, build := range buildVersion.Build {
+			buildVersion.Pre = append(buildVersion.Pre, semver.PRVersion{VersionStr: build})
 		}
 	}
 	// Ignore build versions
