@@ -373,7 +373,7 @@ jobs:
     runs-on: ubuntu-latest
     name: publish-arm2pulumi
     needs: publish-provider
-    if: !inputs.prerelease
+    if: ! inputs.prerelease
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
