@@ -1,3 +1,0 @@
-name: gosimple
-runtime: go
-description: A minimal Azure Go Pulumi program
